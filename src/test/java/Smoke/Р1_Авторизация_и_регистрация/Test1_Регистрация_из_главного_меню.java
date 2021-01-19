@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 
 
-public class К1_Регистрация_из_главного_меню extends TestBase {
+public class Test1_Регистрация_из_главного_меню extends TestBase {
     @Feature(value = "Регистрация из главного меню")
     @Severity(SeverityLevel.BLOCKER)
     @Story(value = "Регистрация из главного меню")
