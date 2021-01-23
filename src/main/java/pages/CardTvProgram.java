@@ -26,6 +26,7 @@ public class CardTvProgram extends BasePage {
 
 
     public void startVideoPlayer() throws Exception {
+
         Thread.sleep(5000);
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
@@ -147,5 +148,8 @@ public class CardTvProgram extends BasePage {
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
     }
 
+    public void clickToButtonPlay() {
+        click(By.className("_2fPMOlJJX5DRkSEypQ3sLc"));
+    }
 }
       

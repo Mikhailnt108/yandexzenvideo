@@ -4,20 +4,22 @@ import base.TestBase;
 import org.junit.jupiter.api.Test;
 
 
-public class К5_Авторизация_из_карточки_Пакета_Сериалов extends TestBase {
+public class Test_3_Авторизация_из_карточки_Канала extends TestBase {
 
     @Test
-    public void loginFromCardPackageSerials() {
+    public void loginFromCardTvChannel() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToTabPackages();
         packagesPage.checkOpenPackagesPage();
-        packagesPage.clickToTabSerialsInMenuPackagesPage();
-        packagesPage.clickToTailCardPackageSerials();
-        cardPackage.checkOpenCardPackageSerials();
-        cardPackage.clickPaymentButtonInCardPackage();
+        packagesPage.clickToTabTvСannelInMenuPackagesPage();
+        packagesPage.clickToTailCardPackageTvChannel();
+        cardPackage.checkOpenCardPackageTvChannel();
+        cardPackage.clickTailCardChannel();
+        cardTvChannel.checkOpenCardTvProgram();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
         flowAutorisation();
         pageCMS.deleteAccount();
     }

@@ -4,19 +4,32 @@ import base.TestBase;
 import org.junit.jupiter.api.Test;
 
 
-public class К9_Авторизация_из_раздела_Пакеты extends TestBase {
+public class Test_4_Авторизация_из_карточки_Пакета_Каналов extends TestBase {
 
     @Test
-    public void loginFromPackagesPage() {
+    public void loginFromCardPackageTvChannel() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToTabPackages();
         packagesPage.checkOpenPackagesPage();
-        packagesPage.clickButtonOnTailCardPackage("Подключить");
+        packagesPage.clickToTabTvСannelInMenuPackagesPage();
+        packagesPage.clickToTailCardPackageTvChannel();
+        cardPackage.checkOpenCardPackageTvChannel();
+        cardPackage.clickPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccount();
+    }
+
+    private void flowAutorisation() {
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameInputPassword();
+        headerMenu.inputPassword("111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 
     private void flowRegistation() {
@@ -30,16 +43,6 @@ public class К9_Авторизация_из_раздела_Пакеты extends
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenFrameInputCod();
         pageCMS.copyPasteCodMsisdn("79260192144");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
-    }
-
-    private void flowAutorisation() {
-        headerMenu.checkOpenFrameInputPhone();
-        headerMenu.inputLogin("9260192144");
-        headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }

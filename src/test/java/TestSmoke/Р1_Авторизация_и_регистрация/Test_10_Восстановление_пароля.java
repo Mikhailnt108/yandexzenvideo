@@ -4,32 +4,28 @@ import base.TestBase;
 import org.junit.jupiter.api.Test;
 
 
-public class К4_Авторизация_из_карточки_Пакета_Каналов extends TestBase {
+public class Test_10_Восстановление_пароля extends TestBase {
 
     @Test
-    public void loginFromCardPackageTvChannel() {
+    public void passwordRecovery() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabPackages();
-        packagesPage.checkOpenPackagesPage();
-        packagesPage.clickToTabTvСannelInMenuPackagesPage();
-        packagesPage.clickToTailCardPackageTvChannel();
-        cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickPaymentButtonInCardPackage();
-        flowAutorisation();
-        pageCMS.deleteAccount();
-    }
-
-    private void flowAutorisation() {
+        headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenFrameInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
+        headerMenu.clickToButtonForgetPassword();
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111112");
+        //headerMenu.inputPassword("111112");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrectAfterForgetPassword();
+        pageCMS.deleteAccount();
     }
 
     private void flowRegistation() {

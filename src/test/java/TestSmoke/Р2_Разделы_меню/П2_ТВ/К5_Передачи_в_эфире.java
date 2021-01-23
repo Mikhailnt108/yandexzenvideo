@@ -10,6 +10,5 @@ public class К5_Передачи_в_эфире extends TestBase {
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.checkAllTvProgramInAir();
-
     }
 }

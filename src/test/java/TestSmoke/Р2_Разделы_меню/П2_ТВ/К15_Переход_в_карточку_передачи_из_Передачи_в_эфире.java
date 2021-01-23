@@ -7,18 +7,24 @@ public class К15_Переход_в_карточку_передачи_из_Пе�
     @Test
     public void openCardTvProgramFromTabAir() {
         headerMenu.goToTvPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpInputPassword.checkOpenFrameInputPassword();
-        popUpInputPassword.inputPassword("111111");
-        popUpInputPassword.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        flowRegistation();
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

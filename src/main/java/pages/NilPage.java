@@ -72,8 +72,6 @@ public class NilPage extends BasePage {
         }
     }
     public void createScreenShot() throws AWTException, IOException {
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
         Screenshot screenshot1 = new AShot().takeScreenshot(driver);
         File actualFile = new File("src/test/java/testScreenshots/actual/"+"nil"+".png");
         ImageIO.write(screenshot1.getImage(), "png", actualFile);
@@ -82,8 +80,6 @@ public class NilPage extends BasePage {
         ImageIO.write(screenshot2.getImage(), "png", actualFile2);
     }
     public void imageDifferPageHeader() throws AWTException, IOException {
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
         Screenshot screenshotNilPp1 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .addIgnoredElement(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld _2TylJ5PYUAbQjq_Oho7_r8']"))
@@ -112,8 +108,6 @@ public class NilPage extends BasePage {
         Assert.assertTrue(diff1.getDiffSize()<=15);
     }
     public void imageDifferPageAll() throws AWTException, IOException {
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
         Screenshot screenshotNilPp1 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -153,8 +147,6 @@ public class NilPage extends BasePage {
     }
 
     public void imageDifferHeader() throws AWTException, IOException {
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
         WebElement headerCherdakPp1 = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakPp1 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -275,8 +267,6 @@ public class NilPage extends BasePage {
     }
 
     public void imageDifferCollections() throws AWTException, IOException {
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
         WebElement collectionWithTitlePp1 = driver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
         Screenshot screenshotCollectionWithTitlePp1 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -359,8 +349,6 @@ public class NilPage extends BasePage {
 
 
     public void imageDifferFooter() throws AWTException, IOException {
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
         WebElement footerPp1 = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp1 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())

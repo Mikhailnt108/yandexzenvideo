@@ -3,19 +3,21 @@ package TestSmoke.Р1_Авторизация_и_регистрация;
 import base.TestBase;
 import org.junit.jupiter.api.Test;
 
-public class К7_Авторизация_из_карточки_Сериала extends TestBase {
+
+public class Test_5_Авторизация_из_карточки_Пакета_Сериалов extends TestBase {
 
     @Test
-    public void loginFromCardSerial() {
+    public void loginFromCardPackageSerials() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabSerials();
-        serialsPage.checkOpenSerialsPage();
-        serialsPage.clickToTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.clickPaymentButtonInCardSerial();
+        headerMenu.clickToTabPackages();
+        packagesPage.checkOpenPackagesPage();
+        packagesPage.clickToTabSerialsInMenuPackagesPage();
+        packagesPage.clickToTailCardPackageSerials();
+        cardPackage.checkOpenCardPackageSerials();
+        cardPackage.clickPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccount();
     }
@@ -29,6 +31,7 @@ public class К7_Авторизация_из_карточки_Сериала ext
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

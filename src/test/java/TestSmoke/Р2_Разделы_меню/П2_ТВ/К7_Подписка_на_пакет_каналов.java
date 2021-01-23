@@ -7,15 +7,7 @@ public class К7_Подписка_на_пакет_каналов extends TestBas
     @Test
     public void subscribePackageTvChannel() {
         headerMenu.goToNilPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpInputPassword.checkOpenFrameInputPassword();
-        popUpInputPassword.inputPassword("111111");
-        popUpInputPassword.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        flowRegistation();
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabTvProgramInAir();
@@ -23,5 +15,20 @@ public class К7_Подписка_на_пакет_каналов extends TestBas
         cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.clickPaymentButtonInCardTvProgram();
         cardTvProgram.checkPaymentComplete();
+        pageCMS.deleteAccount();
+    }
+
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
 
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -45,7 +46,7 @@ public class TestBase {
 
 
     @BeforeEach
-    public void start() {
+    public void start() throws AWTException {
 
         WebDriverManager.chromedriver().setup();
         //ChromeOptions options = new ChromeOptions();
@@ -86,6 +87,8 @@ public class TestBase {
         allCollectionsPage = PageFactory.initElements(driver, AllCollectionsPage.class);
         promoPage = PageFactory.initElements(driver, PromoPage.class);
         popUpInputEmail = PageFactory.initElements(driver, PopUpInputEmail.class);
+        Robot bot = new Robot();
+        bot.mouseMove(0, 0);
     }
 
     @AfterEach

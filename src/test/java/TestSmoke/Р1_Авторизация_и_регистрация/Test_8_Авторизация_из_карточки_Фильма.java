@@ -4,34 +4,21 @@ import base.TestBase;
 import org.junit.jupiter.api.Test;
 
 
-public class К3_Авторизация_из_карточки_Канала extends TestBase {
+public class Test_8_Авторизация_из_карточки_Фильма extends TestBase {
 
     @Test
-    public void loginFromCardTvChannel() {
+    public void loginFromCardFilm() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabPackages();
-        packagesPage.checkOpenPackagesPage();
-        packagesPage.clickToTabTvСannelInMenuPackagesPage();
-        packagesPage.clickToTailCardPackageTvChannel();
-        cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickTailCardChannel();
-        cardTvChannel.checkOpenCardTvProgram();
-        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        headerMenu.clickToTabFilms();
+        filmsPage.checkOpenFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.clickPaymentButtonInCardFilm();
         flowAutorisation();
         pageCMS.deleteAccount();
-    }
-
-    private void flowAutorisation() {
-        headerMenu.checkOpenFrameInputPhone();
-        headerMenu.inputLogin("9260192144");
-        headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
     }
 
     private void flowRegistation() {
@@ -45,6 +32,16 @@ public class К3_Авторизация_из_карточки_Канала exten
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenFrameInputCod();
         pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
+    }
+
+    private void flowAutorisation() {
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameInputPassword();
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }

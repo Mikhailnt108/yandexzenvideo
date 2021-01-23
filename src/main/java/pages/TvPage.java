@@ -60,7 +60,8 @@ public class TvPage extends BasePage {
 
 
     public void clickToTailTvProgram() {
-        click(By.linkText("Кино"));
+        //click(By.linkText("Кино"));
+        click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Кино']"));
         isElementDisplayed(By.xpath("//span[text()='Кино']"));
         click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]"));
     }

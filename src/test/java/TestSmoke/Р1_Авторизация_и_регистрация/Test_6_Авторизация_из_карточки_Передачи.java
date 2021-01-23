@@ -4,20 +4,29 @@ import base.TestBase;
 import org.junit.jupiter.api.Test;
 
 
-public class К2_Авторизация_из_главного_меню extends TestBase {
+public class Test_6_Авторизация_из_карточки_Передачи extends TestBase {
 
     @Test
-    public void loginFromHeaderMenu()  {
+    public void loginFromCardTvProgram() {
         headerMenu.goToNilPage();
-        flowRegister();
+        flowRegistation();
         headerMenu.logOut();
-        flowAuthorization();
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToTabPackages();
+        packagesPage.checkOpenPackagesPage();
+        packagesPage.clickToTabTvСannelInMenuPackagesPage();
+        packagesPage.clickToTailCardPackageTvChannel();
+        cardPackage.checkOpenCardPackageTvChannel();
+        cardPackage.clickTailCardChannel();
+        cardTvChannel.checkOpenCardTvChannel();
+        cardTvChannel.clickTvProgramInCardChannel();
+        cardTvProgram.checkOpenCardTvProgram();
+        cardTvProgram.clickPaymentButtonInCardTvProgram();
+        flowAutorisation();
         pageCMS.deleteAccount();
     }
 
-    private void flowAuthorization() {
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
+    private void flowAutorisation() {
         headerMenu.checkOpenFrameInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
@@ -27,7 +36,7 @@ public class К2_Авторизация_из_главного_меню extends T
         headerMenu.checkLoginUserIsCorrect();
     }
 
-    private void flowRegister() {
+    private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenFrameInputPhone();
@@ -41,5 +50,4 @@ public class К2_Авторизация_из_главного_меню extends T
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }
-
 }

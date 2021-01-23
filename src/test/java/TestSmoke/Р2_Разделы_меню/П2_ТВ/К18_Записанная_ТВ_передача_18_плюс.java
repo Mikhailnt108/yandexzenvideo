@@ -7,21 +7,29 @@ public class К18_Записанная_ТВ_передача_18_плюс extends
     @Test
     public void recordedEarlierTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpInputPassword.checkOpenFrameInputPassword();
-        popUpInputPassword.inputPassword("111111");
-        popUpInputPassword.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        flowRegistation();
         packagesPage.choosePackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
         cardPackage.chooseRecordedTvChannel18Plus();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        cardTvChannel.checkPaymentComplete();
         cardPackage.goToTvProgram18Plus();
         cardTvProgram.clickYesInPopUp18Plus();
         cardTvProgram.goToCardTvProgram18Plus();
         cardTvProgram.clickNoInPopUp18Plus();
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

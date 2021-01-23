@@ -3,31 +3,32 @@ package TestSmoke.Р1_Авторизация_и_регистрация;
 import base.TestBase;
 import org.junit.jupiter.api.Test;
 
-
-public class К10_Восстановление_пароля extends TestBase {
+public class Test_7_Авторизация_из_карточки_Сериала extends TestBase {
 
     @Test
-    public void passwordRecovery() {
+    public void loginFromCardSerial() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
+        headerMenu.clickToTabSerials();
+        serialsPage.checkOpenSerialsPage();
+        serialsPage.clickToTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.clickPaymentButtonInCardSerial();
+        flowAutorisation();
+        pageCMS.deleteAccount();
+    }
+
+    private void flowAutorisation() {
         headerMenu.checkOpenFrameInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameInputPassword();
-        headerMenu.clickToButtonForgetPassword();
-        headerMenu.checkOpenFrameCreatePassword("9260192144", "111112");
-        //headerMenu.inputPassword("111112");
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenFrameInputCod();
-        pageCMS.copyPasteCodMsisdn("79260192144");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectAfterForgetPassword();
-        pageCMS.deleteAccount();
+        headerMenu.checkLoginUserIsCorrect();
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
