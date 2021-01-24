@@ -77,7 +77,7 @@ public class CardFilm extends BasePage {
 
     public void checkStikerDiscount() {
         driver.navigate().refresh();
-        isElementDisplayed(By.xpath("//div[text()='Скидка']"));
+        isElementDisplayed(By.xpath("//div[text()='Автотест']"));
     }
 
     public void checkPriseEstDiscount() {

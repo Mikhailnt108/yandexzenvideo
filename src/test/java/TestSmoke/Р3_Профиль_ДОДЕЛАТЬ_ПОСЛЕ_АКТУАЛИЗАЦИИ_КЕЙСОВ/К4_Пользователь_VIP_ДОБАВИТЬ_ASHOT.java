@@ -7,6 +7,14 @@ public class К4_Пользователь_VIP_ДОБАВИТЬ_ASHOT extends Tes
     @Test
     public void userVip() {
         headerMenu.goToNilPage();
+        flowRegistration();
+        pageCMS.chooseRoleVip();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkVipUser();
+        pageCMS.deleteAccount();
+    }
+
+    private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         popUpInputPhone.checkOpenFrameInputPhone();
@@ -19,8 +27,5 @@ public class К4_Пользователь_VIP_ДОБАВИТЬ_ASHOT extends Tes
         pageCMS.copyPasteCodMsisdn("79260192144");
         popUpInputCod.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
-        pageCMS.chooseRoleVip();
-        headerMenu.openSubsectionPromo();
-        promoPage.checkVipUser();
     }
 }

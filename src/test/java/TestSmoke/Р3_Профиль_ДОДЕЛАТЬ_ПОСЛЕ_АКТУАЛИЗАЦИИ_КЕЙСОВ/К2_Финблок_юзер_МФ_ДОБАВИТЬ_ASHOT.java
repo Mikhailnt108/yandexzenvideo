@@ -7,6 +7,14 @@ public class К2_Финблок_юзер_МФ_ДОБАВИТЬ_ASHOT extends Tes
     @Test
     public void financialBlockingMegafon() {
         headerMenu.goToNilPage();
+        flowRegistration();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkBlockingMegafon();
+        promoPage.clickToButtonTopUpPhoneBalance();
+        pageCMS.deleteAccount();
+    }
+
+    private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         popUpInputPhone.checkOpenFrameInputPhone();
@@ -19,8 +27,5 @@ public class К2_Финблок_юзер_МФ_ДОБАВИТЬ_ASHOT extends Tes
         pageCMS.copyPasteCodMsisdnBlockingMf("79250402866");
         popUpInputCod.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
-        headerMenu.openSubsectionPromo();
-        promoPage.checkBlockingMegafon();
-        promoPage.clickToButtonTopUpPhoneBalance();
     }
 }

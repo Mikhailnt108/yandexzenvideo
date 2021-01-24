@@ -7,21 +7,24 @@ public class К3_Переход_в_раздел_Фильмы extends TestBase {
     @Test
     public void goToMoviesPromoSection() {
         headerMenu.goToNilPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpCreatePassword.checkOpenFrameCreatePassword();
-        popUpCreatePassword.inputPassword("111111");
-        popUpCreatePassword.clickToComeIn("Войти");
-        popUpInputCod.checkOpenFrameInputCod();
-        pageCMS.copyPasteCodMsisdn("79260192144");
-        popUpInputCod.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        flowRegistation();
         pageCMS.chooseBundleFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.clickButtonGoToFilms();
         filmsPage.checkFilmsPromo();
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

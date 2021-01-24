@@ -1,0 +1,15 @@
+package TestSmoke.Р2_Разделы_меню.П2_ТВ;
+
+import base.TestBase;
+import org.junit.jupiter.api.Test;
+
+public class Test_2_Жанры_программы_передач_ДОБАВИТЬ_ASHOT extends TestBase {
+    @Test
+    public void genresTvProgram() {
+        headerMenu.goToTvPage();
+        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkСhannelsСorrespondGenres();
+
+    }
+
+}

@@ -7,18 +7,24 @@ public class К4_Переход_на_страницу_Моё_Пакеты extend
     @Test
     public void goToPackagesPage() {
         headerMenu.goToPackagesPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpInputPassword.checkOpenFrameInputPassword();
-        popUpInputPassword.inputPassword("111111");
-        popUpInputPassword.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        flowRegistation();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.paymentPackageTnB();
         headerMenu.goToMyPageSubscriptions();
         myPage.checkSubscriptionsPackages();
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

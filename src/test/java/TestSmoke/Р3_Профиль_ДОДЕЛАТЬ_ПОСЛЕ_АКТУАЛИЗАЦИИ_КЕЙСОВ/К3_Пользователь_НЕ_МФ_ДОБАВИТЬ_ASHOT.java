@@ -7,6 +7,14 @@ public class К3_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT exten
     @Test
     public void userNotMegafon() {
         headerMenu.goToNilPage();
+        flowRegistration();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkNotMegafon();
+        promoPage.clickToButtonGoOver();
+        pageCMS.deleteAccount();
+    }
+
+    private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         popUpInputPhone.checkOpenFrameInputPhone();
@@ -20,8 +28,5 @@ public class К3_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT exten
         pageCMS.copyPasteCodMsisdnForNotMF("79261184972");
         popUpInputCod.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectForNotMegafon();
-        headerMenu.openSubsectionPromo();
-        promoPage.checkNotMegafon();
-        promoPage.clickToButtonGoOver();
     }
 }

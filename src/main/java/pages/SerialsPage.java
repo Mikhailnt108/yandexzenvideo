@@ -54,8 +54,9 @@ public class SerialsPage extends BasePage {
 
     public void choosePeriodOfYears() {
         click(By.xpath("//div[text()='2019 год']"));
-        click(By.xpath("//span[text()='2018-2020']"));
+        click(By.xpath("//span[text()='2018-2021']"));
         click(By.xpath("//div[text()='Год']"));
+        driver.navigate().refresh();
     }
 
     public void checkRequestResultPeriodOfYears() {
@@ -67,7 +68,7 @@ public class SerialsPage extends BasePage {
             WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            driver.findElement(By.xpath("//dd[text()='2018' or text()='2019' or text()='2020']"));
+            driver.findElement(By.xpath("//dd[text()='2018' or text()='2019' or text()='2020' or text()='2021']"));
             driver.navigate().back();
         }
     }
@@ -137,6 +138,7 @@ public class SerialsPage extends BasePage {
         click(By.xpath("//div[text()='Россия']"));
         click(By.xpath("//span[text()='США']"));
         click(By.xpath("//div[text()='Страна']"));
+        driver.navigate().refresh();
 
     }
 

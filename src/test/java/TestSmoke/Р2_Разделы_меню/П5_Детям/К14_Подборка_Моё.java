@@ -7,23 +7,28 @@ public class К14_Подборка_Моё extends TestBase {
     @Test
     public void collectionOfMy() {
         headerMenu.goToKidsPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpInputPassword.checkOpenFrameInputPassword();
-        popUpInputPassword.inputPassword("111111");
-        popUpInputPassword.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        flowRegistation();
         kidsPage.clickToTailCardFilm();
         cardFilm.paymentFilmAtEst();
         headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm1FromAll();
+        filmsPage.clickToTailCardFilm();
         cardFilm.paymentFilmAtEst();
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionOfMy();
         collectionPage.checkCollectionOfMy();
-
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

@@ -2,6 +2,7 @@ package pages;
 
 import base.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
 
@@ -71,11 +72,22 @@ public class PageCMS extends BasePage {
         driver.switchTo().window((String) tabs2.get(1));
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
         //click(By.xpath("//input[@type='checkbox']"));
-        click(By.linkText("Скидка тест"));
+        click(By.linkText("Скидка автотест"));
+        isElementDisplayed(By.xpath("//h4[text()='Пакеты']"));
+        isElementDisplayed(By.cssSelector(".selectize-input"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='selectize-control form-control single']"))).build().perform();
+        //WebElement enterFilm = driver.findElement(By.xpath("//div[@class='selectize-control form-control single']"));
+        //WebElement enterFilm = driver.findElement(By.xpath("//div[@class='selectize-input items required invalid not-full']"));
+        //WebElement enterFilm = driver.findElement(By.xpath("//div[contains(@class,'selectize-input items')]"));
         WebElement enterFilm = driver.findElement(By.xpath("//input[@type='select-one']"));
+        //click(By.xpath("//div[contains(@class,'selectize-input items')]"));
+        //click(By.xpath("//div[@class='selectize-input items required invalid not-full']"));
+        //driver.findElement(By.cssSelector(".selectize-input")).click();
         enterFilm.sendKeys(nameFilm);
         click(By.xpath("//div[@class='selectize-dropdown-content']"));
         click(By.xpath("//input[@value='Добавить']"));
+        driver.close();
         driver.switchTo().window((String) tabs2.get(0));
     }
 
@@ -150,6 +162,21 @@ public class PageCMS extends BasePage {
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
         isElementDisplayed(By.xpath("//td[text()='vip']"));
         //здесь переключаемся опять на вкладку с мегафонТВ
+        driver.close();
+        driver.switchTo().window((String) tabs2.get(0));
+    }
+
+    public void deleteDiscount() {
+        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameFilm);
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/discounts')");
+        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window((String) tabs2.get(1));
+        isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
+        //click(By.xpath("//input[@type='checkbox']"));
+        click(By.linkText("Скидка автотест"));
+        isElementDisplayed(By.xpath("//td[text()='Скидка автотест']"));
+        click(By.xpath("//button[text()='Удалить все']"));
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
     }

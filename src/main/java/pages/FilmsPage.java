@@ -21,28 +21,20 @@ public class FilmsPage extends BasePage {
     }
 
     public void clickToTailCardFilmFromAvailable() {
-        driver.navigate().refresh();
-        isElementDisplayed(By.xpath("//div[@class='Sdz_1KOZT-w59w_3fhOhL']"));
-        click(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[2]"));
-        // click(By.xpath("//div[@class='Sdz_1KOZT-w59w_3fhOhL']"));
-        // click(By.xpath("//div[@class='Sdz_1KOZT-w59w_3fhOhL']"));
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
     public void clickToHeaderRent2Collection() {
         click(By.partialLinkText("аренд"));
     }
 
-    public void clickOnToglPayment() {
-        click(By.xpath("//div[text()='₽']"));
+    public void clickOnFiltrPayment() {
+        click(By.xpath("//button[text()='Оплачено']"));
     }
 
     public void chooseTabPromo() {
         driver.navigate().refresh();
         click(By.xpath("//div[text()='По акции']"));
-    }
-
-    public void clickToTailCardFilm1FromAll() {
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
     public void clickOnYearInput() {
@@ -66,12 +58,12 @@ public class FilmsPage extends BasePage {
 
     public void choosePeriodOfYears() {
         click(By.xpath("//div[text()='2019 год']"));
-        click(By.xpath("//span[text()='2018-2020']"));
+        click(By.xpath("//span[text()='2018-2021']"));
         click(By.xpath("//div[text()='Год']"));
     }
 
     public void checkRequestResultPeriodOfYears() {
-        List<WebElement> Period = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'2018') or contains(text(),'2019') or contains(text(),'2020')]"));
+        List<WebElement> Period = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'2018') or contains(text(),'2019') or contains(text(),'2020') or contains(text(),'2021')]"));
         Assert.assertEquals(36, Period.size());
     }
 
@@ -127,7 +119,7 @@ public class FilmsPage extends BasePage {
 
     public void checkRequestResultOneCountry() {
         List<WebElement> CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <= 5; i++) {
             CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionOneCountry.get(i).click();
             WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
@@ -139,10 +131,13 @@ public class FilmsPage extends BasePage {
     }
 
 
-    public void chooseTwoCountry() {
+    public void chooseTwoCountry()  {
         click(By.xpath("//div[text()='Россия']"));
         click(By.xpath("//span[text()='Канада']"));
+        click(By.xpath("//span[text()='Россия']"));
+        click(By.xpath("//span[text()='Китай']"));
         click(By.xpath("//div[text()='Страна']"));
+        driver.navigate().refresh();
     }
 
     public void checkRequestResultTwoCountry() {
@@ -153,7 +148,7 @@ public class FilmsPage extends BasePage {
             WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            driver.findElement(By.xpath("//div[contains(text(),'Россия') or contains(text(),'Канада')]"));
+            driver.findElement(By.xpath("//div[contains(text(),'Китай') or contains(text(),'Канада')]"));
             driver.navigate().back();
         }
     }

@@ -7,6 +7,11 @@ public class К5_Обычный_МФ_ДОДЕЛАТЬ_КЕЙС_ПОСЛЕ_АКТ
     @Test
     public void userMegafon() {
         headerMenu.goToNilPage();
+        flowRegistration();
+
+    }
+
+    private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         popUpInputPhone.checkOpenFrameInputPhone();
@@ -19,6 +24,5 @@ public class К5_Обычный_МФ_ДОДЕЛАТЬ_КЕЙС_ПОСЛЕ_АКТ
         pageCMS.copyPasteCodMsisdn("79260192144");
         popUpInputCod.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
-
     }
 }

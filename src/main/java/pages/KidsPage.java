@@ -93,18 +93,16 @@ public class KidsPage extends BasePage {
         click(By.linkText("Детские фильмы"));
     }
 
-    public void switchingFromBannerToCardFilm() throws Exception {
+    public void switchingFromBannerToCardFilm() {
         List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            //Thread.sleep(3000);
             if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/movies/vods/')]")).isDisplayed())
             {
                 click(By.xpath("//div[@data-test='BannerCarousel']"));
                 isElementDisplayed(By.xpath("//span[text()='Фильмы']"));
-                Thread.sleep(3000);
                 break;
             }
             else {
@@ -113,17 +111,15 @@ public class KidsPage extends BasePage {
         }
     }
 
-    public void switchingFromBannerToCardSerial() throws Exception {
+    public void switchingFromBannerToCardSerial() {
         List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            //isElementDisplayed(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/shows/')]"));
             if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/shows/')]")).isDisplayed()) {
                 click(By.xpath("//div[@data-test='BannerCarousel']"));
                 isElementDisplayed(By.xpath("//span[text()='Сериалы']"));
-                Thread.sleep(3000);
                 break;
             } else {
                 BannerForKids.get(i).click();
@@ -140,9 +136,8 @@ public class KidsPage extends BasePage {
             BannerForKids.get(i).click();
             Thread.sleep(3000);
             if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/tv/channels/')]")).isDisplayed()) {
-                click(By.xpath("//div[@data-test='BannerCarousel']"));
+                driver.findElement(By.xpath("//div[@data-test='BannerCarousel']")).click();
                 isElementDisplayed(By.xpath("//span[text()='ТВ']"));
-                Thread.sleep(3000);
                 break; }
                 else {
                 BannerForKids.get(i).click();
@@ -157,11 +152,9 @@ public class KidsPage extends BasePage {
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            Thread.sleep(3000);
             if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/programs/Channel')]")).isDisplayed()) {
                 click(By.xpath("//div[@data-test='BannerCarousel']"));
                 isElementDisplayed(By.xpath("//span[text()='ТВ']"));
-                Thread.sleep(3000);
                 break;
             } else {
                 BannerForKids.get(i).click();
@@ -169,17 +162,15 @@ public class KidsPage extends BasePage {
         }
     }
 
-    public void switchingFromBannerToCardPackage() throws Exception {
+    public void switchingFromBannerToCardPackage() {
         List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            Thread.sleep(3000);
             if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/mixed_groups/')]")).isDisplayed()) {
                 click(By.xpath("//div[@data-test='BannerCarousel']"));
                 isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
-                Thread.sleep(3000);
                 break;
             } else {
                 BannerForKids.get(i).click();

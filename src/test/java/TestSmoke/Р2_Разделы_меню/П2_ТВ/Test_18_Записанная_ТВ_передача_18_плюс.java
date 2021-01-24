@@ -1,0 +1,35 @@
+package TestSmoke.Р2_Разделы_меню.П2_ТВ;
+
+import base.TestBase;
+import org.junit.jupiter.api.Test;
+
+public class Test_18_Записанная_ТВ_передача_18_плюс extends TestBase {
+    @Test
+    public void recordedEarlierTvProgram18Plus() throws Exception {
+        headerMenu.goToPackagesPage();
+        flowRegistation();
+        packagesPage.choosePackage18Plus();
+        cardPackage.checkOpenCardPackage18Plus();
+        cardPackage.chooseRecordedTvChannel18Plus();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        cardTvChannel.checkPaymentComplete();
+        cardPackage.goToTvProgram18Plus();
+        cardTvProgram.clickYesInPopUp18Plus();
+        cardTvProgram.goToCardTvProgram18Plus();
+        cardTvProgram.clickNoInPopUp18Plus();
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
+    }
+}

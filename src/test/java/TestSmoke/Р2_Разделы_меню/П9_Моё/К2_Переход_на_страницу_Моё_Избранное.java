@@ -7,16 +7,8 @@ public class К2_Переход_на_страницу_Моё_Избранное 
     @Test
     public void goToFavoritesPage() {
         headerMenu.goToFilmsPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpInputPassword.checkOpenFrameInputPassword();
-        popUpInputPassword.inputPassword("111111");
-        popUpInputPassword.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
-        filmsPage.clickToTailCardFilm1FromAll();
+        flowRegistation();
+        filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.clickButtonFavorites();
         headerMenu.goToFilmsPage();
@@ -30,5 +22,19 @@ public class К2_Переход_на_страницу_Моё_Избранное 
         cardFilm.clickButtonFavorites();
         headerMenu.goToMyPageFavorites();
         myPage.goToCollectionFavoritesPage();
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

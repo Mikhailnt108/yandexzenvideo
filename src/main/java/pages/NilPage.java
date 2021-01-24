@@ -73,10 +73,10 @@ public class NilPage extends BasePage {
     }
     public void createScreenShot() throws AWTException, IOException {
         Screenshot screenshot1 = new AShot().takeScreenshot(driver);
-        File actualFile = new File("src/test/java/testScreenshots/actual/"+"nil"+".png");
+        File actualFile = new File("src/test/java/testScreenshots/actual/NiL/"+"nil"+".png");
         ImageIO.write(screenshot1.getImage(), "png", actualFile);
         Screenshot screenshot2 = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
-        File actualFile2 = new File("src/test/java/testScreenshots/actual/"+"NilAllPage"+".png");
+        File actualFile2 = new File("src/test/java/testScreenshots/actual/NiL/"+"NilAllPage"+".png");
         ImageIO.write(screenshot2.getImage(), "png", actualFile2);
     }
     public void imageDifferPageHeader() throws AWTException, IOException {
@@ -87,7 +87,7 @@ public class NilPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
                 .addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
                 .takeScreenshot(driver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/"+"nilPp1"+".png");
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/"+"nilPp1"+".png");
         ImageIO.write(screenshotNilPp1.getImage(), "png", actualFile1);
         String prod = "https://megafon.tv/";
         driver.get(prod);
@@ -99,11 +99,11 @@ public class NilPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
                 .addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
                 .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/"+"nilProd"+".png");
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/"+"nilProd"+".png");
         ImageIO.write(screenshotNilProd.getImage(), "png", expectedFile1);
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotNilProd, screenshotNilPp1);
         System.out.println(diff1.getDiffSize());
-        File diffFile = new File("src/test/java/testScreenshots/markedImages/"+"diff"+".png");
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/NiL/"+"diff"+".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
         Assert.assertTrue(diff1.getDiffSize()<=15);
     }
@@ -120,7 +120,7 @@ public class NilPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
                 .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
                 .takeScreenshot(driver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/"+"nilPp1"+".png");
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/"+"nilPp1"+".png");
         ImageIO.write(screenshotNilPp1.getImage(), "png", actualFile1);
         String prod = "https://megafon.tv/";
         driver.get(prod);
@@ -137,11 +137,11 @@ public class NilPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
                 .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
                 .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/"+"nilProd"+".png");
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/"+"nilProd"+".png");
         ImageIO.write(screenshotNilProd.getImage(), "png", expectedFile1);
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotNilProd, screenshotNilPp1);
         System.out.println(diff1.getDiffSize());
-        File diffFile = new File("src/test/java/testScreenshots/markedImages/"+"diff"+".png");
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/NiL/"+"diff"+".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
         Assert.assertTrue(diff1.getDiffSize()<=15);
     }
@@ -173,18 +173,18 @@ public class NilPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
                 .takeScreenshot(driver, headerBannerPp1);
 
-        WebElement headerMarketingPp1 = driver.findElement(By.xpath("//a[@class='_9shdVW_v5Itw7J9UcKl6h']"));
-        Screenshot screenshotHeaderMarketingPp1 = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .addIgnoredElement(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld _2TylJ5PYUAbQjq_Oho7_r8']"))
-                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']"))
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
-                .addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
-                .addIgnoredElement(By.xpath("//div[@class='_3dON2ZfMNClOIKEKKf0KE9']"))
-                .addIgnoredElement(By.xpath("//div[@class='_1qN4BpLDL0brhXNNAWWcVD']"))
-                .addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
-                .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
-                .takeScreenshot(driver, headerMarketingPp1);
+        //WebElement headerMarketingPp1 = driver.findElement(By.xpath("//a[@class='_9shdVW_v5Itw7J9UcKl6h']"));
+        //Screenshot screenshotHeaderMarketingPp1 = new AShot()
+                //.coordsProvider(new WebDriverCoordsProvider())
+               // .addIgnoredElement(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld _2TylJ5PYUAbQjq_Oho7_r8']"))
+               // .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']"))
+               // .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
+               // .addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
+               // .addIgnoredElement(By.xpath("//div[@class='_3dON2ZfMNClOIKEKKf0KE9']"))
+               // .addIgnoredElement(By.xpath("//div[@class='_1qN4BpLDL0brhXNNAWWcVD']"))
+               // .addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
+               // .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
+               // .takeScreenshot(driver, headerMarketingPp1);
 
         File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/"+"nilCherdakPp1"+".png");
         ImageIO.write(screenshotHeaderCherdakPp1.getImage(), "png", actualFile1);
@@ -192,8 +192,8 @@ public class NilPage extends BasePage {
         File actualFile2 = new File("src/test/java/testScreenshots/actual/NiL/"+"nilBannerPp1"+".png");
         ImageIO.write(screenshotHeaderBannerPp1.getImage(), "png", actualFile2);
 
-        File actualFile3 = new File("src/test/java/testScreenshots/actual/NiL/"+"nilMarketingPp1"+".png");
-        ImageIO.write(screenshotHeaderMarketingPp1.getImage(), "png", actualFile3);
+        //File actualFile3 = new File("src/test/java/testScreenshots/actual/NiL/"+"nilMarketingPp1"+".png");
+        //ImageIO.write(screenshotHeaderMarketingPp1.getImage(), "png", actualFile3);
 
         String prod = "https://megafon.tv/";
         driver.get(prod);
@@ -225,18 +225,18 @@ public class NilPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
                 .takeScreenshot(driver, headerBannerProd);
 
-        WebElement headerMarketingProd = driver.findElement(By.xpath("//a[@class='_9shdVW_v5Itw7J9UcKl6h']"));
-        Screenshot screenshotHeaderMarketingProd = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .addIgnoredElement(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld _2TylJ5PYUAbQjq_Oho7_r8']"))
-                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']"))
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
-                .addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
-                .addIgnoredElement(By.xpath("//div[@class='_3dON2ZfMNClOIKEKKf0KE9']"))
-                .addIgnoredElement(By.xpath("//div[@class='_1qN4BpLDL0brhXNNAWWcVD']"))
-                .addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
-                .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
-                .takeScreenshot(driver, headerMarketingProd);
+        //WebElement headerMarketingProd = driver.findElement(By.xpath("//a[@class='_9shdVW_v5Itw7J9UcKl6h']"));
+        //Screenshot screenshotHeaderMarketingProd = new AShot()
+          //      .coordsProvider(new WebDriverCoordsProvider())
+            //    .addIgnoredElement(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld _2TylJ5PYUAbQjq_Oho7_r8']"))
+              //  .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']"))
+                //.addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
+                //.addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
+                //.addIgnoredElement(By.xpath("//div[@class='_3dON2ZfMNClOIKEKKf0KE9']"))
+                //.addIgnoredElement(By.xpath("//div[@class='_1qN4BpLDL0brhXNNAWWcVD']"))
+                //.addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
+                //.addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']"))
+                //.takeScreenshot(driver, headerMarketingProd);
 
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/"+"nilCherdakProd"+".png");
         ImageIO.write(screenshotHeaderCherdakProd.getImage(), "png", expectedFile1);
@@ -244,8 +244,8 @@ public class NilPage extends BasePage {
         File expectedFile2 = new File("src/test/java/testScreenshots/expected/NiL/"+"nilBannerlProd"+".png");
         ImageIO.write(screenshotHeaderBannerProd.getImage(), "png", expectedFile2);
 
-        File expectedFile3 = new File("src/test/java/testScreenshots/expected/NiL/"+"nilMarketingProd"+".png");
-        ImageIO.write(screenshotHeaderMarketingProd.getImage(), "png", expectedFile3);
+        //File expectedFile3 = new File("src/test/java/testScreenshots/expected/NiL/"+"nilMarketingProd"+".png");
+        //ImageIO.write(screenshotHeaderMarketingProd.getImage(), "png", expectedFile3);
 
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotHeaderCherdakProd, screenshotHeaderCherdakPp1);
         System.out.println(diff1.getDiffSize());
@@ -259,11 +259,11 @@ public class NilPage extends BasePage {
         ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
         Assert.assertTrue(diff2.getDiffSize()<=15);
 
-        ImageDiff diff3 = new ImageDiffer().makeDiff(screenshotHeaderMarketingProd, screenshotHeaderMarketingPp1);
-        System.out.println(diff3.getDiffSize());
-        File diffFile3 = new File("src/test/java/testScreenshots/markedImages/NiL/"+"diffMarketing"+".png");
-        ImageIO.write(diff3.getMarkedImage(), "png", diffFile3);
-        Assert.assertTrue(diff3.getDiffSize()<=15);
+        //ImageDiff diff3 = new ImageDiffer().makeDiff(screenshotHeaderMarketingProd, screenshotHeaderMarketingPp1);
+        //System.out.println(diff3.getDiffSize());
+        //File diffFile3 = new File("src/test/java/testScreenshots/markedImages/NiL/"+"diffMarketing"+".png");
+        //ImageIO.write(diff3.getMarkedImage(), "png", diffFile3);
+        //Assert.assertTrue(diff3.getDiffSize()<=15);
     }
 
     public void imageDifferCollections() throws AWTException, IOException {

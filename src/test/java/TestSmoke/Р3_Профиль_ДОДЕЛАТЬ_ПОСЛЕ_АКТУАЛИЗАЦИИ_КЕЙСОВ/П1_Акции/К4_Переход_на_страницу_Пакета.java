@@ -7,19 +7,22 @@ public class К4_Переход_на_страницу_Пакета extends TestB
     @Test
     public void goToPackagePage() {
         headerMenu.goToNilPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpCreatePassword.checkOpenFrameCreatePassword();
-        popUpCreatePassword.inputPassword("111111");
-        popUpCreatePassword.clickToComeIn("Войти");
-        popUpInputCod.checkOpenFrameInputCod();
-        pageCMS.copyPasteCodMsisdn("79260192144");
-        popUpInputCod.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        flowRegistation();
         headerMenu.openSubsectionPromo();
         promoPage.clickButtonGoToPackage();
+        pageCMS.deleteAccount();
+    }
+    private void flowRegistation() {
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

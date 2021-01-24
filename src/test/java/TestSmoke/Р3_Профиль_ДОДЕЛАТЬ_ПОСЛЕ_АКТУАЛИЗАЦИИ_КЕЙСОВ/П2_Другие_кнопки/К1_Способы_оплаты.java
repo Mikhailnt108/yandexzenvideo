@@ -7,18 +7,22 @@ public class К1_Способы_оплаты extends TestBase {
     @Test
     public void paymentMethod() {
         headerMenu.goToNilPage();
+        flowRegistation();
+        headerMenu.openSubsectionPaymentMethod();
+        pageCMS.deleteAccount();
+    }
+
+    private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9260192144");
-        popUpInputPhone.clickToNext("Далее");
-        popUpCreatePassword.checkOpenFrameCreatePassword();
-        popUpCreatePassword.inputPassword("111111");
-        popUpCreatePassword.clickToComeIn("Войти");
-        popUpInputCod.checkOpenFrameInputCod();
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkOpenFrameInputCod();
         pageCMS.copyPasteCodMsisdn("79260192144");
-        popUpInputCod.clickToComeIn("Войти");
+        headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
-        headerMenu.openSubsectionPaymentMethod();
     }
 }
