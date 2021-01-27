@@ -1,21 +1,23 @@
-package TestSmoke.Р1_Авторизация_и_регистрация;
+package TestSmoke.Р2_Разделы_меню.П5_Детям;
 
 import base.TestBase;
 import org.junit.jupiter.api.Test;
 
-
-public class Test_1_Регистрация_из_главного_меню extends TestBase {
-    //@Feature(value = "Регистрация из главного меню")
-   // @Severity(SeverityLevel.BLOCKER)
-    //@Story(value = "Регистрация из главного меню")
-
+public class Test_14_Подборка_Моё extends TestBase {
     @Test
-    public void registerFromHeaderMenu()  {
-        headerMenu.goToNilPage();
+    public void collectionOfMy() {
+        headerMenu.goToKidsPage();
         flowRegistation();
+        kidsPage.clickToTailCardFilm();
+        cardFilm.paymentFilmAtEst();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.paymentFilmAtEst();
+        headerMenu.goToKidsPage();
+        kidsPage.clickToHeaderCollectionOfMy();
+        collectionPage.checkCollectionOfMy();
         pageCMS.deleteAccount();
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
