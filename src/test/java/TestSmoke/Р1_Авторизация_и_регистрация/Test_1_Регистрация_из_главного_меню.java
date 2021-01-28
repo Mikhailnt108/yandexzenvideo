@@ -1,16 +1,16 @@
 package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 
-@Feature(value = "Регистрация из главного меню")
-@Severity(SeverityLevel.BLOCKER)
-@Story(value = "Регистрация из главного меню")
+
 public class Test_1_Регистрация_из_главного_меню extends TestBase {
+
+    @Epic(value = "Smoke MFTV Desktop Web")
+    @Feature(value = "Регистрация из главного меню")
+    @Severity(SeverityLevel.BLOCKER)
+    @Story(value = "Регистрация из главного меню")
 
     @Test
     public void registerFromHeaderMenu()  {
