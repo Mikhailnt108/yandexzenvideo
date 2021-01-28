@@ -1,9 +1,16 @@
 package TestSmoke.Р2_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Test;
 
 public class Test_18_Записанная_ТВ_передача_18_плюс extends TestBase {
+    @Epic(value = "Smoke MFTV Desktop Web")
+    @Feature(value = "18. Записанная ТВ передача 18 плюс")
+    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void recordedEarlierTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
