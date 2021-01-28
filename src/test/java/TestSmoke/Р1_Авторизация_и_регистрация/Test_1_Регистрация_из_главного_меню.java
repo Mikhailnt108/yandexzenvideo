@@ -7,11 +7,10 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
-
+@Feature(value = "Регистрация из главного меню")
+@Severity(SeverityLevel.BLOCKER)
+@Story(value = "Регистрация из главного меню")
 public class Test_1_Регистрация_из_главного_меню extends TestBase {
-    @Feature(value = "Регистрация из главного меню")
-    @Severity(SeverityLevel.BLOCKER)
-    @Story(value = "Регистрация из главного меню")
 
     @Test
     public void registerFromHeaderMenu()  {
