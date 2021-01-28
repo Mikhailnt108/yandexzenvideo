@@ -8,9 +8,8 @@ import org.junit.jupiter.api.Test;
 public class Test_1_Регистрация_из_главного_меню extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "Регистрация из главного меню")
+    @Feature(value = "1. Регистрация из главного меню")
     @Severity(SeverityLevel.BLOCKER)
-    @Story(value = "Регистрация из главного меню")
 
     @Test
     public void registerFromHeaderMenu()  {

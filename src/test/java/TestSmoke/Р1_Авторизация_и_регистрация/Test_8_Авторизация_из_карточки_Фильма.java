@@ -1,11 +1,17 @@
 package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Test;
 
 
 public class Test_8_Авторизация_из_карточки_Фильма extends TestBase {
-
+    @Epic(value = "Smoke MFTV Desktop Web")
+    @Feature(value = "8. Авторизация из карточки Фильма")
+    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromCardFilm() {
         headerMenu.goToNilPage();

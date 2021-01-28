@@ -1,10 +1,14 @@
 package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 
 
 public class Test_2_Авторизация_из_главного_меню extends TestBase {
+    @Epic(value = "Smoke MFTV Desktop Web")
+    @Feature(value = "2. Авторизация из главного меню")
+    @Severity(SeverityLevel.BLOCKER)
 
     @Test
     public void loginFromHeaderMenu()  {
