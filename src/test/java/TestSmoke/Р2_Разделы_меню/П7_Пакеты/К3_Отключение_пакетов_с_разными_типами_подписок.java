@@ -1,9 +1,16 @@
 package TestSmoke.Р2_Разделы_меню.П7_Пакеты;
 
 import base.TestBase;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Test;
 
 public class К3_Отключение_пакетов_с_разными_типами_подписок extends TestBase {
+    @Epic(value = "Smoke MFTV Desktop Web")
+    @Feature(value = "3. Отключение пакетов с разными типами подписок")
+    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void disablingPackagesDifferentSubscriptionTypes() {
         headerMenu.goToPackagesPage();
