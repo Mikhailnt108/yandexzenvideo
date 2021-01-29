@@ -19,6 +19,7 @@ public class Test_19_ТВ_передача_18_плюс_Pop_up_с_подтвер�
         cardPackage.checkOpenCardPackage18Plus();
         cardPackage.chooseRecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
+    
         cardTvChannel.checkPaymentComplete();
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();

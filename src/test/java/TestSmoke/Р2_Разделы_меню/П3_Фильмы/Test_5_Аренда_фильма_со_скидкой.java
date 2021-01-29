@@ -1,9 +1,16 @@
 package TestSmoke.Р2_Разделы_меню.П3_Фильмы;
 
 import base.TestBase;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Test;
 
 public class Test_5_Аренда_фильма_со_скидкой extends TestBase {
+    @Epic(value = "Smoke MFTV Desktop Web")
+    @Feature(value = "5. Аренда фильма со скидкой")
+    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void rentFilmWithDiscount() throws Exception {
         headerMenu.goToFilmsPage();
