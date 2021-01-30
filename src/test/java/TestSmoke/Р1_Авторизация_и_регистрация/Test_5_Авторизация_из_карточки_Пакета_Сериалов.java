@@ -2,13 +2,14 @@ package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
 public class Test_5_Авторизация_из_карточки_Пакета_Сериалов extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @Story(value = "5. Авторизация из карточки Пакета Сериалов")
+    @DisplayName(value = "5. Авторизация из карточки Пакета Сериалов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromCardPackageSerials() {
