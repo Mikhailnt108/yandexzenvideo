@@ -1,16 +1,14 @@
 package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 
 
 public class Test_3_Авторизация_из_карточки_Канала extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Авторизация из карточки Канала")
+    @Feature(value = "1. Авторизация и регистрация")
+    @Story(value = "3. Авторизация из карточки Канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromCardTvChannel() {

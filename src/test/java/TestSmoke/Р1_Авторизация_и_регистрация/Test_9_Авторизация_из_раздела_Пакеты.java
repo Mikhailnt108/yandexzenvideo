@@ -1,16 +1,14 @@
 package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 
 
 public class Test_9_Авторизация_из_раздела_Пакеты extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "9. Авторизация из раздела Пакеты")
+    @Feature(value = "1. Авторизация и регистрация")
+    @Story(value = "9. Авторизация из раздела Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromPackagesPage() {

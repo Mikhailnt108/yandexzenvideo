@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 
 public class Test_10_Восстановление_пароля extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "10. Восстановление пароля")
+    @Feature(value = "1. Авторизация и регистрация")
+    @Story(value = "10. Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
 
     @Test

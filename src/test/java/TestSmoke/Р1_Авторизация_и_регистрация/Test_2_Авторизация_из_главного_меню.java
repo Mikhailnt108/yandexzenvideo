@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 
 public class Test_2_Авторизация_из_главного_меню extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Авторизация из главного меню")
+    @Feature(value = "1. Авторизация и регистрация")
+    @Story(value = "2. Авторизация из главного меню")
     @Severity(SeverityLevel.BLOCKER)
-
     @Test
     public void loginFromHeaderMenu()  {
         headerMenu.goToNilPage();
