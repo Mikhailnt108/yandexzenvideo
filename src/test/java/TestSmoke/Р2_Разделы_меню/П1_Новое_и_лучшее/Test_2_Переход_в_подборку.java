@@ -9,7 +9,7 @@ public class Test_2_Переход_в_подборку extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="2. Переход в подборку")
+    @DisplayName(value ="Переход в подборку")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void goToCollectionPage() {

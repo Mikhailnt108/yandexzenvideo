@@ -9,7 +9,7 @@ public class Test_1_Пролистывание_подборки extends TestBase
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value = "1. Пролистывание подборки")
+    @DisplayName(value = "Пролистывание подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void scrollCollection() throws Exception {

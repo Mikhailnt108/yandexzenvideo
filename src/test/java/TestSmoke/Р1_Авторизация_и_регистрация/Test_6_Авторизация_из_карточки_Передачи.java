@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class Test_6_Авторизация_из_карточки_Передачи extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "6. Авторизация из карточки Передачи")
+    @DisplayName(value = "Авторизация из карточки Передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromCardTvProgram() {

@@ -9,7 +9,7 @@ public class Test_6_FAQ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="6. FAQ")
+    @DisplayName(value ="FAQ")
     @Severity(SeverityLevel.BLOCKER)
 
     @Test

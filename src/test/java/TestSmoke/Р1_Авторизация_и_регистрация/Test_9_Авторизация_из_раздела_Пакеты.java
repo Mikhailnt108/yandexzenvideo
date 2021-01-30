@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class Test_9_Авторизация_из_раздела_Пакеты extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "9. Авторизация из раздела Пакеты")
+    @DisplayName(value = "Авторизация из раздела Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromPackagesPage() {

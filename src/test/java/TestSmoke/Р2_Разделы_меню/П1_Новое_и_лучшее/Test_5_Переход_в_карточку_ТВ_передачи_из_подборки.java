@@ -9,7 +9,7 @@ public class Test_5_Переход_в_карточку_ТВ_передачи_и�
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="5. Переход в карточку ТВ передачи из подборки")
+    @DisplayName(value ="Переход в карточку ТВ передачи из подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void goToCardTvChannelFromCollection() {

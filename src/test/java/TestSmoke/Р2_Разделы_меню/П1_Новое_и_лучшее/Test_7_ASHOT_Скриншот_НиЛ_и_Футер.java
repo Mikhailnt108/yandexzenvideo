@@ -13,7 +13,7 @@ public class Test_7_ASHOT_Скриншот_НиЛ_и_Футер extends TestBase
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="7. ASHOT Скриншот НиЛ и Футер")
+    @DisplayName(value ="ASHOT Скриншот НиЛ и Футер")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void screenshotNilAndFooter() throws AWTException, IOException {

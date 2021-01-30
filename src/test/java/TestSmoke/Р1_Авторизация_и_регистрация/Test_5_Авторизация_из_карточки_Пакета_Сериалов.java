@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class Test_5_Авторизация_из_карточки_Пакета_Сериалов extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "5. Авторизация из карточки Пакета Сериалов")
+    @DisplayName(value = "Авторизация из карточки Пакета Сериалов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromCardPackageSerials() {

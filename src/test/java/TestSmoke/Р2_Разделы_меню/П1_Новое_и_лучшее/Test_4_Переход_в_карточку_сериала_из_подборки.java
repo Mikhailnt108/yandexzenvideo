@@ -9,7 +9,7 @@ public class Test_4_Переход_в_карточку_сериала_из_по�
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="4. Переход в подборку")
+    @DisplayName(value ="Переход в карточку сериала из подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
         public void goToCardSerialFromCollection() {

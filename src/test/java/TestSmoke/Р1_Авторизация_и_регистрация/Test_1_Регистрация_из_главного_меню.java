@@ -10,7 +10,7 @@ public class Test_1_Регистрация_из_главного_меню extend
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "1. Регистрация из главного меню")
+    @DisplayName(value = "Регистрация из главного меню")
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
