@@ -2,17 +2,17 @@ package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Test_10_Восстановление_пароля extends TestBase {
+
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
-
     @Test
+    @Order(10)
     public void passwordRecovery() {
         headerMenu.goToNilPage();
         flowRegistation();

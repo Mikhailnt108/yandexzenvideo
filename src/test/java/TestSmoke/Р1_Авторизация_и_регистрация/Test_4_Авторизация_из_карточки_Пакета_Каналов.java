@@ -2,16 +2,16 @@ package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Test_4_Авторизация_из_карточки_Пакета_Каналов extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Авторизация из карточки Пакета Каналов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Order(4)
     public void loginFromCardPackageTvChannel() {
         headerMenu.goToNilPage();
         flowRegistation();
