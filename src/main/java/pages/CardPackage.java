@@ -35,7 +35,7 @@ public class CardPackage extends BasePage {
         click(By.xpath("//button[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//h3[text()='Пакет подключен']"));
         click(By.xpath("//button[text()='Закрыть']"));
-        isElementDisplayed(By.xpath("//button[text()='Отключить']"));
+        //isElementDisplayed(By.xpath("//button[text()='Отключить']"));
     }
 
     public void disablePackageTnB() {

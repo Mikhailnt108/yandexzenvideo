@@ -4,7 +4,7 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
 public class Test_1_Регистрация_из_главного_меню extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -13,7 +13,6 @@ public class Test_1_Регистрация_из_главного_меню extend
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
-    @Order(1)
     public void registerFromHeaderMenu()  {
         headerMenu.goToNilPage();
         flowRegistation();

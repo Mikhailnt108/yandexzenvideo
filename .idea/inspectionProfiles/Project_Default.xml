@@ -146,6 +146,9 @@
     <inspection_tool class="AndroidRoomQuestionMarkBindParameter" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AndroidUnresolvableTag" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AndroidUnresolvedRoomSqlReference" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="IfStatementWithIdenticalBranches" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="myHighlightWhenLastStatementIsCall" value="false" />
+    </inspection_tool>
     <inspection_tool class="ShrinkerArrayType" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ShrinkerInvalidFlags" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ShrinkerUnresolvedReference" enabled="true" level="WARNING" enabled_by_default="true" />

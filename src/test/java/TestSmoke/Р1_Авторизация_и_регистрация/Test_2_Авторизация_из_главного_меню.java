@@ -4,14 +4,13 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
 public class Test_2_Авторизация_из_главного_меню extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Авторизация из главного меню")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Order(2)
     public void loginFromHeaderMenu()  {
         headerMenu.goToNilPage();
         flowRegister();

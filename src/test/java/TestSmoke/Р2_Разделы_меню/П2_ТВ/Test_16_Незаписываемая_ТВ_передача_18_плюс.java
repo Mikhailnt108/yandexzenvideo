@@ -7,17 +7,17 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Test;
 
-public class Test_17_Записываемая_ТВ_передача_18_плюс_УТОЧНИТЬ_3Й_ШАГ_КЕЙСА extends TestBase {
+public class Test_16_Незаписываемая_ТВ_передача_18_плюс extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "17. Записываемая ТВ передача 18 плюс")
+    @Feature(value = "16. Незаписываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void recordedNowTvProgram18Plus() throws Exception {
+    public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();
         packagesPage.choosePackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
-        cardPackage.chooseRecordedTvChannel18Plus();
+        cardPackage.chooseUnrecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
         cardPackage.goToTvProgram18Plus();
@@ -27,11 +27,11 @@ public class Test_17_Записываемая_ТВ_передача_18_плюс_
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabErotica();
-        tvPage.checkRecordedСhannelsСorrespondGenres18Plus();
+        tvPage.checkUnrecordedСhannelsСorrespondGenres18Plus();
         cardTvProgram.clickYesInPopUp18Plus();
         headerMenu.goToTvPage();
         tvPage.clickOnTabErotica();
-        tvPage.checkRecordedСhannelsСorrespondGenres18Plus();
+        tvPage.checkUnrecordedСhannelsСorrespondGenres18Plus();
         cardTvProgram.clickNoInPopUp18Plus();
         pageCMS.deleteAccount();
     }
@@ -48,4 +48,5 @@ public class Test_17_Записываемая_ТВ_передача_18_плюс_
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }
+    
 }

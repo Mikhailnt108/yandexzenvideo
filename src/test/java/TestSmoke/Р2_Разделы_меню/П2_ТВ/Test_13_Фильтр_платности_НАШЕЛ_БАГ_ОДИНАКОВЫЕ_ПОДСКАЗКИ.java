@@ -7,7 +7,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Test;
 
-public class Test_13_Фильтр_платности_ДОБАВИТЬ_ПРОВЕРКУ_ПОДСКАЗКИ_ТОГЛА_ПЛАТНОСТИ_проверить_проверку_вкл_выкл_тогла_платности_отображение_каналов extends TestBase {
+public class Test_13_Фильтр_платности_НАШЕЛ_БАГ_ОДИНАКОВЫЕ_ПОДСКАЗКИ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "13. Фильтр платности")
     @Severity(SeverityLevel.BLOCKER)
@@ -17,9 +17,11 @@ public class Test_13_Фильтр_платности_ДОБАВИТЬ_ПРОВЕ
         flowRegistation();
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabHD();
-        tvPage.clickOffToglPayment();
+        tvPage.navigateMouseToToglPaymentOn();
+        tvPage.clickToglPaymentForOff();
         tvPage.checkTvChannelsOnlyAvailable();
-        tvPage.clickOnToglPayment();
+        tvPage.navigateMouseToToglPaymentOff();
+        tvPage.clickToglPaymentForOn();
         tvPage.checkTvChannelsOnlyPayment();
         pageCMS.deleteAccount();
     }

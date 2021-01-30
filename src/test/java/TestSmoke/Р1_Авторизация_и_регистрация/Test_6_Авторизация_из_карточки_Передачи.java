@@ -4,14 +4,14 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
 public class Test_6_Авторизация_из_карточки_Передачи extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Авторизация из карточки Передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Order(6)
+
     public void loginFromCardTvProgram() {
         headerMenu.goToNilPage();
         flowRegistation();
@@ -19,7 +19,7 @@ public class Test_6_Авторизация_из_карточки_Передач�
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToTabPackages();
         packagesPage.checkOpenPackagesPage();
-        packagesPage.clickToTabTvСannelInMenuPackagesPage();
+        packagesPage.clickToTabTvСhannelInMenuPackagesPage();
         packagesPage.clickToTailCardPackageTvChannel();
         cardPackage.checkOpenCardPackageTvChannel();
         cardPackage.clickTailCardChannel();

@@ -66,7 +66,7 @@ public class TvPage extends BasePage {
         click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]"));
     }
 
-    public void clickOffToglPayment() {
+    public void clickToglPaymentForOff() {
         isElementDisplayed(By.xpath("//button[@class='XUA0mURCPEQ3aaut8nLLA QwZF5ZAhb56XWdU_Hta3z']//div[1]"));
         click(By.xpath("//div[text()='₽']"));
     }
@@ -133,7 +133,7 @@ public class TvPage extends BasePage {
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='HD']"));
     }
 
-    public void clickOnToglPayment() {
+    public void clickToglPaymentForOn() {
         click(By.xpath("//div[text()='₽']"));
     }
 
@@ -147,6 +147,18 @@ public class TvPage extends BasePage {
             //Assert.assertNull(driver.findElement(By.xpath("(//span[contains(text(), 'Смотреть'])[1]")));
             driver.navigate().back();
         }
+    }
+    public void navigateMouseToToglPaymentOn() {
+        WebElement element = driver.findElement(By.xpath("//div[text()='₽']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+        Assert.assertNotNull(driver.findElement(By.xpath("(//button[@title='Отображаются все телеканалы']//div)[2]")));
+    }
 
+    public void navigateMouseToToglPaymentOff() {
+        WebElement element = driver.findElement(By.xpath("//div[text()='₽']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+        Assert.assertNotNull(driver.findElement(By.xpath("(//button[@title='Отображаются только доступные телеканалы']//div)[2]")));
     }
 }
