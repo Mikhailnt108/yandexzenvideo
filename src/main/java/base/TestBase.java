@@ -55,7 +55,12 @@ public class TestBase {
         //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         //driver = new ChromeDriver(capabilities);
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
+        options.addArguments("--window-size=1900,1000");
+        //options.addArguments("start-maximized");
+        //запуск браузера в фоне:
+        options.setHeadless(true);
+        //options.addArguments("start-maximized", "--headless").addArguments("--minimized");
+
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

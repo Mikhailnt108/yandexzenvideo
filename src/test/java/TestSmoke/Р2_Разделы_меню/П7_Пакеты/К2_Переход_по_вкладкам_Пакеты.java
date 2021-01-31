@@ -14,19 +14,19 @@ public class К2_Переход_по_вкладкам_Пакеты extends TestB
     @Test
     public void goToTabPackage() {
         headerMenu.goToPackagesPage();
-        //headerMenu.checkNotLoggedIsCorrect();
-        //packagesPage.checkTabAllPackagesInMenuPackagesPage();
-        //packagesPage.checkTypePackagesInTabAll();
-        //packagesPage.checkAllPackegesWithoutOwnership();
-        //packagesPage.clickToTabTvСhannelInMenuPackagesPage();
-        //packagesPage.checkTypePackagesInTabTvChannel();
-       // packagesPage.clickToTabSerialsInMenuPackagesPage();
-       // packagesPage.checkTypePackagesInTabSerials();
-       // packagesPage.clickToTabKinoInMenuPackagesPage();
-       // packagesPage.checkTypePackagesInTabKino();
-       // packagesPage.clickToTabMixedInMenuPackagesPage();
-        //packagesPage.checkTypePackagesInTabMixed();
-        //packagesPage.checkNotDisplayedTabConnectedInMenuPackagesPage();
+        headerMenu.checkNotLoggedIsCorrect();
+        packagesPage.checkTabAllPackagesInMenuPackagesPage();
+        packagesPage.checkTypePackagesInTabAll();
+        packagesPage.checkAllPackegesWithoutOwnership();
+        packagesPage.clickToTabTvСhannelInMenuPackagesPage();
+        packagesPage.checkTypePackagesInTabTvChannel();
+        packagesPage.clickToTabSerialsInMenuPackagesPage();
+        packagesPage.checkTypePackagesInTabSerials();
+        packagesPage.clickToTabKinoInMenuPackagesPage();
+        packagesPage.checkTypePackagesInTabKino();
+        packagesPage.clickToTabMixedInMenuPackagesPage();
+        packagesPage.checkTypePackagesInTabMixed();
+        packagesPage.checkNotDisplayedTabConnectedInMenuPackagesPage();
         flowRegistation();
         packagesPage.clickToTailCardPackage();
         cardPackage.checkOpenCardPackage();
@@ -37,7 +37,6 @@ public class К2_Переход_по_вкладкам_Пакеты extends TestB
         packagesPage.clickToTabConnectedInMenuPackagesPage();
         packagesPage.checkTypePackagesInTabConnectedInMenuPackagesPage();
         pageCMS.deleteAccount();
-
 
     }
     private void flowRegistation() {
