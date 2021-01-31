@@ -1,15 +1,15 @@
 package TestSmoke.Р2_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class Test_19_ТВ_передача_18_плюс_Pop_up_с_подтверждением_НАШЕЛ_БАГ_ПОВТОРНО_НЕТ_ПОПАПА_18ПЛЮС extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "19. ТВ передача 18 плюс PopUp с подтверждением")
+    @Feature(value = "2. Разделы меню")
+    @Story(value = "2. ТВ")
+    @DisplayName(value ="ТВ передача 18 плюс PopUp с подтверждением")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void PopUp18Plus() throws Exception {

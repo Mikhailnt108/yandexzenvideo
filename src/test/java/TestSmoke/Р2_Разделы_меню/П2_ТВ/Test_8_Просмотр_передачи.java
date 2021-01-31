@@ -1,15 +1,15 @@
 package TestSmoke.Р2_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class Test_8_Просмотр_передачи extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "8. Просмотр передачи")
+    @Feature(value = "2. Разделы меню")
+    @Story(value = "2. ТВ")
+    @DisplayName(value ="Просмотр передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void viewingTvProgram() throws Exception {

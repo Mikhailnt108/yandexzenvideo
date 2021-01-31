@@ -1,15 +1,15 @@
 package TestSmoke.Р2_Разделы_меню.П8_Подборки;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class К2_Действия_с_подборками_ДОБАВИТЬ_ASHOT extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Действия с подборками")
+    @Feature(value = "2. Разделы меню")
+    @Story(value = "8. Подборки")
+    @DisplayName(value ="Действия с подборками")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void actionsWithCollections() {

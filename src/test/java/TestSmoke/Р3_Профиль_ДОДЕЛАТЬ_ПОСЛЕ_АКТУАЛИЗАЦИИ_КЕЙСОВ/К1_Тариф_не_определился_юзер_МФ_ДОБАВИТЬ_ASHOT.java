@@ -1,15 +1,14 @@
 package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class К1_Тариф_не_определился_юзер_МФ_ДОБАВИТЬ_ASHOT extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "1. Тариф не определился юзер МФ")
+    @Feature(value = "3. Профиль")
+    @DisplayName(value ="Тариф не определился юзер_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void tariffNotDefined() {

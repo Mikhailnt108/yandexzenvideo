@@ -1,15 +1,15 @@
 package TestSmoke.Р2_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class Test_6_Добавление_в_избранное_сериала extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "6. Добавление в избранное сериала")
+    @Feature(value = "2. Разделы меню")
+    @Story(value = "4. Сериалы")
+    @DisplayName(value ="Добавление в избранное сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void AddingSeriesToFavorites() {

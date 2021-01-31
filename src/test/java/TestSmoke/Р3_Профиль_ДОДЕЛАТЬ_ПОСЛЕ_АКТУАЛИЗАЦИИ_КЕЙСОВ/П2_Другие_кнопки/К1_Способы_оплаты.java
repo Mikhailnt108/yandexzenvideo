@@ -1,15 +1,15 @@
 package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Другие_кнопки;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class К1_Способы_оплаты extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "1. Способы оплаты")
+    @Feature(value = "3. Профиль")
+    @Story(value = "2. Другие кнопки")
+    @DisplayName(value ="Способы оплаты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void paymentMethod() {

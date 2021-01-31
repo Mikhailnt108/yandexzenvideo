@@ -1,15 +1,15 @@
 package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Другие_кнопки;
 
 import base.TestBase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class К3_Email_УТОЧНИТЬ_СОХРАНЕНИЕ_EMAIL extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Email")
+    @Feature(value = "3. Профиль")
+    @Story(value = "2. Другие кнопки")
+    @DisplayName(value ="Email")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void email() {
