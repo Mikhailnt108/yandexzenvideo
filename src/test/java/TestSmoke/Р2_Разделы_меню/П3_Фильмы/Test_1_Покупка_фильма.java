@@ -19,7 +19,7 @@ public class Test_1_Покупка_фильма extends TestBase {
         cardFilm.checkOpenCardFilm();
         cardFilm.paymentFilmAtEst();
         cardFilm.startVideoPleer();
-        headerMenu.goToMyPagePurchases();
+        myPage.goToMyPagePurchases();
         myPage.checkAddingFilmInPurchases();
         pageCMS.deleteAccount();
     }

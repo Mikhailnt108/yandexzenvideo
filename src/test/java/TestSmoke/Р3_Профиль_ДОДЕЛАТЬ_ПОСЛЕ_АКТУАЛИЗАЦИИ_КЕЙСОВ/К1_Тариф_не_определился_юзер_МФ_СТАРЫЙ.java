@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К1_Тариф_не_определился_юзер_МФ_ДОБАВИТЬ_ASHOT extends TestBase {
+public class К1_Тариф_не_определился_юзер_МФ_СТАРЫЙ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Тариф не определился юзер_МФ")

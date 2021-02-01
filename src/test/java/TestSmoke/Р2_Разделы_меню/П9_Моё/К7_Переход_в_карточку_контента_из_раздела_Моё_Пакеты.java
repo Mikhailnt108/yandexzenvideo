@@ -17,7 +17,7 @@ public class К7_Переход_в_карточку_контента_из_раз
         flowRegistation();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.paymentPackageTnB();
-        headerMenu.goToMyPageSubscriptions();
+        myPage.goToMyPageSubscriptions();
         myPage.clickToTailCardPackageFromSubscriptions();
         cardPackage.checkOpenCardPackage();
         pageCMS.deleteAccount();

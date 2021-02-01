@@ -1,25 +1,31 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции;
+package TestSmoke.Р2_Разделы_меню.П9_Моё;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pages.MyPage;
 
-public class К5_Переход_к_списку_тарифов_ДОБАВИТЬ_ASHOT extends TestBase {
+public class К1_Переход_по_вкладкам_Моё_New_12_01 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Профиль")
-    @Story(value = "1. Акции")
-    @DisplayName(value ="Переход к списку тарифов")
+    @Feature(value = "2. Разделы меню")
+    @Story(value = "9. Моё")
+    @DisplayName(value ="Переход по вкладкам Моё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToListOfTariff() {
-        headerMenu.goToNilPage();
+    public void clickOnTheMyTabs() throws Exception {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleFromMsisdn("79260192144");
-        headerMenu.openSubsectionPromo();
-        promoPage.checkListOfTariff();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.paymentFilmAtEst();
+        cardFilm.clickButtonFavorites();
+        cardFilm.startVideoPleer();
+        myPage.checkAddingFilmInHistory();
+        myPage.goToMyPagePurchases();
+        myPage.checkAddingFilmInPurchases();
+        myPage.goToMyPageFavorites();
+        myPage.checkAddingFilmToFavorites();
         pageCMS.deleteAccount();
-
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -17,7 +17,7 @@ public class К5_Переход_в_карточку_контента_из_раз
         flowRegistation();
         filmsPage.clickToTailCardFilm();
         cardFilm.clickButtonFavorites();
-        headerMenu.goToMyPageFavorites();
+        myPage.goToMyPageFavorites();
         myPage.clickToTailCardFilmFromFavorites();
         cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccount();

@@ -17,7 +17,7 @@ public class К4_Переход_на_страницу_Моё_Пакеты extend
         flowRegistation();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.paymentPackageTnB();
-        headerMenu.goToMyPageSubscriptions();
+        myPage.goToMyPageSubscriptions();
         myPage.checkSubscriptionsPackages();
         pageCMS.deleteAccount();
     }

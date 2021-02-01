@@ -17,7 +17,7 @@ public class К3_Переход_на_страницу_Моё_Оплаченно�
         flowRegistation();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.paymentPackageTnB();
-        headerMenu.goToMyPagePurchases();
+        myPage.goToMyPagePurchases();
         myPage.goToCollectionPurchasesPage();
         pageCMS.deleteAccount();
     }

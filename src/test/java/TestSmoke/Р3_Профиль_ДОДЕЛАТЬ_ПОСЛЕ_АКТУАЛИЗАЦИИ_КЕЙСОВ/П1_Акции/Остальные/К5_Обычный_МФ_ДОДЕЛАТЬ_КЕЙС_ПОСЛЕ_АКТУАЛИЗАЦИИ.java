@@ -1,4 +1,4 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции.Остальные;
 
 import base.TestBase;
 import io.qameta.allure.Epic;
@@ -8,34 +8,30 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К3_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT extends TestBase {
+public class К5_Обычный_МФ_ДОДЕЛАТЬ_КЕЙС_ПОСЛЕ_АКТУАЛИЗАЦИИ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @DisplayName(value ="Пользователь НЕ_МФ")
+    @DisplayName(value ="Обычный МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void userNotMegafon() {
+    public void userMegafon() {
         headerMenu.goToNilPage();
         flowRegistration();
-        headerMenu.openSubsectionPromo();
-        promoPage.checkNotMegafon();
-        promoPage.clickToButtonGoOver();
-        pageCMS.deleteAccount();
+
     }
 
     private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9261184972");
+        popUpInputPhone.inputLogin("9260192144");
         popUpInputPhone.clickToNext("Далее");
-        popUpInputEmail.inputEmail("ispolnitel1mt@yandex.ru");
         popUpCreatePassword.checkOpenFrameCreatePassword();
         popUpCreatePassword.inputPassword("111111");
         popUpCreatePassword.clickToComeIn("Войти");
         popUpInputCod.checkOpenFrameInputCod();
-        pageCMS.copyPasteCodMsisdnForNotMF("79261184972");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         popUpInputCod.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectForNotMegafon();
+        headerMenu.checkLoginUserIsCorrect();
     }
 }

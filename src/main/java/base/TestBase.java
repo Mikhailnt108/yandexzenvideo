@@ -49,6 +49,7 @@ public class TestBase {
     public void start() throws AWTException {
 
         WebDriverManager.chromedriver().setup();
+        //запуск браузера в режиме инкогнито:
         //ChromeOptions options = new ChromeOptions();
         //options.addArguments("-incognito");
         //DesiredCapabilities capabilities = DesiredCapabilities.chrome();
@@ -59,8 +60,6 @@ public class TestBase {
         //options.addArguments("start-maximized");
         //запуск браузера в фоне:
         options.setHeadless(true);
-        //options.addArguments("start-maximized", "--headless").addArguments("--minimized");
-
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

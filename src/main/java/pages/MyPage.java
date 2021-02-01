@@ -9,6 +9,12 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class MyPage extends BasePage {
+    String My_favorites = "https://web-preprod1.megafon.tv/my/favorites";
+    String My_history = "https://web-preprod1.megafon.tv/my/history";
+    String My_purchases = "https://web-preprod1.megafon.tv/my/purchases";
+    String My_subscriptions = "https://web-preprod1.megafon.tv/my/subscriptions";
+
+
     public MyPage(WebDriver driver) {
         super(driver);
     }
@@ -73,6 +79,25 @@ public class MyPage extends BasePage {
 
     public void clickToTailCardPackageFromSubscriptions() {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+    }
+
+    public void checkAddingFilmInHistory() {
+        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameFilm);
+        driver.get(My_history);
+        click(By.xpath("//a[@data-test='PackageLink']"));
+        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
+    }
+    public void goToMyPageFavorites() { driver.get(My_favorites);
+        isElementDisplayed(By.xpath("//a[@href='/my']//span[1]"));
+    }
+    public void goToMyPagePurchases() {
+        driver.get(My_purchases);
+        isElementDisplayed(By.xpath("//span[text()='Оплаченное']"));
+    }
+    public void goToMyPageSubscriptions() {
+        driver.get(My_subscriptions);
+        isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
     }
 }
 

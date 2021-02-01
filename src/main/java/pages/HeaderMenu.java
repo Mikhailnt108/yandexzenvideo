@@ -12,15 +12,13 @@ import java.util.ArrayList;
 public class HeaderMenu extends BasePage {
     String NIL_Page = "https://web-preprod1.megafon.tv/";
     String TV_Page = "https://web-preprod1.megafon.tv/tv/";
-    String My_favorites = "https://web-preprod1.megafon.tv/my/favorites";
     String Films_Page = "https://web-preprod1.megafon.tv/movies/vods";
-    String My_purchases = "https://web-preprod1.megafon.tv/my/purchases";
     String Serials_Page = "https://web-preprod1.megafon.tv/shows";
     String Kids_Page = "https://web-preprod1.megafon.tv/kids";
     String Sport_Page = "https://web-preprod1.megafon.tv/sport";
     String Packages_Page = "https://web-preprod1.megafon.tv/packages";
     String Collections_Page = "https://web-preprod1.megafon.tv/collection";
-    String My_subscriptions = "https://web-preprod1.megafon.tv/my/subscriptions";
+
 
     public HeaderMenu(WebDriver driver) {
         super(driver);
@@ -34,13 +32,7 @@ public class HeaderMenu extends BasePage {
         driver.get(TV_Page);
     }
 
-    public void goToMyPageFavorites() { driver.get(My_favorites);
-        isElementDisplayed(By.xpath("//a[@href='/my']//span[1]"));
-    }
-    public void goToMyPagePurchases() {
-        driver.get(My_purchases);
-        isElementDisplayed(By.xpath("//span[text()='Оплаченное']"));
-    }
+
     public void goToFilmsPage() {driver.get(Films_Page);
     isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
     }
@@ -68,10 +60,7 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("//button[contains(text(), 'Следующая')]"));
     }
 
-    public void goToMyPageSubscriptions() {
-        driver.get(My_subscriptions);
-        isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
-    }
+
 
     public HeaderMenu checkNotLoggedIsCorrect() {
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));

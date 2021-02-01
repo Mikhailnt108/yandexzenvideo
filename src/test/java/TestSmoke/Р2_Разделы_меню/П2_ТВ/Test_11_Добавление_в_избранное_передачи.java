@@ -19,7 +19,7 @@ public class Test_11_Добавление_в_избранное_передачи
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.clickButtonFavorites();
-        headerMenu.goToMyPageFavorites();
+        myPage.goToMyPageFavorites();
         myPage.checkAddingTvProgramToFavorites();
         pageCMS.deleteAccount();
     }

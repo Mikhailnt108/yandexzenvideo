@@ -1,23 +1,22 @@
-package TestSmoke.Р2_Разделы_меню.П9_Моё;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К1_Переход_по_вкладкам_Моё_ВОПРОС extends TestBase {
+public class К3_Переход_на_страницу_Пакета extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
-    @DisplayName(value ="Переход по вкладкам Моё")
+    @Feature(value = "3. Профиль")
+    @Story(value = "1. Акции")
+    @DisplayName(value ="Переход на страницу Пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void clickOnTheMyTabs() {
-        headerMenu.goToFilmsPage();
+    public void goToPackagePage() {
+        headerMenu.goToNilPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
-        headerMenu.goToMyPageFavorites();
+        headerMenu.openSubsectionPromo();
+        promoPage.clickButtonGoToPackage();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

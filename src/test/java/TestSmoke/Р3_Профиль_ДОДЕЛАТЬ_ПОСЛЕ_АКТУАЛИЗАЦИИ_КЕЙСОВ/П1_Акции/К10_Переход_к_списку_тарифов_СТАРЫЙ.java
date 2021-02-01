@@ -5,19 +5,21 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К4_Переход_на_страницу_Пакета extends TestBase {
+public class К10_Переход_к_списку_тарифов_СТАРЫЙ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "1. Акции")
-    @DisplayName(value ="Переход на страницу Пакета")
+    @DisplayName(value ="Переход к списку тарифов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToPackagePage() {
+    public void goToListOfTariff() {
         headerMenu.goToNilPage();
         flowRegistation();
+        pageCMS.chooseBundleFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.clickButtonGoToPackage();
+        promoPage.checkListOfTariff();
         pageCMS.deleteAccount();
+
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

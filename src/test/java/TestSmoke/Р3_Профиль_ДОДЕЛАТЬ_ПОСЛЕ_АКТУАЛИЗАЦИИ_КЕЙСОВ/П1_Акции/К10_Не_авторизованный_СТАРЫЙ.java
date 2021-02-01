@@ -5,14 +5,17 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К2_Переход_на_экран_с_описанием_трафика_ДОДЕЛАТЬ_КЕЙС_ПОСЛЕ_АКТУАЛИЗАЦИИ extends TestBase {
+public class К10_Не_авторизованный_СТАРЫЙ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "1. Акции")
-    @DisplayName(value ="Переход на экран с описанием трафика")
+    @DisplayName(value ="Не авторизованный")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToScreenDescriptionTraffic() {
-
+    public void notAuthorized() {
+        headerMenu.goToNilPage();
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToEnter("Вход");
+        headerMenu.checkOpenPopUpInputPhone();
     }
 }

@@ -27,7 +27,7 @@ public class К2_Переход_на_страницу_Моё_Избранное 
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm4FromAll();
         cardFilm.clickButtonFavorites();
-        headerMenu.goToMyPageFavorites();
+        myPage.goToMyPageFavorites();
         myPage.goToCollectionFavoritesPage();
         pageCMS.deleteAccount();
     }

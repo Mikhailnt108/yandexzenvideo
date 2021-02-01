@@ -22,7 +22,7 @@ public class Test_2_Подписка_на_пакет_сериалов extends Te
         cardSerial.checkPopUpSubscribeComplete();
         cardSerial.checkButtonToWatch();
         cardSerial.startVideoPleer();
-        headerMenu.goToMyPagePurchases();
+        myPage.goToMyPagePurchases();
         myPage.checkAddingSerialsInPurchases();
         pageCMS.deleteAccount();
         //cardSerial.clickNamePackage();

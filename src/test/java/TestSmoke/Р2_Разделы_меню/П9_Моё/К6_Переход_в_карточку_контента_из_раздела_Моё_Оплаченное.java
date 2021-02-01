@@ -17,7 +17,7 @@ public class К6_Переход_в_карточку_контента_из_раз
         flowRegistation();
         filmsPage.clickToTailCardFilm();
         cardFilm.paymentFilmAtEst();
-        headerMenu.goToMyPagePurchases();
+        myPage.goToMyPagePurchases();
         myPage.clickToTailCardFilmFromPurchases();
         cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccount();

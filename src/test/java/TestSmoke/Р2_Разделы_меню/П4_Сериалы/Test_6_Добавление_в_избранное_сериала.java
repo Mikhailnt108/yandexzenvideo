@@ -18,7 +18,7 @@ public class Test_6_Добавление_в_избранное_сериала ex
         serialsPage.clickToTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.clickButtonFavorites();
-        headerMenu.goToMyPageFavorites();
+        myPage.goToMyPageFavorites();
         myPage.checkAddingSerialToFavorites();
         pageCMS.deleteAccount();
     }

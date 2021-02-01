@@ -18,7 +18,7 @@ public class Test_9_Добавление_в_избранное_фильма exte
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.clickButtonFavorites();
-        headerMenu.goToMyPageFavorites();
+        myPage.goToMyPageFavorites();
         myPage.checkAddingFilmToFavorites();
         pageCMS.deleteAccount();
     }
