@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
-@Ignore
+
 public class Test_9_Авторизация_из_раздела_Пакеты extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -13,7 +13,7 @@ public class Test_9_Авторизация_из_раздела_Пакеты exte
     @DisplayName(value = "Авторизация из раздела Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
+    @Ignore
     public void loginFromPackagesPage() {
         headerMenu.goToNilPage();
         flowRegistation();

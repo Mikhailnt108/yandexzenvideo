@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
-@Ignore
+
 public class Test_6_Авторизация_из_карточки_Передачи extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -13,7 +13,7 @@ public class Test_6_Авторизация_из_карточки_Передач�
     @DisplayName(value = "Авторизация из карточки Передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
+    @Ignore
     public void loginFromCardTvProgram() {
         headerMenu.goToNilPage();
         flowRegistation();

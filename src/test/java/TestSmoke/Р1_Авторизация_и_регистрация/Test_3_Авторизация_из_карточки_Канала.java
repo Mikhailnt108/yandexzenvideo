@@ -4,7 +4,7 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.*;
-@Ignore
+
 public class Test_3_Авторизация_из_карточки_Канала extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")

@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
-@Ignore
+
 public class Test_2_Авторизация_из_главного_меню extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -13,6 +13,7 @@ public class Test_2_Авторизация_из_главного_меню extend
     @DisplayName(value = "Авторизация из главного меню")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Ignore
     public void loginFromHeaderMenu()  {
         headerMenu.goToNilPage();
         flowRegister();
