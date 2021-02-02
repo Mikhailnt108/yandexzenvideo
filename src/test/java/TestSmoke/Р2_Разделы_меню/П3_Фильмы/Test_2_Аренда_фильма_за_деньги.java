@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П3_Фильмы;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class Test_2_Аренда_фильма_за_деньги extends TestBase
     @DisplayName(value ="Аренда фильма за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void PaymentFilmForRent2() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

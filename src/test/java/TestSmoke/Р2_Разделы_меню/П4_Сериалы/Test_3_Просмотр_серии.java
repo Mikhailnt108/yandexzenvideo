@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class Test_3_Просмотр_серии extends TestBase {
     @DisplayName(value ="Просмотр серии")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void watchEpisode() throws Exception {
         headerMenu.goToSerialsPage();
         headerMenu.checkNotLoggedIsCorrect();

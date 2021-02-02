@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class Test_6_Жанры_передач_в_эфире_ДОБАВИТЬ_ASH
     @DisplayName(value ="Жанры передач в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void genresTvProgramInAir() {
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();

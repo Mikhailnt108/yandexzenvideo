@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class Test_8_Фильтр_по_годам extends TestBase {
     @DisplayName(value ="Фильтр по годам")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void filterByYearSerials() {
         headerMenu.goToSerialsPage();
         serialsPage.clickOnYearInput();

@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class Test_17_Записываемая_ТВ_передача_18_плюс 
     @DisplayName(value ="Записываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void recordedNowTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();

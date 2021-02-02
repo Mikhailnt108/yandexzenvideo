@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class Test_19_ТВ_передача_18_плюс_Pop_up_с_подтвер�
     @DisplayName(value ="ТВ передача 18 плюс PopUp с подтверждением")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void PopUp18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();

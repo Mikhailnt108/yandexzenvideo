@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class Test_6_Добавление_в_избранное_сериала ex
     @DisplayName(value ="Добавление в избранное сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void AddingSeriesToFavorites() {
         headerMenu.goToSerialsPage();
         flowRegistation();
