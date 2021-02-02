@@ -13,7 +13,7 @@ public class Test_10_Восстановление_пароля extends TestBase 
     @DisplayName(value = "Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Ignore
+    @Disabled
     public void passwordRecovery() {
         headerMenu.goToNilPage();
         flowRegistation();

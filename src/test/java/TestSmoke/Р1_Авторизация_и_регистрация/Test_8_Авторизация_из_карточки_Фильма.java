@@ -13,7 +13,7 @@ public class Test_8_Авторизация_из_карточки_Фильма ex
     @DisplayName(value = "Авторизация из карточки Фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Ignore
+    @Disabled
     public void loginFromCardFilm() {
         headerMenu.goToNilPage();
         flowRegistation();

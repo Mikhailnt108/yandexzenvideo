@@ -13,7 +13,7 @@ public class Test_5_Авторизация_из_карточки_Пакета_С
     @DisplayName(value = "Авторизация из карточки Пакета Сериалов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Ignore
+    @Disabled
     public void loginFromCardPackageSerials() {
         headerMenu.goToNilPage();
         flowRegistation();

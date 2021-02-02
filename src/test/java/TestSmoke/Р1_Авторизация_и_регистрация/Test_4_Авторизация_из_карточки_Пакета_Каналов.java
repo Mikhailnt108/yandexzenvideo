@@ -12,7 +12,7 @@ public class Test_4_Авторизация_из_карточки_Пакета_К
     @DisplayName(value = "Авторизация из карточки Пакета Каналов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Ignore
+    @Disabled
     public void loginFromCardPackageTvChannel() {
         headerMenu.goToNilPage();
         flowRegistation();

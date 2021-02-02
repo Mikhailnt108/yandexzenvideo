@@ -12,7 +12,7 @@ public class Test_3_Авторизация_из_карточки_Канала ex
     @DisplayName(value = "Авторизация из карточки Канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
+    @Disabled
     public void loginFromCardTvChannel() {
         headerMenu.goToNilPage();
         flowRegistation();
