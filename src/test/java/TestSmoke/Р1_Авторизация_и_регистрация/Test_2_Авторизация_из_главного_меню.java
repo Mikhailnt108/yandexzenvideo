@@ -2,10 +2,12 @@ package TestSmoke.Р1_Авторизация_и_регистрация;
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
 
 public class Test_2_Авторизация_из_главного_меню extends TestBase {
+    @Ignore
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Авторизация из главного меню")
