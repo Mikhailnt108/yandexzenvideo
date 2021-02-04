@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П6_Спорт_В_РАЗРАБОТ
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class К3_Работа_фильтров_ДОДЕЛАТЬ_КЕЙС extends
     @DisplayName(value ="Работа фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void filterOperation() {
 
     }

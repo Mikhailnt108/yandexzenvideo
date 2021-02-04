@@ -2,6 +2,7 @@ package TestSmoke.Р2_Разделы_меню.П6_Спорт_В_РАЗРАБОТ
 
 import base.TestBase;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ public class К1_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT ext
     @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Disabled
     public void sectionAppearance() {
 
     }
