@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К2_Включайся_Премиум_ДОДЕЛАТЬ_КЕЙС_ПОСЛЕ_АКТУАЛИЗАЦИИ extends TestBase {
+public class Test_2_Включайся_Премиум_ДОДЕЛАТЬ_КЕЙС_ПОСЛЕ_АКТУАЛИЗАЦИИ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Включайся Премиум")

@@ -1,24 +1,21 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Другие_кнопки;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К2_Переход_в_раздел_Фильмы extends TestBase {
+public class Test_2_Подключить_Smart_TV extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "1. Акции")
-    @DisplayName(value ="Переход в раздел Фильмы")
+    @Story(value = "2. Другие кнопки")
+    @DisplayName(value ="Подключить Smart_TV")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToMoviesPromoSection() {
+    public void ConnectSmartTv() {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleFromMsisdn("79260192144");
-        headerMenu.openSubsectionPromo();
-        promoPage.clickButtonGoToFilms();
-        filmsPage.checkFilmsPromo();
+        headerMenu.connectSmartTv();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

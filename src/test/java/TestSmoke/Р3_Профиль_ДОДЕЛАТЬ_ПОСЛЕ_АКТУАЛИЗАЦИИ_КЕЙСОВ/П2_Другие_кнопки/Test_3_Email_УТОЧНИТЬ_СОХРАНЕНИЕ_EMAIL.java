@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К3_Email_УТОЧНИТЬ_СОХРАНЕНИЕ_EMAIL extends TestBase {
+public class Test_3_Email_УТОЧНИТЬ_СОХРАНЕНИЕ_EMAIL extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Другие кнопки")

@@ -1,22 +1,24 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К1_Тариф_не_определился_юзер_МФ_СТАРЫЙ extends TestBase {
+public class Test_2_Переход_в_раздел_Фильмы extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @DisplayName(value ="Тариф не определился юзер_МФ")
+    @Story(value = "1. Акции")
+    @DisplayName(value ="Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void tariffNotDefined() {
+    public void goToMoviesPromoSection() {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseNotDefinedTariff();
+        pageCMS.chooseBundleFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.checkNotDefinedTariff();
+        promoPage.clickButtonGoToFilms();
+        filmsPage.checkFilmsPromo();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

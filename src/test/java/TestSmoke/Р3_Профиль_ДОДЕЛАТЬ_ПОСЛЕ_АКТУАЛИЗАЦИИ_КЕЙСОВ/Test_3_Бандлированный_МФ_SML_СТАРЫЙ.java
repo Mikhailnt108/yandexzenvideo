@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К7_Бандлированный_МФ_SML_СТАРЫЙ extends TestBase {
+public class Test_3_Бандлированный_МФ_SML_СТАРЫЙ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Бандлированный МФ_SML")

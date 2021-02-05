@@ -1,24 +1,24 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Другие_кнопки;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К1_Способы_оплаты extends TestBase {
+public class Test_3_Переход_на_страницу_Пакета extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "2. Другие кнопки")
-    @DisplayName(value ="Способы оплаты")
+    @Story(value = "1. Акции")
+    @DisplayName(value ="Переход на страницу Пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void paymentMethod() {
+    public void goToPackagePage() {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.openSubsectionPaymentMethod();
+        headerMenu.openSubsectionPromo();
+        promoPage.clickButtonGoToPackage();
         pageCMS.deleteAccount();
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
