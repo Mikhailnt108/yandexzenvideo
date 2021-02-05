@@ -4,27 +4,22 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.MyPage;
 
-public class К1_Переход_по_вкладкам_Моё_New_12_01 extends TestBase {
+public class Test_5_Переход_в_карточку_контента_из_раздела_Моё_Избранное extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Переход по вкладкам Моё")
+    @DisplayName(value ="Переход в карточку контента из раздела Моё_Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void clickOnTheMyTabs() throws Exception {
+    public void goToContentCardFromFavorites() {
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
         cardFilm.clickButtonFavorites();
-        cardFilm.startVideoPleer();
-        myPage.checkAddingFilmInHistory();
-        myPage.goToMyPagePurchases();
-        myPage.checkAddingFilmInPurchases();
         myPage.goToMyPageFavorites();
-        myPage.checkAddingFilmToFavorites();
+        myPage.clickToTailCardFilmFromFavorites();
+        cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

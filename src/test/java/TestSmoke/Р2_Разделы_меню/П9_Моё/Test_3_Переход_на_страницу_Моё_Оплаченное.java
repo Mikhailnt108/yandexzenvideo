@@ -5,21 +5,20 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К7_Переход_в_карточку_контента_из_раздела_Моё_Пакеты extends TestBase {
+public class Test_3_Переход_на_страницу_Моё_Оплаченное extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Переход в карточку контента из раздела Моё_Пакеты")
+    @DisplayName(value ="Переход на страницу Моё_Оплаченное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToCardPackageFromMyPagePackages() {
+    public void goToMyPagePurchases() {
         headerMenu.goToPackagesPage();
         flowRegistation();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.paymentPackageTnB();
-        myPage.goToMyPageSubscriptions();
-        myPage.clickToTailCardPackageFromSubscriptions();
-        cardPackage.checkOpenCardPackage();
+        myPage.goToMyPagePurchases();
+        myPage.goToCollectionPurchasesPage();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

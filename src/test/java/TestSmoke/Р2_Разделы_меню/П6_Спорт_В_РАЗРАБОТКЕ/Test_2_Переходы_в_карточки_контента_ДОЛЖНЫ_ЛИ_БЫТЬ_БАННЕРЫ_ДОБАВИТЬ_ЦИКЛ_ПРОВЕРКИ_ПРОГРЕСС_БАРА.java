@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К2_Переходы_в_карточки_контента_ДОЛЖНЫ_ЛИ_БЫТЬ_БАННЕРЫ_ДОБАВИТЬ_ЦИКЛ_ПРОВЕРКИ_ПРОГРЕСС_БАРА extends TestBase {
+public class Test_2_Переходы_в_карточки_контента_ДОЛЖНЫ_ЛИ_БЫТЬ_БАННЕРЫ_ДОБАВИТЬ_ЦИКЛ_ПРОВЕРКИ_ПРОГРЕСС_БАРА extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "6. Спорт")

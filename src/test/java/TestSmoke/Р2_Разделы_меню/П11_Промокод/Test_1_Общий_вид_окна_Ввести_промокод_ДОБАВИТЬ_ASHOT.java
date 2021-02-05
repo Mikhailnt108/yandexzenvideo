@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К1_Общий_вид_окна_Ввести_промокод_ДОБАВИТЬ_ASHOT extends TestBase {
+public class Test_1_Общий_вид_окна_Ввести_промокод_ДОБАВИТЬ_ASHOT extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "11. Промокод")

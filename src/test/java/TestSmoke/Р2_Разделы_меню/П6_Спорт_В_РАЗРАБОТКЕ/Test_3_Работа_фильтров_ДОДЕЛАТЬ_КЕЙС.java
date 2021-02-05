@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К1_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT extends TestBase {
+public class Test_3_Работа_фильтров_ДОДЕЛАТЬ_КЕЙС extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "6. Спорт")
-    @DisplayName(value ="Внешний вид раздела")
+    @DisplayName(value ="Работа фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Disabled
-    public void sectionAppearance() {
+    public void filterOperation() {
 
     }
 }

@@ -5,30 +5,21 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К2_Переход_на_страницу_Моё_Избранное extends TestBase {
+public class Test_7_Переход_в_карточку_контента_из_раздела_Моё_Пакеты extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Переход на страницу Моё_Избранное")
+    @DisplayName(value ="Переход в карточку контента из раздела Моё_Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToFavoritesPage() {
-        headerMenu.goToFilmsPage();
+    public void goToCardPackageFromMyPagePackages() {
+        headerMenu.goToPackagesPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.clickButtonFavorites();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm2FromAll();
-        cardFilm.clickButtonFavorites();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm3FromAll();
-        cardFilm.clickButtonFavorites();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm4FromAll();
-        cardFilm.clickButtonFavorites();
-        myPage.goToMyPageFavorites();
-        myPage.goToCollectionFavoritesPage();
+        packagesPage.clickToTailCardPackageTnB();
+        cardPackage.paymentPackageTnB();
+        myPage.goToMyPageSubscriptions();
+        myPage.clickToTailCardPackageFromSubscriptions();
+        cardPackage.checkOpenCardPackage();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

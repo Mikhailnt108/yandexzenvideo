@@ -1,30 +1,25 @@
-package TestSmoke.Р2_Разделы_меню.П7_Пакеты;
+package TestSmoke.Р2_Разделы_меню.П9_Моё;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К3_Отключение_пакетов_с_разными_типами_подписок extends TestBase {
+public class Test_6_Переход_в_карточку_контента_из_раздела_Моё_Оплаченное extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "7. Пакеты")
-    @DisplayName(value ="Отключение пакетов с разными типами подписок")
+    @Story(value = "9. Моё")
+    @DisplayName(value ="Переход в карточку контента из раздела Моё_Оплаченное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void disablingPackagesDifferentSubscriptionTypes() {
-        headerMenu.goToPackagesPage();
+    public void goToContentCardFromMyMyPagePurchases() {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        packagesPage.clickToTailCardPackageTnB();
-        cardPackage.checkOpenCardPackage();
-        cardPackage.paymentPackageTnB();
-        cardPackage.disablePackageTnB();
-        cardPackage.paymentPackageSubs1();
-        cardPackage.disablePackageSubs1();
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTailCardPackageSubsN();
-        cardPackage.paymentPackageSubsN();
-        cardPackage.disablePackageSubsN();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.paymentFilmAtEst();
+        myPage.goToMyPagePurchases();
+        myPage.clickToTailCardFilmFromPurchases();
+        cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

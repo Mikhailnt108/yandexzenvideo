@@ -1,27 +1,24 @@
-package TestSmoke.Р2_Разделы_меню.П8_Подборки;
+package TestSmoke.Р2_Разделы_меню.П9_Моё;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К2_Действия_с_подборками_ДОБАВИТЬ_ASHOT extends TestBase {
+public class Test_4_Переход_на_страницу_Моё_Пакеты extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "8. Подборки")
-    @DisplayName(value ="Действия с подборками")
+    @Story(value = "9. Моё")
+    @DisplayName(value ="Переход на страницу Моё_Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void actionsWithCollections() {
-        headerMenu.goToAllCollectionsPage();
-        headerMenu.checkNotLoggedIsCorrect();
+    public void goToPackagesPage() {
+        headerMenu.goToPackagesPage();
         flowRegistation();
-        allCollectionsPage.clickToTailCollection();
-        collectionPage.clickToTailFilm();
-        headerMenu.goToAllCollectionsPage();
-        headerMenu.goToKidsPage();
-        kidsPage.clickToHeaderCollectionForKids();
-        collectionPage.checkOpenCollectionPage();
+        packagesPage.clickToTailCardPackageTnB();
+        cardPackage.paymentPackageTnB();
+        myPage.goToMyPageSubscriptions();
+        myPage.checkSubscriptionsPackages();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {
