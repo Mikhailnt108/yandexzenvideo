@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PromoPage extends BasePage {
@@ -80,5 +82,25 @@ public class PromoPage extends BasePage {
         click(By.linkText("Скрыть"));
         Assert.assertEquals(0, driver.findElements(By.xpath("(//div[text()='VIP'])[2]")).size());
 
+    }
+
+    public void imageDifferBlockTarif() throws AWTException, IOException {
+    }
+
+    public void imageDifferBlockPromotions() throws AWTException, IOException {
+    }
+
+    public void checkElementsWithoutBlockPersonalOffer() {
+        isElementDisplayed(By.xpath("(//span[text()='Акции'])[3]"));
+        isElementDisplayed(By.xpath("//div[text()='Ваша тарифная опция в МегаФоне']"));
+        isElementDisplayed(By.xpath("//div[text()='Вам доступно без оплаты:']"));
+        isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
+        Assert.assertEquals("Акции", driver.findElement(By.tagName("h1")).getText());
+        click(By.xpath("(//a[@class='aeD2NhkcvTTw9nWXBCWBE'])[1]"));
+        Assert.assertEquals(1, driver.findElements(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span")).size());
+        Assert.assertEquals("Скрыть", driver.findElement(By.linkText("Скрыть")).getText());
+        click(By.linkText("Скрыть"));
+        Assert.assertEquals("Подробнее", driver.findElement(By.linkText("Подробнее")).getText());
+        Assert.assertEquals(0, driver.findElements(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span")).size());
     }
 }

@@ -13,7 +13,6 @@ public class Test_10_Перемотка_записанной_передачи ex
     @DisplayName(value ="Перемотка записанной передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void rewindTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

@@ -13,7 +13,6 @@ public class Test_6_Жанры_передач_в_эфире_ДОБАВИТЬ_ASH
     @DisplayName(value ="Жанры передач в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void genresTvProgramInAir() {
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();

@@ -13,7 +13,6 @@ public class Test_5_Аренда_фильма_со_скидкой extends TestBa
     @DisplayName(value ="Аренда фильма со скидкой")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void rentFilmWithDiscount() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();

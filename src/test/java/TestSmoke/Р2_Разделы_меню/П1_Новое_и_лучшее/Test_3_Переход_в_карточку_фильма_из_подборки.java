@@ -16,7 +16,6 @@ public class Test_3_Переход_в_карточку_фильма_из_под�
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
-    @Disabled
     public void goToCardFilmFromCollection(){
         headerMenu.goToNilPage();
         nilPage.clickToTailCardFilm();

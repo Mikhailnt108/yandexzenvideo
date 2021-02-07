@@ -13,7 +13,6 @@ public class Test_2_Жанры_программы_передач_ДОБАВИТ�
     @DisplayName(value ="Жанры программы передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void genresTvProgram() {
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();

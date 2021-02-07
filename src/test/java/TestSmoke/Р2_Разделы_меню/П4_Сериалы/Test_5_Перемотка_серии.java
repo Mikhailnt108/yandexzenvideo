@@ -13,7 +13,7 @@ public class Test_5_Перемотка_серии extends TestBase {
     @DisplayName(value ="Перемотка серии")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void rewindSeries() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();

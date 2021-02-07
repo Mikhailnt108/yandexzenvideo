@@ -13,7 +13,7 @@ public class Test_5_Переход_из_баннера_в_карточку_Ка�
     @DisplayName(value ="Переход из баннера в карточку Канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void SwitchingFromBannerToCardTvChannel() throws Exception {
         headerMenu.goToKidsPage();
         kidsPage.switchingFromBannerToCardTvChannel();

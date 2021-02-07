@@ -13,7 +13,6 @@ public class Test_3_Расписание_канала extends TestBase {
     @DisplayName(value ="Жанры программы передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void openScheduleChannel() {
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();

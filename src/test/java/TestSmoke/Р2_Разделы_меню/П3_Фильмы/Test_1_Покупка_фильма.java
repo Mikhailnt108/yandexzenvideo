@@ -13,7 +13,6 @@ public class Test_1_Покупка_фильма extends TestBase {
     @DisplayName(value ="Покупка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void paymentFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

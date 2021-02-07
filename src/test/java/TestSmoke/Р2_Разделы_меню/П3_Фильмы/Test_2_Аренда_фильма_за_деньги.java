@@ -13,7 +13,6 @@ public class Test_2_Аренда_фильма_за_деньги extends TestBase
     @DisplayName(value ="Аренда фильма за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void PaymentFilmForRent2() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

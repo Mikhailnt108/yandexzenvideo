@@ -13,7 +13,6 @@ public class Test_13_Фильтр_платности_НАШЕЛ_БАГ_ОДИН�
     @DisplayName(value ="Фильтр платности")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void checkFilterPayment() {
         headerMenu.goToTvPage();
         flowRegistation();

@@ -13,7 +13,6 @@ public class Test_5_Передачи_в_эфире extends TestBase {
     @DisplayName(value ="Передачи в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void tvProgramInAir() {
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();

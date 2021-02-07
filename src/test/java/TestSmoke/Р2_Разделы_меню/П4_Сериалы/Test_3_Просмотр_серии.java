@@ -13,7 +13,7 @@ public class Test_3_Просмотр_серии extends TestBase {
     @DisplayName(value ="Просмотр серии")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void watchEpisode() throws Exception {
         headerMenu.goToSerialsPage();
         headerMenu.checkNotLoggedIsCorrect();

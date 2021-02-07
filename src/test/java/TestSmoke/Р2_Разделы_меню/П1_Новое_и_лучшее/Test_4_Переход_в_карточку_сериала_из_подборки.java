@@ -15,7 +15,6 @@ public class Test_4_Переход_в_карточку_сериала_из_по�
     @DisplayName(value ="Переход в карточку сериала из подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
         public void goToCardSerialFromCollection() {
         headerMenu.goToNilPage();
         nilPage.clickToTailCardSerial();

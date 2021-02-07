@@ -13,7 +13,7 @@ public class Test_3_Работа_фильтров_ДОДЕЛАТЬ_КЕЙС exte
     @DisplayName(value ="Работа фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void filterOperation() {
 
     }

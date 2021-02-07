@@ -7,15 +7,20 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.ArrayList;
 
 public class PageCMS extends BasePage {
-    String CMS_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/msisdn_confirmations";
-    String CMS_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user";
-
+    //ПП1
+    String CMS_PP1_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/msisdn_confirmations";
+    String CMS_PP1_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user";
+    String CMS_PP1_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/discounts";
+    //ПП2
+    String CMS_PP2_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/msisdn_confirmations";
+    String CMS_PP2_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user";
+    String CMS_PP2_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/discounts";
     public PageCMS(WebDriver driver) {
         super(driver);
     }
 
     public void copyPasteCodMsisdn(String cod) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/msisdn_confirmations')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/msisdn_confirmations')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -28,7 +33,7 @@ public class PageCMS extends BasePage {
         driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void chooseBundleFromMsisdn(String cod) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -52,7 +57,7 @@ public class PageCMS extends BasePage {
     }
 
     public void deleteAccount() {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -67,7 +72,7 @@ public class PageCMS extends BasePage {
     public void createPriseEstOrRent2WithDiscount() {
         String nameFilm = driver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/discounts')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/discounts')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
@@ -91,8 +96,24 @@ public class PageCMS extends BasePage {
         driver.switchTo().window((String) tabs2.get(0));
     }
 
+    public void deleteDiscount() {
+        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameFilm);
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/discounts')");
+        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window((String) tabs2.get(1));
+        isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
+        //click(By.xpath("//input[@type='checkbox']"));
+        click(By.linkText("Скидка автотест"));
+        isElementDisplayed(By.xpath("//td[text()='Скидка автотест']"));
+        click(By.xpath("//button[text()='Удалить все']"));
+        driver.close();
+        driver.switchTo().window((String) tabs2.get(0));
+    }
+
+
     public void chooseNotDefinedTariff() {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -144,7 +165,7 @@ public class PageCMS extends BasePage {
         driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void chooseRoleVip() {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -166,20 +187,6 @@ public class PageCMS extends BasePage {
         driver.switchTo().window((String) tabs2.get(0));
     }
 
-    public void deleteDiscount() {
-        String nameFilm = driver.findElement(By.tagName("h1")).getText();
-        System.out.println(nameFilm);
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/discounts')");
-        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window((String) tabs2.get(1));
-        isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
-        //click(By.xpath("//input[@type='checkbox']"));
-        click(By.linkText("Скидка автотест"));
-        isElementDisplayed(By.xpath("//td[text()='Скидка автотест']"));
-        click(By.xpath("//button[text()='Удалить все']"));
-        driver.close();
-        driver.switchTo().window((String) tabs2.get(0));
-    }
 }
 
 

@@ -13,7 +13,6 @@ public class Test_11_Добавление_в_избранное_передачи
     @DisplayName(value ="Добавление в избранное передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void AddingTvProgramToFavorites() {
         headerMenu.goToTvPage();
         flowRegistation();

@@ -1,4 +1,4 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции.ТП_VIP_or_Премиум;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.ТП_VIP_or_Премиум;
 
 import base.TestBase;
 import io.qameta.allure.Epic;
@@ -14,7 +14,7 @@ public class Test_1_Пользователь_VIP_ДОБАВИТЬ_ASHOT extends 
     @DisplayName(value ="Пользователь VIP")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void userVip() {
+    public void userVip() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();
         pageCMS.chooseRoleVip();

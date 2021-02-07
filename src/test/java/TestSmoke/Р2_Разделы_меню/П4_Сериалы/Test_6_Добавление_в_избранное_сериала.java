@@ -13,7 +13,7 @@ public class Test_6_Добавление_в_избранное_сериала ex
     @DisplayName(value ="Добавление в избранное сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void AddingSeriesToFavorites() {
         headerMenu.goToSerialsPage();
         flowRegistation();

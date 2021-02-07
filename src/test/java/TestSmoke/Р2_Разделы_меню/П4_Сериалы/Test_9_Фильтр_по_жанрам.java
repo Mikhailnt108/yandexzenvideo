@@ -13,7 +13,7 @@ public class Test_9_Фильтр_по_жанрам extends TestBase {
     @DisplayName(value ="Фильтр по жанрам")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void filterByGenre() {
         headerMenu.goToSerialsPage();
         serialsPage.clickOnGenreInput();

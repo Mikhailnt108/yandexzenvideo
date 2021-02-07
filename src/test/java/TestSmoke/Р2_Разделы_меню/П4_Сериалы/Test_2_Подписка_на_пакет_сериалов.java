@@ -13,7 +13,7 @@ public class Test_2_Подписка_на_пакет_сериалов extends Te
     @DisplayName(value ="Подписка на пакет сериалов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void SubscribeToSeriesPackage() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();

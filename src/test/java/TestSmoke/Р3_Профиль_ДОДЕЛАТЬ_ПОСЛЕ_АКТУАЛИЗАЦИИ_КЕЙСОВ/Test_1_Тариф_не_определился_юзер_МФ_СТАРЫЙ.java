@@ -11,7 +11,7 @@ public class Test_1_Тариф_не_определился_юзер_МФ_СТА�
     @DisplayName(value ="Тариф не определился юзер_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void tariffNotDefined() {
+    public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         pageCMS.chooseNotDefinedTariff();

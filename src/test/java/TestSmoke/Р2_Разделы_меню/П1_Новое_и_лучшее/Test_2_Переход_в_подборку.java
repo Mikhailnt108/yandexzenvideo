@@ -15,7 +15,6 @@ public class Test_2_Переход_в_подборку extends TestBase {
     @DisplayName(value ="Переход в подборку")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void goToCollectionPage() {
         headerMenu.goToNilPage();
         headerMenu.clickToLinkAll();

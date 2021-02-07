@@ -19,7 +19,6 @@ public class Test_7_ASHOT_Скриншот_НиЛ_и_Футер extends TestBase
     @DisplayName(value ="ASHOT Скриншот НиЛ и Футер")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void screenshotNilAndFooter() throws AWTException, IOException {
         headerMenu.goToNilPage();
         //nilPage.createScreenShot();

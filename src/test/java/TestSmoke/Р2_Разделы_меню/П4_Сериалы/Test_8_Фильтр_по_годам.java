@@ -13,7 +13,7 @@ public class Test_8_Фильтр_по_годам extends TestBase {
     @DisplayName(value ="Фильтр по годам")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void filterByYearSerials() {
         headerMenu.goToSerialsPage();
         serialsPage.clickOnYearInput();

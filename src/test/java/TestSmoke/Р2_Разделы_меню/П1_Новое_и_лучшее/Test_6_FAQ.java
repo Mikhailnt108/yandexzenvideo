@@ -16,7 +16,6 @@ public class Test_6_FAQ extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
-    @Disabled
     public void checkFooter() {
         headerMenu.goToNilPage();
         footer.clickToLinkFromDevices();

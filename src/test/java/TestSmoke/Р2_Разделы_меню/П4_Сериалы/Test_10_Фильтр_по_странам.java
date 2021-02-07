@@ -13,7 +13,7 @@ public class Test_10_Фильтр_по_странам extends TestBase {
     @DisplayName(value ="Фильтр по странам")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void filterByCountry() {
         headerMenu.goToSerialsPage();
         serialsPage.clickOnCountryInput();

@@ -13,7 +13,6 @@ public class Test_7_Пауза_фильма extends TestBase {
     @DisplayName(value ="Пауза фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void testPauseVideoPleer() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

@@ -1,32 +1,29 @@
-package TestSmoke.Р2_Разделы_меню.П4_Сериалы;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции;
 
 import base.TestBase;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_4_Пауза_серии extends TestBase {
+import java.awt.*;
+import java.io.IOException;
+
+public class Test_1_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "4. Сериалы")
-    @DisplayName(value ="Пауза серии")
+    @Feature(value = "3. Профиль")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    public void pauseSeries() throws Exception {
-        headerMenu.goToSerialsPage();
+    public void checkScreenshotPromo() throws AWTException, IOException, InterruptedException {
+        headerMenu.goToNilPage();
         flowRegistation();
-        serialsPage.clickToTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.clickToButtonSubscribePackage();
-        cardSerial.clickToButtonSubscribeInPopUp();
-        cardSerial.checkPopUpSubscribeComplete();
-        cardSerial.clickToPauseVideoPleer();
-        cardSerial.clickToPlayVideoPleer();
-        cardSerial.clickToSpaceToVideoPleer();
-        cardSerial.clickToLeftButtonMouseToVideoPleer();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkElementsWithoutBlockPersonalOffer();
+        promoPage.imageDifferBlockTarif();
+        promoPage.imageDifferBlockPromotions();
         pageCMS.deleteAccount();
+
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

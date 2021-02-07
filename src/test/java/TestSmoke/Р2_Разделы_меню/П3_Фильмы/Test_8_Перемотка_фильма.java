@@ -13,7 +13,6 @@ public class Test_8_Перемотка_фильма extends TestBase {
     @DisplayName(value ="Перемотка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void rewindFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

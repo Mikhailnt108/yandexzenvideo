@@ -13,7 +13,7 @@ public class Test_1_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT 
     @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void sectionAppearance() {
 
     }

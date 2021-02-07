@@ -13,7 +13,7 @@ public class Test_1_Переключение_сезонов extends TestBase {
     @DisplayName(value ="Переключение сезонов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void switchingSeasons() throws Exception {
         headerMenu.goToSerialsPage();
         serialsPage.chooseSeasonsMoreOneSeason();

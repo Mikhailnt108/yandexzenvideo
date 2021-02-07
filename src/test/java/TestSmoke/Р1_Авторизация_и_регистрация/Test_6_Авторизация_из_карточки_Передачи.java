@@ -13,7 +13,6 @@ public class Test_6_Авторизация_из_карточки_Передач�
     @DisplayName(value = "Авторизация из карточки Передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void loginFromCardTvProgram() {
         headerMenu.goToNilPage();
         flowRegistation();

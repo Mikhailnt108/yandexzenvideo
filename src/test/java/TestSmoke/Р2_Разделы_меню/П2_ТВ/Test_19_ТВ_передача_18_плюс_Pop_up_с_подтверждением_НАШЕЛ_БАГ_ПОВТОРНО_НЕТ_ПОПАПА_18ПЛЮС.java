@@ -13,7 +13,6 @@ public class Test_19_ТВ_передача_18_плюс_Pop_up_с_подтвер�
     @DisplayName(value ="ТВ передача 18 плюс PopUp с подтверждением")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void PopUp18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();

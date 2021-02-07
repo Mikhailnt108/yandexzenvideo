@@ -13,7 +13,6 @@ public class Test_8_Просмотр_передачи extends TestBase {
     @DisplayName(value ="Просмотр передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void viewingTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

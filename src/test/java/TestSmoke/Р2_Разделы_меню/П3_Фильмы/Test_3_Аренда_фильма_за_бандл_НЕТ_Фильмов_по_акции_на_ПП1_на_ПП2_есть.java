@@ -13,7 +13,6 @@ public class Test_3_Аренда_фильма_за_бандл_НЕТ_Фильм�
     @DisplayName(value ="Аренда фильма за бандл")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void PaymentFilmForRent2Promo() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

@@ -14,7 +14,6 @@ public class Test_1_Регистрация_из_главного_меню extend
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
-    @Disabled
     public void registerFromHeaderMenu()  {
         headerMenu.goToNilPage();
         flowRegistation();

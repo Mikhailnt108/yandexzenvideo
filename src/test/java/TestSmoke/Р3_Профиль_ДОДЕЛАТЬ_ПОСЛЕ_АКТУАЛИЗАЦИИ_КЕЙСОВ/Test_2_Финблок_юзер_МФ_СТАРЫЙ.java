@@ -14,7 +14,7 @@ public class Test_2_Финблок_юзер_МФ_СТАРЫЙ extends TestBase {
     @DisplayName(value ="Финблок юзер_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void financialBlockingMegafon() {
+    public void financialBlockingMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();
         headerMenu.openSubsectionPromo();

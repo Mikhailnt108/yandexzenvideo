@@ -13,7 +13,6 @@ public class Test_4_Переход_в_пакет_из_расписания_ка�
     @DisplayName(value ="Переход в пакет из расписания канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void openCardPackageFromScheduleChannel() {
         headerMenu.goToNilPage();
         flowRegistation();

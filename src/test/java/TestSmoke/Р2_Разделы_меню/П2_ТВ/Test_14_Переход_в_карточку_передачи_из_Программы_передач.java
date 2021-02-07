@@ -13,7 +13,6 @@ public class Test_14_Переход_в_карточку_передачи_из_П
     @DisplayName(value ="Переход в карточку передачи из Программы передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void openCardTvProgramFromTabSchedule() {
         headerMenu.goToTvPage();
         flowRegistation();

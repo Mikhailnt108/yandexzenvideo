@@ -13,7 +13,7 @@ public class Test_7_Переход_в_пакет_из_карточки_сери�
     @DisplayName(value ="Переход в пакет из карточки сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void GoToPackageFromSeriesCard() {
         headerMenu.goToSerialsPage();
         serialsPage.clickToTailCardSerial();

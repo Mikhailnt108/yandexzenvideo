@@ -13,7 +13,6 @@ public class Test_15_Переход_в_карточку_фильма extends Tes
     @DisplayName(value ="Переход в карточку фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void GoToCardFilm() {
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();

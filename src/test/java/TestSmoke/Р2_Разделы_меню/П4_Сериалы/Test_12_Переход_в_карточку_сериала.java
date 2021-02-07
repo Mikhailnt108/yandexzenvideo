@@ -13,7 +13,7 @@ public class Test_12_Переход_в_карточку_сериала extends T
     @DisplayName(value ="Переход в карточку сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void GoToCardSerial() {
         headerMenu.goToSerialsPage();
         serialsPage.clickToTailCardSerial();

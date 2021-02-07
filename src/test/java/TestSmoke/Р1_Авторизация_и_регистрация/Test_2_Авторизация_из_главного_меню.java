@@ -13,7 +13,6 @@ public class Test_2_Авторизация_из_главного_меню extend
     @DisplayName(value = "Авторизация из главного меню")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void loginFromHeaderMenu()  {
         headerMenu.goToNilPage();
         flowRegister();

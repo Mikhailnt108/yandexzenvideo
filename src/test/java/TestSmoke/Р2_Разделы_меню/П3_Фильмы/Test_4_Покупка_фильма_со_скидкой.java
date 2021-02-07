@@ -13,7 +13,6 @@ public class Test_4_Покупка_фильма_со_скидкой extends Test
     @DisplayName(value ="Покупка фильма со скидкой")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void paymentFilmWithDiscount() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();

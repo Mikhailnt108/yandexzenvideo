@@ -13,7 +13,6 @@ public class Test_17_Записываемая_ТВ_передача_18_плюс 
     @DisplayName(value ="Записываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void recordedNowTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();

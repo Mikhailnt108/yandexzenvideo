@@ -13,7 +13,6 @@ public class Test_7_Авторизация_из_карточки_Сериала 
     @DisplayName(value = "Авторизация из карточки Сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void loginFromCardSerial() {
         headerMenu.goToNilPage();
         flowRegistation();

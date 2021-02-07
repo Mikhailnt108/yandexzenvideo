@@ -13,7 +13,6 @@ public class Test_11_Фильтр_по_годам extends TestBase {
     @DisplayName(value ="Фильтр по годам")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void filterByYearFilms() {
         headerMenu.goToFilmsPage();
         filmsPage.clickOnYearInput();

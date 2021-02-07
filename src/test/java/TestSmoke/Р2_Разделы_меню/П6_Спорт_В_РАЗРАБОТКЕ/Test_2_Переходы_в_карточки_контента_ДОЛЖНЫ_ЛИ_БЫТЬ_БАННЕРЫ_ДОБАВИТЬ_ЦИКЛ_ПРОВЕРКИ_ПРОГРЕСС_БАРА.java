@@ -13,7 +13,7 @@ public class Test_2_Переходы_в_карточки_контента_ДОЛ
     @DisplayName(value ="Переходы в карточки контента")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
+
     public void goToContentCards() {
         headerMenu.goToSportPage();
         sportPage.clickToTailTvChannel();

@@ -15,7 +15,6 @@ public class Test_5_Переход_в_карточку_ТВ_передачи_и�
     @DisplayName(value ="Переход в карточку ТВ передачи из подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void goToCardTvChannelFromCollection() {
         headerMenu.goToNilPage();
         tvPage.clickToTailCardTvProgram();

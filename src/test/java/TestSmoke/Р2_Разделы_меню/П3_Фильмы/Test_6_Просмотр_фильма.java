@@ -13,7 +13,6 @@ public class Test_6_Просмотр_фильма extends TestBase {
     @DisplayName(value ="Просмотр фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void testFullScreenPleer() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

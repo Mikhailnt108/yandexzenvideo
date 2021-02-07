@@ -15,7 +15,6 @@ public class Test_1_Пролистывание_подборки extends TestBase
     @DisplayName(value = "Пролистывание подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void scrollCollection() throws Exception {
         headerMenu.goToNilPage();
         nilPage.scrollСollectionToRight();

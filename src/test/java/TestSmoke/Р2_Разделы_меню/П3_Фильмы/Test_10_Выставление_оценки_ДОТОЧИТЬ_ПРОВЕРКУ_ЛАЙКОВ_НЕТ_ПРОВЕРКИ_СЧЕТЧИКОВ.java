@@ -13,7 +13,6 @@ public class Test_10_Выставление_оценки_ДОТОЧИТЬ_ПРО
     @DisplayName(value ="Выставление оценки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void ratingFilm() {
         headerMenu.goToFilmsPage();
         flowRegistation();

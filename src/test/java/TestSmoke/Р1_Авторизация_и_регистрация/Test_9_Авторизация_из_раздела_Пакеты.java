@@ -13,7 +13,6 @@ public class Test_9_Авторизация_из_раздела_Пакеты exte
     @DisplayName(value = "Авторизация из раздела Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void loginFromPackagesPage() {
         headerMenu.goToNilPage();
         flowRegistation();

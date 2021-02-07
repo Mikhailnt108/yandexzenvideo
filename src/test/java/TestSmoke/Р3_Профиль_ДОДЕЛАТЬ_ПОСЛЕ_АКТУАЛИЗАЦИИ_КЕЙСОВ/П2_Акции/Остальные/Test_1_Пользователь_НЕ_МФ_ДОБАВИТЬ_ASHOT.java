@@ -1,4 +1,4 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции.Остальные;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.Остальные;
 
 import base.TestBase;
 import io.qameta.allure.Epic;
@@ -14,7 +14,7 @@ public class Test_1_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT ex
     @DisplayName(value ="Пользователь НЕ_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void userNotMegafon() {
+    public void userNotMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();
         headerMenu.openSubsectionPromo();

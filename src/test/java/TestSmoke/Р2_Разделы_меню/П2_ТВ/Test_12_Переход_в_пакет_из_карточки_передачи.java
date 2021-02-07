@@ -13,7 +13,6 @@ public class Test_12_Переход_в_пакет_из_карточки_пере
     @DisplayName(value ="Переход в пакет из карточки передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
      public void goToPackageFromCardTvProgram() {
          headerMenu.goToTvPage();
          flowRegistation();

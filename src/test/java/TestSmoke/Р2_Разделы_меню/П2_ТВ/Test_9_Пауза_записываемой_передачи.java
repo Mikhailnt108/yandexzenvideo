@@ -13,7 +13,6 @@ public class Test_9_Пауза_записываемой_передачи extends
     @DisplayName(value ="Пауза записываемой передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void pauseTvProgramInRecording() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

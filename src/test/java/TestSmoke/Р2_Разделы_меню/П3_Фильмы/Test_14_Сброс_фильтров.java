@@ -13,7 +13,6 @@ public class Test_14_Сброс_фильтров extends TestBase {
     @DisplayName(value ="Сброс фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void resetAllFilters() {
         headerMenu.goToFilmsPage();
         filmsPage.clickOnCountryInput();

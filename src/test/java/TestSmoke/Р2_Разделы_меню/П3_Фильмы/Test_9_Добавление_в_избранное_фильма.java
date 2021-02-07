@@ -13,7 +13,6 @@ public class Test_9_Добавление_в_избранное_фильма exte
     @DisplayName(value ="Добавление_в_избранное_фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Disabled
     public void AddingFilmToFavorites() {
         headerMenu.goToFilmsPage();
         flowRegistation();
