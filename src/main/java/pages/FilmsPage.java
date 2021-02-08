@@ -179,7 +179,7 @@ public class FilmsPage extends BasePage {
         for (int i = 0; i <= 5; i++) {
             CollectionPackages = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionPackages.get(i).click();
-            driver.findElement(By.xpath("//span[text()='По акции на 48 часов за 0 ₽']"));
+            Assert.assertEquals("Нет кнопки 'По акции на 48 часов за 0 ₽' на странице","По акции на 48 часов за 0 ₽", driver.findElement(By.xpath("//span[text()='По акции на 48 часов за 0 ₽']")).getText());
             driver.navigate().back();
         }
     }

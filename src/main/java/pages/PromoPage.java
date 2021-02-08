@@ -64,15 +64,18 @@ public class PromoPage extends BasePage {
 
     public void clickButtonGoToFilms() {
         click(By.linkText("Перейти к фильмам"));
-        isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
-        isElementDisplayed(By.xpath("//div[text()='По акции']"));
+        Assert.assertEquals("Нет заголовока 'Фильмы' на странице","Фильмы", driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals("Нет таба 'По акции' на странице","По акции", driver.findElement(By.xpath("//div[text()='По акции']")).getText());
+        //isElementDisplayed(By.xpath("//div[text()='По акции']"));
 
     }
 
     public void clickButtonGoToPackage() {
         click(By.linkText("Перейти в пакет"));
-        isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
-        isElementDisplayed(By.xpath("//div[contains(text(), 'Входит')]"));
+        Assert.assertEquals("Нет заголовка 'Пакеты' на стрвнице","Пакеты", driver.findElement(By.xpath("//span[text()='Пакеты']")).getText());
+        //isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
+        Assert.assertEquals("Нет статуса 'Входит в ваш тариф' на стрвнице","Входит", driver.findElement(By.xpath("//div[contains(text(),'Входит')]")).getText());
+        //isElementDisplayed(By.xpath("//div[contains(text(), 'Входит')]"));
     }
 
     public void checkListOfTariff() {
@@ -95,12 +98,12 @@ public class PromoPage extends BasePage {
         isElementDisplayed(By.xpath("//div[text()='Ваша тарифная опция в МегаФоне']"));
         isElementDisplayed(By.xpath("//div[text()='Вам доступно без оплаты:']"));
         isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
-        Assert.assertEquals("Акции", driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals("Не отображается заголовок 'Акции'","Акции", driver.findElement(By.tagName("h1")).getText());
         click(By.xpath("(//a[@class='aeD2NhkcvTTw9nWXBCWBE'])[1]"));
-        Assert.assertEquals(1, driver.findElements(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span")).size());
-        Assert.assertEquals("Скрыть", driver.findElement(By.linkText("Скрыть")).getText());
+        Assert.assertEquals("Текст не расскрыт" ,1, driver.findElements(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span")).size());
+        Assert.assertEquals("Кнопка 'Скрыт' не отображается","Скрыть", driver.findElement(By.linkText("Скрыть")).getText());
         click(By.linkText("Скрыть"));
-        Assert.assertEquals("Подробнее", driver.findElement(By.linkText("Подробнее")).getText());
-        Assert.assertEquals(0, driver.findElements(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span")).size());
+        Assert.assertEquals("Кнопка 'Подробнее' не отображается","Подробнее", driver.findElement(By.linkText("Подробнее")).getText());
+        Assert.assertEquals("Текст не скрыт",0,driver.findElements(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span")).size());
     }
 }

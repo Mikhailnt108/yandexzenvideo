@@ -5,18 +5,20 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_3_Переход_на_страницу_Пакета extends TestBase {
+public class Test_2_Переход_в_раздел_Фильмы_АКТУАЛЕН_08_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "1. Акции")
-    @DisplayName(value ="Переход на страницу Пакета")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToPackagePage() throws InterruptedException {
+    public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
+        pageCMS.chooseBundleFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.clickButtonGoToPackage();
+        promoPage.clickButtonGoToFilms();
+        filmsPage.checkFilmsPromo();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {
