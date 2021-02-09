@@ -6,7 +6,7 @@ import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
 
-public class Test_2_Авторизация_из_главного_меню extends TestBase {
+public class Test_02_Авторизация_из_главного_меню extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")

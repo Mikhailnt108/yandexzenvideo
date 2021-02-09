@@ -74,8 +74,8 @@ public class PromoPage extends BasePage {
         click(By.linkText("Перейти в пакет"));
         Assert.assertEquals("Нет заголовка 'Пакеты' на стрвнице","Пакеты", driver.findElement(By.xpath("//span[text()='Пакеты']")).getText());
         //isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
-        Assert.assertEquals("Нет статуса 'Входит в ваш тариф' на стрвнице","Входит", driver.findElement(By.xpath("//div[contains(text(),'Входит')]")).getText());
-        //isElementDisplayed(By.xpath("//div[contains(text(), 'Входит')]"));
+        //Assert.assertEquals("Нет статуса 'Входит в ваш тариф' на стрвнице","Входит в ваш тариф", driver.findElement(By.xpath("//div[contains(text(),'Входит')]")).getText());
+        isElementDisplayed(By.xpath("//div[contains(text(), 'Входит')]"));
     }
 
     public void checkListOfTariff() {

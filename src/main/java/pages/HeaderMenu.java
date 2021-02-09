@@ -37,42 +37,117 @@ public class HeaderMenu extends BasePage {
     }
 
     public void goToNilPage() {
-        driver.get(NIL_Page_PP2);
+        driver.get(NIL_Page_PP1);
     }
 
     public void goToTvPage() {
-        driver.get(TV_Page_PP2);
+        driver.get(TV_Page_PP1);
     }
 
 
-    public void goToFilmsPage() {driver.get(Films_Page_PP2);
+    public void goToFilmsPage() {driver.get(Films_Page_PP1);
     isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
     }
 
     public void goToSerialsPage() {
-        driver.get(Serials_Page_PP2);
+        driver.get(Serials_Page_PP1);
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
     }
 
     public void goToKidsPage() {
-        driver.get(Kids_Page_PP2);
+        driver.get(Kids_Page_PP1);
         isElementDisplayed(By.xpath("//span[text()='Детям']"));
     }
     public void goToSportPage() {
-        driver.get(Sport_Page_PP2);
+        driver.get(Sport_Page_PP1);
         isElementDisplayed(By.xpath("//h1[text()='Спорт']"));
     }
         public void goToPackagesPage() {
-        driver.get(Packages_Page_PP2);
+        driver.get(Packages_Page_PP1);
         isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
         }
         public void goToAllCollectionsPage() {
-        driver.get(Collections_Page_PP2);
+        driver.get(Collections_Page_PP1);
         isElementDisplayed(By.xpath("//span[text()='Подборки']"));
         isElementDisplayed(By.xpath("//button[contains(text(), 'Следующая')]"));
     }
 
+    public void checkOpenFrameCreatePassword(String login, String password) {
+        isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
+        if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size()!=0)
 
+        {
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+            ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+            driver.switchTo().window((String) tabs2.get(1));
+            click(By.xpath("//form[@method='GET']//input[1]"));
+            writeText(By.xpath("//form[@method='GET']//input[1]"), "79260192144");
+            click(By.xpath("//button[text()='Поиск']"));
+            isElementDisplayed(By.xpath("//td[text()='79260192144']"));
+            click(By.xpath("//a[contains(@href, '/cms/households/')]"));
+            isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+            click(By.xpath("//button[text()='Удалить']"));
+            driver.close();
+            driver.switchTo().window((String) tabs2.get(0));
+            driver.navigate().refresh();
+            isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
+            click(By.xpath("(//span[text()='Вход'])[1]"));
+            isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
+            WebElement element = driver.findElement(By.xpath("//input[@value='+7 ']"));
+            element.sendKeys(login);
+            click(By.xpath("//button[text()='Далее']"));
+            isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']"));
+            WebElement element1 = driver.findElement(By.xpath("//input[@type='password']"));
+            element1.sendKeys(password);
+        }
+        else {
+            WebElement element1 = driver.findElement(By.xpath("//input[@type='password']"));
+            element1.sendKeys(password);
+        }
+
+    }
+
+    public void connectSmartTv() {
+        ((JavascriptExecutor) driver).executeScript("window.open('http://staging-smart-nettv.megafon.tv/#scene/start')");
+        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window((String) tabs2.get(1));
+        //click(By.xpath("//div[@data-type='preprod1']"));
+        click(By.xpath("//div[@data-type='preprod2']"));
+        click(By.xpath("(//div[@data-action='back']//div)[1]"));
+        waitVisibility(By.xpath("(//div[@data-action='tile'])[1]"));
+        isElementDisplayed(By.xpath("//div[@data-action='openMainMenu']"));
+        click(By.cssSelector("div#side-menu>div>div"));
+        click(By.xpath("//div[@data-action='down']"));
+        click(By.xpath("//div[@data-action='down']"));
+        click(By.xpath("//div[@data-action='down']"));
+        click(By.xpath("//div[@data-action='down']"));
+        click(By.xpath("//div[text()[normalize-space()='Вход']]"));
+        String codSmartTv = driver.findElement(By.xpath("//div[@class='enter-msisdn-pair__code js-code']")).getText();
+        //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
+        driver.switchTo().window((String) tabs2.get(0));
+        //перезалогиниться тем же юзером
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[text()='Выйти'])[1]"));
+        isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
+        click(By.xpath("(//span[text()='Вход'])[1]"));
+        WebElement element = driver.findElement(By.xpath("//input[@value='+7 ']"));
+        element.sendKeys("9260192144");
+        click(By.xpath("//button[text()='Далее']"));
+        WebElement element2 = driver.findElement(By.xpath("//input[@type='password']"));
+        element2.sendKeys("111111");
+        click(By.xpath("//button[text()='Войти']"));
+        isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(), 'Вам доступно')]"));
+        click(By.xpath("//button[text()='Закрыть']"));
+        //подключить смарт тв
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[text()='Подключить SmartTV'])[1]"));
+        isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
+        driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codSmartTv);
+        click(By.xpath("//button[text()='Подключить Smart TV']"));
+        isElementDisplayed(By.xpath("//div[text()='SmartTV подключен!']"));
+        click(By.xpath("//button[text()='Закрыть']"));
+    }
 
     public HeaderMenu checkNotLoggedIsCorrect() {
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
@@ -88,8 +163,16 @@ public class HeaderMenu extends BasePage {
     public void checkLoginUserIsCorrect() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size()!=0)
+        {
+            //isElementDisplayed(By.xpath("//h3[contains(text(), 'Хочешь')]"));
+            click(By.xpath("//button[text()='Нет']"));
+            driver.navigate().refresh();
+        }
+
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Вам доступно')]"));
         click(By.xpath("//button[text()='Закрыть']"));
+
     }
 
     public void clickToButtonPromo() {
@@ -172,47 +255,7 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("//span[text()='+7 926 019 21 44']"));
     }
 
-    public void connectSmartTv() {
-        ((JavascriptExecutor) driver).executeScript("window.open('http://staging-smart-nettv.megafon.tv/#scene/start')");
-        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window((String) tabs2.get(1));
-        //click(By.xpath("//div[@data-type='preprod1']"));
-        click(By.xpath("//div[@data-type='preprod2']"));
-        click(By.xpath("(//div[@data-action='back']//div)[1]"));
-        waitVisibility(By.xpath("(//div[@data-action='tile'])[1]"));
-        isElementDisplayed(By.xpath("//div[@data-action='openMainMenu']"));
-        click(By.cssSelector("div#side-menu>div>div"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[text()[normalize-space()='Вход']]"));
-        String codSmartTv = driver.findElement(By.xpath("//div[@class='enter-msisdn-pair__code js-code']")).getText();
-        //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
-        driver.switchTo().window((String) tabs2.get(0));
-        //перезалогиниться тем же юзером
-        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
-        click(By.xpath("(//span[text()='Выйти'])[1]"));
-        isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
-        click(By.xpath("(//span[text()='Вход'])[1]"));
-        WebElement element = driver.findElement(By.xpath("//input[@value='+7 ']"));
-        element.sendKeys("9260192144");
-        click(By.xpath("//button[text()='Далее']"));
-        WebElement element2 = driver.findElement(By.xpath("//input[@type='password']"));
-        element2.sendKeys("111111");
-        click(By.xpath("//button[text()='Войти']"));
-        isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Вам доступно')]"));
-        click(By.xpath("//button[text()='Закрыть']"));
-        //подключить смарт тв
-        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
-        click(By.xpath("(//span[text()='Подключить SmartTV'])[1]"));
-        isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
-        driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codSmartTv);
-        click(By.xpath("//button[text()='Подключить Smart TV']"));
-        isElementDisplayed(By.xpath("//div[text()='SmartTV подключен!']"));
-        click(By.xpath("//button[text()='Закрыть']"));
-    }
+
 
 
     public void checkOpenFrameInputPhone() {
@@ -266,40 +309,7 @@ public class HeaderMenu extends BasePage {
         click(By.xpath("(//span[text()='Выйти'])[1]"));
     }
 
-    public void checkOpenFrameCreatePassword(String login, String password) {
-        isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
-        if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size()!=0)
 
-        {
-            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
-            ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
-            driver.switchTo().window((String) tabs2.get(1));
-            click(By.xpath("//form[@method='GET']//input[1]"));
-            writeText(By.xpath("//form[@method='GET']//input[1]"), "79260192144");
-            click(By.xpath("//button[text()='Поиск']"));
-            isElementDisplayed(By.xpath("//td[text()='79260192144']"));
-            click(By.xpath("//a[contains(@href, '/cms/households/')]"));
-            isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
-            click(By.xpath("//button[text()='Удалить']"));
-            driver.close();
-            driver.switchTo().window((String) tabs2.get(0));
-            driver.navigate().refresh();
-            isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
-            click(By.xpath("(//span[text()='Вход'])[1]"));
-            isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-            WebElement element = driver.findElement(By.xpath("//input[@value='+7 ']"));
-            element.sendKeys(login);
-            click(By.xpath("//button[text()='Далее']"));
-            isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']"));
-            WebElement element1 = driver.findElement(By.xpath("//input[@type='password']"));
-            element1.sendKeys(password);
-        }
-        else {
-            WebElement element1 = driver.findElement(By.xpath("//input[@type='password']"));
-            element1.sendKeys(password);
-        }
-
-    }
 
     public void checkOpenFrameInputCod() {
         isElementDisplayed(By.xpath("//div[text()='Введите код']"));

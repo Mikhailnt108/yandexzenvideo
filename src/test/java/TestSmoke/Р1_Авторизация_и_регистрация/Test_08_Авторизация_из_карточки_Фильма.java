@@ -6,40 +6,25 @@ import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
 
-public class Test_6_Авторизация_из_карточки_Передачи extends TestBase {
+public class Test_08_Авторизация_из_карточки_Фильма extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация из карточки Передачи")
+    @DisplayName(value = "Авторизация из карточки Фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardTvProgram() {
+    public void loginFromCardFilm() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabPackages();
-        packagesPage.checkOpenPackagesPage();
-        packagesPage.clickToTabTvСhannelInMenuPackagesPage();
-        packagesPage.clickToTailCardPackageTvChannel();
-        cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickTailCardChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.clickTvProgramInCardChannel();
-        cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
+        headerMenu.clickToTabFilms();
+        filmsPage.checkOpenFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.clickPaymentButtonInCardFilm();
         flowAutorisation();
         pageCMS.deleteAccount();
-    }
-
-    private void flowAutorisation() {
-        headerMenu.checkOpenFrameInputPhone();
-        headerMenu.inputLogin("9260192144");
-        headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
     }
 
     private void flowRegistation() {
@@ -53,6 +38,16 @@ public class Test_6_Авторизация_из_карточки_Передач�
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenFrameInputCod();
         pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
+    }
+
+    private void flowAutorisation() {
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameInputPassword();
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }

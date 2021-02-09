@@ -6,23 +6,24 @@ import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
 
-public class Test_7_Авторизация_из_карточки_Сериала extends TestBase {
+public class Test_05_Авторизация_из_карточки_Пакета_Сериалов extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация из карточки Сериала")
+    @DisplayName(value = "Авторизация из карточки Пакета Сериалов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardSerial() {
+    public void loginFromCardPackageSerials() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabSerials();
-        serialsPage.checkOpenSerialsPage();
-        serialsPage.clickToTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.clickPaymentButtonInCardSerial();
+        headerMenu.clickToTabPackages();
+        packagesPage.checkOpenPackagesPage();
+        packagesPage.clickToTabSerialsInMenuPackagesPage();
+        packagesPage.clickToTailCardPackageSerials();
+        cardPackage.checkOpenCardPackageSerials();
+        cardPackage.clickPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccount();
     }
@@ -36,6 +37,7 @@ public class Test_7_Авторизация_из_карточки_Сериала 
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

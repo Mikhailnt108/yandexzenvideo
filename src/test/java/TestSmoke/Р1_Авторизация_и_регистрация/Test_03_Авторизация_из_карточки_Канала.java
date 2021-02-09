@@ -5,24 +5,38 @@ import io.qameta.allure.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
-
-public class Test_9_Авторизация_из_раздела_Пакеты extends TestBase {
+public class Test_03_Авторизация_из_карточки_Канала extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация из раздела Пакеты")
+    @DisplayName(value = "Авторизация из карточки Канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromPackagesPage() {
+    public void loginFromCardTvChannel() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToTabPackages();
         packagesPage.checkOpenPackagesPage();
-        packagesPage.clickButtonOnTailCardPackage("Подключить");
+        packagesPage.clickToTabTvСhannelInMenuPackagesPage();
+        packagesPage.clickToTailCardPackageTvChannel();
+        cardPackage.checkOpenCardPackageTvChannel();
+        cardPackage.clickTailCardChannel();
+        cardTvChannel.checkOpenCardTvProgram();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
         flowAutorisation();
         pageCMS.deleteAccount();
+    }
+
+    private void flowAutorisation() {
+        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenFrameInputPassword();
+        headerMenu.inputPassword("111111");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrect();
     }
 
     private void flowRegistation() {
@@ -36,16 +50,6 @@ public class Test_9_Авторизация_из_раздела_Пакеты exte
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenFrameInputCod();
         pageCMS.copyPasteCodMsisdn("79260192144");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
-    }
-
-    private void flowAutorisation() {
-        headerMenu.checkOpenFrameInputPhone();
-        headerMenu.inputLogin("9260192144");
-        headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }

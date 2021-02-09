@@ -6,23 +6,21 @@ import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
 
-public class Test_8_Авторизация_из_карточки_Фильма extends TestBase {
+public class Test_09_Авторизация_из_раздела_Пакеты extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация из карточки Фильма")
+    @DisplayName(value = "Авторизация из раздела Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardFilm() {
+    public void loginFromPackagesPage() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabFilms();
-        filmsPage.checkOpenFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.clickPaymentButtonInCardFilm();
+        headerMenu.clickToTabPackages();
+        packagesPage.checkOpenPackagesPage();
+        packagesPage.clickButtonOnTailCardPackage("Подключить");
         flowAutorisation();
         pageCMS.deleteAccount();
     }

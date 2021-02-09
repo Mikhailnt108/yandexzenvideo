@@ -5,14 +5,14 @@ import io.qameta.allure.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 
-public class Test_3_Авторизация_из_карточки_Канала extends TestBase {
+public class Test_04_Авторизация_из_карточки_Пакета_Каналов extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация из карточки Канала")
+    @DisplayName(value = "Авторизация из карточки Пакета Каналов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardTvChannel() {
+    public void loginFromCardPackageTvChannel() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
@@ -22,9 +22,7 @@ public class Test_3_Авторизация_из_карточки_Канала ex
         packagesPage.clickToTabTvСhannelInMenuPackagesPage();
         packagesPage.clickToTailCardPackageTvChannel();
         cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickTailCardChannel();
-        cardTvChannel.checkOpenCardTvProgram();
-        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        cardPackage.clickPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccount();
     }
