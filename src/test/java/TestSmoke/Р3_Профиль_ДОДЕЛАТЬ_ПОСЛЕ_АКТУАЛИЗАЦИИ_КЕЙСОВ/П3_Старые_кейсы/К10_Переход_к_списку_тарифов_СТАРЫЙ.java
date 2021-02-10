@@ -1,22 +1,25 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П3_Другие_кнопки;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П3_Старые_кейсы;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_2_Подключить_Smart_TV extends TestBase {
+public class К10_Переход_к_списку_тарифов_СТАРЫЙ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "2. Другие кнопки")
-    @DisplayName(value ="Подключить Smart_TV")
+    @Story(value = "1. Акции")
+    @DisplayName(value ="Переход к списку тарифов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void ConnectSmartTv() {
+    public void goToListOfTariff() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.connectSmartTv();
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
+        headerMenu.openSubsectionPromo();
+        promoPage.checkListOfTariff();
         pageCMS.deleteAccount();
+
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

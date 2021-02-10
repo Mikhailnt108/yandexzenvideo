@@ -1,23 +1,23 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.пп1_ТП_БезПереплат_АКТУАЛЕН_10_02_21;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции.пп3_Остальные;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_БезПереплат_Интернет_АКТУАЛЕН_10_02_21 extends TestBase {
+public class Test_01_Корпоративный_безлимит_АКТУАЛЕН_10_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="БезПереплат.Интернет")
+    @DisplayName(value ="Корпоративный безлимит")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void bundlBezPereplatMax() throws InterruptedException {
+    public void bundleCorpBezlimit() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleBezPereplatInternetFromMsisdn("79260192144");
+        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.checkBundleBezPereplatInternet();
+        promoPage.checkBundleCorpBezlimit();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

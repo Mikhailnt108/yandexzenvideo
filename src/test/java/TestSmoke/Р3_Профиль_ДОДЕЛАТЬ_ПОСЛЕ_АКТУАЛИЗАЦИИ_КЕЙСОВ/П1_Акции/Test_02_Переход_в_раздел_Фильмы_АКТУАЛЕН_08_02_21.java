@@ -1,24 +1,24 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.пп2_ТП_VIP_or_Премиум;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Премиум_АКТУАЛЕН_10_02_21 extends TestBase {
+public class Test_02_Переход_в_раздел_Фильмы_АКТУАЛЕН_08_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Премиум")
+    @DisplayName(value ="Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    public void bundlPremium() throws InterruptedException {
+    public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundlePremiumFromMsisdn("79260192144");
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.checkBundlePremium();
+        promoPage.clickButtonGoToFilms();
+        filmsPage.checkFilmsPromo();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

@@ -106,13 +106,23 @@ public class HeaderMenu extends BasePage {
         }
 
     }
+    public void noConnectSmartTv() {
+        String invalidСodSmartTv = "12345";
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[text()='Подключить SmartTV'])[1]"));
+        isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
+        driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(invalidСodSmartTv);
+        click(By.xpath("//button[text()='Подключить Smart TV']"));
+        Assert.assertEquals("Нет текста 'Неверный код'","Неверный код", driver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
+        click(By.className("_1bciqjt58pgm0il2tiJTtp"));
+
+    }
 
     public void connectSmartTv() {
         ((JavascriptExecutor) driver).executeScript("window.open('http://staging-smart-nettv.megafon.tv/#scene/start')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
-        //click(By.xpath("//div[@data-type='preprod1']"));
-        click(By.xpath("//div[@data-type='preprod2']"));
+        click(By.xpath("//div[@data-type='preprod1']"));
         click(By.xpath("(//div[@data-action='back']//div)[1]"));
         waitVisibility(By.xpath("(//div[@data-action='tile'])[1]"));
         isElementDisplayed(By.xpath("//div[@data-action='openMainMenu']"));
@@ -124,6 +134,7 @@ public class HeaderMenu extends BasePage {
         click(By.xpath("//div[text()[normalize-space()='Вход']]"));
         String codSmartTv = driver.findElement(By.xpath("//div[@class='enter-msisdn-pair__code js-code']")).getText();
         //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
+        driver.close();
         driver.switchTo().window((String) tabs2.get(0));
         //перезалогиниться тем же юзером
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
@@ -143,7 +154,8 @@ public class HeaderMenu extends BasePage {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Подключить SmartTV'])[1]"));
         isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
-        driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codSmartTv);
+        writeText(By.xpath("//input[@placeholder='Код подтверждения']"), codSmartTv);
+        //driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codSmartTv);
         click(By.xpath("//button[text()='Подключить Smart TV']"));
         isElementDisplayed(By.xpath("//div[text()='SmartTV подключен!']"));
         click(By.xpath("//button[text()='Закрыть']"));
@@ -250,9 +262,9 @@ public class HeaderMenu extends BasePage {
     public void openSubsectionPaymentMethod() {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Способы оплаты'])[1]"));
-        isElementDisplayed(By.xpath("(//span[text()='Способы оплаты'])[4]"));
-        isElementDisplayed(By.xpath("//div[text()='Счет основного номера телефона']"));
-        isElementDisplayed(By.xpath("//span[text()='+7 926 019 21 44']"));
+        Assert.assertEquals("Нет заголовока 'Способы оплаты'","Способы оплаты", driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals("Нет текста 'Счет основного номера телефона'","Счет основного номера телефона",driver.findElement(By.xpath("//div[text()='Счет основного номера телефона']")).getText());
+        Assert.assertEquals("Нет текста '+7 926 019 21 44'","+7 926 019 21 44", driver.findElement(By.xpath("//span[text()='+7 926 019 21 44']")).getText());
     }
 
 
@@ -321,6 +333,8 @@ public class HeaderMenu extends BasePage {
     public void checkLoginUserIsCorrectAfterForgetPassword() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
     }
+
+
 }
 
 

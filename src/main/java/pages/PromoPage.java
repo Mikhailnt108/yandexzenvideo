@@ -25,6 +25,9 @@ public class PromoPage extends BasePage {
     public void checkNotMegafon() {
         isElementDisplayed(By.xpath("//div[contains(text(),'Переходите в МегаФон с')]"));
         isElementDisplayed((By.xpath("//button[text()='Перейти']")));
+        Assert.assertEquals("Нет кнопки 'Перейти'",1, driver.findElements(By.xpath("//button[text()='Перейти']")).size());
+        isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
+        isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
     }
 
     public void clickToButtonGoOver() {
@@ -196,5 +199,28 @@ public class PromoPage extends BasePage {
         Assert.assertEquals("Не найдено:",0, driver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
         isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
         isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
+    }
+
+    public void checkBundleCorpBezlimit() {
+        isElementDisplayed(By.xpath("(//span[text()='Акции'])[3]"));
+        isElementDisplayed(By.xpath("//div[text()='Ваша тарифная опция в МегаФоне']|//div[text()='Ваш тарифный план в МегаФоне']"));
+        isElementDisplayed(By.xpath("//div[text()='Корпоративный безлимит']"));
+        //Assert.assertEquals("Не найден текст: 'Без переплат. Всё'", "Ваш тарифный план в МегаФоне Без переплат. Всё", driver.findElement(By.xpath("//div[text()='Без переплат. Максимум']")).getText());
+        isElementDisplayed(By.xpath("//div[text()='Вам доступно без оплаты:']"));
+        Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", driver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());
+        isElementDisplayed(By.xpath("//div[text()='При просмотре видео контента через мобильную сеть МегаФона интернет трафик для номера + 7 926 019 21 44 не тарифицируется']"));
+        Assert.assertEquals("Не найден текст: 'Пакет «МегаФон Бизнес»'","Пакет «МегаФон Бизнес»", driver.findElement(By.xpath("//div[text()='Пакет «МегаФон Бизнес»']")).getText());
+        Assert.assertEquals("Не найдено:",0, driver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
+        isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
+        isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
+    }
+
+    public void checkBundleOsnovnoy() {
+        isElementDisplayed(By.xpath("(//span[text()='Акции'])[3]"));
+        isElementDisplayed(By.xpath("//div[text()='Ваша тарифная опция в МегаФоне']|//div[text()='Ваш тарифный план в МегаФоне']"));
+        isElementDisplayed(By.xpath("//div[text()='Основной']"));
+        isElementDisplayed(By.xpath("//div[text()='Вы абонент МегаФон']"));
+        isElementDisplayed(By.xpath("//div[text()='Ваш МегаФон.ТВ может больше!']"));
+
     }
 }

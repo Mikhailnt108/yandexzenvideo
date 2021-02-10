@@ -1,21 +1,22 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П3_Другие_кнопки;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Другие_кнопки;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_3_Email_УТОЧНИТЬ_СОХРАНЕНИЕ_EMAIL extends TestBase {
+public class Test_02_Подключить_Smart_TV_ДОБАВИТЬ_ASHOT_АКТУАЛЕН_10_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Другие кнопки")
-    @DisplayName(value ="Email")
+    @DisplayName(value ="Подключить Smart_TV")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void email() {
+    public void ConnectSmartTv() {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.inputEmail();
+        headerMenu.noConnectSmartTv();
+        headerMenu.connectSmartTv();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

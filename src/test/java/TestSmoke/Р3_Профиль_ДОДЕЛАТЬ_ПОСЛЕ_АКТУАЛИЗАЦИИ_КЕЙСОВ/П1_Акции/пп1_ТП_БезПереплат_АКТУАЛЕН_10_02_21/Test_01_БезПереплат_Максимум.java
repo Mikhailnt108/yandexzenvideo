@@ -1,22 +1,24 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции.пп1_ТП_БезПереплат_АКТУАЛЕН_10_02_21;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_1_Тариф_не_определился_юзер_МФ_СТАРЫЙ extends TestBase {
+public class Test_01_БезПереплат_Максимум extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @DisplayName(value ="Тариф не определился юзер_МФ")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="БезПереплат.Максимум")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void tariffNotDefined() throws InterruptedException {
+
+    public void bundlBezPereplatMax() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseNotDefinedTariff();
+        pageCMS.chooseBundleBezPereplatMaxFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.checkNotDefinedTariff();
+        promoPage.checkBundleBezPereplatMax();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

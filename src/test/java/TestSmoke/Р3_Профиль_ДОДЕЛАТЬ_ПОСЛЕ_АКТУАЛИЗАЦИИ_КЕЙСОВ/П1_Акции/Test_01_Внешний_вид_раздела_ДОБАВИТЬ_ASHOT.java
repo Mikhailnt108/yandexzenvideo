@@ -1,25 +1,29 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.пп1_ТП_БезПереплат_АКТУАЛЕН_10_02_21;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П1_Акции;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_01_БезПереплат_Максимум_АКТУАЛЕН_10_02_21 extends TestBase {
+import java.awt.*;
+import java.io.IOException;
+
+public class Test_01_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="БезПереплат.Максимум")
+    @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    public void bundlBezPereplatMax() throws InterruptedException {
+    public void checkScreenshotPromo() throws AWTException, IOException, InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleBezPereplatMaxFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.checkBundleBezPereplatMax();
+        promoPage.checkElementsWithoutBlockPersonalOffer();
+        promoPage.imageDifferBlockTarif();
+        promoPage.imageDifferBlockPromotions();
         pageCMS.deleteAccount();
+
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -1,4 +1,4 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.пп3_Остальные;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П3_Старые_кейсы;
 
 import base.TestBase;
 import io.qameta.allure.Epic;
@@ -8,18 +8,18 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_1_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT extends TestBase {
+public class Test_10_Финблок_юзер_МФ_СТАРЫЙ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @DisplayName(value ="Пользователь НЕ_МФ")
+    @DisplayName(value ="Финблок юзер_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void userNotMegafon() throws InterruptedException {
+    public void financialBlockingMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();
         headerMenu.openSubsectionPromo();
-        promoPage.checkNotMegafon();
-        promoPage.clickToButtonGoOver();
+        promoPage.checkBlockingMegafon();
+        promoPage.clickToButtonTopUpPhoneBalance();
         pageCMS.deleteAccount();
     }
 
@@ -27,15 +27,14 @@ public class Test_1_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT ex
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         popUpInputPhone.checkOpenFrameInputPhone();
-        popUpInputPhone.inputLogin("9261184972");
+        popUpInputPhone.inputLogin("9250402866");
         popUpInputPhone.clickToNext("Далее");
-        popUpInputEmail.inputEmail("ispolnitel1mt@yandex.ru");
         popUpCreatePassword.checkOpenFrameCreatePassword();
         popUpCreatePassword.inputPassword("111111");
         popUpCreatePassword.clickToComeIn("Войти");
         popUpInputCod.checkOpenFrameInputCod();
-        pageCMS.copyPasteCodMsisdnForNotMF("79261184972");
+        pageCMS.copyPasteCodMsisdnBlockingMf("79250402866");
         popUpInputCod.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectForNotMegafon();
+        headerMenu.checkLoginUserIsCorrect();
     }
 }
