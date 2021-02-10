@@ -1,4 +1,4 @@
-package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.ТП_VIP_or_Премиум;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.пп2_ТП_VIP_or_Премиум;
 
 import base.TestBase;
 import io.qameta.allure.Epic;
@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_1_Пользователь_VIP_ДОБАВИТЬ_ASHOT extends TestBase {
+public class Test_01_Пользователь_VIP_ДОБАВИТЬ_ASHOT_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_В_ТР extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Пользователь VIP")

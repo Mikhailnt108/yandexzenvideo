@@ -15,7 +15,7 @@ public class Test_2_Переход_в_раздел_Фильмы_АКТУАЛЕН
     public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleFromMsisdn("79260192144");
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.clickButtonGoToFilms();
         filmsPage.checkFilmsPromo();

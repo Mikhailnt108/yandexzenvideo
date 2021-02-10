@@ -1,27 +1,24 @@
-package TestSmoke.Р2_Разделы_меню.П3_Фильмы;
+package TestSmoke.Р3_Профиль_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_КЕЙСОВ.П2_Акции.пп2_ТП_VIP_or_Премиум;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_3_Аренда_фильма_за_бандл_НЕТ_Фильмов_по_акции_на_ПП1_на_ПП2_есть extends TestBase {
+public class Test_02_Премиум_АКТУАЛЕН_10_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
-    @DisplayName(value ="Аренда фильма за бандл")
+    @Feature(value = "3. Профиль")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="Премиум")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void PaymentFilmForRent2Promo() throws Exception {
-        headerMenu.goToFilmsPage();
+
+    public void bundlPremium() throws InterruptedException {
+        headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
-        filmsPage.clickOnFiltrPayment();
-        filmsPage.chooseTabPromo();
-        filmsPage.clickToTailCardFilmFromAvailable();
-        cardFilm.paymentFilmAtRent2Promo();
-        cardFilm.checkСounterAvailableFilms();
-        cardFilm.startVideoPleer();
+        pageCMS.chooseBundlePremiumFromMsisdn("79260192144");
+        headerMenu.openSubsectionPromo();
+        promoPage.checkBundlePremium();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {

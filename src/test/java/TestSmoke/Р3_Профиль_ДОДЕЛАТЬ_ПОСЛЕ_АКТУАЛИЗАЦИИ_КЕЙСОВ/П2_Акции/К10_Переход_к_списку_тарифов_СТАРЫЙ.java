@@ -15,7 +15,7 @@ public class К10_Переход_к_списку_тарифов_СТАРЫЙ ext
     public void goToListOfTariff() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleFromMsisdn("79260192144");
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkListOfTariff();
         pageCMS.deleteAccount();

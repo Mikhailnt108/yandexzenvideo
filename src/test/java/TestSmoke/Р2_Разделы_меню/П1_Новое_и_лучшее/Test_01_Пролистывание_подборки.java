@@ -7,21 +7,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_6_FAQ extends TestBase {
+public class Test_01_Пролистывание_подборки extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="FAQ")
+    @DisplayName(value = "Пролистывание подборки")
     @Severity(SeverityLevel.BLOCKER)
-
     @Test
-    public void checkFooter() {
+    public void scrollCollection() throws Exception {
         headerMenu.goToNilPage();
-        footer.clickToLinkFromDevices();
-        footer.clickToLinkFromSupport();
-        footer.clickToLinkFromSocialNetworks();
-        footer.clickToLinkFromDownloadApp();
-        footer.clickToLinkDocsAndRules();
+        nilPage.scrollСollectionToRight();
+        nilPage.scrollСollectionToLeft();
     }
 }

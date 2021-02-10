@@ -7,18 +7,21 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_3_Переход_в_карточку_фильма_из_подборки extends TestBase {
+public class Test_06_FAQ extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="Переход в карточку фильма из подборки")
+    @DisplayName(value ="FAQ")
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
-    public void goToCardFilmFromCollection(){
+    public void checkFooter() {
         headerMenu.goToNilPage();
-        nilPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
+        footer.clickToLinkFromDevices();
+        footer.clickToLinkFromSupport();
+        footer.clickToLinkFromSocialNetworks();
+        footer.clickToLinkFromDownloadApp();
+        footer.clickToLinkDocsAndRules();
     }
 }

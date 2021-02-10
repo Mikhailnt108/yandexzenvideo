@@ -7,18 +7,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_4_Переход_в_карточку_сериала_из_подборки extends TestBase {
+public class Test_02_Переход_в_подборку extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value ="Переход в карточку сериала из подборки")
+    @DisplayName(value ="Переход в подборку")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-        public void goToCardSerialFromCollection() {
+    public void goToCollectionPage() {
         headerMenu.goToNilPage();
-        nilPage.clickToTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-    }
-
+        headerMenu.clickToLinkAll();
+        collectionPage.checkOpenCollectionPage();
+   }
 }
