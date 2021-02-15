@@ -63,6 +63,8 @@ public class PromoPage extends BasePage {
     public void checkVipUser() {
         isElementDisplayed(By.xpath("//div[text()='Ошибка определения тарифного плана']"));
         isElementDisplayed(By.xpath("//span[contains(.,'Из-за проблемы определения Вашего тарифного плана участие в акциях временно недоступно.Если проблема повторяется, обратитесь в службу поддержки - help@megafon.tv')]"));
+        Assert.assertEquals("Не найден текст: 'Вам доступны акции'","Вам доступны акции", driver.findElement(By.xpath("//div[text()='Вам доступны акции']")).getText());
+        Assert.assertEquals("Не найден текст: 'Услуга без абонентской платы'","Услуга без абонентской платы", driver.findElement(By.xpath("//div[text()='Услуга без абонентской платы']")).getText());
     }
 
     public void clickButtonGoToFilms() {
@@ -197,8 +199,10 @@ public class PromoPage extends BasePage {
         Assert.assertEquals("Не найден текст: 'Пакет «START»'","Пакет «START»", driver.findElement(By.xpath("//div[text()='Пакет «START»']")).getText());
         Assert.assertEquals("Не найден текст: 'Пакет «more.tv»'","Пакет «more.tv»", driver.findElement(By.xpath("//div[text()='Пакет «more.tv»']")).getText());
         Assert.assertEquals("Не найдено:",0, driver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
-        isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
-        isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
+        //isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
+        //isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
+        Assert.assertEquals("Не найден текст: 'Вам доступны акции'","Вам доступны акции", driver.findElement(By.xpath("//div[text()='Вам доступны акции']")).getText());
+        Assert.assertEquals("Не найден текст: 'Услуга без абонентской платы'","Услуга без абонентской платы", driver.findElement(By.xpath("//div[text()='Услуга без абонентской платы']")).getText());
     }
 
     public void checkBundleCorpBezlimit() {

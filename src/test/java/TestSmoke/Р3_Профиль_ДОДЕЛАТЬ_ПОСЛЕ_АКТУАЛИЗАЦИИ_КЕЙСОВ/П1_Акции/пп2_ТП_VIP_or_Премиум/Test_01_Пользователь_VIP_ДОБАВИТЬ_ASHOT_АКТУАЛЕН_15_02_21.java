@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_01_Пользователь_VIP_ДОБАВИТЬ_ASHOT_ДОДЕЛАТЬ_ПОСЛЕ_АКТУАЛИЗАЦИИ_В_ТР extends TestBase {
+public class Test_01_Пользователь_VIP_ДОБАВИТЬ_ASHOT_АКТУАЛЕН_15_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Пользователь VIP")

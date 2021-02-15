@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Email_НУЖНО_АКТУАЛИЗИРОВАТЬ_КЕЙС extends TestBase {
+public class Test_03_Email_НУЖНО_АКТУАЛЕН_15_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Другие кнопки")
