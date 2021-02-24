@@ -1,8 +1,14 @@
 package pages;
 
 import base.BasePage;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class SportPage extends BasePage {
     public SportPage(WebDriver driver) {
@@ -11,9 +17,216 @@ public class SportPage extends BasePage {
 
     public void clickToTailTvChannel() {
         click(By.xpath("(//div[@class='lJKP8B9lCUmBeUxpmi06D'])[1]"));
+        isElementDisplayed(By.xpath("//a[@href='/tv']//span[1]"));
     }
 
     public void clickToTailTvProgram() {
         click(By.xpath("(//div[@class='X6AUS0SWkRBAkOSrXkHMg _2yqndJWOuX36UWc1F5T19w'])[1]"));
+        isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
+    }
+
+    public void checkElementsOnPageSport() {
+        Assert.assertEquals("Нет баннеров", 1, driver.findElements(By.xpath("//div[@data-test='BannerCarousel']")).size());
+        Assert.assertEquals("Нет перехода в раздел 'Спорт'", "Спорт", driver.findElement(By.xpath("//span[@itemprop='name' and text()='Спорт']")).getText());
+        Assert.assertEquals("Нет заголовка 'Спорт'", "Спорт", driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals("Нет фильтров по видам спорта", 1, driver.findElements(By.className("_1c-IybNhlrK5uOrNZTDwKw")).size());
+        Assert.assertEquals("Нет подборки 'Спортивные каналы'", 1, driver.findElements(By.xpath("//h3[text()='Спортивные телеканалы']")).size());
+        Assert.assertEquals("Нет подборки 'Прямой эфир'", 1, driver.findElements(By.xpath("//h3[text()='Прямой эфир']")).size());
+
+    }
+
+    public void scrollCollectionSportChannelsToRight()  {
+        String tail1 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[1]")).getText();
+        String tail2 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[2]")).getText();
+        String tail3 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[3]")).getText();
+        String tail4 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[4]")).getText();
+
+        click(By.xpath("(//button[@class='_2GRIyQ3Rb7C4Rjj6YcDvG5'])[2]"));
+        String tail5 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[5]")).getText();
+        String tail6 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[6]")).getText();
+        String tail7 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[7]")).getText();
+        String tail8 = driver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[8]")).getText();
+
+        Assert.assertNotEquals(tail1, tail5);
+        Assert.assertNotEquals(tail2, tail6);
+        Assert.assertNotEquals(tail3, tail7);
+        Assert.assertNotEquals(tail4, tail8);
+
+        click(By.xpath("(//button[@class='_2KOIeQVzqQqBKuxqSCaF8p'])[2]"));
+        Assert.assertNotEquals(tail5, tail1);
+        Assert.assertNotEquals(tail6, tail2);
+        Assert.assertNotEquals(tail7, tail3);
+        Assert.assertNotEquals(tail8, tail4);
+
+        //click(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[2]//button[@class='_2GRIyQ3Rb7C4Rjj6YcDvG5']"));
+
+        //click(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[1]//button[@class='_2GRIyQ3Rb7C4Rjj6YcDvG5']//g"));
+        System.out.println(driver.findElements(By.cssSelector("svg>g[fill='#CCC']")).size());
+        System.out.println(driver.findElements(By.cssSelector("._3rqfV1yVNWseL50GG3hr8z:nth-child(2) ._2GRIyQ3Rb7C4Rjj6YcDvG5>svg>g[fill='#CCC']")).size());
+
+
+        while (driver.findElements(By.cssSelector("._3rqfV1yVNWseL50GG3hr8z:nth-child(2) ._2GRIyQ3Rb7C4Rjj6YcDvG5>svg>g[fill='#CCC']")).size()>0) {
+        click(By.xpath("(//button[@class='_2GRIyQ3Rb7C4Rjj6YcDvG5'])[2]"));}
+        }
+
+
+    public void scrollCollectionSportChannelsToLeft() {
+        while (driver.findElements(By.cssSelector("._3rqfV1yVNWseL50GG3hr8z:nth-child(2) ._2KOIeQVzqQqBKuxqSCaF8p>svg>g[fill='#CCC']")).size()>0) {
+            click(By.xpath("(//button[@class='_2KOIeQVzqQqBKuxqSCaF8p'])[2]"));}
+    }
+
+    public void autoScrollBanners() throws InterruptedException {
+        String banner1 = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[2]")).getText();
+        System.out.println(banner1);
+        Thread.sleep(5000);
+        String banner2 = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[3]")).getText();
+        System.out.println(banner2);
+        Assert.assertNotEquals(banner1, banner2);
+        Thread.sleep(5000);
+        String banner3 = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[3]")).getText();
+        System.out.println(banner3);
+        Assert.assertNotEquals(banner2, banner3);
+        Thread.sleep(5000);
+        String banner4 = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[3]")).getText();
+        System.out.println(banner4);
+        Assert.assertNotEquals(banner3, banner4);
+        Thread.sleep(5000);
+        String banner5 = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[3]")).getText();
+        System.out.println(banner5);
+        Assert.assertNotEquals(banner4, banner5);
+    }
+
+    public void scrollBannersToLeft() throws InterruptedException {
+        List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForKids.size());
+        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
+        Thread.sleep(2000);
+        String bannerFirst = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[2]")).getText();
+        System.out.println(bannerFirst);
+        click(By.xpath("//button[@data-test='leftCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
+        Thread.sleep(2000);
+        String bannerLast = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[2]")).getText();
+        System.out.println(bannerLast);
+        Assert.assertNotEquals(bannerFirst, bannerLast);
+    }
+
+    public void scrollBannersToRight() throws InterruptedException {
+        List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForKids.size());
+        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][last()]"));
+        String bannerLast = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[2]")).getText();
+        System.out.println(bannerLast);
+        click(By.xpath("//button[@data-test='rightCarouselButton']"));
+        //isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][1]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
+        Thread.sleep(2000);
+        String bannerFirst = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[3]")).getText();
+        System.out.println(bannerFirst);
+        Assert.assertNotEquals(bannerLast, bannerFirst);
+    }
+
+    public void chooseDotCarouselBanners() throws InterruptedException {
+        click(By.xpath("(//button[@data-test='CarouselDotButton'])[1]"));
+        Thread.sleep(2000);
+        String bannerFirst = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[3]")).getText();
+        System.out.println(bannerFirst);
+        click(By.xpath("(//button[@data-test='CarouselDotButton'])[2]"));
+        Thread.sleep(2000);
+        String bannerSecond = driver.findElement(By.xpath("(//div[@class='_2yqndJWOuX36UWc1F5T19w'])[3]")).getText();
+        System.out.println(bannerSecond);
+        Assert.assertNotEquals(bannerFirst, bannerSecond);
+    }
+
+    public void clickToBanner() {
+        click(By.xpath("//div[@data-test='BannerCarousel']"));
+        isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
+    }
+
+    public void checkLogoTvOnTailTvChannel() {
+        List<WebElement> CollectionTailsTvProgram = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[1]//div[@class='lJKP8B9lCUmBeUxpmi06D']"));
+        List<WebElement> CollectionLogo = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[1]//div[@class='lJKP8B9lCUmBeUxpmi06D']//div[@class='GN5qPNB7tnGPtasCnMw86']"));
+        Assert.assertEquals(CollectionTailsTvProgram.size(), CollectionLogo.size());
+    }
+
+    public void checkElementsOnTailTvProgram() {
+        List<WebElement> CollectionTailsTvProgram = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[2]//div[@class='voBSETKBvzwGQenpoI2Vt']"));
+        List<WebElement> CollectionProgressBar = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[2]//div[@class='voBSETKBvzwGQenpoI2Vt']//span[@class='L3rzdT7KYzyE1ClBQKxNL']"));
+        Assert.assertEquals(CollectionTailsTvProgram.size(), CollectionProgressBar.size());
+        List<WebElement> CollectionHeaderTvProgram = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[2]//div[@class='voBSETKBvzwGQenpoI2Vt']//div[@class='_2rsztz1qemD80Zstv2vf1r _2WHJ0mxvsyUpaq7xjCrF72 _2ceA_oHeT5HMQWXKneFypZ']"));
+        Assert.assertEquals(CollectionTailsTvProgram.size(), CollectionHeaderTvProgram.size());
+    }
+
+    public void chooseFilterSportAndCheckTvChannels() {
+        Assert.assertEquals("Нет фильтров по видам спорта", 1, driver.findElements(By.className("_1c-IybNhlrK5uOrNZTDwKw")).size());
+        List<WebElement> AllFiltersSport = driver.findElements(By.xpath("//div[@class='YZBWFgwJ_YIq52D_M0HUz']//div[@class='aAWiTSjN5rwlfrcv3oj8g']"));
+        for (int i = 1; i <= AllFiltersSport.size(); i++) {
+            AllFiltersSport = driver.findElements(By.xpath("//div[@class='YZBWFgwJ_YIq52D_M0HUz']//div[@class='aAWiTSjN5rwlfrcv3oj8g']"));
+            String sport = AllFiltersSport.get(i-1).getText();
+            AllFiltersSport.get(i-1).click();
+            System.out.println(sport);
+            List<WebElement> CollectionSportTvChannel = driver.findElements(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='lJKP8B9lCUmBeUxpmi06D']"));
+            for (int a = 1; a <= CollectionSportTvChannel.size(); a++) {
+                CollectionSportTvChannel = driver.findElements(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='lJKP8B9lCUmBeUxpmi06D']"));
+                CollectionSportTvChannel.get(a-1).click();
+                if (sport.equals("Хоккей")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='КХЛ HD']|//h1[text()='КХЛ']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
+                    System.out.println("Хоккей канал пройден");
+                }
+                else if (sport.equals("Футбол")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='Матч! Футбол 1 HD']|//h1[text()='Матч! Футбол 3 HD']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
+                    System.out.println("Футбол канал пройден");
+                }
+                else if (sport.equals("Баскетбол")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='Мир Баскетбола']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
+                    System.out.println("Баскетбол канал пройден");
+                }
+                else if (sport.equals("Бокс")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='Бокс ТВ']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
+                    System.out.println("Бокс канал пройден");
+                }
+                driver.navigate().back();
+            }
+        }
+    }
+
+    public void chooseFilterSportAndCheckTvProgram() throws InterruptedException {
+        driver.navigate().refresh();
+        List<WebElement> AllFiltersSport1 = driver.findElements(By.xpath("//div[@class='YZBWFgwJ_YIq52D_M0HUz']//div[@class='aAWiTSjN5rwlfrcv3oj8g']"));
+        for (int q = 1; q <= AllFiltersSport1.size(); q++) {
+            AllFiltersSport1 = driver.findElements(By.xpath("//div[@class='YZBWFgwJ_YIq52D_M0HUz']//div[@class='aAWiTSjN5rwlfrcv3oj8g']"));
+            Thread.sleep(5000);
+            AllFiltersSport1.get(q-1).click();
+            String sport1 = AllFiltersSport1.get(q-1).getText();
+            System.out.println(sport1);
+            List<WebElement> CollectionSportTvProgram = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[2]//div[@class='voBSETKBvzwGQenpoI2Vt']"));
+            for (int b = 1; b <= CollectionSportTvProgram.size(); b++) {
+                CollectionSportTvProgram = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[2]//div[@class='voBSETKBvzwGQenpoI2Vt']"));
+                CollectionSportTvProgram.get(b-1).click();
+                if (sport1.equals("Хоккей")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//a[text()='КХЛ HD']|//a[text()='КХЛ']")).getText(), driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
+                    System.out.println("Хоккей передача пройдена");
+                }
+                else if (sport1.equals("Футбол")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//a[text()='Матч! Футбол 1 HD']|//a[text()='Матч! Футбол 3 HD']")).getText(), driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
+                    System.out.println("Футбол передача пройдена");
+                }
+                else if (sport1.equals("Баскетбол")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//a[text()='Мир Баскетбола']")).getText(), driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
+                    System.out.println("Баскетбол передача пройдена");
+                }
+                else if (sport1.equals("Бокс")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//a[text()='Бокс ТВ']")).getText(), driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
+                    System.out.println("Бокс передача пройдена");
+                }
+                driver.navigate().back();
+            }
+        }
     }
 }
+
+
+
+
+
+

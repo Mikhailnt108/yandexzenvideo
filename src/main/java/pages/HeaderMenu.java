@@ -113,7 +113,7 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
         driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(invalidСodSmartTv);
         click(By.xpath("//button[text()='Подключить Smart TV']"));
-        Assert.assertEquals("Нет текста 'Неверный код'","Неверный код", driver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
+        Assert.assertEquals("Нет текста 'Неверный код'","Неверный код1", driver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
         click(By.className("_1bciqjt58pgm0il2tiJTtp"));
 
     }

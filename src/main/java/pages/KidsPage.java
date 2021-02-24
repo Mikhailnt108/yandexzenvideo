@@ -279,7 +279,7 @@ public class KidsPage extends BasePage {
         Assert.assertNotEquals(tail7, tail10);
 
         while (driver.findElements(By.xpath("(//button[@class='_2k8t0pWxsThhBF_-hDMEc- _12wttH1TVBR-AUv1aCErMK'])[1]")).size()>0) {
-            click(By.xpath("(//button[@data-test='ArrowButtonPrev'])[1]"));
+           click(By.xpath("(//button[@data-test='ArrowButtonPrev'])[1]"));
         }
     }
 }
