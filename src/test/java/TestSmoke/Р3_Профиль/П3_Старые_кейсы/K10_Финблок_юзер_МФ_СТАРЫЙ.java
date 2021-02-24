@@ -33,7 +33,7 @@ public class K10_Финблок_юзер_МФ_СТАРЫЙ extends TestBase {
         popUpCreatePassword.inputPassword("111111");
         popUpCreatePassword.clickToComeIn("Войти");
         popUpInputCod.checkOpenFrameInputCod();
-        pageCMS.copyPasteCodMsisdnBlockingMf("79250402866");
+        pageCMS.copyPasteCodMsisdnBlockingMf("79267644248");
         popUpInputCod.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }

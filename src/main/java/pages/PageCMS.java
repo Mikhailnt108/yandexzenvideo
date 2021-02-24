@@ -298,9 +298,9 @@ public class PageCMS extends BasePage {
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
-        writeText(By.xpath("//form[@method='GET']//input[1]"), "79250402866");
+        writeText(By.xpath("//form[@method='GET']//input[1]"), "79267644248");
         click(By.xpath("//button[text()='Поиск']"));
-        String codMsisdn = driver.findElement(By.xpath("(//td[text()='79250402866']/following-sibling::td)[4]")).getText();
+        String codMsisdn = driver.findElement(By.xpath("(//td[text()='79267644248']/following-sibling::td)[4]")).getText();
         //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
