@@ -157,7 +157,7 @@ public class SportPage extends BasePage {
         Assert.assertEquals(CollectionTailsTvProgram.size(), CollectionHeaderTvProgram.size());
     }
 
-    public void chooseFilterSportAndCheckTvChannels() {
+    public void chooseFilterSportAndCheckTvChannels() throws InterruptedException {
         Assert.assertEquals("Нет фильтров по видам спорта", 1, driver.findElements(By.className("_1c-IybNhlrK5uOrNZTDwKw")).size());
         List<WebElement> AllFiltersSport = driver.findElements(By.xpath("//div[@class='YZBWFgwJ_YIq52D_M0HUz']//div[@class='aAWiTSjN5rwlfrcv3oj8g']"));
         for (int i = 1; i <= AllFiltersSport.size(); i++) {
@@ -172,18 +172,18 @@ public class SportPage extends BasePage {
                 if (sport.equals("Хоккей")) {
                     Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='КХЛ HD']|//h1[text()='КХЛ']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
                     System.out.println("Хоккей канал пройден");
-                }
-                else if (sport.equals("Футбол")) {
+                } else if (sport.equals("Футбол")) {
                     Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='Матч! Футбол 1 HD']|//h1[text()='Матч! Футбол 3 HD']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
                     System.out.println("Футбол канал пройден");
-                }
-                else if (sport.equals("Баскетбол")) {
+                } else if (sport.equals("Баскетбол")) {
                     Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='Мир Баскетбола']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
                     System.out.println("Баскетбол канал пройден");
-                }
-                else if (sport.equals("Бокс")) {
+                } else if (sport.equals("Бокс")) {
                     Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='Бокс ТВ']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
                     System.out.println("Бокс канал пройден");
+                } else if (sport.equals("Мотоспорт")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//h1[text()='Моторспорт ТВ']")).getText(), driver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
+                    System.out.println("Моторспорт ТВ канал пройден");
                 }
                 driver.navigate().back();
             }
@@ -193,11 +193,10 @@ public class SportPage extends BasePage {
     public void chooseFilterSportAndCheckTvProgram() throws InterruptedException {
         driver.navigate().refresh();
         List<WebElement> AllFiltersSport1 = driver.findElements(By.xpath("//div[@class='YZBWFgwJ_YIq52D_M0HUz']//div[@class='aAWiTSjN5rwlfrcv3oj8g']"));
-        for (int q = 1; q <= AllFiltersSport1.size(); q++) {
+        for (int q = 1; q <=4; q++) {
             AllFiltersSport1 = driver.findElements(By.xpath("//div[@class='YZBWFgwJ_YIq52D_M0HUz']//div[@class='aAWiTSjN5rwlfrcv3oj8g']"));
-            Thread.sleep(5000);
-            AllFiltersSport1.get(q-1).click();
-            String sport1 = AllFiltersSport1.get(q-1).getText();
+            AllFiltersSport1.get(q).click();
+            String sport1 = AllFiltersSport1.get(q).getText();
             System.out.println(sport1);
             List<WebElement> CollectionSportTvProgram = driver.findElements(By.xpath("(//div[@class='_3rqfV1yVNWseL50GG3hr8z'])[2]//div[@class='voBSETKBvzwGQenpoI2Vt']"));
             for (int b = 1; b <= CollectionSportTvProgram.size(); b++) {
@@ -219,7 +218,12 @@ public class SportPage extends BasePage {
                     Assert.assertEquals(driver.findElement(By.xpath("//a[text()='Бокс ТВ']")).getText(), driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
                     System.out.println("Бокс передача пройдена");
                 }
+                else if (sport1.equals("Мотоспорт")) {
+                    Assert.assertEquals(driver.findElement(By.xpath("//a[text()='Моторспорт ТВ']")).getText(), driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
+                    System.out.println("Мотоспорт передача пройдена");
+                }
                 driver.navigate().back();
+
             }
         }
     }

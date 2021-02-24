@@ -1,4 +1,4 @@
-package TestSmoke.Р2_Разделы_меню.П6_Спорт_В_РАЗРАБОТКЕ;
+package TestSmoke.Р2_Разделы_меню.П6_Спорт;
 
 import base.TestBase;
 import io.qameta.allure.*;
