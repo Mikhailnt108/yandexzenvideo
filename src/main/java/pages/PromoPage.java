@@ -15,8 +15,6 @@ public class PromoPage extends BasePage {
     }
 
     public void checkNotDefinedTariff() {
-        isElementDisplayed(By.xpath("//div[text()='Акция недоступна']"));
-        click(By.xpath("//button[text()='Закрыть']"));
         isElementDisplayed(By.xpath("(//span[text()='Акции'])[4]"));
         isElementDisplayed(By.xpath("//div[text()='Ошибка определения тарифного плана']"));
         isElementDisplayed(By.xpath("//span[contains(.,'Из-за проблемы определения Вашего тарифного плана участие в акциях временно недоступно.Если проблема повторяется, обратитесь в службу поддержки - help@megafon.tv')]"));
@@ -40,7 +38,7 @@ public class PromoPage extends BasePage {
     }
 
     public void checkBlockingMegafon() {
-        isElementDisplayed(By.xpath("//div[text()='Ваш тарифный план в МегаФоне']"));
+        isElementDisplayed(By.xpath("//div[text()='Вы абонент МегаФон']"));
         isElementDisplayed(By.xpath("//div[text()='Ваш номер МегаФон заблокирован']"));
         isElementDisplayed(By.xpath("//div[text()='Для просмотра пополните баланс']"));
         isElementDisplayed(By.xpath("//button[text()='Пополнить баланс телефона']"));

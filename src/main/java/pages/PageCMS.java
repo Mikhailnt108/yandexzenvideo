@@ -24,7 +24,7 @@ public class PageCMS extends BasePage {
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
-        writeText(By.xpath("//form[@method='GET']//input[1]"), "79260192144");
+        writeText(By.xpath("//form[@method='GET']//input[1]"), cod);
         click(By.xpath("//button[text()='Поиск']"));
         String codMsisdn = driver.findElement(By.xpath("(//td[text()='79260192144']/following-sibling::td)[4]")).getText();
         //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
@@ -212,6 +212,19 @@ public class PageCMS extends BasePage {
         click(By.xpath("//button[text()='Удалить']"));
     }
 
+    public void deleteAccountForBlockingMf() {
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window((String) tabs2.get(1));
+        click(By.xpath("//form[@method='GET']//input[1]"));
+        writeText(By.xpath("//form[@method='GET']//input[1]"), "79267644248");
+        click(By.xpath("//button[text()='Поиск']"));
+        isElementDisplayed(By.xpath("//td[text()='79267644248']"));
+        click(By.xpath("//a[contains(@href, '/cms/households/')]"));
+        isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+        click(By.xpath("//button[text()='Удалить']"));
+    }
+
     public void createPriseEstOrRent2WithDiscount() {
         String nameFilm = driver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
@@ -304,7 +317,6 @@ public class PageCMS extends BasePage {
         //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
-
         driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void chooseRoleVip() {
@@ -353,6 +365,26 @@ public class PageCMS extends BasePage {
         //здесь переключаемся опять на вкладку с мегафонТВ
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
+    }
+
+    public void chooseBundleNotSelected() {
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window((String) tabs2.get(1));
+        click(By.xpath("//form[@method='GET']//input[1]"));
+        writeText(By.xpath("//form[@method='GET']//input[1]"), "79260205027");
+        click(By.xpath("//button[text()='Поиск']"));
+        isElementDisplayed(By.xpath("//td[text()='79260205027']"));
+        click(By.xpath("//a[contains(@href, '/cms/households/')]"));
+        isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+        click(By.xpath("(//a[@role='button'])[2]"));
+        isElementDisplayed(By.xpath("//h3[text()=' Редактирование хаусхолда ']"));
+        driver.findElement(By.id("bundle")).click();
+        driver.findElement(By.xpath("//option[. = '(не выбрано)']")).click();
+        click(By.xpath("//input[@value='Сохранить']"));
+        isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+        click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
+        driver.close();
     }
 }
 

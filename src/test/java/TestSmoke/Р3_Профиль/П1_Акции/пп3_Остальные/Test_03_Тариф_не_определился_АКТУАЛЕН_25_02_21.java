@@ -1,29 +1,26 @@
-package TestSmoke.Р3_Профиль.П1_Акции;
+package TestSmoke.Р3_Профиль.П1_Акции.пп3_Остальные;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.io.IOException;
-
-public class Test_01_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT_АКТУАЛЕН_08_02_21 extends TestBase {
+public class Test_03_Тариф_не_определился_АКТУАЛЕН_25_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Внешний вид раздела")
+    @DisplayName(value ="Тариф не определился")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void checkScreenshotPromo() throws AWTException, IOException, InterruptedException {
+    public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
+        pageCMS.chooseNotDefinedTariff();
+        headerMenu.closePopUpNotDefinedTariff();
         headerMenu.openSubsectionPromo();
-        promoPage.checkElementsWithoutBlockPersonalOffer();
-        promoPage.imageDifferBlockTarif();
-        promoPage.imageDifferBlockPromotions();
+        promoPage.checkNotDefinedTariff();
+        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
         pageCMS.deleteAccount();
-
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

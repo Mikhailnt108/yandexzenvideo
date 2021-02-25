@@ -1,24 +1,22 @@
-package TestSmoke.Р3_Профиль.П1_Акции;
+package TestSmoke.Р3_Профиль.П3_Старые_кейсы;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Переход_в_раздел_Фильмы_АКТУАЛЕН_08_02_21 extends TestBase {
+public class Test_03_Переход_на_страницу_Пакета_АКТУАЛЕН_08_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Переход в раздел Фильмы")
+    @DisplayName(value ="Переход на страницу Пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToMoviesPromoSection() throws InterruptedException {
+    public void goToPackagePage() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.clickButtonGoToFilms();
-        filmsPage.checkFilmsPromo();
+        promoPage.clickButtonGoToPackage();
         pageCMS.deleteAccount();
     }
     private void flowRegistation() {
