@@ -223,6 +223,5 @@ public class PromoPage extends BasePage {
         isElementDisplayed(By.xpath("//div[text()='Основной']"));
         isElementDisplayed(By.xpath("//div[text()='Вы абонент МегаФон']"));
         isElementDisplayed(By.xpath("//div[text()='Ваш МегаФон.ТВ может больше!']"));
-
     }
 }
