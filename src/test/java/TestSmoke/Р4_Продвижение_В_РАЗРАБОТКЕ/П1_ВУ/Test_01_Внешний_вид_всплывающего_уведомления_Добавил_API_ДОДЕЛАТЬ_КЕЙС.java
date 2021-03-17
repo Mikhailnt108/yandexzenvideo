@@ -4,7 +4,7 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 import static io.restassured.RestAssured.given;
 
 public class Test_01_Внешний_вид_всплывающего_уведомления_Добавил_API_ДОДЕЛАТЬ_КЕЙС extends TestBase {

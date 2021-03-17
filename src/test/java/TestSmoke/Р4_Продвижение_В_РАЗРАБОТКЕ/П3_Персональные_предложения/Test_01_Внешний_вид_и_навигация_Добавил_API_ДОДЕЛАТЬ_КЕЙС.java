@@ -2,17 +2,10 @@ package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П3_Пер�
 
 import base.TestBase;
 import io.qameta.allure.*;
-
-import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
-import static org.hamcrest.CoreMatchers.equalTo;
 
 
 
@@ -49,7 +42,7 @@ public class Test_01_Внешний_вид_и_навигация_Добавил_
                 post("https://bmp-preprod5.megafon.tv/cms/ad_campaigns/Test2/add_code_group").
                 then().
                 statusCode(200);
-        LOGGER.info("New code_group has been added." + "\n");
+        //LOGGER.info("New code_group has been added." + "\n");
 
         pageCMS.deleteAccount();
     }

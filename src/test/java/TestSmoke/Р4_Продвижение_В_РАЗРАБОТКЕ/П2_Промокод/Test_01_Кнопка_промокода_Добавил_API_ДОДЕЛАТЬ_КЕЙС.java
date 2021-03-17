@@ -2,13 +2,10 @@ package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П2_Про�
 
 import base.TestBase;
 import io.qameta.allure.*;
-import io.restassured.RestAssured;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import io.restassured.http.ContentType;
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 import static io.restassured.RestAssured.given;
-import static io.restassured.config.EncoderConfig.encoderConfig;
 
 
 public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕЛАТЬ_КЕЙС extends TestBase {
@@ -28,7 +25,7 @@ public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕ
                 multiPart("name", "english_name").
                 when().post("https://bmp-preprod1.megafon.tv/cms/ad_campaigns/create").
                 then().statusCode(302);
-        LOGGER.info("New RK has been created." + "\n");
+        //LOGGER.info("New RK has been created." + "\n");
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/json").
@@ -41,7 +38,7 @@ public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕ
                 post("https://bmp-preprod1.megafon.tv/cms/ad_campaigns/RK_autotest/add_code_group").
                 then().
                 statusCode(200);
-        LOGGER.info("New code group has been created." + "\n");
+        //LOGGER.info("New code group has been created." + "\n");
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("multipart/form-data").
@@ -50,7 +47,7 @@ public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕ
                 multiPart("dispatch_channel", "default").
                 when().post("https://bmp-preprod1.megafon.tv/cms/code_groups/KD_autotest/add_promocode").
                 then().statusCode(302);
-        LOGGER.info("New promocode has been created." + "\n");
+        //LOGGER.info("New promocode has been created." + "\n");
         //pageCMS.deleteAccount();
     }
 
