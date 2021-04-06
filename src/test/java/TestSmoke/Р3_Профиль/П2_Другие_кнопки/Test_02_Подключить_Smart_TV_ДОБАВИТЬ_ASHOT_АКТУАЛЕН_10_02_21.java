@@ -27,7 +27,7 @@ public class Test_02_Подключить_Smart_TV_ДОБАВИТЬ_ASHOT_АКТ
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenFrameInputCod();
+        headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();

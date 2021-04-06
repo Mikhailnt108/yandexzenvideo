@@ -27,7 +27,7 @@ public class K10_Тариф_не_определился_юзер_МФ_СТАРЫ
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenFrameInputCod();
+        headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();

@@ -2,7 +2,6 @@ package TestSmoke.Р2_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +35,7 @@ public class Test_04_Пауза_серии extends TestBase {
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenFrameInputCod();
+        headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();

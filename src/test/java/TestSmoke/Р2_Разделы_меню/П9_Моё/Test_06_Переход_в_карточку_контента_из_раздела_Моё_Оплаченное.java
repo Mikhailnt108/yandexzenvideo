@@ -30,7 +30,7 @@ public class Test_06_Переход_в_карточку_контента_из_р
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenFrameInputCod();
+        headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();

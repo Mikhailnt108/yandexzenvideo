@@ -29,7 +29,7 @@ public class Test_04_Финблок_АКТУАЛЕН_25_02_21 extends TestBase {
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePasswordForMf("79267644248", "111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenFrameInputCod();
+        headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdnBlockingMf("79267644248");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectForBlockingMf();
