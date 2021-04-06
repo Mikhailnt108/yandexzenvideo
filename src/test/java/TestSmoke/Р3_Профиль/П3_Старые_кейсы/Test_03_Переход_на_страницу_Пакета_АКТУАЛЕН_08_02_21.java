@@ -17,7 +17,7 @@ public class Test_03_Переход_на_страницу_Пакета_АКТУ�
         flowRegistation();
         headerMenu.openSubsectionPromo();
         promoPage.clickButtonGoToPackage();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

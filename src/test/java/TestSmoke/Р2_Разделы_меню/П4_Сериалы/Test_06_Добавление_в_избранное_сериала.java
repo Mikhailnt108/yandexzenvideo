@@ -21,7 +21,7 @@ public class Test_06_Добавление_в_избранное_сериала e
         cardSerial.clickButtonFavorites();
         myPage.goToMyPageFavorites();
         myPage.checkAddingSerialToFavorites();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

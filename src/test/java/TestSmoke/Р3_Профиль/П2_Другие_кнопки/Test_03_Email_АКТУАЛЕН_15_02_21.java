@@ -16,7 +16,7 @@ public class Test_03_Email_АКТУАЛЕН_15_02_21 extends TestBase {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.inputEmail();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

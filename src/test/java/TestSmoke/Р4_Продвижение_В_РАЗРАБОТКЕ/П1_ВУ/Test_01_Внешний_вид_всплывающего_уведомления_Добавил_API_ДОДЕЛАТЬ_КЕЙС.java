@@ -31,7 +31,7 @@ public class Test_01_Внешний_вид_всплывающего_уведом
                 put("https://bmp-preprod1.megafon.tv/cms/api/v0/notification_factories/yahoo").
                 then().
                 statusCode(200);
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowRegistation() {

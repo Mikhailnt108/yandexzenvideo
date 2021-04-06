@@ -17,7 +17,7 @@ public class K10_Тариф_не_определился_юзер_МФ_СТАРЫ
         pageCMS.chooseNotDefinedTariff();
         headerMenu.openSubsectionPromo();
         promoPage.checkNotDefinedTariff();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

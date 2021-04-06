@@ -22,7 +22,7 @@ public class Test_02_Действия_с_подборками_ДОБАВИТЬ_A
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionForKids();
         collectionPage.checkOpenCollectionPage();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

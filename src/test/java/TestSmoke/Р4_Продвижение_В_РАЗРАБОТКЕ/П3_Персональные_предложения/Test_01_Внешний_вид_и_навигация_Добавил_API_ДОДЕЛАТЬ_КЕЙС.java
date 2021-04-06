@@ -44,7 +44,7 @@ public class Test_01_Внешний_вид_и_навигация_Добавил_
                 statusCode(200);
         //LOGGER.info("New code_group has been added." + "\n");
 
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowRegistation() {

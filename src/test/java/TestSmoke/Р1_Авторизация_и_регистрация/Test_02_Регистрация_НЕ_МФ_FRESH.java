@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Регистрация_НЕ_МФ extends TestBase {
+public class Test_02_Регистрация_НЕ_МФ_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Регистрация НЕ МФ")
@@ -36,7 +36,7 @@ public class Test_02_Регистрация_НЕ_МФ extends TestBase {
         headerMenu.checkActiveButtonNext();
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForNotMF();
-        headerMenu.inputPassword("111111");
+        headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdnForNotMF("79261184972");

@@ -13,11 +13,11 @@ public class PackagesPage extends BasePage {
         super(driver);
     }
 
-    public void checkOpenPackagesPage() {
-        isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
+    public void checkOpenShopPage() {
+        isElementDisplayed(By.xpath("(//div[text()='Все сервисы'])[3]"));
     }
 
-    public void clickToTabSerialsInMenuPackagesPage() {
+    public void clickToTabSerialsInMenuShopPage() {
         click(By.xpath("(//div[text()='Сериалы'])[3]"));
     }
 
@@ -25,7 +25,7 @@ public class PackagesPage extends BasePage {
         click(By.xpath("//h3[text()='Русские сериалы']"));
     }
 
-    public void clickToTabTvСhannelInMenuPackagesPage() {
+    public void clickToTabTvСhannelInMenuShopPage() {
         click(By.xpath("//div[text()='Телеканалы']"));
     }
 

@@ -23,7 +23,7 @@ public class Test_14_Подборка_Моё extends TestBase {
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionOfMy();
         collectionPage.checkCollectionOfMy();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

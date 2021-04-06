@@ -48,7 +48,7 @@ public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕ
                 when().post("https://bmp-preprod1.megafon.tv/cms/code_groups/KD_autotest/add_promocode").
                 then().statusCode(302);
         //LOGGER.info("New promocode has been created." + "\n");
-        //pageCMS.deleteAccount();
+        //pageCMS.deleteAccountMF();
     }
 
     private void flowRegistation() {

@@ -19,7 +19,7 @@ public class Test_15_Переход_в_карточку_передачи_из_П
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

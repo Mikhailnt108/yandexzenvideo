@@ -33,7 +33,7 @@ public class Test_17_Записываемая_ТВ_передача_18_плюс 
         tvPage.clickOnTabErotica();
         tvPage.checkRecordedСhannelsСorrespondGenres18Plus();
         cardTvProgram.clickNoInPopUp18Plus();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

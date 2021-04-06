@@ -20,7 +20,7 @@ public class Test_02_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT_�
         headerMenu.openSubsectionPromo();
         promoPage.checkNotMegafon();
         promoPage.clickToButtonGoOver();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowRegistration() {

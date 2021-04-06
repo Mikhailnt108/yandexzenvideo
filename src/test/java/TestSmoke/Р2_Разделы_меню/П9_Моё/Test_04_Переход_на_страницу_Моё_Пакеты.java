@@ -19,7 +19,7 @@ public class Test_04_Переход_на_страницу_Моё_Пакеты ex
         cardPackage.paymentPackageTnB();
         myPage.goToMyPageSubscriptions();
         myPage.checkSubscriptionsPackages();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

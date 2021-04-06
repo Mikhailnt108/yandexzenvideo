@@ -20,7 +20,7 @@ public class Test_02_Обычный_МФ_НУЖЕН_ОБЫЧНЫЙ_НОМЕР_М
         pageCMS.chooseBundleOsnovnoyFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkBundleOsnovnoy();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
 
     }
 

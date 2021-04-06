@@ -5,11 +5,11 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 
-public class Test_02_Авторизация_из_главного_меню extends TestBase {
+public class Test_03_Авторизация_через_кнопку_Вход_FRESH extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация из главного меню")
+    @DisplayName(value = "Авторизация через кнопку 'Вход'")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginFromHeaderMenu()  {
@@ -17,17 +17,30 @@ public class Test_02_Авторизация_из_главного_меню exten
         flowRegister();
         headerMenu.logOut();
         flowAuthorization();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowAuthorization() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkElementsPopUpInputPhone();
+        headerMenu.inputLogin("9260192144");
+        headerMenu.checkActiveButtonNext();
+        headerMenu.clickToNext("Далее");
+        headerMenu.checkOpenPopUpInputPassword();
+        headerMenu.checkElementsPopUpInputPassword();
+        headerMenu.inputLessThanSixSimbolPassword("111");
+        headerMenu.checkDisabledButtonComeIn();
+        headerMenu.inputInvalidPassword("123456");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkErrorMessage2();
+        headerMenu.closePopUpInputPassword();
+        headerMenu.clickToEnter("Вход");
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
+        headerMenu.inputSixSimbolPassword("111111");
+        headerMenu.checkActiveButtonComeIn();
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }
@@ -39,7 +52,6 @@ public class Test_02_Авторизация_из_главного_меню exten
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
-        //headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");

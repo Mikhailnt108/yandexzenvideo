@@ -20,7 +20,7 @@ public class Test_02_Аренда_фильма_за_деньги extends TestBas
         collectionPage.clickToTailFilmRent2();
         cardFilm.paymentButtonRent2InCardFilm();
         cardFilm.startVideoPleer();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

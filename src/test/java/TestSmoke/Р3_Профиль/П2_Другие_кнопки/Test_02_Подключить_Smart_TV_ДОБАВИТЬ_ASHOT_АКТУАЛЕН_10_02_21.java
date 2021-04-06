@@ -17,7 +17,7 @@ public class Test_02_Подключить_Smart_TV_ДОБАВИТЬ_ASHOT_АКТ
         flowRegistation();
         headerMenu.noConnectSmartTv();
         headerMenu.connectSmartTv();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

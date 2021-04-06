@@ -1,46 +1,40 @@
-package TestSmoke.Р1_Авторизация_и_регистрация;
+package TestSmoke.Р1_Авторизация_и_регистрация.старые_кейсы;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 
-public class Test_06_Авторизация_из_карточки_Передачи extends TestBase {
+public class Old_07_Авторизация_из_карточки_Сериала extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация из карточки Передачи")
+    @DisplayName(value = "Авторизация из карточки Сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardTvProgram() {
+    public void loginFromCardSerial() {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabPackages();
-        packagesPage.checkOpenPackagesPage();
-        packagesPage.clickToTabTvСhannelInMenuPackagesPage();
-        packagesPage.clickToTailCardPackageTvChannel();
-        cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickTailCardChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.clickTvProgramInCardChannel();
-        cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
+        headerMenu.clickToTabSerials();
+        serialsPage.checkOpenSerialsPage();
+        serialsPage.clickToTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.clickPaymentButtonInCardSerial();
         flowAutorisation();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowAutorisation() {
         headerMenu.checkOpenFrameInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
+        headerMenu.checkOpenPopUpInputPassword();
+        headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -48,7 +42,7 @@ public class Test_06_Авторизация_из_карточки_Передач
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
-        //headerMenu.inputPassword("111111");
+        //headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");

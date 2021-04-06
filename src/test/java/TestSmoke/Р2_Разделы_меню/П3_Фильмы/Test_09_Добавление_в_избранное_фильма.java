@@ -20,7 +20,7 @@ public class Test_09_Добавление_в_избранное_фильма ext
         cardFilm.clickButtonFavorites();
         myPage.goToMyPageFavorites();
         myPage.checkAddingFilmToFavorites();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -33,7 +33,7 @@ public class Test_16_Незаписываемая_ТВ_передача_18_пл�
         tvPage.clickOnTabErotica();
         tvPage.checkUnrecordedСhannelsСorrespondGenres18Plus();
         cardTvProgram.clickNoInPopUp18Plus();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

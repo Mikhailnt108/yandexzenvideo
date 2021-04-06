@@ -19,7 +19,7 @@ public class Test_01_БезПереплат_Максимум extends TestBase {
         pageCMS.chooseBundleBezPereplatMaxFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkBundleBezPereplatMax();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

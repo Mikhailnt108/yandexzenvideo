@@ -22,7 +22,7 @@ public class Test_08_Просмотр_передачи extends TestBase {
         cardTvProgram.checkPaymentComplete();
         cardTvProgram.clickToButtonPlay();
         cardTvProgram.startVideoPlayer();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

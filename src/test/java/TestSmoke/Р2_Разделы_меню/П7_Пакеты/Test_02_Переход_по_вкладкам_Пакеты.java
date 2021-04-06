@@ -18,9 +18,9 @@ public class Test_02_Переход_по_вкладкам_Пакеты extends T
         packagesPage.checkTabAllPackagesInMenuPackagesPage();
         packagesPage.checkTypePackagesInTabAll();
         packagesPage.checkAllPackegesWithoutOwnership();
-        packagesPage.clickToTabTvСhannelInMenuPackagesPage();
+        packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.checkTypePackagesInTabTvChannel();
-        packagesPage.clickToTabSerialsInMenuPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.checkTypePackagesInTabSerials();
         packagesPage.clickToTabKinoInMenuPackagesPage();
         packagesPage.checkTypePackagesInTabKino();
@@ -36,7 +36,7 @@ public class Test_02_Переход_по_вкладкам_Пакеты extends T
         packagesPage.checkConnectedOnTailPackage();
         packagesPage.clickToTabConnectedInMenuPackagesPage();
         packagesPage.checkTypePackagesInTabConnectedInMenuPackagesPage();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
 
     }
     private void flowRegistation() {

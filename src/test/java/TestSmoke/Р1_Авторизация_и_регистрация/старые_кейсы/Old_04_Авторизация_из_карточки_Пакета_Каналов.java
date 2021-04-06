@@ -1,10 +1,10 @@
-package TestSmoke.Р1_Авторизация_и_регистрация;
+package TestSmoke.Р1_Авторизация_и_регистрация.старые_кейсы;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-public class Test_04_Авторизация_из_карточки_Пакета_Каналов extends TestBase {
+public class Old_04_Авторизация_из_карточки_Пакета_Каналов extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
@@ -16,22 +16,22 @@ public class Test_04_Авторизация_из_карточки_Пакета_�
         flowRegistation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToTabPackages();
-        packagesPage.checkOpenPackagesPage();
-        packagesPage.clickToTabTvСhannelInMenuPackagesPage();
+        headerMenu.clickToTabShop();
+        packagesPage.checkOpenShopPage();
+        packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.clickToTailCardPackageTvChannel();
         cardPackage.checkOpenCardPackageTvChannel();
         cardPackage.clickPaymentButtonInCardPackage();
         flowAutorisation();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowAutorisation() {
         headerMenu.checkOpenFrameInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
-        headerMenu.inputPassword("111111");
+        headerMenu.checkOpenPopUpInputPassword();
+        headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrect();
     }
@@ -43,7 +43,7 @@ public class Test_04_Авторизация_из_карточки_Пакета_�
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
-        //headerMenu.inputPassword("111111");
+        //headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");

@@ -11,14 +11,14 @@ public class CardPackage extends BasePage {
     }
 
     public void checkOpenCardPackageSerials() {
-        isElementDisplayed(By.xpath("//div[text()='Сериалы, входящие в пакет:']"));
+        isElementDisplayed(By.xpath("//div[contains(text(),' сериал')]"));
     }
     public void clickPaymentButtonInCardPackage() {
        click(By.xpath("//button[@type='button']//div[1]"));
     }
 
     public void checkOpenCardPackageTvChannel() {
-        isElementDisplayed(By.xpath("//div[text()='Каналы, входящие в пакет:']"));
+        isElementDisplayed(By.xpath("//div[contains(text(),' канал')]"));
     }
 
     public void clickTailCardChannel() {

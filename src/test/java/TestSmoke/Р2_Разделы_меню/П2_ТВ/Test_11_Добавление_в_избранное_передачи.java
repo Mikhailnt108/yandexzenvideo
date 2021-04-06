@@ -21,7 +21,7 @@ public class Test_11_Добавление_в_избранное_передачи
         cardTvProgram.clickButtonFavorites();
         myPage.goToMyPageFavorites();
         myPage.checkAddingTvProgramToFavorites();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

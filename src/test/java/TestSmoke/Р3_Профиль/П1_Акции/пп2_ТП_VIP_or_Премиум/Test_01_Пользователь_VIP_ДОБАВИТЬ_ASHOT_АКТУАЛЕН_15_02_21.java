@@ -20,7 +20,7 @@ public class Test_01_Пользователь_VIP_ДОБАВИТЬ_ASHOT_АКТ�
         pageCMS.chooseRoleVip();
         headerMenu.openSubsectionPromo();
         promoPage.checkVipUser();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowRegistration() {

@@ -20,7 +20,7 @@ public class Test_03_Тариф_не_определился_АКТУАЛЕН_25_
         headerMenu.openSubsectionPromo();
         promoPage.checkNotDefinedTariff();
         pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

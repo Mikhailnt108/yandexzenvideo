@@ -20,7 +20,7 @@ public class Test_06_Переход_в_карточку_контента_из_р
         myPage.goToMyPagePurchases();
         myPage.clickToTailCardFilmFromPurchases();
         cardFilm.checkOpenCardFilm();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

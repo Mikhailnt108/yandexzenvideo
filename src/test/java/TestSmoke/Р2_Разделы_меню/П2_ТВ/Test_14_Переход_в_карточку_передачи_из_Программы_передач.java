@@ -18,7 +18,7 @@ public class Test_14_Переход_в_карточку_передачи_из_П
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickToTailTvChannel();
         cardTvProgram.checkOpenCardTvProgram();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

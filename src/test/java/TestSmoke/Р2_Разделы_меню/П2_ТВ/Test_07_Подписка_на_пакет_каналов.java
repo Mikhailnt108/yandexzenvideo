@@ -22,7 +22,7 @@ public class Test_07_Подписка_на_пакет_каналов extends Tes
         cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.clickPaymentButtonInCardTvProgram();
         cardTvProgram.checkPaymentComplete();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowRegistation() {

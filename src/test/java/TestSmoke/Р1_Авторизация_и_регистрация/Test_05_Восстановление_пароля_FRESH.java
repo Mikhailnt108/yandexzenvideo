@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 
-public class Test_10_Восстановление_пароля extends TestBase {
+public class Test_05_Восстановление_пароля_FRESH extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
@@ -18,19 +18,30 @@ public class Test_10_Восстановление_пароля extends TestBase 
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameInputPassword();
+        headerMenu.checkOpenPopUpInputPassword();
         headerMenu.clickToButtonForgetPassword();
-        headerMenu.checkOpenFrameCreatePassword("9260192144", "111112");
-        //headerMenu.inputPassword("111112");
+        headerMenu.checkOpenPopUpNewPasswordForMF();
+        headerMenu.checkElementsPopUpNewPasswordForMF();
+        headerMenu.inputLessThanSixSimbolPassword("111");
+        headerMenu.checkDisabledButtonComeIn();
+        headerMenu.inputSixSimbolPassword("111111");
+        headerMenu.checkActiveButtonComeIn();
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
+        headerMenu.checkElementsPopUpInputCode();
+        headerMenu.inputInvalidCodeСonfirmation("1234");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkErrorMessage1();
+        headerMenu.inputInvalidCodeMoreThanThreeTimes();
+        headerMenu.checkElementsPopUpForInvalidCodeMoreThanThreeTimes();
+        headerMenu.clickToButtonGetNewCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectAfterForgetPassword();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
 
     private void flowRegistation() {
@@ -40,7 +51,6 @@ public class Test_10_Восстановление_пароля extends TestBase 
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
-        //headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");

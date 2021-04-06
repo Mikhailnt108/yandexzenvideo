@@ -25,7 +25,7 @@ public class Test_03_Отключение_пакетов_с_разными_ти�
         packagesPage.clickToTailCardPackageSubsN();
         cardPackage.paymentPackageSubsN();
         cardPackage.disablePackageSubsN();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

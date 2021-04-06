@@ -63,8 +63,8 @@ public class TestBase {
         //options.setHeadless(true);
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         headerMenu = PageFactory.initElements(driver, HeaderMenu.class);
         popUpInputPhone = PageFactory.initElements(driver, PopUpInputPhone.class);
         popUpInputPassword = PageFactory.initElements(driver, PopUpInputPassword.class);

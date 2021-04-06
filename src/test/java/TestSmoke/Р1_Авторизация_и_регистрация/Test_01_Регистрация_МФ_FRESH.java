@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_01_Регистрация_МФ extends TestBase {
+public class Test_01_Регистрация_МФ_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Регистрация МФ")
@@ -18,7 +18,7 @@ public class Test_01_Регистрация_МФ extends TestBase {
     public void registrationMF()  {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
@@ -30,7 +30,7 @@ public class Test_01_Регистрация_МФ extends TestBase {
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForMF("9260192144");
         headerMenu.checkElementsPopUpCreatePassword();
-        headerMenu.inputLessThanSixPassword("1111");
+        headerMenu.inputLessThanSixSimbolPassword("1111");
         headerMenu.checkDisabledButtonComeIn();
         headerMenu.inputMoreThanSixAndUncheckCheckbox("111111");
         headerMenu.checkDisabledButtonComeIn();
@@ -42,7 +42,7 @@ public class Test_01_Регистрация_МФ extends TestBase {
         headerMenu.checkOpenPopUpInputCode();
         headerMenu.checkElementsPopUpInputCode();
         headerMenu.inputInvalidCodeСonfirmation("1234");
-        headerMenu.checkErrorMessage();
+        headerMenu.checkErrorMessage1();
         headerMenu.inputInvalidCodeMoreThanThreeTimes();
         headerMenu.checkElementsPopUpForInvalidCodeMoreThanThreeTimes();
         headerMenu.clickToButtonGetNewCode();

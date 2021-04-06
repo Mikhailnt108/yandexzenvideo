@@ -19,7 +19,7 @@ public class Test_06_Просмотр_фильма extends TestBase {
         cardFilm.checkOpenCardFilm();
         cardFilm.paymentFilmAtEst();
         cardFilm.testFullScreenVideoPleer();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

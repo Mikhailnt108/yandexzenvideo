@@ -36,7 +36,7 @@ public class Test_19_ТВ_передача_18_плюс_Pop_up_с_подтвер�
         cardTvChannel.clickNoInPopUp18Plus();
         cardTvChannel.chooseTvChannel18Plus();
         cardTvChannel.clickYesInPopUp18Plus();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

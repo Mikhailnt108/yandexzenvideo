@@ -22,7 +22,7 @@ public class Test_07_Пауза_фильма extends TestBase {
         cardFilm.clickToPlayVideoPleer();
         cardFilm.clickToSpaceToVideoPleer();
         cardFilm.clickToLeftButtonMouseToVideoPleer();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

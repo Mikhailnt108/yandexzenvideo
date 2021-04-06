@@ -18,7 +18,7 @@ public class Test_04_БезПереплат_Звонки extends TestBase {
         pageCMS.chooseBundleBezPereplatZvonkiFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkBundleBezPereplatZvonki();
-        pageCMS.deleteAccount();
+        pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
