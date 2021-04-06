@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 
 
-public class Test_01_Внешний_вид_и_навигация_Добавил_API_ДОДЕЛАТЬ_КЕЙС extends TestBase {
+public class Test_01_Внешний_вид_и_навигация_Добавил_API_ДОДЕЛАТЬ extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")

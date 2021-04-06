@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
 
-public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕЛАТЬ_КЕЙС extends TestBase {
+public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕЛАТЬ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
