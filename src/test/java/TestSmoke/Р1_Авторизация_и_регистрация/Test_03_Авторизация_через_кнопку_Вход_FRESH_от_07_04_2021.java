@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 
-public class Test_03_Авторизация_через_кнопку_Вход_FRESH extends TestBase {
+public class Test_03_Авторизация_через_кнопку_Вход_FRESH_от_07_04_2021 extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")

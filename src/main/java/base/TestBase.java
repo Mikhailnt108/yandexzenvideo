@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import pages.*;
 
 
+
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
@@ -43,6 +44,9 @@ public class TestBase {
     public AllCollectionsPage allCollectionsPage;
     public PromoPage promoPage;
     public PopUpInputEmail popUpInputEmail;
+    public PopUpNotification popUpNotification;
+
+
 
 
 
@@ -60,11 +64,11 @@ public class TestBase {
         options.addArguments("--window-size=1900,1000");
         //options.addArguments("start-maximized");
         //запуск браузера в фоне:
-        options.setHeadless(true);
+        //options.setHeadless(true);
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         headerMenu = PageFactory.initElements(driver, HeaderMenu.class);
         popUpInputPhone = PageFactory.initElements(driver, PopUpInputPhone.class);
         popUpInputPassword = PageFactory.initElements(driver, PopUpInputPassword.class);
@@ -92,6 +96,8 @@ public class TestBase {
         allCollectionsPage = PageFactory.initElements(driver, AllCollectionsPage.class);
         promoPage = PageFactory.initElements(driver, PromoPage.class);
         popUpInputEmail = PageFactory.initElements(driver, PopUpInputEmail.class);
+        popUpNotification = PageFactory.initElements(driver, PopUpNotification.class);
+
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
     }

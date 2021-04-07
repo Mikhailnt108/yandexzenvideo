@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Регистрация_НЕ_МФ_FRESH extends TestBase {
+public class Test_02_Регистрация_НЕ_МФ_FRESH_от_07_04_2021 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Регистрация НЕ МФ")

@@ -177,11 +177,14 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
-            //isElementDisplayed(By.xpath("//h3[contains(text(), 'Хочешь')]"));
             click(By.xpath("//button[text()='Нет']"));
             driver.navigate().refresh();
         }
-
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']")).size() != 0) {
+            //isElementDisplayed(By.xpath("//h3[contains(text(), 'Хочешь')]"));
+            click(By.xpath("//button[text()='Закрыть']"));
+            driver.navigate().refresh();
+        }
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Вам доступно')]|//div[text()='Акция недоступна']"));
         click(By.xpath("//button[text()='Закрыть']"));
 
@@ -195,6 +198,7 @@ public class HeaderMenu extends BasePage {
             click(By.xpath("//button[text()='Нет']"));
             driver.navigate().refresh();
         }
+
         driver.navigate().refresh();
     }
 
