@@ -60,7 +60,7 @@ public class TestBase {
         options.addArguments("--window-size=1900,1000");
         //options.addArguments("start-maximized");
         //запуск браузера в фоне:
-        //options.setHeadless(true);
+        options.setHeadless(true);
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
