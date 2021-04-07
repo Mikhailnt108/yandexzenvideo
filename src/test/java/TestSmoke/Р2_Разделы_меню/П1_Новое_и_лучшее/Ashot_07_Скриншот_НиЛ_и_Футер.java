@@ -11,7 +11,7 @@ import java.awt.*;
 import java.io.IOException;
 
 
-public class Test_07_ASHOT_Скриншот_НиЛ_и_Футер extends TestBase {
+public class Ashot_07_Скриншот_НиЛ_и_Футер extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
