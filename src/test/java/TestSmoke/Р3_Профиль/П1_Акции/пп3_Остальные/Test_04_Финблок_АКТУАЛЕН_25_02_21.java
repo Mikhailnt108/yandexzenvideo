@@ -24,10 +24,10 @@ public class Test_04_Финблок_АКТУАЛЕН_25_02_21 extends TestBase {
     private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9267644248");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameCreatePassword("79267644248", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("79267644248", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdnBlockingMf("79267644248");

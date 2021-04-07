@@ -4,6 +4,7 @@ package base;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +16,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver,30);
+        wait = new WebDriverWait(driver,45);
     }
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
@@ -32,7 +33,8 @@ public class BasePage {
     public void writeText(By elementBy, String text) {
         waitVisibility(elementBy);
         WebElement element = driver.findElement(elementBy);
-        element.clear();
+        element.sendKeys(Keys.CONTROL,"a");
+        element.sendKeys(Keys.DELETE);
         element.sendKeys(text);
     }
 }

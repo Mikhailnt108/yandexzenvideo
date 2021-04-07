@@ -23,7 +23,7 @@ public class Test_03_Авторизация_через_кнопку_Вход_FRE
     private void flowAuthorization() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.checkElementsPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.checkActiveButtonNext();
@@ -35,10 +35,6 @@ public class Test_03_Авторизация_через_кнопку_Вход_FRE
         headerMenu.inputInvalidPassword("123456");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkErrorMessage2();
-        headerMenu.closePopUpInputPassword();
-        headerMenu.clickToEnter("Вход");
-        headerMenu.inputLogin("9260192144");
-        headerMenu.clickToNext("Далее");
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.checkActiveButtonComeIn();
         headerMenu.clickToComeIn("Войти");
@@ -48,10 +44,10 @@ public class Test_03_Авторизация_через_кнопку_Вход_FRE
     private void flowRegister() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");

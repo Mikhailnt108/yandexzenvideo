@@ -14,24 +14,24 @@ public class Test_04_Авторизация_из_карточек_FRESH extends 
     @Test
     public void loginFromCardFilm() {
         headerMenu.goToNilPage();
-        //flowRegistation();
-        //headerMenu.logOut();
-//        headerMenu.checkNotLoggedIsCorrect();
-//        headerMenu.clickToTabFilms();
-//        filmsPage.checkOpenFilmsPage();
-//        filmsPage.clickToTailCardFilm();
-//        cardFilm.checkOpenCardFilm();
-//        cardFilm.clickPaymentButtonInCardFilm();
-//        flowAutorisation();
-//        headerMenu.logOut();
-//        headerMenu.checkNotLoggedIsCorrect();
-//        headerMenu.clickToTabSerials();
-//        serialsPage.checkOpenSerialsPage();
-//        serialsPage.clickToTailCardSerial();
-//        cardSerial.checkOpenCardSerial();
-//        cardSerial.clickPaymentButtonInCardSerial();
-//        flowAutorisation();
-//        headerMenu.logOut();
+        flowRegistation();
+        headerMenu.logOut();
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToTabFilms();
+        filmsPage.checkOpenFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.clickPaymentButtonInCardFilm();
+        flowAutorisation();
+        headerMenu.logOut();
+        headerMenu.checkNotLoggedIsCorrect();
+        headerMenu.clickToTabSerials();
+        serialsPage.checkOpenSerialsPage();
+        serialsPage.clickToTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.clickPaymentButtonInCardSerial();
+        flowAutorisation();
+        headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToTabShop();
         packagesPage.checkOpenShopPage();
@@ -55,10 +55,10 @@ public class Test_04_Авторизация_из_карточек_FRESH extends 
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
@@ -67,7 +67,7 @@ public class Test_04_Авторизация_из_карточек_FRESH extends 
     }
 
     private void flowAutorisation() {
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputPassword();

@@ -2,10 +2,9 @@ package pages;
 
 import base.BasePage;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
@@ -77,16 +76,16 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("//button[contains(text(), 'Следующая')]"));
     }
 
-    public void checkOpenFrameCreatePassword(String login, String password) {
+    public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
             ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
-            writeText(By.xpath("//form[@method='GET']//input[1]"), "79267644248");
+            writeText(By.xpath("//form[@method='GET']//input[1]"), "79260192144");
             click(By.xpath("//button[text()='Поиск']"));
-            isElementDisplayed(By.xpath("//td[text()='79267644248']"));
+            isElementDisplayed(By.xpath("//td[text()='79260192144']"));
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));
             isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
             click(By.xpath("//button[text()='Удалить']"));
@@ -252,10 +251,6 @@ public class HeaderMenu extends BasePage {
         click(By.partialLinkText("Все"));
     }
 
-    public void checkOpenPopUpInputPhone() {
-        isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-    }
-
     public void checkOpenPopUpPromoCod() {
         isElementDisplayed(By.xpath("//h3[text()='Введите промокод']"));
     }
@@ -290,7 +285,7 @@ public class HeaderMenu extends BasePage {
     }
 
 
-    public void checkOpenFrameInputPhone() {
+    public void checkOpenPopUpInputPhone() {
         isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
     }
 
@@ -304,6 +299,7 @@ public class HeaderMenu extends BasePage {
     public void inputLogin(String login) {
         WebElement element = driver.findElement(By.xpath("//input[@value='+7 ']"));
         element.sendKeys(login);
+
     }
 
     public void checkActiveButtonNext() {
@@ -324,7 +320,7 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("//span[text()='Для регистрации в МегаФон ТВ']"));
         isElementDisplayed(By.xpath("//input[@placeholder='Пароль']"));
         isElementDisplayed(By.xpath("//button[@disabled and text()='Войти']"));
-        isElementDisplayed(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
+        isElementDisplayed(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Я согласен с')]//a[@href='//www.megafon.ru/ad/offer_mediaportal' and contains(text(), 'условиями оказания услуги')]"));
     }
 
@@ -338,24 +334,18 @@ public class HeaderMenu extends BasePage {
 
     public void inputSixSimbolPassword(String password) {
         WebElement element = driver.findElement(By.xpath("//input[@type='password']"));
-        element.clear();
+        element.sendKeys(Keys.CONTROL,"a");
+        element.sendKeys(Keys.DELETE);
         element.sendKeys(password);
     }
 
     public void inputLessThanSixSimbolPassword(String lessthansix) {
         WebElement element = driver.findElement(By.xpath("//input[@type='password']"));
-        element.clear();
         element.sendKeys(lessthansix);
     }
 
     public void checkDisabledButtonComeIn() {
         isElementDisplayed(By.xpath("//button[@disabled and text()='Войти']"));
-    }
-
-    public void inputMoreThanSixAndUncheckCheckbox(String morethansixpass) {
-        WebElement element = driver.findElement(By.xpath("//input[@type='password']"));
-        element.sendKeys(morethansixpass);
-        click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
     }
 
     public void clickToLinkOffer() {
@@ -370,12 +360,6 @@ public class HeaderMenu extends BasePage {
         Assert.assertEquals(url1, url2);
         driver.close();
         driver.switchTo().window((String) tabs1.get(0));
-    }
-
-    public void inputMoreThanSixPasswordAndCheckCheckbox(String morethansixpass) {
-        WebElement element = driver.findElement(By.xpath("//input[@type='password']"));
-        element.sendKeys(morethansixpass);
-        click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
     }
 
     public void checkActiveButtonComeIn() {
@@ -428,18 +412,36 @@ public class HeaderMenu extends BasePage {
 
     public void inputInvalidCodeСonfirmation(String code) {
         WebElement element = driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']"));
+        element.click();
+        element.clear();
         element.sendKeys(code);
         click(By.xpath("//button[text()='Войти']"));
     }
 
     public void checkErrorMessage1() {
         isElementDisplayed(By.xpath("//div[text()='Неверный код']"));
+        String errorMessage1 = driver.findElement(By.cssSelector("div[data-test='CodeError']")).getCssValue("color");
+        System.out.println(errorMessage1);
+        Assert.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage1);
+        String borderInput = driver.findElement(By.cssSelector("input[name='code-confirm']")).getCssValue("border-color");
+        System.out.println(borderInput);
+        Assert.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
+    }
+
+    public void checkErrorMessage2() {
+        isElementDisplayed(By.xpath("//div[text()='Неверный пароль']"));
+        String errorMessage2 = driver.findElement(By.cssSelector("div._3IFyMnnL8xI6B0oOiNOlSp")).getCssValue("color");
+        System.out.println(errorMessage2);
+        Assert.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage2);
+        String borderInput = driver.findElement(By.cssSelector("input[type='password']")).getCssValue("border-color");
+        System.out.println(borderInput);
+        Assert.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
     }
 
     public void inputInvalidCodeMoreThanThreeTimes() {
-        click(By.xpath("//button[text()='Войти']"));
-        click(By.xpath("//button[text()='Войти']"));
-        click(By.xpath("//button[text()='Войти']"));
+        for (int i = 0; i <= 3; i++) {
+            click(By.xpath("//button[text()='Войти']"));
+        }
     }
 
     public void checkElementsPopUpForInvalidCodeMoreThanThreeTimes() {
@@ -452,7 +454,7 @@ public class HeaderMenu extends BasePage {
 
     public void clickToButtonGetNewCode() {
         click(By.xpath("//button[text()='Получить новый код']"));
-        WebDriverWait wait = new WebDriverWait(driver, 50);
+        waitVisibility(By.xpath("//button[text()='Получить новый код']"));
         click(By.xpath("//button[text()='Получить новый код']"));
 
     }
@@ -471,10 +473,10 @@ public class HeaderMenu extends BasePage {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void checkOpenPopUpCreatePasswordForMF(String login) {
+    public void checkOpenPopUpCreatePasswordForCaseRegistrationMF(String login) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -566,11 +568,7 @@ public class HeaderMenu extends BasePage {
         element.sendKeys(invalidpass);
     }
 
-    public void checkErrorMessage2() {
-        isElementDisplayed(By.xpath("//div[text()='Неверный пароль']"));
-        String color = driver.findElement(By.cssSelector("input[type='password']")).getCssValue("background-color");
-        System.out.println(color);
-    }
+
 
     public void closePopUpInputPassword() {
         click(By.xpath("(//div[@role='dialog']//button)[3]"));
@@ -585,6 +583,16 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("//span[text()='Для авторизации в МегаФон ТВ']"));
         isElementDisplayed(By.xpath("//input[@placeholder='Пароль']"));
         isElementDisplayed(By.xpath("//button[@disabled and text()='Войти']"));
+    }
+
+    public void clickUncheckCheckBox() {
+        click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
+        Assert.assertEquals("Не отжат чекбокс", 0, driver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size());
+    }
+
+    public void clickCheckCheckBox() {
+        click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
+        Assert.assertEquals("Не прожат чекбокс", 1, driver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size());
     }
 }
 

@@ -1,4 +1,4 @@
-package TestSmoke.Р1_Авторизация_и_регистрация.старые_кейсы;
+package TestSmoke.старые_кейсы.авторизация_и_регистрация;
 
 import base.TestBase;
 import io.qameta.allure.*;
@@ -27,10 +27,10 @@ public class Old_09_Авторизация_из_раздела_Пакеты exte
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenFrameCreatePassword("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         //headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
@@ -40,7 +40,7 @@ public class Old_09_Авторизация_из_раздела_Пакеты exte
     }
 
     private void flowAutorisation() {
-        headerMenu.checkOpenFrameInputPhone();
+        headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputPassword();
