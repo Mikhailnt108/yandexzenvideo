@@ -36,6 +36,6 @@ public class Test_07_Подписка_на_пакет_каналов extends Tes
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

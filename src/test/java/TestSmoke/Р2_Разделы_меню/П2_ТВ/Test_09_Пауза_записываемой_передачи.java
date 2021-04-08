@@ -39,6 +39,6 @@ public class Test_09_Пауза_записываемой_передачи extend
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

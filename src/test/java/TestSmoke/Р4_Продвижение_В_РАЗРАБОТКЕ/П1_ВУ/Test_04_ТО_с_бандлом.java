@@ -1,27 +1,24 @@
-package TestSmoke.Р2_Разделы_меню.П3_Фильмы;
+package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П1_ВУ;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Аренда_фильма_за_бандл_НЕТ_Фильмов_по_акции_на_ПП1_на_ПП2_есть extends TestBase {
+public class Test_04_ТО_с_бандлом extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
-    @DisplayName(value ="Аренда фильма за бандл")
+    @Feature(value = "4. Продвижение")
+    @Story(value = "1. ВУ")
+    @DisplayName(value = "ТО с бандлом")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void PaymentFilmForRent2Promo() throws Exception {
-        headerMenu.goToFilmsPage();
+    public void popUpNotificationMyTarifBundle() {
+        headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
-        filmsPage.clickOnFiltrPayment();
-        filmsPage.chooseTabPromo();
-        filmsPage.clickToTailCardFilmFromAvailable();
-        cardFilm.paymentFilmAtRent2Promo();
-        cardFilm.checkСounterAvailableFilms();
-        cardFilm.startVideoPleer();
+        headerMenu.checkLoginUserIsCorrect();
+        popUpNotification.checkElementsPopUpBundleUserMF();
+        popUpNotification.clickButtonWatchInPopUpBundle();
+        promoPage.checkOpenPromoPage();
         pageCMS.deleteAccountMF();
     }
     private void flowRegistation() {
@@ -35,6 +32,5 @@ public class Test_03_Аренда_фильма_за_бандл_НЕТ_Фильм
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

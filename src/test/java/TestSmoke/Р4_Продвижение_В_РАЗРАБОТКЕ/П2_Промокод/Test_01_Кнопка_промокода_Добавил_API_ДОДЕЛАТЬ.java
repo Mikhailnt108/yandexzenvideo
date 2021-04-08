@@ -62,6 +62,6 @@ public class Test_01_Кнопка_промокода_Добавил_API_ДОДЕ
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

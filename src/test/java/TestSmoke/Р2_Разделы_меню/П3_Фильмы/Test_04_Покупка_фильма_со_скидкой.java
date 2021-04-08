@@ -40,6 +40,6 @@ public class Test_04_Покупка_фильма_со_скидкой extends Tes
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

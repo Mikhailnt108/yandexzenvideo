@@ -42,6 +42,6 @@ public class Test_02_Переход_на_страницу_Моё_Избранн�
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

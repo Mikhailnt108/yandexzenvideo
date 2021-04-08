@@ -15,12 +15,12 @@ public class Test_01_Регистрация_МФ_FRESH_от_07_04_2021 extends T
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
-    public void registrationMF()  {
+    public void registrationMF() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         pageCMS.deleteAccountMF();
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
@@ -51,6 +51,6 @@ public class Test_01_Регистрация_МФ_FRESH_от_07_04_2021 extends T
         headerMenu.checkElementsPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

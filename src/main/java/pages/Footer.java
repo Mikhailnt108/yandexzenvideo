@@ -140,7 +140,7 @@ public class Footer extends BasePage {
         ArrayList tabs4 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs4.get(1));
         String url8 = driver.getCurrentUrl();
-        Assert.assertEquals(url5,url6);
+        Assert.assertEquals(url7,url8);
         driver.close();
         driver.switchTo().window((String) tabs1.get(0));
     }

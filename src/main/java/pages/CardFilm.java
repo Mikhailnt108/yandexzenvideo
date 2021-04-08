@@ -29,6 +29,14 @@ public class CardFilm extends BasePage {
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
     }
 
+    public void paymentFilmAtEstFromPopUpNotif() {
+        isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']"));
+        isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
+        click(By.xpath("//span[text()='Подтвердить']"));
+        isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
+    }
+
     public void paymentButtonRent2InCardFilm() {
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));

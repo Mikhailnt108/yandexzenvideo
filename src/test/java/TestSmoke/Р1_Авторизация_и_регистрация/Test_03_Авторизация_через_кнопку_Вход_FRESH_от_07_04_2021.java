@@ -38,7 +38,7 @@ public class Test_03_Авторизация_через_кнопку_Вход_FRE
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.checkActiveButtonComeIn();
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 
     private void flowRegister() {
@@ -52,7 +52,7 @@ public class Test_03_Авторизация_через_кнопку_Вход_FRE
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 
 }

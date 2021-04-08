@@ -3,11 +3,9 @@ package pages;
 import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class HeaderMenu extends BasePage {
     //ПП1
@@ -173,21 +171,22 @@ public class HeaderMenu extends BasePage {
         return this;
     }
 
-    public void checkLoginUserIsCorrect() {
+    public void checkLoginUserIsCorrectFlow() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
             click(By.xpath("//button[text()='Нет']"));
             driver.navigate().refresh();
         }
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']")).size() != 0) {
-            //isElementDisplayed(By.xpath("//h3[contains(text(), 'Хочешь')]"));
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
             driver.navigate().refresh();
         }
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Вам доступно')]|//div[text()='Акция недоступна']"));
-        click(By.xpath("//button[text()='Закрыть']"));
-
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+            driver.navigate().refresh();
+        }
+        driver.navigate().refresh();
     }
 
     public void checkLoginUserIsCorrectForBlockingMf() {
@@ -354,16 +353,20 @@ public class HeaderMenu extends BasePage {
 
     public void clickToLinkOffer() {
         click(By.xpath("//a[@href='//www.megafon.ru/ad/offer_mediaportal']"));
-    }
-
-    public void checkOpenPageOffer() {
         String url1 = "https://moscow.megafon.ru/download/~federal/oferts/mediaportal_oferta.pdf";
         ArrayList tabs1 = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window((String) tabs1.get(1));
+//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//        driver.switchTo().window((String) tabs1.get(1));
+//        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         String url2 = driver.getCurrentUrl();
+        System.out.println(url2);
         Assert.assertEquals(url1, url2);
         driver.close();
         driver.switchTo().window((String) tabs1.get(0));
+    }
+
+    public void checkOpenPageOffer() throws InterruptedException {
+
     }
 
     public void checkActiveButtonComeIn() {
@@ -597,6 +600,16 @@ public class HeaderMenu extends BasePage {
     public void clickCheckCheckBox() {
         click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
         Assert.assertEquals("Не прожат чекбокс", 1, driver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size());
+    }
+
+    public void checkAbsencePopUpNotifToNilPage() {
+        Assert.assertEquals("Отображается ВУ на НиЛ с фильтром раздел Фильмы", 0, driver.findElements(By.xpath("//div[@aria-label='Notification']//h3[text()='автотест ВУ для экрана Фильмы']")).size());
+    }
+
+
+    public void checkLoginUserIsCorrect() {
+        isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
+        driver.navigate().refresh();
     }
 }
 

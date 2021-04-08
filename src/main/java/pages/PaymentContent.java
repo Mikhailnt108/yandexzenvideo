@@ -11,6 +11,7 @@ public class PaymentContent extends BasePage {
 
     public void checkOpenPopUpChoosePaymentMethodEst() {
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
+        isElementDisplayed(By.xpath("//h1[text()='Выберите способ оплаты']"));
     }
 
 

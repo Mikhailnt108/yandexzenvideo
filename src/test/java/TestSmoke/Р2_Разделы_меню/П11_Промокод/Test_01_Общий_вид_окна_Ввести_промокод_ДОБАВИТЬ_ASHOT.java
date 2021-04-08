@@ -21,7 +21,7 @@ public class Test_01_Общий_вид_окна_Ввести_промокод_Д
         popUpInputPassword.checkOpenFrameInputPassword();
         popUpInputPassword.inputPassword("111111");
         popUpInputPassword.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCod();
     }

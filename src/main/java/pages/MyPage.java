@@ -9,10 +9,10 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class MyPage extends BasePage {
-    String My_favorites = "https://web-preprod1.megafon.tv/my/favorites";
-    String My_history = "https://web-preprod1.megafon.tv/my/history";
-    String My_purchases = "https://web-preprod1.megafon.tv/my/purchases";
-    String My_subscriptions = "https://web-preprod1.megafon.tv/my/subscriptions";
+    String My_favorites = "https://web-preprod2.megafon.tv/my/favorites";
+    String My_history = "https://web-preprod2.megafon.tv/my/history";
+    String My_purchases = "https://web-preprod2.megafon.tv/my/purchases";
+    String My_subscriptions = "https://web-preprod2.megafon.tv/my/subscriptions";
 
 
     public MyPage(WebDriver driver) {
@@ -24,8 +24,12 @@ public class MyPage extends BasePage {
     }
 
     public void checkAddingFilmInPurchases() {
-       // isElementDisplayed(By.xpath("//span[text()='Куплено']"));
-        Assert.assertEquals(1, driver.findElements(By.xpath("//span[text()='Куплено']")).size());
+        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameFilm);
+        driver.get(My_purchases);
+        click(By.xpath("//a[@data-test='PackageLink']"));
+        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
+//        Assert.assertEquals(1, driver.findElements(By.xpath("//span[text()='Куплено']")).size());
     }
 
     public void checkNoPurchase() {

@@ -14,11 +14,11 @@ public class Test_01_Внешний_вид_всплывающего_уведом
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void appearanceOfPopUpNotification() {
-        popUpNotification.createAndPublishedPopUpNotifPayFilm();
+        popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToNilPage();
         flowRegistation();
-        popUpNotification.checkElementsPopUpNotifPayFilm();
-        popUpNotification.deletePopUpNotification();
+        popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
+        popUpNotification.deletePopUpNotifScreenNilPayFilm();
         pageCMS.deleteAccountMF();
     }
 
@@ -33,7 +33,7 @@ public class Test_01_Внешний_вид_всплывающего_уведом
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
 

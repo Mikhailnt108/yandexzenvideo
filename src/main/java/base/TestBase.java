@@ -3,14 +3,12 @@ package base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
-
-
-
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
@@ -61,10 +59,21 @@ public class TestBase {
         //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         //driver = new ChromeDriver(capabilities);
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--window-size=1900,1000");
+        //options.addArguments("--window-size=1900,1000");
+        //options.addArguments("enable-features=NetworkServiceInProcess");
+        //options.addArguments("disable-features=NetworkService");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-browser-side-navigation");
+//        options.addArguments("enable-automation");
+        options.addArguments("--window-size=1920,1080");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-extensions");
+//        options.addArguments("--dns-prefetch-disable");
+//        options.addArguments("--disable-gpu");
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         //options.addArguments("start-maximized");
         //запуск браузера в фоне:
-        options.setHeadless(true);
+        //options.setHeadless(true);
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

@@ -30,6 +30,6 @@ public class Test_01_Способы_оплаты_ДОБАВИТЬ_ASHOT_АКТУ
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrect();
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
