@@ -178,11 +178,11 @@ public class HeaderMenu extends BasePage {
             click(By.xpath("//button[text()='Нет']"));
             driver.navigate().refresh();
         }
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
             driver.navigate().refresh();
         }
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
             driver.navigate().refresh();
         }
@@ -353,20 +353,19 @@ public class HeaderMenu extends BasePage {
 
     public void clickToLinkOffer() {
         click(By.xpath("//a[@href='//www.megafon.ru/ad/offer_mediaportal']"));
+    }
+
+    public void checkOpenPageOffer() throws InterruptedException {
         String url1 = "https://moscow.megafon.ru/download/~federal/oferts/mediaportal_oferta.pdf";
         ArrayList tabs1 = new ArrayList(driver.getWindowHandles());
 //        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-//        driver.switchTo().window((String) tabs1.get(1));
+        driver.switchTo().window((String) tabs1.get(1));
 //        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         String url2 = driver.getCurrentUrl();
         System.out.println(url2);
         Assert.assertEquals(url1, url2);
         driver.close();
         driver.switchTo().window((String) tabs1.get(0));
-    }
-
-    public void checkOpenPageOffer() throws InterruptedException {
-
     }
 
     public void checkActiveButtonComeIn() {
@@ -610,6 +609,10 @@ public class HeaderMenu extends BasePage {
     public void checkLoginUserIsCorrect() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+            driver.navigate().refresh();
+        }
     }
 }
 
