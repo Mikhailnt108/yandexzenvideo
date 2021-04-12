@@ -5,23 +5,21 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Общая_вкладка_Фильмы extends TestBase {
+public class Test_04_ТО_с_бандлом_FRESH_от_08_04_2021 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
-    @DisplayName(value = "Общая вкладка Фильмы")
+    @DisplayName(value = "ТО с бандлом")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void popUpNotificationFilterPageFilms() {
-        popUpNotification.createAndPublishedPopUpNotifScreenFilms();
+    public void popUpNotificationMyTarifBundle() {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.checkAbsencePopUpNotifToNilPage();
-        headerMenu.goToFilmsPage();
-        popUpNotification.checkElementsPopUpNotifScreenFilms();
-        popUpNotification.deletePopUpNotifScreenFilms();
+        headerMenu.checkLoginUserIsCorrect();
+        popUpNotification.checkElementsPopUpBundleUserMF();
+        popUpNotification.clickButtonWatchInPopUpBundle();
+        promoPage.checkOpenPromoPage();
         pageCMS.deleteAccountMF();
-
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
@@ -34,6 +32,5 @@ public class Test_03_Общая_вкладка_Фильмы extends TestBase {
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
     }
 }

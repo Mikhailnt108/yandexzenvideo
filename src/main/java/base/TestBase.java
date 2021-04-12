@@ -43,6 +43,7 @@ public class TestBase {
     public PromoPage promoPage;
     public PopUpInputEmail popUpInputEmail;
     public PopUpNotification popUpNotification;
+    public PromoCode promoCode;
 
 
 
@@ -65,7 +66,7 @@ public class TestBase {
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-browser-side-navigation");
 //        options.addArguments("enable-automation");
-        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--window-size=1920,1070");
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-extensions");
 //        options.addArguments("--dns-prefetch-disable");
@@ -106,6 +107,7 @@ public class TestBase {
         promoPage = PageFactory.initElements(driver, PromoPage.class);
         popUpInputEmail = PageFactory.initElements(driver, PopUpInputEmail.class);
         popUpNotification = PageFactory.initElements(driver, PopUpNotification.class);
+        promoCode = PageFactory.initElements(driver, PromoCode.class);
 
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

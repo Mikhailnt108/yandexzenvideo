@@ -23,6 +23,6 @@ public class Test_01_Общий_вид_окна_Ввести_промокод_Д
         popUpInputPassword.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
         headerMenu.clickToButtonPromo();
-        headerMenu.checkOpenPopUpPromoCod();
+        headerMenu.checkOpenPopUpPromoCode();
     }
 }

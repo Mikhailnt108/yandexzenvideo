@@ -5,23 +5,25 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
-public class Test_01_Внешний_вид_всплывающего_уведомления extends TestBase {
+public class Test_02_Фильм_по_покупке_за_деньги_FRESH_от_08_04_2021 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
-    @DisplayName(value = "Внешний вид и навигация")
+    @DisplayName(value = "Фильм по покупке за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void appearanceOfPopUpNotification() {
+    public void payFilmFromPopUpNotification() {
         popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToNilPage();
         flowRegistation();
         popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
+        popUpNotification.clickToButtonPayToPopUpNotif();
+        paymentContent.checkOpenPopUpChoosePaymentMethodEst();
+        cardFilm.paymentFilmAtEstFromPopUpNotif();
+        myPage.checkAddingFilmInPurchases();
         popUpNotification.deletePopUpNotifScreenNilPayFilm();
         pageCMS.deleteAccountMF();
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -36,4 +38,3 @@ public class Test_01_Внешний_вид_всплывающего_уведом
         headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
-
