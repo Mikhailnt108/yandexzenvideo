@@ -9,16 +9,17 @@ public class Test_02_Пакет_по_Мягкому_TnB extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Кнопка промокода")
+    @DisplayName(value = "Пакет по Мягкому TnB")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void packageSoftTnB() {
-        //promoCode.createAndPublishedPkCodeGroupAndPromoCodePackageStartSoftTnB();
+        promoCode.createAndPublishedRC();
+        promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeAutoTest");
+        headerMenu.inputValidPromoCode("promoCodeSoftTnB");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
         headerMenu.checkElementsPopUpBeforeActivationPackageStartSoftTnB();

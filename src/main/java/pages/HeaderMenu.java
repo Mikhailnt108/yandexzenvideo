@@ -662,6 +662,7 @@ public class HeaderMenu extends BasePage {
     }
 
     public void checkOpenPopUpBeforeActivation() {
+        waitVisibility(By.xpath("//h3[contains(text(),' бесплатно по промокоду!')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(),' бесплатно по промокоду!')]"));
     }
 
@@ -708,6 +709,36 @@ public class HeaderMenu extends BasePage {
         click(By.linkText("Подробнее"));
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
         Assert.assertEquals("Не тот пакет", namePackage, driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText());
+    }
+
+    public void checkElementsPopUpBeforeActivationPackageMoreTvHardTnB() {
+        isElementDisplayed(By.xpath("//h3[text()='«more.tv» бесплатно по промокоду!']"));
+        isElementDisplayed(By.xpath("//div//*[@class='_38mZjUWD1k5VLnjhj0vj8T']"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Бесплатный доступ к пакету по промокоду предоставляется по 30.09.2021.')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Начиная с 01.10.2021 стоимость пакета составит')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Сервис предоставляется ООО «M3».')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Подтверждая подписку, вы принимаете условия оферты ООО «M3»:')]"));
+        isElementDisplayed(By.xpath("//a[@href='https://more.tv/useragreement']"));
+        isElementDisplayed(By.xpath("//button[text()='Активировать']"));
+        isElementDisplayed(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void checkElementsPopUpAfterActivationPackageMoreTvHardTnB() {
+        isElementDisplayed(By.xpath("//h3[text()='Промокод активирован!']"));
+        isElementDisplayed(By.className("_2VizWvlDNzA0Ud_F09jJco"));
+        isElementDisplayed(By.className("wEpDEZzWIj5YGechGyzkl"));
+        isElementDisplayed(By.xpath("//div[text()='Вам доступно:']"));
+        isElementDisplayed(By.xpath("//span[text()='\"more.tv\"']"));
+        isElementDisplayed(By.xpath("//span[text()='текст для описания']"));
+        isElementDisplayed(By.linkText("Подробнее"));
+    }
+
+    public void clickToButtonCloseInPopUpAfterActivation() {
+        click(By.className("_2VizWvlDNzA0Ud_F09jJco"));
+    }
+
+    public void checkClosePopUpAfterActivation() {
+        Assert.assertEquals("Не закрылся попап 'после активации'",0, driver.findElements(By.xpath("//h3[text()='Промокод активирован!']")).size());
     }
 }
 

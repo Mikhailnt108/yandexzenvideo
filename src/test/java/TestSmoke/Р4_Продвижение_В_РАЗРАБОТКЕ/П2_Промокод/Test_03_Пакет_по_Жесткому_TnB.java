@@ -5,34 +5,29 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-
-
-public class Test_01_Кнопка_промокода extends TestBase {
+public class Test_03_Пакет_по_Жесткому_TnB extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Кнопка промокода")
+    @DisplayName(value = "Пакет по Жесткому ТнБ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void clickButtonPromoCodeAndInputPromoCode() {
+    public void packageHardTnB() {
         //promoCode.createAndPublishedRC();
+        //promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.checkElementsPopUpPromoCode();
-        headerMenu.inputInvalidPromoCode("12345");
-        headerMenu.checkActiveButtonActivatePromoCode();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkErrorMessage3();
-        headerMenu.inputValidPromoCode("promoCodeAutoTest");
+        headerMenu.inputValidPromoCode("promoCodeHardTnB");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
+        headerMenu.checkElementsPopUpBeforeActivationPackageMoreTvHardTnB();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        //promoCode.archiveCodeGroupPackageStartSoftTnB();
-        pageCMS.deleteAccountMF();
+        headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
+        headerMenu.clickToButtonCloseInPopUpAfterActivation();
+        headerMenu.checkClosePopUpAfterActivation();
     }
 
     private void flowRegistation() {
