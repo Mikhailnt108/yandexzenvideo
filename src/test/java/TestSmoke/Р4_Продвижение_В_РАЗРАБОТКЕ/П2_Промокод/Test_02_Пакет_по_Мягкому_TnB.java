@@ -30,7 +30,7 @@ public class Test_02_Пакет_по_Мягкому_TnB extends TestBase {
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
         headerMenu.checkElementsPopUpAfterActivationPackageStartSoftTnB();
-        headerMenu.clickToButtonMoreDetailedAndCheckOpenPackageStart();
+        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardPackageStart();
     }
 
     private void flowRegistation() {

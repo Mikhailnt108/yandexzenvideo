@@ -13,8 +13,8 @@ public class Test_03_Пакет_по_Жесткому_TnB extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void packageHardTnB() {
-        //promoCode.createAndPublishedRC();
-        //promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
+        promoCode.createAndPublishedRC();
+        promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();

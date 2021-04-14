@@ -5,35 +5,28 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-
-
-public class Test_01_Кнопка_промокода extends TestBase {
+public class Test_04_Фильм_по_аренде extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Кнопка промокода")
+    @DisplayName(value = "Фильм по аренде")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void clickButtonPromoCodeAndInputPromoCode() {
+    public void filmOnRentPromo() {
         promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();
+        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.checkElementsPopUpPromoCode();
-        headerMenu.inputInvalidPromoCode("12345");
-        headerMenu.checkActiveButtonActivatePromoCode();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkErrorMessage3();
-        headerMenu.inputValidPromoCode("promoCodeAutoTest");
+        headerMenu.inputValidPromoCode("promoCodeFilmOnRent");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
+        headerMenu.checkElementsPopUpBeforeActivationFilmOnRent();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        //promoCode.archiveCodeGroupPackageStartSoftTnB();
-        pageCMS.deleteAccountMF();
+        headerMenu.checkElementsPopUpAfterActivationFilmOnRent();
+        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent();
     }
 
     private void flowRegistation() {

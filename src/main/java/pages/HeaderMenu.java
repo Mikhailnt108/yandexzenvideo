@@ -662,8 +662,8 @@ public class HeaderMenu extends BasePage {
     }
 
     public void checkOpenPopUpBeforeActivation() {
-        waitVisibility(By.xpath("//h3[contains(text(),' бесплатно по промокоду!')]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(),' бесплатно по промокоду!')]"));
+        waitVisibility(By.xpath("//h3[contains(text(),' бесплатно по промокоду')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),' бесплатно по промокоду')]"));
     }
 
     public void checkElementsPopUpBeforeActivationPackageStartSoftTnB() {
@@ -702,7 +702,7 @@ public class HeaderMenu extends BasePage {
         isElementDisplayed(By.xpath("//h3[text()='Введите промокод']"));
     }
 
-    public void clickToButtonMoreDetailedAndCheckOpenPackageStart() {
+    public void clickToButtonMoreDetailedAndCheckOpenCardPackageStart() {
         String name = driver.findElement(By.className("uCaVLp73F3t8zT0sYCoBh")).getText();
         String namePackage = name.replace("\"", "");
         System.out.println(namePackage);
@@ -739,6 +739,62 @@ public class HeaderMenu extends BasePage {
 
     public void checkClosePopUpAfterActivation() {
         Assert.assertEquals("Не закрылся попап 'после активации'",0, driver.findElements(By.xpath("//h3[text()='Промокод активирован!']")).size());
+    }
+
+    public void checkElementsPopUpBeforeActivationFilmOnRent() {
+        isElementDisplayed(By.xpath("//h3[text()='Фильм «Довод» бесплатно по промокоду']"));
+        isElementDisplayed(By.xpath("//div//*[@class='_38mZjUWD1k5VLnjhj0vj8T']"));
+        isElementDisplayed(By.xpath("//span[text()='Смотри бесплатно до 01.11.2021.']"));
+        isElementDisplayed(By.xpath("//button[text()='Активировать']"));
+        isElementDisplayed(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void checkElementsPopUpAfterActivationFilmOnRent() {
+        isElementDisplayed(By.xpath("//h3[text()='Промокод активирован!']"));
+        isElementDisplayed(By.className("_3E3Ou4BLw1i_TQHV34ofs6"));
+        isElementDisplayed(By.className("_2o8kH-If8mc-reHlaOHfFH"));
+        isElementDisplayed(By.xpath("//div[text()='Вам доступно:']"));
+        isElementDisplayed(By.xpath("//span[text()='\"Довод\"']"));
+        isElementDisplayed(By.xpath("//span[text()='текст для описания']"));
+        isElementDisplayed(By.linkText("Подробнее"));
+    }
+
+    public void clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent() {
+        String name = driver.findElement(By.className("_1Euevex6MnqG-kMnzDFzTx")).getText();
+        String namePackage = name.replace("\"", "");
+        System.out.println(namePackage);
+        click(By.linkText("Подробнее"));
+        isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Смотреть до')]"));
+        Assert.assertEquals("Не тот фильм", namePackage, driver.findElement(By.tagName("h1")).getText());
+    }
+
+    public void checkElementsPopUpBeforeActivationFilmOnEST() {
+        isElementDisplayed(By.xpath("//h3[text()='Фильм «Довод» бесплатно по промокоду']"));
+        isElementDisplayed(By.xpath("//div//*[@class='_38mZjUWD1k5VLnjhj0vj8T']"));
+        isElementDisplayed(By.xpath("//span[text()='Смотри бесплатно.']"));
+        isElementDisplayed(By.xpath("//button[text()='Активировать']"));
+        isElementDisplayed(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void checkElementsPopUpAfterActivationFilmOnEST() {
+        isElementDisplayed(By.xpath("//h3[text()='Промокод активирован!']"));
+        isElementDisplayed(By.className("_3E3Ou4BLw1i_TQHV34ofs6"));
+        isElementDisplayed(By.className("_2o8kH-If8mc-reHlaOHfFH"));
+        isElementDisplayed(By.xpath("//div[text()='Вам доступно:']"));
+        isElementDisplayed(By.xpath("//span[text()='\"Довод\"']"));
+        isElementDisplayed(By.xpath("//span[text()='текст для описания']"));
+        isElementDisplayed(By.linkText("Подробнее"));
+    }
+
+    public void clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST() {
+        String name = driver.findElement(By.className("_1Euevex6MnqG-kMnzDFzTx")).getText();
+        String namePackage = name.replace("\"", "");
+        System.out.println(namePackage);
+        click(By.linkText("Подробнее"));
+        isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
+        isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
+        Assert.assertEquals("Не тот фильм", namePackage, driver.findElement(By.tagName("h1")).getText());
     }
 }
 
