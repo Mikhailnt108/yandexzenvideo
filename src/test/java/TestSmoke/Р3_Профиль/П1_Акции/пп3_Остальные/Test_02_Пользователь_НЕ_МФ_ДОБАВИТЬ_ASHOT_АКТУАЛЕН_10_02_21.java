@@ -34,8 +34,8 @@ public class Test_02_Пользователь_НЕ_МФ_ДОБАВИТЬ_ASHOT_�
         popUpCreatePassword.inputPassword("111111");
         popUpCreatePassword.clickToComeIn("Войти");
         popUpInputCod.checkOpenFrameInputCod();
-        pageCMS.copyPasteCodMsisdnForNotMF("79261184972");
+        pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         popUpInputCod.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectForNotMegafon();
+        headerMenu.checkLoginUserIsCorrectForNonMegafon();
     }
 }

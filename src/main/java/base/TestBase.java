@@ -44,6 +44,7 @@ public class TestBase {
     public PopUpInputEmail popUpInputEmail;
     public PopUpNotification popUpNotification;
     public PromoCode promoCode;
+    public PersonalOffer personalOffer;
 
 
 
@@ -108,6 +109,7 @@ public class TestBase {
         popUpInputEmail = PageFactory.initElements(driver, PopUpInputEmail.class);
         popUpNotification = PageFactory.initElements(driver, PopUpNotification.class);
         promoCode = PageFactory.initElements(driver, PromoCode.class);
+        personalOffer = PageFactory.initElements(driver, PersonalOffer.class);
 
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

@@ -20,7 +20,7 @@ public class PopUpNotification extends BasePage {
                 "\"notification_duration\":{\"type\":\"date\",\"valid_until\":\"2021-04-30T12:56:00Z\",\"valid_duration\":3600},\"user_filters\":" +
                 "{\"msisdn_filter\":false,\"auth_filter\":\"registered\",\"vk_only_filter\":false,\"partners\":[\"megafon_tv\"]}}").
                 when().
-                put("https://bmp-preprod2.megafon.tv/cms/api/v0/notification_factories/autotest1").
+                put("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest1").
                 then().
                 statusCode(200);
     }
@@ -38,7 +38,7 @@ public class PopUpNotification extends BasePage {
     public void deletePopUpNotifScreenNilPayFilm() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                delete("https://bmp-preprod2.megafon.tv/cms/api/v0/notification_factories/autotest1").
+                delete("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest1").
                 then().
                 statusCode(204);
     }
@@ -59,7 +59,7 @@ public class PopUpNotification extends BasePage {
                 "\"notification_duration\":{\"type\":\"date\",\"valid_until\":\"2021-04-30T12:56:00Z\",\"valid_duration\":3600},\"user_filters\":" +
                 "{\"msisdn_filter\":false,\"auth_filter\":\"registered\",\"vk_only_filter\":false,\"partners\":[\"megafon_tv\"]}}").
                 when().
-                put("https://bmp-preprod2.megafon.tv/cms/api/v0/notification_factories/autotest2").
+                put("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest2").
                 then().
                 statusCode(200);
     }
@@ -77,7 +77,7 @@ public class PopUpNotification extends BasePage {
     public void deletePopUpNotifScreenFilms() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                delete("https://bmp-preprod2.megafon.tv/cms/api/v0/notification_factories/autotest2").
+                delete("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest2").
                 then().
                 statusCode(204);
     }
@@ -106,7 +106,7 @@ public class PopUpNotification extends BasePage {
                 "\"notification_duration\":{\"type\":\"date\",\"valid_until\":\"2021-04-30T12:56:00Z\",\"valid_duration\":3600},\"user_filters\":" +
                 "{\"msisdn_filter\":false,\"auth_filter\":\"registered\",\"vk_only_filter\":false,\"partners\":[\"megafon_tv\"]}}").
                 when().
-                put("https://bmp-preprod2.megafon.tv/cms/api/v0/notification_factories/autotest3").
+                put("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest3").
                 then().
                 statusCode(200);
     }
@@ -128,7 +128,7 @@ public class PopUpNotification extends BasePage {
     public void deletePopUpNotifScreenNilDeepLinkFilms() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                delete("https://bmp-preprod2.megafon.tv/cms/api/v0/notification_factories/autotest3").
+                delete("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest3").
                 then().
                 statusCode(204);
     }

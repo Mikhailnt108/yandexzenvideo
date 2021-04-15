@@ -226,6 +226,6 @@ public class PromoPage extends BasePage {
     }
 
     public void checkOpenPromoPage() {
-       isElementDisplayed(By.xpath("//span[text()='Акции'])[4]"));
+       isElementDisplayed(By.xpath("(//span[text()='Акции'])[4]"));
     }
 }

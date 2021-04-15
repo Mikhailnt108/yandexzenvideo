@@ -35,13 +35,13 @@ public class Test_02_Регистрация_НЕ_МФ_FRESH_от_07_04_2021 exte
         headerMenu.clickToCheckBoxInPopUpEmail();
         headerMenu.checkActiveButtonNext();
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForNotMF();
+        headerMenu.checkOpenPopUpCreatePasswordForNonMF();
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdnForNotMF("79261184972");
+        pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectForNotMegafon();
+        headerMenu.checkLoginUserIsCorrectForNonMegafon();
     }
 }
 
