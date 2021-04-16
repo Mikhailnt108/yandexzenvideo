@@ -26,9 +26,9 @@ public class PersonalOffer extends BasePage {
         //конец действия промоподписки
         LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
         //стандартный формат даты
-        System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
         //приименяем свой формат даты
-        System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("multipart/form-data").
@@ -71,9 +71,9 @@ public class PersonalOffer extends BasePage {
         //конец действия промоподписки
         LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
         //стандартный формат даты
-        System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
         //приименяем свой формат даты
-        System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("multipart/form-data").
@@ -108,9 +108,9 @@ public class PersonalOffer extends BasePage {
         //конец действия промоподписки
         LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
         //стандартный формат даты
-        System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
         //приименяем свой формат даты
-        System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("multipart/form-data").
@@ -146,9 +146,9 @@ public class PersonalOffer extends BasePage {
         //конец действия промоподписки
         LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
         //стандартный формат даты
-        System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
         //приименяем свой формат даты
-        System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("multipart/form-data").
@@ -190,9 +190,9 @@ public class PersonalOffer extends BasePage {
         //конец действия подписки
         LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
         //стандартный формат даты
-        System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
         //приименяем свой формат даты
-        System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("multipart/form-data").
@@ -236,9 +236,9 @@ public class PersonalOffer extends BasePage {
         //конец действия подписки
         LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
         //стандартный формат даты
-        System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
         //приименяем свой формат даты
-        System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("multipart/form-data").
