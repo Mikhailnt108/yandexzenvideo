@@ -363,7 +363,6 @@ public class PageCMS extends BasePage {
         driver.switchTo().window((String) tabs2.get(0));
     }
 
-
     public void chooseBundleOsnovnoyFromMsisdn(String login) {
         ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
