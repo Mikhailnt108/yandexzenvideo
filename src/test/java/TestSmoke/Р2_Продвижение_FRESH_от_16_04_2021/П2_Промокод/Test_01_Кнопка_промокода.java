@@ -32,6 +32,7 @@ public class Test_01_Кнопка_промокода extends TestBase {
         headerMenu.checkOpenPopUpBeforeActivation();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
+        promoCode.archiveCodeGroupPackageStartSoftTnB();
         pageCMS.deleteAccountMF("79260192144");
     }
 

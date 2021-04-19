@@ -67,7 +67,7 @@ public class TestBase {
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-browser-side-navigation");
 //        options.addArguments("enable-automation");
-        options.addArguments("--window-size=1920,1070");
+        options.addArguments("--window-size=1900,1070");
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-extensions");
 //        options.addArguments("--dns-prefetch-disable");
@@ -78,8 +78,8 @@ public class TestBase {
         //options.setHeadless(true);
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(32, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(32, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         headerMenu = PageFactory.initElements(driver, HeaderMenu.class);
         popUpInputPhone = PageFactory.initElements(driver, PopUpInputPhone.class);
         popUpInputPassword = PageFactory.initElements(driver, PopUpInputPassword.class);

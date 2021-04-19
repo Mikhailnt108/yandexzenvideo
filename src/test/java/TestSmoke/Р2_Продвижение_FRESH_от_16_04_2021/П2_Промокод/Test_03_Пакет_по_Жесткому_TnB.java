@@ -28,6 +28,7 @@ public class Test_03_Пакет_по_Жесткому_TnB extends TestBase {
         headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
         headerMenu.clickToButtonCloseInPopUpAfterActivation();
         headerMenu.checkClosePopUpAfterActivation();
+        promoCode.archiveCodeGroupPackageMoreTvHardTnB();
         pageCMS.deleteAccountMF("79260192144");
     }
 

@@ -27,6 +27,7 @@ public class Test_05_Фильм_по_покупке extends TestBase {
         headerMenu.checkOpenPopUpAfterActivation();
         headerMenu.checkElementsPopUpAfterActivationFilmOnEST();
         headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST();
+        promoCode.archiveCodeGroupFilmOnEST();
         pageCMS.deleteAccountMF("79260192144");
     }
 

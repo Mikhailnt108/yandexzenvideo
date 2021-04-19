@@ -27,6 +27,7 @@ public class Test_04_Фильм_по_аренде extends TestBase {
         headerMenu.checkOpenPopUpAfterActivation();
         headerMenu.checkElementsPopUpAfterActivationFilmOnRent();
         headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent();
+        promoCode.archiveCodeGroupFilmOnRentPromo();
         pageCMS.deleteAccountMF("79260192144");
     }
 

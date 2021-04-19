@@ -31,6 +31,7 @@ public class Test_02_Пакет_по_Мягкому_TnB extends TestBase {
         headerMenu.checkOpenPopUpAfterActivation();
         headerMenu.checkElementsPopUpAfterActivationPackageStartSoftTnB();
         headerMenu.clickToButtonMoreDetailedAndCheckOpenCardPackageStart();
+        promoCode.archiveCodeGroupPackageStartSoftTnB();
         pageCMS.deleteAccountMF("79260192144");
     }
 

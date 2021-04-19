@@ -23,12 +23,7 @@ public class PromoCode extends BasePage {
                 then().statusCode(anyOf(is(302),is(500)));
     }
 
-    public void archiveCodeGroupPackageStartSoftTnB() {
-        given().auth().
-                basic("mc2soft", "wkqKy2sWwBGFDR").
-                when().get("https://bmp-preprod5.megafon.tv/cms/code_groups/CG_autotest_SotTnb/toggle_publish").
-                then().statusCode(200);
-    }
+
     public void createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB() {
         //Создание и активация код-группы:
         given().auth().
@@ -116,5 +111,32 @@ public class PromoCode extends BasePage {
                 multiPart("dispatch_channel", "default").
                 when().post("https://bmp-preprod5.megafon.tv/cms/code_groups/СG_autotest_Film_EST/add_promocode").
                 then().statusCode(anyOf(is(302),is(409)));
+    }
+
+    public void archiveCodeGroupPackageStartSoftTnB() {
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").
+                when().get("https://bmp-preprod5.megafon.tv/cms/code_groups/CG_autotest_SotTnb/toggle_publish").
+                then().statusCode(200);
+    }
+
+    public void archiveCodeGroupPackageMoreTvHardTnB() {
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").
+                when().get("https://bmp-preprod5.megafon.tv/cms/code_groups/CG_autotest_HardTnB/toggle_publish").
+                then().statusCode(200);
+    }
+
+    public void archiveCodeGroupFilmOnRentPromo() {
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").
+                when().get("https://bmp-preprod5.megafon.tv/cms/code_groups/СG_autotest_Film_RentPromo/toggle_publish").
+                then().statusCode(200);
+    }
+    public void archiveCodeGroupFilmOnEST() {
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").
+                when().get("https://bmp-preprod5.megafon.tv/cms/code_groups/СG_autotest_Film_EST/toggle_publish").
+                then().statusCode(200);
     }
 }

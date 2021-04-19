@@ -187,15 +187,14 @@ public class HeaderMenu extends BasePage {
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
             click(By.xpath("//button[text()='Нет']"));
-            driver.navigate().refresh();
         }
+        driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
-            driver.navigate().refresh();
         }
+        driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
-            driver.navigate().refresh();
         }
         driver.navigate().refresh();
     }
