@@ -18,7 +18,7 @@ public class Test_04_Финблок_АКТУАЛЕН_25_02_21 extends TestBase {
         headerMenu.openSubsectionPromo();
         promoPage.checkBlockingMegafon();
         promoPage.clickToButtonTopUpPhoneBalance();
-        pageCMS.deleteAccountForBlockingMf();
+        pageCMS.deleteAccountForBlockingMf("79267644248");
     }
 
     private void flowRegistration() {

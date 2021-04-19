@@ -49,7 +49,7 @@ public class Test_04_Авторизация_из_карточек_FRESH_от_07_
         cardPackage.checkOpenCardPackageTvChannel();
         cardPackage.clickPaymentButtonInCardPackage();
         flowAutorisation();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

@@ -1,36 +1,34 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П2_Промокод;
+package TestSmoke.Р4_Продвижение.П2_Промокод;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Пакет_по_Мягкому_TnB extends TestBase {
+public class Test_03_Пакет_по_Жесткому_TnB extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Пакет по Мягкому TnB")
+    @DisplayName(value = "Пакет по Жесткому ТнБ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void packageSoftTnB() {
+    public void packageHardTnB() {
         promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();
+        promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeSoftTnB");
+        headerMenu.inputValidPromoCode("promoCodeHardTnB");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationPackageStartSoftTnB();
-        headerMenu.clickToButtonCancel();
-        headerMenu.checkClosePopUpBeforeActivationPackageStartSoftTnB();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpBeforeActivation();
+        headerMenu.checkElementsPopUpBeforeActivationPackageMoreTvHardTnB();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationPackageStartSoftTnB();
-        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardPackageStart();
+        headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
+        headerMenu.clickToButtonCloseInPopUpAfterActivation();
+        headerMenu.checkClosePopUpAfterActivation();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

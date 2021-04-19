@@ -15,12 +15,12 @@ public class Test_03_Тариф_не_определился_АКТУАЛЕН_25_
     public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseNotDefinedTariff();
+        pageCMS.chooseNotDefinedTariff("79260192144");
         headerMenu.closePopUpNotDefinedTariff();
         headerMenu.openSubsectionPromo();
         promoPage.checkNotDefinedTariff();
         pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

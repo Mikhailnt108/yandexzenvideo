@@ -20,7 +20,7 @@ public class Test_07_Переход_в_карточку_контента_из_р
         myPage.goToMyPageSubscriptions();
         myPage.clickToTailCardPackageFromSubscriptions();
         cardPackage.checkOpenCardPackage();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

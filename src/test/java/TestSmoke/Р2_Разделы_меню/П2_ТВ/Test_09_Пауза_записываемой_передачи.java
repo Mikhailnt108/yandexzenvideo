@@ -26,7 +26,7 @@ public class Test_09_Пауза_записываемой_передачи extend
         cardTvProgram.clickToPlayVideoPleer();
         cardTvProgram.clickToSpaceToVideoPleer();
         cardTvProgram.clickToLeftButtonMouseToVideoPleer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

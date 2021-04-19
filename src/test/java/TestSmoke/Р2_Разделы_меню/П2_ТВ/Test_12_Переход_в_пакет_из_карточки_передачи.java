@@ -21,7 +21,7 @@ public class Test_12_Переход_в_пакет_из_карточки_пере
          cardTvProgram.checkOpenCardTvProgram();
          cardTvProgram.clickToLinkCardPackage();
          cardPackage.checkOpenCardPackageTvChannel();
-         pageCMS.deleteAccountMF();
+         pageCMS.deleteAccountMF("79260192144");
      }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

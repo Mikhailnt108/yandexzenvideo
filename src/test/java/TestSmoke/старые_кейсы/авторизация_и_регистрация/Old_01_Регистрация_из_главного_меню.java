@@ -16,7 +16,7 @@ public class Old_01_Регистрация_из_главного_меню extend
     public void registerFromHeaderMenu()  {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

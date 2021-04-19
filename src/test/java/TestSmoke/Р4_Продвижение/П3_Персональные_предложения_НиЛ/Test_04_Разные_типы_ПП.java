@@ -1,4 +1,4 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П3_Персональные_предложения_НиЛ;
+package TestSmoke.Р4_Продвижение.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
 import io.qameta.allure.*;
@@ -23,7 +23,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
         personalOffer.activatePersonalOfferPackageForZeroRubles();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
 
         //проверка недоступности перс предложения тип - пакет за ноль рублей для НЕ МФ
         headerMenu.goToNilPage();
@@ -39,7 +39,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferSubscription();
         personalOffer.activatePersonalOfferSubscription();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
 
         //проверка доступности перс предложения тип - подписка для НЕ МФ
         headerMenu.goToNilPage();
@@ -59,14 +59,14 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         personalOffer.checkOpenPagePersonalOfferPartnerOffer();
         personalOffer.clickButtonPartner();
         personalOffer.checkOpenPageURLPartner();
-        pageCMS.deleteAccountNotMF();
+        pageCMS.deleteAccountNonMF("79261184972");
 
         //проверка недоступности партнерсокго предложения для МФ
         headerMenu.goToNilPage();
         flowRegistationMF();
         personalOffer.checkAbsentElementPersonalOffer();
         personalOffer.archivePersonalOfferPartnerOffer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistationMF() {

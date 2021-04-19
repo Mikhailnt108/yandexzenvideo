@@ -18,7 +18,7 @@ public class Test_02_Регистрация_НЕ_МФ_FRESH_от_07_04_2021 exte
     public void registrationNotMF()  {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.deleteAccountNotMF();
+        pageCMS.deleteAccountNonMF("79261184972");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

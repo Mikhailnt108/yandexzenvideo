@@ -14,10 +14,10 @@ public class K10_Тариф_не_определился_юзер_МФ_СТАРЫ
     public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseNotDefinedTariff();
+        pageCMS.chooseNotDefinedTariff("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkNotDefinedTariff();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

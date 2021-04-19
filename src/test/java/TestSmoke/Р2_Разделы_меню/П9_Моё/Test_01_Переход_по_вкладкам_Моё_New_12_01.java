@@ -24,7 +24,7 @@ public class Test_01_Переход_по_вкладкам_Моё_New_12_01 exten
         myPage.checkAddingFilmInPurchases();
         myPage.goToMyPageFavorites();
         myPage.checkAddingFilmToFavorites();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

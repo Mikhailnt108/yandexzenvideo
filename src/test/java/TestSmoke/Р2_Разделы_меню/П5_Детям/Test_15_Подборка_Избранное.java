@@ -24,7 +24,7 @@ public class Test_15_Подборка_Избранное extends TestBase {
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionOfFavorites();
         collectionPage.checkCollectionOfFavorites();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

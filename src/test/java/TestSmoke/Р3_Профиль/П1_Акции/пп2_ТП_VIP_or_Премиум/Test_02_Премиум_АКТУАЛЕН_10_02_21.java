@@ -19,7 +19,7 @@ public class Test_02_Премиум_АКТУАЛЕН_10_02_21 extends TestBase {
         pageCMS.chooseBundlePremiumFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkBundlePremium();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

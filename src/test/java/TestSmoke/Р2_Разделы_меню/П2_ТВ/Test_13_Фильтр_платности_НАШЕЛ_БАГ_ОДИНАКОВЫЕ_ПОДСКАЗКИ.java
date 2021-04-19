@@ -23,7 +23,7 @@ public class Test_13_Фильтр_платности_НАШЕЛ_БАГ_ОДИН�
         tvPage.navigateMouseToToglPaymentOff();
         tvPage.clickToglPaymentForOn();
         tvPage.checkTvChannelsOnlyPayment();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

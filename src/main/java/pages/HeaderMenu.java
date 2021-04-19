@@ -92,9 +92,9 @@ public class HeaderMenu extends BasePage {
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
-            writeText(By.xpath("//form[@method='GET']//input[1]"), "79260192144");
+            writeText(By.xpath("//form[@method='GET']//input[1]"),login);
             click(By.xpath("//button[text()='Поиск']"));
-            isElementDisplayed(By.xpath("//td[text()='79260192144']"));
+            isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));
             isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
             click(By.xpath("//button[text()='Удалить']"));
@@ -420,7 +420,7 @@ public class HeaderMenu extends BasePage {
 
     public void checkElementsPopUpInputCode() {
         isElementDisplayed(By.xpath("//div[text()='Введите код']"));
-        isElementDisplayed(By.xpath("//i[text()='+7 926 019 21 44']"));
+        isElementDisplayed(By.xpath("//i[text()='+7 926 019 21 44']|//i[text()='+7 926 017 22 79']|/i[text()='+7 926 020 50 27']"));
         isElementDisplayed(By.xpath("//span[text()='На номер ' and text()=' отправлено sms с кодом подтверждения']"));
         isElementDisplayed(By.xpath("//input[@placeholder='Код подтверждения']"));
         isElementDisplayed(By.xpath("//button[@disabled and text()='Войти']"));
@@ -456,7 +456,7 @@ public class HeaderMenu extends BasePage {
     }
 
     public void inputInvalidCodeMoreThanThreeTimes() {
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i < 3; i++) {
             click(By.xpath("//button[text()='Войти']"));
         }
     }
@@ -497,9 +497,9 @@ public class HeaderMenu extends BasePage {
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
-            writeText(By.xpath("//form[@method='GET']//input[1]"), "79260192144");
+            writeText(By.xpath("//form[@method='GET']//input[1]"),login);
             click(By.xpath("//button[text()='Поиск']"));
-            isElementDisplayed(By.xpath("//td[text()='79260192144']"));
+            isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));
             isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
             click(By.xpath("//button[text()='Удалить']"));
@@ -523,7 +523,7 @@ public class HeaderMenu extends BasePage {
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
-            writeText(By.xpath("//form[@method='GET']//input[1]"), "79261184972");
+            writeText(By.xpath("//form[@method='GET']//input[1]"), login);
             click(By.xpath("//button[text()='Поиск']"));
             isElementDisplayed(By.xpath("//td[text()='79261184972']"));
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));

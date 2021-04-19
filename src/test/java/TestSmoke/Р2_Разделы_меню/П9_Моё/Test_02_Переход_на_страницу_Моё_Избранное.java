@@ -29,7 +29,7 @@ public class Test_02_Переход_на_страницу_Моё_Избранн�
         cardFilm.clickButtonFavorites();
         myPage.goToMyPageFavorites();
         myPage.goToCollectionFavoritesPage();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -27,7 +27,7 @@ public class Test_04_Покупка_фильма_со_скидкой extends Tes
         cardFilm.checkUnavailabilityStikerDiscount();
         cardFilm.startVideoPleer();
         pageCMS.deleteDiscount();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -16,7 +16,7 @@ public class Test_01_Способы_оплаты_ДОБАВИТЬ_ASHOT_АКТУ
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.openSubsectionPaymentMethod();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

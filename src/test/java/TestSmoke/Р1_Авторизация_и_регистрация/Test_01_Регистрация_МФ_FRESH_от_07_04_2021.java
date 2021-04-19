@@ -18,7 +18,7 @@ public class Test_01_Регистрация_МФ_FRESH_от_07_04_2021 extends T
     public void registrationMF() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();

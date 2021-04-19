@@ -23,7 +23,7 @@ public class Test_10_Перемотка_записанной_передачи ex
         cardTvProgram.checkPaymentComplete();
         cardTvProgram.clickToButtonPlay();
         cardTvProgram.moveSliderRewindToVideoPleer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

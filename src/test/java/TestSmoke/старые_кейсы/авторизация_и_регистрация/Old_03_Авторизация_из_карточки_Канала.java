@@ -25,7 +25,7 @@ public class Old_03_Авторизация_из_карточки_Канала ex
         cardTvChannel.checkOpenCardTvProgram();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         flowAutorisation();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowAutorisation() {

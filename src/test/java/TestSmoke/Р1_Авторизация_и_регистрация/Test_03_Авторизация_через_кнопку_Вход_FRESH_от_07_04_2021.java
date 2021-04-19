@@ -17,7 +17,7 @@ public class Test_03_Авторизация_через_кнопку_Вход_FRE
         flowRegister();
         headerMenu.logOut();
         flowAuthorization();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowAuthorization() {

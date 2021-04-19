@@ -1,26 +1,31 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П1_ВУ;
+package TestSmoke.Р4_Продвижение.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_ТО_с_бандлом_FRESH_от_08_04_2021 extends TestBase {
+import static io.restassured.RestAssured.given;
+
+public class Test_01_Внешний_вид_и_навигация extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
-    @Story(value = "1. ВУ")
-    @DisplayName(value = "ТО с бандлом")
+    @Story(value = "3. Персональное предложение")
+    @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void popUpNotificationMyTarifBundle() {
+    public void appearanceAndNavigation() {
+        personalOffer.createPersonalOfferTypePackageForZeroRubles();
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.checkLoginUserIsCorrect();
-        popUpNotification.checkElementsPopUpBundleUserMF();
-        popUpNotification.clickButtonWatchInPopUpBundle();
-        promoPage.checkOpenPromoPage();
-        pageCMS.deleteAccountMF();
+        personalOffer.checkElementsOnePersonalOffer();
+        headerMenu.goToKidsPage();
+        headerMenu.goToNilPage();
+        personalOffer.checkElementsOnePersonalOffer();
+        personalOffer.archivePersonalOfferPackageForZeroRubles();
+        pageCMS.deleteAccountMF("79260192144");
     }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -32,5 +37,7 @@ public class Test_04_ТО_с_бандлом_FRESH_от_08_04_2021 extends TestBa
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrectFlow();
     }
+
 }

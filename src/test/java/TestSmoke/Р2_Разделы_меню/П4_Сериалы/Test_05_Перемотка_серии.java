@@ -22,7 +22,7 @@ public class Test_05_Перемотка_серии extends TestBase {
         cardSerial.clickToButtonSubscribeInPopUp();
         cardSerial.checkPopUpSubscribeComplete();
         cardSerial.episodeSliderRewindToVideoPleer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

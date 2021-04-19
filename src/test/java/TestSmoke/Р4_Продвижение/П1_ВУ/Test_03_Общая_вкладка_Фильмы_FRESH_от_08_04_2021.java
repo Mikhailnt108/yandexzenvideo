@@ -1,26 +1,26 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П1_ВУ;
+package TestSmoke.Р4_Продвижение.П1_ВУ;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_05_Переход_в_раздел_Фильмы_FRESH_от_08_04_2021 extends TestBase {
+public class Test_03_Общая_вкладка_Фильмы_FRESH_от_08_04_2021 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
-    @DisplayName(value = "Переход_в_раздел_Фильмы")
+    @DisplayName(value = "Общая вкладка Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToPageFimlsFromPopUpNotif() {
-        popUpNotification.createAndPublishedPopUpNotifScreenNilDeepLinkFilms();
+    public void popUpNotificationFilterPageFilms() {
+        popUpNotification.createAndPublishedPopUpNotifScreenFilms();
         headerMenu.goToNilPage();
         flowRegistation();
-        popUpNotification.checkElementsPopUpNotifScreenNilDeepLinkFilms();
-        popUpNotification.clickButtonWatchInPopUpNotifScreenNilDeepLinkFilms();
-        filmsPage.checkOpenFilmsPage();
-        popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
-        pageCMS.deleteAccountMF();
+        headerMenu.checkAbsencePopUpNotifToNilPage();
+        headerMenu.goToFilmsPage();
+        popUpNotification.checkElementsPopUpNotifScreenFilms();
+        popUpNotification.deletePopUpNotifScreenFilms();
+        pageCMS.deleteAccountMF("79260192144");
 
     }
     private void flowRegistation() {

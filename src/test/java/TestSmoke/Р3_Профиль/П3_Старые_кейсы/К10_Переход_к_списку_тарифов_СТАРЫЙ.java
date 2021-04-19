@@ -18,7 +18,7 @@ public class К10_Переход_к_списку_тарифов_СТАРЫЙ ext
         pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkListOfTariff();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
 
     }
     private void flowRegistation() {

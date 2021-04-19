@@ -36,7 +36,7 @@ public class Test_02_Переход_по_вкладкам_Пакеты extends T
         packagesPage.checkConnectedOnTailPackage();
         packagesPage.clickToTabConnectedInMenuPackagesPage();
         packagesPage.checkTypePackagesInTabConnectedInMenuPackagesPage();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
 
     }
     private void flowRegistation() {

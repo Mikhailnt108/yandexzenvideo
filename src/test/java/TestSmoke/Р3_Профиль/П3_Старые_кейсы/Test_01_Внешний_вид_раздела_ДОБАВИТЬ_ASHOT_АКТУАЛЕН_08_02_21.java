@@ -22,7 +22,7 @@ public class Test_01_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT
         promoPage.checkElementsWithoutBlockPersonalOffer();
         promoPage.imageDifferBlockTarif();
         promoPage.imageDifferBlockPromotions();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
 
     }
     private void flowRegistation() {

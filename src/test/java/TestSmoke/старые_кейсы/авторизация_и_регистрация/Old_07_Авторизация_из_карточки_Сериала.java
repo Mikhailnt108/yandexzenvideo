@@ -23,7 +23,7 @@ public class Old_07_Авторизация_из_карточки_Сериала 
         cardSerial.checkOpenCardSerial();
         cardSerial.clickPaymentButtonInCardSerial();
         flowAutorisation();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowAutorisation() {

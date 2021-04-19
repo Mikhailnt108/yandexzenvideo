@@ -19,7 +19,7 @@ public class Test_02_Переход_в_раздел_Фильмы_АКТУАЛЕ�
         headerMenu.openSubsectionPromo();
         promoPage.clickButtonGoToFilms();
         filmsPage.checkFilmsPromo();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

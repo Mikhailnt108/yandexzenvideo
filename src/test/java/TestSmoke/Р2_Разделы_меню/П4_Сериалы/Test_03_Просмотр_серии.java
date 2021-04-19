@@ -24,7 +24,7 @@ public class Test_03_Просмотр_серии extends TestBase {
         cardSerial.checkPopUpSubscribeComplete();
         cardSerial.checkButtonToWatch();
         cardSerial.clickTailEpisodeForStartVideoPleer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

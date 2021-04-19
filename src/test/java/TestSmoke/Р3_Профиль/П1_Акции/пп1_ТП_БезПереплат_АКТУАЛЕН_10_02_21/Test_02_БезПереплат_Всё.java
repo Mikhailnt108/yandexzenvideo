@@ -19,7 +19,7 @@ public class Test_02_БезПереплат_Всё extends TestBase {
         pageCMS.chooseBundleBezPereplatVseFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkBundleBezPereplatVse();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

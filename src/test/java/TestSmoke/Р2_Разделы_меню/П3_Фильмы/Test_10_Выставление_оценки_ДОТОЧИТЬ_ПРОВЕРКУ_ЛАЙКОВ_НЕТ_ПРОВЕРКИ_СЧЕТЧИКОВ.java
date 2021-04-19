@@ -19,7 +19,7 @@ public class Test_10_Выставление_оценки_ДОТОЧИТЬ_ПРО
         cardFilm.checkOpenCardFilm();
         cardFilm.clickToLikeButton();
         cardFilm.clickToDisLikeButton();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

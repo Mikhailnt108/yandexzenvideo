@@ -21,7 +21,7 @@ public class Test_01_Покупка_фильма extends TestBase {
         cardFilm.startVideoPleer();
         myPage.goToMyPagePurchases();
         myPage.checkAddingFilmInPurchases();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

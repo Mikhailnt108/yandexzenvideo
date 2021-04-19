@@ -41,7 +41,7 @@ public class Test_05_Восстановление_пароля_FRESH_от_07_04_
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectAfterForgetPassword();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

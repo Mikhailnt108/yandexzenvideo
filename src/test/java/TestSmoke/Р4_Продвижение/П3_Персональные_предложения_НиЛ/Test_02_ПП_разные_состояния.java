@@ -1,29 +1,30 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П1_ВУ;
+package TestSmoke.Р4_Продвижение.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Фильм_по_покупке_за_деньги_FRESH_от_08_04_2021 extends TestBase {
+public class Test_02_ПП_разные_состояния extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
-    @Story(value = "1. ВУ")
-    @DisplayName(value = "Фильм по покупке за деньги")
+    @Story(value = "3. Персональное предложение")
+    @DisplayName(value = "ПП разные состояния")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void payFilmFromPopUpNotification() {
-        popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
+    public void POdifferentState() {
+        personalOffer.createPersonalOfferTypePackageForZeroRubles();
         headerMenu.goToNilPage();
         flowRegistation();
-        popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
-        popUpNotification.clickToButtonPayToPopUpNotif();
-        paymentContent.checkOpenPopUpChoosePaymentMethodEst();
-        cardFilm.paymentFilmAtEstFromPopUpNotif();
-        myPage.checkAddingFilmInPurchases();
-        popUpNotification.deletePopUpNotifScreenNilPayFilm();
-        pageCMS.deleteAccountMF();
+        personalOffer.checkElementsWhiteColorSandPersonalOffer();
+        personalOffer.checkElementsYellowColorSandPersonalOffer();
+        personalOffer.checkElementsRedColorSandPersonalOffer();
+        personalOffer.clickToElementPersonalOffer();
+        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
+        personalOffer.archivePersonalOfferPackageForZeroRubles();
+        pageCMS.deleteAccountMF("79260192144");
     }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -38,3 +39,4 @@ public class Test_02_Фильм_по_покупке_за_деньги_FRESH_от
         headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
+

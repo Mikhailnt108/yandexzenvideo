@@ -25,7 +25,7 @@ public class Test_02_Подписка_на_пакет_сериалов extends T
         cardSerial.startVideoPleer();
         myPage.goToMyPagePurchases();
         myPage.checkAddingSerialsInPurchases();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
         //cardSerial.clickNamePackage();
         //cardPackage.clickPaymentButtonInCardPackage();
     }

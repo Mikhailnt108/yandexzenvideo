@@ -23,7 +23,7 @@ public class Old_04_Авторизация_из_карточки_Пакета_К
         cardPackage.checkOpenCardPackageTvChannel();
         cardPackage.clickPaymentButtonInCardPackage();
         flowAutorisation();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowAutorisation() {

@@ -1,4 +1,4 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П2_Промокод;
+package TestSmoke.Р4_Продвижение.П2_Промокод;
 
 import base.TestBase;
 import io.qameta.allure.*;
@@ -27,6 +27,7 @@ public class Test_05_Фильм_по_покупке extends TestBase {
         headerMenu.checkOpenPopUpAfterActivation();
         headerMenu.checkElementsPopUpAfterActivationFilmOnEST();
         headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

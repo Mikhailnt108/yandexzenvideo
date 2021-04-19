@@ -17,10 +17,10 @@ public class Test_01_Пользователь_VIP_ДОБАВИТЬ_ASHOT_АКТ�
     public void userVip() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();
-        pageCMS.chooseRoleVip();
+        pageCMS.chooseRoleVip("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkVipUser();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistration() {

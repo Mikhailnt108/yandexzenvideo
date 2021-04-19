@@ -1,4 +1,4 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П2_Промокод;
+package TestSmoke.Р4_Продвижение.П2_Промокод;
 
 import base.TestBase;
 import io.qameta.allure.*;
@@ -27,13 +27,12 @@ public class Test_01_Кнопка_промокода extends TestBase {
         headerMenu.checkActiveButtonActivatePromoCode();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkErrorMessage3();
-        headerMenu.inputValidPromoCode("promoCodeAutoTest");
+        headerMenu.inputValidPromoCode("promoCodeSoftTnB");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        //promoCode.archiveCodeGroupPackageStartSoftTnB();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

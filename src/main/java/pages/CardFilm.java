@@ -23,7 +23,7 @@ public class CardFilm extends BasePage {
     public void paymentFilmAtEst() {
         click(By.xpath("//span[contains(text(), 'Навсегда за')]"));
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
@@ -31,7 +31,7 @@ public class CardFilm extends BasePage {
 
     public void paymentFilmAtEstFromPopUpNotif() {
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));

@@ -25,7 +25,7 @@ public class Test_04_Пауза_серии extends TestBase {
         cardSerial.clickToPlayVideoPleer();
         cardSerial.clickToSpaceToVideoPleer();
         cardSerial.clickToLeftButtonMouseToVideoPleer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

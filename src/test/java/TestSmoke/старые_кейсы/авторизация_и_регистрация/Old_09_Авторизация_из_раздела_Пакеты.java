@@ -21,7 +21,7 @@ public class Old_09_Авторизация_из_раздела_Пакеты exte
         packagesPage.checkOpenShopPage();
         packagesPage.clickButtonOnTailCardPackage("Подключить");
         flowAutorisation();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

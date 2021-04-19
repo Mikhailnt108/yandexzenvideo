@@ -87,7 +87,7 @@ public class PopUpNotification extends BasePage {
         isElementDisplayed(By.xpath("(//div[@role='dialog']//button)[2]"));
         isElementDisplayed(By.xpath("(//div[@role='dialog']//div)[4]"));
         isElementDisplayed(By.xpath("//h3[contains(text(),'Вам доступно')]"));
-        Assert.assertEquals("Нет кнопки 'Смотреть' в ВУ 'Вам доступно'", 1, driver.findElements(By.xpath("//button[text()='Смотреть']")).size());
+        isElementDisplayed(By.xpath("//button[text()='Смотреть']"));
         isElementDisplayed(By.xpath("//button[text()='Закрыть']"));
    }
 

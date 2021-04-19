@@ -18,7 +18,7 @@ public class Test_03_БезПереплат_Интернет extends TestBase {
         pageCMS.chooseBundleBezPereplatInternetFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkBundleBezPereplatInternet();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -22,7 +22,7 @@ public class Test_03_Аренда_фильма_за_бандл_НЕТ_Фильм
         cardFilm.paymentFilmAtRent2Promo();
         cardFilm.checkСounterAvailableFilms();
         cardFilm.startVideoPleer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -19,7 +19,7 @@ public class Test_08_Перемотка_фильма extends TestBase {
         cardFilm.checkOpenCardFilm();
         cardFilm.paymentFilmAtEst();
         cardFilm.moveSliderRewindToVideoPleer();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

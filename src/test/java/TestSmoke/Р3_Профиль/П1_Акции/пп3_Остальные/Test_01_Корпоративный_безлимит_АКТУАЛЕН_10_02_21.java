@@ -18,7 +18,7 @@ public class Test_01_Корпоративный_безлимит_АКТУАЛЕ�
         pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
         promoPage.checkBundleCorpBezlimit();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

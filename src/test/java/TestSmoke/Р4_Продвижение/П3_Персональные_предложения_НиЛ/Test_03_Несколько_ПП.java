@@ -1,30 +1,30 @@
-package TestSmoke.Р4_Продвижение_В_РАЗРАБОТКЕ.П3_Персональные_предложения_НиЛ;
+package TestSmoke.Р4_Продвижение.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_ПП_разные_состояния extends TestBase {
+public class Test_03_Несколько_ПП extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "ПП разные состояния")
+    @DisplayName(value = "Несколько ПП")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void POdifferentState() {
+    public void fewPersonalOffers() {
         personalOffer.createPersonalOfferTypePackageForZeroRubles();
+        personalOffer.createPersonalOfferTypeSubscription();
         headerMenu.goToNilPage();
         flowRegistation();
-        personalOffer.checkElementsWhiteColorSandPersonalOffer();
-        personalOffer.checkElementsYellowColorSandPersonalOffer();
-        personalOffer.checkElementsRedColorSandPersonalOffer();
+        personalOffer.checkElementsFewPersonalOffers();
         personalOffer.clickToElementPersonalOffer();
-        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
+        promoPage.checkOpenPromoPage();
         personalOffer.archivePersonalOfferPackageForZeroRubles();
-        pageCMS.deleteAccountMF();
-    }
+        personalOffer.archivePersonalOfferSubscription();
+        pageCMS.deleteAccountMF("79260192144");
 
+    }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -39,4 +39,3 @@ public class Test_02_ПП_разные_состояния extends TestBase {
         headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
-

@@ -20,7 +20,7 @@ public class Test_05_Переход_в_карточку_контента_из_р
         myPage.goToMyPageFavorites();
         myPage.clickToTailCardFilmFromFavorites();
         cardFilm.checkOpenCardFilm();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

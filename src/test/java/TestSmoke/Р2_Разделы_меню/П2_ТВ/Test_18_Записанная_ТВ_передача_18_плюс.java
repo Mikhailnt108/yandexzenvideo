@@ -24,7 +24,7 @@ public class Test_18_Записанная_ТВ_передача_18_плюс exte
         cardTvProgram.clickYesInPopUp18Plus();
         cardTvProgram.goToCardTvProgram18Plus();
         cardTvProgram.clickNoInPopUp18Plus();
-        pageCMS.deleteAccountMF();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
