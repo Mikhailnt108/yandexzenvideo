@@ -1,4 +1,4 @@
-package TestSmoke.Р4_Профиль.П3_Старые_кейсы;
+package TestSmoke.старые_кейсы.профиль;
 
 import base.TestBase;
 import io.qameta.allure.*;

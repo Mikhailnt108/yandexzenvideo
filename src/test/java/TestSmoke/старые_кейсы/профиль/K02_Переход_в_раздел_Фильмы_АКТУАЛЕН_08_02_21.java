@@ -1,29 +1,25 @@
-package TestSmoke.Р4_Профиль.П3_Старые_кейсы;
+package TestSmoke.старые_кейсы.профиль;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.io.IOException;
-
-public class Test_01_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT_АКТУАЛЕН_08_02_21 extends TestBase {
+public class K02_Переход_в_раздел_Фильмы_АКТУАЛЕН_08_02_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Внешний вид раздела")
+    @DisplayName(value ="Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void checkScreenshotPromo() throws AWTException, IOException, InterruptedException {
+    public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
         headerMenu.openSubsectionPromo();
-        promoPage.checkElementsWithoutBlockPersonalOffer();
-        promoPage.imageDifferBlockTarif();
-        promoPage.imageDifferBlockPromotions();
+        promoPage.clickButtonGoToFilms();
+        filmsPage.checkFilmsPromo();
         pageCMS.deleteAccountMF("79260192144");
-
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
