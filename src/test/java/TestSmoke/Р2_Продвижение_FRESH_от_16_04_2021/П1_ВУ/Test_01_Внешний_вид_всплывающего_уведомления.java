@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBase;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ public class Test_01_Внешний_вид_всплывающего_уведом
     @Story(value = "1. ВУ")
     @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedIfExceptionsTest(repeats = 2)
     public void appearanceOfPopUpNotification() {
         popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToNilPage();

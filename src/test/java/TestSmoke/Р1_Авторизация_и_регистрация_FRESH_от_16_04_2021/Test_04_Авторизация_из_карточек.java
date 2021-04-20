@@ -1,17 +1,18 @@
 package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
 import base.TestBase;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 
-public class Test_04_Авторизация_из_карточек_FRESH_от_07_04_2021 extends TestBase {
+public class Test_04_Авторизация_из_карточек extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Авторизация из карточек")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedIfExceptionsTest(repeats = 2)
     public void loginFromCardFilm() {
         headerMenu.goToNilPage();
         flowRegistation();

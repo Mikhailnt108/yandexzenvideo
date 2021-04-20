@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBase;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ public class Test_02_Фильм_по_покупке_за_деньги extends Te
     @Story(value = "1. ВУ")
     @DisplayName(value = "Фильм по покупке за деньги")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedIfExceptionsTest(repeats = 2)
     public void payFilmFromPopUpNotification() {
         popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToNilPage();

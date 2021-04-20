@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,7 @@ public class Test_01_Внешний_вид_и_навигация extends TestBas
     @Story(value = "3. Персональное предложение")
     @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedIfExceptionsTest(repeats = 2)
     public void appearanceAndNavigation() {
         personalOffer.createPersonalOfferTypePackageForZeroRubles();
         headerMenu.goToNilPage();

@@ -3,6 +3,7 @@ package pages;
 import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -365,7 +366,7 @@ public class HeaderMenu extends BasePage {
         click(By.xpath("//a[@href='//www.megafon.ru/ad/offer_mediaportal']"));
     }
 
-    public void checkOpenPageOffer() throws InterruptedException {
+    public void checkOpenPageOffer() {
         String url1 = "https://moscow.megafon.ru/download/~federal/oferts/mediaportal_oferta.pdf";
         ArrayList tabs1 = new ArrayList(driver.getWindowHandles());
 //        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -431,7 +432,7 @@ public class HeaderMenu extends BasePage {
         element.click();
         element.clear();
         element.sendKeys(code);
-        click(By.xpath("//button[text()='Войти']"));
+
     }
 
     public void checkErrorMessage1() {
@@ -455,7 +456,7 @@ public class HeaderMenu extends BasePage {
     }
 
     public void inputInvalidCodeMoreThanThreeTimes() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i <= 2; i++) {
             click(By.xpath("//button[text()='Войти']"));
         }
     }
@@ -470,7 +471,7 @@ public class HeaderMenu extends BasePage {
 
     public void clickToButtonGetNewCode() {
         click(By.xpath("//button[text()='Получить новый код']"));
-        waitVisibility(By.xpath("//button[text()='Получить новый код']"));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[text()='Получить новый код']")));
         click(By.xpath("//button[text()='Получить новый код']"));
 
     }

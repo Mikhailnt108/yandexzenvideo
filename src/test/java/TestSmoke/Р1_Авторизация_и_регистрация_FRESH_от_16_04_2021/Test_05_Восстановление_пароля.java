@@ -1,47 +1,51 @@
 package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
 import base.TestBase;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 
-public class Test_03_Авторизация_через_кнопку_Вход_FRESH_от_07_04_2021 extends TestBase {
+public class Test_05_Восстановление_пароля extends TestBase {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
-    @DisplayName(value = "Авторизация через кнопку 'Вход'")
+    @DisplayName(value = "Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
-    public void loginFromHeaderMenu()  {
+    @RepeatedIfExceptionsTest(repeats = 2)
+    public void passwordRecovery() {
         headerMenu.goToNilPage();
-        flowRegister();
+        flowRegistation();
         headerMenu.logOut();
-        flowAuthorization();
-        pageCMS.deleteAccountMF("79260192144");
-    }
-
-    private void flowAuthorization() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.checkElementsPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
-        headerMenu.checkActiveButtonNext();
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputPassword();
-        headerMenu.checkElementsPopUpInputPassword();
+        headerMenu.clickToButtonForgetPassword();
+        headerMenu.checkOpenPopUpNewPasswordForMF();
+        headerMenu.checkElementsPopUpNewPasswordForMF();
         headerMenu.inputLessThanSixSimbolPassword("111");
         headerMenu.checkDisabledButtonComeIn();
-        headerMenu.inputInvalidPassword("123456");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkErrorMessage2();
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.checkActiveButtonComeIn();
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkOpenPopUpInputCode();
+        headerMenu.checkElementsPopUpInputCode();
+        headerMenu.inputInvalidCodeСonfirmation("1234");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkErrorMessage1();
+        headerMenu.inputInvalidCodeMoreThanThreeTimes();
+        headerMenu.checkElementsPopUpForInvalidCodeMoreThanThreeTimes();
+        headerMenu.clickToButtonGetNewCode();
+        pageCMS.copyPasteCodMsisdn("79260192144");
+        headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrectAfterForgetPassword();
+        pageCMS.deleteAccountMF("79260192144");
     }
 
-    private void flowRegister() {
+    private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
@@ -54,5 +58,4 @@ public class Test_03_Авторизация_через_кнопку_Вход_FRE
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
-
 }
