@@ -133,6 +133,7 @@ public class PersonalOffer extends BasePage {
                 when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200),is(302)));
         driver.navigate().refresh();
+        driver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#F5A623']"));
         isElementDisplayed(By.xpath("//div[contains(text(),'Успейте активировать персональное предложение до')]"));
 
@@ -170,6 +171,7 @@ public class PersonalOffer extends BasePage {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200),is(302)));
+        driver.navigate().refresh();
         driver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#EB5D44']"));
         isElementDisplayed(By.xpath("//div[text()='Последний шанс активировать Ваше персональное предложение.']"));

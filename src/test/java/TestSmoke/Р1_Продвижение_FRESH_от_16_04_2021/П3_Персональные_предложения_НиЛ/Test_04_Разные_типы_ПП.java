@@ -9,7 +9,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "Несколько ПП")
+    @DisplayName(value = "Разные типы ПП")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedIfExceptionsTest(repeats = 2)
     public void otherTypesPersonalOffers() {
