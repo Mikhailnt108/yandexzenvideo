@@ -1,10 +1,9 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
+package TestSmoke.Р1_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 public class Test_04_Разные_типы_ПП extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")

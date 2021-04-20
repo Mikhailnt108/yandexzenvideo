@@ -1,4 +1,4 @@
-package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
+package TestSmoke.Р2_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
 import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
@@ -7,7 +7,6 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 public class Test_02_Регистрация_НЕ_МФ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")

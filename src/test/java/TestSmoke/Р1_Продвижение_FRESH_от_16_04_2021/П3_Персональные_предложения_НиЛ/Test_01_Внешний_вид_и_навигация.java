@@ -1,29 +1,31 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
+package TestSmoke.Р1_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
-public class Test_03_Общая_вкладка_Фильмы extends TestBase {
+import static io.restassured.RestAssured.given;
+
+public class Test_01_Внешний_вид_и_навигация extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
-    @Story(value = "1. ВУ")
-    @DisplayName(value = "Общая вкладка Фильмы")
+    @Story(value = "3. Персональное предложение")
+    @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedIfExceptionsTest(repeats = 2)
-    public void popUpNotificationFilterPageFilms() {
-        popUpNotification.createAndPublishedPopUpNotifScreenFilms();
+    public void appearanceAndNavigation() {
+        personalOffer.createPersonalOfferTypePackageForZeroRubles();
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.checkAbsencePopUpNotifToNilPage();
-        headerMenu.goToFilmsPage();
-        popUpNotification.checkElementsPopUpNotifScreenFilms();
-        popUpNotification.deletePopUpNotifScreenFilms();
+        personalOffer.checkElementsOnePersonalOffer();
+        headerMenu.goToKidsPage();
+        headerMenu.goToNilPage();
+        personalOffer.checkElementsOnePersonalOffer();
+        personalOffer.archivePersonalOfferPackageForZeroRubles();
         pageCMS.deleteAccountMF("79260192144");
-
     }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -37,4 +39,5 @@ public class Test_03_Общая_вкладка_Фильмы extends TestBase {
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
+
 }

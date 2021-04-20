@@ -1,34 +1,38 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
+package TestSmoke.Р1_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
 import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
-public class Test_05_Фильм_по_покупке extends TestBase {
+import static io.restassured.RestAssured.given;
+
+
+public class Test_01_Кнопка_промокода extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Фильм по покупке")
+    @DisplayName(value = "Кнопка промокода")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedIfExceptionsTest(repeats = 2)
-    public void filmOnEST() {
+    public void clickButtonPromoCodeAndInputPromoCode() {
         promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnEST();
+        promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeFilmOnEST");
+        headerMenu.checkElementsPopUpPromoCode();
+        headerMenu.inputInvalidPromoCode("12345");
+        headerMenu.checkActiveButtonActivatePromoCode();
+        headerMenu.clickToButtonActivatePromoCode();
+        headerMenu.checkErrorMessage3();
+        headerMenu.inputValidPromoCode("promoCodeSoftTnB");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationFilmOnEST();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationFilmOnEST();
-        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST();
-        promoCode.archiveCodeGroupFilmOnEST();
+        promoCode.archiveCodeGroupPackageStartSoftTnB();
         pageCMS.deleteAccountMF("79260192144");
     }
 

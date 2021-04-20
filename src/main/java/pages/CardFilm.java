@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CardFilm extends BasePage {
     private Object Date;
@@ -34,6 +35,7 @@ public class CardFilm extends BasePage {
         click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
+        //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
     }
 

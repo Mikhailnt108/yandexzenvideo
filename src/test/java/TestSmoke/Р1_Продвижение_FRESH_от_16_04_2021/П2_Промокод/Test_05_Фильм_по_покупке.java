@@ -1,35 +1,33 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
+package TestSmoke.Р1_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
 import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
-public class Test_03_Пакет_по_Жесткому_TnB extends TestBase {
+public class Test_05_Фильм_по_покупке extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Пакет по Жесткому ТнБ")
+    @DisplayName(value = "Фильм по покупке")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedIfExceptionsTest(repeats = 2)
-    public void packageHardTnB() {
+    public void filmOnEST() {
         promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
+        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnEST();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeHardTnB");
+        headerMenu.inputValidPromoCode("promoCodeFilmOnEST");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationPackageMoreTvHardTnB();
+        headerMenu.checkElementsPopUpBeforeActivationFilmOnEST();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
-        headerMenu.clickToButtonCloseInPopUpAfterActivation();
-        headerMenu.checkClosePopUpAfterActivation();
-        promoCode.archiveCodeGroupPackageMoreTvHardTnB();
+        headerMenu.checkElementsPopUpAfterActivationFilmOnEST();
+        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST();
+        promoCode.archiveCodeGroupFilmOnEST();
         pageCMS.deleteAccountMF("79260192144");
     }
 

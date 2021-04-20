@@ -1,34 +1,34 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
+package TestSmoke.Р1_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
 import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
-public class Test_04_Фильм_по_аренде extends TestBase {
+public class Test_03_Пакет_по_Жесткому_TnB extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Фильм по аренде")
+    @DisplayName(value = "Пакет по Жесткому ТнБ")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedIfExceptionsTest(repeats = 2)
-    public void filmOnRentPromo() {
+    public void packageHardTnB() {
         promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();
+        promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeFilmOnRent");
+        headerMenu.inputValidPromoCode("promoCodeHardTnB");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationFilmOnRent();
+        headerMenu.checkElementsPopUpBeforeActivationPackageMoreTvHardTnB();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationFilmOnRent();
-        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent();
-        promoCode.archiveCodeGroupFilmOnRentPromo();
+        headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
+        headerMenu.clickToButtonCloseInPopUpAfterActivation();
+        headerMenu.checkClosePopUpAfterActivation();
+        promoCode.archiveCodeGroupPackageMoreTvHardTnB();
         pageCMS.deleteAccountMF("79260192144");
     }
 

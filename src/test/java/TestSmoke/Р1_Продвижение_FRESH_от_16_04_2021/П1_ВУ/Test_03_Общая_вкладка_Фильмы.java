@@ -1,31 +1,28 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
+package TestSmoke.Р1_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
-public class Test_02_ПП_разные_состояния extends TestBase {
+public class Test_03_Общая_вкладка_Фильмы extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
-    @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "ПП разные состояния")
+    @Story(value = "1. ВУ")
+    @DisplayName(value = "Общая вкладка Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedIfExceptionsTest(repeats = 2)
-    public void POdifferentState() {
-        personalOffer.createPersonalOfferTypePackageForZeroRubles();
+    public void popUpNotificationFilterPageFilms() {
+        popUpNotification.createAndPublishedPopUpNotifScreenFilms();
         headerMenu.goToNilPage();
         flowRegistation();
-        personalOffer.checkElementsWhiteColorSandPersonalOffer();
-        personalOffer.checkElementsYellowColorSandPersonalOffer();
-        personalOffer.checkElementsRedColorSandPersonalOffer();
-        personalOffer.clickToElementPersonalOffer();
-        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
-        personalOffer.archivePersonalOfferPackageForZeroRubles();
+        headerMenu.checkAbsencePopUpNotifToNilPage();
+        headerMenu.goToFilmsPage();
+        popUpNotification.checkElementsPopUpNotifScreenFilms();
+        popUpNotification.deletePopUpNotifScreenFilms();
         pageCMS.deleteAccountMF("79260192144");
-    }
 
+    }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -40,4 +37,3 @@ public class Test_02_ПП_разные_состояния extends TestBase {
         headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
-
