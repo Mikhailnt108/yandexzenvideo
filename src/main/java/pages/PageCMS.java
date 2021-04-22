@@ -217,7 +217,8 @@ public class PageCMS extends BasePage {
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Удалить']"));
         driver.switchTo().alert().accept();
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']']")));
+        driver.navigate().refresh();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
     }
@@ -233,6 +234,9 @@ public class PageCMS extends BasePage {
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Удалить']"));
+        driver.switchTo().alert().accept();
+        driver.navigate().refresh();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
     }
@@ -248,6 +252,9 @@ public class PageCMS extends BasePage {
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Удалить']"));
+        driver.switchTo().alert().accept();
+        driver.navigate().refresh();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
     }
 
     public void createPriseEstOrRent2WithDiscount() {

@@ -61,13 +61,13 @@ public class TestBase {
         //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         //driver = new ChromeDriver(capabilities);
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--window-size=1900,1000");
+        options.addArguments("--window-size=1900,1000");
         //options.addArguments("enable-features=NetworkServiceInProcess");
         //options.addArguments("disable-features=NetworkService");
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-browser-side-navigation");
 //        options.addArguments("enable-automation");
-        options.addArguments("--window-size=1900,1070");
+
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-extensions");
 //        options.addArguments("--dns-prefetch-disable");
@@ -79,7 +79,7 @@ public class TestBase {
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         headerMenu = PageFactory.initElements(driver, HeaderMenu.class);
         popUpInputPhone = PageFactory.initElements(driver, PopUpInputPhone.class);
         popUpInputPassword = PageFactory.initElements(driver, PopUpInputPassword.class);
