@@ -4,6 +4,7 @@ import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -99,6 +100,8 @@ public class HeaderMenu extends BasePage {
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));
             isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
             click(By.xpath("//button[text()='Удалить']"));
+            driver.switchTo().alert().accept();
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']']")));
             driver.close();
             driver.switchTo().window((String) tabs2.get(0));
             driver.navigate().refresh();
