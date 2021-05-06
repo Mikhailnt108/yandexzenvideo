@@ -245,14 +245,52 @@ public class CardFilm extends BasePage {
         //WebElement target = driver.findElement(By.id("container"));
         //new Actions(driver).dragAndDrop(slider, target).perform();
         String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        actions.dragAndDropBy(slider, 155, 0).perform();
+        actions.dragAndDropBy(slider, 450, 0).perform();
         Thread.sleep(7000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
     }
 
     public void clickPaymentButtonInCardFilm() {
         click(By.xpath("(//button[@type='button']//span)[4]"));
+    }
+
+    public void checkTimeStopPleer() throws InterruptedException {
+        Actions actions = new Actions(driver);
+        //нажал "Смотреть" - видео запустилось
+        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
+        Thread.sleep(7000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+        String time3 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        driver.navigate().back();
+        //Кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
+        click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
+        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
+        Thread.sleep(2000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+        String time4 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Assert.assertEquals(time3, time4);
+    }
+
+    public void moveSliderRewindToVideoPleer18Plus() throws InterruptedException {
+        Actions actions = new Actions(driver);
+        //нажал "Смотреть" - видео запустилось
+        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
+        click(By.xpath("//button[text()='Да']"));
+        Thread.sleep(7000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        WebElement slider = driver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
+        //WebElement target = driver.findElement(By.id("container"));
+        //new Actions(driver).dragAndDrop(slider, target).perform();
+        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.dragAndDropBy(slider, 450, 0).perform();
+        Thread.sleep(7000);
+        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Assert.assertNotEquals(time1, time2);
     }
 }
 

@@ -15,7 +15,7 @@ public class Test_18_Записанная_ТВ_передача_18_плюс exte
     public void recordedEarlierTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();
-        packagesPage.choosePackage18Plus();
+        packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
         cardPackage.chooseRecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();

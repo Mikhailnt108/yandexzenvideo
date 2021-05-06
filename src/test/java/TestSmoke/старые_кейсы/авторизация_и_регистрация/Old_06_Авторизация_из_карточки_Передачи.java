@@ -12,7 +12,7 @@ public class Old_06_Авторизация_из_карточки_Передач�
     @DisplayName(value = "Авторизация из карточки Передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardTvProgram() {
+    public void loginFromCardTvProgram() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
@@ -22,7 +22,7 @@ public class Old_06_Авторизация_из_карточки_Передач�
         packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.clickToTailCardPackageTvChannel();
         cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickTailCardChannel();
+        cardPackage.clickOnTailCardChannel();
         cardTvChannel.checkOpenCardTvChannel();
         cardTvChannel.clickTvProgramInCardChannel();
         cardTvProgram.checkOpenCardTvProgram();

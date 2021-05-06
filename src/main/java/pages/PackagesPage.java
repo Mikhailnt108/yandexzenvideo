@@ -60,7 +60,7 @@ public class PackagesPage extends BasePage {
         click(By.xpath("(//span[contains(text(), 'за 30 дней')])[1]"));
     }
 
-    public void choosePackage18Plus() {
+    public void clickToTailCardPackage18Plus() {
         click(By.xpath("//h3[text()='18+']"));
     }
 
@@ -202,5 +202,21 @@ public class PackagesPage extends BasePage {
         for (WebElement tail : tails) {
             tail.findElement(By.xpath("//div[text()='Подключен']"));
         }
+    }
+
+    public void clickToTabAllPackage() {
+        click(By.xpath("//div[text()='Все пакеты']"));
+    }
+
+    public void goToCardPackageTnBFlow() {
+        click(By.xpath("//div[text()='Все пакеты']"));
+        click(By.xpath("(//span[text()='Бесплатно по акции'])[1]"));
+        isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
+    }
+
+    public void goToCardPackage18PlusFlow() {
+        click(By.xpath("//div[text()='Все пакеты']"));
+        click(By.xpath("//h3[text()='18+']"));
+        isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
     }
 }

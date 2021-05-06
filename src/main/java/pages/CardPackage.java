@@ -22,20 +22,18 @@ public class CardPackage extends BasePage {
         isElementDisplayed(By.xpath("//div[contains(text(),' канал')]"));
     }
 
-    public void clickTailCardChannel() {
-        click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC _1KvwrX35EWldN95GzLjNvr'])[1]"));
-    }
+
 
     public void checkOpenCardPackage() {
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
-        Assert.assertEquals("Не тот пакет",driver.findElement(By.xpath("//div[@class='uCaVLp73F3t8zT0sYCoBh']//span[1]")).getText(),driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText());
+        //Assert.assertEquals("Не тот пакет",driver.findElement(By.xpath("//div[@class='uCaVLp73F3t8zT0sYCoBh']//span[1]")).getText(),driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText());
     }
 
     public void paymentPackageTnB() {
         click(By.xpath("//span[contains(text(), 'Подключить бесплатно')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет')]"));
         click(By.xpath("//button[text()='Подтвердить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Пакет подключен']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
         //isElementDisplayed(By.xpath("//button[text()='Отключить']"));
     }
@@ -109,5 +107,36 @@ public class CardPackage extends BasePage {
         click(By.xpath("(//div[@class='_3htFDYhBDJd36aHUvW3Sfh']//div)[5]"));
         //isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
         //click(By.className("_1bciqjt58pgm0il2tiJTtp"));
+    }
+
+    public void clickOnTailFirstCardFilm() {
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+    }
+
+    public void clickOnTailCardSerial() {
+        click(By.xpath("(//div[text()='Сериалы'])[3]"));
+        click(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]"));
+    }
+
+    public void clickOnTailCardChannel() throws InterruptedException {
+        click(By.xpath("//div[text()='ТВ-каналы']"));
+        click(By.xpath("(//a[@class='_2SBFkKqCGAQ96AZk-0n_uA'])[1]"));
+        Thread.sleep(65000);
+//        click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
+    }
+
+    public void clickOnTailSecondCardFilm() {
+        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
+    }
+
+    public void clickOnTailCardChannel18Plus() throws InterruptedException {
+        click(By.xpath("(//a[@class='_2SBFkKqCGAQ96AZk-0n_uA'])[3]"));
+        click(By.xpath("//button[text()='Да']"));
+        Thread.sleep(65000);
+    }
+
+    public void clickOnTailFirstCardFilm18Plus() {
+        click(By.xpath("(//div[text()='Фильмы'])[3]"));
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 }

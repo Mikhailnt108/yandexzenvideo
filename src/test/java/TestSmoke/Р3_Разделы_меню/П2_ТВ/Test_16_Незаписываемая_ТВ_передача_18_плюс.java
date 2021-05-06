@@ -15,7 +15,7 @@ public class Test_16_Незаписываемая_ТВ_передача_18_пл�
     public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();
-        packagesPage.choosePackage18Plus();
+        packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
         cardPackage.chooseUnrecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();

@@ -54,7 +54,7 @@ public class Footer extends BasePage {
         isElementDisplayed(By.xpath("//a[@href='tel:+78005509065']"));
         click(By.xpath("//span[text()='Задайте нам вопрос']"));
         isElementDisplayed(By.xpath("//div[text()='Отправить вопрос']"));
-        click(By.cssSelector("html>body>div:nth-of-type(9)>div>div>button"));
+        click(By.className("cUNRcCHPmylO_eFndFhLd"));
         click(By.linkText("Вопросы и ответы"));
         ArrayList tabs1 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs1.get(1));
@@ -99,16 +99,22 @@ public class Footer extends BasePage {
         isElementDisplayed(By.xpath("//a[@title='Google Play Logo']//img[1]"));
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
-        click(By.xpath("//img[@alt='mftv-smart-tv']"));
+        click(By.xpath("//img[@alt='mftv-huawei-store']"));
         ArrayList tabs3 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs3.get(1));
-        isElementDisplayed(By.xpath("//span[text()='Smart TV']"));
+        isElementDisplayed(By.xpath("//div[text()='HUAWEI AppGallery']"));
         driver.close();
         driver.switchTo().window((String) tabs3.get(0));
+        click(By.xpath("//img[@alt='mftv-smart-tv']"));
+        ArrayList tabs4 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window((String) tabs4.get(1));
+        isElementDisplayed(By.xpath("//span[text()='Smart TV']"));
+        driver.close();
+        driver.switchTo().window((String) tabs4.get(0));
     }
 
     public void clickToLinkDocsAndRules() {
-        String url1 = "https://web-preprod1.megafon.tv/docs/rules-provide-telematic-services.pdf";
+        String url1 = "https://web-preprod5.megafon.tv/docs/rules-provide-telematic-services.pdf";
         click(By.linkText("Правила оказания телематических услуг связи"));
         ArrayList tabs1 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs1.get(1));
@@ -117,7 +123,7 @@ public class Footer extends BasePage {
         driver.close();
         driver.switchTo().window((String) tabs1.get(0));
 
-        String url3 = "https://web-preprod1.megafon.tv/docs/rules-ktv.pdf";
+        String url3 = "https://web-preprod5.megafon.tv/docs/rules-ktv.pdf";
         click(By.linkText("Правила оказания услуг телевизионного вещания"));
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
@@ -127,7 +133,7 @@ public class Footer extends BasePage {
         driver.switchTo().window((String) tabs1.get(0));
 
         String url5 = "https://moscow.megafon.ru/download/~federal/oferts/mediaportal_oferta.pdf";
-        click(By.linkText("Условия оказания услуг"));
+        click(By.linkText("Условия оказания услуги"));
         ArrayList tabs3 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs3.get(1));
         String url6 = driver.getCurrentUrl();
@@ -135,7 +141,7 @@ public class Footer extends BasePage {
         driver.close();
         driver.switchTo().window((String) tabs1.get(0));
 
-        String url7 = "https://web-preprod1.megafon.tv/static/privacy.pdf";
+        String url7 = "https://web-preprod5.megafon.tv/static/privacy.pdf";
         click(By.linkText("Политика конфидециальности"));
         ArrayList tabs4 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs4.get(1));

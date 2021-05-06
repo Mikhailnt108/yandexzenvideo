@@ -103,6 +103,20 @@ public class MyPage extends BasePage {
         driver.get(My_subscriptions);
         isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
     }
+
+    public void checkOpenPageMyHistory() {
+        isElementDisplayed(By.xpath("//span[text()='История']"));
+
+    }
+
+    public void checkVisibleContent18Plus() {
+        isElementDisplayed(By.xpath("//span[contains(text(),'Эротика')]"));
+    }
+
+    public void clickToButtonClearAllHistory() {
+        click(By.xpath("//div[text()='Стереть всю историю']"));
+       click(By.xpath("//button[text()='Стереть']"));
+    }
 }
 
 

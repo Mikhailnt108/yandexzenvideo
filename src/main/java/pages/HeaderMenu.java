@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class HeaderMenu extends BasePage {
+    public Object deleteAllCookies;
     //ПП1
     String NIL_Page_PP1 = "https://web-preprod1.megafon.tv/";
     String TV_Page_PP1 = "https://web-preprod1.megafon.tv/tv/";
@@ -78,7 +79,7 @@ public class HeaderMenu extends BasePage {
 
     public void goToPackagesPage() {
         driver.get(Packages_Page_PP5);
-        isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
+        isElementDisplayed(By.xpath("//span[text()='Магазин']"));
     }
 
     public void goToAllCollectionsPage() {
@@ -817,6 +818,17 @@ public class HeaderMenu extends BasePage {
         Assert.assertEquals("Не тот фильм", namePackage, driver.findElement(By.tagName("h1")).getText());
     }
 
+    public void goToBack() {
+        driver.navigate().back();
+    }
+
+    public void refreshPage() {
+        driver.navigate().refresh();
+    }
+
+    public void deleteCookies() {
+        driver.manage().deleteAllCookies();
+    }
 }
 
 

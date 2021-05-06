@@ -11,7 +11,7 @@ public class Old_03_Авторизация_из_карточки_Канала ex
     @DisplayName(value = "Авторизация из карточки Канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardTvChannel() {
+    public void loginFromCardTvChannel() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
@@ -21,7 +21,7 @@ public class Old_03_Авторизация_из_карточки_Канала ex
         packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.clickToTailCardPackageTvChannel();
         cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickTailCardChannel();
+        cardPackage.clickOnTailCardChannel();
         cardTvChannel.checkOpenCardTvProgram();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         flowAutorisation();

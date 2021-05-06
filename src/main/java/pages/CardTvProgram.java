@@ -4,12 +4,15 @@ import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CardTvProgram extends BasePage {
     public CardTvProgram(WebDriver driver) {
         super(driver);
     }
+    String NIL_Page_PP5 = "https://web-preprod5.megafon.tv/";
     public void checkOpenCardTvProgram() {
+
         isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
     }
     public void clickPaymentButtonInCardTvProgram() {
@@ -120,8 +123,11 @@ public class CardTvProgram extends BasePage {
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         WebElement slider = driver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
         String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        actions.dragAndDropBy(slider, 155, 0).perform();
-        Thread.sleep(7000);
+        actions.dragAndDropBy(slider, 450, 0).perform();
+        Thread.sleep(15000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+        Thread.sleep(5000);
         String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
     }
@@ -150,6 +156,25 @@ public class CardTvProgram extends BasePage {
 
     public void clickToButtonPlay() {
         click(By.className("_2fPMOlJJX5DRkSEypQ3sLc"));
+    }
+
+    public void checkTimeStopPleer() throws InterruptedException {
+        Actions actions = new Actions(driver);
+        //автозапуск тв-передачи:
+        Thread.sleep(30000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+        String time3 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        driver.get(NIL_Page_PP5);
+        //Кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
+        click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]")));
+        click(By.xpath("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]"));
+        Thread.sleep(3000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+        String time4 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Assert.assertEquals(time3, time4);
     }
 }
       
