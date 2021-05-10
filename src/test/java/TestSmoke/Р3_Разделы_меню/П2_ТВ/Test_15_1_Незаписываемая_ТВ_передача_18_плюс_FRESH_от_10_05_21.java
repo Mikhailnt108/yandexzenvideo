@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П2_ТВ;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_15_1_Незаписываемая_ТВ_передача_18_плюс_FRESH_от_10_05_21 extends TestBase {
@@ -11,7 +12,7 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
     @Story(value = "2. ТВ")
     @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(5)
     public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();
@@ -33,7 +34,7 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
         //переключение на соседнюю передачу 18+ внутри плеера:
         cardTvProgram.swithOtherTvChannelInsidePlayer();
         cardTvProgram.checkAbsentPopUp18plus();
-        //переключение на передачу не 18+ внутри плеера:
+        //переключение на передачу НЕ 18+ внутри плеера:
         cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
         //переключение на передачу 18+ внутри плеера:
         cardTvProgram.swithOnTvProgram18PlusInsidePlayer();

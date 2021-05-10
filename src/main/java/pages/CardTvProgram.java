@@ -390,9 +390,10 @@ public class CardTvProgram extends BasePage {
         Actions actions = new Actions(driver);
         String nameTvChannel = driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText();
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        click(By.xpath("(//div[@class='_1wbag-kQ46Rgp9vIssZF16 _2yqndJWOuX36UWc1F5T19w'])[2]]"));
-//        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[2]"));
+//        click(By.xpath("(//div[@class='_1wbag-kQ46Rgp9vIssZF16 _2yqndJWOuX36UWc1F5T19w'])[2]"));
+        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[3]"));
         Thread.sleep(3000);
+        System.out.println(driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
         Assert.assertNotEquals("канал не переключен", nameTvChannel, driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
     }
 
@@ -431,13 +432,13 @@ public class CardTvProgram extends BasePage {
     public void swithOnTvProgramNon18plusInsidePlayer() throws InterruptedException {
         Thread.sleep(3000);
         Actions actions = new Actions(driver);
-        String genreTvChannel = driver.findElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]")).getText();
+        String genreTvChannel = driver.findElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]")).getText();
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         isElementDisplayed(By.xpath("//div[@class='_1wbag-kQ46Rgp9vIssZF16 _2yqndJWOuX36UWc1F5T19w']"));
-        click(By.xpath("(//div[@class='_1wbag-kQ46Rgp9vIssZF16 _2yqndJWOuX36UWc1F5T19w'])[5]"));
+        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[5]"));
         driver.navigate().refresh();
         Thread.sleep(3000);
-        Assert.assertNotEquals("канал не переключен", genreTvChannel, driver.findElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]")).getText());
+        Assert.assertNotEquals("канал не переключен", genreTvChannel, driver.findElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]")).getText());
     }
 
     public void swithOnTvProgram18PlusInsidePlayer() throws InterruptedException {
@@ -447,7 +448,7 @@ public class CardTvProgram extends BasePage {
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("(//div[@class='_3rG-uZRT_8O5npnrboEkUD'])[1]"));
         isElementDisplayed(By.xpath("//div[@class='_1wbag-kQ46Rgp9vIssZF16 _2yqndJWOuX36UWc1F5T19w']"));
-        click(By.xpath("(//div[@class='_1wbag-kQ46Rgp9vIssZF16 _2yqndJWOuX36UWc1F5T19w'])[1]"));
+        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[1]"));
         driver.navigate().refresh();
         Thread.sleep(3000);
         Assert.assertNotEquals("канал не переключен", genreTvChannel, driver.findElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]")).getText());

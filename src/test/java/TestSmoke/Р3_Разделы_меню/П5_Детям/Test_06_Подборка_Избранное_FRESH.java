@@ -1,26 +1,29 @@
-package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
+package TestSmoke.Р3_Разделы_меню.П5_Детям;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_Добавление_в_избранное_сериала extends TestBase {
+public class Test_06_Подборка_Избранное_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "4. Сериалы")
-    @DisplayName(value ="Добавление в избранное сериала")
+    @Story(value = "5. Детям")
+    @DisplayName(value ="Подборка Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    public void AddingSeriesToFavorites() {
-        headerMenu.goToSerialsPage();
+    public void collectionOfFavorites() {
+        headerMenu.goToKidsPage();
         flowRegistation();
-        serialsPage.clickToTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.clickButtonFavorites();
-        myPage.goToMyPageFavorites();
-        myPage.checkAddingSerialToFavorites();
+        kidsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.clickButtonFavorites();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.clickButtonFavorites();
+        headerMenu.goToKidsPage();
+        kidsPage.clickToHeaderCollectionOfFavorites();
+        collectionPage.checkCollectionOfFavorites();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

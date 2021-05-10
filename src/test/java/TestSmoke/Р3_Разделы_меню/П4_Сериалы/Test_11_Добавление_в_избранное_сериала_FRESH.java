@@ -5,25 +5,22 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Просмотр_серии extends TestBase {
+public class Test_11_Добавление_в_избранное_сериала_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Просмотр серии")
+    @DisplayName(value ="Добавление в избранное сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
 
-    public void watchEpisode() throws Exception {
+    public void AddingSeriesToFavorites() {
         headerMenu.goToSerialsPage();
-        headerMenu.checkNotLoggedIsCorrect();
         flowRegistation();
         serialsPage.clickToTailCardSerial();
         cardSerial.checkOpenCardSerial();
-        cardSerial.clickToButtonSubscribePackage();
-        cardSerial.clickToButtonSubscribeInPopUp();
-        cardSerial.checkPopUpSubscribeComplete();
-        cardSerial.checkButtonToWatch();
-        cardSerial.clickTailEpisodeForStartVideoPleer();
+        cardSerial.clickButtonFavorites();
+        myPage.goToMyPageFavorites();
+        myPage.checkAddingSerialToFavorites();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

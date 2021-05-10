@@ -5,23 +5,28 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Аренда_фильма_за_бандл_НЕТ_Фильмов_по_акции_на_ПП1_на_ПП2_есть extends TestBase {
+public class Test_07_Покупка_фильма_со_скидкой_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Аренда фильма за бандл")
+    @DisplayName(value ="Покупка фильма со скидкой")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void PaymentFilmForRent2Promo() throws Exception {
+    public void paymentFilmWithDiscount() throws Exception {
         headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        pageCMS.createPriseEstOrRent2WithDiscount();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260172279");
-        filmsPage.clickOnFiltrPayment();
-        filmsPage.chooseTabPromo();
-        filmsPage.clickToTailCardFilmFromAvailable();
-        cardFilm.paymentFilmAtRent2Promo();
-        cardFilm.checkСounterAvailableFilms();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.checkStikerDiscount();
+        cardFilm.checkPriseEstDiscount();
+        cardFilm.paymentFilmAtEstDiscount();
+        cardFilm.checkUnavailabilityStikerDiscount();
         cardFilm.startVideoPleer();
+        pageCMS.deleteDiscount();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() {

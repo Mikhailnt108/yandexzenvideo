@@ -1,25 +1,27 @@
-package TestSmoke.Р3_Разделы_меню.П3_Фильмы;
+package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_09_Добавление_в_избранное_фильма extends TestBase {
+public class Test_08_Перемотка_серии_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
-    @DisplayName(value ="Добавление_в_избранное_фильма")
+    @Story(value = "4. Сериалы")
+    @DisplayName(value ="Перемотка серии")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void AddingFilmToFavorites() {
-        headerMenu.goToFilmsPage();
+
+    public void rewindSeries() throws Exception {
+        headerMenu.goToSerialsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.clickButtonFavorites();
-        myPage.goToMyPageFavorites();
-        myPage.checkAddingFilmToFavorites();
+        serialsPage.clickToTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.clickToButtonSubscribePackage();
+        cardSerial.clickToButtonSubscribeInPopUp();
+        cardSerial.checkPopUpSubscribeComplete();
+        cardSerial.episodeSliderRewindToVideoPleer();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
@@ -35,5 +37,4 @@ public class Test_09_Добавление_в_избранное_фильма ext
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
-
 }

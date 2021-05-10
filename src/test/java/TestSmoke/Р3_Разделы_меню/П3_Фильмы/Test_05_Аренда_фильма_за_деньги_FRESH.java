@@ -5,20 +5,21 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_08_Перемотка_фильма extends TestBase {
+public class Test_05_Аренда_фильма_за_деньги_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Перемотка фильма")
+    @DisplayName(value ="Аренда фильма за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void rewindFilm() throws Exception {
+    public void PaymentFilmForRent2() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.paymentFilmAtEst();
-        cardFilm.moveSliderRewindToVideoPleer();
+        filmsPage.clickToHeaderRent2Collection();
+        collectionPage.checkOpenCollectionRent2Page();
+        collectionPage.clickToTailFilmRent2();
+        cardFilm.paymentButtonRent2InCardFilm();
+        cardFilm.startVideoPleer();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() {

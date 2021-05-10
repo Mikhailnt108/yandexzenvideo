@@ -1,39 +1,40 @@
-package TestSmoke.Р3_Разделы_меню.П3_Фильмы;
+package TestSmoke.Р3_Разделы_меню.П5_Детям;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_01_Покупка_фильма extends TestBase {
+public class Test_05_Подборка_Моё_FRESH extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
-    @DisplayName(value ="Покупка фильма")
+    @Story(value = "5. Детям")
+    @DisplayName(value ="Подборка Моё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void paymentFilm() throws Exception {
-        headerMenu.goToFilmsPage();
+    public void collectionOfMy() {
+        headerMenu.goToKidsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
+        kidsPage.clickToTailCardFilm();
         cardFilm.paymentFilmAtEst();
-        cardFilm.startVideoPleer();
-        myPage.goToMyPagePurchases();
-        myPage.checkAddingFilmInPurchases();
-        pageCMS.deleteAccountMF("79260172279");
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.paymentFilmAtEst();
+        headerMenu.goToKidsPage();
+        kidsPage.clickToHeaderCollectionOfMy();
+        collectionPage.checkCollectionOfMy();
+        pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
