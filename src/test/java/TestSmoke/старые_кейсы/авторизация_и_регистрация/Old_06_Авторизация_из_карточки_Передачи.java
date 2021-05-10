@@ -24,7 +24,7 @@ public class Old_06_Авторизация_из_карточки_Передач�
         cardPackage.checkOpenCardPackageTvChannel();
         cardPackage.clickOnTailCardChannel();
         cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.clickTvProgramInCardChannel();
+        cardTvChannel.clickOnTvProgramInCardChannel();
         cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.clickPaymentButtonInCardTvProgram();
         flowAutorisation();

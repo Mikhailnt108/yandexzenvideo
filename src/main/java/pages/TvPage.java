@@ -11,12 +11,17 @@ import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
+import ru.yandex.qatools.ashot.coordinates.Coords;
 import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
+import ru.yandex.qatools.ashot.shooting.ScalingDecorator;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategy;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -62,19 +67,36 @@ public class TvPage extends BasePage {
         click(By.xpath("//div[text()='Передачи в эфире']"));
     }
 
-    public void checkAllTvProgramInAir() {
-        List<WebElement> tails = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+    public void checkElementsTailsTvProgramInAir() throws IOException {
 
-        for (WebElement tail : tails) {
-            tail.findElement(By.xpath("//span[@class='L3rzdT7KYzyE1ClBQKxNL']"));
+        //проверка отображения простера на всех тайлах:
+        List<WebElement> collectTails2 = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+        for (WebElement poster : collectTails2) {
+            String urlImage = poster.getCssValue("background-image");
+            Assert.assertEquals("нет постера в тайле", urlImage.contains("tile__web-wp.webp"), true);
+            System.out.println(urlImage);
         }
+
+        //проверка отображения прогресс-бара на всех тайлах:
+        List<WebElement> progressBars = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//span[@class='L3rzdT7KYzyE1ClBQKxNL']"));
+        Assert.assertEquals("не равно количество элементов", 18, progressBars.size());
+
+        //проверка отображения названия тв передачи на всех тайлах:
+        List<WebElement> nameTvPrograms = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//h3[@class='hhYBfS5SYd9UjRyn3tWgw']"));
+        Assert.assertEquals("не равно количество элементов", 18, nameTvPrograms.size());
+
+        //проверка отображения времени и навзания тв канала на всех тайлах:
+        List<WebElement> timeAndNameChannel = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_3jrfnhGV2HAWEcqDrup1qU']"));
+        Assert.assertEquals("не равно количество элементов", 18, timeAndNameChannel.size());
+
+        //проверка отображения возрастной маркировки на всех тайлах:
+        List<WebElement> ageMarking = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ')]"));
+        Assert.assertEquals("не равно количество элементов", 18, ageMarking.size());
     }
 
-
-    public void clickToTailTvProgram() {
-        //click(By.linkText("Кино"));
-        click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Кино']"));
-        isElementDisplayed(By.xpath("//span[text()='Кино']"));
+    public void clickToTailTvProgram() throws InterruptedException {
+//        waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        Thread.sleep(3000);
         click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]"));
     }
 
@@ -90,17 +112,17 @@ public class TvPage extends BasePage {
             CollectionAvailable = driver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
             CollectionAvailable.get(i).click();
             Assert.assertEquals(0, driver.findElements(By.xpath("(//button[@type='button']//span)[1]")).size());
-            //Assert.assertNull(driver.findElement(By.xpath("(//span[contains(text(), 'Смотреть'])[1]")));
             driver.navigate().back();
         }
     }
 
-    public void clickToTailTvChannel() {
+    public void clickToTailTvChannel() throws InterruptedException {
+        waitVisibility(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']"));
         click(By.xpath("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]"));
     }
-    //(//a[@class='_19SojadR5Q0BvNZTu4HCi1'])[1]
 
-    public void clickOnTabInRecording() {
+    public void clickOnTabInRecording() throws InterruptedException {
+        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
         click(By.xpath("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']"));
     }
 
@@ -137,9 +159,18 @@ public class TvPage extends BasePage {
     }
 
     public void clickOnTabNews() throws Exception {
-        click(By.xpath("//button[@class='_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1']"));
-        Thread.sleep(2000);
+        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Новости']"));
+    }
+
+    public void clickOnTabForKids() {
+        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+        click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Для детей']"));
+    }
+
+    public void clickOnTabKino() {
+        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+        click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Кино']"));
     }
 
     public void checkСhannelsСorrespondGenresNews() {
@@ -148,6 +179,7 @@ public class TvPage extends BasePage {
     }
 
     public void clickOnTabHD() {
+        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='HD']"));
     }
 
@@ -178,7 +210,7 @@ public class TvPage extends BasePage {
         WebElement element = driver.findElement(By.xpath("//div[text()='₽']"));
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
-        Assert.assertNotNull(driver.findElement(By.xpath("(//button[@title='Отображаются только доступные телеканалы']//div)[2]")));
+        Assert.assertNotNull(driver.findElement(By.xpath("(//button[@title='Отображаются только подключенные телеканалы']//div)[2]")));
     }
 
     public void checkImageDifferTvPage() throws IOException, InterruptedException {
@@ -235,7 +267,7 @@ public class TvPage extends BasePage {
                 .ignoredElements(nameTvChannel)
                 .ignoredElements(timeNameAgeTvProgram)
                 .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"allTvPagePp5Standard"+".png");
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/" + "allTvPagePp5Standard" + ".png");
         ImageIO.write(screenshotAllTvPagePp5Standard.getImage(), "png", expectedFile1);
         screenshotAllTvPagePp5Standard.setIgnoredAreas(screenshotAllTvPagePp5.getIgnoredAreas());
 //        // Взять старый эталон скриншота:
@@ -252,7 +284,7 @@ public class TvPage extends BasePage {
 
     public void checkElementsTvPage() {
         List<WebElement> tailsTvChannel = driver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//div[@class='_49iS4BqS64BCC4wpE8GQ7']"));
-        System.out.println("количество тайлов "+ tailsTvChannel.size());
+        System.out.println("количество тайлов " + tailsTvChannel.size());
         System.out.println(driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
         Assert.assertEquals("количество элементов не равно", tailsTvChannel.size(), driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
         System.out.println(driver.findElements(By.xpath("//div[@class='_16fO5taSmblh91J9Prw7TV']")).size());
@@ -271,6 +303,90 @@ public class TvPage extends BasePage {
         Assert.assertEquals("значение не равно", nameTvProgram, driver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText());
     }
 
+    public void clickToLinkTvProgram() {
+        click(By.xpath("(//a[@class='_19SojadR5Q0BvNZTu4HCi1'])[1]"));
+    }
 
+    public void checkImageDifferTabTvProgramInAir() throws IOException, InterruptedException {
+        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+        Screenshot screenshotTabTvProgramInAirPp5 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .addIgnoredElement(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"))
+                .addIgnoredElement(By.xpath("//div[@class='_3NxFENQ0UKNN388aVimz5Y']"))
+                .addIgnoredElement(By.xpath("//div[@class='_1RicrqOs_p0d08wcC9-c3G']"))
+                .addIgnoredElement(By.xpath("//h3[@class='hhYBfS5SYd9UjRyn3tWgw']"))
+                .addIgnoredElement(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF']"))
+                .takeScreenshot(driver);
+
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "tabTvProgramInAirPp5" + ".png");
+        ImageIO.write(screenshotTabTvProgramInAirPp5.getImage(), "png", actualFile1);
+
+        //      //Сделать новый эталонный скриншот:
+        //      Screenshot screenshotTabTvProgramInAirPp5Standard = new AShot()
+        //               .coordsProvider(new WebDriverCoordsProvider())
+        //               .takeScreenshot(driver);
+        //      File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"tabTvProgramInAirPp5Standard"+".png");
+        //      ImageIO.write(screenshotTabTvProgramInAirPp5Standard.getImage(), "png", expectedFile1);
+        //      screenshotTabTvProgramInAirPp5Standard.setIgnoredAreas(screenshotTabTvProgramInAirPp5.getIgnoredAreas());
+
+        // Взять старый эталон скриншота:
+        Screenshot screenshotTabTvProgramInAirPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "tabTvProgramInAirPp5Standard" + ".png")));
+        screenshotTabTvProgramInAirPp5Standard.setIgnoredAreas(screenshotTabTvProgramInAirPp5.getIgnoredAreas());
+
+        //Сравнение скриншотов:
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotTabTvProgramInAirPp5Standard, screenshotTabTvProgramInAirPp5);
+        System.out.println(diff1.getDiffSize());
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffTabTvProgramInAir" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+        Assert.assertTrue(diff1.getDiffSize() <= 300);
+    }
+
+    public void checkGenreInRecordingTvProgramInAir() throws InterruptedException {
+        waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        Assert.assertEquals(CollectionTvProgram.size(), driver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
+        for (int i = 0; i <= 5; i++) {
+            CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTvProgram.get(i).click();
+            Assert.assertEquals(1, driver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'В записи')]")).size());
+            driver.navigate().back();
+        }
+    }
+
+    public void checkGenreHDTvProgramInAir() {
+        waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        Assert.assertEquals(CollectionTvProgram.size(), driver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
+        for (int i = 0; i <= 5; i++) {
+            CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTvProgram.get(i).click();
+            Assert.assertEquals(1, driver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'HD')]")).size());
+            driver.navigate().back();
+        }
+    }
+
+    public void checkGenreForKidsTvProgramInAir() {
+        waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        Assert.assertEquals(CollectionTvProgram.size(), driver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
+        for (int i = 0; i <= 5; i++) {
+            CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTvProgram.get(i).click();
+            Assert.assertEquals(1, driver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'Для детей')]")).size());
+            driver.navigate().back();
+        }
+    }
+
+    public void checkGenreKinoTvProgramInAir() {
+        waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        Assert.assertEquals(CollectionTvProgram.size(), driver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
+        for (int i = 0; i <= 5; i++) {
+            CollectionTvProgram = driver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTvProgram.get(i).click();
+            Assert.assertEquals(1, driver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'Кино')]")).size());
+            driver.navigate().back();
+        }
+    }
 }
 

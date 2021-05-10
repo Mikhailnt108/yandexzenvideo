@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_19_ТВ_передача_18_плюс_Pop_up_с_подтверждением_НАШЕЛ_БАГ_ПОВТОРНО_НЕТ_ПОПАПА_18ПЛЮС extends TestBase {
+public class OldTest_19_ТВ_передача_18_плюс_Pop_up_с_подтверждением_НАШЕЛ_БАГ_ПОВТОРНО_НЕТ_ПОПАПА_18ПЛЮС extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")

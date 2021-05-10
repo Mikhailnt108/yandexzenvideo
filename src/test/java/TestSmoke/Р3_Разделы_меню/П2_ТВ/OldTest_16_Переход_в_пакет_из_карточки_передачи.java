@@ -5,26 +5,24 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_13_Фильтр_платности_НАШЕЛ_БАГ_ОДИНАКОВЫЕ_ПОДСКАЗКИ extends TestBase {
+public class OldTest_16_Переход_в_пакет_из_карточки_передачи extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Фильтр платности")
+    @DisplayName(value ="Переход в пакет из карточки передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void checkFilterPayment() {
-        headerMenu.goToTvPage();
-        flowRegistation();
-        tvPage.checkOpenTabTvPageSchedule();
-        tvPage.clickOnTabHD();
-        tvPage.navigateMouseToToglPaymentOn();
-        tvPage.clickToglPaymentForOff();
-        tvPage.checkTvChannelsOnlyAvailable();
-        tvPage.navigateMouseToToglPaymentOff();
-        tvPage.clickToglPaymentForOn();
-        tvPage.checkTvChannelsOnlyPayment();
-        pageCMS.deleteAccountMF("79260192144");
-    }
+     public void goToPackageFromCardTvProgram() throws InterruptedException {
+         headerMenu.goToTvPage();
+         flowRegistation();
+         tvPage.checkOpenTabTvPageSchedule();
+         tvPage.clickOnTabTvProgramInAir();
+         tvPage.clickToTailTvProgram();
+         cardTvProgram.checkOpenCardTvProgram();
+         cardTvProgram.clickToLinkCardPackage();
+         cardPackage.checkOpenCardPackageTvChannel();
+         pageCMS.deleteAccountMF("79260192144");
+     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -38,4 +36,5 @@ public class Test_13_Фильтр_платности_НАШЕЛ_БАГ_ОДИН�
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
+
 }

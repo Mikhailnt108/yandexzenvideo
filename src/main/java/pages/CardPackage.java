@@ -98,11 +98,6 @@ public class CardPackage extends BasePage {
         //click(By.className("_1bciqjt58pgm0il2tiJTtp"));
     }
 
-    public void goToTvProgram18Plus() {
-        click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
-        isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
-    }
-
     public void chooseRecordedTvChannel18Plus() {
         click(By.xpath("(//div[@class='_3htFDYhBDJd36aHUvW3Sfh']//div)[5]"));
         //isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));

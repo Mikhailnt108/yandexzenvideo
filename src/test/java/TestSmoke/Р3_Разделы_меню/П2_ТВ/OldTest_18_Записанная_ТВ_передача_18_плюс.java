@@ -5,27 +5,26 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_10_Перемотка_записанной_передачи extends TestBase {
+public class OldTest_18_Записанная_ТВ_передача_18_плюс extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Перемотка записанной передачи")
+    @DisplayName(value ="Записанная ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void rewindTvProgram() throws Exception {
-        headerMenu.goToTvPage();
+    public void recordedEarlierTvProgram18Plus() throws Exception {
+        headerMenu.goToPackagesPage();
         flowRegistation();
-        tvPage.checkOpenTabTvPageSchedule();
-        tvPage.clickOnTabInRecording();
-        tvPage.checkСhannelsСorrespondGenres();
-        cardTvProgram.clickOnLinkTvProgramInRecording();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
-        cardTvProgram.checkPaymentComplete();
-        cardTvProgram.clickToButtonPlay();
-        cardTvProgram.moveSliderRewindToVideoPleer();
+        packagesPage.clickToTailCardPackage18Plus();
+        cardPackage.checkOpenCardPackage18Plus();
+        cardPackage.chooseRecordedTvChannel18Plus();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        cardTvChannel.checkPaymentComplete();
+        cardTvProgram.clickYesInPopUp18Plus();
+        cardTvProgram.goToCardTvProgram18Plus();
+        cardTvProgram.clickNoInPopUp18Plus();
         pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

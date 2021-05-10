@@ -5,20 +5,23 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_15_Переход_в_карточку_передачи_из_Передачи_в_эфире extends TestBase {
+public class Test_13_Добавление_в_избранное_передачи_FRESH_от_10_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Переход в карточку передачи из Передачи в эфире")
+    @DisplayName(value ="Добавление в избранное передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void openCardTvProgramFromTabAir() {
+    public void AddingTvProgramToFavorites() throws InterruptedException {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
+        cardTvProgram.clickButtonFavorite();
+        cardTvProgram.checkButtonFavoriteAdded();
+        myPage.goToMyPageFavorites();
+        myPage.checkAddingTvProgramToFavorites();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

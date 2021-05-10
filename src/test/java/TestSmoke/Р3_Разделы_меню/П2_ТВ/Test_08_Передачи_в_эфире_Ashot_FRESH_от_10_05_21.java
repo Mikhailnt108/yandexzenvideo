@@ -5,17 +5,20 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_Жанры_передач_в_эфире_ДОБАВИТЬ_ASHOT extends TestBase {
+import java.io.IOException;
+
+public class Test_08_Передачи_в_эфире_Ashot_FRESH_от_10_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Жанры передач в эфире")
+    @DisplayName(value ="Передачи в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void genresTvProgramInAir() {
+    public void tvProgramInAir() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabTvProgramInAir();
-        tvPage.checkСhannelsСorrespondGenres();
+        tvPage.checkImageDifferTabTvProgramInAir();
+        tvPage.checkElementsTailsTvProgramInAir();
     }
 }

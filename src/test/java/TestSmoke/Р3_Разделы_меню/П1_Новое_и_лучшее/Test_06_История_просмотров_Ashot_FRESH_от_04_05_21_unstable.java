@@ -48,7 +48,7 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
         packagesPage.goToCardPackageTnBFlow();
         cardPackage.clickOnTailCardChannel();
         cardTvChannel.clickTvProgramRecordInCardTvChannel();
-        cardTvProgram.moveSliderRewindToVideoPleer();
+        cardTvProgram.moveSliderRewindToVideoPlayer();
         headerMenu.goToNilPage();
         nilPage.checkAndClickOnTailCardTvProgramInCollectHistoryWatch();
 
@@ -60,7 +60,7 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
 //        cardPackage.paymentPackageTnB();
 //        cardPackage.clickOnTailCardChannel18Plus();
 //        cardTvChannel.clickTvProgramRecordInCardTvChannel();
-//        cardTvProgram.moveSliderRewindToVideoPleer();
+//        cardTvProgram.moveSliderRewindToVideoPlayer();
 //        headerMenu.goToNilPage();
 //        nilPage.checkAbsentTvProgram18PlusInCollectHistoryWatch();
 //

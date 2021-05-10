@@ -111,6 +111,8 @@ public class TestBase {
         promoCode = PageFactory.initElements(driver, PromoCode.class);
         personalOffer = PageFactory.initElements(driver, PersonalOffer.class);
 
+        driver.manage().deleteAllCookies();
+
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
     }

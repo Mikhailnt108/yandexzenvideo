@@ -30,7 +30,7 @@ public class CardTvChannel extends BasePage {
         isElementDisplayed(By.xpath("//a[@href='/tv']//span[1]"));
     }
 
-    public void clickTvProgramInCardChannel() {
+    public void clickOnTvProgramInCardChannel() {
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
     }
 
@@ -67,7 +67,6 @@ public class CardTvChannel extends BasePage {
         Thread.sleep(7000);
         String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
-
     }
 
     public void backToNewsTvChannel() {
@@ -96,7 +95,7 @@ public class CardTvChannel extends BasePage {
     public void checkPaymentComplete() {
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет')]"));
         click(By.xpath("//button[text()='Подтвердить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Пакет подключен']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
@@ -110,47 +109,115 @@ public class CardTvChannel extends BasePage {
 
     }
 
-    public void checkImageDifferCardTvChannel() throws IOException {
+    public void checkImageDifferCardTvChannelForUnauthorized() throws IOException {
         Set<By> daysSchedule = new HashSet<>();
         daysSchedule.add(By.xpath("//div[@class='_2g4yeSiNbxlU4wgd7X-sN2']"));
         Set<By> timeSchedule = new HashSet<>();
-        timeSchedule.add(By.xpath("//div[@class='_3hTg_sTNIhM5ALiEXQHPhj']"));
+        timeSchedule.add(By.xpath("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
         Screenshot screenshotCardTvChannelPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(1))
                 .ignoredElements(daysSchedule)
                 .ignoredElements(timeSchedule)
-                .addIgnoredElement(By.className("_1nAXLMkHN0PXnwvulfBvK0"))
-                .addIgnoredElement(By.className("_3DKCWpmCv7Gf2hQA0mQQ2g"))
-                .addIgnoredElement(By.className("_2tGh-AEMtExspQrxBI4_m0"))
+                .addIgnoredElement(By.xpath("//div[@class='_1KLHFmaQkSgHohGyiuAR3i']")) //название передачи, сегодня возраст, описание передачи
                 .addIgnoredElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]"))
+                .addIgnoredElement(By.className("_1GgmNtEHj_XmeyaKNiKDz8"))
+                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g' and text()]"))
+                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6 V5gzWmx0AeSFNR9OCQRIz']"))
+                .addIgnoredElement(By.className("_3U2-yKAj4IPU3tvIT6W2cl"))
+                .addIgnoredElement(By.className("baGc44KXrkpgoHXV0vpsM"))
                 .addIgnoredElement(By.xpath("(//div[@class='ch-trigger__container'])[4]"))
                 .takeScreenshot(driver);
 
         File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "cardTvChannelPp5" + ".png");
         ImageIO.write(screenshotCardTvChannelPp5.getImage(), "png", actualFile1);
 
-        driver.get("https://web-preprod5.megafon.tv/tv");
+//        //Сделать новый эталонный скриншот:
+//        Screenshot screenshotCardTvChannelPp5Standard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .ignoredElements(daysSchedule)
+//                .ignoredElements(timeSchedule)
+//                .addIgnoredElement(By.xpath("//div[@class='_1KLHFmaQkSgHohGyiuAR3i']")) //название передачи, сегодня возраст, описание передачи
+//                .addIgnoredElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]"))
+//                .addIgnoredElement(By.className("_1GgmNtEHj_XmeyaKNiKDz8"))
+//                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g' and text()]"))
+//                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6 V5gzWmx0AeSFNR9OCQRIz']"))
+//                .addIgnoredElement(By.className("_3U2-yKAj4IPU3tvIT6W2cl"))
+//                .addIgnoredElement(By.className("baGc44KXrkpgoHXV0vpsM"))
+//                .addIgnoredElement(By.xpath("(//div[@class='ch-trigger__container'])[4]"))
+//                .takeScreenshot(driver);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"cardTvChannelPp5Standard"+".png");
+//        ImageIO.write(screenshotCardTvChannelPp5Standard.getImage(), "png", expectedFile1);
+//        screenshotCardTvChannelPp5Standard.setIgnoredAreas(screenshotCardTvChannelPp5.getIgnoredAreas());
 
-        //Сделать новый эталонный скриншот:
-        Screenshot screenshotCardTvChannelPp5Standard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(1))
-                .ignoredElements(daysSchedule)
-                .ignoredElements(timeSchedule)
-                .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"cardTvChannelPp5Standard"+".png");
-        ImageIO.write(screenshotCardTvChannelPp5Standard.getImage(), "png", expectedFile1);
+        // Взять старый эталон скриншота:
+        Screenshot screenshotCardTvChannelPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "cardTvChannelPp5Standard" + ".png")));
         screenshotCardTvChannelPp5Standard.setIgnoredAreas(screenshotCardTvChannelPp5.getIgnoredAreas());
-//        // Взять старый эталон скриншота:
-//        Screenshot screenshotAllTvPagePp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "allTvPagePp5Standard" + ".png")));
-//        screenshotAllTvPagePp5Standard.setIgnoredAreas(screenshotAllTvPagePp5.getIgnoredAreas());
 
         //Сравнение скриншотов:
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardTvChannelPp5Standard, screenshotCardTvChannelPp5);
         System.out.println(diff1.getDiffSize());
+        System.out.println(diff1.getDiffImage());
         File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffCardTvChannel" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
         Assert.assertTrue(diff1.getDiffSize() <= 15);
     }
-}
+
+    public void checkElementsInCardTvChannel() {
+        isElementDisplayed(By.className("_1rev14Qo58_GNSeeC-Rh2V"));
+        isElementDisplayed(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
+        isElementDisplayed(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]"));
+        isElementDisplayed(By.className("_3DKCWpmCv7Gf2hQA0mQQ2g"));
+        isElementDisplayed(By.className("_1-ZY27a7Isb9dohjRr0mXq"));
+        isElementDisplayed(By.className("_3lvyrUkaGN_QANJMIvjX5c"));
+        isElementDisplayed(By.className("_1v_D6wOANknQeJMBPo_rKK"));
+        isElementDisplayed(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]"));
+        isElementDisplayed(By.xpath("//div[contains(@class,'_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6')]"));
+        isElementDisplayed(By.className("_2KIN0FxuoXVTLyzpxPtNGz"));
+        isElementDisplayed(By.xpath("//div[contains(@class,'_39Yp8LSFDnN1PnBG2_NFLL')]"));
+        isElementDisplayed(By.xpath("//div[contains(@class,'_2e92e-_RzKCZ4VypEl02Kj')]"));
+    }
+
+    public void checkAutoStartVideoPlayer() throws InterruptedException {
+        Thread.sleep(5000);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Thread.sleep(5000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Assert.assertNotEquals(time1, time2);
+        }
+
+    public void checkButtonFavoriteNotAdded() {
+        isElementDisplayed(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
+        String colorButtonFavoriteNotAdded = driver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-]")).getCssValue("background-color");
+        System.out.println(colorButtonFavoriteNotAdded);
+        Assert.assertEquals("Не тот цвет","rgba(237, 237, 237, 1)",colorButtonFavoriteNotAdded);
+        isElementDisplayed(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg"));
+        String colorIconFavoriteNotAdded = driver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg > path[fill]")).getCssValue("fill");
+        System.out.println(colorIconFavoriteNotAdded);
+        Assert.assertEquals("Не тот цвет","rgb(153, 153, 153)",colorIconFavoriteNotAdded);
+    }
+
+    public void clickOnButtonFavorite() {
+        isElementDisplayed(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
+        click(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
+    }
+
+    public void checkButtonFavoriteAdded() {
+        String colorButtonFavoriteAdded = driver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-]")).getCssValue("background-color");
+        System.out.println(colorButtonFavoriteAdded);
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorButtonFavoriteAdded);
+        isElementDisplayed(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg"));
+        String colorIconFavoriteAdded = driver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg > path[fill]")).getCssValue("fill");
+        System.out.println(colorIconFavoriteAdded);
+        Assert.assertEquals("Не тот цвет","rgb(255, 255, 255)",colorIconFavoriteAdded);
+    }
+
+    public void goToTvProgram18Plus() {
+        click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
+        isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
+        }
+    }
+
+

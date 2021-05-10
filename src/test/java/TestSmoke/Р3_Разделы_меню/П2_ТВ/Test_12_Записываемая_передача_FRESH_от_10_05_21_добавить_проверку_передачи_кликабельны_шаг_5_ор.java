@@ -3,28 +3,41 @@ package TestSmoke.Р3_Разделы_меню.П2_ТВ;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_07_Подписка_на_пакет_каналов extends TestBase {
+public class Test_12_Записываемая_передача_FRESH_от_10_05_21_добавить_проверку_передачи_кликабельны_шаг_5_ор extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Подписка на пакет каналов")
+    @DisplayName(value ="Записываемая ТВ передача")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
-    public void subscribePackageTvChannel() {
-        headerMenu.goToNilPage();
-        flowRegistation();
+    @RepeatedTest(5)
+    public void recordedTvProgram() throws Exception {
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        flowRegistation();
         tvPage.clickOnTabTvProgramInAir();
+        tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
+        cardTvProgram.clickOnLinkTvProgramInRecording();
         cardTvProgram.clickPaymentButtonInCardTvProgram();
         cardTvProgram.checkPaymentComplete();
+        headerMenu.refreshPage();
+        cardTvProgram.checkAutoStartVideoPlayer();
+        cardTvProgram.checkElementsPlayerRecordedTvProgram();
+        cardTvProgram.testFullScreenPlayer();
+        cardTvProgram.testOnAndOffAudioInPlayer();
+        cardTvProgram.clickOnScheduleInPlayerInRecordedAndCheckeElements();
+        headerMenu.refreshPage();
+        cardTvProgram.clickToPauseVideoPleer();
+        cardTvProgram.clickToPlayVideoPleer();
+        cardTvProgram.rewindOn10secondsToVideoPleer();
+        cardTvProgram.swithOtherTvProgramInsidePlayer();
+        cardTvProgram.clickOnLinkNextTvProgramInRecording();
+        cardTvProgram.swithOtherTvChannelInsidePlayer();
+        cardTvProgram.checkAutoStartVideoPlayer();
         pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

@@ -5,17 +5,17 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_05_Передачи_в_эфире extends TestBase {
+public class Test_01_Программа_передач_Ashot_FRESH_от_29_04_21_unstable extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Передачи в эфире")
+    @DisplayName(value = "Программа передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void tvProgramInAir() {
+    public void historyViewing() throws Exception {
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
-        tvPage.clickOnTabTvProgramInAir();
-        tvPage.checkAllTvProgramInAir();
+        tvPage.checkImageDifferTvPage();
+        tvPage.checkElementsTvPage();
+
     }
 }

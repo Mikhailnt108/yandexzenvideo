@@ -5,25 +5,39 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_18_Записанная_ТВ_передача_18_плюс extends TestBase {
+public class Test_15_2_Записываемая_ТВ_передача_18_плюс_FRESH_от_10_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Записанная ТВ передача 18 плюс")
+    @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void recordedEarlierTvProgram18Plus() throws Exception {
+    public void recordedTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();
+        packagesPage.clickToTabAllPackage();
         packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
         cardPackage.chooseRecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
-        cardPackage.goToTvProgram18Plus();
+        cardTvChannel.goToTvProgram18Plus();
         cardTvProgram.clickYesInPopUp18Plus();
-        cardTvProgram.goToCardTvProgram18Plus();
+        headerMenu.refreshPage();
+        cardTvProgram.checkOpenPopUp18plus();
         cardTvProgram.clickNoInPopUp18Plus();
+        cardTvProgram.clickOnPlayInPlayer();
+        cardTvProgram.checkOpenPopUp18plus();
+        //запуск плеера передачи 18+:
+        cardTvProgram.clickYesInPopUp18Plus();
+        //переключение на соседнюю передачу 18+ внутри плеера:
+        cardTvProgram.swithOtherTvChannelInsidePlayer();
+        cardTvProgram.checkAbsentPopUp18plus();
+        //переключение на передачу не 18+ внутри плеера:
+        cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
+        //переключение на передачу 18+ внутри плеера:
+        cardTvProgram.swithOnTvProgram18PlusInsidePlayer();
+        cardTvProgram.checkOpenPopUp18plus();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
@@ -39,4 +53,5 @@ public class Test_18_Записанная_ТВ_передача_18_плюс exte
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
+    
 }

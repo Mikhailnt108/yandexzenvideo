@@ -5,19 +5,27 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_14_Переход_в_карточку_передачи_из_Программы_передач extends TestBase {
+public class OldTest_17_Пауза_записываемой_передачи extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Переход в карточку передачи из Программы передач")
+    @DisplayName(value ="Пауза записываемой передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void openCardTvProgramFromTabSchedule() {
+    public void pauseTvProgramInRecording() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
         tvPage.checkOpenTabTvPageSchedule();
-        tvPage.clickToTailTvChannel();
-        cardTvProgram.checkOpenCardTvProgram();
+        tvPage.clickOnTabInRecording();
+        tvPage.checkСhannelsСorrespondGenres();
+        cardTvProgram.clickOnLinkTvProgramInRecording();
+        cardTvProgram.clickPaymentButtonInCardTvProgram();
+        cardTvProgram.checkPaymentComplete();
+        cardTvProgram.clickToButtonPlay();
+        cardTvProgram.clickToPauseVideoPleer();
+        cardTvProgram.clickToPlayVideoPleer();
+        cardTvProgram.clickToSpaceToVideoPleer();
+        cardTvProgram.clickToLeftButtonMouseToVideoPleer();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -12,7 +12,7 @@ public class Test_02_Жанры_программы_передач_FRESH_от_05_
     @DisplayName(value ="Жанры программы передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void genresTvProgram() {
+    public void genresTvProgram() throws InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabInRecording();

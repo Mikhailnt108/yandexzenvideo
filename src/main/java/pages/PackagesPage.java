@@ -44,6 +44,7 @@ public class PackagesPage extends BasePage {
     public void clickToTabConnectedInMenuPackagesPage() {
         click(By.xpath("//div[text()='Подключенные']"));
     }
+
     public void clickButtonOnTailCardPackage(String buttonСonnect) {
         click(By.xpath("(//button[text()='Подключить'])[1]"));
     }

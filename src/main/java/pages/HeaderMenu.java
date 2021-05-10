@@ -829,6 +829,10 @@ public class HeaderMenu extends BasePage {
     public void deleteCookies() {
         driver.manage().deleteAllCookies();
     }
+
+    public void waitElement3seconds() throws InterruptedException {
+        Thread.sleep(3000);
+    }
 }
 
 

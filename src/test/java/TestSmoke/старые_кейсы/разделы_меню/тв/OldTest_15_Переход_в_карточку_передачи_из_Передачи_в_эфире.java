@@ -1,27 +1,24 @@
-package TestSmoke.Р3_Разделы_меню.П2_ТВ;
+package TestSmoke.старые_кейсы.разделы_меню.тв;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_08_Просмотр_передачи extends TestBase {
+public class OldTest_15_Переход_в_карточку_передачи_из_Передачи_в_эфире extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Просмотр передачи")
+    @DisplayName(value ="Переход в карточку передачи из Передачи в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void viewingTvProgram() throws Exception {
+    public void openCardTvProgramFromTabAir() throws InterruptedException {
         headerMenu.goToTvPage();
         flowRegistation();
+        tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
-        cardTvProgram.checkPaymentComplete();
-        cardTvProgram.clickToButtonPlay();
-        cardTvProgram.startVideoPlayer();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -5,24 +5,24 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_Переход_в_пакет_из_расписания_канала extends TestBase {
+public class Test_06_Переход_в_карточку_пакета_НЕ_АКТУАЛЕН_С_ЧЕКАУТОМ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Переход в пакет из расписания канала")
+    @DisplayName(value = "Переход в карточку пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void openCardPackageFromScheduleChannel() {
-        headerMenu.goToNilPage();
-        flowRegistation();
+    public void goToCardPackage() throws Exception {
         headerMenu.goToTvPage();
+        flowRegistation();
         tvPage.checkOpenTabTvPageSchedule();
-        tvPage.checkСhannelsСorrespondGenres();
+        tvPage.clickOnTabInRecording();
+        tvPage.clickToTailTvChannel();
+        cardTvChannel.checkOpenCardTvChannel();
         cardTvChannel.clickToLinkCardPackage();
         cardPackage.checkOpenCardPackageTvChannel();
         pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -37,7 +37,3 @@ public class Test_04_Переход_в_пакет_из_расписания_ка
         headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
-
-
-
-

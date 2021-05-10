@@ -5,24 +5,21 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_12_Переход_в_пакет_из_карточки_передачи extends TestBase {
+public class OldTest_18_Переход_в_карточку_передачи_из_Программы_передач extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Переход в пакет из карточки передачи")
+    @DisplayName(value ="Переход в карточку передачи из Программы передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-     public void goToPackageFromCardTvProgram() {
-         headerMenu.goToTvPage();
-         flowRegistation();
-         tvPage.checkOpenTabTvPageSchedule();
-         tvPage.clickOnTabTvProgramInAir();
-         tvPage.clickToTailTvProgram();
-         cardTvProgram.checkOpenCardTvProgram();
-         cardTvProgram.clickToLinkCardPackage();
-         cardPackage.checkOpenCardPackageTvChannel();
-         pageCMS.deleteAccountMF("79260192144");
-     }
+    public void openCardTvProgramFromTabSchedule() throws InterruptedException {
+        headerMenu.goToTvPage();
+        flowRegistation();
+        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.clickToTailTvChannel();
+        cardTvProgram.checkOpenCardTvProgram();
+        pageCMS.deleteAccountMF("79260192144");
+    }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -36,5 +33,4 @@ public class Test_12_Переход_в_пакет_из_карточки_пере
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
-
 }
