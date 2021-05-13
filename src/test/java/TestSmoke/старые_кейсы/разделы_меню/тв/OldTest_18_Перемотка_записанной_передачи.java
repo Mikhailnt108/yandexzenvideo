@@ -1,28 +1,31 @@
-package TestSmoke.Р3_Разделы_меню.П2_ТВ;
+package TestSmoke.старые_кейсы.разделы_меню.тв;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class OldTest_16_Переход_в_пакет_из_карточки_передачи extends TestBase {
+public class OldTest_18_Перемотка_записанной_передачи extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Переход в пакет из карточки передачи")
+    @DisplayName(value ="Перемотка записанной передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-     public void goToPackageFromCardTvProgram() throws InterruptedException {
-         headerMenu.goToTvPage();
-         flowRegistation();
-         tvPage.checkOpenTabTvPageSchedule();
-         tvPage.clickOnTabTvProgramInAir();
-         tvPage.clickToTailTvProgram();
-         cardTvProgram.checkOpenCardTvProgram();
-         cardTvProgram.clickToLinkCardPackage();
-         cardPackage.checkOpenCardPackageTvChannel();
-         pageCMS.deleteAccountMF("79260192144");
-     }
+    public void rewindTvProgram() throws Exception {
+        headerMenu.goToTvPage();
+        flowRegistation();
+        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.clickOnTabInRecording();
+        tvPage.checkСhannelsСorrespondGenres();
+        cardTvProgram.clickOnLinkTvProgramInRecording();
+        cardTvProgram.clickPaymentButtonInCardTvProgram();
+        cardTvProgram.checkPaymentComplete();
+        cardTvProgram.clickToButtonPlay();
+        cardTvProgram.moveSliderRewindToVideoPlayer();
+        pageCMS.deleteAccountMF("79260192144");
+    }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -36,5 +39,4 @@ public class OldTest_16_Переход_в_пакет_из_карточки_пе�
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
-
 }

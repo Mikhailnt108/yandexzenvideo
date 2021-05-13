@@ -93,8 +93,8 @@ public class CardPackage extends BasePage {
 
     public void chooseUnrecordedTvChannel18Plus() {
         click(By.xpath("(//div[@class='_3htFDYhBDJd36aHUvW3Sfh']//div)[1]"));
-
-        //isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
+        isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
+        click(By.xpath("//button[text()='Да']"));
         //click(By.className("_1bciqjt58pgm0il2tiJTtp"));
     }
 

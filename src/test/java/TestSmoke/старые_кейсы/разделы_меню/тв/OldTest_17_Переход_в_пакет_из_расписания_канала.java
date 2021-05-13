@@ -1,33 +1,28 @@
-package TestSmoke.Р3_Разделы_меню.П2_ТВ;
+package TestSmoke.старые_кейсы.разделы_меню.тв;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class OldTest_17_Пауза_записываемой_передачи extends TestBase {
+public class OldTest_17_Переход_в_пакет_из_расписания_канала extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Пауза записываемой передачи")
+    @DisplayName(value ="Переход в пакет из расписания канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void pauseTvProgramInRecording() throws Exception {
-        headerMenu.goToTvPage();
+    public void openCardPackageFromScheduleChannel() {
+        headerMenu.goToNilPage();
         flowRegistation();
+        headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();
-        tvPage.clickOnTabInRecording();
         tvPage.checkСhannelsСorrespondGenres();
-        cardTvProgram.clickOnLinkTvProgramInRecording();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
-        cardTvProgram.checkPaymentComplete();
-        cardTvProgram.clickToButtonPlay();
-        cardTvProgram.clickToPauseVideoPleer();
-        cardTvProgram.clickToPlayVideoPleer();
-        cardTvProgram.clickToSpaceToVideoPleer();
-        cardTvProgram.clickToLeftButtonMouseToVideoPleer();
+        cardTvChannel.clickToLinkCardPackage();
+        cardPackage.checkOpenCardPackageTvChannel();
         pageCMS.deleteAccountMF("79260192144");
     }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -42,3 +37,7 @@ public class OldTest_17_Пауза_записываемой_передачи ext
         headerMenu.checkLoginUserIsCorrectFlow();
     }
 }
+
+
+
+

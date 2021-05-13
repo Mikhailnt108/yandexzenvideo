@@ -79,6 +79,10 @@ public class HeaderMenu extends BasePage {
 
     public void goToPackagesPage() {
         driver.get(Packages_Page_PP5);
+        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
+        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
+        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
+        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
         isElementDisplayed(By.xpath("//span[text()='Магазин']"));
     }
 
@@ -195,12 +199,12 @@ public class HeaderMenu extends BasePage {
             click(By.xpath("//button[text()='Нет']"));
         }
         driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
-            click(By.xpath("//button[text()='Закрыть']"));
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
+            click(By.className("_2bWIp00Mji6hkryvkZN75B"));
         }
         driver.navigate().refresh();
     }
