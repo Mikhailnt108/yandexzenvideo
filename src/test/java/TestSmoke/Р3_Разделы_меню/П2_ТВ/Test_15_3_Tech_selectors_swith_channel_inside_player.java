@@ -2,9 +2,8 @@ package TestSmoke.Р3_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
 import org.junit.jupiter.api.RepeatedTest;
-import org.openqa.selenium.By;
 
-public class Test_15_3_Test_selectors_swith_channel_inside_player extends TestBase {
+public class Test_15_3_Tech_selectors_swith_channel_inside_player extends TestBase {
     @RepeatedTest(1)
     public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
@@ -18,7 +17,7 @@ public class Test_15_3_Test_selectors_swith_channel_inside_player extends TestBa
         //переключение c передачи 18+ на передачу НЕ 18+ внутри плеера:
         cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
         //переключение c передачи НЕ 18+ на передачу 18+ внутри плеера:
-        cardTvProgram.swithOnTvProgram18PlusInsidePlayer();
+        cardTvProgram.swithOnUnrecordedTvChannel18PlusInsidePlayer();
         //переключение на соседнюю передачу 18+ внутри плеера:
         cardTvProgram.swithOtherTvChannelInsidePlayer();
         headerMenu.goToBack();

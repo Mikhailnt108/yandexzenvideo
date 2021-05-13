@@ -117,7 +117,7 @@ public class NilPage extends BasePage {
     }
 
     public void checkImageDifferNilPageAll() throws AWTException, IOException {
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
 //        driver.navigate().refresh();
 //        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
         Set<By> posterTailsCollection = new HashSet<>();
@@ -305,7 +305,7 @@ public class NilPage extends BasePage {
     }
 
     public void checkImageDifferBlockCollection() throws AWTException, IOException {
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
         WebElement blockCollectionWithTitlePp5 = driver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
         Screenshot screenshotCollectionWithTitlePp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -611,7 +611,7 @@ public class NilPage extends BasePage {
     }
 
     public void checkImageDifferBlockCollectionSpecialForYou() throws IOException {
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
         WebElement blockCollectSpecialForYouPp5 = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
         Set<By> posterTailsCollection = new HashSet<>();
         posterTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
@@ -631,7 +631,7 @@ public class NilPage extends BasePage {
         ImageIO.write(screenshotCollectSpecialForYouPp5.getImage(), "png", actualFile1);
 
         //Сделать новый эталон скриншота:
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
         WebElement blockCollectSpecialForYouPp5Standard = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
         Screenshot screenshotCollectSpecialForYouPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -750,7 +750,7 @@ public class NilPage extends BasePage {
     }
 
     public void checkImageDifferBlockCollectHistoryWatch() throws IOException {
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
         WebElement blockCollectHistoryWatchPp5 = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Set<By> posterTailsCollection = new HashSet<>();
         posterTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='HZzNvtNX5fExVnjY_Popf']"));
@@ -770,7 +770,7 @@ public class NilPage extends BasePage {
         ImageIO.write(screenshotCollectHistoryWatchPp5.getImage(), "png", actualFile1);
 
         //Сделать новый эталон скриншота:
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
         WebElement blockCollectHistoryWatchPp5Standard = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Screenshot screenshotCollectHistoryWatchPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -795,7 +795,7 @@ public class NilPage extends BasePage {
     }
 
     public void checkImageDifferTailWatchAndEditInCollectHistoryWatch() throws IOException, InterruptedException {
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
 //        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']")));
 //        Thread.sleep(6000);
@@ -810,7 +810,7 @@ public class NilPage extends BasePage {
         ImageIO.write(screenshotTailWatchAndEditPp5.getImage(), "png", actualFile1);
 
         //Сделать новый эталон скриншота:
-        driver.get("https://web-preprod5.megafon.tv/");
+        driver.get("https://web-preprod4.megafon.tv/");
 //        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']")));
 //        Thread.sleep(3000);

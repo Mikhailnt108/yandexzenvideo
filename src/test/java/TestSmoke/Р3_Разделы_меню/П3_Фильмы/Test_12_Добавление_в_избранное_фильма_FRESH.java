@@ -12,7 +12,7 @@ public class Test_12_Добавление_в_избранное_фильма_FRE
     @DisplayName(value ="Добавление_в_избранное_фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void AddingFilmToFavorites() {
+    public void AddingFilmToFavorites() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
@@ -22,7 +22,7 @@ public class Test_12_Добавление_в_избранное_фильма_FRE
         myPage.checkAddingFilmToFavorites();
         pageCMS.deleteAccountMF("79260192144");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

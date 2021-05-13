@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class FilmsPage extends BasePage {
-    String SITE_URL = "https://web-preprod1.megafon.tv/";
+    String SITE_URL = "https://web-preprod4.megafon.tv/";
 
     public FilmsPage(WebDriver driver) {
         super(driver);

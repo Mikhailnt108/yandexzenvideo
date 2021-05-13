@@ -38,7 +38,7 @@ public class Test_12_Записываемая_передача_FRESH_от_10_05_
         cardTvProgram.checkAutoStartVideoPlayer();
         pageCMS.deleteAccountMF("79260192144");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
