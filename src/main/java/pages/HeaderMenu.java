@@ -5,8 +5,19 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.comparison.ImageDiff;
+import ru.yandex.qatools.ashot.comparison.ImageDiffer;
+import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class HeaderMenu extends BasePage {
@@ -33,6 +44,18 @@ public class HeaderMenu extends BasePage {
     String Collections_Page_PP2 = "https://web-preprod2.megafon.tv/collection";
     String CMS_PP2_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user";
 
+    //ПП4
+    String NIL_Page_PP4 = "https://web-preprod4.megafon.tv/";
+    String TV_Page_PP4 = "https://web-preprod4.megafon.tv/tv/";
+    String Films_Page_PP4 = "https://web-preprod4.megafon.tv/movies/vods";
+    String Serials_Page_PP4 = "https://web-preprod4.megafon.tv/shows";
+    String Kids_Page_PP4 = "https://web-preprod4.megafon.tv/kids";
+    String Sport_Page_PP4 = "https://web-preprod4.megafon.tv/sport";
+    String Packages_Page_PP4 = "https://web-preprod4.megafon.tv/packages";
+    String Collections_Page_PP4 = "https://web-preprod4.megafon.tv/collection";
+    String CMS_PP4_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user";
+
+
     //ПП5
     String NIL_Page_PP5 = "https://web-preprod5.megafon.tv/";
     String TV_Page_PP5 = "https://web-preprod5.megafon.tv/tv/";
@@ -49,45 +72,45 @@ public class HeaderMenu extends BasePage {
     }
 
     public void goToNilPage() {
-        driver.get(NIL_Page_PP5);
+        driver.get(NIL_Page_PP4);
     }
 
     public void goToTvPage() {
-        driver.get(TV_Page_PP5);
+        driver.get(TV_Page_PP4);
     }
 
 
     public void goToFilmsPage() {
-        driver.get(Films_Page_PP5);
+        driver.get(Films_Page_PP4);
         isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
     }
 
     public void goToSerialsPage() {
-        driver.get(Serials_Page_PP5);
+        driver.get(Serials_Page_PP4);
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
     }
 
     public void goToKidsPage() {
-        driver.get(Kids_Page_PP5);
+        driver.get(Kids_Page_PP4);
         isElementDisplayed(By.xpath("//span[text()='Детям']"));
     }
 
     public void goToSportPage() {
-        driver.get(Sport_Page_PP5);
+        driver.get(Sport_Page_PP4);
         isElementDisplayed(By.xpath("//h1[text()='Спорт']"));
     }
 
     public void goToPackagesPage() {
-        driver.get(Packages_Page_PP5);
-        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
-        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
-        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
-        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
+        driver.get(Packages_Page_PP4);
+//        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
+//        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
+//        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
+//        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
         isElementDisplayed(By.xpath("//span[text()='Магазин']"));
     }
 
     public void goToAllCollectionsPage() {
-        driver.get(Collections_Page_PP5);
+        driver.get(Collections_Page_PP4);
         isElementDisplayed(By.xpath("//span[text()='Подборки']"));
         isElementDisplayed(By.xpath("//button[contains(text(), 'Следующая')]"));
     }
@@ -95,7 +118,7 @@ public class HeaderMenu extends BasePage {
     public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -142,7 +165,7 @@ public class HeaderMenu extends BasePage {
         ((JavascriptExecutor) driver).executeScript("window.open('http://staging-smart-nettv.megafon.tv/#scene/start')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
-        click(By.xpath("//div[@data-type='preprod5']"));
+        click(By.xpath("//div[@data-type='preprod4']"));
         click(By.xpath("(//div[@data-action='back']//div)[1]"));
         waitVisibility(By.xpath("(//div[@data-action='tile'])[1]"));
         isElementDisplayed(By.xpath("//div[@data-action='openMainMenu']"));
@@ -192,7 +215,7 @@ public class HeaderMenu extends BasePage {
         return this;
     }
 
-    public void checkLoginUserIsCorrectFlow() {
+    public void checkLoginUserIsCorrectFlow()  {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
@@ -204,9 +227,10 @@ public class HeaderMenu extends BasePage {
         }
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
-            click(By.className("_2bWIp00Mji6hkryvkZN75B"));
+            click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();
+
     }
 
     public void checkLoginUserIsCorrectForBlockingMf() {
@@ -501,7 +525,7 @@ public class HeaderMenu extends BasePage {
     public void checkOpenPopUpCreatePasswordForCaseRegistrationMF(String login) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -530,7 +554,7 @@ public class HeaderMenu extends BasePage {
     public void checkOpenPopUpInputEmail(String login) {
         isElementDisplayed(By.xpath("//div[text()='Введите E-mail']|//div[text()='Введите пароль']"));
         if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));

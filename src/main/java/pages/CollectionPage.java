@@ -63,7 +63,7 @@ public class CollectionPage extends BasePage {
     }
 
     public void checkImageDifferBlockCollection() throws IOException {
-        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
+        driver.get("https://web-preprod4.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
         WebElement blockCollectionPp5 = driver.findElement(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']"));
         Screenshot screenshotBlockCollectionPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())

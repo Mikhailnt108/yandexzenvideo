@@ -9,10 +9,10 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class MyPage extends BasePage {
-    String My_favorites = "https://web-preprod5.megafon.tv/my/favorites";
-    String My_history = "https://web-preprod5.megafon.tv/my/history";
-    String My_purchases = "https://web-preprod5.megafon.tv/my/purchases";
-    String My_subscriptions = "https://web-preprod5.megafon.tv/my/subscriptions";
+    String My_favorites = "https://web-preprod4.megafon.tv/my/favorites";
+    String My_history = "https://web-preprod4.megafon.tv/my/history";
+    String My_purchases = "https://web-preprod4.megafon.tv/my/purchases";
+    String My_subscriptions = "https://web-preprod4.megafon.tv/my/subscriptions";
 
 
     public MyPage(WebDriver driver) {
