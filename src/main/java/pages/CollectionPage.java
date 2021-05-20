@@ -62,47 +62,36 @@ public class CollectionPage extends BasePage {
         isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void checkImageDifferBlockCollection() throws IOException {
+    public void checkImageDifferPageCollection() throws IOException {
         driver.get("https://web-preprod4.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
-        WebElement blockCollectionPp5 = driver.findElement(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']"));
-        Screenshot screenshotBlockCollectionPp5 = new AShot()
+        Screenshot screenshotBlockCollectionPp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-//                .addIgnoredElement(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld _2TylJ5PYUAbQjq_Oho7_r8']"))
-//                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']"))
-//                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
-//                .addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
-//                .addIgnoredElement(By.xpath("//div[@class='_3dON2ZfMNClOIKEKKf0KE9']"))
-//                .addIgnoredElement(By.xpath("//div[@class='_1qN4BpLDL0brhXNNAWWcVD']"))
-//                .addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
-                .takeScreenshot(driver, blockCollectionPp5);
+                .addIgnoredElement(By.xpath("//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
+                .addIgnoredElement(By.xpath("//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
+                .addIgnoredElement(By.xpath("//div[@class='_3aj_Jy1k9olQljjM96VrlO']"))
+                .takeScreenshot(driver);
 
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/"+"collectionPagePp5"+".png");
-        ImageIO.write(screenshotBlockCollectionPp5.getImage(), "png", actualFile1);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/"+"collectionPagePp4"+".png");
+        ImageIO.write(screenshotBlockCollectionPp4.getImage(), "png", actualFile1);
 
-        //Сделать новый этанолонный скриншот:
-//        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
-//        WebElement blockCollectionPp5Standard = driver.findElement(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']"));
-//        Screenshot screenshotBlockCollectionPp5Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-////                .addIgnoredElement(By.xpath("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld _2TylJ5PYUAbQjq_Oho7_r8']"))
-////                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']"))
-////                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
-////                .addIgnoredElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"))
-////                .addIgnoredElement(By.xpath("//div[@class='_3dON2ZfMNClOIKEKKf0KE9']"))
-////                .addIgnoredElement(By.xpath("//div[@class='_1qN4BpLDL0brhXNNAWWcVD']"))
-////                .addIgnoredElement(By.xpath("//div[@class='_1byOct53kb4KlmAs0JuRSX']"))
-//                .takeScreenshot(driver, blockCollectionPp5Standard);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/CollectPage/"+"collectionPagePp5Standard"+".png");
-//        ImageIO.write(screenshotBlockCollectionPp5Standard.getImage(), "png", expectedFile1);
+        // Сделать новый этанолонный скриншот:
+        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
+        Screenshot screenshotBlockCollectionPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/CollectPage/"+"collectionPagePp4Standard"+".png");
+        ImageIO.write(screenshotBlockCollectionPp4Standard.getImage(), "png", expectedFile1);
+        screenshotBlockCollectionPp4Standard.setIgnoredAreas(screenshotBlockCollectionPp4.getIgnoredAreas());
 
-        //Использовать старый эталонный скриншот:
-        Screenshot screenshotBlockCollectionPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/CollectPage/"+"collectionPagePp5Standard"+".png")));
+//        //Использовать старый эталонный скриншот:
+//        Screenshot screenshotBlockCollectionPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/CollectPage/"+"collectionPagePp5Standard"+".png")));
+//        screenshotBlockCollectionPp4Standard.setIgnoredAreas(screenshotBlockCollectionPp4.getIgnoredAreas());
 
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotBlockCollectionPp5, screenshotBlockCollectionPp5Standard);
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotBlockCollectionPp4, screenshotBlockCollectionPp4Standard);
         System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/CollectPage/"+"diffCollectionPagePp5"+".png");
+        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/CollectPage/"+"diffCollectionPagePp4"+".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
         Assert.assertTrue(diff1.getDiffSize()<=50);
     }

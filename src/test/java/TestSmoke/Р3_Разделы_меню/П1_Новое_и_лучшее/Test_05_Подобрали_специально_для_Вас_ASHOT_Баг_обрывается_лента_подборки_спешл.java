@@ -15,8 +15,8 @@ public class Test_05_Подобрали_специально_для_Вас_ASHOT
     public void collectionSpecialForYou() throws Exception {
         headerMenu.goToNilPage();
         headerMenu.checkNotLoggedIsCorrect();
+//        nilPage.checkImageDifferBlockCollectionSpecialForYou();
         nilPage.checkElementsBlockCollectionSpecialForYou();
-        nilPage.checkImageDifferBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionSpecialForYou();

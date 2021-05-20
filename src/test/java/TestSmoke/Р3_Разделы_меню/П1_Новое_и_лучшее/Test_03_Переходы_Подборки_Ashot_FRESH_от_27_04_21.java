@@ -14,8 +14,8 @@ public class Test_03_Переходы_Подборки_Ashot_FRESH_от_27_04_21
     @Test
     public void goToCollection() throws Exception {
         headerMenu.goToNilPage();
+        nilPage.checkImageDifferBlocksCollection();
         nilPage.checkElementsCollection();
-        nilPage.checkImageDifferBlockCollection();
         nilPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
         headerMenu.goToNilPage();
@@ -30,8 +30,8 @@ public class Test_03_Переходы_Подборки_Ashot_FRESH_от_27_04_21
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllOnCollectionBlock();
         collectionPage.checkOpenCollectionPage();
+        collectionPage.checkImageDifferPageCollection();
         collectionPage.checkElementsCollection();
-        collectionPage.checkImageDifferBlockCollection();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionFilms();
         cardFilm.checkOpenCardFilm();

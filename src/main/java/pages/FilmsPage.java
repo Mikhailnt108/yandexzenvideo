@@ -317,7 +317,7 @@ public class FilmsPage extends BasePage {
         File actualFile2 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithoutTitlePp4" + ".png");
         ImageIO.write(screenshotCollectionWithoutTitlePp4.getImage(), "png", actualFile2);
 
-        //Сделать новый эталонный скриншот блока подборки без заголовка:
+        // Сделать новый эталонный скриншот блока подборки без заголовка:
         driver.get("https://web-preprod4.megafon.tv/movies/vods");
         Screenshot screenshotCollectionWithoutTitlePp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())

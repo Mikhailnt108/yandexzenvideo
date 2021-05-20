@@ -15,7 +15,7 @@ public class Test_04_Переходы_Баннеры_Ashot_FRESH_27_04_21 extend
     public void goToBanner() throws Exception {
         headerMenu.goToNilPage();
         nilPage.checkElementsBanner();
-        nilPage.checkImageDifferHeader();
+        nilPage.checkImageDifferCherdakAndBanners();
         nilPage.switchingFromBannerToCardFilm();
         headerMenu.goToNilPage();
         nilPage.switchingFromBannerToCardSerial();

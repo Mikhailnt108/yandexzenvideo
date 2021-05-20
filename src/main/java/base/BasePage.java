@@ -27,7 +27,7 @@ public class BasePage {
     }
     public boolean isElementDisplayed (By elementBy) {
         waitVisibility(elementBy);
-        Assert.assertTrue("не найден элемент",driver.findElement(elementBy).isDisplayed());
+        Assert.assertTrue("элемент не найден",driver.findElement(elementBy).isDisplayed());
         return false;
     }
     public void writeText(By elementBy, String text) {
