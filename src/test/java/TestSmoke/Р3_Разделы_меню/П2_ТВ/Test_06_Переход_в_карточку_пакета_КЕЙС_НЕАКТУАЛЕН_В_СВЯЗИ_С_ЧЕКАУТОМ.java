@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_Переход_в_карточку_пакета_НЕ_АКТУАЛЕН_С_ЧЕКАУТОМ extends TestBase {
+public class Test_06_Переход_в_карточку_пакета_КЕЙС_НЕАКТУАЛЕН_В_СВЯЗИ_С_ЧЕКАУТОМ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")

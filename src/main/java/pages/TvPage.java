@@ -213,21 +213,9 @@ public class TvPage extends BasePage {
         Assert.assertNotNull(driver.findElement(By.xpath("(//button[@title='Отображаются только подключенные телеканалы']//div)[2]")));
     }
 
-    public void checkImageDifferTvPage() throws IOException, InterruptedException {
-        driver.get("https://web-preprod5.megafon.tv/tv");
-        //проскроллить страницу вниз до упора:
-        JavascriptExecutor jsDown = (JavascriptExecutor) driver;
-        jsDown.executeScript("window.scrollTo(0, 25000);");
-        Thread.sleep(5000);
-        jsDown.executeScript("window.scrollTo(0, 25000);");
-        Thread.sleep(5000);
-        jsDown.executeScript("window.scrollTo(0, 25000);");
-        Thread.sleep(5000);
-
-        //проскроллить страницу вверх до упора:
-        JavascriptExecutor jsUp = (JavascriptExecutor) driver;
-        jsUp.executeScript("window.scrollTo(50000, 0);");
-
+    public void checkImageDifferTvPageTabProgramTv() throws IOException, InterruptedException {
+        // Сделать тестовый скриншот таба программы передач:
+        driver.get("https://web-preprod4.megafon.tv/tv");
         Set<By> posterTailsTvChannel = new HashSet<>();
         posterTailsTvChannel.add(By.xpath("//div[@class='_3xplzuhwSABoqCYH8ffVtJ']//img[@src]"));
         Set<By> nameTvChannel = new HashSet<>();
@@ -236,45 +224,27 @@ public class TvPage extends BasePage {
         timeNameAgeTvProgram.add(By.xpath("//div[contains(@class,'_30G8CREWABmIqI_RCIwLSb')]"));
         Screenshot screenshotAllTvPagePp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(1))
                 .ignoredElements(posterTailsTvChannel)
                 .ignoredElements(nameTvChannel)
                 .ignoredElements(timeNameAgeTvProgram)
                 .takeScreenshot(driver);
-
         File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "allTvPagePp5" + ".png");
         ImageIO.write(screenshotAllTvPagePp5.getImage(), "png", actualFile1);
 
+        // Сделать новый эталонный скриншот таба программы передач:
         driver.get("https://web-preprod5.megafon.tv/tv");
-        //проскроллить страницу вниз до упора:
-        JavascriptExecutor jsDown2 = (JavascriptExecutor) driver;
-        jsDown2.executeScript("window.scrollTo(0, 25000);");
-        Thread.sleep(5000);
-        jsDown2.executeScript("window.scrollTo(0, 25000);");
-        Thread.sleep(5000);
-        jsDown2.executeScript("window.scrollTo(0, 25000);");
-        Thread.sleep(5000);
-
-        //проскроллить страницу вверх до упора:
-        JavascriptExecutor jsUp2 = (JavascriptExecutor) driver;
-        jsUp2.executeScript("window.scrollTo(50000, 0);");
-
-        //Сделать новый эталонный скриншот:
         Screenshot screenshotAllTvPagePp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(1))
-                .ignoredElements(posterTailsTvChannel)
-                .ignoredElements(nameTvChannel)
-                .ignoredElements(timeNameAgeTvProgram)
                 .takeScreenshot(driver);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/" + "allTvPagePp5Standard" + ".png");
         ImageIO.write(screenshotAllTvPagePp5Standard.getImage(), "png", expectedFile1);
         screenshotAllTvPagePp5Standard.setIgnoredAreas(screenshotAllTvPagePp5.getIgnoredAreas());
-//        // Взять старый эталон скриншота:
+
+//        // Взять старый эталонный скриншота таба программы передач::
 //        Screenshot screenshotAllTvPagePp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "allTvPagePp5Standard" + ".png")));
 //        screenshotAllTvPagePp5Standard.setIgnoredAreas(screenshotAllTvPagePp5.getIgnoredAreas());
 
-        //Сравнение скриншотов:
+        // Сравнение скриншотов таба программы передач (эталонный и тестовый):
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotAllTvPagePp5Standard, screenshotAllTvPagePp5);
         System.out.println(diff1.getDiffSize());
         File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffTvPageAll" + ".png");
@@ -387,6 +357,23 @@ public class TvPage extends BasePage {
             Assert.assertEquals(1, driver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'Кино')]")).size());
             driver.navigate().back();
         }
+    }
+
+    public void scrollTvPageTabTvProgram() throws InterruptedException {
+        // проскроллить страницу вниз до упора:
+        JavascriptExecutor jsDown = (JavascriptExecutor) driver;
+        List <WebElement> tailsTvChannel = driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]"));
+        jsDown.executeScript("window.scrollTo(0, 25000);");
+        Thread.sleep(5000);
+        System.out.println(tailsTvChannel.size());
+        Assert.assertNotEquals("количество элементов равно", tailsTvChannel.size(), driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
+        System.out.println(driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
+        List <WebElement> tailsTvChannel2 = driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]"));
+        jsDown.executeScript("window.scrollTo(0, 25000);");
+        Thread.sleep(5000);
+        System.out.println(tailsTvChannel2.size());
+        Assert.assertNotEquals("количество элементов равно", tailsTvChannel.size(), driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
+        System.out.println(driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
     }
 }
 

@@ -15,7 +15,7 @@ public class Test_04_Карточка_канала_Ashot_FRESH_от_05_05_21 ext
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void cardTvChannel() throws IOException, InterruptedException {
-        //неавторизованный пользователь:
+        // неавторизованный пользователь:
         headerMenu.goToTvPage();
         tvPage.checkOpenTabTvPageSchedule();
         tvPage.clickOnTabInRecording();
@@ -23,7 +23,7 @@ public class Test_04_Карточка_канала_Ashot_FRESH_от_05_05_21 ext
         cardTvChannel.checkOpenCardTvChannel();
         cardTvChannel.checkElementsInCardTvChannel();
         cardTvChannel.checkImageDifferCardTvChannelForUnauthorized();
-        //авторизованный пользователь:
+        // авторизованный пользователь:
         headerMenu.goToTvPage();
         flowRegistation();
         tvPage.clickOnTabInRecording();
