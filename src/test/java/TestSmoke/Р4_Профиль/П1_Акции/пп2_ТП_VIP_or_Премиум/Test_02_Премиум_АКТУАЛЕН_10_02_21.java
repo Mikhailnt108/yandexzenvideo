@@ -21,7 +21,7 @@ public class Test_02_Премиум_АКТУАЛЕН_10_02_21 extends TestBase {
         promoPage.checkBundlePremium();
         pageCMS.deleteAccountMF("79260192144");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

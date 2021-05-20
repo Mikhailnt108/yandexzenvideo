@@ -861,6 +861,20 @@ public class HeaderMenu extends BasePage {
     public void waitElement3seconds() throws InterruptedException {
         Thread.sleep(3000);
     }
+
+    public void checkElementsFilmsPage() {
+        isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
+        isElementDisplayed(By.xpath("//ol[@class='_1-ZY27a7Isb9dohjRr0mXq']"));
+        isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
+        isElementDisplayed(By.xpath("//div[@class='_10lCh4uWCss6HRDZrOjSEk']"));
+        isElementDisplayed(By.xpath("//div[@class='_3SqVO95D45Gj6EpowjScAG']"));
+    }
+
+    public void checkImageDifferFilmsPage() {
+
+    }
+
+
 }
 
 

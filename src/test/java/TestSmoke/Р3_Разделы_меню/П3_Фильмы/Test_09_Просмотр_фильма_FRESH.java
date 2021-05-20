@@ -21,7 +21,7 @@ public class Test_09_Просмотр_фильма_FRESH extends TestBase {
         cardFilm.testFullScreenVideoPleer();
         pageCMS.deleteAccountMF("79260172279");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

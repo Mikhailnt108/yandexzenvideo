@@ -13,7 +13,7 @@ public class Test_03_Авторизация_через_кнопку_Вход ext
     @DisplayName(value = "Авторизация через кнопку 'Вход'")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedIfExceptionsTest(repeats = 2)
-    public void loginFromHeaderMenu()  {
+    public void loginFromHeaderMenu() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegister();
         headerMenu.logOut();
@@ -21,7 +21,7 @@ public class Test_03_Авторизация_через_кнопку_Вход ext
         pageCMS.deleteAccountMF("79260192144");
     }
 
-    private void flowAuthorization() {
+    private void flowAuthorization() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
@@ -42,7 +42,7 @@ public class Test_03_Авторизация_через_кнопку_Вход ext
         headerMenu.checkLoginUserIsCorrectFlow();
     }
 
-    private void flowRegister() {
+    private void flowRegister() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

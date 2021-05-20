@@ -13,13 +13,13 @@ public class Old_01_Регистрация_из_главного_меню extend
     @Severity(SeverityLevel.BLOCKER)
 
     @Test
-    public void registerFromHeaderMenu()  {
+    public void registerFromHeaderMenu() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         pageCMS.deleteAccountMF("79260192144");
     }
 
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

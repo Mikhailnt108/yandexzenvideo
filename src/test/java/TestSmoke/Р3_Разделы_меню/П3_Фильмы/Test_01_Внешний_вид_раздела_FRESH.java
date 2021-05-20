@@ -13,9 +13,11 @@ public class Test_01_Внешний_вид_раздела_FRESH extends TestBase
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void paymentFilm() throws Exception {
-        headerMenu.goToFilmsPage();
+        headerMenu.goToNilPage();
         flowRegistation();
-
+        headerMenu.goToFilmsPage();
+        headerMenu.checkElementsFilmsPage();
+        headerMenu.checkImageDifferFilmsPage();
         pageCMS.deleteAccountMF("79260172279");
     }
 
