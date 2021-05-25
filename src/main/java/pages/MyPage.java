@@ -29,7 +29,6 @@ public class MyPage extends BasePage {
         driver.get(My_purchases);
         click(By.xpath("//a[@data-test='PackageLink']"));
         Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
-//        Assert.assertEquals(1, driver.findElements(By.xpath("//span[text()='Куплено']")).size());
     }
 
     public void checkNoPurchase() {

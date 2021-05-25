@@ -49,9 +49,10 @@ public class FilmsPage extends BasePage {
         click(By.xpath("//button[text()='Оплачено']"));
     }
 
-    public void chooseTabPromo() {
+    public void chooseTabPromo() throws InterruptedException {
         driver.navigate().refresh();
         click(By.xpath("//div[text()='По акции']"));
+        Thread.sleep(3000);
     }
 
     public void clickOnYearInput() {

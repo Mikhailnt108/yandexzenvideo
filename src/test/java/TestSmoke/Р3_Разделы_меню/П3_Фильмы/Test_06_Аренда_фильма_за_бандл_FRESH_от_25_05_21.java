@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_Аренда_фильма_за_бандл_НЕТ_Фильмов_по_акции_на_ПП1_на_ПП2_есть_FRESH extends TestBase {
+public class Test_06_Аренда_фильма_за_бандл_FRESH_от_25_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
@@ -15,25 +15,25 @@ public class Test_06_Аренда_фильма_за_бандл_НЕТ_Фильм
     public void PaymentFilmForRent2Promo() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260172279");
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
         filmsPage.clickOnFiltrPayment();
         filmsPage.chooseTabPromo();
         filmsPage.clickToTailCardFilmFromAvailable();
         cardFilm.paymentFilmAtRent2Promo();
-        cardFilm.checkСounterAvailableFilms();
         cardFilm.startVideoPleer();
-        pageCMS.deleteAccountMF("79260172279");
+        cardFilm.checkСounterAvailableFilms();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }

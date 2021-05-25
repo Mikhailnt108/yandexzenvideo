@@ -63,12 +63,11 @@ public class CardFilm extends BasePage {
         isElementDisplayed(By.xpath("//h3[contains(text(), 'доступен Вам без дополнительной платы')]"));
         click(By.xpath("//button[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[contains(text(), 'Смотреть до')]"));
-        driver.navigate().back();
-        click(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[1]"));
-
     }
 
     public void checkСounterAvailableFilms() {
+        driver.navigate().back();
+        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         driver.navigate().refresh();
         Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'по акции доступно фильмов: 1')]")).size());
     }
@@ -79,19 +78,25 @@ public class CardFilm extends BasePage {
     }
 
     public void clickToLikeButton() {
-        click(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[1]"));
+        WebElement countLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        int oldCount = Integer.parseInt(countLikeOld.getText());
+        click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
-        //Assert.assertEquals(1, driver.findElements(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'][1])")).size());
+        WebElement countLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        int newCount = Integer.parseInt(countLikeNew.getText());
+        Assert.assertTrue(oldCount < newCount);
     }
 
     public void clickToDisLikeButton() {
-        click(By.xpath("(//button[2]/span)"));
+        WebElement countDisLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
+        int oldCount = Integer.parseInt(countDisLikeOld.getText());
+        click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]"));
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
-        isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[2]"));
-        //Assert.assertEquals(1, driver.findElements(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'][1])")).size());
-        //Assert.assertEquals(1, driver.findElements(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'][2])")).size());
+        isElementDisplayed(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
+        WebElement countDisLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
+        int newCount = Integer.parseInt(countDisLikeNew.getText());
+        Assert.assertTrue(oldCount < newCount);
     }
-
 
     public void checkStikerDiscount() {
         driver.navigate().refresh();
@@ -130,7 +135,6 @@ public class CardFilm extends BasePage {
     }
 
     public void startVideoPleer() throws Exception {
-
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(5000);
         Actions actions = new Actions(driver);
@@ -138,12 +142,11 @@ public class CardFilm extends BasePage {
         String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time1);
         Thread.sleep(5000);
-        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time2);
         Assert.assertNotEquals(time1, time2);
-        //Assert.assertEquals(time1,time2);
     }
 
 
@@ -305,23 +308,24 @@ public class CardFilm extends BasePage {
         // Сделать тестовый скриншот:
         Screenshot screenshotCardFilmPp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
-                .addIgnoredElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']")) // игнор область плеера
+                .addIgnoredElement(By.className("_3oIAMUjIv-QAdeSq_k6cql")) // игнор область плеера
                 .addIgnoredElement(By.className("_36y3ZYWoC7rVzn6TEPp4oC")) // игнор текст описания
                 .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор название фильма
                 .addIgnoredElement(By.className("KQ2rb7ZP-tTmXFu9sn_34")) // игнотр блока рейтингов кинопоиск и IMDb
-//                .addIgnoredElement(By.className("VJDIK5T7v2knDWeIbc1df")) // игнор цифры рейтинга кинопоиск/IMDb
                 .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества лайков
                 .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества дизлайков
                 .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор возраст, год выпуска, жанр.
                 .addIgnoredElement(By.className("kjFUbLahFxqq2AjHY8j2R")) // игнор плашки "новинка"
                 .addIgnoredElement(By.className("_1Kps2hNPLZGQ3H2Sf5NYID")) // игнор текста в кнопке покупки
-                .addIgnoredElement(By.xpath("(//span[@itemprop='name'])[3]")) // игнор названия фильма в хлебных крошках
+                .addIgnoredElement(By.className("_1-ZY27a7Isb9dohjRr0mXq")) // игнор хлебных крошек
+                .addIgnoredElement(By.className("_2YrnCSEViX2PQLwVrBYiS0")) // игнор блок "похожие"
+                .addIgnoredElement(By.className("ch-trigger__container")) // игнор блока авторизации
                 .takeScreenshot(driver);
         File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "cardFilmPp4" + ".png");
         ImageIO.write(screenshotCardFilmPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods/Robot_ya_lyublyu_tebya_2021");
+        driver.get("https://web-preprod4.megafon.tv/movies/vods/Postup_haosa_2021");
         Screenshot screenshotCardFilmPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(driver);
@@ -342,6 +346,48 @@ public class CardFilm extends BasePage {
         Assert.assertTrue(diff1.getDiffSize() <= 3000);
     }
 
+    public void checkAutoStartVideoPlayer() throws Exception {
+        Thread.sleep(5000);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Thread.sleep(5000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Assert.assertNotEquals(time1, time2);
+    }
+
+    public void checkElementsCardFilm() {
+        isElementDisplayed(By.className("_3oIAMUjIv-QAdeSq_k6cql")); // область плеера
+        isElementDisplayed(By.xpath("//button[text()='Трейлер']")); // кнопка трейлер
+        isElementDisplayed(By.className("_36y3ZYWoC7rVzn6TEPp4oC")); // текст описания
+        isElementDisplayed(By.xpath("//button[text()='Прочитать описание']")); // кнопка "прочитать описание"
+
+        isElementDisplayed(By.className("_3v-cosMJBw3_KSQoU9M3Mq")); // блок плашек "новинка" и "full hd"
+        isElementDisplayed(By.className("_1v_D6wOANknQeJMBPo_rKK")); // название фильма
+        isElementDisplayed(By.className("KQ2rb7ZP-tTmXFu9sn_34")); // блок рейтингов "кинопоиск" и "IMDb"
+        isElementDisplayed(By.className("_1v_D6wOANknQeJMBPo_rKK")); // возраст, год выпуска, жанр
+        isElementDisplayed(By.className("_23uR5oR4uHT0fJvmMxNxmS")); // блок кнопкок: лайк, дизлайк, избранное
+        isElementDisplayed(By.className("_3ENPoHW7mBDX2n9ySpuZTE")); // блок кнопко покупки
+    }
+
+    public void clickToButtonReadDescription() {
+      click(By.xpath("//button[text()='Прочитать описание']"));
+    }
+
+    public void checkOpenDescriptionAll() {
+        isElementDisplayed(By.xpath("//button[text()='Свернуть']"));
+        isElementDisplayed(By.xpath("//dt[text()='Возрастное ограничение']"));
+    }
+
+    public void clickToButtonRollUp() {
+        click(By.xpath("//button[text()='Свернуть']"));
+    }
+
+    public void checkRollUpDescription() {
+        isElementDisplayed(By.xpath("//button[text()='Прочитать описание']"));
+        Assert.assertEquals("Текст описания не свернулся", 0, driver.findElements(By.xpath("//button[text()='Свернуть']")).size());
+    }
 }
 
 
