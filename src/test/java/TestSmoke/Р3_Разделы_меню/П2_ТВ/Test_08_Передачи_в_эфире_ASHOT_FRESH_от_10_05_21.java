@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_08_Передачи_в_эфире_Ashot_FRESH_от_10_05_21 extends TestBase {
+public class Test_08_Передачи_в_эфире_ASHOT_FRESH_от_10_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
@@ -16,7 +16,7 @@ public class Test_08_Передачи_в_эфире_Ashot_FRESH_от_10_05_21 ex
     @Test
     public void tvProgramInAir() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.checkImageDifferTabTvProgramInAir();
         tvPage.checkElementsTailsTvProgramInAir();

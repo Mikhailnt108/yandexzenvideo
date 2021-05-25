@@ -17,12 +17,12 @@ public class Test_04_Карточка_канала_Ashot_FRESH_от_05_05_21 ext
     public void cardTvChannel() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.checkElementsInCardTvChannel();
         cardTvChannel.checkImageDifferCardTvChannelForUnauthorized();
+        cardTvChannel.checkElementsInCardTvChannel();
         // авторизованный пользователь:
         headerMenu.goToTvPage();
         flowRegistation();

@@ -16,13 +16,14 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class CardTvProgram extends BasePage {
     public CardTvProgram(WebDriver driver) {
         super(driver);
     }
-    String NIL_Page_PP5 = "https://web-preprod4.megafon.tv/";
+    String NIL_Page_PP4 = "https://web-preprod4.megafon.tv/";
 
     public void checkOpenCardTvProgram() {
 
@@ -194,7 +195,7 @@ public class CardTvProgram extends BasePage {
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time3 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        driver.get(NIL_Page_PP5);
+        driver.get(NIL_Page_PP4);
         //Кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]")));
@@ -225,7 +226,7 @@ public class CardTvProgram extends BasePage {
         daysSchedule.add(By.xpath("//div[@class='_2g4yeSiNbxlU4wgd7X-sN2']"));
         Set<By> timeSchedule = new HashSet<>();
         timeSchedule.add(By.xpath("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
-        Screenshot screenshotCardTvProgramPp5 = new AShot()
+        Screenshot screenshotCardTvProgramPp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .ignoredElements(daysSchedule)
                 .ignoredElements(timeSchedule)
@@ -239,11 +240,11 @@ public class CardTvProgram extends BasePage {
                 .addIgnoredElement(By.xpath("(//div[@class='ch-trigger__container'])[4]"))
                 .takeScreenshot(driver);
 
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "cardTvProgramPp5" + ".png");
-        ImageIO.write(screenshotCardTvProgramPp5.getImage(), "png", actualFile1);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "cardTvProgramPp4" + ".png");
+        ImageIO.write(screenshotCardTvProgramPp4.getImage(), "png", actualFile1);
 
 //        //Сделать новый эталонный скриншот:
-//        Screenshot screenshotCardTvProgramPp5Standard = new AShot()
+//        Screenshot screenshotCardTvProgramPp4Standard = new AShot()
 //                .coordsProvider(new WebDriverCoordsProvider())
 //                .ignoredElements(daysSchedule)
 //                .ignoredElements(timeSchedule)
@@ -256,16 +257,16 @@ public class CardTvProgram extends BasePage {
 //                .addIgnoredElement(By.className("baGc44KXrkpgoHXV0vpsM"))
 //                .addIgnoredElement(By.xpath("(//div[@class='ch-trigger__container'])[4]"))
 //                .takeScreenshot(driver);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"cardTvProgramPp5Standard"+".png");
-//        ImageIO.write(screenshotCardTvProgramPp5Standard.getImage(), "png", expectedFile1);
-//        screenshotCardTvProgramPp5Standard.setIgnoredAreas(screenshotCardTvProgramPp5.getIgnoredAreas());
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"cardTvProgramPp4Standard"+".png");
+//        ImageIO.write(screenshotCardTvProgramPp4Standard.getImage(), "png", expectedFile1);
+//        screenshotCardTvProgramPp4Standard.setIgnoredAreas(screenshotCardTvProgramPp4.getIgnoredAreas());
 
         // Взять старый эталон скриншота:
-        Screenshot screenshotCardTvProgramPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "cardTvProgramPp5Standard" + ".png")));
-        screenshotCardTvProgramPp5Standard.setIgnoredAreas(screenshotCardTvProgramPp5.getIgnoredAreas());
+        Screenshot screenshotCardTvProgramPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "cardTvProgramPp4Standard" + ".png")));
+        screenshotCardTvProgramPp4Standard.setIgnoredAreas(screenshotCardTvProgramPp4.getIgnoredAreas());
 
         //Сравнение скриншотов:
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardTvProgramPp5Standard, screenshotCardTvProgramPp5);
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardTvProgramPp4Standard, screenshotCardTvProgramPp4);
         System.out.println(diff1.getDiffSize());
         File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffCardTvProgram" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
@@ -298,6 +299,7 @@ public class CardTvProgram extends BasePage {
     }
 
     public void checkElementsPlayerUnrecordedTvProgram() {
+        driver.get("https://web-preprod4.megafon.tv/tv/channels/Channel_1TV");
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         isElementDisplayed(By.className("_2GPoEznIkBV65Iqkud1teP"));
@@ -365,7 +367,8 @@ public class CardTvProgram extends BasePage {
         Thread.sleep(5000);
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[3]"));
+        click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[1]"));
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[text()='Сегодня']"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='_2F06JEFCaBoh-jQ-JAfmAN'])[1]"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='DSoUWlplI4m8T5WSf-XxC'])[1]"));
@@ -377,6 +380,7 @@ public class CardTvProgram extends BasePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]"));
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[text()='Сегодня']"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='_2F06JEFCaBoh-jQ-JAfmAN'])[1]"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='DSoUWlplI4m8T5WSf-XxC'])[1]"));
@@ -477,6 +481,193 @@ public class CardTvProgram extends BasePage {
         click(By.xpath("//button[text()='Да']"));
         Thread.sleep(3000);
         Assert.assertNotEquals("канал не переключен", genreTvChannel, driver.findElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]")).getText());
+    }
+
+    public void checkImageDifferVideoPlayerUnrecordedAndSchedule() throws IOException, InterruptedException {
+        // Сделать тестовый скриншот плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
+        JavascriptExecutor mockPlayerTv = (JavascriptExecutor) driver;
+        WebElement element1 = driver.findElement(By.xpath("//video[@src]"));
+        mockPlayerTv.executeScript("arguments[0].setAttribute('src', 'notVideo')",element1);
+        Thread.sleep(3000);
+        Screenshot screenshotPlayerTvProgramUnrecordedPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .addIgnoredElement(By.xpath("//div[@class='oog6D4ljOTvbih-_NivDx ZiwpOBdMs-e-_esvOQuju']")) // первый тайл канала в плеере
+                .addIgnoredElement(By.xpath("//div[@class='oog6D4ljOTvbih-_NivDx']")) // второй и остальные тайлы каналов в плеере
+                .addIgnoredElement(By.className("_2GPoEznIkBV65Iqkud1teP")) // название передачи в плеере
+                .addIgnoredElement(By.xpath("//div[@class='_2BmzfS137HCY74Y40iGrLy _2GPoEznIkBV65Iqkud1teP']")) // номер передачи и название канала в плеере
+                .addIgnoredElement(By.className("TbJLLkMJ2e-Mv2C1zXAvV")) // время и прогресс-бар
+                .addIgnoredElement(By.className("_2TEVup4VjSJzZAmvH6HBLL")) // блок страницы под плеером
+                .addIgnoredElement(By.className("_1CPcNX_AWSZluYgA8u_Lk6")) // блока страницы справа от плеера
+                .addIgnoredElement(By.className("_3vBdLAs_q6zHDlAspM6kFN")) // возрастная маркировка
+                .addIgnoredElement(By.className("ch-drop-down__inner")) // блок авторизации
+                .takeScreenshot(driver);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "playerTvProgramUnrecordedPp4" + ".png");
+        ImageIO.write(screenshotPlayerTvProgramUnrecordedPp4.getImage(), "png", actualFile1);
+
+        // Сделать тестовый скриншот расписания в плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[1]"));
+        Thread.sleep(3000);
+        Screenshot screenshotScheduleTvProgramUnrecordedPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .addIgnoredElement(By.className("ch-drop-down__inner")) // блок авторизации
+                .addIgnoredElement(By.className("_2TEVup4VjSJzZAmvH6HBLL")) // блок страницы под плеером
+                .addIgnoredElement(By.className("_1CPcNX_AWSZluYgA8u_Lk6")) // блока страницы справа от плеера
+                .addIgnoredElement(By.className("_2F06JEFCaBoh-jQ-JAfmAN"))
+                .addIgnoredElement(By.className("DSoUWlplI4m8T5WSf-XxC"))
+                .addIgnoredElement(By.xpath("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]"))
+                .addIgnoredElement(By.xpath("(//div[@class='_1oAJqE4r36FzxWEbm4EvXZ _39Yp8LSFDnN1PnBG2_NFLL'])[1]"))
+                .takeScreenshot(driver);
+        File actualFile2 = new File("src/test/java/testScreenshots/actual/TvPage/" + "scheduleTvProgramUnrecordedPp4" + ".png");
+        ImageIO.write(screenshotScheduleTvProgramUnrecordedPp4.getImage(), "png", actualFile2);
+
+
+        // Сделать новый эталонный скриншот плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
+        // для проверки на другой передаче:
+        driver.get("https://web-preprod4.megafon.tv/tv/channels/Channel_Rossia1");
+        click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
+        Thread.sleep(5000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Thread.sleep(5000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Assert.assertNotEquals(time1, time2);
+        JavascriptExecutor mockPlayerTv2 = (JavascriptExecutor) driver;
+        WebElement element2 = driver.findElement(By.xpath("//video[@src]"));
+        mockPlayerTv2.executeScript("arguments[0].setAttribute('src', 'notVideo')",element2);
+        Thread.sleep(3000);
+        Screenshot screenshotPlayerTvProgramUnrecordedPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/" + "playerTvProgramUnrecordedPp4Standard" + ".png");
+        ImageIO.write(screenshotPlayerTvProgramUnrecordedPp4Standard.getImage(), "png", expectedFile1);
+        screenshotPlayerTvProgramUnrecordedPp4Standard.setIgnoredAreas(screenshotPlayerTvProgramUnrecordedPp4.getIgnoredAreas());
+
+        // Сделать новый эталонный скриншот расписания в плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[1]"));
+        Thread.sleep(3000);
+        Screenshot screenshotScheduleTvProgramUnrecordedPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver);
+        File expectedFile2 = new File("src/test/java/testScreenshots/expected/TvPage/" + "scheduleTvProgramUnrecordedPp4Standard" + ".png");
+        ImageIO.write(screenshotScheduleTvProgramUnrecordedPp4Standard.getImage(), "png", expectedFile2);
+        screenshotScheduleTvProgramUnrecordedPp4Standard.setIgnoredAreas(screenshotScheduleTvProgramUnrecordedPp4.getIgnoredAreas());
+
+//        // Взять старый эталонный скриншот плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
+//        Screenshot screenshotPlayerTvProgramUnrecordedPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "playerTvProgramUnrecordedPp4Standard" + ".png")));
+//        screenshotPlayerTvProgramUnrecordedPp4Standard.setIgnoredAreas(screenshotPlayerTvProgramUnrecordedPp4.getIgnoredAreas());
+
+        // Взять старый эталонный скриншот расписания в плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
+
+        // Сравнение скриншотов плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы (эталонный и тестовый):
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotPlayerTvProgramUnrecordedPp4Standard, screenshotPlayerTvProgramUnrecordedPp4);
+        System.out.println(diff1.getDiffSize());
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffPlayerTvProgramUnrecorded" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+        Assert.assertTrue(diff1.getDiffSize() <= 1000);
+
+        // Сравнение скриншотов расписания плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы (эталонный и тестовый):
+        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotScheduleTvProgramUnrecordedPp4Standard, screenshotScheduleTvProgramUnrecordedPp4);
+        System.out.println(diff1.getDiffSize());
+        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffScheduleTvProgramUnrecorded" + ".png");
+        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
+        Assert.assertTrue(diff2.getDiffSize() <= 1000);
+    }
+
+    public void checkImageDifferVideoPlayerRecordedAndSchedule() throws InterruptedException, IOException {
+        // Сделать тестовый скриншот плеера карточки ЗАПИСАННОЙ тв программы:
+        JavascriptExecutor mockPlayerTv = (JavascriptExecutor) driver;
+        WebElement element1 = driver.findElement(By.xpath("//video[@src]"));
+        mockPlayerTv.executeScript("arguments[0].setAttribute('src', 'notVideo')",element1);
+        Thread.sleep(3000);
+        Screenshot screenshotPlayerTvProgramRecordedPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .addIgnoredElement(By.xpath("//div[@class='oog6D4ljOTvbih-_NivDx ZiwpOBdMs-e-_esvOQuju']")) // первый тайл канала в плеере
+                .addIgnoredElement(By.xpath("//div[@class='oog6D4ljOTvbih-_NivDx']")) // второй и остальные тайлы каналов в плеере
+                .addIgnoredElement(By.className("_2GPoEznIkBV65Iqkud1teP")) // название передачи в плеере
+                .addIgnoredElement(By.xpath("//div[@class='_2BmzfS137HCY74Y40iGrLy _2GPoEznIkBV65Iqkud1teP']")) // номер передачи и название канала в плеере
+                .addIgnoredElement(By.className("TbJLLkMJ2e-Mv2C1zXAvV")) // время и прогресс-бар
+                .addIgnoredElement(By.className("_2TEVup4VjSJzZAmvH6HBLL")) // блок страницы под плеером
+                .addIgnoredElement(By.className("_1CPcNX_AWSZluYgA8u_Lk6")) // блока страницы справа от плеера
+                .addIgnoredElement(By.className("_3vBdLAs_q6zHDlAspM6kFN")) // возрастная маркировка
+                .addIgnoredElement(By.className("ch-drop-down__inner")) // блок авторизации
+                .takeScreenshot(driver);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "playerTvProgramRecordedPp4" + ".png");
+        ImageIO.write(screenshotPlayerTvProgramRecordedPp4.getImage(), "png", actualFile1);
+
+        // Сделать тестовый скриншот расписания в плеера карточки ЗАПИСАННОЙ тв программы:
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[1]"));
+        Thread.sleep(3000);
+        Screenshot screenshotScheduleTvProgramRecordedPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .addIgnoredElement(By.className("ch-drop-down__inner")) // блок авторизации
+                .addIgnoredElement(By.className("_2TEVup4VjSJzZAmvH6HBLL")) // блок страницы под плеером
+                .addIgnoredElement(By.className("_1CPcNX_AWSZluYgA8u_Lk6")) // блока страницы справа от плеера
+                .addIgnoredElement(By.className("_2F06JEFCaBoh-jQ-JAfmAN"))
+                .addIgnoredElement(By.className("DSoUWlplI4m8T5WSf-XxC"))
+                .addIgnoredElement(By.xpath("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]"))
+                .addIgnoredElement(By.xpath("(//div[@class='_1oAJqE4r36FzxWEbm4EvXZ _39Yp8LSFDnN1PnBG2_NFLL'])[1]"))
+                .takeScreenshot(driver);
+        File actualFile2 = new File("src/test/java/testScreenshots/actual/TvPage/" + "scheduleTvProgramRecordedPp4" + ".png");
+        ImageIO.write(screenshotScheduleTvProgramRecordedPp4.getImage(), "png", actualFile2);
+
+        // Сделать новый эталонный скриншот плеера карточки ЗАПИСАННОЙ тв программы:
+        // для проверки на другой передаче:
+        driver.get("https://web-preprod4.megafon.tv/tv/channels/Channel_Animal_Planet_HD");
+        click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
+        Thread.sleep(5000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Thread.sleep(5000);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Assert.assertNotEquals(time1, time2);
+        JavascriptExecutor mockPlayerTv2 = (JavascriptExecutor) driver;
+        WebElement element2 = driver.findElement(By.xpath("//video[@src]"));
+        mockPlayerTv2.executeScript("arguments[0].setAttribute('src', 'notVideo')",element2);
+        Thread.sleep(3000);
+        Screenshot screenshotPlayerTvProgramRecordedPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/" + "playerTvProgramRecordedPp4Standard" + ".png");
+        ImageIO.write(screenshotPlayerTvProgramRecordedPp4Standard.getImage(), "png", expectedFile1);
+        screenshotPlayerTvProgramRecordedPp4Standard.setIgnoredAreas(screenshotPlayerTvProgramRecordedPp4.getIgnoredAreas());
+
+        // Сделать новый эталонный скриншот расписания в плеера карточки ЗАПИСАННОЙ тв программы:
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[1]"));
+        Thread.sleep(3000);
+        Screenshot screenshotScheduleTvProgramRecordedPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver);
+        File expectedFile2 = new File("src/test/java/testScreenshots/expected/TvPage/" + "scheduleTvProgramRecordedPp4Standard" + ".png");
+        ImageIO.write(screenshotScheduleTvProgramRecordedPp4Standard.getImage(), "png", expectedFile2);
+        screenshotScheduleTvProgramRecordedPp4Standard.setIgnoredAreas(screenshotScheduleTvProgramRecordedPp4.getIgnoredAreas());
+
+//        // Взять старый эталонный скриншот плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
+////        Screenshot screenshotPlayerTvProgramRecordedPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "playerTvProgramRecordedPp4Standard" + ".png")));
+////        screenshotPlayerTvProgramRecordedPp4Standard.setIgnoredAreas(screenshotPlayerTvProgramRecordedPp4.getIgnoredAreas());
+
+        // Взять старый эталонный скриншот расписания в плеера карточки ЗАПИСАННОЙй тв программы:
+
+        // Сравнение скриншотов плеера карточки ЗАПИСАННОЙ тв программы (эталонный и тестовый):
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotPlayerTvProgramRecordedPp4Standard, screenshotPlayerTvProgramRecordedPp4);
+        System.out.println(diff1.getDiffSize());
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffPlayerTvProgramRecorded" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+        Assert.assertTrue(diff1.getDiffSize() <= 1000);
+
+        // Сравнение скриншотов расписания плеера карточки ЗАПИСАННОЙ тв программы (эталонный и тестовый):
+        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotScheduleTvProgramRecordedPp4Standard, screenshotScheduleTvProgramRecordedPp4);
+        System.out.println(diff1.getDiffSize());
+        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffScheduleTvProgramRecorded" + ".png");
+        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
+        Assert.assertTrue(diff2.getDiffSize() <= 1000);
     }
 }
       

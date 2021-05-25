@@ -15,7 +15,7 @@ public class Test_06_Переход_в_карточку_пакета_КЕЙС_Н
     public void goToCardPackage() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();

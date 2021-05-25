@@ -16,7 +16,7 @@ public class Test_03_Расписание_канала_Ashot_FRESH_от_06_05_21
     @Test
     public void openScheduleChannel() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();

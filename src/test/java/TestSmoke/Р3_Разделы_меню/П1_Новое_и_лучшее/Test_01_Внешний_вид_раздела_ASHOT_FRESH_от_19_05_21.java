@@ -5,20 +5,18 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_Переходы_Баннеры_Ashot_FRESH_27_04_21 extends TestBase {
+public class Test_01_Внешний_вид_раздела_ASHOT_FRESH_от_19_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value = "Переходы. Баннеры")
+    @DisplayName(value = "Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToBanner() throws Exception {
+    public void appearanceSectionNilPage() throws Exception {
         headerMenu.goToNilPage();
-        nilPage.checkElementsBanner();
         nilPage.checkImageDifferCherdakAndBanners();
-        nilPage.switchingFromBannerToCardFilm();
-        headerMenu.goToNilPage();
-        nilPage.switchingFromBannerToCardSerial();
-
+        nilPage.checkImageDifferBlocksCollection();
+        nilPage.checkImageDifferFooter();
+        nilPage.checkImageDifferNilPageScroll();
     }
 }

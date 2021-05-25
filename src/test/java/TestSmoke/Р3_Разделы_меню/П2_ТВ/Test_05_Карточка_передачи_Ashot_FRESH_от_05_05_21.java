@@ -15,7 +15,7 @@ public class Test_05_Карточка_передачи_Ashot_FRESH_от_05_05_21
     public void cardTvProgram() throws Exception {
         //неавторизованный пользователь:
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();

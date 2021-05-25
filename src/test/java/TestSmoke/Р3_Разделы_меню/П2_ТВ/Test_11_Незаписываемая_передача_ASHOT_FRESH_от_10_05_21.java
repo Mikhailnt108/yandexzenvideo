@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_11_Незаписываемая_передача_FRESH_от_10_05_21 extends TestBase {
+public class Test_11_Незаписываемая_передача_ASHOT_FRESH_от_10_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
@@ -18,14 +18,17 @@ public class Test_11_Незаписываемая_передача_FRESH_от_10
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
-        cardTvProgram.checkPaymentComplete();
-        headerMenu.refreshPage();
+//        cardTvProgram.clickPaymentButtonInCardTvProgram();
+//        cardTvProgram.checkPaymentComplete();
+//        headerMenu.refreshPage();
         cardTvProgram.checkAutoStartVideoPlayer();
+        cardTvProgram.checkImageDifferVideoPlayerUnrecordedAndSchedule();
+        headerMenu.refreshPage();
         cardTvProgram.checkElementsPlayerUnrecordedTvProgram();
         cardTvProgram.testFullScreenPlayer();
         cardTvProgram.testOnAndOffAudioInPlayer();
         cardTvProgram.clickOnScheduleInPlayerUnrecordedAndCheckeElements();
+        headerMenu.refreshPage();
         cardTvProgram.swithOtherTvChannelInsidePlayer();
         cardTvProgram.checkAutoStartVideoPlayer();
         pageCMS.deleteAccountMF("79260192144");

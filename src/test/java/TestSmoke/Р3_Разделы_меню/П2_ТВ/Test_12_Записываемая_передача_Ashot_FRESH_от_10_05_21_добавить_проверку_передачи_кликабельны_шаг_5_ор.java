@@ -5,13 +5,13 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_12_Записываемая_передача_FRESH_от_10_05_21_добавить_проверку_передачи_кликабельны_шаг_5_ор extends TestBase {
+public class Test_12_Записываемая_передача_Ashot_FRESH_от_10_05_21_добавить_проверку_передачи_кликабельны_шаг_5_ор extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
     @DisplayName(value ="Записываемая ТВ передача")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(5)
+    @RepeatedTest(1)
     public void recordedTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
@@ -24,6 +24,7 @@ public class Test_12_Записываемая_передача_FRESH_от_10_05_
         cardTvProgram.checkPaymentComplete();
         headerMenu.refreshPage();
         cardTvProgram.checkAutoStartVideoPlayer();
+        cardTvProgram.checkImageDifferVideoPlayerRecordedAndSchedule();
         cardTvProgram.checkElementsPlayerRecordedTvProgram();
         cardTvProgram.testFullScreenPlayer();
         cardTvProgram.testOnAndOffAudioInPlayer();

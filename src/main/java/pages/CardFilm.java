@@ -8,9 +8,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.comparison.ImageDiff;
+import ru.yandex.qatools.ashot.comparison.ImageDiffer;
+import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class CardFilm extends BasePage {
-    private Object Date;
 
     public CardFilm(WebDriver driver) {
         super(driver);
@@ -292,5 +300,48 @@ public class CardFilm extends BasePage {
         String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
     }
+
+    public void checkImageDifferCardFilm() throws IOException {
+        // Сделать тестовый скриншот:
+        Screenshot screenshotCardFilmPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .addIgnoredElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']")) // игнор область плеера
+                .addIgnoredElement(By.className("_36y3ZYWoC7rVzn6TEPp4oC")) // игнор текст описания
+                .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор название фильма
+                .addIgnoredElement(By.className("KQ2rb7ZP-tTmXFu9sn_34")) // игнотр блока рейтингов кинопоиск и IMDb
+//                .addIgnoredElement(By.className("VJDIK5T7v2knDWeIbc1df")) // игнор цифры рейтинга кинопоиск/IMDb
+                .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества лайков
+                .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества дизлайков
+                .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор возраст, год выпуска, жанр.
+                .addIgnoredElement(By.className("kjFUbLahFxqq2AjHY8j2R")) // игнор плашки "новинка"
+                .addIgnoredElement(By.className("_1Kps2hNPLZGQ3H2Sf5NYID")) // игнор текста в кнопке покупки
+                .addIgnoredElement(By.xpath("(//span[@itemprop='name'])[3]")) // игнор названия фильма в хлебных крошках
+                .takeScreenshot(driver);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "cardFilmPp4" + ".png");
+        ImageIO.write(screenshotCardFilmPp4.getImage(), "png", actualFile1);
+
+        // Сделать новый эталонный скриншот:
+        driver.get("https://web-preprod4.megafon.tv/movies/vods/Robot_ya_lyublyu_tebya_2021");
+        Screenshot screenshotCardFilmPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/"+"cardFilmPp4Standard"+".png");
+        ImageIO.write(screenshotCardFilmPp4Standard.getImage(), "png", expectedFile1);
+        screenshotCardFilmPp4Standard.setIgnoredAreas(screenshotCardFilmPp4.getIgnoredAreas());
+
+//        // Взять старый эталон скриншота:
+//        Screenshot screenshotCardFilmPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "cardFilmPp4Standard" + ".png")));
+//        screenshotCardFilmPp4Standard.setIgnoredAreas(screenshotCardFilmPp4.getIgnoredAreas());
+
+        // Сравнение скриншотов:
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardFilmPp4Standard, screenshotCardFilmPp4);
+        System.out.println(diff1.getDiffSize());
+        System.out.println(diff1.getDiffImage());
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCardFilmPp4" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+        Assert.assertTrue(diff1.getDiffSize() <= 3000);
+    }
+
 }
+
 

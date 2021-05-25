@@ -14,7 +14,7 @@ public class Test_09_Жанры_передач_в_эфире_FRESH_от_10_05_21
     @Test
     public void genresTvProgramInAir() throws Exception {
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickOnTabHD();
         tvPage.checkColorButtonChooseGenre();

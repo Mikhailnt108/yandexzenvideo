@@ -31,7 +31,7 @@ public class TvPage extends BasePage {
         super(driver);
     }
 
-    public void checkOpenTabTvPageSchedule() {
+    public void checkOpenTvPageTabScheduleTv() {
         isElementDisplayed(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL') and text()='Программа передач']"));
     }
 
@@ -117,12 +117,14 @@ public class TvPage extends BasePage {
     }
 
     public void clickToTailTvChannel() throws InterruptedException {
-        waitVisibility(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']"));
+        Thread.sleep(3000);
+//        waitVisibility(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//img[@alt]"));
         click(By.xpath("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]"));
     }
 
     public void clickOnTabInRecording() throws InterruptedException {
-        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+        Thread.sleep(3000);
+//        waitVisibility(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt])[1]"));
         click(By.xpath("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']"));
     }
 
@@ -278,6 +280,8 @@ public class TvPage extends BasePage {
     }
 
     public void checkImageDifferTabTvProgramInAir() throws IOException, InterruptedException {
+        // Сделать тестовый скриншот таба программы передач:
+        driver.get("https://web-preprod4.megafon.tv/tv/tv_catalog");
         waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
         Screenshot screenshotTabTvProgramInAirPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -287,23 +291,23 @@ public class TvPage extends BasePage {
                 .addIgnoredElement(By.xpath("//h3[@class='hhYBfS5SYd9UjRyn3tWgw']"))
                 .addIgnoredElement(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF']"))
                 .takeScreenshot(driver);
-
         File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "tabTvProgramInAirPp5" + ".png");
         ImageIO.write(screenshotTabTvProgramInAirPp5.getImage(), "png", actualFile1);
 
-        //      //Сделать новый эталонный скриншот:
-        //      Screenshot screenshotTabTvProgramInAirPp5Standard = new AShot()
-        //               .coordsProvider(new WebDriverCoordsProvider())
-        //               .takeScreenshot(driver);
-        //      File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"tabTvProgramInAirPp5Standard"+".png");
-        //      ImageIO.write(screenshotTabTvProgramInAirPp5Standard.getImage(), "png", expectedFile1);
-        //      screenshotTabTvProgramInAirPp5Standard.setIgnoredAreas(screenshotTabTvProgramInAirPp5.getIgnoredAreas());
+        // Сделать новый эталонный скриншот:
+        driver.get("https://web-preprod5.megafon.tv/tv/tv_catalog");
+        Screenshot screenshotTabTvProgramInAirPp5Standard = new AShot()
+                       .coordsProvider(new WebDriverCoordsProvider())
+                       .takeScreenshot(driver);
+              File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"tabTvProgramInAirPp5Standard"+".png");
+              ImageIO.write(screenshotTabTvProgramInAirPp5Standard.getImage(), "png", expectedFile1);
+              screenshotTabTvProgramInAirPp5Standard.setIgnoredAreas(screenshotTabTvProgramInAirPp5.getIgnoredAreas());
 
-        // Взять старый эталон скриншота:
-        Screenshot screenshotTabTvProgramInAirPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "tabTvProgramInAirPp5Standard" + ".png")));
-        screenshotTabTvProgramInAirPp5Standard.setIgnoredAreas(screenshotTabTvProgramInAirPp5.getIgnoredAreas());
+//        // Взять старый эталон скриншота:
+//        Screenshot screenshotTabTvProgramInAirPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "tabTvProgramInAirPp5Standard" + ".png")));
+//        screenshotTabTvProgramInAirPp5Standard.setIgnoredAreas(screenshotTabTvProgramInAirPp5.getIgnoredAreas());
 
-        //Сравнение скриншотов:
+        // Сравнение скриншотов:
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotTabTvProgramInAirPp5Standard, screenshotTabTvProgramInAirPp5);
         System.out.println(diff1.getDiffSize());
         File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffTabTvProgramInAir" + ".png");
@@ -374,6 +378,37 @@ public class TvPage extends BasePage {
         System.out.println(tailsTvChannel2.size());
         Assert.assertNotEquals("количество элементов равно", tailsTvChannel.size(), driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
         System.out.println(driver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
+    }
+
+    public void checkImageDifferToglPaymentOn() throws IOException {
+        driver.get("https://web-preprod4.megafon.tv/tv");
+        Screenshot screenshotTvPageToglPaymentOnPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .addIgnoredElement(By.className("ch-drop-down__inner"))
+                .addIgnoredElement(By.className("_3i74QDPniGqg7-0PwHKYQx"))
+                .takeScreenshot(driver);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "tvPageToglPaymentOnPp4" + ".png");
+        ImageIO.write(screenshotTvPageToglPaymentOnPp4.getImage(), "png", actualFile1);
+
+        // Сделать новый эталонный скриншот:
+        driver.get("https://web-preprod4.megafon.tv/tv");
+        Screenshot screenshotTvPageToglPaymentOnPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"tvPageToglPaymentOnPp4Standard"+".png");
+        ImageIO.write(screenshotTvPageToglPaymentOnPp4Standard.getImage(), "png", expectedFile1);
+        screenshotTvPageToglPaymentOnPp4Standard.setIgnoredAreas(screenshotTvPageToglPaymentOnPp4.getIgnoredAreas());
+
+//        // Взять старый эталон скриншота:
+//        Screenshot screenshotTvPageToglPaymentOnPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "tvPageToglPaymentOnPp4Standard" + ".png")));
+//        screenshotTvPageToglPaymentOnPp4Standard.setIgnoredAreas(screenshotTvPageToglPaymentOnPp4.getIgnoredAreas());
+
+        // Сравнение скриншотов:
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotTvPageToglPaymentOnPp4Standard, screenshotTvPageToglPaymentOnPp4);
+        System.out.println(diff1.getDiffSize());
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/TvPage/" + "diffTvPageToglPaymentOn" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+        Assert.assertTrue(diff1.getDiffSize() <= 300);
     }
 }
 

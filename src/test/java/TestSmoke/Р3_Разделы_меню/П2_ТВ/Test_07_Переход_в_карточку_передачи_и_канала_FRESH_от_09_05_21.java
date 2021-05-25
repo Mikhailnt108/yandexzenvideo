@@ -14,7 +14,7 @@ public class Test_07_Переход_в_карточку_передачи_и_ка
     @Test
     public void tvProgramInAir() throws InterruptedException {
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickToLinkTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
         headerMenu.goToBack();

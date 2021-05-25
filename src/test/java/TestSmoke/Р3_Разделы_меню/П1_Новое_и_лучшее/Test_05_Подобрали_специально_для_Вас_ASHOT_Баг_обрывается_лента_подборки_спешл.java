@@ -29,7 +29,7 @@ public class Test_05_Подобрали_специально_для_Вас_ASHOT
         // авторизованный пользователь:
         headerMenu.goToNilPage();
         flowRegistation();
-//        nilPage.checkImageDifferBlockCollectionSpecialForYou();
+        nilPage.checkImageDifferBlockCollectionSpecialForYou();
         nilPage.checkElementsBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();

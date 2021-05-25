@@ -6,14 +6,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_14_Фильтр_платности_добавить_Ashot_FRESH_от_10_05_21 extends TestBase {
+import java.io.IOException;
+
+public class Test_14_Фильтр_платности_добавить_ASHOT_FRESH_от_10_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
     @DisplayName(value ="Фильтр платности")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(5)
-    public void checkFilterPayment() throws InterruptedException {
+    @RepeatedTest(1)
+    public void checkFilterPayment() throws InterruptedException, IOException {
         headerMenu.goToTvPage();
         flowRegistation();
         tvPage.clickOnTabInRecording();
@@ -22,6 +24,7 @@ public class Test_14_Фильтр_платности_добавить_Ashot_FRES
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
         headerMenu.goToTvPage();
+        tvPage.checkImageDifferToglPaymentOn();
         tvPage.navigateMouseToToglPaymentOn();
         tvPage.clickToglPaymentForOff();
         tvPage.checkTvChannelsOnlyAvailable();
