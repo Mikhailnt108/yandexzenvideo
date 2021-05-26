@@ -15,7 +15,7 @@ public class OldTest_18_Перемотка_записанной_передачи
     public void rewindTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabInRecording();
         tvPage.checkСhannelsСorrespondGenres();
         cardTvProgram.clickOnLinkTvProgramInRecording();

@@ -20,6 +20,7 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import ru.yandex.qatools.ashot.shooting.SimpleShootingStrategy;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
@@ -75,9 +76,13 @@ public class FilmsPage extends BasePage {
     }
 
     public void choosePeriodOfYears() {
-        click(By.xpath("//div[text()='2019 год']"));
-        click(By.xpath("//span[text()='2018-2021']"));
-        click(By.xpath("//div[text()='Год']"));
+        click(By.xpath("//div[text()='Год с']"));
+        click(By.xpath("(//span[text()='2010'])[1]"));
+        click(By.xpath("//div[text()='Год с']"));
+
+        click(By.xpath("//div[text()='по']"));
+        click(By.xpath("(//span[text()='2020'])[2]"));
+        click(By.xpath("//div[text()='по']"));
     }
 
     public void checkRequestResultPeriodOfYears() {
@@ -96,6 +101,7 @@ public class FilmsPage extends BasePage {
     }
 
     public void chooseOneGenre() {
+        click(By.xpath("//div[text()='Жанр']"));
         click(By.xpath("//span[text()='Документальный']"));
         click(By.xpath("//div[text()='Жанр']"));
     }
@@ -103,8 +109,6 @@ public class FilmsPage extends BasePage {
     public void checkRequestResultOneGenre() {
         List<WebElement> CollectionOneGenre = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Документальный')]"));
         Assert.assertEquals(36, CollectionOneGenre.size());
-
-
     }
 
     public void chooseTwoGenre() {
@@ -125,12 +129,10 @@ public class FilmsPage extends BasePage {
     public void checkCheckboxesInCountry() {
         List<WebElement> checkboxes = driver.findElements(By.xpath("(//div[@class='_2t8gxqv7DAHrHOVOT7SNQu'])[2]//input[@type='checkbox']"));
         Assert.assertEquals(18, checkboxes.size());
-        //for (WebElement checkbox : checkboxes) {
-        //  checkbox.click();
-        //}
     }
 
-    public void chooseOneCountry() {
+    public void chooseOneCountry() throws InterruptedException {
+        click(By.xpath("//div[text()='Страна']"));
         click(By.xpath("//span[text()='Россия']"));
         click(By.xpath("//div[text()='Страна']"));
     }
@@ -176,8 +178,8 @@ public class FilmsPage extends BasePage {
     }
 
     public void checkResetAllFilters() {
-        List<WebElement> Filters = driver.findElements(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Год' or text()='Рейтинг']"));
-        Assert.assertEquals(4, Filters.size());
+        List<WebElement> Filters = driver.findElements(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']"));
+        Assert.assertEquals(6, Filters.size());
     }
 
     public void clickToTailCardFilm2FromAll() {
@@ -600,11 +602,105 @@ public class FilmsPage extends BasePage {
     public void switchingFromBannerToCardFilm() {
         click(By.xpath("//div[@data-test='BannerCarousel']"));
     }
+
     public void clickToLinkAllOnCollectionBlock() {
         click(By.partialLinkText("Все"));
     }
 
+    public void checkImageDifferBlockQuickFilters() {
+
+    }
+
+    public void checkImageDifferScrollQuickFilters() throws IOException, AWTException {
+        // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
+        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        click(By.xpath("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]"));
+        Robot bot = new Robot();
+        bot.mouseMove(0, 0);
+        Screenshot screenshotScrollQuickFiltersPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
+                .addIgnoredElement(By.xpath("//div[@class='_1f1-eBWSN1rERnEOvc6ScB _1u_yecGhipzBAdhHgvWkg9']")) // игнор область подробок
+                .takeScreenshot(driver);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "scrollQuickFiltersPageFilmsPp4" + ".png");
+        ImageIO.write(screenshotScrollQuickFiltersPp4.getImage(), "png", actualFile1);
+
+        // Сделать новый эталонный скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
+        click(By.xpath("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]"));
+        Robot bot2 = new Robot();
+        bot.mouseMove(0, 0);
+        Screenshot screenshotScrollQuickFiltersPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "scrollQuickFiltersPageFilmsPp4" + ".png");
+        ImageIO.write(screenshotScrollQuickFiltersPp4Standard.getImage(), "png", expectedFile1);
+        screenshotScrollQuickFiltersPp4Standard.setIgnoredAreas(screenshotScrollQuickFiltersPp4.getIgnoredAreas());
+
+//        // Взять старый эталонный скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
+//        Screenshot screenshotScrollQuickFiltersPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "scrollQuickFiltersPageFilmsPp4Standard" + ".png")));
+//        screenshotScrollQuickFiltersPp4Standard.setIgnoredAreas(screenshotScrollQuickFiltersPp4.getIgnoredAreas());
+
+        // Сравнить скриншоты скролла быстрых фильтров страницы "Фильмы (тестовый и эталонный):
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotScrollQuickFiltersPp4Standard, screenshotScrollQuickFiltersPp4);
+        System.out.println(diff1.getDiffSize());
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffScrollQuickFiltersPageFilmsPp4" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+        Assert.assertTrue(diff1.getDiffSize() <= 500);
+    }
+
+    public void chooseOneQuickFilter() {
+        click(By.xpath("//button[text()='Приключения']"));
+        isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Приключения']"));
+    }
+
+    public void checkCatalogViewFilmsPage() {
+        Assert.assertEquals("вид страницы не каталог", 0, driver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+    }
+
+    public void checkRequestResultOneQuickFilter() {
+        List<WebElement> CollectionQuickFilter = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Приключения')]"));
+        Assert.assertEquals(36, CollectionQuickFilter.size());
+    }
+
+    public void chooseTwoQuickFilter() {
+        click(By.xpath("//button[text()='Боевик']"));
+        isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']"));
+        isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Приключения']"));
+
+    }
+
+    public void checkRequestResultTwoQuickFilter() {
+        List<WebElement> CollectionQuickFilter = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Приключения')]|//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Боевик')]"));
+        Assert.assertEquals(36, CollectionQuickFilter.size());
+    }
+
+    public void checkUnplugQuickFilter() {
+        click(By.xpath("//button[text()='Боевик']"));
+        Assert.assertEquals("не отключен быстрый фильтр", 0, driver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
+    }
+
+    public void checkRequestResultOneCountryAndTwoGenre() {
+        List<WebElement> CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
+        for (int i = 0; i <= 5; i++) {
+            CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
+            CollectionOneCountry.get(i).click();
+            WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            driver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
+            wait.until(ExpectedConditions.visibilityOf(button));
+            button.click();
+            driver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
+            driver.navigate().back();
+        }
+    }
+
+    public void checkCollectionsViewFilmsPage() {
+        Assert.assertNotEquals("вид страницы не каталог", 0, driver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+    }
 }
+
 
 
 

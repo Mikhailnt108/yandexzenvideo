@@ -22,7 +22,7 @@ public class OldTest_19_ТВ_передача_18_плюс_Pop_up_с_подтве
     
         cardTvChannel.checkPaymentComplete();
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabNews();
         tvPage.checkСhannelsСorrespondGenresNews();
         cardTvChannel.clickPaymentButtonInCardTvChannel();

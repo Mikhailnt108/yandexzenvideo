@@ -1,23 +1,27 @@
-package TestSmoke.старые_кейсы.разделы_меню.тв;
+package TestSmoke.Р3_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class OldTest_18_Переход_в_карточку_передачи_из_Программы_передач extends TestBase {
+public class Test_06_Аренда_фильма_за_бандл_FRESH_от_25_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "2. ТВ")
-    @DisplayName(value ="Переход в карточку передачи из Программы передач")
+    @Story(value = "3. Фильмы")
+    @DisplayName(value ="Аренда фильма за бандл")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void openCardTvProgramFromTabSchedule() throws InterruptedException {
-        headerMenu.goToTvPage();
+    public void PaymentFilmForRent2Promo() throws Exception {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        tvPage.checkOpenTvPageTabScheduleTv();
-        tvPage.clickToTailTvChannel();
-        cardTvProgram.checkOpenCardTvProgram();
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
+        filmsPage.clickOnFiltrPayment();
+        filmsPage.chooseTabPromo();
+        filmsPage.clickToTailCardFilmFromAvailable();
+        cardFilm.paymentFilmAtRent2Promo();
+        cardFilm.startVideoPleer();
+        cardFilm.checkСounterAvailableFilms();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

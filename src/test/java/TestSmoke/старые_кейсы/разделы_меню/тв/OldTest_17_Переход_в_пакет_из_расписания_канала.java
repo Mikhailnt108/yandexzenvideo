@@ -16,7 +16,7 @@ public class OldTest_17_Переход_в_пакет_из_расписания_�
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.checkСhannelsСorrespondGenres();
         cardTvChannel.clickToLinkCardPackage();
         cardPackage.checkOpenCardPackageTvChannel();

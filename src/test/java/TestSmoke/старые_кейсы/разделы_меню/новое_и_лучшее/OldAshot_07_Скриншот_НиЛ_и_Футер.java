@@ -21,9 +21,9 @@ public class OldAshot_07_Скриншот_НиЛ_и_Футер extends TestBase 
         headerMenu.goToNilPage();
         //nilPage.createScreenShot();
         //nilPage.imageDifferPageHeader();
-        nilPage.checkImageDifferNilPageAll();
-        nilPage.checkImageDifferHeader();
-        nilPage.checkImageDifferBlockCollection();
+        nilPage.checkImageDifferNilPageScroll();
+        nilPage.checkImageDifferCherdakAndBanners();
+        nilPage.checkImageDifferBlocksCollection();
         nilPage.checkImageDifferFooter();
     }
 }

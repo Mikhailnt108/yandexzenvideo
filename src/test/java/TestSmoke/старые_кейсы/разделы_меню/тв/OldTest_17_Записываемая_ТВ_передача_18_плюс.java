@@ -25,7 +25,7 @@ public class OldTest_17_Записываемая_ТВ_передача_18_плю
         cardTvProgram.goToCardTvProgram18Plus();
         cardTvProgram.clickNoInPopUp18Plus();
         headerMenu.goToTvPage();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabErotica();
         tvPage.checkRecordedСhannelsСorrespondGenres18Plus();
         cardTvProgram.clickYesInPopUp18Plus();

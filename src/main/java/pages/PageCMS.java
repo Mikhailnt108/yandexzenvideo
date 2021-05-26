@@ -269,7 +269,7 @@ public class PageCMS extends BasePage {
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
-        //click(By.xpath("//input[@type='checkbox']"));
+        click(By.xpath("//label[text()='Показать только активные']"));
         click(By.linkText("Скидка автотест"));
         isElementDisplayed(By.xpath("//h4[text()='Пакеты']"));
         isElementDisplayed(By.cssSelector(".selectize-input"));
@@ -296,10 +296,13 @@ public class PageCMS extends BasePage {
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
-        //click(By.xpath("//input[@type='checkbox']"));
+        click(By.xpath("//label[text()='Показать только активные']"));
         click(By.linkText("Скидка автотест"));
         isElementDisplayed(By.xpath("//td[text()='Скидка автотест']"));
         click(By.xpath("//button[text()='Удалить все']"));
+        driver.switchTo().alert().accept();
+        driver.navigate().refresh();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Скидка']")));
         driver.close();
         driver.switchTo().window((String) tabs2.get(0));
     }

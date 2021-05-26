@@ -32,7 +32,7 @@ public class CardFilm extends BasePage {
     public void paymentFilmAtEst() {
         click(By.xpath("//span[contains(text(), 'Навсегда за')]"));
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 017 22 79']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
@@ -40,7 +40,7 @@ public class CardFilm extends BasePage {
 
     public void paymentFilmAtEstFromPopUpNotif() {
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 017 22 79']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
@@ -50,7 +50,7 @@ public class CardFilm extends BasePage {
     public void paymentButtonRent2InCardFilm() {
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[contains(text(), 'Смотреть до')]"));
@@ -77,25 +77,89 @@ public class CardFilm extends BasePage {
         isElementDisplayed(By.xpath("//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB']"));
     }
 
-    public void clickToLikeButton() {
+    public void checkButtonFavoriteNotAdded() {
+        isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]"));
+        String colorButtonFavoriteNotAdded = driver.findElement(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]")).getCssValue("color");
+        System.out.println(colorButtonFavoriteNotAdded);
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorButtonFavoriteNotAdded);
+    }
+
+    public void checkButtonFavoriteAdded() {
+        String colorButtonFavoriteAdded = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[3]")).getCssValue("color");
+        System.out.println(colorButtonFavoriteAdded);
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorButtonFavoriteAdded);
+    }
+
+    public void moveToLikeButton() {
+        String colorToLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToLike);
+        String colorToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountLike);
+        // навести курсор на кнопку лайк:
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"))).build().perform();
+        String colorMoveToButtonLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonLike);
+        String colorMoveToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountLike);
+    }
+
+    public void moveToDisLikeButton() {
+        String colorToDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToDisLike);
+        String colorToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountDisLike);
+        // навести курсор на кнопку дизлайк:
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]"))).build().perform();
+        String colorMoveToButtonDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonDisLike);
+        String colorMoveToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountDisLike);
+    }
+
+    public void clickToLikeButton() throws InterruptedException {
         WebElement countLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int oldCount = Integer.parseInt(countLikeOld.getText());
+        String colorToLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToLike);
+        String colorToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountLike);
         click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
         WebElement countLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int newCount = Integer.parseInt(countLikeNew.getText());
         Assert.assertTrue(oldCount < newCount);
+        String colorMoveToButtonLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonLike);
+        String colorMoveToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountLike);
     }
 
-    public void clickToDisLikeButton() {
+    public void clickToDisLikeButton() throws InterruptedException {
         WebElement countDisLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
-        int oldCount = Integer.parseInt(countDisLikeOld.getText());
+        int oldCountDisLike = Integer.parseInt(countDisLikeOld.getText());
+        WebElement countLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        int oldCountLike = Integer.parseInt(countLikeOld.getText());
+        String colorToDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToDisLike);
+        String colorToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountDisLike);
         click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]"));
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
         isElementDisplayed(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
         WebElement countDisLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
-        int newCount = Integer.parseInt(countDisLikeNew.getText());
-        Assert.assertTrue(oldCount < newCount);
+        int newCountDisLike = Integer.parseInt(countDisLikeNew.getText());
+        Assert.assertTrue(oldCountDisLike < newCountDisLike);
+        WebElement countLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        int newCountLike = Integer.parseInt(countLikeNew.getText());
+        Assert.assertTrue(oldCountLike > newCountLike);
+        String colorMoveToButtonDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonDisLike);
+        String colorMoveToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountDisLike);
     }
 
     public void checkStikerDiscount() {
@@ -110,7 +174,7 @@ public class CardFilm extends BasePage {
     public void paymentFilmAtEstDiscount() {
         click(By.xpath("//span[contains(text(), 'Навсегда за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
@@ -128,7 +192,7 @@ public class CardFilm extends BasePage {
     public void paymentFilmAtRent2Discount() {
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']"));
+        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Смотреть до')]"));
@@ -388,6 +452,8 @@ public class CardFilm extends BasePage {
         isElementDisplayed(By.xpath("//button[text()='Прочитать описание']"));
         Assert.assertEquals("Текст описания не свернулся", 0, driver.findElements(By.xpath("//button[text()='Свернуть']")).size());
     }
+
+
 }
 
 

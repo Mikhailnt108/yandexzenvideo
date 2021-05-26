@@ -47,9 +47,6 @@ public class TestBase {
     public PersonalOffer personalOffer;
 
 
-
-
-
     @BeforeEach
     public void start() throws AWTException {
 

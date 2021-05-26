@@ -36,7 +36,11 @@ public class MyPage extends BasePage {
     }
 
     public void checkAddingFilmToFavorites() {
-        Assert.assertEquals(1, driver.findElements(By.xpath("//h3[text()='Фильмы']")).size());
+        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameFilm);
+        driver.get(My_favorites);
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
     }
 
     public void checkAddingSerialsInPurchases() {

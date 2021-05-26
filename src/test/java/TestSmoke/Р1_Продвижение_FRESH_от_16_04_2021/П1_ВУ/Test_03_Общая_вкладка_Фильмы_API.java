@@ -1,24 +1,27 @@
-package TestSmoke.старые_кейсы.разделы_меню.тв;
+package TestSmoke.Р1_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBase;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
-public class OldTest_18_Переход_в_карточку_передачи_из_Программы_передач extends TestBase {
+public class Test_03_Общая_вкладка_Фильмы_API extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "2. ТВ")
-    @DisplayName(value ="Переход в карточку передачи из Программы передач")
+    @Feature(value = "4. Продвижение")
+    @Story(value = "1. ВУ")
+    @DisplayName(value = "Общая вкладка Фильмы")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
-    public void openCardTvProgramFromTabSchedule() throws InterruptedException {
-        headerMenu.goToTvPage();
+    @RepeatedIfExceptionsTest(repeats = 2)
+    public void popUpNotificationFilterPageFilms() {
+        popUpNotification.createAndPublishedPopUpNotifScreenFilms();
+        headerMenu.goToNilPage();
         flowRegistation();
-        tvPage.checkOpenTvPageTabScheduleTv();
-        tvPage.clickToTailTvChannel();
-        cardTvProgram.checkOpenCardTvProgram();
+        headerMenu.checkAbsencePopUpNotifToNilPage();
+        headerMenu.goToFilmsPage();
+        popUpNotification.checkElementsPopUpNotifScreenFilms();
+        popUpNotification.deletePopUpNotifScreenFilms();
         pageCMS.deleteAccountMF("79260192144");
+
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

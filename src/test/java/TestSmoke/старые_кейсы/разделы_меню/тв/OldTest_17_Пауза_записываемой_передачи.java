@@ -15,7 +15,7 @@ public class OldTest_17_Пауза_записываемой_передачи ext
     public void pauseTvProgramInRecording() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabInRecording();
         tvPage.checkСhannelsСorrespondGenres();
         cardTvProgram.clickOnLinkTvProgramInRecording();

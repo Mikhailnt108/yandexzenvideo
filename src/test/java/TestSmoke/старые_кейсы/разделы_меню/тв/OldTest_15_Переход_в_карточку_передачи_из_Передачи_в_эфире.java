@@ -15,7 +15,7 @@ public class OldTest_15_Переход_в_карточку_передачи_из
     public void openCardTvProgramFromTabAir() throws InterruptedException {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.checkOpenTabTvPageSchedule();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();

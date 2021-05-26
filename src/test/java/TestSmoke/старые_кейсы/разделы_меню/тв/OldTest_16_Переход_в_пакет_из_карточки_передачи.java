@@ -15,7 +15,7 @@ public class OldTest_16_Переход_в_пакет_из_карточки_пе�
      public void goToPackageFromCardTvProgram() throws InterruptedException {
          headerMenu.goToTvPage();
          flowRegistation();
-         tvPage.checkOpenTabTvPageSchedule();
+         tvPage.checkOpenTvPageTabScheduleTv();
          tvPage.clickOnTabTvProgramInAir();
          tvPage.clickToTailTvProgram();
          cardTvProgram.checkOpenCardTvProgram();
