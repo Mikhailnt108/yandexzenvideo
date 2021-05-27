@@ -5,16 +5,22 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Переход_в_карточку_сериала_FRESH extends TestBase {
+public class Test_02_Переход_в_карточку_сериала_FRESH_от_27_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
     @DisplayName(value ="Переход в карточку сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
     public void GoToCardSerial() {
         headerMenu.goToSerialsPage();
+        serialsPage.switchingFromBannerToCardSerial();
+        cardSerial.checkOpenCardSerial();
+        headerMenu.goToSerialsPage();
+        serialsPage.clickToTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        headerMenu.goToSerialsPage();
+        serialsPage.clickToLinkAllOnCollectionBlock();
         serialsPage.clickToTailCardSerial();
         cardSerial.checkOpenCardSerial();
     }

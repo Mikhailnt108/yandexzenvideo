@@ -128,13 +128,14 @@ public class CardFilm extends BasePage {
         click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
+        driver.navigate().refresh();
         WebElement countLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int newCount = Integer.parseInt(countLikeNew.getText());
         Assert.assertTrue(oldCount < newCount);
         String colorMoveToButtonLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonLike);
+        Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToButtonLike);
         String colorMoveToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountLike);
+        Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToCountLike);
     }
 
     public void clickToDisLikeButton() throws InterruptedException {
@@ -150,6 +151,7 @@ public class CardFilm extends BasePage {
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
         isElementDisplayed(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
+        driver.navigate().refresh();
         WebElement countDisLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
         int newCountDisLike = Integer.parseInt(countDisLikeNew.getText());
         Assert.assertTrue(oldCountDisLike < newCountDisLike);
@@ -157,9 +159,9 @@ public class CardFilm extends BasePage {
         int newCountLike = Integer.parseInt(countLikeNew.getText());
         Assert.assertTrue(oldCountLike > newCountLike);
         String colorMoveToButtonDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonDisLike);
+        Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToButtonDisLike);
         String colorMoveToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountDisLike);
+        Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToCountDisLike);
     }
 
     public void checkStikerDiscount() {

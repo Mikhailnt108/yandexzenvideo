@@ -48,7 +48,14 @@ public class MyPage extends BasePage {
     }
 
     public void checkAddingSerialToFavorites() {
-        Assert.assertEquals(1, driver.findElements(By.xpath("//h3[text()='Сериалы']")).size());
+        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameFilm);
+        driver.get(My_favorites);
+        // переход в карточку сериала:
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        // переход в карточку эпизода:
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
     }
 
     public void goToCollectionFavoritesPage() {

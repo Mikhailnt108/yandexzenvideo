@@ -15,7 +15,6 @@ public class Test_01_Внешний_вид_раздела_ASHOT_FRESH_от_25_05
     public void appearanceSectionFilmsPage() throws Exception {
         // пользователь НЕ авторизован
         headerMenu.goToFilmsPage();
-        filmsPage.checkElementsFilmsPage();
 //        filmsPage.checkImageDifferCherdakAndBanners();
 //        filmsPage.checkImageDifferBreadcrumbsAndBlocksFilters(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
 //        filmsPage.checkImageDifferBlocksCollection(); // на пп4 нет выпадушки "Сортировка" в форме фильтров

@@ -24,12 +24,15 @@ public class SerialsPage extends BasePage {
     public SerialsPage(WebDriver driver) {
         super(driver);
     }
+
     public void checkOpenSerialsPage() {
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
     }
+
     public void clickToTailCardSerial() {
-        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/shows')][2]"));
-            }
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+    }
+
     public void chooseSeasonsMoreOneSeason() {
         driver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '4 сезона') or contains(text(), '7 сезонов')]")).click();
     }
@@ -430,5 +433,150 @@ public class SerialsPage extends BasePage {
         File diffFile = new File("src/test/java/testScreenshots/markedImages/SerialsPage/" + "diffCrumbsAndFiltersSerialsPage" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
         Assert.assertTrue(diff1.getDiffSize() <= 500);
+    }
+
+    public void switchingFromBannerToCardSerial() {
+        click(By.xpath("//div[@data-test='BannerCarousel']"));
+    }
+
+    public void clickToLinkAllOnCollectionBlock() {
+        click(By.partialLinkText("Все"));
+    }
+
+    public void checkElementsBannersCarousel() throws InterruptedException {
+        isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
+        isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
+
+        List<WebElement> BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForSerials.size());
+        for (int i = 0; i < BannerForSerials.size(); i++) {
+            BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForSerials.get(i).click();
+            isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
+            isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
+            System.out.println(driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText());
+        }
+
+        List<WebElement> BannerForSerials2 = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForSerials2.size());
+        for (int i = 0; i < BannerForSerials2.size(); i++) {
+            BannerForSerials2 = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForSerials2.get(i).click();
+            Thread.sleep(2000);
+            click(By.xpath("//div[@data-test='BannerCarousel']"));
+            Assert.assertEquals(1, driver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size());
+            Thread.sleep(2000);
+            driver.navigate().back();
+        }
+    }
+
+    public void autoScrollBanners() throws InterruptedException {
+        isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
+        isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
+
+        String banner1 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(banner1);
+        Thread.sleep(5000);
+        String banner2 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner2);
+        Assert.assertNotEquals(banner1, banner2);
+        Thread.sleep(5000);
+        String banner3 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner3);
+        Assert.assertNotEquals(banner2, banner3);
+        Thread.sleep(5000);
+        String banner4 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner4);
+        Assert.assertNotEquals(banner3, banner4);
+        Thread.sleep(5000);
+        String banner5 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner5);
+        Assert.assertNotEquals(banner4, banner5);
+    }
+
+    public void scrollBannersToLeft() throws InterruptedException {
+        List<WebElement> BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForSerials.size());
+        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
+        Thread.sleep(2000);
+        String bannerFirst = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(bannerFirst);
+        click(By.xpath("//button[@data-test='leftCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
+        Thread.sleep(2000);
+        String bannerLast = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(bannerLast);
+        Assert.assertNotEquals(bannerFirst, bannerLast);
+    }
+
+    public void scrollBannersToRight() throws InterruptedException {
+        List<WebElement> BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForSerials.size());
+        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][last()]"));
+        String bannerLast = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(bannerLast);
+        click(By.xpath("//button[@data-test='rightCarouselButton']"));
+        //isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][1]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
+        Thread.sleep(2000);
+        String bannerFirst = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(bannerFirst);
+        Assert.assertNotEquals(bannerLast, bannerFirst);
+    }
+
+    public void scrollСollectionToRightAndLeft() throws InterruptedException {
+        // разовый скролл подборки вправо:
+        String tail1Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        System.out.println(tail1Right);
+        System.out.println(tail2Right);
+        System.out.println(tail3Right);
+
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+
+        String tail4Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]"));
+        System.out.println(tail4Right);
+        System.out.println(tail5Right);
+        System.out.println(tail6Right);
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Right, tail4Right);
+        Assert.assertNotEquals(tail2Right, tail5Right);
+        Assert.assertNotEquals(tail3Right, tail6Right);
+
+        // разовый скролл подборки влево:
+        String tail4Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+        String tail1Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Left, tail4Left);
+        Assert.assertNotEquals(tail2Left, tail5Left);
+        Assert.assertNotEquals(tail3Left, tail6Left);
+
+        // скоролл подборки вправо до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+            }
+        }
+        // скоролл подборки вдлево до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+            }
+        }
     }
 }

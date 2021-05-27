@@ -14,32 +14,30 @@ public class Test_03_Внешний_вид_карточки_ASHOT_FRESH_от_25_
     @Test
     public void appearanceSectionCardFilm() throws Exception {
         // неавторизованный пользователь:
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.checkAutoStartVideoPlayer();
-        cardFilm.checkImageDifferCardFilm();
-        cardFilm.checkElementsCardFilm();
+//        headerMenu.goToFilmsPage();
+//        filmsPage.clickToTailCardFilm();
+//        cardFilm.checkOpenCardFilm();
+//        cardFilm.checkAutoStartVideoPlayer();
+//        cardFilm.checkImageDifferCardFilm();
+//        cardFilm.checkElementsCardFilm();
 
         // авторизованный пользователь:
-        headerMenu.goToTvPage();
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        headerMenu.goToFilmsPage();
+//        filmsPage.clickToTailCardFilm();
+//        cardFilm.checkOpenCardFilm();
+//        cardFilm.checkAutoStartVideoPlayer();
+//        cardFilm.checkImageDifferCardFilm();
+//        cardFilm.checkElementsCardFilm();
+//        cardFilm.clickButtonFavorites();
+//        myPage.checkAddingFilmToFavorites();
+//        headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-        cardFilm.checkAutoStartVideoPlayer();
-        cardFilm.checkImageDifferCardFilm();
-        cardFilm.checkElementsCardFilm();
-        cardFilm.clickButtonFavorites();
-        myPage.goToMyPageFavorites();
-        myPage.checkAddingFilmToFavorites();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.clickToButtonReadDescription();
-        cardFilm.checkOpenDescriptionAll();
-        cardFilm.clickToButtonRollUp();
-        cardFilm.checkRollUpDescription();
+//        cardFilm.clickToButtonReadDescription();
+//        cardFilm.checkOpenDescriptionAll();
+//        cardFilm.clickToButtonRollUp();
+//        cardFilm.checkRollUpDescription();
         cardFilm.clickToLikeButton();
         cardFilm.clickToDisLikeButton();
         pageCMS.deleteAccountMF("79260192144");

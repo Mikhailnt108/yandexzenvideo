@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_14_Работа_быстрых_фильтров_FRESH_от_26_05_21 extends TestBase {
+public class Test_14_Работа_быстрых_фильтров_ASHOT_FRESH_от_26_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
