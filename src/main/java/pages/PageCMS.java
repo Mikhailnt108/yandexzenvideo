@@ -31,7 +31,7 @@ public class PageCMS extends BasePage {
     }
 
     public void copyPasteCodMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/msisdn_confirmations')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));

@@ -66,28 +66,8 @@ public class CardSerial extends BasePage {
     }
 
     public void chooseOtherSeason() throws Exception {
-        Actions actions = new Actions(driver);
-        Thread.sleep(7000);
-
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Thread.sleep(7000);
-
-        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
         //выбрать 2-ой сезон
         click(By.xpath("(//div[text()='Сезон 2'])[2]"));
-        Assert.assertEquals(1, driver.findElements(By.xpath("//h1[contains(text(),'Сезон 2')]")).size());
-        Thread.sleep(7000);
-
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time3 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-
-        Thread.sleep(7000);
-        String time4 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-
-        Assert.assertNotEquals(time3, time4);
-
     }
 
     public void clickToButtonSubscribeInPopUp() {
@@ -391,6 +371,15 @@ public class CardSerial extends BasePage {
         Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToButtonDisLike);
         String colorMoveToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToCountDisLike);
+    }
+
+    public void paymentSerialAtSubs() {
+        click(By.xpath("(//button[@type='button']//span)[4]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка')]"));
+        click(By.xpath("//button[text()='Принять и подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+        click(By.xpath("//button[text()='Закрыть']"));
+        isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
     }
 }
 

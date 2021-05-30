@@ -34,7 +34,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void chooseSeasonsMoreOneSeason() {
-        driver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '4 сезона') or contains(text(), '7 сезонов')]")).click();
+        driver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
     }
 
     public void clickOnYearInput() {
