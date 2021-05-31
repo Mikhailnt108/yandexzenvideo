@@ -5,29 +5,25 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_05_Подписка_на_пакет_сериалов_FRESH extends TestBase {
+public class Test_04_Переключение_сезонов_FRESH_от_31_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Подписка на пакет сериалов")
+    @DisplayName(value ="Переключение сезонов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
 
-    public void SubscribeToSeriesPackage() throws Exception {
+    public void switchingSeasons() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.chooseSeasonsMoreOneSeason();
         cardSerial.checkOpenCardSerial();
-        cardSerial.clickToButtonSubscribePackage();
-        cardSerial.clickToButtonSubscribeInPopUp();
-        cardSerial.checkPopUpSubscribeComplete();
-        cardSerial.checkButtonToWatch();
-        cardSerial.startVideoPleer();
-        myPage.goToMyPagePurchases();
-        myPage.checkAddingSerialsInPurchases();
+        cardSerial.chooseOtherSeasonAndCheckPoster();
+        cardSerial.checkAutoStartVideoPlayer();
+        cardSerial.paymentSerialAtSubs();
+        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.checkSeasonAndEpisode();
         pageCMS.deleteAccountMF("79260192144");
-        //cardSerial.clickNamePackage();
-        //cardPackage.clickPaymentButtonInCardPackage();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -5,22 +5,20 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_Переключение_сезонов_FRESH extends TestBase {
+public class Test_05_Подписка_на_пакет_сериалов_FRESH_от_31_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Переключение сезонов")
+    @DisplayName(value ="Подписка на пакет сериалов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
 
-    public void switchingSeasons() throws Exception {
+    public void SubscribeToSeriesPackage() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.chooseSeasonsMoreOneSeason();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.chooseOtherSeason();
-        cardSerial.checkAutoStartVideoPlayer();
-        cardSerial.paymentSerialAtSubs();
+        myPage.goToMyPagePurchases();
+        myPage.checkAddingSerialsInPurchases();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

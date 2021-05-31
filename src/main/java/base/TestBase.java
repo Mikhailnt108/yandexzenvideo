@@ -69,7 +69,7 @@ public class TestBase {
 //        options.addArguments("--disable-extensions");
 //        options.addArguments("--dns-prefetch-disable");
 //        options.addArguments("--disable-gpu");
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         //options.addArguments("start-maximized");
         //запуск браузера в фоне:
         //options.setHeadless(true);

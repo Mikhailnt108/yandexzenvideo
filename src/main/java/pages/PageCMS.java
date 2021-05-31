@@ -211,7 +211,7 @@ public class PageCMS extends BasePage {
     }
 
     public void deleteAccountMF(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -229,7 +229,7 @@ public class PageCMS extends BasePage {
     }
 
     public void deleteAccountNonMF(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
