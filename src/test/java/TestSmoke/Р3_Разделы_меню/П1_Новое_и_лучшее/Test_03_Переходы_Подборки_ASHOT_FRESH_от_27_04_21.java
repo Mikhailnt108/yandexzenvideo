@@ -31,7 +31,7 @@ public class Test_03_Переходы_Подборки_ASHOT_FRESH_от_27_04_21
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllOnCollectionBlock();
         collectionPage.checkOpenCollectionPage();
-        collectionPage.checkImageDifferPageCollection();
+//        collectionPage.checkImageDifferPageCollection();
         collectionPage.checkElementsCollection();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionFilms();

@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Set;
 
 public class FilmsPage extends BasePage {
-    String SITE_URL = "https://web-preprod4.megafon.tv/";
+    String SITE_URL = "https://web-preprod5.megafon.tv/";
 
     public FilmsPage(WebDriver driver) {
         super(driver);

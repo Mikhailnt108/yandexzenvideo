@@ -161,7 +161,7 @@ public class HeaderMenu extends BasePage {
         ((JavascriptExecutor) driver).executeScript("window.open('http://staging-smart-nettv.megafon.tv/#scene/start')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
-        click(By.xpath("//div[@data-type='preprod4']"));
+        click(By.xpath("//div[@data-type='preprod5']"));
         click(By.xpath("(//div[@data-action='back']//div)[1]"));
         waitVisibility(By.xpath("(//div[@data-action='tile'])[1]"));
         isElementDisplayed(By.xpath("//div[@data-action='openMainMenu']"));
@@ -521,7 +521,7 @@ public class HeaderMenu extends BasePage {
     public void checkOpenPopUpCreatePasswordForCaseRegistrationMF(String login) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -550,7 +550,7 @@ public class HeaderMenu extends BasePage {
     public void checkOpenPopUpInputEmail(String login) {
         isElementDisplayed(By.xpath("//div[text()='Введите E-mail']|//div[text()='Введите пароль']"));
         if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
             driver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
