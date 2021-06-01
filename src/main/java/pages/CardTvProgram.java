@@ -299,7 +299,7 @@ public class CardTvProgram extends BasePage {
     }
 
     public void checkElementsPlayerUnrecordedTvProgram() {
-        driver.get("https://web-preprod4.megafon.tv/tv/channels/Channel_1TV");
+        driver.get("https://web-preprod5.megafon.tv/tv/channels/Channel_1TV");
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         isElementDisplayed(By.className("_2GPoEznIkBV65Iqkud1teP"));
@@ -368,7 +368,7 @@ public class CardTvProgram extends BasePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[1]"));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         isElementDisplayed(By.xpath("//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[text()='Сегодня']"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='_2F06JEFCaBoh-jQ-JAfmAN'])[1]"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='DSoUWlplI4m8T5WSf-XxC'])[1]"));
@@ -380,7 +380,7 @@ public class CardTvProgram extends BasePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]"));
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         isElementDisplayed(By.xpath("//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[text()='Сегодня']"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='_2F06JEFCaBoh-jQ-JAfmAN'])[1]"));
         isElementDisplayed(By.xpath("(//div[@class='_3Pw3DImx_GWRGGCEPoHcED']//div[@class='DSoUWlplI4m8T5WSf-XxC'])[1]"));
@@ -394,7 +394,8 @@ public class CardTvProgram extends BasePage {
         Actions actions = new Actions(driver);
         String nameTvChannel = driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText();
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[2]"));
+        Thread.sleep(5000);
+        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[3]"));
         Thread.sleep(3000);
         System.out.println(driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
         Assert.assertNotEquals("канал не переключен", nameTvChannel, driver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());

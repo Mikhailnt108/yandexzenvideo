@@ -4,7 +4,6 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -19,30 +18,29 @@ public class Test_14_Фильтр_платности_ASHOT_FRESH_от_10_05_21 e
         headerMenu.goToTvPage();
         flowRegistation();
         tvPage.clickOnTabInRecording();
+//        tvPage.checkImageDifferToglPaymentOn();
+        tvPage.navigateMouseToToglPaymentOn();
+        tvPage.checkTvChannelsAll();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
         headerMenu.goToTvPage();
-//        tvPage.checkImageDifferToglPaymentOn();
-        tvPage.navigateMouseToToglPaymentOn();
-        tvPage.clickToglPaymentForOff();
-        tvPage.checkTvChannelsOnlyAvailable();
-        tvPage.navigateMouseToToglPaymentOff();
-        tvPage.clickToglPaymentForOn();
-        tvPage.checkTvChannelsOnlyPayment();
-        pageCMS.deleteAccountMF("79260192144");
+        tvPage.clickToglePaymentForOff();
+        tvPage.navigateMouseToToglePaymentOff();
+        tvPage.checkTvChannelsOnlyPlugged();
+        pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }

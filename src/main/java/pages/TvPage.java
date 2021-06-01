@@ -100,14 +100,13 @@ public class TvPage extends BasePage {
         click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]"));
     }
 
-    public void clickToglPaymentForOff() {
+    public void clickToglePaymentForOff() {
         isElementDisplayed(By.xpath("//button[@class='XUA0mURCPEQ3aaut8nLLA QwZF5ZAhb56XWdU_Hta3z']//div[1]"));
         click(By.xpath("//div[text()='₽']"));
     }
 
-    public void checkTvChannelsOnlyAvailable() {
+    public void checkTvChannelsOnlyPlugged() {
         List<WebElement> CollectionAvailable = driver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
-        Assert.assertEquals(CollectionAvailable.size(), driver.findElements(By.xpath("//div[@class='_2mLz14ja1zCBwrRv-RM7lg']")).size());
         for (int i = 0; i <= 5; i++) {
             CollectionAvailable = driver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
             CollectionAvailable.get(i).click();
@@ -185,18 +184,16 @@ public class TvPage extends BasePage {
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='HD']"));
     }
 
-    public void clickToglPaymentForOn() {
+    public void clickToglePaymentForOn() {
         click(By.xpath("//div[text()='₽']"));
     }
 
-    public void checkTvChannelsOnlyPayment() {
+    public void checkTvChannelsAll() {
         List<WebElement> CollectionAvailable = driver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
-        Assert.assertEquals(0, driver.findElements(By.xpath("//div[@class='_2mLz14ja1zCBwrRv-RM7lg']")).size());
         for (int i = 0; i <= 5; i++) {
             CollectionAvailable = driver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
             CollectionAvailable.get(i).click();
-            Assert.assertEquals(1, driver.findElements(By.xpath("(//button[@type='button']//span)[1]")).size());
-            //Assert.assertNull(driver.findElement(By.xpath("(//span[contains(text(), 'Смотреть'])[1]")));
+            Assert.assertNotEquals(0, driver.findElements(By.xpath("(//span[contains(text(),'Смотреть бесплатно')])[1]|(//span[contains(text(),'Подключить бесплатно')])[1]")).size());
             driver.navigate().back();
         }
     }
@@ -208,7 +205,7 @@ public class TvPage extends BasePage {
         Assert.assertNotNull(driver.findElement(By.xpath("(//button[@title='Отображаются все телеканалы']//div)[2]")));
     }
 
-    public void navigateMouseToToglPaymentOff() {
+    public void navigateMouseToToglePaymentOff() {
         WebElement element = driver.findElement(By.xpath("//div[text()='₽']"));
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();

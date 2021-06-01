@@ -16,6 +16,7 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.goToPackagesPage();
+        packagesPage.clickToTabAllPackage();
         packagesPage.checkTabAllPackagesInMenuPackagesPage();
         packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
@@ -38,18 +39,18 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
         cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
         //переключение c передачи НЕ 18+ на передачу 18+ внутри плеера:
         cardTvProgram.swithOnUnrecordedTvChannel18PlusInsidePlayer();
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }

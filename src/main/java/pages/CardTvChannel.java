@@ -100,7 +100,7 @@ public class CardTvChannel extends BasePage {
     }
 
     public void clickToButtonPlay() {
-        click(By.className("_2fPMOlJJX5DRkSEypQ3sLc"));
+        click(By.xpath("(//span[contains(text(),'Смотреть бесплатно')])[1]|(//span[contains(text(),'Подключить бесплатно')])[1]"));
     }
 
     public void clickTvProgramRecordInCardTvChannel() throws InterruptedException {

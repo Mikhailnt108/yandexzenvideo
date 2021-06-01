@@ -102,10 +102,6 @@ public class HeaderMenu extends BasePage {
 
     public void goToPackagesPage() {
         driver.get(Packages_Page_PP5);
-//        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
-//        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
-//        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
-//        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
         isElementDisplayed(By.xpath("//span[text()='Магазин']"));
     }
 

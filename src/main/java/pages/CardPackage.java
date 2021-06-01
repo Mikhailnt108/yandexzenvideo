@@ -129,4 +129,5 @@ public class CardPackage extends BasePage {
         click(By.xpath("(//div[text()='Фильмы'])[3]"));
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
+
 }
