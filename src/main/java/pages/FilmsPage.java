@@ -135,6 +135,7 @@ public class FilmsPage extends BasePage {
         click(By.xpath("//div[text()='Страна']"));
         click(By.xpath("//span[text()='Россия']"));
         click(By.xpath("//div[text()='Страна']"));
+        Thread.sleep(3000);
     }
 
     public void checkRequestResultOneCountry() {

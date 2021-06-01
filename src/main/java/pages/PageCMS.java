@@ -44,7 +44,7 @@ public class PageCMS extends BasePage {
         driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void chooseBundleInternetMFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -68,7 +68,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseBundleBezPereplatMaxFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -92,7 +92,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseBundleBezPereplatVseFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -116,7 +116,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseBundleBezPereplatInternetFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -140,7 +140,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseBundleBezPereplatZvonkiFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -164,7 +164,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseBundlePremiumFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -187,7 +187,7 @@ public class PageCMS extends BasePage {
         driver.switchTo().window((String) tabs2.get(0));
     }
     public void chooseBundleCorpBezlimitFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -247,7 +247,7 @@ public class PageCMS extends BasePage {
     }
 
     public void deleteAccountForBlockingMf(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -263,9 +263,12 @@ public class PageCMS extends BasePage {
     }
 
     public void createPriseEstOrRent2WithDiscount() {
-        String nameFilm = driver.findElement(By.tagName("h1")).getText();
-        System.out.println(nameFilm);
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/discounts')");
+        String urlFilm = driver.getCurrentUrl();
+        String idFilm = urlFilm.substring(44);
+        System.out.println(idFilm);
+//        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+//        System.out.println(nameFilm);
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/discounts')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
@@ -275,14 +278,8 @@ public class PageCMS extends BasePage {
         isElementDisplayed(By.cssSelector(".selectize-input"));
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='selectize-control form-control single']"))).build().perform();
-        //WebElement enterFilm = driver.findElement(By.xpath("//div[@class='selectize-control form-control single']"));
-        //WebElement enterFilm = driver.findElement(By.xpath("//div[@class='selectize-input items required invalid not-full']"));
-        //WebElement enterFilm = driver.findElement(By.xpath("//div[contains(@class,'selectize-input items')]"));
         WebElement enterFilm = driver.findElement(By.xpath("//input[@type='select-one']"));
-        //click(By.xpath("//div[contains(@class,'selectize-input items')]"));
-        //click(By.xpath("//div[@class='selectize-input items required invalid not-full']"));
-        //driver.findElement(By.cssSelector(".selectize-input")).click();
-        enterFilm.sendKeys(nameFilm);
+        enterFilm.sendKeys(idFilm);
         click(By.xpath("//div[@class='selectize-dropdown-content']"));
         click(By.xpath("//input[@value='Добавить']"));
         driver.close();
@@ -292,7 +289,7 @@ public class PageCMS extends BasePage {
     public void deleteDiscount() {
         String nameFilm = driver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/discounts')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/discounts')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
@@ -308,7 +305,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseNotDefinedTariff(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -332,7 +329,7 @@ public class PageCMS extends BasePage {
     }
 
     public void copyPasteCodMsisdnForNonMF(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/msisdn_confirmations')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -346,7 +343,7 @@ public class PageCMS extends BasePage {
         driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void copyPasteCodMsisdnBlockingMf(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/msisdn_confirmations')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -359,7 +356,7 @@ public class PageCMS extends BasePage {
         driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void chooseRoleVip(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -382,7 +379,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseBundleOsnovnoyFromMsisdn(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
@@ -406,7 +403,7 @@ public class PageCMS extends BasePage {
     }
 
     public void chooseBundleNotSelected(String login) {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user')");
+        ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//form[@method='GET']//input[1]"));
