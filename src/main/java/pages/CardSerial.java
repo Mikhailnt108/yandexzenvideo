@@ -2,16 +2,14 @@ package pages;
 
 import base.BasePage;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -25,6 +23,12 @@ public class CardSerial extends BasePage {
 
     public void checkOpenCardSerial() {
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
+    }
+    public void checkButtonFavoriteNotAdded() {
+        isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]"));
+        String colorButtonFavoriteNotAdded = driver.findElement(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]")).getCssValue("color");
+        System.out.println(colorButtonFavoriteNotAdded);
+        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorButtonFavoriteNotAdded);
     }
 
     public void clickPaymentButtonInCardSerial() {
@@ -309,7 +313,7 @@ public class CardSerial extends BasePage {
 
         isElementDisplayed(By.className("_3v-cosMJBw3_KSQoU9M3Mq")); // блок плашек "новинка" и "full hd"
         isElementDisplayed(By.className("_1v_D6wOANknQeJMBPo_rKK")); // название фильма
-        isElementDisplayed(By.className("KQ2rb7ZP-tTmXFu9sn_34")); // блок рейтингов "кинопоиск" и "IMDb"
+//        isElementDisplayed(By.xpath("//div[@class='KQ2rb7ZP-tTmXFu9sn_34']|")); // блок рейтингов "кинопоиск" и "IMDb"
         isElementDisplayed(By.xpath("//div[@class='_1v_D6wOANknQeJMBPo_rKK']")); // возраст, год выпуска, жанр
         isElementDisplayed(By.className("_23uR5oR4uHT0fJvmMxNxmS")); // блок кнопкок: лайк, дизлайк, избранное
         isElementDisplayed(By.className("_2KIN0FxuoXVTLyzpxPtNGz")); // блок кнопок покупки
@@ -404,5 +408,124 @@ public class CardSerial extends BasePage {
         String seasonAndEpisode2 = driver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText();
         Assert.assertEquals("отличается сезон", seasonAndEpisode1, seasonAndEpisode2);
     }
+
+    public void checkImageDifferBlockEpisodes() throws IOException {
+        // Сделать тестовый скриншот:
+        Screenshot screenshotBlockEpisodesPp4 = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .addIgnoredElement(By.className("_1xTt0LaoRnufuGkkLBsCPz")) // игнор область карточки до блока эпизодов
+                .addIgnoredElement(By.className("_2YrnCSEViX2PQLwVrBYiS0")) // игнор блок "похожие"
+                .addIgnoredElement(By.className("_7LRTnrwDy15pRyA2wKc1m")) // игнор постеров в блоке эпизодов
+                .addIgnoredElement(By.xpath("//div[@class='_3RenlHWpqv2tjN53MfarzN']//div[text()]")) // игнор текста табов блока эпизодов
+                .addIgnoredElement(By.className("ch-trigger__container")) // игнор блока авторизации
+                .takeScreenshot(driver);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "blockEpisodesPp4" + ".png");
+        ImageIO.write(screenshotBlockEpisodesPp4.getImage(), "png", actualFile1);
+
+        // Сделать новый эталонный скриншот:
+        driver.get("https://web-preprod4.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
+        Screenshot screenshotBlockEpisodesPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/" + "blockEpisodesPp4Standard" + ".png");
+        ImageIO.write(screenshotBlockEpisodesPp4Standard.getImage(), "png", expectedFile1);
+        screenshotBlockEpisodesPp4Standard.setIgnoredAreas(screenshotBlockEpisodesPp4.getIgnoredAreas());
+
+//        // Взять старый эталон скриншота:
+//        Screenshot screenshotBlockEpisodesPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/SerialsPage/" + "blockEpisodesPp4Standard" + ".png")));
+//        screenshotBlockEpisodesPp4Standard.setIgnoredAreas(screenshotBlockEpisodesPp4.getIgnoredAreas());
+
+        // Сравнение скриншотов:
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotBlockEpisodesPp4Standard, screenshotBlockEpisodesPp4);
+        System.out.println(diff1.getDiffSize());
+        System.out.println(diff1.getDiffImage());
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/SerialsPage/" + "diffBlockEpisodesPp4" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+        Assert.assertTrue(diff1.getDiffSize() <= 3000);
+    }
+
+    public void checkElementsBlockEpisodes() throws InterruptedException {
+        isElementDisplayed(By.className("_1hdhJYYoLFCYFGUtF3teH1")); // сам блок эпизодов
+        isElementDisplayed(By.xpath("//div[@class='_3RenlHWpqv2tjN53MfarzN']//div[contains(text(), 'Сезон')]")); // табы сезонов
+        isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]")); // тайлы эпизодов
+        isElementDisplayed(By.xpath("(//button[contains(@class,'_1wQ5bvvwLY0Ds4jeZwcuiM _2mHCS2K0ddR3OTV1_79IIz')])[1]")); // кнопка скролла
+
+        isElementDisplayed(By.xpath("(//a[@data-test='PackageLink']//div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]")); // постеры эпизодов
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")); // названия эпизодов
+        isElementDisplayed(By.xpath("(//span[@class='_3mvyhNdQM-dhsR11QU-BY9']//span[text()])[1]")); // номер серий
+    }
+
+    public void clickTailEpisode() {
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+    }
+
+    public void checkOpenPopUpPayment() {
+        isElementDisplayed(By.xpath("//h3[text()='Выберите один из вариантов']"));
+    }
+
+    public void paymentSerialAtSubsInPoUp() {
+        click(By.xpath("(//span[contains(text(),'Подключить бесплатно')])[2]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка')]"));
+        click(By.xpath("//button[text()='Принять и подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+        click(By.xpath("//button[text()='Закрыть']"));
+        isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
+    }
+
+    public void scrollBlockEpisode() throws InterruptedException {
+        // разовый скролл блока эпизодов вправо:
+        String tail1Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        System.out.println(tail1Right);
+        System.out.println(tail2Right);
+        System.out.println(tail3Right);
+
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+
+        String tail4Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]"));
+        System.out.println(tail4Right);
+        System.out.println(tail5Right);
+        System.out.println(tail6Right);
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Right, tail4Right);
+        Assert.assertNotEquals(tail2Right, tail5Right);
+        Assert.assertNotEquals(tail3Right, tail6Right);
+
+        // разовый скролл подборки влево:
+        String tail4Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+        String tail1Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Left, tail4Left);
+        Assert.assertNotEquals(tail2Left, tail5Left);
+        Assert.assertNotEquals(tail3Left, tail6Left);
+
+        // скоролл подборки вправо до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+            }
+        }
+        // скоролл подборки вдлево до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+            }
+        }
+    }
+
 }
+
 

@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П3_Фильмы_FRESH_от_26_05_
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_15_Работа_стандартных_фильтров_FRESH_от_26_05_21 extends TestBase {
@@ -11,7 +12,7 @@ public class Test_15_Работа_стандартных_фильтров_FRESH_
     @Story(value = "3. Фильмы")
     @DisplayName(value ="Работа стандартных фильтров")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void standardFilters() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.checkElementsFilmsPage();

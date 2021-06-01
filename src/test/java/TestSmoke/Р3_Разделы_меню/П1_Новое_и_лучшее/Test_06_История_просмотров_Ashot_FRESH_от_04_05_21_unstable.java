@@ -11,7 +11,7 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
     @Story(value = "1. Новое и лучшее")
     @DisplayName(value = "История просмотров")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(3)
+    @RepeatedTest(1)
     public void historyViewing() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();

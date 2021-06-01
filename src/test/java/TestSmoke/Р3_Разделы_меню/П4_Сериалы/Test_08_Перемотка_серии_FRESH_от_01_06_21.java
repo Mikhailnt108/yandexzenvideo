@@ -1,26 +1,26 @@
-package TestSmoke.Р3_Разделы_меню.П2_ТВ;
+package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_Переход_в_карточку_пакета_КЕЙС_НЕАКТУАЛЕН_В_СВЯЗИ_С_ЧЕКАУТОМ extends TestBase {
+public class Test_08_Перемотка_серии_FRESH_от_01_06_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "2. ТВ")
-    @DisplayName(value = "Переход в карточку пакета")
+    @Story(value = "4. Сериалы")
+    @DisplayName(value ="Перемотка серии")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
-    public void goToCardPackage() throws Exception {
-        headerMenu.goToTvPage();
+    @RepeatedTest(1)
+
+    public void rewindSeries() throws Exception {
+        headerMenu.goToSerialsPage();
         flowRegistation();
-        tvPage.checkOpenTvPageTabScheduleTv();
-        tvPage.clickOnTabInRecording();
-        tvPage.clickToTailTvChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.clickToLinkCardPackage();
-        cardPackage.checkOpenCardPackageTvChannel();
+        serialsPage.clickToTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.paymentSerialAtSubs();
+        cardSerial.episodeSliderRewindToVideoPleer();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

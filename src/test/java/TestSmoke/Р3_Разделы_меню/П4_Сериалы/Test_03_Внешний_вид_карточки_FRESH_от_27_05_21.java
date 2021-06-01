@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_03_Внешний_вид_карточки_FRESH_от_27_05_21 extends TestBase {
@@ -11,14 +12,14 @@ public class Test_03_Внешний_вид_карточки_FRESH_от_27_05_21 
     @Story(value = "4. Сериалы")
     @DisplayName(value ="Внешний вид карточки")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void appearanceSectionCardSerial() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToSerialsPage();
         serialsPage.clickToTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.checkAutoStartVideoPlayer();
-        cardSerial.checkImageDifferCardSerial();
+//        cardSerial.checkImageDifferCardSerial();
         cardSerial.checkElementsCardSerial();
 
         // авторизованный пользователь:
@@ -27,8 +28,9 @@ public class Test_03_Внешний_вид_карточки_FRESH_от_27_05_21 
         serialsPage.clickToTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.checkAutoStartVideoPlayer();
-        cardSerial.checkImageDifferCardSerial();
+//        cardSerial.checkImageDifferCardSerial();
         cardSerial.checkElementsCardSerial();
+        cardSerial.checkButtonFavoriteNotAdded();
         cardSerial.clickButtonFavorites();
         myPage.checkAddingSerialToFavorites();
         headerMenu.goToSerialsPage();

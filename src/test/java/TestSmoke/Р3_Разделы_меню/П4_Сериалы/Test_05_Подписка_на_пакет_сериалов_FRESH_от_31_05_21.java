@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_05_Подписка_на_пакет_сериалов_FRESH_от_31_05_21 extends TestBase {
@@ -11,8 +12,7 @@ public class Test_05_Подписка_на_пакет_сериалов_FRESH_о�
     @Story(value = "4. Сериалы")
     @DisplayName(value ="Подписка на пакет сериалов")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
-
+    @RepeatedTest(1)
     public void SubscribeToSeriesPackage() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();

@@ -11,7 +11,7 @@ public class Test_10_Подписка_на_пакет_каналов_FRESH_от_
     @Story(value = "2. ТВ")
     @DisplayName(value ="Подписка на пакет каналов")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(3)
+    @RepeatedTest(1)
     public void subscribeOnPackageTvChannel() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

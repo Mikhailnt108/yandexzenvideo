@@ -72,16 +72,16 @@ public class HeaderMenu extends BasePage {
     }
 
     public void goToNilPage() {
-        driver.get(NIL_Page_PP4);
+        driver.get(NIL_Page_PP5);
     }
 
     public void goToTvPage() {
-        driver.get(TV_Page_PP4);
+        driver.get(TV_Page_PP5);
     }
 
 
     public void goToFilmsPage() {
-        driver.get(Films_Page_PP4);
+        driver.get(Films_Page_PP5);
         isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
     }
 
@@ -91,17 +91,17 @@ public class HeaderMenu extends BasePage {
     }
 
     public void goToKidsPage() {
-        driver.get(Kids_Page_PP4);
+        driver.get(Kids_Page_PP5);
         isElementDisplayed(By.xpath("//span[text()='Детям']"));
     }
 
     public void goToSportPage() {
-        driver.get(Sport_Page_PP4);
+        driver.get(Sport_Page_PP5);
         isElementDisplayed(By.xpath("//h1[text()='Спорт']"));
     }
 
     public void goToPackagesPage() {
-        driver.get(Packages_Page_PP4);
+        driver.get(Packages_Page_PP5);
 //        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
 //        click(By.className("_2bWIp00Mji6hkryvkZN75B"));
 //        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
@@ -110,7 +110,7 @@ public class HeaderMenu extends BasePage {
     }
 
     public void goToAllCollectionsPage() {
-        driver.get(Collections_Page_PP4);
+        driver.get(Collections_Page_PP5);
         isElementDisplayed(By.xpath("//span[text()='Подборки']"));
         isElementDisplayed(By.xpath("//button[contains(text(), 'Следующая')]"));
     }

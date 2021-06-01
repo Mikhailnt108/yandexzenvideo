@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П3_Фильмы_FRESH_от_26_05_
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_08_Аренда_фильма_со_скидкой_FRESH_от_26_05_21_создание_скидки_заменить_API extends TestBase {
@@ -11,7 +12,7 @@ public class Test_08_Аренда_фильма_со_скидкой_FRESH_от_26
     @Story(value = "3. Фильмы")
     @DisplayName(value ="Аренда фильма со скидкой")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void rentFilmWithDiscount() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();

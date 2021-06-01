@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П2_ТВ;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class Test_04_Карточка_канала_Ashot_FRESH_от_05_05_21 ext
     @Story(value = "2. ТВ")
     @DisplayName(value ="Карточка канала")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void cardTvChannel() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         headerMenu.goToTvPage();

@@ -6,29 +6,33 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_Переключение_сезонов_FRESH_от_31_05_21 extends TestBase {
+public class Test_09_Выбор_серии_из_блока_выбора_серии_FRESH_доделать_скролл_блока_эпизодов extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Переключение сезонов")
+    @DisplayName(value ="Выбор серии из блока выбора серии")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-
-    public void switchingSeasons() throws Exception {
+    public void chooseEpisodeFromBlockEpisodes() throws Exception {
         headerMenu.goToSerialsPage();
-        flowRegistation();
         serialsPage.chooseSeasonsMoreOneSeason();
         cardSerial.checkOpenCardSerial();
+//        cardSerial.checkImageDifferBlockEpisodes();
+        cardSerial.checkElementsBlockEpisodes();
+        cardSerial.clickTailEpisode();
+        flowRegistation();
+        headerMenu.refreshPage();
+        cardSerial.clickTailEpisode();
+        cardSerial.checkOpenPopUpPayment();
+        cardSerial.paymentSerialAtSubsInPoUp();
+        cardSerial.clickTailEpisodeForStartVideoPleer();
         cardSerial.chooseOtherSeasonAndCheckPoster();
-        cardSerial.checkAutoStartVideoPlayer();
-        cardSerial.paymentSerialAtSubs();
-        cardSerial.moveSliderRewindToVideoPleer();
-        cardSerial.checkSeasonAndEpisode();
+//        cardSerial.scrollBlockEpisode();
         pageCMS.deleteAccountMF("79260192144");
+
+
     }
     private void flowRegistation() {
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");

@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_02_Переход_в_карточку_сериала_FRESH_от_27_05_21 extends TestBase {
@@ -11,7 +12,7 @@ public class Test_02_Переход_в_карточку_сериала_FRESH_о�
     @Story(value = "4. Сериалы")
     @DisplayName(value ="Переход в карточку сериала")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void GoToCardSerial() {
         headerMenu.goToSerialsPage();
         serialsPage.switchingFromBannerToCardSerial();

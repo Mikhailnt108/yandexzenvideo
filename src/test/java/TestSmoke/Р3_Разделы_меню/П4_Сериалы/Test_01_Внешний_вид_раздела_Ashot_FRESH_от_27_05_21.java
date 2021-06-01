@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_01_Внешний_вид_раздела_Ashot_FRESH_от_27_05_21 extends TestBase {
@@ -11,7 +12,7 @@ public class Test_01_Внешний_вид_раздела_Ashot_FRESH_от_27_05
     @Story(value = "4. Сериалы")
     @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void appearanceSectionSerialsPage() throws Exception {
         headerMenu.goToSerialsPage();
 //        serialsPage.checkImageDifferCherdakAndBanners();
@@ -25,19 +26,19 @@ public class Test_01_Внешний_вид_раздела_Ashot_FRESH_от_27_05
         serialsPage.scrollBannersToLeft();
         serialsPage.scrollBannersToRight();
         serialsPage.scrollСollectionToRightAndLeft();
-//        flowRegistation();
+        flowRegistation();
 ////        serialsPage.checkImageDifferCherdakAndBanners();
 ////        serialsPage.checkImageDifferBreadcrumbsAndBlocksFilters(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
 ////        serialsPage.checkImageDifferBlocksCollection(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
 ////        serialsPage.checkImageDifferFooter();
 ////        serialsPage.checkImageDifferSerialsPageScroll();
-//        serialsPage.checkElementsFilmsPage();
-//        serialsPage.checkElementsBannersCarousel();
-//        serialsPage.autoScrollBanners();
-//        serialsPage.scrollBannersToLeft();
-//        serialsPage.scrollBannersToRight();
-//        serialsPage.scrollСollectionToRightAndLeft();
-//        pageCMS.deleteAccountMF("79260192144");
+        serialsPage.checkElementsSerialsPage();
+        serialsPage.checkElementsBannersCarousel();
+        serialsPage.autoScrollBanners();
+        serialsPage.scrollBannersToLeft();
+        serialsPage.scrollBannersToRight();
+        serialsPage.scrollСollectionToRightAndLeft();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

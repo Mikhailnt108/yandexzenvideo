@@ -11,7 +11,7 @@ public class Test_15_2_Записываемая_ТВ_передача_18_плю�
     @Story(value = "2. ТВ")
     @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(10)
+    @RepeatedTest(1)
     public void recordedTvProgram18Plus() throws Exception {
         headerMenu.goToNilPage();
         flowRegistation();

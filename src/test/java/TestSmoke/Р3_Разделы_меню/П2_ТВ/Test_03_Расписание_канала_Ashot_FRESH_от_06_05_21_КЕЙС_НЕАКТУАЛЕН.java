@@ -3,6 +3,7 @@ package TestSmoke.Р3_Разделы_меню.П2_ТВ;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class Test_03_Расписание_канала_Ashot_FRESH_от_06_05_21
     @Story(value = "2. ТВ")
     @DisplayName(value ="Жанры программы передач")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void openScheduleChannel() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

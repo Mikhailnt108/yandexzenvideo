@@ -118,7 +118,7 @@ public class FilmsPage extends BasePage {
     }
 
     public void checkRequestResultTwoGenre() {
-        List<WebElement> CollectionTwoGenre = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
+        List<WebElement> CollectionTwoGenre = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Документальный')]|//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Аниме')]"));
         Assert.assertEquals(36, CollectionTwoGenre.size());
     }
 
@@ -669,7 +669,6 @@ public class FilmsPage extends BasePage {
         click(By.xpath("//button[text()='Боевик']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Приключения']"));
-
     }
 
     public void checkRequestResultTwoQuickFilter() {

@@ -3,23 +3,24 @@ package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_11_Добавление_в_избранное_сериала_FRESH extends TestBase {
+public class Test_11_Добавление_в_избранное_сериала_FRESH_от_01_06_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
     @DisplayName(value ="Добавление в избранное сериала")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
 
     public void AddingSeriesToFavorites() {
         headerMenu.goToSerialsPage();
         flowRegistation();
         serialsPage.clickToTailCardSerial();
         cardSerial.checkOpenCardSerial();
+        cardSerial.checkButtonFavoriteNotAdded();
         cardSerial.clickButtonFavorites();
-        myPage.goToMyPageFavorites();
         myPage.checkAddingSerialToFavorites();
         pageCMS.deleteAccountMF("79260192144");
     }

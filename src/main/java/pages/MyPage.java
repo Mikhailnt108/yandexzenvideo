@@ -73,30 +73,29 @@ public class MyPage extends BasePage {
 
         driver.get("https://web-preprod5.megafon.tv/my/purchases");
         click(By.xpath("//a[@href='/my/purchases/series']"));
-        for (int i=0; i<=8; i++) {
+        for (int a=0; a<=8; a++) {
             List<WebElement> count3 = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
             JavascriptExecutor jsDown = (JavascriptExecutor) driver;
             jsDown.executeScript("window.scrollTo(0, 50000);");
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             System.out.println(count3.size());
             Assert.assertNotEquals("количество элементов равно", count3.size(), driver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
             System.out.println(driver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
         }
         List<WebElement> countSerials = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i3 = countSerials.size();
-
         Assert.assertEquals("не равно количество сериалов", i3, i1+i2 );
     }
 
     public void checkAddingSerialToFavorites() {
-        String nameFilm = driver.findElement(By.tagName("h1")).getText();
-        System.out.println(nameFilm);
+        String nameSerial = driver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameSerial);
         driver.get(My_favorites);
         // переход в карточку сериала:
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         // переход в карточку эпизода:
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals(nameSerial, driver.findElement(By.tagName("h1")).getText());
     }
 
     public void goToCollectionFavoritesPage() {

@@ -1,11 +1,11 @@
-package TestSmoke.Р3_Разделы_меню.П4_Сериалы;
+package TestSmoke.старые_кейсы.разделы_меню.сериалы;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_09_Фильтр_по_жанрам extends TestBase {
+public class old_Фильтр_по_жанрам extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
