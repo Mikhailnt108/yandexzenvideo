@@ -30,7 +30,7 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
         nilPage.checkToMoveTileToFirstPlace();
 
         //скриншот тайла смотреть и редактировать:
-        nilPage.checkImageDifferTailWatchAndEditInCollectHistoryWatch();
+//        nilPage.checkImageDifferTailWatchAndEditInCollectHistoryWatch();
 
         //проверка отображения сериала в подборке:
         headerMenu.goToPackagesPage();

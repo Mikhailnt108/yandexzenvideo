@@ -21,6 +21,6 @@ public class Test_03_Расписание_канала_Ashot_FRESH_от_06_05_21
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.checkImageDifferCardTvChannelForUnauthorized();
+//        cardTvChannel.checkImageDifferCardTvChannelForUnauthorized();
     }
 }

@@ -24,7 +24,7 @@ public class Test_12_Записываемая_передача_Ashot_FRESH_от_
         cardTvProgram.checkPaymentComplete();
         headerMenu.refreshPage();
         cardTvProgram.checkAutoStartVideoPlayer();
-        cardTvProgram.checkImageDifferVideoPlayerRecordedAndSchedule();
+//        cardTvProgram.checkImageDifferVideoPlayerRecordedAndSchedule();
         cardTvProgram.checkElementsPlayerRecordedTvProgram();
         cardTvProgram.testFullScreenPlayer();
         cardTvProgram.testOnAndOffAudioInPlayer();

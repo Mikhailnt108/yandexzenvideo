@@ -15,30 +15,30 @@ public class Test_03_Внешний_вид_карточки_ASHOT_FRESH_от_25_
     @RepeatedTest(1)
     public void appearanceSectionCardFilm() throws Exception {
         // неавторизованный пользователь:
-//        headerMenu.goToFilmsPage();
-//        filmsPage.clickToTailCardFilm();
-//        cardFilm.checkOpenCardFilm();
-//        cardFilm.checkAutoStartVideoPlayer();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.checkAutoStartVideoPlayer();
 //        cardFilm.checkImageDifferCardFilm();
-//        cardFilm.checkElementsCardFilm();
+        cardFilm.checkElementsCardFilm();
 
         // авторизованный пользователь:
         headerMenu.goToFilmsPage();
         flowRegistation();
-//        filmsPage.clickToTailCardFilm();
-//        cardFilm.checkOpenCardFilm();
-//        cardFilm.checkAutoStartVideoPlayer();
-//        cardFilm.checkImageDifferCardFilm();
-//        cardFilm.checkElementsCardFilm();
-//        cardFilm.clickButtonFavorites();
-//        myPage.checkAddingFilmToFavorites();
-//        headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-//        cardFilm.clickToButtonReadDescription();
-//        cardFilm.checkOpenDescriptionAll();
-//        cardFilm.clickToButtonRollUp();
-//        cardFilm.checkRollUpDescription();
+        cardFilm.checkAutoStartVideoPlayer();
+//        cardFilm.checkImageDifferCardFilm();
+        cardFilm.checkElementsCardFilm();
+        cardFilm.clickButtonFavorites();
+        myPage.checkAddingFilmToFavorites();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.clickToButtonReadDescription();
+        cardFilm.checkOpenDescriptionAll();
+        cardFilm.clickToButtonRollUp();
+        cardFilm.checkRollUpDescription();
         cardFilm.clickToLikeButton();
         cardFilm.clickToDisLikeButton();
         pageCMS.deleteAccountMF("79260192144");

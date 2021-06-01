@@ -19,11 +19,11 @@ public class Test_11_Незаписываемая_передача_ASHOT_FRESH_�
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
-//        cardTvProgram.clickPaymentButtonInCardTvProgram();
-//        cardTvProgram.checkPaymentComplete();
-//        headerMenu.refreshPage();
+        cardTvProgram.clickPaymentButtonInCardTvProgram();
+        cardTvProgram.checkPaymentComplete();
+        headerMenu.refreshPage();
         cardTvProgram.checkAutoStartVideoPlayer();
-        cardTvProgram.checkImageDifferVideoPlayerUnrecordedAndSchedule();
+//        cardTvProgram.checkImageDifferVideoPlayerUnrecordedAndSchedule();
         headerMenu.refreshPage();
         cardTvProgram.checkElementsPlayerUnrecordedTvProgram();
         cardTvProgram.testFullScreenPlayer();

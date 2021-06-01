@@ -15,7 +15,7 @@ public class Test_01_Программа_передач_ASHOT_FRESH_от_20_05_21
     @RepeatedTest(1)
     public void historyViewing() throws Exception {
         headerMenu.goToTvPage();
-        tvPage.checkImageDifferTvPageTabProgramTv();
+//        tvPage.checkImageDifferTvPageTabProgramTv();
         tvPage.checkElementsTvPage();
         headerMenu.goToTvPage();
         tvPage.scrollTvPageTabTvProgram();

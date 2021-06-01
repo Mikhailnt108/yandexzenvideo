@@ -17,7 +17,7 @@ public class Test_14_Работа_быстрых_фильтров_ASHOT_FRESH_о
         headerMenu.goToFilmsPage();
         filmsPage.checkElementsFilmsPage();
 //        filmsPage.checkImageDifferBreadcrumbsAndBlocksFilters();
-        filmsPage.checkImageDifferScrollQuickFilters();
+//        filmsPage.checkImageDifferScrollQuickFilters();
         filmsPage.chooseOneQuickFilter();
         filmsPage.checkCatalogViewFilmsPage();
         filmsPage.checkRequestResultOneQuickFilter();

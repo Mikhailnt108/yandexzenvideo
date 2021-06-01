@@ -22,7 +22,7 @@ public class Test_04_Карточка_канала_Ashot_FRESH_от_05_05_21 ext
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.checkImageDifferCardTvChannelForUnauthorized();
+//        cardTvChannel.checkImageDifferCardTvChannelForUnauthorized();
         cardTvChannel.checkElementsInCardTvChannel();
         // авторизованный пользователь:
         headerMenu.goToTvPage();

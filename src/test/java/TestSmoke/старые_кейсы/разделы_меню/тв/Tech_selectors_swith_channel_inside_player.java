@@ -1,9 +1,9 @@
-package TestSmoke.Р3_Разделы_меню.П2_ТВ;
+package TestSmoke.старые_кейсы.разделы_меню.тв;
 
 import base.TestBase;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_15_3_Tech_selectors_swith_channel_inside_player extends TestBase {
+public class Tech_selectors_swith_channel_inside_player extends TestBase {
     @RepeatedTest(1)
     public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();

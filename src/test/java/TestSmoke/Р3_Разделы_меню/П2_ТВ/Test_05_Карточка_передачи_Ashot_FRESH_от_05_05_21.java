@@ -23,7 +23,7 @@ public class Test_05_Карточка_передачи_Ashot_FRESH_от_05_05_21
         cardTvChannel.clickOnTvProgramInCardChannel();
         cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.checkElementsInCardTvProgram();
-        cardTvProgram.checkImageDifferCardTvProgramForUnauthorized();
+//        cardTvProgram.checkImageDifferCardTvProgramForUnauthorized();
         //авторизованный пользователь:
         headerMenu.goToTvPage();
         flowRegistation();

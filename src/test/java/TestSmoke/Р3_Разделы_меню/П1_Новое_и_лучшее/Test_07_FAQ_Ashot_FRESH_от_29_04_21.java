@@ -19,7 +19,7 @@ public class Test_07_FAQ_Ashot_FRESH_от_29_04_21 extends TestBase {
     @RepeatedTest(1)
     public void checkFooter() throws IOException, AWTException {
         headerMenu.goToNilPage();
-        nilPage.checkImageDifferFooter();
+//        nilPage.checkImageDifferFooter();
         footer.clickToLinkFromDevices();
         footer.clickToLinkFromSupport();
         footer.clickToLinkFromSocialNetworks();

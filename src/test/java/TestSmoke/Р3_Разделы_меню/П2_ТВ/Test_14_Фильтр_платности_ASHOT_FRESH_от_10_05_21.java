@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_14_Фильтр_платности_добавить_ASHOT_FRESH_от_10_05_21 extends TestBase {
+public class Test_14_Фильтр_платности_ASHOT_FRESH_от_10_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
@@ -24,7 +24,7 @@ public class Test_14_Фильтр_платности_добавить_ASHOT_FRES
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
         headerMenu.goToTvPage();
-        tvPage.checkImageDifferToglPaymentOn();
+//        tvPage.checkImageDifferToglPaymentOn();
         tvPage.navigateMouseToToglPaymentOn();
         tvPage.clickToglPaymentForOff();
         tvPage.checkTvChannelsOnlyAvailable();
