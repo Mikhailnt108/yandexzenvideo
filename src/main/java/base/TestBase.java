@@ -58,7 +58,7 @@ public class TestBase {
         //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         //driver = new ChromeDriver(capabilities);
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--window-size=1900,1000");
+//        options.addArguments("--window-size=1900,1000");
         //options.addArguments("enable-features=NetworkServiceInProcess");
         //options.addArguments("disable-features=NetworkService");
 //        options.addArguments("--no-sandbox");
@@ -70,7 +70,7 @@ public class TestBase {
 //        options.addArguments("--dns-prefetch-disable");
 //        options.addArguments("--disable-gpu");
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
-        //options.addArguments("start-maximized");
+        options.addArguments("start-maximized");
         //запуск браузера в фоне:
         //options.setHeadless(true);
         driver = new ChromeDriver(options);
