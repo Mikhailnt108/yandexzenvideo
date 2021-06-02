@@ -411,6 +411,59 @@ public class NilPage extends BasePage {
         Assert.assertNotEquals(bannerLast, bannerFirst);
     }
 
+    public void scrollСollectionToRightAndLeft() throws Exception {
+
+        // разовый скролл подборки вправо:
+        String tail1Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        System.out.println(tail1Right);
+        System.out.println(tail2Right);
+        System.out.println(tail3Right);
+
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+
+        String tail4Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]"));
+        System.out.println(tail4Right);
+        System.out.println(tail5Right);
+        System.out.println(tail6Right);
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Right, tail4Right);
+        Assert.assertNotEquals(tail2Right, tail5Right);
+        Assert.assertNotEquals(tail3Right, tail6Right);
+
+        // разовый скролл подборки влево:
+        String tail4Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+        String tail1Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Left, tail4Left);
+        Assert.assertNotEquals(tail2Left, tail5Left);
+        Assert.assertNotEquals(tail3Left, tail6Left);
+
+        // скоролл подборки вправо до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+            }
+        }
+        // скоролл подборки вдлево до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+            }
+        }
+    }
+
     public void checkElementsCollection() {
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a)[1]"));
         isElementDisplayed(By.partialLinkText("Все"));

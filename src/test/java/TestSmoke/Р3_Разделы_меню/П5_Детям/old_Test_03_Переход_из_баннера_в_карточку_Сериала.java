@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Переход_из_баннера_в_карточку_Сериала extends TestBase {
+public class old_Test_03_Переход_из_баннера_в_карточку_Сериала extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")

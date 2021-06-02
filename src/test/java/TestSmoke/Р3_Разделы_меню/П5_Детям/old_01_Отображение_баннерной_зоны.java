@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_01_Отображение_баннерной_зоны_ДОБАВИТЬ_ASHOT extends TestBase {
+public class old_01_Отображение_баннерной_зоны extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")

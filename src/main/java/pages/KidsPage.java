@@ -26,10 +26,13 @@ public class KidsPage extends BasePage {
     }
 
     public void checkElementsBannersCarousel() throws Exception {
-        isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
-        isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
-        isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
-        isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
+        isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']")); // банерная зона
+        isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']")); // точки пагинации
+        isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']")); // кнопка прокрутки баннера вправо
+        isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']")); // кнопка прокрутки баннера влево
+        isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[2]")); // постер баннера
+        isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[2]")); // заголвок контента
+        isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription'])[2]")); // мета-инфо
 
         List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
@@ -39,12 +42,7 @@ public class KidsPage extends BasePage {
             isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
             isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
             isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]"));
-            //isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]|(//div[@data-test='SlideDescription' and contains(text(),'20')])[3]|(//div[@class='kjFUbLahFxqq2AjHY8j2R'])[3]"));
             System.out.println(driver.findElement(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]")).getText());
-            //click(By.xpath("//div[@data-test='BannerCarousel']"));
-            //Assert.assertEquals(1, driver.findElements(By.xpath("//div[contains(text(),'Для детей')]")).size());
-            //Thread.sleep(2000);
-            //driver.navigate().back();
         }
 
         List<WebElement> BannerForKids2 = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
@@ -53,16 +51,12 @@ public class KidsPage extends BasePage {
             BannerForKids2 = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids2.get(i).click();
             Thread.sleep(2000);
-            //isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
-            //isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
-            //System.out.println(driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText());
-            // isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]"));
-            //isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]|(//div[@data-test='SlideDescription' and contains(text(),'20')])[3]|(//div[@class='kjFUbLahFxqq2AjHY8j2R'])[3]"));
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Assert.assertEquals(1, driver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]")).size());
             Thread.sleep(2000);
             driver.navigate().back();
         }
+
 
     }
 
@@ -188,6 +182,63 @@ public class KidsPage extends BasePage {
             }
         }
     }
+    public void checkScrollBannersToLeft() throws Exception {
+        java.util.List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForKids.size());
+        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
+        Thread.sleep(2000);
+        String bannerFirst = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(bannerFirst);
+        click(By.xpath("//button[@data-test='leftCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
+        Thread.sleep(2000);
+        String bannerLast = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(bannerLast);
+        Assert.assertNotEquals(bannerFirst, bannerLast);
+    }
+
+    public void checkScrollBannersToRight() throws Exception {
+        List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForKids.size());
+        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][last()]"));
+        String bannerLast = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(bannerLast);
+        click(By.xpath("//button[@data-test='rightCarouselButton']"));
+        //isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][1]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
+        Thread.sleep(2000);
+        String bannerFirst = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(bannerFirst);
+        Assert.assertNotEquals(bannerLast, bannerFirst);
+    }
+
+    public void checkAutoScrollBanners() throws Exception {
+        isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
+        isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
+
+        String banner1 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        System.out.println(banner1);
+        Thread.sleep(5000);
+        String banner2 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner2);
+        Assert.assertNotEquals(banner1, banner2);
+        Thread.sleep(5000);
+        String banner3 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner3);
+        Assert.assertNotEquals(banner2, banner3);
+        Thread.sleep(5000);
+        String banner4 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner4);
+        Assert.assertNotEquals(banner3, banner4);
+        Thread.sleep(5000);
+        String banner5 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        System.out.println(banner5);
+        Assert.assertNotEquals(banner4, banner5);
+    }
+
+
 
     public void autoScrollBanners() throws Exception {
         isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
@@ -243,6 +294,59 @@ public class KidsPage extends BasePage {
         String bannerFirst = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(bannerFirst);
         Assert.assertNotEquals(bannerLast, bannerFirst);
+    }
+
+    public void scrollСollectionToRightAndLeft() throws Exception {
+
+        // разовый скролл подборки вправо:
+        String tail1Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        System.out.println(tail1Right);
+        System.out.println(tail2Right);
+        System.out.println(tail3Right);
+
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+
+        String tail4Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]"));
+        System.out.println(tail4Right);
+        System.out.println(tail5Right);
+        System.out.println(tail6Right);
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Right, tail4Right);
+        Assert.assertNotEquals(tail2Right, tail5Right);
+        Assert.assertNotEquals(tail3Right, tail6Right);
+
+        // разовый скролл подборки влево:
+        String tail4Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+        String tail1Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        Thread.sleep(5000);
+        Assert.assertNotEquals(tail1Left, tail4Left);
+        Assert.assertNotEquals(tail2Left, tail5Left);
+        Assert.assertNotEquals(tail3Left, tail6Left);
+
+        // скоролл подборки вправо до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+            }
+        }
+        // скоролл подборки вдлево до упора:
+        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
+            for (int i = 0; i <= 10; i++) {
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+            }
+        }
     }
 
     public void scrollСollectionToRight() throws Exception {
@@ -369,31 +473,31 @@ public class KidsPage extends BasePage {
         File actualFile2 = new File("src/test/java/testScreenshots/actual/KidsPage/" + "kidsPageBannerPp4" + ".png");
         ImageIO.write(screenshotHeaderBannerPp4.getImage(), "png", actualFile2);
 
-//        // Сделать новый эталонный скриншот чердака:
-//        driver.get("https://web-preprod4.megafon.tv/kids");
-//        WebElement headerCherdakPp4Standard = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
-//        Screenshot screenshotHeaderCherdakPp4Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .takeScreenshot(driver, headerCherdakPp4Standard);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageCherdakPp4Standard"+".png");
-//        ImageIO.write(screenshotHeaderCherdakPp4Standard.getImage(), "png", expectedFile1);
+        // Сделать новый эталонный скриншот чердака:
+        driver.get("https://web-preprod4.megafon.tv/kids");
+        WebElement headerCherdakPp4Standard = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
+        Screenshot screenshotHeaderCherdakPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver, headerCherdakPp4Standard);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageCherdakPp4Standard"+".png");
+        ImageIO.write(screenshotHeaderCherdakPp4Standard.getImage(), "png", expectedFile1);
 
-        // Взять старый эталонный скриншот чердака:
-        Screenshot screenshotHeaderCherdakPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCherdakPp4Standard" + ".png")));
+//        // Взять старый эталонный скриншот чердака:
+//        Screenshot screenshotHeaderCherdakPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCherdakPp4Standard" + ".png")));
 
-//        // Сделать новый эталонный скриншот баннерной зоны:
-//        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-//        WebElement headerBannerPp4Standard = driver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
-//        Screenshot screenshotHeaderBannerPp4Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .takeScreenshot(driver, headerBannerPp4Standard);
-//        File expectedFile2 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageBannerPp4Standard"+".png");
-//        ImageIO.write(screenshotHeaderBannerPp4Standard.getImage(), "png", expectedFile2);
-//        screenshotHeaderBannerPp4Standard.setIgnoredAreas(screenshotHeaderBannerPp4.getIgnoredAreas());
-
-        // Взять старый эталонный скриншот баннерной зоны:
-        Screenshot screenshotHeaderBannerPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageBannerPp4Standard" + ".png")));
+        // Сделать новый эталонный скриншот баннерной зоны:
+        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
+        WebElement headerBannerPp4Standard = driver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
+        Screenshot screenshotHeaderBannerPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver, headerBannerPp4Standard);
+        File expectedFile2 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageBannerPp4Standard"+".png");
+        ImageIO.write(screenshotHeaderBannerPp4Standard.getImage(), "png", expectedFile2);
         screenshotHeaderBannerPp4Standard.setIgnoredAreas(screenshotHeaderBannerPp4.getIgnoredAreas());
+
+//        // Взять старый эталонный скриншот баннерной зоны:
+//        Screenshot screenshotHeaderBannerPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageBannerPp4Standard" + ".png")));
+//        screenshotHeaderBannerPp4Standard.setIgnoredAreas(screenshotHeaderBannerPp4.getIgnoredAreas());
 
         // Сравнить скриншоты чердака (тестовый и эталонный):
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotHeaderCherdakPp4Standard, screenshotHeaderCherdakPp4);
@@ -445,36 +549,36 @@ public class KidsPage extends BasePage {
         File actualFile2 = new File("src/test/java/testScreenshots/actual/KidsPage/" + "kidsPageCollectionWithoutTitlePp4" + ".png");
         ImageIO.write(screenshotCollectionWithoutTitlePp4.getImage(), "png", actualFile2);
 
-//        //Сделать новый эталонный скриншот блока подборки с заголовком:
-//        driver.get("https://web-preprod4.megafon.tv/kids");
-//        WebElement blockCollectionWithTitlePp4Standard = driver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
-//        Screenshot screenshotCollectionWithTitlePp4Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-//                .takeScreenshot(driver, blockCollectionWithTitlePp4Standard);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageCollectionWithTitlePp4Standard"+".png");
-//        ImageIO.write(screenshotCollectionWithTitlePp4Standard.getImage(), "png", expectedFile1);
-//        screenshotCollectionWithTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithTitlePp4.getIgnoredAreas());
-
-
-        //Взять старый эталонный скриншот блока подборки с заголовком:
-        Screenshot screenshotCollectionWithTitlePp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCollectionWithTitlePp4Standard" + ".png")));
+        // Сделать новый эталонный скриншот блока подборки с заголовком:
+        driver.get("https://web-preprod4.megafon.tv/kids");
+        WebElement blockCollectionWithTitlePp4Standard = driver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
+        Screenshot screenshotCollectionWithTitlePp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .takeScreenshot(driver, blockCollectionWithTitlePp4Standard);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageCollectionWithTitlePp4Standard"+".png");
+        ImageIO.write(screenshotCollectionWithTitlePp4Standard.getImage(), "png", expectedFile1);
         screenshotCollectionWithTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithTitlePp4.getIgnoredAreas());
 
-//        //Сделать новый эталонный скриншот блока подборки без заголовка:
-//        driver.get("https://web-preprod4.megafon.tv/kids");
-//        WebElement collectionWithoutTitlePp4Standard = driver.findElement(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']"));
-//        Screenshot screenshotCollectionWithoutTitlePp4Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-//                .takeScreenshot(driver, collectionWithoutTitlePp4Standard);
-//        File expectedFile2 = new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCollectionWithoutTitlePp4Standard" + ".png");
-//        ImageIO.write(screenshotCollectionWithoutTitlePp4Standard.getImage(), "png", expectedFile2);
-//        screenshotCollectionWithoutTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithoutTitlePp4.getIgnoredAreas());
 
-        //Взять старый эталонный скриншот блока подборки без заголовка:
-        Screenshot screenshotCollectionWithoutTitlePp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCollectionWithoutTitlePp4Standard" + ".png")));
+//        //Взять старый эталонный скриншот блока подборки с заголовком:
+//        Screenshot screenshotCollectionWithTitlePp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCollectionWithTitlePp4Standard" + ".png")));
+//        screenshotCollectionWithTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithTitlePp4.getIgnoredAreas());
+
+        //Сделать новый эталонный скриншот блока подборки без заголовка:
+        driver.get("https://web-preprod4.megafon.tv/kids");
+        WebElement collectionWithoutTitlePp4Standard = driver.findElement(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']"));
+        Screenshot screenshotCollectionWithoutTitlePp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .takeScreenshot(driver, collectionWithoutTitlePp4Standard);
+        File expectedFile2 = new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCollectionWithoutTitlePp4Standard" + ".png");
+        ImageIO.write(screenshotCollectionWithoutTitlePp4Standard.getImage(), "png", expectedFile2);
         screenshotCollectionWithoutTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithoutTitlePp4.getIgnoredAreas());
+
+//        //Взять старый эталонный скриншот блока подборки без заголовка:
+//        Screenshot screenshotCollectionWithoutTitlePp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCollectionWithoutTitlePp4Standard" + ".png")));
+//        screenshotCollectionWithoutTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithoutTitlePp4.getIgnoredAreas());
 
         //Сравнение скриншотов блока подборки с заголовком (тестовый и эталонный):
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectionWithTitlePp4Standard, screenshotCollectionWithTitlePp4);
@@ -502,20 +606,20 @@ public class KidsPage extends BasePage {
         File actualFile1 = new File("src/test/java/testScreenshots/actual/KidsPage/" + "kidsPageFooterPp4" + ".png");
         ImageIO.write(screenshotFooterPp4.getImage(), "png", actualFile1);
 
-//        //Сделать новый эталонный скриншот футера:
-//        driver.get("https://web-preprod4.megafon.tv/kids");
-//        WebElement footerPp4Standard = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
-//        Screenshot screenshotFooterPp4Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-//                .takeScreenshot(driver, footerPp4Standard);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageFooterPp4Standard"+".png");
-//        ImageIO.write(screenshotFooterPp4Standard.getImage(), "png", expectedFile1);
-//        screenshotFooterPp4Standard.setIgnoredAreas(screenshotFooterPp4.getIgnoredAreas());
-
-        // Взять старый эталонный скриншот футера:
-        Screenshot screenshotFooterPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageFooterPp4Standard" + ".png")));
+        //Сделать новый эталонный скриншот футера:
+        driver.get("https://web-preprod4.megafon.tv/kids");
+        WebElement footerPp4Standard = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
+        Screenshot screenshotFooterPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .takeScreenshot(driver, footerPp4Standard);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageFooterPp4Standard"+".png");
+        ImageIO.write(screenshotFooterPp4Standard.getImage(), "png", expectedFile1);
         screenshotFooterPp4Standard.setIgnoredAreas(screenshotFooterPp4.getIgnoredAreas());
+
+//        // Взять старый эталонный скриншот футера:
+//        Screenshot screenshotFooterPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageFooterPp4Standard" + ".png")));
+//        screenshotFooterPp4Standard.setIgnoredAreas(screenshotFooterPp4.getIgnoredAreas());
 
         // Сравнить скриншоты футера (тестовый и эталонный):
         ImageDiff diff = new ImageDiffer().makeDiff(screenshotFooterPp4Standard, screenshotFooterPp4);

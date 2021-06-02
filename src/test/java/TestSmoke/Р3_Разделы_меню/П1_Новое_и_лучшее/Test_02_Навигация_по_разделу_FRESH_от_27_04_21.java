@@ -18,7 +18,6 @@ public class Test_02_Навигация_по_разделу_FRESH_от_27_04_21 
         nilPage.checkAutoScrollBanners();
         nilPage.checkScrollBannersToLeft();
         nilPage.checkScrollBannersToRight();
-        nilPage.scrollСollectionToRight();
-        nilPage.scrollСollectionToLeft();
+        nilPage.scrollСollectionToRightAndLeft();
     }
 }
