@@ -391,7 +391,7 @@ public class CardSerial extends BasePage {
     public void paymentSerialAtSubs() {
         click(By.xpath("(//button[@type='button']//span)[4]"));
         isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка')]"));
-        click(By.xpath("//button[text()='Принять и подключить']"));
+        click(By.xpath("//button[text()='Принять и подключить']|//button[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));

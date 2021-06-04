@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 public class KidsPage extends BasePage {
@@ -30,9 +31,6 @@ public class KidsPage extends BasePage {
         isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']")); // точки пагинации
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']")); // кнопка прокрутки баннера вправо
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']")); // кнопка прокрутки баннера влево
-        isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[2]")); // постер баннера
-        isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[2]")); // заголвок контента
-        isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription'])[2]")); // мета-инфо
 
         List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
@@ -56,8 +54,6 @@ public class KidsPage extends BasePage {
             Thread.sleep(2000);
             driver.navigate().back();
         }
-
-
     }
 
     public void clickToAllButton() {
@@ -65,22 +61,17 @@ public class KidsPage extends BasePage {
     }
 
     public void clickToTailCardFilm() {
-        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/vods')][2]"));
+        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/vods')][1]"));
 
     }
 
-    public void checkOpenCardFilm() {
-        isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
-    }
+
 
     public void clickToTailCardSerial() {
-        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/shows')][3]"));
+        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/shows')][1]"));
 
     }
 
-    public void checkOpenCardSerial() {
-        isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
-    }
 
     public void clickToTailCardTvProgram() {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/tv/channels/')][1]"));
@@ -98,40 +89,38 @@ public class KidsPage extends BasePage {
         click(By.linkText("Детские фильмы"));
     }
 
-    public void switchingFromBannerToCardFilm() {
+    public void switchingFromBannerToCardFilm() throws InterruptedException {
         List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/movies/vods/')]")).isDisplayed())
-            {
-                click(By.xpath("//div[@data-test='BannerCarousel']"));
-                isElementDisplayed(By.xpath("//span[text()='Фильмы']"));
-                break;
-            }
-            else {
-                BannerForKids.get(i).click();
-            }
-        }
-    }
-
-    public void switchingFromBannerToCardSerial() {
-        List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
-        System.out.println(BannerForKids.size());
-        for (int i = 0; i < BannerForKids.size(); i++) {
-            BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
-            BannerForKids.get(i).click();
-            if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/shows/')]")).isDisplayed()) {
-                click(By.xpath("//div[@data-test='BannerCarousel']"));
-                isElementDisplayed(By.xpath("//span[text()='Сериалы']"));
+            Thread.sleep(2000);
+            click(By.xpath("//div[@data-test='BannerCarousel']"));
+            if (driver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                BannerForKids.get(i).click();
+                driver.navigate().back();
             }
         }
-
     }
+
+    public void switchingFromBannerToCardSerial() throws InterruptedException {
+        List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForKids.size());
+        for (int i = 0; i < BannerForKids.size(); i++) {
+            BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForKids.get(i).click();
+            Thread.sleep(2000);
+            click(By.xpath("//div[@data-test='BannerCarousel']"));
+            if (driver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
+                break;
+            } else {
+                driver.navigate().back();
+            }
+        }
+    }
+
 
     public void switchingFromBannerToCardTvChannel() throws Exception {
         List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
@@ -139,15 +128,13 @@ public class KidsPage extends BasePage {
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            Thread.sleep(3000);
-            if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/tv/channels/')]")).isDisplayed()) {
-                driver.findElement(By.xpath("//div[@data-test='BannerCarousel']")).click();
-                isElementDisplayed(By.xpath("//span[text()='ТВ']"));
-                break; }
-                else {
-                BannerForKids.get(i).click();
-                }
-
+            Thread.sleep(2000);
+            click(By.xpath("//div[@data-test='BannerCarousel']"));
+            if (driver.findElements(By.xpath("//span[text()='ТВ']")).size() > 0) {
+                break;
+            } else {
+                driver.navigate().back();
+            }
         }
     }
 
@@ -182,6 +169,7 @@ public class KidsPage extends BasePage {
             }
         }
     }
+
     public void checkScrollBannersToLeft() throws Exception {
         java.util.List<WebElement> BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
@@ -237,7 +225,6 @@ public class KidsPage extends BasePage {
         System.out.println(banner5);
         Assert.assertNotEquals(banner4, banner5);
     }
-
 
 
     public void autoScrollBanners() throws Exception {
@@ -393,8 +380,8 @@ public class KidsPage extends BasePage {
         Assert.assertNotEquals(tail6, tail9);
         Assert.assertNotEquals(tail7, tail10);
 
-        while (driver.findElements(By.xpath("(//button[@class='_2k8t0pWxsThhBF_-hDMEc- _12wttH1TVBR-AUv1aCErMK'])[1]")).size()>0) {
-           click(By.xpath("(//button[@data-test='ArrowButtonPrev'])[1]"));
+        while (driver.findElements(By.xpath("(//button[@class='_2k8t0pWxsThhBF_-hDMEc- _12wttH1TVBR-AUv1aCErMK'])[1]")).size() > 0) {
+            click(By.xpath("(//button[@data-test='ArrowButtonPrev'])[1]"));
         }
     }
 
@@ -474,12 +461,12 @@ public class KidsPage extends BasePage {
         ImageIO.write(screenshotHeaderBannerPp4.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот чердака:
-        driver.get("https://web-preprod4.megafon.tv/kids");
+        driver.get("https://web-preprod5.megafon.tv/kids");
         WebElement headerCherdakPp4Standard = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(driver, headerCherdakPp4Standard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageCherdakPp4Standard"+".png");
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCherdakPp4Standard" + ".png");
         ImageIO.write(screenshotHeaderCherdakPp4Standard.getImage(), "png", expectedFile1);
 
 //        // Взять старый эталонный скриншот чердака:
@@ -491,7 +478,7 @@ public class KidsPage extends BasePage {
         Screenshot screenshotHeaderBannerPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(driver, headerBannerPp4Standard);
-        File expectedFile2 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageBannerPp4Standard"+".png");
+        File expectedFile2 = new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageBannerPp4Standard" + ".png");
         ImageIO.write(screenshotHeaderBannerPp4Standard.getImage(), "png", expectedFile2);
         screenshotHeaderBannerPp4Standard.setIgnoredAreas(screenshotHeaderBannerPp4.getIgnoredAreas());
 
@@ -516,7 +503,7 @@ public class KidsPage extends BasePage {
 
     public void checkImageDifferBlocksCollection() throws AWTException, IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
-        driver.get("https://web-preprod4.megafon.tv/kids");
+        driver.get("https://web-preprod5.megafon.tv/kids");
         WebElement blockCollectionWithTitlePp4 = driver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
         Screenshot screenshotCollectionWithTitlePp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -533,7 +520,7 @@ public class KidsPage extends BasePage {
         ImageIO.write(screenshotCollectionWithTitlePp4.getImage(), "png", actualFile1);
 
         //Сделать тестовый скриншот блока подборки без заголовка:
-        driver.get("https://web-preprod4.megafon.tv/kids");
+        driver.get("https://web-preprod5.megafon.tv/kids");
         WebElement collectionWithoutTitlePp4 = driver.findElement(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']"));
         Screenshot screenshotCollectionWithoutTitlePp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -556,7 +543,7 @@ public class KidsPage extends BasePage {
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .takeScreenshot(driver, blockCollectionWithTitlePp4Standard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageCollectionWithTitlePp4Standard"+".png");
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageCollectionWithTitlePp4Standard" + ".png");
         ImageIO.write(screenshotCollectionWithTitlePp4Standard.getImage(), "png", expectedFile1);
         screenshotCollectionWithTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithTitlePp4.getIgnoredAreas());
 
@@ -613,7 +600,7 @@ public class KidsPage extends BasePage {
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .takeScreenshot(driver, footerPp4Standard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"kidsPageFooterPp4Standard"+".png");
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/" + "kidsPageFooterPp4Standard" + ".png");
         ImageIO.write(screenshotFooterPp4Standard.getImage(), "png", expectedFile1);
         screenshotFooterPp4Standard.setIgnoredAreas(screenshotFooterPp4.getIgnoredAreas());
 
@@ -628,4 +615,79 @@ public class KidsPage extends BasePage {
         ImageIO.write(diff.getMarkedImage(), "png", diffFile);
         Assert.assertTrue(diff.getDiffSize() <= 100);
     }
+
+    public void checkElementsBlockCollectionWithHeader() throws Exception {
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a)[1]"));
+        isElementDisplayed(By.partialLinkText("Все"));
+        isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        isElementDisplayed(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh'])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]"));
+        isElementDisplayed(By.xpath("(//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span)[1]"));
+        isElementDisplayed(By.xpath("(//button[@data-test='ArrowButtonNext'])[1]"));
+        isElementDisplayed(By.xpath("(//button[@data-test='ArrowButtonPrev' and @disabled])[1]"));
+
+        List<WebElement> TailCollectForKids1 = driver.findElements(By.xpath("(//div[@data-test='PackageListWrapper'])[1]//a[@data-test='PackageLink']"));
+        System.out.println(TailCollectForKids1.size());
+        for (int a = 0; a < TailCollectForKids1.size(); a++) {
+            TailCollectForKids1 = driver.findElements(By.xpath("(//div[@data-test='PackageListWrapper'])[1]//a[@data-test='PackageLink']"));
+            TailCollectForKids1.get(a).click();
+            isElementDisplayed(By.xpath("//div[contains(text(),'Для детей')]"));
+            System.out.println(driver.findElement(By.xpath("//h1[text()]")).getText());
+            click(By.xpath("(//div[text()='Детям'])[1]"));
+//            driver.get("https://web-preprod5.megafon.tv/kids");
+            Thread.sleep(2000);
+        }
+    }
+
+    public void checkElementsBlockCollectionWithoutHeader() throws InterruptedException {
+        isElementDisplayed(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']"));// блок подборки без заголовка
+        isElementDisplayed(By.xpath("(//div[@class='_3tqh94XTCpOzUTwtkUwF7L']//div[@data-test='CollectionBlock'])[1]")); // тайл1 в подборке без заголовка
+        isElementDisplayed(By.xpath("(//div[@class='_3tqh94XTCpOzUTwtkUwF7L']//div[@data-test='CollectionBlock'])[2]")); // тайл2 в подборке без заголовка
+        isElementDisplayed(By.xpath("(//div[@class='_3tqh94XTCpOzUTwtkUwF7L']//h3[@data-test='CollectionName'])[1]")); // заголовок и возраст контента тайла1 в подборке без заголовка
+        isElementDisplayed(By.xpath("(//div[@class='_3tqh94XTCpOzUTwtkUwF7L']//h3[@data-test='CollectionName'])[2]")); // заголовок и возраст контента тайла2 в подборке без заголовка
+        isElementDisplayed(By.xpath("//button[@data-test='ArrowButtonNext']/ancestor::*//div[@class='_3tqh94XTCpOzUTwtkUwF7L']")); // кнопка листать вперед
+        isElementDisplayed(By.xpath("//button[@data-test='ArrowButtonPrev' and @disabled]/ancestor::*//div[@class='_3tqh94XTCpOzUTwtkUwF7L']")); // кнопка листать назад
+
+        List<WebElement> TailCollectForKids2 = driver.findElements(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']//div[@data-test='CollectionBlock']"));
+        System.out.println(TailCollectForKids2.size());
+        for (int a = 0; a < 2; a++) {
+            TailCollectForKids2 = driver.findElements(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']//div[@data-test='CollectionBlock']"));
+            TailCollectForKids2.get(a).click();
+            List<WebElement> countAllTail = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
+            countAllTail.size();
+            List<WebElement> countForKids = driver.findElements(By.xpath("//span[contains(text(),'Для детей')]"));
+            countForKids.size();
+            Assert.assertEquals(countAllTail.size(), countForKids.size());
+            System.out.println(countAllTail.size());
+            System.out.println(countForKids.size());
+            System.out.println(driver.findElement(By.xpath("//h1[text()]")).getText());
+            click(By.xpath("(//div[text()='Детям'])[1]"));
+            Thread.sleep(2000);
+        }
+
+    }
+
+    public void clickToTailCardPackage() {
+        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/mixed_groups/')][1]"));
+    }
+
+    public void clickToLinkAllOnCollectionBlock() {
+        click(By.partialLinkText("Все"));
+    }
+
+    public void clickToLinkAllWithCollectionFilms() {
+        click(By.xpath("(//a[contains(@href, '/vods')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
+    }
+
+    public void clickToLinkAllWithCollectionSerial() {
+        click(By.xpath("(//a[contains(@href, '/shows/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
+    }
+
+    public void clickToLinkAllWithCollectionTvProgram() {
+        click(By.xpath("(//a[contains(@href, '/tv/channels/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
+    }
 }
+
+
+
+

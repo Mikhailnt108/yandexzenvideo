@@ -464,7 +464,7 @@ public class NilPage extends BasePage {
         }
     }
 
-    public void checkElementsCollection() {
+    public void checkElementsBlockCollectionWithHeader() {
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a)[1]"));
         isElementDisplayed(By.partialLinkText("Все"));
         isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]"));
@@ -488,19 +488,19 @@ public class NilPage extends BasePage {
     }
 
     public void clickToLinkAllWithCollectionFilms() {
-        click(By.xpath("(//a[@data-test='PackageListWrapperMoreText']/following::a[contains(@href, '/vods')])[1]"));
+        click(By.xpath("(//a[contains(@href, '/vods')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
     public void clickToLinkAllWithCollectionSerial() {
-        click(By.xpath("(//a[@data-test='PackageListWrapperMoreText']/following::a[contains(@href, '/shows/')])[1]"));
+        click(By.xpath("(//a[contains(@href, '/shows/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
     public void clickToLinkAllWithCollectionTvProgram() {
-        click(By.xpath("(//a[@data-test='PackageListWrapperMoreText']/following::a[contains(@href, '/tv/channels/')])[1]"));
+        click(By.xpath("(//a[contains(@href, '/tv/channels/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
     public void clickToLinkAllWithCollectionPackage() {
-        click(By.xpath("(//a[@data-test='PackageListWrapperMoreText']/following::a[contains(@href, '/mixed_groups/')])[1]"));
+        click(By.xpath("(//a[contains(@href, '/mixed_groups/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
     public void checkElementsBanner() {

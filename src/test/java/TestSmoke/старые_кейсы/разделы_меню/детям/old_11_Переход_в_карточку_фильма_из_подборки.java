@@ -1,11 +1,11 @@
-package TestSmoke.Р3_Разделы_меню.П5_Детям;
+package TestSmoke.старые_кейсы.разделы_меню.детям;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_11_Переход_в_карточку_фильма_из_подборки extends TestBase {
+public class old_11_Переход_в_карточку_фильма_из_подборки extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")
@@ -15,7 +15,7 @@ public class Test_11_Переход_в_карточку_фильма_из_под
     public void goToCardFilmFromCollection() {
         headerMenu.goToKidsPage();
         kidsPage.clickToTailCardFilm();
-        kidsPage.checkOpenCardFilm();
+        cardFilm.checkOpenCardFilm();
 
 
     }
