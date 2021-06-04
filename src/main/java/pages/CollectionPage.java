@@ -35,31 +35,34 @@ public class CollectionPage extends BasePage {
     }
 
     public void checkCollectionOfMy() {
-        List<WebElement> CollectionOfMy = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
-        for (int i = 1; i <= CollectionOfMy.size(); i++) {
-            CollectionOfMy = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
-            CollectionOfMy.get(i - 1).findElement(By.xpath("//span[contains(text(), 'Для детей')]"));
-
-        }
+        // проверка все тайлы коллекции - "Для детей":
+        List<WebElement> countAllTail = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
+        List<WebElement> countForKids = driver.findElements(By.xpath("//span[contains(text(),'Для детей')]"));
+        Assert.assertEquals(countAllTail.size(), countForKids.size());
+        System.out.println(countAllTail.size());
+        System.out.println(countForKids.size());
+        List<WebElement> hrefOnlyVods = driver.findElements(By.xpath("//a[@data-test='PackageLink' and contains(@href, '/vods')]"));
+        Assert.assertEquals(countAllTail.size(), hrefOnlyVods.size());
+        System.out.println(hrefOnlyVods.size());
     }
 
-    public void checkCollectionOfFavorites() {
-        List<WebElement> CollectionOfMy = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
-        for (int i = 1; i <= CollectionOfMy.size(); i++) {
-            CollectionOfMy = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
-            CollectionOfMy.get(i - 1).findElement(By.xpath("//span[contains(text(), 'Для детей')]"));
+    public void checkCollectionOfFavorites() throws InterruptedException {
+        List<WebElement> CollectionOfFavorites = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
+        for (int i = 0; i < CollectionOfFavorites.size(); i++) {
+            CollectionOfFavorites = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
+            CollectionOfFavorites.get(i).click();
+            isElementDisplayed(By.xpath("//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB']"));
+            isElementDisplayed(By.xpath("//div[contains(text(),'Для детей')]"));
+            click(By.xpath("(//div[text()='Детям'])[1]"));
+            click(By.linkText("Избранное"));
+            Thread.sleep(2000);
         }
-    }
-
-    public void clickToTailFilm() {
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        isElementDisplayed(By.xpath("//span[text()='Фильмы']"));
     }
 
     public void checkElementsCollection() {
         isElementDisplayed(By.xpath("//h1[text()]"));
-        isElementDisplayed(By.xpath("//h1[text()]/following-sibling::div/span[text()]"));
-        isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+//        isElementDisplayed(By.xpath("//h1[text()]/following-sibling::div/span[text()]"));
+        isElementDisplayed(By.xpath("//a[@data-test='PackageLink']"));
     }
 
     public void checkImageDifferPageCollection() throws IOException {
@@ -96,8 +99,24 @@ public class CollectionPage extends BasePage {
         Assert.assertTrue(diff1.getDiffSize()<=50);
     }
 
+    public void clickToTailFilm() {
+        click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/vods')])[1]"));
+    }
+
     public void clickToTailContentOnPageCollect() {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]|//a[@href='/shows']//span[1]"));
+    }
+
+    public void clickToTailSerial() {
+        click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/shows/')])[1]"));
+    }
+
+    public void clickToTailTvProgram() {
+        click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/tv/channels/')])[1]"));
+    }
+
+    public void clickToTailPackage() {
+        click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/mixed_groups/')])[1]"));
     }
 }

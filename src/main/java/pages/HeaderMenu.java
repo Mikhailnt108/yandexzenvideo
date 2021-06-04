@@ -144,7 +144,39 @@ public class HeaderMenu extends BasePage {
             element1.sendKeys(password);
         }
     }
-
+    public void checkOpenPopUpCreatePasswordForFlowRegistrationNonMF(String login, String password) {
+        isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
+        if (driver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
+            ((JavascriptExecutor) driver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+            driver.switchTo().window((String) tabs2.get(1));
+            click(By.xpath("//form[@method='GET']//input[1]"));
+            writeText(By.xpath("//form[@method='GET']//input[1]"), login);
+            click(By.xpath("//button[text()='Поиск']"));
+            isElementDisplayed(By.xpath("//td[text()='79261184972']"));
+            click(By.xpath("//a[contains(@href, '/cms/households/')]"));
+            isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+            click(By.xpath("//button[text()='Удалить']"));
+            driver.switchTo().alert().accept();
+            driver.navigate().refresh();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
+            driver.close();
+            driver.switchTo().window((String) tabs2.get(0));
+            driver.navigate().refresh();
+            isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
+            click(By.xpath("(//span[text()='Вход'])[1]"));
+            isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
+            WebElement element = driver.findElement(By.xpath("//input[@value='+7 ']"));
+            element.sendKeys(login);
+            click(By.xpath("//button[text()='Далее']"));
+            isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']"));
+            WebElement element1 = driver.findElement(By.xpath("//input[@type='password']"));
+            element1.sendKeys(password);
+        } else {
+            WebElement element1 = driver.findElement(By.xpath("//input[@type='password']"));
+            element1.sendKeys(password);
+        }
+    }
     public void noConnectSmartTv() {
         String invalidСodSmartTv = "12345";
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
@@ -228,6 +260,7 @@ public class HeaderMenu extends BasePage {
         driver.navigate().refresh();
 
     }
+
 
     public void checkLoginUserIsCorrectForBlockingMf() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
@@ -871,6 +904,12 @@ public class HeaderMenu extends BasePage {
     }
 
 
+    public void goToManageSubscriptions() {
+
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
+        isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
+    }
 }
 
 

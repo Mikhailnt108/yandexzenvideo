@@ -1,4 +1,4 @@
-package TestSmoke.Р3_Разделы_меню.П5_Детям;
+package TestSmoke.старые_кейсы.разделы_меню.детям;
 
 import base.TestBase;
 import io.qameta.allure.*;

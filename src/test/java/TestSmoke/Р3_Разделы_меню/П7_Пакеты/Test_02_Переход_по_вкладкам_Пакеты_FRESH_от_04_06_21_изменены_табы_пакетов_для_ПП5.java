@@ -3,39 +3,39 @@ package TestSmoke.Р3_Разделы_меню.П7_Пакеты;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Переход_по_вкладкам_Пакеты extends TestBase {
+public class Test_02_Переход_по_вкладкам_Пакеты_FRESH_от_04_06_21_изменены_табы_пакетов_для_ПП5 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "7. Пакеты")
     @DisplayName(value = "Переход по вкладкам Пакеты")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void goToTabPackage() {
         headerMenu.goToPackagesPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        packagesPage.checkTabAllPackagesInMenuPackagesPage();
-        packagesPage.checkTypePackagesInTabAll();
-        packagesPage.checkAllPackegesWithoutOwnership();
+//        headerMenu.checkNotLoggedIsCorrect();
+//        packagesPage.checkTabAllServiceInMenuShopPage();
+//        packagesPage.clickToTabAllPackage();
+//        packagesPage.checkTabAllPackagesInMenuShopPage();
         packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.checkTypePackagesInTabTvChannel();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.checkTypePackagesInTabSerials();
-        packagesPage.clickToTabKinoInMenuPackagesPage();
+        packagesPage.clickToTabKinoInMenuShopPage();
         packagesPage.checkTypePackagesInTabKino();
-        packagesPage.clickToTabMixedInMenuPackagesPage();
+        packagesPage.clickToTabMixedInMenuShopPage();
         packagesPage.checkTypePackagesInTabMixed();
-        packagesPage.checkNotDisplayedTabConnectedInMenuPackagesPage();
+        packagesPage.checkNotDisplayedTabConnectedInMenuShopPage();
         flowRegistation();
         packagesPage.clickToTailCardPackage();
         cardPackage.checkOpenCardPackage();
         cardPackage.paymentPackageTnB();
         headerMenu.goToPackagesPage();
-        packagesPage.checkDisplayedTabConnectedInMenuPackagesPage();
-        packagesPage.checkConnectedOnTailPackage();
-        packagesPage.clickToTabConnectedInMenuPackagesPage();
-        packagesPage.checkTypePackagesInTabConnectedInMenuPackagesPage();
+        packagesPage.checkDisplayedTabConnectedInMenuShopPage();
+        packagesPage.clickToTabConnectedInMenuShopPage();
+        packagesPage.checkTypePackagesInTabConnectedInMenuShopPage();
         pageCMS.deleteAccountMF("79260192144");
 
     }

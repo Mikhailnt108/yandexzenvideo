@@ -4,6 +4,10 @@ import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class CardPackage extends BasePage {
 
@@ -31,60 +35,78 @@ public class CardPackage extends BasePage {
 
     public void paymentPackageTnB() {
         click(By.xpath("//span[contains(text(), 'Подключить бесплатно')]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет')]"));
-        click(By.xpath("//button[text()='Подтвердить']"));
+        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
+        click(By.xpath("//button[text()='Подтвердить' or text()='Принять и подключить']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
-        //isElementDisplayed(By.xpath("//button[text()='Отключить']"));
     }
 
     public void disablePackageTnB() {
-        click(By.xpath("//button[text()='Отключить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Подтвердить отключение']"));
+        String nameConnectedPackage = driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
+        isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
+        Assert.assertEquals("не тот пакет", driver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
+        click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
+        isElementDisplayed(By.xpath("//h3[text()='Подтвердить отключение']"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Повторное подключение по акции недоступно.')]"));
         click(By.xpath("//button[text()='Отключить']"));
-        click(By.xpath("(//button[text()='Отключить'])[2]"));
         isElementDisplayed(By.xpath("//div[text()='Причина отписки']"));
         click(By.xpath("//span[text()='Пользуюсь другим пакетом']"));
         click(By.xpath("//button[text()='Отправить']"));
-        isElementDisplayed(By.xpath("//span[contains(text(), 'Подключить за')]"));
+        isElementDisplayed(By.xpath("(//span[contains(text(),'Отключен')])[last()]"));
     }
 
-
     public void paymentPackageSubs1() {
-        click(By.xpath("//span[contains(text(), 'Подключить за')]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет')]"));
-        click(By.xpath("//button[text()='Подтвердить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Пакет подключен']"));
+        click(By.xpath("(//span[contains(text(), 'Подключить за')])[1]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
+        click(By.xpath("//button[text()='Подтвердить' or text()='Принять и подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
-        isElementDisplayed(By.xpath("//button[text()='Отключить']"));
     }
 
     public void disablePackageSubs1() {
-        click(By.xpath("//button[text()='Отключить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Подтвердить отключение']"));
+        String nameConnectedPackage = driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
+        isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
+        Assert.assertEquals("не тот пакет", driver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
+        click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
+        isElementDisplayed(By.xpath("//h3[text()='Подтвердить отключение']"));
         click(By.xpath("//button[text()='Отключить']"));
-        click(By.xpath("(//button[text()='Отключить'])[2]"));
-        isElementDisplayed(By.xpath("//span[contains(text(), 'Подключить за')]"));
+        isElementDisplayed(By.xpath("//div[text()='Причина отписки']"));
+        click(By.xpath("//span[text()='Пользуюсь другим пакетом']"));
+        click(By.xpath("//button[text()='Отправить']"));
+        isElementDisplayed(By.xpath("(//span[contains(text(),'Отключен')])[last()]"));
     }
 
     public void paymentPackageSubsN() {
-        click(By.xpath("//span[contains(text(), 'Подключить за ')]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет')]"));
-        click(By.xpath("//button[text()='Подтвердить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Пакет подключен']"));
+        click(By.xpath("//span[contains(text(), 'Подключить за')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
+        click(By.xpath("//button[text()='Подтвердить' or text()='Принять и подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
-        isElementDisplayed(By.xpath("//button[text()='Отключить']"));
     }
 
     public void disablePackageSubsN() {
-        click(By.xpath("//button[text()='Отключить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Подтвердить отключение']"));
+        String nameConnectedPackage = driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
+        isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
+        Assert.assertEquals("не тот пакет", driver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
+        click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
+        isElementDisplayed(By.xpath("//h3[text()='Подтвердить отключение']"));
         click(By.xpath("//button[text()='Отключить']"));
-        click(By.xpath("(//button[text()='Отключить'])[2]"));
-        isElementDisplayed(By.xpath("//div[@class = '_3cHfelPdXMGwUxDpiRBrb3' and text()='Оплачено']"));
+        isElementDisplayed(By.xpath("//div[text()='Причина отписки']"));
+        click(By.xpath("//span[text()='Пользуюсь другим пакетом']"));
+        click(By.xpath("//button[text()='Отправить']"));
+        isElementDisplayed(By.xpath("(//span[contains(text(),'Оплачено до')])[last()]"));
     }
 
     public void checkOpenCardPackage18Plus() {
@@ -130,4 +152,26 @@ public class CardPackage extends BasePage {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
+    public void paymentPackageTnBForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) {
+        click(By.xpath("//span[contains(text(), 'Подключить бесплатно')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
+        click(By.xpath("//button[text()='Подтвердить' or text()='Принять и подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
+        writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
+        writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
+        writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
+        click(By.xpath("//span[text()='Подключить сервис']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+        click(By.xpath("//button[text()='Закрыть']"));
+    }
+
+    public void paymentPackageSubsNForNonMFBankCardLinked() {
+        click(By.xpath("//span[contains(text(), 'Подключить за')]"));
+        isElementDisplayed(By.xpath("//h1[text()='Выберите способ оплаты']"));
+        click(By.className("_143gEPPDQeFDE8SQpNRUlN"));
+        isElementDisplayed(By.xpath("//h1[contains(text(),'Подписка на сервис') or contains(text(),'Подписка на пакет')]"));
+        click(By.xpath("//span[text()='Подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+        click(By.xpath("//button[text()='Закрыть']"));
+    }
 }

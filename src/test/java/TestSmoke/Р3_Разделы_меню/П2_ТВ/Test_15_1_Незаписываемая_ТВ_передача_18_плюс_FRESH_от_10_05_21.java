@@ -17,7 +17,7 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
         flowRegistation();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabAllPackage();
-        packagesPage.checkTabAllPackagesInMenuPackagesPage();
+        packagesPage.checkTabAllPackagesInMenuShopPage();
         packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
         cardPackage.chooseUnrecordedTvChannel18Plus();

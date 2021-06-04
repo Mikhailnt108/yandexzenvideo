@@ -17,7 +17,7 @@ public class Test_15_2_Записываемая_ТВ_передача_18_плю�
         flowRegistation();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabAllPackage();
-        packagesPage.checkTabAllPackagesInMenuPackagesPage();
+        packagesPage.checkTabAllPackagesInMenuShopPage();
         packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
         cardPackage.chooseRecordedTvChannel18Plus();
