@@ -21,7 +21,7 @@ public class Old_04_Авторизация_из_карточки_Пакета_К
         packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.clickToTailCardPackageTvChannel();
         cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickPaymentButtonInCardPackage();
+        cardPackage.clickOnPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccountMF("79260192144");
     }

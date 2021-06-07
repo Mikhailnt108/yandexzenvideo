@@ -1,34 +1,33 @@
-package TestSmoke.Р3_Разделы_меню.П5_Детям;
+package TestSmoke.Р3_Разделы_меню.П7_Пакеты;
 
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_05_Подборка_Моё_FRESH_от_04_06_21 extends TestBase {
+public class Test_06_Подписка_на_пакет_по_Subs1_FRESH_от_07_06_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "5. Детям")
-    @DisplayName(value ="Подборка Моё")
+    @Story(value = "7. Пакеты")
+    @DisplayName(value ="Подписка на пакет по SubsN")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void collectionOfMy() {
-        headerMenu.goToKidsPage();
-        flowRegistation();
-        kidsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
-        headerMenu.goToKidsPage();
-        kidsPage.clickToTailCardSerial();
-        cardSerial.paymentSerialAtSubs();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
-        headerMenu.goToKidsPage();
-        kidsPage.clickToHeaderCollectionOfMy();
-        collectionsPage.checkCollectionOfMy();
+    public void subscribeToPackageBySubs1() throws Exception {
+        // пользователь МФ, пакет по SubsPromo:
+        headerMenu.goToPackagesPage();
+        flowRegistationMF();
+        packagesPage.clickToTailCardPackageTnB();
+        cardPackage.checkOpenCardPackage();
+        cardPackage.paymentPackageTnB();
+        cardPackage.disablePackageTnB();
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTailCardPackageSubs1();
+        cardPackage.paymentPackageSubs1();
+        cardPackage.clickOnTailFirstCardFilm();
+        cardFilm.startVideoPleer();
         pageCMS.deleteAccountMF("79260192144");
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

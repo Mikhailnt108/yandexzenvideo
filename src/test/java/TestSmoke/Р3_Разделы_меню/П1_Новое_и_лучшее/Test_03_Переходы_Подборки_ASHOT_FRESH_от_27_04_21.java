@@ -13,40 +13,40 @@ public class Test_03_Переходы_Подборки_ASHOT_FRESH_от_27_04_21
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     public void goToCollection() throws Exception {
-//        headerMenu.goToNilPage();
-////        nilPage.checkImageDifferBlocksCollection();
-//        nilPage.checkElementsBlockCollectionWithHeader();
-//        nilPage.clickToTailCardFilm();
-//        cardFilm.checkOpenCardFilm();
-//        headerMenu.goToNilPage();
-//        nilPage.clickToTailCardSerial();
-//        cardSerial.checkOpenCardSerial();
-//        headerMenu.goToNilPage();
-//        nilPage.clickToTailCardTvProgram();
-//        cardTvChannel.checkOpenCardTvProgram();
-//        headerMenu.goToNilPage();
-//        nilPage.clickToTailCardPackage();
-//        cardPackage.checkOpenCardPackage();
-//        headerMenu.goToNilPage();
-//        nilPage.clickToLinkAllOnCollectionBlock();
-//        collectionPage.checkOpenCollectionPage();
-////        collectionPage.checkImageDifferPageCollection();
-//        collectionPage.checkElementsCollection();
+        headerMenu.goToNilPage();
+//        nilPage.checkImageDifferBlocksCollection();
+        nilPage.checkElementsBlockCollectionWithHeader();
+        nilPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        headerMenu.goToNilPage();
+        nilPage.clickToTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        headerMenu.goToNilPage();
+        nilPage.clickToTailCardTvProgram();
+        cardTvChannel.checkOpenCardTvProgram();
+        headerMenu.goToNilPage();
+        nilPage.clickToTailCardPackage();
+        cardPackage.checkOpenCardPackage();
+        headerMenu.goToNilPage();
+        nilPage.clickToLinkAllOnCollectionBlock();
+        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.checkImageDifferPageBlockCollection();
+        collectionsPage.checkElementsPageBlockCollection();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionFilms();
-        collectionPage.clickToTailFilm();
+        collectionsPage.clickToTailFilm();
         cardFilm.checkOpenCardFilm();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionSerial();
-        collectionPage.clickToTailSerial();
+        collectionsPage.clickToTailSerial();
         cardSerial.checkOpenCardSerial();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionTvProgram();
-        collectionPage.clickToTailTvProgram();
+        collectionsPage.clickToTailTvProgram();
         cardTvChannel.checkOpenCardTvProgram();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionPackage();
-        collectionPage.clickToTailPackage();
+        collectionsPage.clickToTailPackage();
         cardPackage.checkOpenCardPackage();
     }
 }

@@ -16,6 +16,6 @@ public class OldTest_02_Переход_в_подборку extends TestBase {
     public void goToCollectionPage() {
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllOnCollectionBlock();
-        collectionPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPage();
    }
 }

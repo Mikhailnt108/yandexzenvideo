@@ -15,6 +15,6 @@ public class old_10_Переход_в_подборку_ДОБАВИТЬ_ASHOT ex
     public void goToCollection() {
         headerMenu.goToKidsPage();
         kidsPage.clickToAllButton();
-        collectionPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPage();
     }
 }

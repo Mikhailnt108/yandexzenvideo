@@ -22,7 +22,7 @@ public class Old_05_Авторизация_из_карточки_Пакета_С
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageSerials();
         cardPackage.checkOpenCardPackageSerials();
-        cardPackage.clickPaymentButtonInCardPackage();
+        cardPackage.clickOnPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccountMF("79260192144");
     }

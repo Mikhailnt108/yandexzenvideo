@@ -4,7 +4,6 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 public class Test_05_Аренда_фильма_за_деньги_FRESH_от_25_05_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -17,8 +16,8 @@ public class Test_05_Аренда_фильма_за_деньги_FRESH_от_25_0
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToHeaderRent2Collection();
-        collectionPage.checkOpenCollectionRent2Page();
-        collectionPage.clickToTailFilmRent2();
+        collectionsPage.checkOpenCollectionRent2Page();
+        collectionsPage.clickToTailFilmRent2();
         cardFilm.paymentButtonRent2InCardFilm();
         cardFilm.startVideoPleer();
         pageCMS.deleteAccountMF("79260192144");

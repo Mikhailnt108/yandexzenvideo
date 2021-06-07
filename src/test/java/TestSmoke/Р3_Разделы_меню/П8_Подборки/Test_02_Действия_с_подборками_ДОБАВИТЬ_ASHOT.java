@@ -3,7 +3,9 @@ package TestSmoke.Р3_Разделы_меню.П8_Подборки;
 import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
+
+import java.io.IOException;
 
 public class Test_02_Действия_с_подборками_ДОБАВИТЬ_ASHOT extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -11,17 +13,18 @@ public class Test_02_Действия_с_подборками_ДОБАВИТЬ_A
     @Story(value = "8. Подборки")
     @DisplayName(value ="Действия с подборками")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
-    public void actionsWithCollections() {
+    @RepeatedTest(1)
+    public void actionsWithCollections() throws IOException {
         headerMenu.goToAllCollectionsPage();
-        headerMenu.checkNotLoggedIsCorrect();
-        flowRegistation();
         allCollectionsPage.clickToTailCollection();
-        collectionPage.clickToTailFilm();
+        collectionsPage.checkImageDifferPageBlockCollection();
+        collectionsPage.clickToTailFilm();
         headerMenu.goToAllCollectionsPage();
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionForKids();
-        collectionPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.clickToTailFilm();
+        cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -30,7 +30,7 @@ public class TestBase {
     public PopUpInputCod popUpInputCod;
     public PageCMS pageCMS;
     public ResultsSearchPage resultsSearchPage;
-    public CollectionPage collectionPage;
+    public CollectionPage collectionsPage;
     public CardFilm cardFilm;
     public Footer footer;
     public TvPage tvPage;
@@ -92,7 +92,7 @@ public class TestBase {
         popUpInputCod = PageFactory.initElements(driver, PopUpInputCod.class);
         pageCMS = PageFactory.initElements(driver, PageCMS.class);
         resultsSearchPage = PageFactory.initElements(driver, ResultsSearchPage.class);
-        collectionPage = PageFactory.initElements(driver, CollectionPage.class);
+        collectionsPage = PageFactory.initElements(driver, CollectionPage.class);
         cardFilm = PageFactory.initElements(driver, CardFilm.class);
         footer = PageFactory.initElements(driver, Footer.class);
         tvPage = PageFactory.initElements(driver, TvPage.class);

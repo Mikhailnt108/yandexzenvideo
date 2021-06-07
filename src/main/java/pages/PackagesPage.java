@@ -237,4 +237,8 @@ public class PackagesPage extends BasePage {
     public void clickToTailCardPackageSubs1() {
         click(By.xpath("(//span[contains(text(),'в сутки')])[1]"));
     }
+
+    public void clickToTabAllServices() {
+        click(By.xpath("//div[text()='Все сервисы']"));
+    }
 }

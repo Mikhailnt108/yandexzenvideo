@@ -19,6 +19,5 @@ public class Test_01_Внешний_вид_раздела_ASHOT_FRESH extends Te
         kidsPage.checkImageDifferBlocksCollection();
         kidsPage.checkImageDifferFooter();
         kidsPage.checkImageDifferKidsPageScroll();
-
     }
 }

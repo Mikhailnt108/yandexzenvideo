@@ -39,7 +39,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageSerials();
         cardPackage.checkOpenCardPackageSerials();
-        cardPackage.clickPaymentButtonInCardPackage();
+        cardPackage.clickOnPaymentButtonInCardPackage();
         flowAutorisation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
@@ -48,7 +48,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.clickToTailCardPackageTvChannel();
         cardPackage.checkOpenCardPackageTvChannel();
-        cardPackage.clickPaymentButtonInCardPackage();
+        cardPackage.clickOnPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccountMF("79260192144");
     }

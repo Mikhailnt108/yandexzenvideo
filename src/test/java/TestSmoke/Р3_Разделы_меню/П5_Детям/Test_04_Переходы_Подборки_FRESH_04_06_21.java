@@ -30,20 +30,20 @@ public class Test_04_Переходы_Подборки_FRESH_04_06_21 extends Te
         cardTvChannel.checkOpenCardTvChannel();
         headerMenu.goToKidsPage();
         kidsPage.clickToLinkAllOnCollectionBlock();
-        collectionPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPage();
 //        collectionPage.checkImageDifferPageCollection();
-        collectionPage.checkElementsCollection();
+        collectionsPage.checkElementsPageBlockCollection();
         headerMenu.goToKidsPage();
         kidsPage.clickToLinkAllWithCollectionFilms();
-        collectionPage.clickToTailFilm();
+        collectionsPage.clickToTailFilm();
         cardFilm.checkOpenCardFilm();
         headerMenu.goToKidsPage();
         kidsPage.clickToLinkAllWithCollectionSerial();
-        collectionPage.clickToTailSerial();
+        collectionsPage.clickToTailSerial();
         cardSerial.checkOpenCardSerial();
         headerMenu.goToKidsPage();
         kidsPage.clickToLinkAllWithCollectionTvProgram();
-        collectionPage.clickToTailTvProgram();
+        collectionsPage.clickToTailTvProgram();
         cardTvChannel.checkOpenCardTvProgram();
 
 

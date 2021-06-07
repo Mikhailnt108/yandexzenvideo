@@ -4,7 +4,6 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 public class Test_05_Подобрали_специально_для_Вас_ASHOT_Баг_обрывается_лента_подборки_спешл extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -22,8 +21,8 @@ public class Test_05_Подобрали_специально_для_Вас_ASHOT
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionSpecialForYou();
-        collectionPage.checkOpenCollectionPage();
-        collectionPage.clickToTailContentOnPageCollect();
+        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.clickToTailContentOnPageCollect();
         headerMenu.goToNilPage();
         nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();
         headerMenu.goToNilPage();
@@ -35,8 +34,8 @@ public class Test_05_Подобрали_специально_для_Вас_ASHOT
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionSpecialForYou();
-        collectionPage.checkOpenCollectionPage();
-        collectionPage.clickToTailContentOnPageCollect();
+        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.clickToTailContentOnPageCollect();
         headerMenu.goToNilPage();
         nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();
     }

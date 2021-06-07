@@ -18,7 +18,8 @@ public class CardPackage extends BasePage {
     public void checkOpenCardPackageSerials() {
         isElementDisplayed(By.xpath("//div[contains(text(),' сериал')]"));
     }
-    public void clickPaymentButtonInCardPackage() {
+
+    public void clickOnPaymentButtonInCardPackage() {
        click(By.xpath("//button[@type='button']//div[1]"));
     }
 
@@ -126,7 +127,6 @@ public class CardPackage extends BasePage {
     }
 
     public void clickOnTailCardSerial() {
-        click(By.xpath("(//div[text()='Сериалы'])[3]"));
         click(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]"));
     }
 
@@ -171,6 +171,110 @@ public class CardPackage extends BasePage {
         click(By.className("_143gEPPDQeFDE8SQpNRUlN"));
         isElementDisplayed(By.xpath("//h1[contains(text(),'Подписка на сервис') or contains(text(),'Подписка на пакет')]"));
         click(By.xpath("//span[text()='Подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+        click(By.xpath("//button[text()='Закрыть']"));
+    }
+
+    public void checkElementsPopUpSubsPromoServiceForMF() {
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.className("_1bciqjt58pgm0il2tiJTtp"));
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка на сервис')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'бесплатно на')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'стоимость подписки составит')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Подтверждая подписку, вы принимаете условия оферты')]"));
+        isElementDisplayed(By.xpath("//button[text()='Принять и подключить']"));
+        isElementDisplayed(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void clickOnButtonCancel() {
+        click(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void checkClosePopUpSubsPromoService() {
+        Assert.assertEquals("не закрыт поп-ап",0, driver.findElements(By.xpath("//h3[contains(text(),'Подписка на сервис')]")).size());
+    }
+
+    public void clickOnButtonAcceptAndConfirm() {
+        click(By.xpath("//button[text()='Принять и подключить']"));
+    }
+
+    public void checkElementsPopUpСonnectionСompleted() {
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.className("_1bciqjt58pgm0il2tiJTtp"));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+        isElementDisplayed(By.xpath("//button[text()='Закрыть']"));
+    }
+
+    public void checkElementsPopUpSubsPromoServiceForNonMF() {
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.className("_1bciqjt58pgm0il2tiJTtp"));
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка на сервис')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'бесплатно на')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'за 30 дней.')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Для завершения подписки необходимо добавить платежное средство. Подтверждая подписку, вы принимаете условия оферты'))]"));
+        isElementDisplayed(By.xpath("//button[text()='Принять и подключить']"));
+        isElementDisplayed(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void inputDataBankCard(String numberBankCard, String dataValidity, String codeCVV) {
+        isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
+        writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
+        writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
+        writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
+        click(By.xpath("//span[text()='Подключить сервис']"));
+    }
+
+    public void checkElementsPopUpSubsPromoPackageForMF() {
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.className("_1bciqjt58pgm0il2tiJTtp"));
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка на пакет')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'бесплатно на')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'стоимость подписки составит')]"));
+        isElementDisplayed(By.xpath("//button[text()='Подтвердить']"));
+        isElementDisplayed(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void checkClosePopUpSubsPromoPackage() {
+        Assert.assertEquals("не закрыт поп-ап",0, driver.findElements(By.xpath("//h3[contains(text(),'Подписка на пакет')]")).size());
+    }
+
+    public void clickOnButtonСonfirm() {
+        click(By.xpath("//button[text()='Подтвердить']"));
+    }
+
+    public void checkElementsPopUpSubsPromoPackageForNonMF() {
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.className("_1bciqjt58pgm0il2tiJTtp"));
+        isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка на пакет')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'бесплатно на')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'стоимость подписки составит')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'за 30 дней.')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Для завершения подписки необходимо добавить платежное средство.')]"));
+        isElementDisplayed(By.xpath("//button[text()='Добавить и подключить']"));
+        isElementDisplayed(By.xpath("//button[text()='Отменить']"));
+    }
+
+    public void clickOnButtonAddAndConnect() {
+        click(By.xpath("//button[text()='Добавить и подключить']"));
+    }
+
+    public void clickOnButtonClosePoUpСonnectionСompleted() {
+        click(By.xpath("//button[text()='Закрыть']"));
+    }
+
+    public void paymentPackageSubsNForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) {
+        click(By.xpath("//span[contains(text(), 'Подключить за')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
+        click(By.xpath("//button[text()='Подтвердить' or text()='Добавить и подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
+        writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
+        writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
+        writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
+        click(By.xpath("//span[text()='Оплатить подписку']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
     }

@@ -4,7 +4,6 @@ import base.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 public class Test_06_Подборка_Избранное_FRESH_от_04_06_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -27,7 +26,7 @@ public class Test_06_Подборка_Избранное_FRESH_от_04_06_21 ext
         cardFilm.clickButtonFavorites();
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionOfFavorites();
-        collectionPage.checkCollectionOfFavorites();
+        collectionsPage.checkCollectionOfFavorites();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
