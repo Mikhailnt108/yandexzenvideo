@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
@@ -75,7 +76,7 @@ public class CollectionPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_3aj_Jy1k9olQljjM96VrlO']"))
                 .takeScreenshot(driver);
 
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/"+"pageBlockCollectionPp5"+".png");
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/" + "pageBlockCollectionPp5" + ".png");
         ImageIO.write(screenshotPageBlockCollectionPp5.getImage(), "png", actualFile1);
 
         // Сделать новый этанолонный скриншот:
@@ -84,7 +85,7 @@ public class CollectionPage extends BasePage {
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/CollectPage/"+"pageBlockCollectionPp5Standard"+".png");
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/CollectPage/" + "pageBlockCollectionPp5Standard" + ".png");
         ImageIO.write(screenshotPageBlockCollectionPp5Standard.getImage(), "png", expectedFile1);
         screenshotPageBlockCollectionPp5Standard.setIgnoredAreas(screenshotPageBlockCollectionPp5.getIgnoredAreas());
 
@@ -94,9 +95,9 @@ public class CollectionPage extends BasePage {
 
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotPageBlockCollectionPp5, screenshotPageBlockCollectionPp5Standard);
         System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/CollectPage/"+"diffPageBlockCollectionPp5"+".png");
+        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/CollectPage/" + "diffPageBlockCollectionPp5" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
-        Assert.assertTrue(diff1.getDiffSize()<=50);
+        Assert.assertTrue(diff1.getDiffSize() <= 50);
     }
 
     public void clickToTailFilm() {
@@ -120,7 +121,46 @@ public class CollectionPage extends BasePage {
         click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/mixed_groups/')])[1]"));
     }
 
-
-
-
+    public void selectCollectionForKids() throws InterruptedException {
+        Actions actions = new Actions(driver);
+        driver.get("https://web-preprod5.megafon.tv/kids");
+        String nameForKidsBlockCollect = driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[7]")).getText();
+        System.out.println(nameForKidsBlockCollect);
+        driver.get("https://web-preprod5.megafon.tv/collection");
+        List<WebElement> collectNames1 = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
+        List<WebElement> paginations = driver.findElements(By.xpath("//a[@class='_321YEvw8w6G20aKg-N8nNe']"));
+        for(int a = 0; a < paginations.size(); a++) {
+            for (int b = 0; b < collectNames1.size(); b++) {
+            collectNames1 = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
+//            actions.moveToElement(collectNames1.get(i));
+            String nameString = collectNames1.get(b).getText();
+            System.out.println("название подборки на стр коллекций: " + nameString);
+            if (nameString.equals(nameForKidsBlockCollect)) {
+                collectNames1.get(b).click();
+                Assert.assertEquals(driver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
+                break;
+            }
+            if (b == collectNames1.size() - 1) {
+                continue;
+            }
+                click(By.xpath("//a[contains(@href,'/collection?page') and @rel='next']"));
+                Thread.sleep(7000);
+            }
+        }
+//            Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+//
+//            if (driver.findElements(By.xpath("//div[text()='Фильмы, входящие в пакет:']")).size() != 0) {
+//                driver.navigate().back();
+//                break;
+//            } else {
+//                driver.navigate().back();
+////        for (WebElement nameCollect : collectNames1) {
+////            if(equals(nameCollect.getText(), nameForKidsBlockCollect)){}
+////            Assert.assertEquals(nameCollect.getText(), nameForKidsBlockCollect);
+//
+//
+////        Assert.assertEquals(nameForKidsBlockCollect, driver.findElement(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']")).getText());
+////        System.out.println(driver.findElement(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']")).getText());
+////        }
+    }
 }

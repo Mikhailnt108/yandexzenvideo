@@ -14,18 +14,18 @@ public class Test_02_Действия_с_подборками_ДОБАВИТЬ_A
     @DisplayName(value ="Действия с подборками")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void actionsWithCollections() throws IOException {
+    public void actionsWithCollections() throws IOException, InterruptedException {
         headerMenu.goToAllCollectionsPage();
-        allCollectionsPage.clickToTailCollection();
-        collectionsPage.checkImageDifferPageBlockCollection();
-        collectionsPage.clickToTailFilm();
-        headerMenu.goToAllCollectionsPage();
-        headerMenu.goToKidsPage();
-        kidsPage.clickToHeaderCollectionForKids();
-        collectionsPage.checkOpenCollectionPage();
-        collectionsPage.clickToTailFilm();
-        cardFilm.checkOpenCardFilm();
-        pageCMS.deleteAccountMF("79260192144");
+//        allCollectionsPage.clickToTailCollection();
+//        collectionsPage.checkImageDifferPageBlockCollection();
+//        collectionsPage.clickToTailFilm();
+//        cardFilm.checkOpenCardFilm();
+        collectionsPage.selectCollectionForKids();
+//        kidsPage.clickToHeaderCollectionForKids();
+//        collectionsPage.checkOpenCollectionPage();
+//        collectionsPage.clickToTailFilm();
+//        cardFilm.checkOpenCardFilm();
+//        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
