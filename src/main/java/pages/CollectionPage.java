@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
@@ -106,7 +105,7 @@ public class CollectionPage extends BasePage {
 
     public void clickToTailContentOnPageCollect() {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]|//a[@href='/shows']//span[1]"));
+        isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]|//a[@href='/shows']//span[1]|//a[@href='/tv']//span[1]"));
     }
 
     public void clickToTailSerial() {
@@ -122,45 +121,29 @@ public class CollectionPage extends BasePage {
     }
 
     public void selectCollectionForKids() throws InterruptedException {
-        Actions actions = new Actions(driver);
         driver.get("https://web-preprod5.megafon.tv/kids");
-        String nameForKidsBlockCollect = driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[7]")).getText();
+        String nameForKidsBlockCollect = driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[5]")).getText();
         System.out.println(nameForKidsBlockCollect);
         driver.get("https://web-preprod5.megafon.tv/collection");
-        List<WebElement> collectNames1 = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
+        List<WebElement> collectNames = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
         List<WebElement> paginations = driver.findElements(By.xpath("//a[@class='_321YEvw8w6G20aKg-N8nNe']"));
-        for(int a = 0; a < paginations.size(); a++) {
-            for (int b = 0; b < collectNames1.size(); b++) {
-            collectNames1 = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
-//            actions.moveToElement(collectNames1.get(i));
-            String nameString = collectNames1.get(b).getText();
-            System.out.println("название подборки на стр коллекций: " + nameString);
-            if (nameString.equals(nameForKidsBlockCollect)) {
-                collectNames1.get(b).click();
-                Assert.assertEquals(driver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
-                break;
+        for (int a = 0; a < paginations.size(); a++) {
+            for (int i = 0; i < collectNames.size(); i++) {
+                collectNames = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
+                String nameString = collectNames.get(i).getText();
+                System.out.println("название подборки на стр коллекций: " + nameString);
+                if (nameString.equals(nameForKidsBlockCollect)) {
+                    collectNames.get(i).click();
+                    Assert.assertEquals(driver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
+//                    Assert.assertEquals("нет детского фона", 1, driver.findElements(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO') and contains(@style,'background')]")).size());
+                    return;
+                }
+                if (i == collectNames.size() - 1) {
+                    break;
+                }
             }
-            if (b == collectNames1.size() - 1) {
-                continue;
-            }
-                click(By.xpath("//a[contains(@href,'/collection?page') and @rel='next']"));
-                Thread.sleep(7000);
-            }
+            click(By.xpath("//a[contains(@href,'/collection?page') and @rel='next']"));
+            Thread.sleep(3000);
         }
-//            Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
-//
-//            if (driver.findElements(By.xpath("//div[text()='Фильмы, входящие в пакет:']")).size() != 0) {
-//                driver.navigate().back();
-//                break;
-//            } else {
-//                driver.navigate().back();
-////        for (WebElement nameCollect : collectNames1) {
-////            if(equals(nameCollect.getText(), nameForKidsBlockCollect)){}
-////            Assert.assertEquals(nameCollect.getText(), nameForKidsBlockCollect);
-//
-//
-////        Assert.assertEquals(nameForKidsBlockCollect, driver.findElement(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']")).getText());
-////        System.out.println(driver.findElement(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']")).getText());
-////        }
     }
 }

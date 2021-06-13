@@ -686,6 +686,12 @@ public class KidsPage extends BasePage {
     public void clickToLinkAllWithCollectionTvProgram() {
         click(By.xpath("(//a[contains(@href, '/tv/channels/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
+
+    public void checkBackgroundForKids() {
+        String Background = driver.findElement(By.xpath("//div[contains(@class,'_2sP9pLK9_aJHeEhZWMRSOv')]")).getCssValue("background-image");
+        System.out.println(Background.substring(0,3));
+        Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
+    }
 }
 
 

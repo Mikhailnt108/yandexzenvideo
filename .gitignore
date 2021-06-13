@@ -1,3 +1,5 @@
 # Project exclude paths
 /target/'.idea' 
 '.idea' 
+/AutoSmoke_Desktop_Web.iml
+/.allure/

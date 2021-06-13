@@ -16,28 +16,11 @@ public class Test_02_Действия_с_подборками_ДОБАВИТЬ_A
     @RepeatedTest(1)
     public void actionsWithCollections() throws IOException, InterruptedException {
         headerMenu.goToAllCollectionsPage();
-//        allCollectionsPage.clickToTailCollection();
+        allCollectionsPage.clickToTailCollection();
 //        collectionsPage.checkImageDifferPageBlockCollection();
-//        collectionsPage.clickToTailFilm();
-//        cardFilm.checkOpenCardFilm();
+        collectionsPage.clickToTailContentOnPageCollect();
         collectionsPage.selectCollectionForKids();
-//        kidsPage.clickToHeaderCollectionForKids();
-//        collectionsPage.checkOpenCollectionPage();
-//        collectionsPage.clickToTailFilm();
-//        cardFilm.checkOpenCardFilm();
-//        pageCMS.deleteAccountMF("79260192144");
-    }
-    private void flowRegistation() {
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
-        headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        collectionsPage.clickToTailContentOnPageCollect();
+        kidsPage.checkBackgroundForKids();
     }
 }
