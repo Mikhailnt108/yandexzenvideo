@@ -1,17 +1,22 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
+
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
+@ExtendWith(TestRailListener.class)
 public class TestBase {
 
     public WebDriver driver;
@@ -46,7 +51,11 @@ public class TestBase {
     public PromoCode promoCode;
     public PersonalOffer personalOffer;
 
-
+    @BeforeAll
+    public static void beforeAll() {
+        // some your stuff
+        System.out.println("Method before all");
+    }
     @BeforeEach
     public void start() throws AWTException {
 
@@ -108,6 +117,7 @@ public class TestBase {
         promoCode = PageFactory.initElements(driver, PromoCode.class);
         personalOffer = PageFactory.initElements(driver, PersonalOffer.class);
 
+
         driver.manage().deleteAllCookies();
 
         Robot bot = new Robot();
@@ -116,8 +126,12 @@ public class TestBase {
 
     @AfterEach
     public void finish() {
-
         driver.quit();
     }
 
+    @AfterAll
+    public static void afterAll() {
+        // some your stuff
+        System.out.println("Method after all");
+    }
 }
