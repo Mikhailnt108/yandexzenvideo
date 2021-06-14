@@ -126,7 +126,7 @@ public class CardPackage extends BasePage {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void clickOnTailCardSerial() {
+    public void clickToFirstTailCardSerial() {
         click(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]"));
     }
 
@@ -160,7 +160,7 @@ public class CardPackage extends BasePage {
         writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
         writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
         writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
-        click(By.xpath("//span[text()='Подключить сервис']"));
+        click(By.xpath("//span[text()='Подключить сервис']|//span[text()='Подключить пакет']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
     }
@@ -277,5 +277,21 @@ public class CardPackage extends BasePage {
         click(By.xpath("//span[text()='Оплатить подписку']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
+    }
+
+    public void clickToSecondTailCardSerial() {
+        click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[2]"));
+    }
+
+    public void clickToThirdTailCardSerial() {
+        click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[3]"));
+    }
+
+    public void clickToTabFilms() {
+        click(By.xpath("(//div[text()='Фильмы'])[3]"));
+    }
+
+    public void clickToTabSerials() {
+        click(By.xpath("(//div[text()='Сериалы'])[3]"));
     }
 }

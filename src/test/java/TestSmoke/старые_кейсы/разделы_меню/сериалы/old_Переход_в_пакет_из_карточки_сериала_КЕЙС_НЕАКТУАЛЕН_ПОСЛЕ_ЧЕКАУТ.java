@@ -15,7 +15,7 @@ public class old_Переход_в_пакет_из_карточки_сериал
 
     public void GoToPackageFromSeriesCard() {
         headerMenu.goToSerialsPage();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.clickNamePackage();
         cardPackage.checkOpenCardPackageSerials();
     }

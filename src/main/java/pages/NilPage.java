@@ -678,7 +678,6 @@ public class NilPage extends BasePage {
         String nameFilm = driver.findElement(By.xpath("//h1[text()]")).getText();
         driver.navigate().back();
         Assert.assertEquals("элементы не совпадают",nameFilm, driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
-
     }
 
     public void checkAbsentTvProgram18PlusInCollectHistoryWatch() {

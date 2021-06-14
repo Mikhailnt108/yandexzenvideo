@@ -215,7 +215,7 @@ public class CardSerial extends BasePage {
         Assert.assertNotEquals(time1, time2);
     }
 
-    public void checkTimeStopPleer() throws InterruptedException {
+    public void checkTimeStopPleerAndAutoStartPlayer() throws InterruptedException {
         Actions actions = new Actions(driver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
@@ -223,7 +223,7 @@ public class CardSerial extends BasePage {
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time3 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        driver.navigate().back();
+        driver.get("https://web-preprod5.megafon.tv/shows");
         //Кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
@@ -526,6 +526,17 @@ public class CardSerial extends BasePage {
         }
     }
 
+    public void checkButtonContinueWatching() throws InterruptedException {
+        isElementDisplayed(By.xpath("//span[text()='Продолжить просмотр']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        Thread.sleep(7000);
+        //нажал на паузу - видео остановилось
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+        String colorButton = driver.findElement(By.xpath("//button[contains(@class,'_1FfeR84AXAbi63sErW3rma')]")).getCssValue("background-color");
+        System.out.println(colorButton);
+//        Assert.assertEquals("не зеленый цвет",colorButton, );
+    }
 }
 
 

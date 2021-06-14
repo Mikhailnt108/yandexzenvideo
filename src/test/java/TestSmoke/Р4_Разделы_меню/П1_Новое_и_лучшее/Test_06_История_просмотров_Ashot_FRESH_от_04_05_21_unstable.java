@@ -35,12 +35,12 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
         //проверка отображения сериала в подборке:
         headerMenu.goToPackagesPage();
         packagesPage.goToCardPackageTnBFlow();
-        cardPackage.clickOnTailCardSerial();
+        cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         headerMenu.goToNilPage();
         nilPage.checkAndClickOnTailCardSerialInCollectHistoryWatch();
         cardSerial.checkOpenCardSerial();
-        cardSerial.checkTimeStopPleer();
+        cardSerial.checkTimeStopPleerAndAutoStartPlayer();
         nilPage.checkToMoveTileToFirstPlace();
 
         //проверка отображения тв передачи в подборке:
@@ -62,7 +62,7 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
 //        cardTvChannel.clickTvProgramRecordInCardTvChannel();
 //        cardTvProgram.moveSliderRewindToVideoPlayer();
 //        headerMenu.goToNilPage();
-//        nilPage.checkAbsentTvProgram18PlusInCollectHistoryWatch();
+        nilPage.checkAbsentTvProgram18PlusInCollectHistoryWatch();
 //
 //        //сериал 18+:
 //        headerMenu.goToPackagesPage();

@@ -19,7 +19,7 @@ public class Old_07_Авторизация_из_карточки_Сериала 
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToTabSerials();
         serialsPage.checkOpenSerialsPage();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.clickPaymentButtonInCardSerial();
         flowAutorisation();

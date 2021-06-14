@@ -17,7 +17,7 @@ public class Test_06_Просмотр_серии_FRESH_от_01_06_21 extends Tes
         headerMenu.goToSerialsPage();
         headerMenu.checkNotLoggedIsCorrect();
         flowRegistation();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.paymentSerialAtSubs();
         cardSerial.clickTailEpisodeForStartVideoPleer();

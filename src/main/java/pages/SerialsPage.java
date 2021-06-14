@@ -3,7 +3,6 @@ package pages;
 import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +17,9 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SerialsPage extends BasePage {
 
@@ -30,7 +31,7 @@ public class SerialsPage extends BasePage {
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
     }
 
-    public void clickToTailCardSerial() {
+    public void clickToFirstTailCardSerial() {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
@@ -673,5 +674,124 @@ public class SerialsPage extends BasePage {
 
     public void checkCatalogViewSerialsPage() {
         Assert.assertEquals("вид страницы не каталог", 0, driver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+    }
+    public void checkElementsBlockCollectHistoryWatch() {
+        isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ'])[1]"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]"));
+    }
+
+    public void clickToSecondTailCardSerial() {
+        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
+    }
+    public void checkImageDifferBlockCollectHistoryWatch() throws IOException {
+        driver.get("https://web-preprod5.megafon.tv/shows");
+        WebElement blockCollectHistoryWatch = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
+        Set<By> posterTailsCollection = new HashSet<>();
+        posterTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='HZzNvtNX5fExVnjY_Popf']"));
+        Set<By> nameTailsCollection = new HashSet<>();
+        nameTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ']"));
+        Set<By> counterTailsCollection = new HashSet<>();
+        counterTailsCollection.add(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
+        Screenshot screenshotCollectHistoryWatch = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .ignoredElements(posterTailsCollection)
+                .ignoredElements(nameTailsCollection)
+                .ignoredElements(counterTailsCollection)
+                .takeScreenshot(driver, blockCollectHistoryWatch);
+
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "collectHistoryWatch" + ".png");
+        ImageIO.write(screenshotCollectHistoryWatch.getImage(), "png", actualFile1);
+
+        // Сделать новый эталон скриншота:
+        driver.get("https://web-preprod5.megafon.tv/shows");
+        WebElement blockCollectHistoryWatchStandard = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
+        Screenshot screenshotCollectHistoryWatchStandard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .ignoredElements(posterTailsCollection)
+                .ignoredElements(nameTailsCollection)
+                .takeScreenshot(driver, blockCollectHistoryWatchStandard);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/" + "collectHistoryWatchStandard" + ".png");
+        ImageIO.write(screenshotCollectHistoryWatchStandard.getImage(), "png", expectedFile1);
+        screenshotCollectHistoryWatchStandard.setIgnoredAreas(screenshotCollectHistoryWatch.getIgnoredAreas());
+
+//        // Взять старый эталон скриншота:
+//        Screenshot screenshotCollectHistoryWatchStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/SerialsPage/" + "collectHistoryWatchStandard" + ".png")));
+//        screenshotCollectHistoryWatchStandard.setIgnoredAreas(screenshotCollectHistoryWatch.getIgnoredAreas());
+
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectHistoryWatchStandard, screenshotCollectHistoryWatch);
+        System.out.println(diff1.getDiffSize());
+        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/SerialsPage/" + "diffCollectHistoryWatch" + ".png");
+        ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
+        Assert.assertTrue(diff1.getDiffSize() <= 100);
+    }
+    public void checkTailWatchAndEdit() {
+        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Смотреть и редактировать")));
+        isElementDisplayed(By.partialLinkText("Смотреть и редактировать"));
+        isElementDisplayed(By.xpath("//p[text()='всю историю просмотров']"));
+    }
+    public void clickToAllOnBlockCollectHistoryWatch() {
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
+        click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
+    }
+
+    public void clickToTailWatchAndEdit() {
+        click(By.partialLinkText("Смотреть и редактировать"));
+    }
+
+    public void clickToPosterFirstTailBlockCollectHistoryWatch() {
+        click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
+    }
+
+    public void clickToTextFirstTailBlockCollectHistoryWatch() {
+        click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ'])[1]"));
+    }
+
+    public void checkContentOnlySerialsWithout18Plus() throws InterruptedException {
+        List<WebElement> tailsBlockCollectHistoryWatch = driver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
+        for(int i=0;i<tailsBlockCollectHistoryWatch.size();i++){
+            tailsBlockCollectHistoryWatch = driver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
+            tailsBlockCollectHistoryWatch.get(i).click();
+            Assert.assertEquals("есть контент 18+",0, driver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
+            Assert.assertEquals("есть контент не сериал",1, driver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size());
+            driver.get("https://web-preprod5.megafon.tv/shows");
+            Thread.sleep(5000);
+        }
+    }
+    public void checkToMoveTailToFirstPlace() {
+        String nameSerial = driver.findElement(By.xpath("//h1[text()]")).getText();
+        driver.get("https://web-preprod5.megafon.tv/shows");
+        System.out.println(nameSerial);
+        System.out.println(driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
+        Assert.assertEquals("элементы не совпадают", nameSerial, driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
+    }
+
+    public void checkToMoveTailToLastPlace() {
+        String nameSerial = driver.findElement(By.xpath("//h1[text()]")).getText();
+        driver.get("https://web-preprod5.megafon.tv/shows");
+        System.out.println(nameSerial);
+        System.out.println(driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
+        Assert.assertEquals("элементы не совпадают", nameSerial, driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
+    }
+
+    public void clickToLastTailBlockCollectHistoryWatch() {
+        click(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink'])[last()]"));
+    }
+    public void clickToFirstTailBlockCollectHistoryWatch() {
+        click(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink'])[1]"));
+    }
+
+    public void checkAbsentBlockCollectHistoryWatch() {
+        Assert.assertEquals("есть подборка 'Продолжить просмотр'", 0, driver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size());
+    }
+
+    public void clickOnFastFilterGenre() {
+        click(By.xpath("//button[text()='Боевик']"));
     }
 }

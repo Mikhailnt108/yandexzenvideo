@@ -5,21 +5,30 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_Переход_в_карточку_контента_из_раздела_Моё_Оплаченное extends TestBase {
+public class Test_02_Переход_на_страницу_Моё_Избранное_FRESH_от_13_06_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Переход в карточку контента из раздела Моё_Оплаченное")
+    @DisplayName(value ="Переход на страницу Моё_Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void goToContentCardFromMyMyPagePurchases() {
+    public void goToFavoritesPage() {
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
-        myPage.goToMyPagePurchases();
-        myPage.clickToTailCardFilmFromPurchases();
         cardFilm.checkOpenCardFilm();
+        cardFilm.clickButtonFavorites();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm2FromAll();
+        cardFilm.clickButtonFavorites();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm3FromAll();
+        cardFilm.clickButtonFavorites();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm4FromAll();
+        cardFilm.clickButtonFavorites();
+        myPage.goToMyPageFavorites();
+        myPage.goToCollectionFavoritesPage();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

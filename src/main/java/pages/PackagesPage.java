@@ -49,7 +49,7 @@ public class PackagesPage extends BasePage {
         click(By.xpath("(//button[text()='Подключить'])[1]"));
     }
 
-    public void clickToTailCardPackage() {
+    public void clickToFirstTailCardPackage() {
         click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[1]"));
     }
 

@@ -16,7 +16,7 @@ public class Test_08_Перемотка_серии_FRESH_от_01_06_21 extends T
     public void rewindSeries() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.paymentSerialAtSubs();
         cardSerial.episodeSliderRewindToVideoPleer();

@@ -30,7 +30,7 @@ public class Test_02_Переход_по_вкладкам_Пакеты_FRESH_о�
         packagesPage.checkTypePackagesInTabMixed();
         packagesPage.checkNotDisplayedTabConnectedInMenuShopPage();
         flowRegistation();
-        packagesPage.clickToTailCardPackage();
+        packagesPage.clickToFirstTailCardPackage();
         cardPackage.checkOpenCardPackage();
         cardPackage.paymentPackageTnB();
         headerMenu.goToPackagesPage();

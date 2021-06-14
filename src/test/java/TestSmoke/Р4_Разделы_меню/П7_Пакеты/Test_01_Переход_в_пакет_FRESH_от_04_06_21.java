@@ -16,7 +16,7 @@ public class Test_01_Переход_в_пакет_FRESH_от_04_06_21 extends Te
     @TestRailCase(id = "7")
     public void goToPackage() {
         headerMenu.goToPackagesPage();
-        packagesPage.clickToTailCardPackage();
+        packagesPage.clickToFirstTailCardPackage();
         cardPackage.checkOpenCardPackage();
         }
     }

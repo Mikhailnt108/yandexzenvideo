@@ -2,7 +2,6 @@ package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_о�
 
 import base.TestBase;
 import com.github.rsheremeta.testrail.TestRailCase;
-import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
@@ -30,7 +29,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToTabSerials();
         serialsPage.checkOpenSerialsPage();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.clickPaymentButtonInCardSerial();
         flowAutorisation();

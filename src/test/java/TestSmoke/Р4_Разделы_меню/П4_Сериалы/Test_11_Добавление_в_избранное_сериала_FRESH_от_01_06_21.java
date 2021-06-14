@@ -16,7 +16,7 @@ public class Test_11_Добавление_в_избранное_сериала_F
     public void AddingSeriesToFavorites() {
         headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.checkButtonFavoriteNotAdded();
         cardSerial.clickButtonFavorites();

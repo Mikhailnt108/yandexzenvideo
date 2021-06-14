@@ -17,11 +17,11 @@ public class Test_02_Переход_в_карточку_сериала_FRESH_о�
         serialsPage.switchingFromBannerToCardSerial();
         cardSerial.checkOpenCardSerial();
         headerMenu.goToSerialsPage();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         headerMenu.goToSerialsPage();
         serialsPage.clickToLinkAllOnCollectionBlock();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
     }
 }

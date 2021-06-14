@@ -29,7 +29,7 @@ public class Test_04_Подписка_на_пакет_по_SubsPromo_FRESH_от_
         cardPackage.clickOnButtonAcceptAndConfirm();
         cardPackage.checkElementsPopUpСonnectionСompleted();
         cardPackage.clickOnButtonClosePoUpСonnectionСompleted();
-        cardPackage.clickOnTailCardSerial();
+        cardPackage.clickToFirstTailCardSerial();
         cardSerial.startVideoPleer();
 
         // пользователь МФ, пакет по SubsPromo:
@@ -63,7 +63,7 @@ public class Test_04_Подписка_на_пакет_по_SubsPromo_FRESH_от_
         cardPackage.inputDataBankCard("4847 0000 6602 5312","12 / 25","258"); // тестовая банк карта
         cardPackage.checkElementsPopUpСonnectionСompleted();
         cardPackage.clickOnButtonClosePoUpСonnectionСompleted();
-        cardPackage.clickOnTailCardSerial();
+        cardPackage.clickToFirstTailCardSerial();
         cardSerial.startVideoPleer();
 
         // пользователь НЕ МФ, пакет по SubsPromo:

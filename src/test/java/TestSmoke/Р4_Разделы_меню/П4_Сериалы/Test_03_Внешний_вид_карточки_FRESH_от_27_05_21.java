@@ -15,7 +15,7 @@ public class Test_03_Внешний_вид_карточки_FRESH_от_27_05_21 
     public void appearanceSectionCardSerial() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToSerialsPage();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.checkAutoStartVideoPlayer();
 //        cardSerial.checkImageDifferCardSerial();
@@ -24,7 +24,7 @@ public class Test_03_Внешний_вид_карточки_FRESH_от_27_05_21 
         // авторизованный пользователь:
         headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.checkAutoStartVideoPlayer();
 //        cardSerial.checkImageDifferCardSerial();
@@ -33,7 +33,7 @@ public class Test_03_Внешний_вид_карточки_FRESH_от_27_05_21 
         cardSerial.clickButtonFavorites();
         myPage.checkAddingSerialToFavorites();
         headerMenu.goToSerialsPage();
-        serialsPage.clickToTailCardSerial();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.clickToButtonReadDescription();
         cardSerial.checkOpenDescriptionAll();

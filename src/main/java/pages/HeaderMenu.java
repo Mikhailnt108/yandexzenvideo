@@ -232,15 +232,12 @@ public class HeaderMenu extends BasePage {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public HeaderMenu checkNotLoggedIsCorrect() {
+    public void checkNotLoggedIsCorrect() {
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
-        return this;
     }
 
-    public HeaderMenu clickToEnter(String buttonEnter) {
-
+    public void clickToEnter(String buttonEnter) {
         click(By.xpath("(//span[text()='Вход'])[1]"));
-        return this;
     }
 
     public void checkLoginUserIsCorrectFlow()  {
@@ -258,7 +255,6 @@ public class HeaderMenu extends BasePage {
             click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();
-
     }
 
 

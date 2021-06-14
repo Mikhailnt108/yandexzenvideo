@@ -110,14 +110,11 @@ public class MyPage extends BasePage {
 
     public void checkSubscriptionsPackages() {
         List<WebElement> CollectionPackages = driver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
-        for (int i=1; i<=CollectionPackages.size(); i++)
+        for (int i=0; i<CollectionPackages.size(); i++)
         {
             CollectionPackages = driver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
-            CollectionPackages.get(i-1).click();
-            //WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
-            //wait.until(ExpectedConditions.visibilityOf(button));
-            //button.click();
-            driver.findElement(By.xpath("//button[text()='Отключить']|//div[text()='Навсегда']|//div[text()='Доступно']|//div[text()='Входит']"));
+            CollectionPackages.get(i).click();
+            driver.findElement(By.xpath("//div[text()='Бесплатно']|//div[text()='Навсегда']|//div[text()='Доступно']|//div[text()='Входит']"));
             driver.navigate().back();
         }
 
@@ -151,12 +148,11 @@ public class MyPage extends BasePage {
     }
     public void goToMyPageSubscriptions() {
         driver.get(My_subscriptions);
-        isElementDisplayed(By.xpath("//span[text()='Пакеты']"));
+        isElementDisplayed(By.xpath("//div[text()='Пакеты и сервисы']"));
     }
 
     public void checkOpenPageMyHistory() {
         isElementDisplayed(By.xpath("//span[text()='История']"));
-
     }
 
     public void checkVisibleContent18Plus() {
