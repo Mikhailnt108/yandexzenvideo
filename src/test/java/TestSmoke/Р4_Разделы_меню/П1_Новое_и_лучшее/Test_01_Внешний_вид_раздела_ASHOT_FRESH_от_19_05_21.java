@@ -14,9 +14,9 @@ public class Test_01_Внешний_вид_раздела_ASHOT_FRESH_от_19_05
     @RepeatedTest(1)
     public void appearanceSectionNilPage() throws Exception {
         headerMenu.goToNilPage();
-//        nilPage.checkImageDifferCherdakAndBanners();
-//        nilPage.checkImageDifferBlocksCollection();
-//        nilPage.checkImageDifferFooter();
-//        nilPage.checkImageDifferNilPageScroll();
+        nilPage.checkImageDifferCherdakAndBanners();
+        nilPage.checkImageDifferBlocksCollection();
+        nilPage.checkImageDifferFooter();
+        nilPage.checkImageDifferNilPageScroll();
     }
 }

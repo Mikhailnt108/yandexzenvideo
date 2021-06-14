@@ -19,46 +19,40 @@ import java.util.concurrent.TimeUnit;
 //@ExtendWith(TestRailListener.class)
 public class TestBase {
 
-    public WebDriver driver;
-    public HeaderMenu headerMenu;
-    public PopUpInputPhone popUpInputPhone;
-    public PopUpInputPassword popUpInputPassword;
-    public FilmsPage filmsPage;
-    public PopUpInputPromoCod popUpInputPromoCod;
-    public CardSerial cardSerial;
-    public SerialsPage serialsPage;
-    public PackagesPage packagesPage;
-    public CardPackage cardPackage;
-    public CardTvChannel cardTvChannel;
-    public CardTvProgram cardTvProgram;
-    public PopUpCreatePassword popUpCreatePassword;
-    public PopUpInputCod popUpInputCod;
-    public PageCMS pageCMS;
-    public ResultsSearchPage resultsSearchPage;
-    public CollectionPage collectionsPage;
-    public CardFilm cardFilm;
-    public Footer footer;
-    public TvPage tvPage;
-    public MyPage myPage;
-    public NilPage nilPage;
-    public PaymentContent paymentContent;
-    public KidsPage kidsPage;
-    public SportPage sportPage;
-    public AllCollectionsPage allCollectionsPage;
-    public PromoPage promoPage;
-    public PopUpInputEmail popUpInputEmail;
-    public PopUpNotification popUpNotification;
-    public PromoCode promoCode;
-    public PersonalOffer personalOffer;
+    public static WebDriver driver;
+    public static HeaderMenu headerMenu;
+    public static PopUpInputPhone popUpInputPhone;
+    public static PopUpInputPassword popUpInputPassword;
+    public static FilmsPage filmsPage;
+    public static PopUpInputPromoCod popUpInputPromoCod;
+    public static CardSerial cardSerial;
+    public static SerialsPage serialsPage;
+    public static PackagesPage packagesPage;
+    public static CardPackage cardPackage;
+    public static CardTvChannel cardTvChannel;
+    public static CardTvProgram cardTvProgram;
+    public static PopUpCreatePassword popUpCreatePassword;
+    public static PopUpInputCod popUpInputCod;
+    public static PageCMS pageCMS;
+    public static ResultsSearchPage resultsSearchPage;
+    public static CollectionPage collectionsPage;
+    public static CardFilm cardFilm;
+    public static Footer footer;
+    public static TvPage tvPage;
+    public static MyPage myPage;
+    public static NilPage nilPage;
+    public static PaymentContent paymentContent;
+    public static KidsPage kidsPage;
+    public static SportPage sportPage;
+    public static AllCollectionsPage allCollectionsPage;
+    public static PromoPage promoPage;
+    public static PopUpInputEmail popUpInputEmail;
+    public static PopUpNotification popUpNotification;
+    public static PromoCode promoCode;
+    public static PersonalOffer personalOffer;
 
     @BeforeAll
-    public static void beforeAll() {
-        // some your stuff
-        System.out.println("Method before all");
-    }
-    @BeforeEach
-    public void start() throws AWTException {
-
+    public static void start() throws AWTException {
         WebDriverManager.chromedriver().setup();
         //запуск браузера в режиме инкогнито:
         //ChromeOptions options = new ChromeOptions();
@@ -68,17 +62,7 @@ public class TestBase {
         //driver = new ChromeDriver(capabilities);
         ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--window-size=1900,1000");
-        //options.addArguments("enable-features=NetworkServiceInProcess");
-        //options.addArguments("disable-features=NetworkService");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-browser-side-navigation");
-//        options.addArguments("enable-automation");
-
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-extensions");
-//        options.addArguments("--dns-prefetch-disable");
-//        options.addArguments("--disable-gpu");
-        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         options.addArguments("start-maximized");
         //запуск браузера в фоне:
         //options.setHeadless(true);
@@ -124,14 +108,8 @@ public class TestBase {
         bot.mouseMove(0, 0);
     }
 
-    @AfterEach
-    public void finish() {
-        driver.quit();
-    }
-
     @AfterAll
-    public static void afterAll() {
-        // some your stuff
-        System.out.println("Method after all");
+    public static void finish() {
+        driver.quit();
     }
 }
