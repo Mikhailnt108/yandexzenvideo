@@ -13,7 +13,7 @@ public class Test_06_Подписка_на_пакет_по_Subs1_FRESH_от_07_0
     @DisplayName(value ="Подписка на пакет по Subs1")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id="12")
+    @TestRailCase(id="86")
     public void subscribeToPackageBySubs1() throws Exception {
         // пользователь МФ, пакет по SubsPromo:
         headerMenu.goToPackagesPage();

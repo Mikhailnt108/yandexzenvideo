@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П11_Промокод;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_01_Общий_вид_окна_Ввести_промокод_FR
     @DisplayName(value ="Общий вид окна Ввести_промокод")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "107")
     public void checkViewOfPromoCodePopUp() {
         headerMenu.goToNilPage();
         headerMenu.clickToButtonPromo();

@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П1_Новое_и_лучшее;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
     @DisplayName(value = "История просмотров")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "21")
     public void historyViewing() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();
@@ -54,42 +56,42 @@ public class Test_06_История_просмотров_Ashot_FRESH_от_04_05_
 
         //проверка отсутствия эротического контента в подборке:
         //тв передача 18+:
-//        headerMenu.goToPackagesPage();
-//        packagesPage.clickToTabAllPackage();
-//        packagesPage.clickToTailCardPackage18Plus();
-//        cardPackage.paymentPackageTnB();
-//        cardPackage.clickOnTailCardChannel18Plus();
-//        cardTvChannel.clickTvProgramRecordInCardTvChannel();
-//        cardTvProgram.moveSliderRewindToVideoPlayer();
-//        headerMenu.goToNilPage();
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabAllPackage();
+        packagesPage.clickToTailCardPackage18Plus();
+        cardPackage.paymentPackageTnB();
+        cardPackage.clickOnTailCardChannel18Plus();
+        cardTvChannel.clickTvProgramRecordInCardTvChannel();
+        cardTvProgram.moveSliderRewindToVideoPlayer();
+        headerMenu.goToNilPage();
         nilPage.checkAbsentTvProgram18PlusInCollectHistoryWatch();
 //
 //        //сериал 18+:
-//        headerMenu.goToPackagesPage();
-//        packagesPage.goToCardPackage18PlusFlow();
-//        cardPackage.clickOnTailCardSerial();
-//        cardSerial.moveSliderRewindToVideoPleer18Plus();
-//        headerMenu.goToNilPage();
-//        nilPage.checkAbsentSerial18PlusInCollectHistoryWatch();
+        headerMenu.goToPackagesPage();
+        packagesPage.goToCardPackage18PlusFlow();
+        cardPackage.clickToFirstTailCardSerial();
+        cardSerial.moveSliderRewindToVideoPleer18Plus();
+        headerMenu.goToNilPage();
+        nilPage.checkAbsentSerial18PlusInCollectHistoryWatch();
 //
 //        //фильм 18+:
-//        headerMenu.goToPackagesPage();
-//        packagesPage.goToCardPackage18PlusFlow();
-//        cardPackage.clickOnTailFirstCardFilm18Plus();
-//        cardFilm.moveSliderRewindToVideoPleer18Plus();
-//        headerMenu.goToNilPage();
-//        nilPage.checkAbsentFilm18PlusInCollectHistoryWatch();
+        headerMenu.goToPackagesPage();
+        packagesPage.goToCardPackage18PlusFlow();
+        cardPackage.clickOnTailFirstCardFilm18Plus();
+        cardFilm.moveSliderRewindToVideoPleer18Plus();
+        headerMenu.goToNilPage();
+        nilPage.checkAbsentFilm18PlusInCollectHistoryWatch();
 
         //скриншоты и переходы:
         headerMenu.goToNilPage();
         nilPage.checkElementsBlockCollectHistoryWatch();
-        nilPage.checkImageDifferBlockCollectHistoryWatch();
+//        nilPage.checkImageDifferBlockCollectHistoryWatch();
         nilPage.clickToAllOnBlockCollectHistoryWatch();
         myPage.checkOpenPageMyHistory();
-//        myPage.checkVisibleContent18Plus();
+        myPage.checkVisibleContent18Plus();
         nilPage.checkAndClickOnTailWatchAndEdit();
         myPage.checkOpenPageMyHistory();
-//        myPage.checkVisibleContent18Plus();
+        myPage.checkVisibleContent18Plus();
         myPage.clickToButtonClearAllHistory();
         headerMenu.goToNilPage();
         nilPage.checkAbsentBlockCollectHistoryWatch();

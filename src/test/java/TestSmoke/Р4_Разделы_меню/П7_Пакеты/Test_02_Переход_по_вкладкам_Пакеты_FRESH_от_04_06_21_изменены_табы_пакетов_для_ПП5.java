@@ -13,7 +13,7 @@ public class Test_02_Переход_по_вкладкам_Пакеты_FRESH_о�
     @DisplayName(value = "Переход по вкладкам Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id="8")
+    @TestRailCase(id="82")
     public void goToTabPackage() {
         headerMenu.goToPackagesPage();
 //        headerMenu.checkNotLoggedIsCorrect();

@@ -1,6 +1,7 @@
 package TestSmoke.Р5_Профиль.П2_Другие_кнопки;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_02_Подключить_Smart_TV_ДОБАВИТЬ_ASHOT_АКТ
     @DisplayName(value ="Подключить Smart_TV")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "119")
     public void ConnectSmartTv() {
         headerMenu.goToNilPage();
         flowRegistation();

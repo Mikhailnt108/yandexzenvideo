@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_11_Перемотка_фильма_FRESH_от_26_05_21 extends
     @DisplayName(value ="Перемотка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "48")
     public void rewindFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

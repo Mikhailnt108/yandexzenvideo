@@ -387,7 +387,7 @@ public class KidsPage extends BasePage {
 
     public void checkImageDifferKidsPageScroll() throws AWTException, IOException {
         // Сделать тестовый скриншот скролла страницы НиЛ:
-        driver.get("https://web-preprod4.megafon.tv/kids");
+        driver.get("https://web-preprod5.megafon.tv/kids");
         JavascriptExecutor jsDownToElement = (JavascriptExecutor) driver;
         jsDownToElement.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[1]")));
 //        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
@@ -413,20 +413,20 @@ public class KidsPage extends BasePage {
         File actualFile1 = new File("src/test/java/testScreenshots/actual/KidsPage/" + "scrollPageKidsPp4" + ".png");
         ImageIO.write(screenshotKidsPagePp4.getImage(), "png", actualFile1);
 
-//        // Сделать новый эталонный скриншот скролла страницы НиЛ:
-//        driver.get("https://web-preprod4.megafon.tv/kids");
-//        JavascriptExecutor jsDownToElement2 = (JavascriptExecutor) driver;
-//        jsDownToElement2.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[1]")));
-//        Screenshot screenshotKidsPagePp4Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .takeScreenshot(driver);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"scrollPageKidsPp4Standard"+".png");
-//        ImageIO.write(screenshotKidsPagePp4Standard.getImage(), "png", expectedFile1);
-//        screenshotKidsPagePp4Standard.setIgnoredAreas(screenshotKidsPagePp4.getIgnoredAreas());
-
-        // Взять старый эталонный скриншот всей страницы НиЛ:
-        Screenshot screenshotKidsPagePp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "scrollKidsPagePp4Standard" + ".png")));
+        // Сделать новый эталонный скриншот скролла страницы НиЛ:
+        driver.get("https://web-preprod5.megafon.tv/kids");
+        JavascriptExecutor jsDownToElement2 = (JavascriptExecutor) driver;
+        jsDownToElement2.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[1]")));
+        Screenshot screenshotKidsPagePp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/KidsPage/"+"scrollPageKidsPp4Standard"+".png");
+        ImageIO.write(screenshotKidsPagePp4Standard.getImage(), "png", expectedFile1);
         screenshotKidsPagePp4Standard.setIgnoredAreas(screenshotKidsPagePp4.getIgnoredAreas());
+
+//        // Взять старый эталонный скриншот всей страницы НиЛ:
+//        Screenshot screenshotKidsPagePp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/KidsPage/" + "scrollKidsPagePp4Standard" + ".png")));
+//        screenshotKidsPagePp4Standard.setIgnoredAreas(screenshotKidsPagePp4.getIgnoredAreas());
 
         // Сравнить скриншоты скролла страницы НиЛ (тестовый и эталонный):
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotKidsPagePp4Standard, screenshotKidsPagePp4);
@@ -537,7 +537,7 @@ public class KidsPage extends BasePage {
         ImageIO.write(screenshotCollectionWithoutTitlePp4.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот блока подборки с заголовком:
-        driver.get("https://web-preprod4.megafon.tv/kids");
+        driver.get("https://web-preprod5.megafon.tv/kids");
         WebElement blockCollectionWithTitlePp4Standard = driver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
         Screenshot screenshotCollectionWithTitlePp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -553,7 +553,7 @@ public class KidsPage extends BasePage {
 //        screenshotCollectionWithTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithTitlePp4.getIgnoredAreas());
 
         //Сделать новый эталонный скриншот блока подборки без заголовка:
-        driver.get("https://web-preprod4.megafon.tv/kids");
+        driver.get("https://web-preprod5.megafon.tv/kids");
         WebElement collectionWithoutTitlePp4Standard = driver.findElement(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']"));
         Screenshot screenshotCollectionWithoutTitlePp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -594,7 +594,7 @@ public class KidsPage extends BasePage {
         ImageIO.write(screenshotFooterPp4.getImage(), "png", actualFile1);
 
         //Сделать новый эталонный скриншот футера:
-        driver.get("https://web-preprod4.megafon.tv/kids");
+        driver.get("https://web-preprod5.megafon.tv/kids");
         WebElement footerPp4Standard = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())

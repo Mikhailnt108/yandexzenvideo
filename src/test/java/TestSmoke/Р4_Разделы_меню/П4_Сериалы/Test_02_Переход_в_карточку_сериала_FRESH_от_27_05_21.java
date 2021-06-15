@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_02_Переход_в_карточку_сериала_FRESH_о�
     @DisplayName(value ="Переход в карточку сериала")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "55")
     public void GoToCardSerial() {
         headerMenu.goToSerialsPage();
         serialsPage.switchingFromBannerToCardSerial();

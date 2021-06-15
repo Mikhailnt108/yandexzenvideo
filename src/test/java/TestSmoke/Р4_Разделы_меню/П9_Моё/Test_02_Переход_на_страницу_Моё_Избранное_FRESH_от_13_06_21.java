@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_02_Переход_на_страницу_Моё_Избранн�
     @DisplayName(value ="Переход на страницу Моё_Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "98")
     public void goToFavoritesPage() {
         headerMenu.goToFilmsPage();
         flowRegistation();

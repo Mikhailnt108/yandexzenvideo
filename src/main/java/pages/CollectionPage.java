@@ -88,7 +88,7 @@ public class CollectionPage extends BasePage {
         ImageIO.write(screenshotPageBlockCollectionPp5Standard.getImage(), "png", expectedFile1);
         screenshotPageBlockCollectionPp5Standard.setIgnoredAreas(screenshotPageBlockCollectionPp5.getIgnoredAreas());
 
-//        //Использовать старый эталонный скриншот:
+//        // Взять старый эталонный скриншот:
 //        Screenshot screenshotPageBlockCollectionPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/CollectPage/"+"PageBlockCollectionPp5Standard"+".png")));
 //        screenshotPageBlockCollectionPp5Standard.setIgnoredAreas(screenshotPageBlockCollectionP5.getIgnoredAreas());
 

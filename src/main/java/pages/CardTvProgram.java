@@ -239,31 +239,30 @@ public class CardTvProgram extends BasePage {
                 .addIgnoredElement(By.className("baGc44KXrkpgoHXV0vpsM"))
                 .addIgnoredElement(By.xpath("(//div[@class='ch-trigger__container'])[4]"))
                 .takeScreenshot(driver);
-
         File actualFile1 = new File("src/test/java/testScreenshots/actual/TvPage/" + "cardTvProgramPp4" + ".png");
         ImageIO.write(screenshotCardTvProgramPp4.getImage(), "png", actualFile1);
 
-//        //Сделать новый эталонный скриншот:
-//        Screenshot screenshotCardTvProgramPp4Standard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .ignoredElements(daysSchedule)
-//                .ignoredElements(timeSchedule)
-//                .addIgnoredElement(By.xpath("//div[@class='_1KLHFmaQkSgHohGyiuAR3i']")) //название передачи, сегодня возраст, описание передачи
-//                .addIgnoredElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]"))
-//                .addIgnoredElement(By.className("_1GgmNtEHj_XmeyaKNiKDz8"))
-//                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g' and text()]"))
-//                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6 V5gzWmx0AeSFNR9OCQRIz']"))
-//                .addIgnoredElement(By.className("_3U2-yKAj4IPU3tvIT6W2cl"))
-//                .addIgnoredElement(By.className("baGc44KXrkpgoHXV0vpsM"))
-//                .addIgnoredElement(By.xpath("(//div[@class='ch-trigger__container'])[4]"))
-//                .takeScreenshot(driver);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"cardTvProgramPp4Standard"+".png");
-//        ImageIO.write(screenshotCardTvProgramPp4Standard.getImage(), "png", expectedFile1);
-//        screenshotCardTvProgramPp4Standard.setIgnoredAreas(screenshotCardTvProgramPp4.getIgnoredAreas());
-
-        // Взять старый эталон скриншота:
-        Screenshot screenshotCardTvProgramPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "cardTvProgramPp4Standard" + ".png")));
+        //Сделать новый эталонный скриншот:
+        Screenshot screenshotCardTvProgramPp4Standard = new AShot()
+                .coordsProvider(new WebDriverCoordsProvider())
+                .ignoredElements(daysSchedule)
+                .ignoredElements(timeSchedule)
+                .addIgnoredElement(By.xpath("//div[@class='_1KLHFmaQkSgHohGyiuAR3i']")) //название передачи, сегодня возраст, описание передачи
+                .addIgnoredElement(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]"))
+                .addIgnoredElement(By.className("_1GgmNtEHj_XmeyaKNiKDz8"))
+                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g' and text()]"))
+                .addIgnoredElement(By.xpath("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6 V5gzWmx0AeSFNR9OCQRIz']"))
+                .addIgnoredElement(By.className("_3U2-yKAj4IPU3tvIT6W2cl"))
+                .addIgnoredElement(By.className("baGc44KXrkpgoHXV0vpsM"))
+                .addIgnoredElement(By.xpath("(//div[@class='ch-trigger__container'])[4]"))
+                .takeScreenshot(driver);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/TvPage/"+"cardTvProgramPp4Standard"+".png");
+        ImageIO.write(screenshotCardTvProgramPp4Standard.getImage(), "png", expectedFile1);
         screenshotCardTvProgramPp4Standard.setIgnoredAreas(screenshotCardTvProgramPp4.getIgnoredAreas());
+
+//        // Взять старый эталон скриншота:
+//        Screenshot screenshotCardTvProgramPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/TvPage/" + "cardTvProgramPp4Standard" + ".png")));
+//        screenshotCardTvProgramPp4Standard.setIgnoredAreas(screenshotCardTvProgramPp4.getIgnoredAreas());
 
         //Сравнение скриншотов:
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardTvProgramPp4Standard, screenshotCardTvProgramPp4);
@@ -526,7 +525,7 @@ public class CardTvProgram extends BasePage {
 
         // Сделать новый эталонный скриншот плеера карточки НЕЗАПИСЫВАЕМОЙ тв программы:
         // для проверки на другой передаче:
-        driver.get("https://web-preprod4.megafon.tv/tv/channels/Channel_Rossia1");
+        driver.get("https://web-preprod5.megafon.tv/tv/channels/Channel_Rossia1");
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
         Thread.sleep(5000);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
@@ -619,7 +618,7 @@ public class CardTvProgram extends BasePage {
 
         // Сделать новый эталонный скриншот плеера карточки ЗАПИСАННОЙ тв программы:
         // для проверки на другой передаче:
-        driver.get("https://web-preprod4.megafon.tv/tv/channels/Channel_Animal_Planet_HD");
+        driver.get("https://web-preprod5.megafon.tv/tv/channels/Channel_Animal_Planet_HD");
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
         Thread.sleep(5000);
         actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();

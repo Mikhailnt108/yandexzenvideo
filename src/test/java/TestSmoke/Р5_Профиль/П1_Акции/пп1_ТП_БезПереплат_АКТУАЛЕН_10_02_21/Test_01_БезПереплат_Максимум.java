@@ -1,6 +1,7 @@
 package TestSmoke.Р5_Профиль.П1_Акции.пп1_ТП_БезПереплат_АКТУАЛЕН_10_02_21;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ public class Test_01_БезПереплат_Максимум extends TestBase {
     @DisplayName(value ="БезПереплат.Максимум")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
+    @TestRailCase(id = "108")
     public void bundleBezPereplatMax() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

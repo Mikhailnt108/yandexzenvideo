@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П6_Спорт;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ public class Test_02_Переходы_в_карточки_контента_ДО�
     @DisplayName(value ="Переходы в карточки контента")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
+    @TestRailCase(id = "75")
     public void goToContentCards() throws InterruptedException {
         headerMenu.goToSportPage();
         sportPage.autoScrollBanners();

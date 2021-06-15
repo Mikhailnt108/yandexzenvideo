@@ -205,7 +205,7 @@ public class SerialsPage extends BasePage {
         ImageIO.write(screenshotHeaderCherdakPp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот чердака:
-        driver.get("https://web-preprod4.megafon.tv/shows");
+        driver.get("https://web-preprod5.megafon.tv/shows");
         WebElement headerCherdakPp5Standard = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -272,7 +272,7 @@ public class SerialsPage extends BasePage {
         ImageIO.write(screenshotCollectionWithTitlePp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот блока подборки с заголовком:
-        driver.get("https://web-preprod4.megafon.tv/shows");
+        driver.get("https://web-preprod5.megafon.tv/shows");
         Screenshot screenshotCollectionWithTitlePp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -293,7 +293,7 @@ public class SerialsPage extends BasePage {
         Assert.assertTrue(diff1.getDiffSize() <= 50);
 
         // Сделать тестовый скриншот блока подборки без заголовка:
-        driver.get("https://web-preprod4.megafon.tv/shows");
+        driver.get("https://web-preprod5.megafon.tv/shows");
         Screenshot screenshotCollectionWithoutTitlePp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -307,7 +307,7 @@ public class SerialsPage extends BasePage {
         ImageIO.write(screenshotCollectionWithoutTitlePp5.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот блока подборки без заголовка:
-        driver.get("https://web-preprod4.megafon.tv/shows");
+        driver.get("https://web-prepro5.megafon.tv/shows");
         Screenshot screenshotCollectionWithoutTitlePp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -330,7 +330,7 @@ public class SerialsPage extends BasePage {
 
     public void checkImageDifferFooter() throws IOException {
         // Сделать тестовый скриншот футера:
-        driver.get("https://web-preprod4.megafon.tv/shows");
+        driver.get("https://web-preprod5.megafon.tv/shows");
         WebElement footerPp5 = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -383,7 +383,7 @@ public class SerialsPage extends BasePage {
         ImageIO.write(screenshotSerialsPp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот скролла страницы "Сериалы":
-        driver.get("https://web-preprod4.megafon.tv/shows");
+        driver.get("https://web-prepro5.megafon.tv/shows");
 //        WebElement pageSerials2 = driver.findElement(By.xpath("//div[@class='appMountContainer']"));
         Screenshot screenshotSerialsPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -407,7 +407,7 @@ public class SerialsPage extends BasePage {
 
     public void checkImageDifferBreadcrumbsAndBlocksFilters() throws IOException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Сериалы":
-        driver.get("https://web-preprod4.megafon.tv/shows");
+        driver.get("https://web-preprod5.megafon.tv/shows");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))

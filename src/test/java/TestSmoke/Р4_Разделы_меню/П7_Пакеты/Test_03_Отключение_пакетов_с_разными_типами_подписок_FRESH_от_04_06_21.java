@@ -13,7 +13,7 @@ public class Test_03_Отключение_пакетов_с_разными_ти�
     @DisplayName(value ="Отключение пакетов с разными типами подписок")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id="9")
+    @TestRailCase(id="83")
     public void disablingPackagesDifferentSubscriptionTypes() {
         // пользователь МФ:
         headerMenu.goToPackagesPage();

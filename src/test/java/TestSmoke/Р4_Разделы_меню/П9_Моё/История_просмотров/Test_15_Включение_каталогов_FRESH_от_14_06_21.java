@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё.История_просмотров;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_15_Включение_каталогов_FRESH_от_14_06_21 e
     @DisplayName(value = "Включение каталогов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "96")
     public void enablingCatalogViewSerialsPage() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

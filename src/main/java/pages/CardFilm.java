@@ -391,7 +391,7 @@ public class CardFilm extends BasePage {
         ImageIO.write(screenshotCardFilmPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods/Postup_haosa_2021");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods/Postup_haosa_2021");
         Screenshot screenshotCardFilmPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(driver);

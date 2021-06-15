@@ -12,7 +12,7 @@ public class TestRailListener implements BeforeAllCallback, TestWatcher {
     @Override
     public void beforeAll(ExtensionContext extensionContext) {
         String ProjectID = "1";
-        String testRunName = "TestRail JUnit run - ";
+        String testRunName = "AutoSmoke TestRail Run - ";
         TestRailCreds creds = new TestRailCreds.Builder()
                 .withProjectUrl("https://mikhailnt.testrail.io/")
                 .withUsername("mikhailnt@bk.ru")

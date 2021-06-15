@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_07_Переход_в_карточку_передачи_и_ка
     @DisplayName(value ="Переход в карточку передачи и канала")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "28")
     public void tvProgramInAir() throws InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

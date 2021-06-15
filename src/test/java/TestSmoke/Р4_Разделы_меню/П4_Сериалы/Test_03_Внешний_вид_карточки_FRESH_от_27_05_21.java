@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_03_Внешний_вид_карточки_FRESH_от_27_05_21 
     @DisplayName(value ="Внешний вид карточки")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "56")
     public void appearanceSectionCardSerial() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToSerialsPage();

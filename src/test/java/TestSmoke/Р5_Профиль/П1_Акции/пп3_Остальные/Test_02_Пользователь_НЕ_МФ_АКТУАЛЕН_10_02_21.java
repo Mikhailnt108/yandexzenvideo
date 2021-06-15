@@ -1,6 +1,7 @@
 package TestSmoke.Р5_Профиль.П1_Акции.пп3_Остальные;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -14,6 +15,7 @@ public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_2
     @DisplayName(value ="Пользователь НЕ_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "122")
     public void userNotMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();

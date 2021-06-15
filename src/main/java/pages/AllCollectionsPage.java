@@ -47,7 +47,7 @@ public class AllCollectionsPage extends BasePage {
         ImageIO.write(screenshotPageCollectionPp5.getImage(), "png", actualFile1);
 
         // Сделать новый этанолонный скриншот:
-        driver.get("https://web-preprod4.megafon.tv/collection");
+        driver.get("https://web-preprod5.megafon.tv/collection");
         Screenshot screenshotPageCollectionPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -56,7 +56,7 @@ public class AllCollectionsPage extends BasePage {
         ImageIO.write(screenshotPageCollectionPp5Standard.getImage(), "png", expectedFile1);
         screenshotPageCollectionPp5Standard.setIgnoredAreas(screenshotPageCollectionPp5.getIgnoredAreas());
 
-//        //Использовать старый эталонный скриншот:
+//        // Взять старый эталонный скриншот:
 //        Screenshot screenshotPageCollectionPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/CollectPage/"+"collectionPagePp5Standard"+".png")));
 //        screenshotPageCollectionPp5Standard.setIgnoredAreas(screenshotPageCollectionPp5.getIgnoredAreas());
 

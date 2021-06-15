@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -9,9 +10,10 @@ public class Test_15_2_Записываемая_ТВ_передача_18_плю�
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
+    @DisplayName(value ="Записываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "37")
     public void recordedTvProgram18Plus() throws Exception {
         headerMenu.goToNilPage();
         flowRegistation();

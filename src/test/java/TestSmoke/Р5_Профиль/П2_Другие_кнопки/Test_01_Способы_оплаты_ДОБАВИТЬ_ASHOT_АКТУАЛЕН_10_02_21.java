@@ -1,6 +1,7 @@
 package TestSmoke.Р5_Профиль.П2_Другие_кнопки;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_01_Способы_оплаты_ДОБАВИТЬ_ASHOT_АКТУ
     @DisplayName(value ="Способы оплаты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "118")
     public void paymentMethod() {
         headerMenu.goToNilPage();
         flowRegistation();

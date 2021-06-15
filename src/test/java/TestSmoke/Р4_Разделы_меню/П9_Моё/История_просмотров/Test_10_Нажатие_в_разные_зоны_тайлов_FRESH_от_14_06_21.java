@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё.История_просмотров;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_10_Нажатие_в_разные_зоны_тайлов_FRESH_
     @DisplayName(value = "Нажатие в разные зоны тайлов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "91")
     public void clickingInDifferentAreasTails() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

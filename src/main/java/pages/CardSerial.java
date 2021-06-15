@@ -424,7 +424,7 @@ public class CardSerial extends BasePage {
         ImageIO.write(screenshotBlockEpisodesPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        driver.get("https://web-preprod4.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
+        driver.get("https://web-preprod5.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
         Screenshot screenshotBlockEpisodesPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))

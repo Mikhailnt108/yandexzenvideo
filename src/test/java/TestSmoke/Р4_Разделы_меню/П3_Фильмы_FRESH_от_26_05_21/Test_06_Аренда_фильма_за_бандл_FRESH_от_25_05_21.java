@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_06_Аренда_фильма_за_бандл_FRESH_от_25_05_
     @DisplayName(value ="Аренда фильма за бандл")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "43")
     public void PaymentFilmForRent2Promo() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

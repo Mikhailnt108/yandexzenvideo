@@ -249,7 +249,7 @@ public class FilmsPage extends BasePage {
         ImageIO.write(screenshotHeaderBannerPp4.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот баннерной зоны:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
         WebElement headerBannerPp4Standard = driver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
         Screenshot screenshotHeaderBannerPp4Standard = new AShot()
@@ -273,7 +273,7 @@ public class FilmsPage extends BasePage {
 
     public void checkImageDifferBlocksCollection() throws IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
         Screenshot screenshotCollectionWithTitlePp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -323,7 +323,7 @@ public class FilmsPage extends BasePage {
         ImageIO.write(screenshotCollectionWithoutTitlePp4.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот блока подборки без заголовка:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
         Screenshot screenshotCollectionWithoutTitlePp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -356,7 +356,7 @@ public class FilmsPage extends BasePage {
         ImageIO.write(screenshotFooterPp4.getImage(), "png", actualFile1);
 
         //Сделать новый эталонный скриншот футера:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
         WebElement footerPp4Standard = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -380,7 +380,7 @@ public class FilmsPage extends BasePage {
 
     public void checkImageDifferFilmsPageScroll() throws IOException {
         // Сделать тестовый скриншот скролла страницы "Фильмы:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
         Screenshot screenshotFilmsPp4 = new AShot().coordsProvider(new WebDriverCoordsProvider())
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -421,7 +421,7 @@ public class FilmsPage extends BasePage {
 
     public void checkImageDifferBreadcrumbsAndBlocksFilters() throws IOException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersPp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -614,7 +614,7 @@ public class FilmsPage extends BasePage {
 
     public void checkImageDifferScrollQuickFilters() throws IOException, AWTException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        driver.get("https://web-preprod4.megafon.tv/movies/vods");
+        driver.get("https://web-preprod5.megafon.tv/movies/vods");
         click(By.xpath("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]"));
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

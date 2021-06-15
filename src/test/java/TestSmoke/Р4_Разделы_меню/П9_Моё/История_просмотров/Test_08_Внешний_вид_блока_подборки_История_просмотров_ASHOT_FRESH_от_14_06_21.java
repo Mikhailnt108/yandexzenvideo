@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё.История_просмотров;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_08_Внешний_вид_блока_подборки_Исто�
     @DisplayName(value ="Внешний вид блока подборки История просмотров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "89")
     public void appearanceBlockCollectViewingHistory() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

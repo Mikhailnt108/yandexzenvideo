@@ -16,7 +16,7 @@ import pages.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
-//@ExtendWith(TestRailListener.class)
+@ExtendWith(TestRailListener.class)
 public class TestBase {
 
     public static WebDriver driver;

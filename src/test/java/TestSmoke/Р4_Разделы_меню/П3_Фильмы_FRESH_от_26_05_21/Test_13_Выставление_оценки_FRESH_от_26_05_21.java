@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_13_Выставление_оценки_FRESH_от_26_05_21 ext
     @DisplayName(value ="Выставление оценки")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "50")
     public void ratingFilm() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();

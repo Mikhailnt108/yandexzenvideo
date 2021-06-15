@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_10_Подписка_на_пакет_каналов_FRESH_от_
     @DisplayName(value ="Подписка на пакет каналов")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "31")
     public void subscribeOnPackageTvChannel() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

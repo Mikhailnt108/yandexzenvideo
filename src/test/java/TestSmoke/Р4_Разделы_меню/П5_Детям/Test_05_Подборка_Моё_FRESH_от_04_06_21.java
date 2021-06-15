@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П5_Детям;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_05_Подборка_Моё_FRESH_от_04_06_21 extends TestBas
     @DisplayName(value ="Подборка Моё")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "72")
     public void collectionOfMy() {
         headerMenu.goToKidsPage();
         flowRegistation();

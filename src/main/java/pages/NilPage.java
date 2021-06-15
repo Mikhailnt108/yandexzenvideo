@@ -579,7 +579,7 @@ public class NilPage extends BasePage {
     }
 
     public void checkImageDifferBlockCollectionSpecialForYou() throws IOException {
-        driver.get("https://web-preprod4.megafon.tv/");
+        driver.get("https://web-preprod5.megafon.tv/");
 //        WebElement blockCollectSpecialForYouPp4 = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
         Screenshot screenshotCollectSpecialForYouPp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -608,7 +608,6 @@ public class NilPage extends BasePage {
 //        // Взять старый эталон скриншота:
 //        Screenshot screenshotCollectSpecialForYouPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectSpecialForYouPp4Standard" + ".png")));
 //        screenshotCollectSpecialForYouPp4Standard.setIgnoredAreas(screenshotCollectSpecialForYouPp4.getIgnoredAreas());
-
 
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectSpecialForYouPp4Standard, screenshotCollectSpecialForYouPp4);
         System.out.println(diff1.getDiffSize());

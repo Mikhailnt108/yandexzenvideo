@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_01_Переход_по_вкладкам_Моё_FRESH_от_13_0
     @DisplayName(value ="Переход по вкладкам Моё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "97")
     public void clickOnTheMyTabs() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

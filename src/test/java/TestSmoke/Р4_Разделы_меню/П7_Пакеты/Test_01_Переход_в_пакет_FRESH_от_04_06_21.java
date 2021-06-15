@@ -13,7 +13,7 @@ public class Test_01_Переход_в_пакет_FRESH_от_04_06_21 extends Te
     @DisplayName(value ="Переход в пакет")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "7")
+    @TestRailCase(id = "81")
     public void goToPackage() {
         headerMenu.goToPackagesPage();
         packagesPage.clickToFirstTailCardPackage();

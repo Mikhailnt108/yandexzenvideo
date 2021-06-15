@@ -214,7 +214,7 @@ public class TvPage extends BasePage {
 
     public void checkImageDifferTvPageTabProgramTv() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        driver.get("https://web-preprod4.megafon.tv/tv");
+        driver.get("https://web-preprod5.megafon.tv/tv");
         Set<By> posterTailsTvChannel = new HashSet<>();
         posterTailsTvChannel.add(By.xpath("//div[@class='_3xplzuhwSABoqCYH8ffVtJ']//img[@src]"));
         Set<By> nameTvChannel = new HashSet<>();
@@ -278,7 +278,7 @@ public class TvPage extends BasePage {
 
     public void checkImageDifferTabTvProgramInAir() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        driver.get("https://web-preprod4.megafon.tv/tv/tv_catalog");
+        driver.get("https://web-preprod5.megafon.tv/tv/tv_catalog");
         waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
         Screenshot screenshotTabTvProgramInAirPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -378,7 +378,7 @@ public class TvPage extends BasePage {
     }
 
     public void checkImageDifferToglPaymentOn() throws IOException {
-        driver.get("https://web-preprod4.megafon.tv/tv");
+        driver.get("https://web-preprod5.megafon.tv/tv");
         Screenshot screenshotTvPageToglPaymentOnPp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .addIgnoredElement(By.className("ch-drop-down__inner"))
@@ -388,7 +388,7 @@ public class TvPage extends BasePage {
         ImageIO.write(screenshotTvPageToglPaymentOnPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        driver.get("https://web-preprod4.megafon.tv/tv");
+        driver.get("https://web-preprod5.megafon.tv/tv");
         Screenshot screenshotTvPageToglPaymentOnPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(driver);

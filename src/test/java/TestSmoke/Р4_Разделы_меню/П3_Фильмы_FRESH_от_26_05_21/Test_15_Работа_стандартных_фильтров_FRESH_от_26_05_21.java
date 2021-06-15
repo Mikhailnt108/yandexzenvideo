@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_15_Работа_стандартных_фильтров_FRESH_
     @DisplayName(value ="Работа стандартных фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "52")
     public void standardFilters() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.checkElementsFilmsPage();

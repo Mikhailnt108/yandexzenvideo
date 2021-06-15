@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class Test_07_Переход_в_карточку_контента_из_р
     @DisplayName(value ="Переход в карточку контента из раздела Моё_Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @TestRailCase(id = "103")
     public void goToCardPackageFromMyPagePackages() {
         headerMenu.goToPackagesPage();
         flowRegistation();

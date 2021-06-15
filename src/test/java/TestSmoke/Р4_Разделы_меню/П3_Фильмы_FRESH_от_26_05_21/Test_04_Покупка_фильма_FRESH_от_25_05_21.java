@@ -1,6 +1,7 @@
 package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_04_Покупка_фильма_FRESH_от_25_05_21 extends Tes
     @DisplayName(value ="Покупка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "41")
     public void paymentFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
