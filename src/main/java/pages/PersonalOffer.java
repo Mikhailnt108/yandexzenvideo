@@ -411,6 +411,7 @@ public class PersonalOffer extends BasePage {
     }
 
     public void clickToTailPackageInPO() {
+
         click(By.xpath("//a[@data-test='PackageLink']"));
     }
 

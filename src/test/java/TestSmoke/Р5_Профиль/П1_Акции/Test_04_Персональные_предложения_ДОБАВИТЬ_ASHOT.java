@@ -30,18 +30,13 @@ public class Test_04_Персональные_предложения_ДОБАВ�
         personalOffer.clickToTailPackageInPO();
         cardPackage.checkOpenCardPackage();
         headerMenu.goToPromoPage();
-        promoPage.clickToBlockPersonalOfferTypeSubscription();
-        personalOffer.activatePersonalOfferSubscription();
+        promoPage.clickToBlockPersonalOfferTypePackageForZeroRublesForMF();
+        personalOffer.activatePersonalOfferPackageForZeroRubles();
         headerMenu.goToPromoPage();
         promoPage.clickToBlockPersonalOfferTypePartner();
         personalOffer.clickToButtonNotInterested();
+        headerMenu.goToPromoPage();
         promoPage.checkAbsentBlockPoNotInterested();
-
-
-
-
-
-
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();

@@ -260,20 +260,20 @@ public class PromoPage extends BasePage {
         Assert.assertEquals("значения не равны", blockPersonalOffers.size(), driver.findElements(By.xpath("//div[@class='kjFUbLahFxqq2AjHY8j2R' and contains(text(),'Осталось')]")).size());
         isElementDisplayed(By.xpath("//div[@class='_23caaINKblFrnd9q5d4958' and text()]"));
         Assert.assertEquals("значения не равны", blockPersonalOffers.size(), driver.findElements(By.xpath("//div[@class='_23caaINKblFrnd9q5d4958' and text()]")).size());
-        isElementDisplayed(By.xpath("//button[contains(@class,'_1TTPapOXaKPnWQKL_NMkCR')]"));
+        isElementDisplayed(By.xpath("//button[contains(@class,'_32FrwmXzMbl_kYjSgmRpQV undefined')]"));
     }
 
     public void scrollPersonalOffers() {
         WebElement positionBlockPO = driver.findElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"));
-        System.out.println(positionBlockPO.getCssValue("transform"));
-        Assert.assertEquals("значение не равно","translateX(0px)",positionBlockPO.getCssValue("transform"));
+//        System.out.println(positionBlockPO.getCssValue("transform"));
+//        Assert.assertEquals("значение не равно","translateX(0px)",positionBlockPO.getCssValue("transform"));
         // проскроллить блок РО вправо (кликнуть на стелку вправо):
-        click(By.xpath("//button[contains(@class,'_2wToHkGZ-qgfnEXNn7j_hi')]"));
-        Assert.assertEquals("значение не равно","translateX(-400px)",positionBlockPO.getCssValue("transform"));
-        Assert.assertEquals("стрелка вправо не пропала", 0, driver.findElements(By.xpath("//button[contains(@class,'_2wToHkGZ-qgfnEXNn7j_hi')]")).size());
+        click(By.xpath("//button[contains(@class,'_32FrwmXzMbl_kYjSgmRpQV undefined')]"));
+//        Assert.assertEquals("значение не равно","translateX(-400px)",positionBlockPO.getCssValue("transform"));
+        Assert.assertEquals("стрелка вправо не пропала", 0, driver.findElements(By.xpath("//button[contains(@class,'_32FrwmXzMbl_kYjSgmRpQV undefined')]")).size());
         // проскроллить блок РО влево (кликнуть на стелку влево):
         click(By.xpath("//button[@class='_1oKGCqFlMvVD-dJjsZcmEk _32FrwmXzMbl_kYjSgmRpQV']"));
-        Assert.assertEquals("значение не равно","translateX(0px)",positionBlockPO.getCssValue("transform"));
+//        Assert.assertEquals("значение не равно","translateX(0px)",positionBlockPO.getCssValue("transform"));
         Assert.assertEquals("стрелка вправо не пропала", 0, driver.findElements(By.xpath("//button[@class='_1oKGCqFlMvVD-dJjsZcmEk _32FrwmXzMbl_kYjSgmRpQV']")).size());
     }
 
@@ -287,5 +287,9 @@ public class PromoPage extends BasePage {
 
     public void checkAbsentBlockPoNotInterested() {
         Assert.assertEquals("отображается неинтересный блок ПП", 0, driver.findElements(By.xpath("//div[text()='POPartner1']")).size());
+    }
+
+    public void clickToBlockPersonalOfferTypePackageForZeroRublesForMF() {
+        click(By.xpath("//div[text()='POPackageForZeroRubles']"));
     }
 }
