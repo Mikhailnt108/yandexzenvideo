@@ -1,9 +1,9 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
-import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static io.restassured.RestAssured.given;
 
@@ -13,16 +13,16 @@ public class Test_01_Внешний_вид_и_навигация extends TestBas
     @Story(value = "3. Персональное предложение")
     @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedIfExceptionsTest(repeats = 2)
+    @RepeatedTest(1)
     public void appearanceAndNavigation() {
-        personalOffer.createPersonalOfferTypePackageForZeroRubles();
+        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         headerMenu.goToNilPage();
         flowRegistation();
         personalOffer.checkElementsOnePersonalOffer();
         headerMenu.goToKidsPage();
         headerMenu.goToNilPage();
         personalOffer.checkElementsOnePersonalOffer();
-        personalOffer.archivePersonalOfferPackageForZeroRubles();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         pageCMS.deleteAccountMF("79260192144");
     }
 

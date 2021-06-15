@@ -1,9 +1,9 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBase;
-import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 public class Test_02_Фильм_по_покупке_за_деньги_API extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -11,7 +11,7 @@ public class Test_02_Фильм_по_покупке_за_деньги_API extend
     @Story(value = "1. ВУ")
     @DisplayName(value = "Фильм по покупке за деньги")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedIfExceptionsTest(repeats = 2)
+    @RepeatedTest(1)
     public void payFilmFromPopUpNotification() {
         popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToNilPage();
@@ -35,6 +35,6 @@ public class Test_02_Фильм_по_покупке_за_деньги_API extend
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260172279");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForAPINotif();
     }
 }

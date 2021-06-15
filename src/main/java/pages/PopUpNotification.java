@@ -12,12 +12,12 @@ public class PopUpNotification extends BasePage {
     public void createAndPublishedPopUpNotifScreenNilPayFilm() {
         given().auth().basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/json").body("{\"id\":\"autotest1\",\"name\":\"автотест ВУ\",\"header\":\"автотест ВУ для экрана НиЛ\",\"published\":true," +
-                "\"body\":\"тело\",\"start_activity\":\"2021-04-07T12:56:00Z\",\"stop_activity\":\"2021-04-30T12:56:00Z\",\"notification_type\":" +
+                "\"body\":\"тело\",\"start_activity\":\"2021-06-14T12:56:00Z\",\"stop_activity\":\"2021-07-30T12:56:00Z\",\"notification_type\":" +
                 "\"text\",\"no_pictogram\":false,\"buttons\":[{\"text\":\"Закрыть\",\"type\":\"button_x\",\"action\":\"none\",\"accepts_offer\":false}," +
                 "{\"text\":\"Купить\",\"type\":\"button_other\",\"action\":\"purchase\",\"purchase_package_id\":\"Dovod_2020\"}],\"processed_images_id\":" +
                 "null,\"images\":{\"tile_notification\":" +
                 "\"https://static-sesure.cdn.megafon.tv/images/notifications/6a/d7/87d3a9a18e2ea9f7fb8df5c30240d03196bb/tile_notification__web.jpeg\"}," +
-                "\"notification_duration\":{\"type\":\"date\",\"valid_until\":\"2021-04-30T12:56:00Z\",\"valid_duration\":3600},\"user_filters\":" +
+                "\"notification_duration\":{\"type\":\"date\",\"valid_until\":\"2021-07-30T12:56:00Z\",\"valid_duration\":3600},\"user_filters\":" +
                 "{\"msisdn_filter\":false,\"auth_filter\":\"registered\",\"vk_only_filter\":false,\"partners\":[\"megafon_tv\"]}}").
                 when().
                 put("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest1").

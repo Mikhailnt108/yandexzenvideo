@@ -1,9 +1,9 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
-import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 public class Test_04_Разные_типы_ПП extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -11,12 +11,12 @@ public class Test_04_Разные_типы_ПП extends TestBase {
     @Story(value = "3. Персональное предложение")
     @DisplayName(value = "Разные типы ПП")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedIfExceptionsTest(repeats = 2)
+    @RepeatedTest(1)
     public void otherTypesPersonalOffers() {
         //проверка доступности перс предложения тип - пакет за ноль рублей для МФ
-        personalOffer.createPersonalOfferTypePackageForZeroRubles();
+        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
-        personalOffer.archivePersonalOfferPartnerOffer();
+        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         headerMenu.goToNilPage();
         flowRegistationMF();
         personalOffer.checkElementsOnePersonalOffer();
@@ -29,7 +29,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         headerMenu.goToNilPage();
         flowRegistationNonMF();
         personalOffer.checkAbsentElementPersonalOffer();
-        personalOffer.archivePersonalOfferPackageForZeroRubles();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         headerMenu.logOut();
 
         //проверка доступности перс предложения тип - подписка для МФ
@@ -50,7 +50,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         personalOffer.archivePersonalOfferSubscription();
 
         //проверка доступности партнерсокго предложения для НЕ МФ
-        personalOffer.createPersonalOfferTypePartnerOffer();
+        personalOffer.createPersonalOfferTypePartnerOfferForNonMF();
         headerMenu.goToNilPage();
         headerMenu.logOut();
         flowAuthorizationNonMF();
@@ -65,7 +65,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         headerMenu.goToNilPage();
         flowRegistationMF();
         personalOffer.checkAbsentElementPersonalOffer();
-        personalOffer.archivePersonalOfferPartnerOffer();
+        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         pageCMS.deleteAccountMF("79260192144");
     }
 

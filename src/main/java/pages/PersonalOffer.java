@@ -18,7 +18,11 @@ public class PersonalOffer extends BasePage {
         super(driver);
     }
 
-    public void createPersonalOfferTypePackageForZeroRubles() {
+    public void clickTolinkViewAllPromotions() {
+        click(By.linkText("Смотреть все акции"));
+    }
+
+    public void createPersonalOfferTypePackageForZeroRublesForMF() {
         //начало перс предложения
         LocalDateTime startOffer = LocalDateTime.now();
         //конец перс предложения
@@ -230,7 +234,7 @@ public class PersonalOffer extends BasePage {
         Assert.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorBackgroundPO);
     }
 
-    public void createPersonalOfferTypePartnerOffer() {
+    public void createPersonalOfferTypePartnerOfferForNonMF() {
         //начало перс предложения
         LocalDateTime startOffer = LocalDateTime.now();
         //конец перс предложения
@@ -262,8 +266,72 @@ public class PersonalOffer extends BasePage {
                 then().statusCode(anyOf(is(200),is(302)));
         driver.navigate().refresh();
     }
+    public void createPersonalOfferTypePartnerOfferKinoPoiskForMF() {
+        //начало перс предложения
+        LocalDateTime startOffer = LocalDateTime.now();
+        //конец перс предложения
+        LocalDateTime  endOffer = startOffer.plusDays(3);
+        //конец действия подписки
+        LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
+        //стандартный формат даты
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //приименяем свой формат даты
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").
+                contentType("multipart/form-data").
+                multiPart("name", "POPartner1").
+                multiPart("description", "text for description").
+                multiPart("poster", "http://static.cdn.megafon.tv/images/Film/d4/2c/52071210c58982627bcd80c9ccdb9bc2b636/Poster.png").
+                multiPart("poster_wide", "http://static.cdn.megafon.tv/images/Film/e3/3a/2ab31af96c4c988cbbae7451e1fc55d9d7a2/WidePoster.png").
+                multiPart("poster_tile", "http://static.cdn.megafon.tv/images/Film/fd/c2/9a45ceb01a9b56f17232368b9874dec72051/Tile.png").
+                multiPart("color", "#DAA520").
+                multiPart("activation_type", "segment").
+                multiPart("partners", "megafon_tv").
+                multiPart("segment_type", "megafon").
+                multiPart("mechanics", "partner_offer").
+                multiPart("partner_offer.partner_link", "https://hd.kinopoisk.ru/").
+                multiPart("partner_offer.partner_button", "KinoPoiskHD").
+                multiPart("valid_since", startOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
+                multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
+                when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/3/edit").
+                then().statusCode(anyOf(is(200),is(302)));
+        driver.navigate().refresh();
+    }
+    public void createPersonalOfferTypePartnerOfferOkkoTvForMF() {
+        //начало перс предложения
+        LocalDateTime startOffer = LocalDateTime.now();
+        //конец перс предложения
+        LocalDateTime  endOffer = startOffer.plusDays(3);
+        //конец действия подписки
+        LocalDateTime  tnbDateEnd = startOffer.plusDays(5);
+        //стандартный формат даты
+        //System.out.println("стандартный формат даты LocalDateTime : " + startOffer);
+        //приименяем свой формат даты
+        //System.out.println(tnbDateEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").
+                contentType("multipart/form-data").
+                multiPart("name", "POPartner2").
+                multiPart("description", "text for description").
+                multiPart("poster", "http://static.cdn.megafon.tv/images/Film/d4/2c/52071210c58982627bcd80c9ccdb9bc2b636/Poster.png").
+                multiPart("poster_wide", "http://static.cdn.megafon.tv/images/Film/e3/3a/2ab31af96c4c988cbbae7451e1fc55d9d7a2/WidePoster.png").
+                multiPart("poster_tile", "http://static.cdn.megafon.tv/images/Film/fd/c2/9a45ceb01a9b56f17232368b9874dec72051/Tile.png").
+                multiPart("color", "#310062").
+                multiPart("activation_type", "segment").
+                multiPart("partners", "megafon_tv").
+                multiPart("segment_type", "megafon").
+                multiPart("mechanics", "partner_offer").
+                multiPart("partner_offer.partner_link", "https://okko.tv/").
+                multiPart("partner_offer.partner_button", "OkkoTv").
+                multiPart("valid_since", startOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
+                multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
+                when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/4/edit").
+                then().statusCode(anyOf(is(200),is(302)));
+        driver.navigate().refresh();
+    }
 
-    public void archivePersonalOfferPackageForZeroRubles() {
+    public void archivePersonalOfferPackageForZeroRublesForMF() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
                 get("https://bmp-preprod5.megafon.tv/cms/personal_offers/1/archive").
@@ -276,10 +344,16 @@ public class PersonalOffer extends BasePage {
                 get("https://bmp-preprod5.megafon.tv/cms/personal_offers/2/archive").
                 then().statusCode(anyOf(is(200),is(302)));
     }
-    public void archivePersonalOfferPartnerOffer() {
+    public void archivePersonalOfferPartnerOfferKinoPoiskForMF() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
                 get("https://bmp-preprod5.megafon.tv/cms/personal_offers/3/archive").
+                then().statusCode(anyOf(is(200), is(302)));
+    }
+    public void archivePersonalOfferPartnerOfferOkkoTvForMF() {
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").when().
+                get("https://bmp-preprod5.megafon.tv/cms/personal_offers/4/archive").
                 then().statusCode(anyOf(is(200), is(302)));
     }
     public void checkOpenPagePersonalOfferSubscription() {
@@ -323,6 +397,25 @@ public class PersonalOffer extends BasePage {
         Assert.assertEquals(url1, url2);
         driver.close();
         driver.switchTo().window((String) tabs1.get(0));
+    }
+
+    public void checkElementsPersonalOfferPage() {
+        isElementDisplayed(By.linkText("Смотреть все акции"));
+        isElementDisplayed(By.xpath("//div[contains(text(),'Осталось')]"));
+        isElementDisplayed(By.xpath("//div[@class='_5VLZiv3cySyTjGiy4XkfE' and text()]"));
+        isElementDisplayed(By.xpath("//div[@class='_1qmJTRdAghUdA6VFbLFewU' and text()]"));
+        isElementDisplayed(By.xpath("//button[text()='Активировать']"));
+        isElementDisplayed(By.xpath("//button[text()='Не интересно']"));
+        isElementDisplayed(By.xpath("//div[text()='Сервисы, входящие в персональное предложение']|//div[text()='Пакеты, входящие в персональное предложение']"));
+        isElementDisplayed(By.xpath("//a[@data-test='PackageLink']"));
+    }
+
+    public void clickToTailPackageInPO() {
+        click(By.xpath("//a[@data-test='PackageLink']"));
+    }
+
+    public void clickToButtonNotInterested() {
+        click(By.xpath("//button[text()='Не интересно']"));
     }
 }
 

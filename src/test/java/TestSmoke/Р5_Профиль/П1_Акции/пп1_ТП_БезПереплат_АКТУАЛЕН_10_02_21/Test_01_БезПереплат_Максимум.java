@@ -13,7 +13,7 @@ public class Test_01_БезПереплат_Максимум extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Test
 
-    public void bundlBezPereplatMax() throws InterruptedException {
+    public void bundleBezPereplatMax() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         pageCMS.chooseBundleBezPereplatMaxFromMsisdn("79260192144");

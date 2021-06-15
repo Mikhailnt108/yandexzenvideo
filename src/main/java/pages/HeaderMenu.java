@@ -32,6 +32,7 @@ public class HeaderMenu extends BasePage {
     String Packages_Page_PP1 = "https://web-preprod1.megafon.tv/packages";
     String Collections_Page_PP1 = "https://web-preprod1.megafon.tv/collection";
     String CMS_PP1_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user";
+    String Promo_Page_PP1 = "https://web-preprod1.megafon.tv/profile/promotions";
 
     //ПП2
     String NIL_Page_PP2 = "https://web-preprod2.megafon.tv/";
@@ -43,6 +44,7 @@ public class HeaderMenu extends BasePage {
     String Packages_Page_PP2 = "https://web-preprod2.megafon.tv/packages";
     String Collections_Page_PP2 = "https://web-preprod2.megafon.tv/collection";
     String CMS_PP2_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user";
+    String Promo_Page_PP2 = "https://web-preprod2.megafon.tv/profile/promotions";
 
     //ПП4
     String NIL_Page_PP4 = "https://web-preprod4.megafon.tv/";
@@ -54,6 +56,7 @@ public class HeaderMenu extends BasePage {
     String Packages_Page_PP4 = "https://web-preprod4.megafon.tv/packages";
     String Collections_Page_PP4 = "https://web-preprod4.megafon.tv/collection";
     String CMS_PP4_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user";
+    String Promo_Page_PP4 = "https://web-preprod4.megafon.tv/profile/promotions";
 
 
     //ПП5
@@ -66,6 +69,7 @@ public class HeaderMenu extends BasePage {
     String Packages_Page_PP5 = "https://web-preprod5.megafon.tv/packages";
     String Collections_Page_PP5 = "https://web-preprod5.megafon.tv/collection";
     String CMS_PP5_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user";
+    String Promo_Page_PP5 = "https://web-preprod5.megafon.tv/profile/promotions";
 
     public HeaderMenu(WebDriver driver) {
         super(driver);
@@ -249,6 +253,19 @@ public class HeaderMenu extends BasePage {
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
+        }
+        driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        driver.navigate().refresh();
+    }
+
+    public void checkLoginUserIsCorrectFlowForAPINotif()  {
+        isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
+        driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
+            click(By.xpath("//button[text()='Нет']"));
         }
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
@@ -899,12 +916,15 @@ public class HeaderMenu extends BasePage {
 
     }
 
-
     public void goToManageSubscriptions() {
 
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
+    }
+
+    public void goToPromoPage() {
+        driver.get(Promo_Page_PP5);
     }
 }
 

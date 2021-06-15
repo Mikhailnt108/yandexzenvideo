@@ -1,9 +1,9 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
-import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 public class Test_03_Несколько_ПП extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -11,16 +11,16 @@ public class Test_03_Несколько_ПП extends TestBase {
     @Story(value = "3. Персональное предложение")
     @DisplayName(value = "Несколько ПП")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedIfExceptionsTest(repeats = 2)
+    @RepeatedTest(1)
     public void fewPersonalOffers() {
-        personalOffer.createPersonalOfferTypePackageForZeroRubles();
+        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.createPersonalOfferTypeSubscription();
         headerMenu.goToNilPage();
         flowRegistation();
         personalOffer.checkElementsFewPersonalOffers();
         personalOffer.clickToElementPersonalOffer();
         promoPage.checkOpenPromoPage();
-        personalOffer.archivePersonalOfferPackageForZeroRubles();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
         pageCMS.deleteAccountMF("79260192144");
 

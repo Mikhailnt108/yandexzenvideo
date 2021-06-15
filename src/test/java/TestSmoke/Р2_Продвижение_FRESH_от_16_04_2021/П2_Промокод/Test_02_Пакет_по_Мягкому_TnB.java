@@ -4,6 +4,7 @@ import base.TestBase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 public class Test_02_Пакет_по_Мягкому_TnB extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -11,7 +12,7 @@ public class Test_02_Пакет_по_Мягкому_TnB extends TestBase {
     @Story(value = "2. Промокод")
     @DisplayName(value = "Пакет по Мягкому TnB")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedIfExceptionsTest(repeats = 2)
+    @RepeatedTest(1)
     public void packageSoftTnB() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();

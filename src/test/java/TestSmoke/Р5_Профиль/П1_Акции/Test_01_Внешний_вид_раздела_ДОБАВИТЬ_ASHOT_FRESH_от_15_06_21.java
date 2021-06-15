@@ -1,4 +1,4 @@
-package TestSmoke.старые_кейсы.профиль;
+package TestSmoke.Р5_Профиль.П1_Акции;
 
 import base.TestBase;
 import io.qameta.allure.*;
@@ -8,18 +8,21 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 import java.io.IOException;
 
-public class K01_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT_АКТУАЛЕН_08_02_21 extends TestBase {
+public class Test_01_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT_FRESH_от_15_06_21 extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
     @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void checkScreenshotPromo() throws AWTException, IOException, InterruptedException {
+    public void appearancePagePromo() throws InterruptedException, IOException, AWTException {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.openSubsectionPromo();
         promoPage.checkElementsWithoutBlockPersonalOffer();
+        promoPage.checkExpandDiscriptionPromo();
+        promoPage.checkHideDiscriptionPromo();
+
         promoPage.imageDifferBlockTarif();
         promoPage.imageDifferBlockPromotions();
         pageCMS.deleteAccountMF("79260192144");

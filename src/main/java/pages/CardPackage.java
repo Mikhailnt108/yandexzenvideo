@@ -31,7 +31,6 @@ public class CardPackage extends BasePage {
 
     public void checkOpenCardPackage() {
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
-        //Assert.assertEquals("Не тот пакет",driver.findElement(By.xpath("//div[@class='uCaVLp73F3t8zT0sYCoBh']//span[1]")).getText(),driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText());
     }
 
     public void paymentPackageTnB() {

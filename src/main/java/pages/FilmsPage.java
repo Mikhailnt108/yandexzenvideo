@@ -197,7 +197,7 @@ public class FilmsPage extends BasePage {
 
     public void checkFilmsPromo() {
         List<WebElement> CollectionPackages = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             CollectionPackages = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionPackages.get(i).click();
             Assert.assertEquals("Нет кнопки 'По акции на 48 часов за 0 ₽' на странице", "По акции на 48 часов за 0 ₽", driver.findElement(By.xpath("//span[text()='По акции на 48 часов за 0 ₽']")).getText());
