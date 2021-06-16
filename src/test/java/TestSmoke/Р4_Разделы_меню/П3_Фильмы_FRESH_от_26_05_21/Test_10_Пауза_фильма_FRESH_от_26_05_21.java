@@ -24,18 +24,18 @@ public class Test_10_Пауза_фильма_FRESH_от_26_05_21 extends TestBas
         cardFilm.clickToPlayVideoPleer();
         cardFilm.clickToSpaceToVideoPleer();
         cardFilm.clickToLeftButtonMouseToVideoPleer();
-        pageCMS.deleteAccountMF("79260172279");
+        pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
