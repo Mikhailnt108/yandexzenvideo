@@ -1,7 +1,6 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_03_Общая_вкладка_Фильмы_API extends TestBase
     @DisplayName(value = "Общая вкладка Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "127")
     public void popUpNotificationFilterPageFilms() {
         popUpNotification.createAndPublishedPopUpNotifScreenFilms();
         headerMenu.goToNilPage();

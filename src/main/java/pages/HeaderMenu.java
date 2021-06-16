@@ -259,24 +259,13 @@ public class HeaderMenu extends BasePage {
             click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
-            click(By.xpath("//button[text()='Закрыть']"));
-        }
-        driver.navigate().refresh();
     }
 
-    public void checkLoginUserIsCorrectFlowForAPINotif() {
+    public void checkLoginUserIsCorrectFlowForAPINotif()  {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
             click(By.xpath("//button[text()='Нет']"));
-        }
-        driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
-            click(By.xpath("//button[text()='Закрыть']"));
-        }
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
-            click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
@@ -495,7 +484,7 @@ public class HeaderMenu extends BasePage {
     }
 
     public void logOut() {
-        click(By.xpath("(//div[@class='ch-trigger__container']//span)[2]"));
+        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Выйти'])[1]"));
     }
 

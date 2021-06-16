@@ -1,7 +1,6 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +13,6 @@ public class Test_03_Пакет_по_Жесткому_TnB extends TestBase {
     @DisplayName(value = "Пакет по Жесткому ТнБ")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "132")
     public void packageHardTnB() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
