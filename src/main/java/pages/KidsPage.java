@@ -37,10 +37,10 @@ public class KidsPage extends BasePage {
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
-            isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
-            isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]"));
-            System.out.println(driver.findElement(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]")).getText());
+            isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[2]"));
+            isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[2]"));
+            isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[2]"));
+            System.out.println(driver.findElement(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[2]")).getText());
         }
 
         List<WebElement> BannerForKids2 = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));

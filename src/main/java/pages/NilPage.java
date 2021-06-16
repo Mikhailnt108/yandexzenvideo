@@ -184,6 +184,7 @@ public class NilPage extends BasePage {
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
         Assert.assertTrue(diff1.getDiffSize() <= 50);
 
+
         // Сделать тестовый скриншот баннерной зоны:
         driver.get("https://web-preprod5.megafon.tv/");
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][2]"));
@@ -514,36 +515,34 @@ public class NilPage extends BasePage {
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
     }
 
-    public void switchingFromBannerToCardFilm() {
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        List<WebElement> BannerForNil = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
-        System.out.println(BannerForNil.size());
-        for (int i = 0; i < BannerForNil.size(); i++) {
-            BannerForNil = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
-            BannerForNil.get(i).click();
-            if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/movies/vods/')]")).isDisplayed()) {
-                click(By.xpath("//div[@data-test='BannerCarousel']"));
-                isElementDisplayed(By.xpath("//span[text()='Фильмы']"));
+    public void switchingFromBannerToCardFilm() throws InterruptedException {
+        List<WebElement> BannerForNiL = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForNiL.size());
+        for (int i = 0; i < BannerForNiL.size(); i++) {
+            BannerForNiL = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForNiL.get(i).click();
+            Thread.sleep(2000);
+            click(By.xpath("//div[@data-test='BannerCarousel']"));
+            if (driver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                BannerForNil.get(i).click();
+                driver.navigate().back();
             }
         }
     }
 
-    public void switchingFromBannerToCardSerial() {
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        List<WebElement> BannerForNil = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
-        System.out.println(BannerForNil.size());
-        for (int i = 0; i < BannerForNil.size(); i++) {
-            BannerForNil = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
-            BannerForNil.get(i).click();
-            if (driver.findElement(By.xpath("//div[@class='XYh-kiX21fyak70PYmHLU poster']//a[contains(@href,'/shows/')]")).isDisplayed()) {
-                click(By.xpath("//div[@data-test='BannerCarousel']"));
-                isElementDisplayed(By.xpath("//span[text()='Сериалы']"));
+    public void switchingFromBannerToCardSerial() throws InterruptedException {
+        List<WebElement> BannerForNiL = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        System.out.println(BannerForNiL.size());
+        for (int i = 0; i < BannerForNiL.size(); i++) {
+            BannerForNiL = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForNiL.get(i).click();
+            Thread.sleep(2000);
+            click(By.xpath("//div[@data-test='BannerCarousel']"));
+            if (driver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                BannerForNil.get(i).click();
+                driver.navigate().back();
             }
         }
     }

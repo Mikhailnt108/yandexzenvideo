@@ -19,7 +19,9 @@ public class Test_03_Переходы_Баннеры_FRESH__от_03_06_21 extend
         kidsPage.checkImageDifferCherdakAndBanners();
         kidsPage.checkElementsBannersCarousel();
         kidsPage.switchingFromBannerToCardFilm();
+        headerMenu.goToKidsPage();
         kidsPage.switchingFromBannerToCardSerial();
+        headerMenu.goToKidsPage();
         kidsPage.switchingFromBannerToCardTvChannel();
     }
 }
