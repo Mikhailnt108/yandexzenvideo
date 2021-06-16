@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
@@ -16,6 +17,7 @@ public class Test_01_Кнопка_промокода extends TestBase {
     @DisplayName(value = "Кнопка промокода")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "130")
     public void clickButtonPromoCodeAndInputPromoCode() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();

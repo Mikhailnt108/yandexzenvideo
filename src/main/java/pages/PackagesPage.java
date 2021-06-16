@@ -30,7 +30,7 @@ public class PackagesPage extends BasePage {
     }
 
     public void clickToTailCardPackageTvChannel() {
-        click(By.xpath("//h3[text()='Базовый']"));
+        click(By.xpath("(//a[contains(@href,'/mixed_groups/')])[1]"));
     }
 
     public void clickToTabKinoInMenuShopPage() {

@@ -16,9 +16,11 @@ public class Test_01_Внешний_вид_раздела_ASHOT_FRESH_от_02_06
     @TestRailCase(id = "68")
     public void appearanceSectioтKidsPage() throws Exception {
         headerMenu.goToKidsPage();
-        kidsPage.checkImageDifferCherdakAndBanners();
+//        kidsPage.checkImageDifferCherdakAndBanners();
         kidsPage.checkImageDifferBlocksCollection();
-        kidsPage.checkImageDifferFooter();
+//        kidsPage.checkImageDifferFooter();
+//        System.out.println("смещаем блок подборок");
+//        Thread.sleep(25000);
         kidsPage.checkImageDifferKidsPageScroll();
     }
 }

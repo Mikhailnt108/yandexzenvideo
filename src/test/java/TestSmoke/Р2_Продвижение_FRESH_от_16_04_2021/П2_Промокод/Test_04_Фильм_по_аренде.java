@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ public class Test_04_Фильм_по_аренде extends TestBase {
     @DisplayName(value = "Фильм по аренде")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id = "133")
     public void filmOnRentPromo() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();
@@ -29,19 +31,19 @@ public class Test_04_Фильм_по_аренде extends TestBase {
         headerMenu.checkElementsPopUpAfterActivationFilmOnRent();
         headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent();
         promoCode.archiveCodeGroupFilmOnRentPromo();
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.deleteAccountMF("79260205027");
     }
 
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlow();
     }
