@@ -247,15 +247,15 @@ public class HeaderMenu extends BasePage {
     public void checkLoginUserIsCorrectFlow()  {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
-            click(By.xpath("//button[text()='Нет']"));
-        }
-        driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
+        if (driver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
+        if (driver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();

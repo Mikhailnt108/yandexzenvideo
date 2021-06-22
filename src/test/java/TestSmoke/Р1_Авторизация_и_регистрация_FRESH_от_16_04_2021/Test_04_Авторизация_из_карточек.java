@@ -12,7 +12,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Авторизация из карточек")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     @TestRailCase(id="5")
     public void loginFromCardFilm() {
         headerMenu.goToNilPage();
@@ -47,7 +47,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         headerMenu.clickToTabShop();
         packagesPage.checkOpenShopPage();
         packagesPage.clickToTabTvСhannelInMenuShopPage();
-        packagesPage.clickToTailCardPackageTvChannel();
+        packagesPage.clickToFirstTailCardPackage();
         cardPackage.checkOpenCardPackageTvChannel();
         cardPackage.clickOnPaymentButtonInCardPackage();
         flowAutorisation();

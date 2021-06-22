@@ -7,6 +7,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_02_Регистрация_НЕ_МФ extends TestBase {
@@ -14,7 +15,7 @@ public class Test_02_Регистрация_НЕ_МФ extends TestBase {
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Регистрация НЕ МФ")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     @TestRailCase(id="3")
     public void registrationNotMF()  {
         headerMenu.goToNilPage();

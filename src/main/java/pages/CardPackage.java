@@ -20,16 +20,19 @@ public class CardPackage extends BasePage {
     }
 
     public void clickOnPaymentButtonInCardPackage() {
-       click(By.xpath("//button[@type='button']//div[1]"));
+        driver.navigate().refresh();
+        click(By.xpath("//button[@type='button']//div[1]"));
     }
 
     public void checkOpenCardPackageTvChannel() {
-        isElementDisplayed(By.xpath("//div[contains(text(),' канал')]"));
+        String urlCardTvPackage = driver.getCurrentUrl();
+        urlCardTvPackage.equals("megafon.tv/tv1/packages/");
     }
 
 
 
     public void checkOpenCardPackage() {
+
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
     }
 
@@ -110,6 +113,7 @@ public class CardPackage extends BasePage {
     }
 
     public void checkOpenCardPackage18Plus() {
+
         isElementDisplayed(By.xpath("//div[text()='18+']"));
     }
 
@@ -118,14 +122,17 @@ public class CardPackage extends BasePage {
     }
 
     public void chooseRecordedTvChannel18Plus() {
+
         click(By.xpath("(//div[@class='_3htFDYhBDJd36aHUvW3Sfh'])[3]"));
     }
 
     public void clickOnTailFirstCardFilm() {
+
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
     public void clickToFirstTailCardSerial() {
+
         click(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]"));
     }
 
@@ -137,6 +144,7 @@ public class CardPackage extends BasePage {
     }
 
     public void clickOnTailSecondCardFilm() {
+
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
 
@@ -187,6 +195,7 @@ public class CardPackage extends BasePage {
     }
 
     public void clickOnButtonCancel() {
+
         click(By.xpath("//button[text()='Отменить']"));
     }
 
@@ -241,6 +250,7 @@ public class CardPackage extends BasePage {
     }
 
     public void clickOnButtonСonfirm() {
+
         click(By.xpath("//button[text()='Подтвердить']"));
     }
 
@@ -258,10 +268,12 @@ public class CardPackage extends BasePage {
     }
 
     public void clickOnButtonAddAndConnect() {
+
         click(By.xpath("//button[text()='Добавить и подключить']"));
     }
 
     public void clickOnButtonClosePoUpСonnectionСompleted() {
+
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
@@ -279,18 +291,22 @@ public class CardPackage extends BasePage {
     }
 
     public void clickToSecondTailCardSerial() {
+
         click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[2]"));
     }
 
     public void clickToThirdTailCardSerial() {
+
         click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[3]"));
     }
 
     public void clickToTabFilms() {
+
         click(By.xpath("(//div[text()='Фильмы'])[3]"));
     }
 
     public void clickToTabSerials() {
+
         click(By.xpath("(//div[text()='Сериалы'])[3]"));
     }
 }

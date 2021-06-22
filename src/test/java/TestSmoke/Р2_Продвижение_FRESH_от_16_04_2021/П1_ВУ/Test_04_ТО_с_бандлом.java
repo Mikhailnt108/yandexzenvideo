@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +14,12 @@ public class Test_04_ТО_с_бандлом extends TestBase {
     @DisplayName(value = "ТО с бандлом")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id="128")
     public void popUpNotificationMyTarifBundle() {
+        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
+        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
+        personalOffer.archivePersonalOfferSubscription();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.checkLoginUserIsCorrect();

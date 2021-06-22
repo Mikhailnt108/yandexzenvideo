@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,6 +13,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
     @DisplayName(value = "Разные типы ПП")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id="138")
     public void otherTypesPersonalOffers() {
         //проверка доступности перс предложения тип - пакет за ноль рублей для МФ
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();

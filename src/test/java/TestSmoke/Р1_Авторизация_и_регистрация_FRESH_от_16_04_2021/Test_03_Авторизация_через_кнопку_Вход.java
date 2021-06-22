@@ -13,7 +13,7 @@ public class Test_03_Авторизация_через_кнопку_Вход ext
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Авторизация через кнопку 'Вход'")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     @TestRailCase(id="4")
     public void loginFromHeaderMenu() throws InterruptedException {
         headerMenu.goToNilPage();

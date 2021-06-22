@@ -101,7 +101,6 @@ public class PersonalOffer extends BasePage {
                 then().statusCode(anyOf(is(200),is(302)));
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#FFFFFF']"));
         isElementDisplayed(By.xpath("//div[text()='Мы подготовили для Вас персональное предложение']"));
-
     }
 
     public void checkElementsYellowColorSandPersonalOffer() {

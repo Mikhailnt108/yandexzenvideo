@@ -14,7 +14,7 @@ public class PackagesPage extends BasePage {
     }
 
     public void checkOpenShopPage() {
-        isElementDisplayed(By.xpath("(//div[text()='Все сервисы'])[3]"));
+        isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
     }
 
     public void clickToTabSerialsInMenuShopPage() {

@@ -1,6 +1,7 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
 import base.TestBase;
+import com.github.rsheremeta.testrail.TestRailCase;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ public class Test_04_Фильм_по_аренде extends TestBase {
     @DisplayName(value = "Фильм по аренде")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
+    @TestRailCase(id="133")
     public void filmOnRentPromo() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();

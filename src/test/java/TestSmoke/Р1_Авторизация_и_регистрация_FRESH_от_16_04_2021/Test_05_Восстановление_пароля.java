@@ -8,12 +8,11 @@ import org.junit.jupiter.api.*;
 
 
 public class Test_05_Восстановление_пароля extends TestBase {
-
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(3)
     @TestRailCase(id="6")
     public void passwordRecovery() {
         headerMenu.goToNilPage();
