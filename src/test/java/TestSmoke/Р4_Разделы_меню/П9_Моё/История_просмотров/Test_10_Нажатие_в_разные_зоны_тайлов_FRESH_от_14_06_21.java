@@ -74,6 +74,6 @@ public class Test_10_Нажатие_в_разные_зоны_тайлов_FRESH_
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

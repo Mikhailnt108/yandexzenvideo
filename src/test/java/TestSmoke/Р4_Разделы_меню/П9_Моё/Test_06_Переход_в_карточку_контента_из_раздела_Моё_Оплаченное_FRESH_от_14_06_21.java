@@ -35,6 +35,6 @@ public class Test_06_Переход_в_карточку_контента_из_р
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

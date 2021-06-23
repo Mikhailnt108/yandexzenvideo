@@ -36,6 +36,6 @@ public class OldTest_18_Записанная_ТВ_передача_18_плюс e
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

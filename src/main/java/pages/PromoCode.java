@@ -1,7 +1,6 @@
 package pages;
 
 import base.BasePage;
-import base.TestBase;
 import org.openqa.selenium.WebDriver;
 
 import static io.restassured.RestAssured.given;

@@ -35,6 +35,6 @@ public class Test_05_Аренда_фильма_за_деньги_FRESH_от_25_0
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

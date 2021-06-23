@@ -35,6 +35,6 @@ public class Test_06_Просмотр_серии_FRESH_от_01_06_21 extends Tes
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

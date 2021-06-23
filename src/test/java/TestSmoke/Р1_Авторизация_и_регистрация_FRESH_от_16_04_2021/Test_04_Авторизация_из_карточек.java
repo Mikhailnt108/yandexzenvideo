@@ -65,7 +65,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 
     private void flowAutorisation() {
@@ -75,6 +75,6 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         headerMenu.checkOpenPopUpInputPassword();
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

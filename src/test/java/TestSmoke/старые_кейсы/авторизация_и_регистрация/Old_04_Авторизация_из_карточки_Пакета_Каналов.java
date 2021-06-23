@@ -33,7 +33,7 @@ public class Old_04_Авторизация_из_карточки_Пакета_К
         headerMenu.checkOpenPopUpInputPassword();
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 
     private void flowRegistation() {
@@ -48,6 +48,6 @@ public class Old_04_Авторизация_из_карточки_Пакета_К
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

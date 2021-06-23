@@ -83,7 +83,7 @@ public class Test_08_Внешний_вид_блока_подборки_Исто�
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
     private void flowRegistationNonMF() {
         headerMenu.checkNotLoggedIsCorrect();
@@ -99,6 +99,6 @@ public class Test_08_Внешний_вид_блока_подборки_Исто�
         headerMenu.clickToComeIn("Войти");
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

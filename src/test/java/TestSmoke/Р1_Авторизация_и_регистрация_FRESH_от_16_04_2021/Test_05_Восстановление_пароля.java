@@ -2,7 +2,6 @@ package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_о�
 
 import base.TestBase;
 import com.github.rsheremeta.testrail.TestRailCase;
-import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
@@ -57,6 +56,6 @@ public class Test_05_Восстановление_пароля extends TestBase 
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

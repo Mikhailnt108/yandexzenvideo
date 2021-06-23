@@ -244,7 +244,7 @@ public class HeaderMenu extends BasePage {
         click(By.xpath("(//span[text()='Вход'])[1]"));
     }
 
-    public void checkLoginUserIsCorrectFlow()  {
+    public void checkLoginUserIsCorrectFlowForMF()  {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
         if (driver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
@@ -264,11 +264,7 @@ public class HeaderMenu extends BasePage {
     public void checkLoginUserIsCorrectFlowForAPINotif()  {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
-            click(By.xpath("//button[text()='Нет']"));
-        }
-        driver.navigate().refresh();
-        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']|//div[@aria-label='Notification']")).size() != 0) {
+        if (driver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
         driver.navigate().refresh();
@@ -361,8 +357,21 @@ public class HeaderMenu extends BasePage {
 
     }
 
-    public void checkLoginUserIsCorrectForNonMegafon() {
-        isElementDisplayed(By.xpath("(//span[text()='+79261184972'])[2]"));
+    public void checkLoginUserIsCorrectFlowForNonMF() {
+        isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
+        driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        driver.navigate().refresh();
+        if (driver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        driver.navigate().refresh();
     }
 
     public void openSubsectionPaymentMethod() {

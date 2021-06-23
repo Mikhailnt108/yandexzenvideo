@@ -50,6 +50,7 @@ public class TestBase {
     public static PopUpNotification popUpNotification;
     public static PromoCode promoCode;
     public static PersonalOffer personalOffer;
+    public static RatingPage ratingPage;
 
     @BeforeAll
     public static void start() throws AWTException {
@@ -100,7 +101,7 @@ public class TestBase {
         popUpNotification = PageFactory.initElements(driver, PopUpNotification.class);
         promoCode = PageFactory.initElements(driver, PromoCode.class);
         personalOffer = PageFactory.initElements(driver, PersonalOffer.class);
-
+        ratingPage = PageFactory.initElements(driver, RatingPage.class);
 
         driver.manage().deleteAllCookies();
 

@@ -14,7 +14,7 @@ public class Test_03_Несколько_ПП extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     @TestRailCase(id="137")
-    public void fewPersonalOffers() {
+    public void fewPersonalOffers() throws InterruptedException {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.createPersonalOfferTypeSubscription();
         headerMenu.goToNilPage();
@@ -38,6 +38,6 @@ public class Test_03_Несколько_ПП extends TestBase {
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

@@ -27,7 +27,8 @@ public class CardTvChannel extends BasePage {
 
 
     public void checkOpenCardTvProgram() {
-        isElementDisplayed(By.xpath("//a[@href='/tv']//span[1]"));
+        String urlCardTvProgram = driver.getCurrentUrl();
+        urlCardTvProgram.equals("/programs/");
     }
 
     public void clickOnTvProgramInCardChannel() {

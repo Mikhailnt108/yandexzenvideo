@@ -144,8 +144,8 @@ public class NilPage extends BasePage {
         screenshotNilStandard.setIgnoredAreas(screenshotNil.getIgnoredAreas());
 
 //        // Взять старый эталонный скриншот скролла страницы НиЛ:
-//        Screenshot screenshotNilPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "scrollPageNilPp4Standard" + ".png")));
-//        screenshotNilPp4Standard.setIgnoredAreas(screenshotNilPp4.getIgnoredAreas());
+//        Screenshot screenshotNilStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "scrollPageNilStandard" + ".png")));
+//        screenshotNilStandard.setIgnoredAreas(screenshotNil.getIgnoredAreas());
 
         // Сравнить скриншоты скролла страницы НиЛ (тестовый и эталонный):
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotNilStandard, screenshotNil);
@@ -165,17 +165,17 @@ public class NilPage extends BasePage {
         File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "cherdak" + ".png");
         ImageIO.write(screenshotHeaderCherdak.getImage(), "png", actualFile1);
 
-        // Сделать новый эталонный скриншот чердака:
-        driver.get("https://web-preprod5.megafon.tv/");
-        WebElement headerCherdakStandard = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
-        Screenshot screenshotHeaderCherdakStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(driver, headerCherdakStandard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/"+"cherdakStandard"+".png");
-        ImageIO.write(screenshotHeaderCherdakStandard.getImage(), "png", expectedFile1);
+//        // Сделать новый эталонный скриншот чердака:
+//        driver.get("https://web-preprod5.megafon.tv/");
+//        WebElement headerCherdakStandard = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
+//        Screenshot screenshotHeaderCherdakStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .takeScreenshot(driver, headerCherdakStandard);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/"+"cherdakStandard"+".png");
+//        ImageIO.write(screenshotHeaderCherdakStandard.getImage(), "png", expectedFile1);
 
-//        // Взять старый эталонный скриншот чердака:
-//        Screenshot screenshotHeaderCherdakStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "cherdakStandard" + ".png")));
+        // Взять старый эталонный скриншот чердака:
+        Screenshot screenshotHeaderCherdakStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "cherdakStandard" + ".png")));
 
         // Сравнить скриншоты чердака (тестовый и эталонный):
         ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotHeaderCherdakStandard, screenshotHeaderCherdak);
@@ -196,20 +196,20 @@ public class NilPage extends BasePage {
         File actualFile2 = new File("src/test/java/testScreenshots/actual/NiL/" + "banner" + ".png");
         ImageIO.write(screenshotHeaderBanner.getImage(), "png", actualFile2);
 
-        // Сделать новый эталонный скриншот баннерной зоны:
-        driver.get("https://web-preprod5.megafon.tv/");
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        WebElement headerBannerStandard = driver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
-        Screenshot screenshotHeaderBannerStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(driver, headerBannerStandard);
-        File expectedFile2 = new File("src/test/java/testScreenshots/expected/NiL/"+"bannerStandard"+".png");
-        ImageIO.write(screenshotHeaderBannerStandard.getImage(), "png", expectedFile2);
-        screenshotHeaderBannerStandard.setIgnoredAreas(screenshotHeaderBanner.getIgnoredAreas());
-
-//        // Взять старый эталонный скриншот баннерной зоны:
-//        Screenshot screenshotHeaderBannerStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "bannerStandard" + ".png")));
+//        // Сделать новый эталонный скриншот баннерной зоны:
+//        driver.get("https://web-preprod5.megafon.tv/");
+//        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
+//        WebElement headerBannerStandard = driver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
+//        Screenshot screenshotHeaderBannerStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .takeScreenshot(driver, headerBannerStandard);
+//        File expectedFile2 = new File("src/test/java/testScreenshots/expected/NiL/"+"bannerStandard"+".png");
+//        ImageIO.write(screenshotHeaderBannerStandard.getImage(), "png", expectedFile2);
 //        screenshotHeaderBannerStandard.setIgnoredAreas(screenshotHeaderBanner.getIgnoredAreas());
+
+        // Взять старый эталонный скриншот баннерной зоны:
+        Screenshot screenshotHeaderBannerStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "bannerStandard" + ".png")));
+        screenshotHeaderBannerStandard.setIgnoredAreas(screenshotHeaderBanner.getIgnoredAreas());
 
         // Сравнить скриншоты баннерной зоны (тестовый и эталонный):
         ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotHeaderBannerStandard, screenshotHeaderBanner);
@@ -333,20 +333,20 @@ public class NilPage extends BasePage {
         File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "footer" + ".png");
         ImageIO.write(screenshotFooter.getImage(), "png", actualFile1);
 
-        // Сделать новый эталонный скриншот футера:
-        driver.get("https://web-preprod5.megafon.tv/");
-        WebElement footerStandard = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
-        Screenshot screenshotFooterStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver, footerStandard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/"+"footerStandard"+".png");
-        ImageIO.write(screenshotFooterStandard.getImage(), "png", expectedFile1);
-        screenshotFooterStandard.setIgnoredAreas(screenshotFooter.getIgnoredAreas());
+//        // Сделать новый эталонный скриншот футера:
+//        driver.get("https://web-preprod5.megafon.tv/");
+//        WebElement footerStandard = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
+//        Screenshot screenshotFooterStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(driver, footerStandard);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/"+"footerStandard"+".png");
+//        ImageIO.write(screenshotFooterStandard.getImage(), "png", expectedFile1);
+//        screenshotFooterStandard.setIgnoredAreas(screenshotFooter.getIgnoredAreas());
 
-//        // Взять старый эталонный скриншот футера:
-//        Screenshot screenshotFooterPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilFooterPp4Standard" + ".png")));
-//        screenshotFooterPp4Standard.setIgnoredAreas(screenshotFooterPp4.getIgnoredAreas());
+        // Взять старый эталонный скриншот футера:
+        Screenshot screenshotFooterStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "footerStandard" + ".png")));
+        screenshotFooterStandard.setIgnoredAreas(screenshotFooter.getIgnoredAreas());
 
         // Сравнить скриншоты футера (тестовый и эталонный):
         ImageDiff diff = new ImageDiffer().makeDiff(screenshotFooterStandard, screenshotFooter);
@@ -579,8 +579,8 @@ public class NilPage extends BasePage {
 
     public void checkImageDifferBlockCollectionSpecialForYou() throws IOException {
         driver.get("https://web-preprod5.megafon.tv/");
-//        WebElement blockCollectSpecialForYouPp4 = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
-        Screenshot screenshotCollectSpecialForYouPp4 = new AShot()
+//        WebElement blockCollectSpecialForYou = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
+        Screenshot screenshotCollectSpecialForYou = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
@@ -590,27 +590,28 @@ public class NilPage extends BasePage {
                 .addIgnoredElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']/following::a[@data-test='PackageListWrapperMoreText'])[1]"))
                 .addIgnoredElement(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']")) // игнор все подборки без заголовка
                 .takeScreenshot(driver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "nilCollectSpecialForYouPp4" + ".png");
-        ImageIO.write(screenshotCollectSpecialForYouPp4.getImage(), "png", actualFile1);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "nilCollectSpecialForYou" + ".png");
+        ImageIO.write(screenshotCollectSpecialForYou.getImage(), "png", actualFile1);
 
-        // Сделать новый эталонный скриншот блока подборки "Подобрали специально для вас":
-        driver.get("https://web-preprod5.megafon.tv/");
-//        WebElement blockCollectSpecialForYouPp4Standard = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
-        Screenshot screenshotCollectSpecialForYouPp4Standard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectSpecialForYouPp4Standard" + ".png");
-        ImageIO.write(screenshotCollectSpecialForYouPp4Standard.getImage(), "png", expectedFile1);
-        screenshotCollectSpecialForYouPp4Standard.setIgnoredAreas(screenshotCollectSpecialForYouPp4.getIgnoredAreas());
+//        // Сделать новый эталонный скриншот блока подборки "Подобрали специально для вас":
+//        driver.get("https://web-preprod5.megafon.tv/");
+////        WebElement blockCollectSpecialForYouStandard = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
+//        Screenshot screenshotCollectSpecialForYouStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(driver);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectSpecialForYouStandard" + ".png");
+//        ImageIO.write(screenshotCollectSpecialForYouStandard.getImage(), "png", expectedFile1);
+//        screenshotCollectSpecialForYouStandard.setIgnoredAreas(screenshotCollectSpecialForYou.getIgnoredAreas());
 
-//        // Взять старый эталон скриншота:
-//        Screenshot screenshotCollectSpecialForYouPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectSpecialForYouPp4Standard" + ".png")));
-//        screenshotCollectSpecialForYouPp4Standard.setIgnoredAreas(screenshotCollectSpecialForYouPp4.getIgnoredAreas());
+        // Взять старый эталон скриншота:
+        Screenshot screenshotCollectSpecialForYouStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectSpecialForYouStandard" + ".png")));
+        screenshotCollectSpecialForYouStandard.setIgnoredAreas(screenshotCollectSpecialForYou.getIgnoredAreas());
 
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectSpecialForYouPp4Standard, screenshotCollectSpecialForYouPp4);
+        // Сравнение скриншотов подборки "Подобрали специально для вас" (тестовый и эталонный):
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectSpecialForYouStandard, screenshotCollectSpecialForYou);
         System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/NiL/" + "diffCollectSpecialForYouPp4" + ".png");
+        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/NiL/" + "diffCollectSpecialForYou" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
         Assert.assertTrue(diff1.getDiffSize() <= 100);
     }
@@ -710,85 +711,101 @@ public class NilPage extends BasePage {
     }
 
     public void checkImageDifferBlockCollectHistoryWatch() throws IOException {
-        driver.get("https://web-preprod4.megafon.tv/");
-        WebElement blockCollectHistoryWatchPp4 = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
+        driver.get("https://web-preprod5.megafon.tv/");
+        WebElement blockCollectHistoryWatch = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Set<By> posterTailsCollection = new HashSet<>();
         posterTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='HZzNvtNX5fExVnjY_Popf']"));
         Set<By> nameTailsCollection = new HashSet<>();
         nameTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ']"));
         Set<By> counterTailsCollection = new HashSet<>();
         counterTailsCollection.add(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
-        Screenshot screenshotCollectHistoryWatchPp4 = new AShot()
+        Screenshot screenshotCollectHistoryWatch = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .ignoredElements(posterTailsCollection)
                 .ignoredElements(nameTailsCollection)
                 .ignoredElements(counterTailsCollection)
-                .takeScreenshot(driver, blockCollectHistoryWatchPp4);
+                .takeScreenshot(driver, blockCollectHistoryWatch);
 
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "nilCollectHistoryWatchPp4" + ".png");
-        ImageIO.write(screenshotCollectHistoryWatchPp4.getImage(), "png", actualFile1);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "nilCollectHistoryWatch" + ".png");
+        ImageIO.write(screenshotCollectHistoryWatch.getImage(), "png", actualFile1);
 
         // Сделать новый эталон скриншота:
-        driver.get("https://web-preprod4.megafon.tv/");
-        WebElement blockCollectHistoryWatchPp4Standard = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
-        Screenshot screenshotCollectHistoryWatchPp4Standard = new AShot()
+        driver.get("https://web-preprod5.megafon.tv/");
+        WebElement blockCollectHistoryWatchStandard = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
+        Screenshot screenshotCollectHistoryWatchStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .ignoredElements(posterTailsCollection)
                 .ignoredElements(nameTailsCollection)
-                .takeScreenshot(driver, blockCollectHistoryWatchPp4Standard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectHistoryWatchPp4Standard" + ".png");
-        ImageIO.write(screenshotCollectHistoryWatchPp4Standard.getImage(), "png", expectedFile1);
-        screenshotCollectHistoryWatchPp4Standard.setIgnoredAreas(screenshotCollectHistoryWatchPp4.getIgnoredAreas());
+                .takeScreenshot(driver, blockCollectHistoryWatchStandard);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectHistoryWatchStandard" + ".png");
+        ImageIO.write(screenshotCollectHistoryWatchStandard.getImage(), "png", expectedFile1);
+        screenshotCollectHistoryWatchStandard.setIgnoredAreas(screenshotCollectHistoryWatch.getIgnoredAreas());
 
 //        // Взять старый эталон скриншота:
-//        Screenshot screenshotCollectHistoryWatchPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectHistoryWatchPp4Standard" + ".png")));
-//        screenshotCollectHistoryWatchPp4Standard.setIgnoredAreas(screenshotCollectHistoryWatchPp4.getIgnoredAreas());
+//        Screenshot screenshotCollectHistoryWatchStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectHistoryWatchStandard" + ".png")));
+//        screenshotCollectHistoryWatchStandard.setIgnoredAreas(screenshotCollectHistoryWatch.getIgnoredAreas());
 
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectHistoryWatchPp4Standard, screenshotCollectHistoryWatchPp4);
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectHistoryWatchStandard, screenshotCollectHistoryWatch);
         System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/NiL/" + "diffCollectHistoryWatchPp4" + ".png");
+        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/NiL/" + "diffCollectHistoryWatch" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
         Assert.assertTrue(diff1.getDiffSize() <= 100);
     }
 
     public void checkImageDifferTailWatchAndEditInCollectHistoryWatch() throws IOException, InterruptedException {
-        driver.get("https://web-preprod4.megafon.tv/");
+        driver.get("https://web-preprod5.megafon.tv/");
 //        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']")));
 //        Thread.sleep(6000);
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']"));
-        WebElement tailWatchAndEditPp4 = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']"));
-        Screenshot screenshotTailWatchAndEditPp4 = new AShot()
+        WebElement tailWatchAndEdit = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']"));
+        Screenshot screenshotTailWatchAndEdit = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver, tailWatchAndEditPp4);
+                .takeScreenshot(driver, tailWatchAndEdit);
 
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "nilTailWatchAndEditPp4" + ".png");
-        ImageIO.write(screenshotTailWatchAndEditPp4.getImage(), "png", actualFile1);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/NiL/" + "nilTailWatchAndEdit" + ".png");
+        ImageIO.write(screenshotTailWatchAndEdit.getImage(), "png", actualFile1);
 
         //Сделать новый эталон скриншота:
-        driver.get("https://web-preprod4.megafon.tv/");
+        driver.get("https://web-preprod5.megafon.tv/");
 //        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']")));
 //        Thread.sleep(3000);
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']"));
-        WebElement tailWatchAndEditPp4Standard = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']"));
-        Screenshot screenshotTailWatchAndEditPp4Standard = new AShot()
+        WebElement tailWatchAndEditStandard = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']"));
+        Screenshot screenshotTailWatchAndEditStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver, tailWatchAndEditPp4Standard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/" + "nilTailWatchAndEditPp4Standard" + ".png");
-        ImageIO.write(screenshotTailWatchAndEditPp4Standard.getImage(), "png", expectedFile1);
+                .takeScreenshot(driver, tailWatchAndEditStandard);
+        File expectedFile1 = new File("src/test/java/testScreenshots/expected/NiL/" + "nilTailWatchAndEditStandard" + ".png");
+        ImageIO.write(screenshotTailWatchAndEditStandard.getImage(), "png", expectedFile1);
 
 //        // Взять старый эталон скриншота:
-//        Screenshot screenshotTailWatchAndEditPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectHistoryWatchPp4Standard" + ".png")));
+//        Screenshot screenshotTailWatchAndEditStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/NiL/" + "nilCollectHistoryWatchStandard" + ".png")));
 
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotTailWatchAndEditPp4Standard, screenshotTailWatchAndEditPp4);
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotTailWatchAndEditStandard, screenshotTailWatchAndEdit);
         System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/NiL/" + "diffTailWatchAndEditPp4" + ".png");
+        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/NiL/" + "diffTailWatchAndEdit" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
         Assert.assertTrue(diff1.getDiffSize() <= 100);
+    }
+
+    public void checkLastTailInCollectionSpecialForYou() {
+        isElementDisplayed(By.xpath("//div[text()='Повысить точность персональных рекомендаций']"));
+    }
+
+    public void clickToLastTailInCollectionSpecialForYou() {
+        click(By.xpath("//div[text()='Повысить точность персональных рекомендаций']"));
+    }
+
+    public void checkElementsBlockCollectionWithoutHeader() {
+        isElementDisplayed(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']//div[@data-test='CollectionBlock']"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']//h3[@data-test='CollectionName']"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//button[@data-test='ArrowButtonNext']"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 }

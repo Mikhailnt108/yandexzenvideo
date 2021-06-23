@@ -15,7 +15,7 @@ public class Test_04_ТО_с_бандлом extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     @TestRailCase(id="128")
-    public void popUpNotificationMyTarifBundle() {
+    public void popUpNotificationMyTarifBundle() throws InterruptedException {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();

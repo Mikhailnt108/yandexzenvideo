@@ -82,7 +82,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 
     private void flowRegistationNonMF() {
@@ -102,7 +102,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectForNonMegafon();
+        headerMenu.checkLoginUserIsCorrectFlowForNonMF();
     }
 
     private void flowAuthorizationNonMF() {
@@ -113,7 +113,7 @@ public class Test_04_Разные_типы_ПП extends TestBase {
         headerMenu.checkOpenPopUpInputPassword();
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }
 

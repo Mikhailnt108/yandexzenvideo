@@ -94,7 +94,7 @@ public class Test_04_Подписка_на_пакет_по_SubsPromo_FRESH_от_
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
     private void flowRegistationNonMF() {
         headerMenu.checkNotLoggedIsCorrect();
@@ -110,6 +110,6 @@ public class Test_04_Подписка_на_пакет_по_SubsPromo_FRESH_от_
         headerMenu.clickToComeIn("Войти");
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

@@ -2,7 +2,6 @@ package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Пром�
 
 import base.TestBase;
 import com.github.rsheremeta.testrail.TestRailCase;
-import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -45,6 +44,6 @@ public class Test_04_Фильм_по_аренде extends TestBase {
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

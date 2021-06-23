@@ -38,6 +38,6 @@ public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_2
         popUpInputCod.checkOpenFrameInputCod();
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         popUpInputCod.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectForNonMegafon();
+        headerMenu.checkLoginUserIsCorrectFlowForNonMF();
     }
 }

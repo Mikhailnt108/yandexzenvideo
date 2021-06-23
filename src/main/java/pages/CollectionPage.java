@@ -66,8 +66,9 @@ public class CollectionPage extends BasePage {
     }
 
     public void checkImageDifferPageBlockCollection() throws IOException {
-//        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
-        Screenshot screenshotPageBlockCollectionPp5 = new AShot()
+        // Сделать тестовый скриншот:
+        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
+        Screenshot screenshotPageBlockCollection = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .addIgnoredElement(By.xpath("//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
@@ -75,26 +76,26 @@ public class CollectionPage extends BasePage {
                 .addIgnoredElement(By.xpath("//div[@class='_3aj_Jy1k9olQljjM96VrlO']"))
                 .takeScreenshot(driver);
 
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/" + "pageBlockCollectionPp5" + ".png");
-        ImageIO.write(screenshotPageBlockCollectionPp5.getImage(), "png", actualFile1);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/" + "pageBlockCollection" + ".png");
+        ImageIO.write(screenshotPageBlockCollection.getImage(), "png", actualFile1);
 
-        // Сделать новый этанолонный скриншот:
-        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
-        Screenshot screenshotPageBlockCollectionPp5Standard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/CollectPage/" + "pageBlockCollectionPp5Standard" + ".png");
-        ImageIO.write(screenshotPageBlockCollectionPp5Standard.getImage(), "png", expectedFile1);
-        screenshotPageBlockCollectionPp5Standard.setIgnoredAreas(screenshotPageBlockCollectionPp5.getIgnoredAreas());
+//        // Сделать новый этанолонный скриншот:
+//        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
+//        Screenshot screenshotPageBlockCollectionStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(driver);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/CollectPage/" + "pageBlockCollectionStandard" + ".png");
+//        ImageIO.write(screenshotPageBlockCollectionStandard.getImage(), "png", expectedFile1);
+//        screenshotPageBlockCollectionStandard.setIgnoredAreas(screenshotPageBlockCollection.getIgnoredAreas());
 
-//        // Взять старый эталонный скриншот:
-//        Screenshot screenshotPageBlockCollectionPp5Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/CollectPage/"+"PageBlockCollectionPp5Standard"+".png")));
-//        screenshotPageBlockCollectionPp5Standard.setIgnoredAreas(screenshotPageBlockCollectionP5.getIgnoredAreas());
+        // Взять старый эталонный скриншот:
+        Screenshot screenshotPageBlockCollectionStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/CollectPage/"+"PageBlockCollectionStandard"+".png")));
+        screenshotPageBlockCollectionStandard.setIgnoredAreas(screenshotPageBlockCollection.getIgnoredAreas());
 
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotPageBlockCollectionPp5, screenshotPageBlockCollectionPp5Standard);
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotPageBlockCollection, screenshotPageBlockCollectionStandard);
         System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/CollectPage/" + "diffPageBlockCollectionPp5" + ".png");
+        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/CollectPage/" + "diffPageBlockCollection" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
         Assert.assertTrue(diff1.getDiffSize() <= 50);
     }

@@ -8,7 +8,6 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 public class Test_01_Регистрация_МФ extends TestBase {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -54,6 +53,6 @@ public class Test_01_Регистрация_МФ extends TestBase {
         headerMenu.checkElementsPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

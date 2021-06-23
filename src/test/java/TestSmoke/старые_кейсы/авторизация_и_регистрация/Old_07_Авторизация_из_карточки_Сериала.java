@@ -33,7 +33,7 @@ public class Old_07_Авторизация_из_карточки_Сериала 
         headerMenu.checkOpenPopUpInputPassword();
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
@@ -47,6 +47,6 @@ public class Old_07_Авторизация_из_карточки_Сериала 
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

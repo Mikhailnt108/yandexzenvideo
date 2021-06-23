@@ -36,6 +36,6 @@ public class K02_Обычный_МФ_НУЖЕН_ОБЫЧНЫЙ_НОМЕР_МФ e
         popUpInputCod.checkOpenFrameInputCod();
         pageCMS.copyPasteCodMsisdn("79260192144");
         popUpInputCod.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

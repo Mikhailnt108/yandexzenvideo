@@ -227,7 +227,8 @@ public class PromoPage extends BasePage {
         isElementDisplayed(By.xpath("//div[text()='Ваш МегаФон.ТВ может больше!']"));
     }
 
-    public void checkOpenPromoPage() {
+    public void checkOpenPromoPage() throws InterruptedException {
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("//h1//span[text()='Акции']"));
     }
 

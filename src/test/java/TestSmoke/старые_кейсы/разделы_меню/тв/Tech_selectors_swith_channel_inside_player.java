@@ -32,6 +32,6 @@ public class Tech_selectors_swith_channel_inside_player extends TestBase {
         headerMenu.clickToNext("Далее");
         headerMenu.inputSixSimbolPassword("111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlow();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }
