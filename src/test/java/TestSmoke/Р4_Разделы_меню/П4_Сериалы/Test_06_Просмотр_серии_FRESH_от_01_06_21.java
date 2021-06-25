@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_06_Просмотр_серии_FRESH_от_01_06_21 extends Tes
     @DisplayName(value ="Просмотр серии")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "59")
     public void watchEpisode() throws Exception {
         headerMenu.goToSerialsPage();
         headerMenu.checkNotLoggedIsCorrect();

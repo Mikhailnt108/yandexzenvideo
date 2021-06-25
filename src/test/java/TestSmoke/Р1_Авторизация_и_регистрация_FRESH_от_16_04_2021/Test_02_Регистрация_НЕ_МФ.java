@@ -1,11 +1,7 @@
 package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
@@ -14,8 +10,8 @@ public class Test_02_Регистрация_НЕ_МФ extends TestBase {
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Регистрация НЕ МФ")
     @Severity(SeverityLevel.BLOCKER)
+//    @TmsLink("35669321")
     @RepeatedTest(1)
-    @TestRailCase(id="3")
     public void registrationNotMF()  {
         headerMenu.goToNilPage();
         flowRegistation();

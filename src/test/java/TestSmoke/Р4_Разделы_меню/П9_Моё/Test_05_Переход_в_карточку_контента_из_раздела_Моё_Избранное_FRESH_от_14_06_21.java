@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_05_Переход_в_карточку_контента_из_р
     @DisplayName(value ="Переход в карточку контента из раздела Моё_Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "101")
     public void goToContentCardFromFavorites() {
         headerMenu.goToFilmsPage();
         flowRegistation();

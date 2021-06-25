@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -15,7 +14,6 @@ public class Test_04_Карточка_канала_Ashot_FRESH_от_05_05_21_D e
     @DisplayName(value ="Карточка канала")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "26")
     public void cardTvChannel() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         headerMenu.goToTvPage();

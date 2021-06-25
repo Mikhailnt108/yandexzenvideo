@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё.История_просмотров;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_14_Продолжить_просмотр_FRESH_от_14_06_21 e
     @DisplayName(value = "Продолжить просмотр")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "95")
     public void continueWatching() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

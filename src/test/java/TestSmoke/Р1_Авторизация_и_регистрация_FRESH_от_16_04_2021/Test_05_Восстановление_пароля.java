@@ -1,9 +1,9 @@
 package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 
 public class Test_05_Восстановление_пароля extends TestBase {
@@ -11,8 +11,8 @@ public class Test_05_Восстановление_пароля extends TestBase 
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(3)
-    @TestRailCase(id="6")
+    @RepeatedTest(1)
+//    @TmsLink("35669322")
     public void passwordRecovery() {
         headerMenu.goToNilPage();
         flowRegistation();

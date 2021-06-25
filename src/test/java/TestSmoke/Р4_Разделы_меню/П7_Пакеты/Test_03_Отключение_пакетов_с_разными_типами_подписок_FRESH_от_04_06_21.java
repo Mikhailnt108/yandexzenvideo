@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П7_Пакеты;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_03_Отключение_пакетов_с_разными_ти�
     @DisplayName(value ="Отключение пакетов с разными типами подписок")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id="83")
     public void disablingPackagesDifferentSubscriptionTypes() {
         // пользователь МФ:
         headerMenu.goToPackagesPage();

@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П1_Новое_и_Лучшее_FRESH_от_23_06_21;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_03_Переходы_Подборки_ASHOT_FRESH_Баг_не_�
     @DisplayName(value = "Переходы. Подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "18")
     public void goToCollection() throws Exception {
         headerMenu.goToNilPage();
         nilPage.checkImageDifferBlocksCollection();

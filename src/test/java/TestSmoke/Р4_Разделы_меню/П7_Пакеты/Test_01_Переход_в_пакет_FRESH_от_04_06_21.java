@@ -12,8 +12,8 @@ public class Test_01_Переход_в_пакет_FRESH_от_04_06_21 extends Te
     @Story(value = "7. Пакеты")
     @DisplayName(value ="Переход в пакет")
     @Severity(SeverityLevel.BLOCKER)
+    @TmsLink("26")
     @Test
-    @TestRailCase(id = "81")
     public void goToPackage() {
         headerMenu.goToPackagesPage();
         packagesPage.clickToFirstTailCardPackage();

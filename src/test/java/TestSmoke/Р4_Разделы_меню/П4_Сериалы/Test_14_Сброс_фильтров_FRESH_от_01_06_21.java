@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_14_Сброс_фильтров_FRESH_от_01_06_21 extends Tes
     @DisplayName(value ="Сброс фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "67")
     public void resetAllFilters() throws InterruptedException {
         headerMenu.goToFilmsPage();
         serialsPage.chooseOneQuickFilter();

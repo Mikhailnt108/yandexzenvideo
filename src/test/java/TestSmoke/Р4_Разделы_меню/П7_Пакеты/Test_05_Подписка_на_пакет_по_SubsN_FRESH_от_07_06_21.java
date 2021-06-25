@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П7_Пакеты;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_05_Подписка_на_пакет_по_SubsN_FRESH_от_07_0
     @DisplayName(value ="Подписка на пакет по SubsN")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id="85")
     public void subscribeToPackageBySubsN() throws Exception {
         // пользователь НЕ МФ, пакет по SubsPromo:
         headerMenu.goToPackagesPage();

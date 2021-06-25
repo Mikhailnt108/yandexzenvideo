@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П1_Акции.пп3_Остальные;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_03_Тариф_не_определился_АКТУАЛЕН_25_
     @DisplayName(value ="Тариф не определился")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "123")
     public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

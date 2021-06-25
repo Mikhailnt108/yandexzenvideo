@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П8_Подборки;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -15,7 +14,6 @@ public class Test_02_Действия_с_подборками_ASHOT_FRESH_от_1
     @DisplayName(value ="Действия с подборками")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "88")
     public void actionsWithCollections() throws IOException, InterruptedException {
         headerMenu.goToAllCollectionsPage();
         allCollectionsPage.clickToTailCollection();

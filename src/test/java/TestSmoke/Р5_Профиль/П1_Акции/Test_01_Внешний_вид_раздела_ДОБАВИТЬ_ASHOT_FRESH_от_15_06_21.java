@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П1_Акции;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,7 +15,6 @@ public class Test_01_Внешний_вид_раздела_ДОБАВИТЬ_ASHOT
     @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "114")
     public void appearancePagePromo() throws InterruptedException, IOException, AWTException {
         headerMenu.goToNilPage();
         flowRegistation();

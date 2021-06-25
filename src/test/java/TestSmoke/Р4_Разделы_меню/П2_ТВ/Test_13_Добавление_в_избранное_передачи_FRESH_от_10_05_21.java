@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_13_Добавление_в_избранное_передачи
     @DisplayName(value ="Добавление в избранное передачи")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "34")
     public void AddingTvProgramToFavorites() throws InterruptedException {
         headerMenu.goToTvPage();
         flowRegistation();

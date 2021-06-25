@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П1_Акции.пп3_Остальные;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_04_Финблок_АКТУАЛЕН_25_02_21 extends TestBase {
     @DisplayName(value ="Финблок юзер МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "124")
     public void financialBlockingMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();

@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -15,7 +14,6 @@ public class Test_08_Передачи_в_эфире_ASHOT_FRESH_от_10_05_21_D 
     @DisplayName(value ="Передачи в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "29")
     public void tvProgramInAir() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П1_Акции.пп2_ТП_VIP_or_Премиум;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -15,7 +14,6 @@ public class Test_01_Пользователь_VIP_FRESH_от_15_02_21 extends Te
     @DisplayName(value ="Пользователь VIP")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "112")
     public void userVip() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();

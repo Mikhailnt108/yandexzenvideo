@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_03_Внешний_вид_карточки_ASHOT_FRESH_от_25_
     @DisplayName(value ="Внешний вид карточки")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "40")
     public void appearanceSectionCardFilm() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToFilmsPage();

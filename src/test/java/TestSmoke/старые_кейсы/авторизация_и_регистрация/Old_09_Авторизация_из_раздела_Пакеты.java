@@ -1,8 +1,12 @@
 package TestSmoke.старые_кейсы.авторизация_и_регистрация;
 
 import base.TestBase;
-import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 
 public class Old_09_Авторизация_из_раздела_Пакеты extends TestBase {

@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_13_Работа_стандартных_фильтров_FRESH_
     @DisplayName(value = "Работа стандартных фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "66")
     public void standardFilters() throws Exception {
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsSerialsPage();

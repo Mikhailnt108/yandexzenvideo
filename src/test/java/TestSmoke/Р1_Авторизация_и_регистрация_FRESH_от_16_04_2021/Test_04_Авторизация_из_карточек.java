@@ -1,9 +1,9 @@
 package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 
 public class Test_04_Авторизация_из_карточек extends TestBase {
@@ -13,7 +13,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
     @DisplayName(value = "Авторизация из карточек")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id="5")
+//    @TmsLink("31541982")
     public void loginFromCardFilm() {
         headerMenu.goToNilPage();
         flowRegistation();

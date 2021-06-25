@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П1_Акции;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_04_Персональные_предложения_ДОБАВ�
     @DisplayName(value ="Персональные предложения")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "117")
     public void personalOffers() throws InterruptedException {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.createPersonalOfferTypeSubscription();

@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П7_Пакеты;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_02_Переход_по_вкладкам_Пакеты_FRESH_о�
     @DisplayName(value = "Переход по вкладкам Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id="82")
     public void goToTabPackage() {
         headerMenu.goToPackagesPage();
 //        headerMenu.checkNotLoggedIsCorrect();

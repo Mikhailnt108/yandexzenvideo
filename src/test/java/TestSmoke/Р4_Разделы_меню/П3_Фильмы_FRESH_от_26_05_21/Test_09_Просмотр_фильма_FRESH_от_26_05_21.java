@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_09_Просмотр_фильма_FRESH_от_26_05_21 extends T
     @DisplayName(value ="Просмотр фильма")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "46")
     public void testFullScreenPleer() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

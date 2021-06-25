@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П1_Новое_и_Лучшее_FRESH_от_23_06_21;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_06_История_просмотров_Ashot_FRESH_unstable ex
     @DisplayName(value = "История просмотров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "21")
     public void historyViewing() throws Exception {
         headerMenu.goToPackagesPage();
         flowRegistation();

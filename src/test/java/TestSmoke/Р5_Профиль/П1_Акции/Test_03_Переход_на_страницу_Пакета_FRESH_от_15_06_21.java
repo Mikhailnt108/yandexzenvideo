@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П1_Акции;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_03_Переход_на_страницу_Пакета_FRESH_о�
     @DisplayName(value ="Переход на страницу Пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "116")
     public void goToPackagePage() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_01_Внешний_вид_раздела_Ashot_FRESH_от_27_05
     @DisplayName(value ="Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "54")
     public void appearanceSectionSerialsPage() throws Exception {
         headerMenu.goToSerialsPage();
         serialsPage.checkImageDifferCherdakAndBanners();

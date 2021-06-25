@@ -2,9 +2,7 @@ package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +14,7 @@ import pages.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
-@ExtendWith(TestRailListener.class)
+@ExtendWith(TestRailReportExtension.class)
 public class TestBase {
 
     public static WebDriver driver;

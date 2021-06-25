@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П1_Акции;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_02_Переход_в_раздел_Фильмы_FRESH_от_15_0
     @DisplayName(value ="Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "115")
     public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

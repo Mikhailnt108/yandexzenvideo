@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_08_Перемотка_серии_FRESH_от_01_06_21 extends T
     @DisplayName(value ="Перемотка серии")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "61")
     public void rewindSeries() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();

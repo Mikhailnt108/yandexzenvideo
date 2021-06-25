@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё.История_просмотров;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
     @DisplayName(value ="Кнопка смотреть Все и тайл заглушка")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "90")
     public void buttonAllWatchAndTailWatchAndEdit() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

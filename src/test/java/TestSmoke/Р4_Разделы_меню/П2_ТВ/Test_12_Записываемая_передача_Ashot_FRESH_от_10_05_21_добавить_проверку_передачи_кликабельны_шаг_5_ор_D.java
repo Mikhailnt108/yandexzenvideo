@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_12_Записываемая_передача_Ashot_FRESH_от_
     @DisplayName(value ="Записываемая ТВ передача")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "33")
     public void recordedTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

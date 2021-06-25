@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_09_Выбор_серии_из_блока_выбора_сери
     @DisplayName(value ="Выбор серии из блока выбора серии")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "62")
     public void chooseEpisodeFromBlockEpisodes() throws Exception {
         headerMenu.goToSerialsPage();
         serialsPage.chooseSeasonsMoreOneSeason();

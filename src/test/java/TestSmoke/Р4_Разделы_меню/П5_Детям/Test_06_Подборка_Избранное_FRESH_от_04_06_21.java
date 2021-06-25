@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П5_Детям;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -13,7 +12,6 @@ public class Test_06_Подборка_Избранное_FRESH_от_04_06_21 ext
     @DisplayName(value ="Подборка Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    @TestRailCase(id = "73")
     public void collectionOfFavorites() throws InterruptedException {
         headerMenu.goToKidsPage();
         flowRegistation();

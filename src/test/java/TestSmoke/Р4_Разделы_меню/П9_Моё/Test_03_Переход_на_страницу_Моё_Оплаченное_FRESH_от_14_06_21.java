@@ -1,7 +1,6 @@
 package TestSmoke.Р4_Разделы_меню.П9_Моё;
 
 import base.TestBase;
-import com.github.rsheremeta.testrail.TestRailCase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ public class Test_03_Переход_на_страницу_Моё_Оплачен�
     @DisplayName(value ="Переход на страницу Моё_Оплаченное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @TestRailCase(id = "99")
     public void goToMyPagePurchases() {
         headerMenu.goToPackagesPage();
         flowRegistation();
