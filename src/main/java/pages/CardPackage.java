@@ -4,10 +4,6 @@ import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
-import java.util.List;
 
 public class CardPackage extends BasePage {
 
@@ -20,12 +16,12 @@ public class CardPackage extends BasePage {
     }
 
     public void clickOnPaymentButtonInCardPackage() {
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
         click(By.xpath("//button[@type='button']//div[1]"));
     }
 
     public void checkOpenCardPackageTvChannel() {
-        String urlCardTvPackage = driver.getCurrentUrl();
+        String urlCardTvPackage = webDriver.getCurrentUrl();
         urlCardTvPackage.equals("megafon.tv/tv1/packages/");
     }
 
@@ -45,11 +41,11 @@ public class CardPackage extends BasePage {
     }
 
     public void disablePackageTnB() {
-        String nameConnectedPackage = driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
+        String nameConnectedPackage = webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
-        Assert.assertEquals("не тот пакет", driver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
@@ -71,11 +67,11 @@ public class CardPackage extends BasePage {
     }
 
     public void disablePackageSubs1() {
-        String nameConnectedPackage = driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
+        String nameConnectedPackage = webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
-        Assert.assertEquals("не тот пакет", driver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
@@ -96,11 +92,11 @@ public class CardPackage extends BasePage {
     }
 
     public void disablePackageSubsN() {
-        String nameConnectedPackage = driver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
+        String nameConnectedPackage = webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
-        Assert.assertEquals("не тот пакет", driver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
@@ -200,7 +196,7 @@ public class CardPackage extends BasePage {
     }
 
     public void checkClosePopUpSubsPromoService() {
-        Assert.assertEquals("не закрыт поп-ап",0, driver.findElements(By.xpath("//h3[contains(text(),'Подписка на сервис')]")).size());
+        Assert.assertEquals("не закрыт поп-ап",0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на сервис')]")).size());
     }
 
     public void clickOnButtonAcceptAndConfirm() {
@@ -246,7 +242,7 @@ public class CardPackage extends BasePage {
     }
 
     public void checkClosePopUpSubsPromoPackage() {
-        Assert.assertEquals("не закрыт поп-ап",0, driver.findElements(By.xpath("//h3[contains(text(),'Подписка на пакет')]")).size());
+        Assert.assertEquals("не закрыт поп-ап",0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на пакет')]")).size());
     }
 
     public void clickOnButtonСonfirm() {

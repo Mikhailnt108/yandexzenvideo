@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -29,30 +28,30 @@ public class MyPage extends BasePage {
     }
 
     public void checkAddingFilmInPurchases() {
-        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
-        driver.get(My_purchases);
+        webDriver.get(My_purchases);
         click(By.xpath("//a[@data-test='PackageLink']"));
-        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
 
     public void checkNoPurchase() {
-        Assert.assertEquals(0, driver.findElements(By.xpath("//span[text()='Куплено']")).size());
+        Assert.assertEquals(0, webDriver.findElements(By.xpath("//span[text()='Куплено']")).size());
     }
 
     public void checkAddingFilmToFavorites() {
-        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
-        driver.get(My_favorites);
+        webDriver.get(My_favorites);
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
 
     public void checkAddingSerialsInPurchases() throws InterruptedException {
         click(By.xpath("//a[@href='/my/purchases/series']"));
-        List<WebElement> count1 = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
+        List<WebElement> count1 = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i1 = count1.size();
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
         click(By.xpath("(//button[@type='button']//span)[4]"));
@@ -62,40 +61,40 @@ public class MyPage extends BasePage {
         click(By.xpath("//button[text()='Закрыть']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
 
-        driver.get("https://web-preprod5.megafon.tv/my/purchases");
+        webDriver.get("https://web-preprod5.megafon.tv/my/purchases");
         click(By.xpath("//div[text()='Пакеты и сервисы']"));
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
 
-        String countSerialsInPackage = driver.findElement(By.className("ie5X02ZFMoZJ1Ued-w7x_")).getText();
+        String countSerialsInPackage = webDriver.findElement(By.className("ie5X02ZFMoZJ1Ued-w7x_")).getText();
         String count2 = countSerialsInPackage.substring(0,3);
         System.out.println(count2);
         int i2 = Integer.parseInt(count2);
 
-        driver.get("https://web-preprod5.megafon.tv/my/purchases");
+        webDriver.get("https://web-preprod5.megafon.tv/my/purchases");
         click(By.xpath("//a[@href='/my/purchases/series']"));
         for (int a=0; a<=8; a++) {
-            List<WebElement> count3 = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
-            JavascriptExecutor jsDown = (JavascriptExecutor) driver;
+            List<WebElement> count3 = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
+            JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
             jsDown.executeScript("window.scrollTo(0, 50000);");
             Thread.sleep(3000);
             System.out.println(count3.size());
-            Assert.assertNotEquals("количество элементов равно", count3.size(), driver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
-            System.out.println(driver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
+            Assert.assertNotEquals("количество элементов равно", count3.size(), webDriver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
+            System.out.println(webDriver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
         }
-        List<WebElement> countSerials = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
+        List<WebElement> countSerials = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i3 = countSerials.size();
         Assert.assertEquals("не равно количество сериалов", i3, i1+i2 );
     }
 
     public void checkAddingSerialToFavorites() {
-        String nameSerial = driver.findElement(By.tagName("h1")).getText();
+        String nameSerial = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameSerial);
-        driver.get(My_favorites);
+        webDriver.get(My_favorites);
         // переход в карточку сериала:
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         // переход в карточку эпизода:
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        Assert.assertEquals(nameSerial, driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals(nameSerial, webDriver.findElement(By.tagName("h1")).getText());
     }
 
     public void goToCollectionFavoritesPage() {
@@ -109,13 +108,13 @@ public class MyPage extends BasePage {
     }
 
     public void checkSubscriptionsPackages() {
-        List<WebElement> CollectionPackages = driver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
+        List<WebElement> CollectionPackages = webDriver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
         for (int i=0; i<CollectionPackages.size(); i++)
         {
-            CollectionPackages = driver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
+            CollectionPackages = webDriver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
             CollectionPackages.get(i).click();
-            driver.findElement(By.xpath("//div[text()='Бесплатно']|//div[text()='Навсегда']|//div[text()='Доступно']|//div[text()='Входит']"));
-            driver.navigate().back();
+            webDriver.findElement(By.xpath("//div[text()='Бесплатно']|//div[text()='Навсегда']|//div[text()='Доступно']|//div[text()='Входит']"));
+            webDriver.navigate().back();
         }
 
     }
@@ -133,21 +132,21 @@ public class MyPage extends BasePage {
     }
 
     public void checkAddingFilmInHistory() {
-        String nameFilm = driver.findElement(By.tagName("h1")).getText();
+        String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
-        driver.get(My_history);
+        webDriver.get(My_history);
         click(By.xpath("//a[@data-test='PackageLink']"));
-        Assert.assertEquals(nameFilm, driver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
-    public void goToMyPageFavorites() { driver.get(My_favorites);
+    public void goToMyPageFavorites() { webDriver.get(My_favorites);
         isElementDisplayed(By.xpath("//a[@href='/my']//span[1]"));
     }
     public void goToMyPagePurchases() {
-        driver.get(My_purchases);
+        webDriver.get(My_purchases);
         isElementDisplayed(By.xpath("//span[text()='Оплаченное']"));
     }
     public void goToMyPageSubscriptions() {
-        driver.get(My_subscriptions);
+        webDriver.get(My_subscriptions);
         isElementDisplayed(By.xpath("//div[text()='Пакеты и сервисы']"));
     }
 
@@ -165,9 +164,9 @@ public class MyPage extends BasePage {
     }
 
     public void checkCountSerialsInPurchases() {
-        List<WebElement> count = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
+        List<WebElement> count = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i = count.size();
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
 
         String countSerials = Integer.toString(i);

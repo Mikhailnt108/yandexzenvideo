@@ -11,28 +11,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePage {
-    public static WebDriver driver;
+    public static WebDriver webDriver;
     public WebDriverWait wait;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver,40);
+    public BasePage(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        wait = new WebDriverWait(webDriver,40);
     }
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }
     public void click (By elementBy){
         waitVisibility(elementBy);
-        driver.findElement(elementBy).click();
+        webDriver.findElement(elementBy).click();
     }
     public boolean isElementDisplayed (By elementBy) {
         waitVisibility(elementBy);
-        Assert.assertTrue("элемент не найден",driver.findElement(elementBy).isDisplayed());
+        Assert.assertTrue("элемент не найден", webDriver.findElement(elementBy).isDisplayed());
         return false;
     }
     public void writeText(By elementBy, String text) {
         waitVisibility(elementBy);
-        WebElement element = driver.findElement(elementBy);
+        WebElement element = webDriver.findElement(elementBy);
         element.sendKeys(Keys.CONTROL,"a");
         element.sendKeys(Keys.DELETE);
         element.sendKeys(text);

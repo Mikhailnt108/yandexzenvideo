@@ -1,16 +1,22 @@
 package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
 import base.TestBase;
+import com.automation.remarks.junit.VideoRule;
+import com.automation.remarks.video.annotations.Video;
 import io.qameta.allure.*;
+import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class Test_01_Регистрация_МФ extends TestBase {
+    @Rule
+    public VideoRule videoRule = new VideoRule();
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Регистрация МФ")
     @Severity(SeverityLevel.BLOCKER)
 //    @TmsLink("35669320")
+    @Video
     @Test
     public void registrationMF() throws InterruptedException {
         headerMenu.goToNilPage();

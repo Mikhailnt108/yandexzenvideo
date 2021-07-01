@@ -80,7 +80,7 @@ public class TestRailReportExtension implements TestWatcher, BeforeAllCallback {
     }
 
     private static void reportResults() {
-//        if (testRailEnabled()) { // replace with your own method of reading data from prom properties file
+//        if (testRailEnabled()) { // replace with your own method of reading data from prom video.properties file
             final String url = "https://ispolnitel1mt.testrail.io/";
             final String userId = "ispolnitel1mt@yandex.ru";
             final String pwd = "2pYg6OsIbuACsoFAlyha";

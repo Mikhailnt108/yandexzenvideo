@@ -19,10 +19,10 @@ public class Tech_selectors_swith_channel_inside_player extends TestBase {
         //переключение c передачи НЕ 18+ на передачу 18+ внутри плеера:
         cardTvProgram.swithOnUnrecordedTvChannel18PlusInsidePlayer();
         //переключение на соседнюю передачу 18+ внутри плеера:
-        cardTvProgram.swithOtherTvChannelInsidePlayer();
+        cardTvProgram.swithOtherTvChannelInsidePlayerForRecording();
         headerMenu.goToBack();
         cardTvProgram.clickYesInPopUp18Plus();
-        cardTvProgram.swithOtherTvChannelInsidePlayer();
+        cardTvProgram.swithOtherTvChannelInsidePlayerForRecording();
     }
 
     private void flowAuthorization() {

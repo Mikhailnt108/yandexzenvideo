@@ -57,12 +57,12 @@ public class PersonalOffer extends BasePage {
     }
 
     public void checkElementsOnePersonalOffer() {
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
         isElementDisplayed(By.className("_2EES6eXVXSN1-aglhcBq0D"));
         isElementDisplayed(By.className("_3H-YE-_SDd808d1cqEgy5q"));
         isElementDisplayed(By.xpath("//div[text()='Мы подготовили для Вас персональное предложение']|//div[text()='Мы подготовили для вас персональные предложения']"));
         isElementDisplayed(By.className("_2yfj41btmBF-chrc0LwQQ1"));
-        String colorElementPO = driver.findElement(By.cssSelector("._3oPCKMu7Sfm9IMsxuhwuXy")).getCssValue("background-color");
+        String colorElementPO = webDriver.findElement(By.cssSelector("._3oPCKMu7Sfm9IMsxuhwuXy")).getCssValue("background-color");
         System.out.println(colorElementPO);
         Assert.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorElementPO);
     }
@@ -135,8 +135,8 @@ public class PersonalOffer extends BasePage {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200),is(302)));
-        driver.navigate().refresh();
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
+        webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#F5A623']"));
         isElementDisplayed(By.xpath("//div[contains(text(),'Успейте активировать персональное предложение до')]"));
 
@@ -174,8 +174,8 @@ public class PersonalOffer extends BasePage {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200),is(302)));
-        driver.navigate().refresh();
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
+        webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#EB5D44']"));
         isElementDisplayed(By.xpath("//div[text()='Последний шанс активировать Ваше персональное предложение.']"));
     }
@@ -228,7 +228,7 @@ public class PersonalOffer extends BasePage {
         isElementDisplayed(By.xpath("//div[text()='Мы подготовили для вас персональные предложения']"));
         isElementDisplayed(By.className("_2yfj41btmBF-chrc0LwQQ1"));
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#FFFFFF']"));
-        String colorBackgroundPO = driver.findElement(By.cssSelector("._3oPCKMu7Sfm9IMsxuhwuXy")).getCssValue("background-color");
+        String colorBackgroundPO = webDriver.findElement(By.cssSelector("._3oPCKMu7Sfm9IMsxuhwuXy")).getCssValue("background-color");
         System.out.println(colorBackgroundPO);
         Assert.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorBackgroundPO);
     }
@@ -263,7 +263,7 @@ public class PersonalOffer extends BasePage {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/3/edit").
                 then().statusCode(anyOf(is(200),is(302)));
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
     }
     public void createPersonalOfferTypePartnerOfferKinoPoiskForMF() {
         //начало перс предложения
@@ -295,7 +295,7 @@ public class PersonalOffer extends BasePage {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/3/edit").
                 then().statusCode(anyOf(is(200),is(302)));
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
     }
     public void createPersonalOfferTypePartnerOfferOkkoTvForMF() {
         //начало перс предложения
@@ -327,7 +327,7 @@ public class PersonalOffer extends BasePage {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/4/edit").
                 then().statusCode(anyOf(is(200),is(302)));
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
     }
 
     public void archivePersonalOfferPackageForZeroRublesForMF() {
@@ -371,7 +371,7 @@ public class PersonalOffer extends BasePage {
     }
 
     public void checkAbsentElementPersonalOffer() {
-        Assert.assertEquals("Отображается плашка ПП", 0, driver.findElements(By.className("_2EES6eXVXSN1-aglhcBq0D")).size());
+        Assert.assertEquals("Отображается плашка ПП", 0, webDriver.findElements(By.className("_2EES6eXVXSN1-aglhcBq0D")).size());
     }
 
     public void activatePersonalOfferSubscription() {
@@ -387,15 +387,15 @@ public class PersonalOffer extends BasePage {
 
     public void checkOpenPageURLPartner() {
         String url1 = "https://hd.kinopoisk.ru/";
-        ArrayList tabs1 = new ArrayList(driver.getWindowHandles());
+        ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
 //        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.switchTo().window((String) tabs1.get(1));
+        webDriver.switchTo().window((String) tabs1.get(1));
 //        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        String url2 = driver.getCurrentUrl();
+        String url2 = webDriver.getCurrentUrl();
         System.out.println(url2);
         Assert.assertEquals(url1, url2);
-        driver.close();
-        driver.switchTo().window((String) tabs1.get(0));
+        webDriver.close();
+        webDriver.switchTo().window((String) tabs1.get(0));
     }
 
     public void checkElementsPersonalOfferPage() {

@@ -36,20 +36,20 @@ public class CollectionPage extends BasePage {
 
     public void checkCollectionOfMy() {
         // проверка все тайлы коллекции - "Для детей":
-        List<WebElement> countAllTail = driver.findElements(By.xpath("//a[@data-test='PackageLink']"));
-        List<WebElement> countForKids = driver.findElements(By.xpath("//span[contains(text(),'Для детей')]"));
+        List<WebElement> countAllTail = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
+        List<WebElement> countForKids = webDriver.findElements(By.xpath("//span[contains(text(),'Для детей')]"));
         Assert.assertEquals(countAllTail.size(), countForKids.size());
         System.out.println(countAllTail.size());
         System.out.println(countForKids.size());
-        List<WebElement> hrefOnlyVods = driver.findElements(By.xpath("//a[@data-test='PackageLink' and contains(@href, '/vods')]"));
+        List<WebElement> hrefOnlyVods = webDriver.findElements(By.xpath("//a[@data-test='PackageLink' and contains(@href, '/vods')]"));
         Assert.assertEquals(countAllTail.size(), hrefOnlyVods.size());
         System.out.println(hrefOnlyVods.size());
     }
 
     public void checkCollectionOfFavorites() throws InterruptedException {
-        List<WebElement> CollectionOfFavorites = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
+        List<WebElement> CollectionOfFavorites = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
         for (int i = 0; i < CollectionOfFavorites.size(); i++) {
-            CollectionOfFavorites = driver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
+            CollectionOfFavorites = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionOfFavorites.get(i).click();
             isElementDisplayed(By.xpath("//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB']"));
             isElementDisplayed(By.xpath("//div[contains(text(),'Для детей')]"));
@@ -67,14 +67,14 @@ public class CollectionPage extends BasePage {
 
     public void checkImageDifferPageBlockCollection() throws IOException {
         // Сделать тестовый скриншот:
-        driver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
+        webDriver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
         Screenshot screenshotPageBlockCollection = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .addIgnoredElement(By.xpath("//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
                 .addIgnoredElement(By.xpath("//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
                 .addIgnoredElement(By.xpath("//div[@class='_3aj_Jy1k9olQljjM96VrlO']"))
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
 
         File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/" + "pageBlockCollection" + ".png");
         ImageIO.write(screenshotPageBlockCollection.getImage(), "png", actualFile1);
@@ -122,20 +122,20 @@ public class CollectionPage extends BasePage {
     }
 
     public void selectCollectionForKids() throws InterruptedException {
-        driver.get("https://web-preprod5.megafon.tv/kids");
-        String nameForKidsBlockCollect = driver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[5]")).getText();
+        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        String nameForKidsBlockCollect = webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[5]")).getText();
         System.out.println(nameForKidsBlockCollect);
-        driver.get("https://web-preprod5.megafon.tv/collection");
-        List<WebElement> collectNames = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
-        List<WebElement> paginations = driver.findElements(By.xpath("//a[@class='_321YEvw8w6G20aKg-N8nNe']"));
+        webDriver.get("https://web-preprod5.megafon.tv/collection");
+        List<WebElement> collectNames = webDriver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
+        List<WebElement> paginations = webDriver.findElements(By.xpath("//a[@class='_321YEvw8w6G20aKg-N8nNe']"));
         for (int a = 0; a < paginations.size(); a++) {
             for (int i = 0; i < collectNames.size(); i++) {
-                collectNames = driver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
+                collectNames = webDriver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
                 String nameString = collectNames.get(i).getText();
                 System.out.println("название подборки на стр коллекций: " + nameString);
                 if (nameString.equals(nameForKidsBlockCollect)) {
                     collectNames.get(i).click();
-                    Assert.assertEquals(driver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
+                    Assert.assertEquals(webDriver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
 //                    Assert.assertEquals("нет детского фона", 1, driver.findElements(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO') and contains(@style,'background')]")).size());
                     return;
                 }

@@ -1,6 +1,8 @@
 package base;
 
+import com.automation.remarks.junit.VideoRule;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Rule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,8 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 @ExtendWith(TestRailReportExtension.class)
 public class TestBase {
-
-    public static WebDriver driver;
+    public static WebDriver webDriver;
     public static HeaderMenu headerMenu;
     public static PopUpInputPhone popUpInputPhone;
     public static PopUpInputPassword popUpInputPassword;
@@ -65,43 +66,43 @@ public class TestBase {
         options.addArguments("start-maximized");
         //запуск браузера в фоне:
         //options.setHeadless(true);
-        driver = new ChromeDriver(options);
+        webDriver = new ChromeDriver(options);
         //driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        headerMenu = PageFactory.initElements(driver, HeaderMenu.class);
-        popUpInputPhone = PageFactory.initElements(driver, PopUpInputPhone.class);
-        popUpInputPassword = PageFactory.initElements(driver, PopUpInputPassword.class);
-        filmsPage = PageFactory.initElements(driver, FilmsPage.class);
-        popUpInputPromoCod = PageFactory.initElements(driver, PopUpInputPromoCod.class);
-        cardSerial = PageFactory.initElements(driver, CardSerial.class);
-        serialsPage = PageFactory.initElements(driver, SerialsPage.class);
-        packagesPage = PageFactory.initElements(driver, PackagesPage.class);
-        cardPackage = PageFactory.initElements(driver, CardPackage.class);
-        cardTvChannel = PageFactory.initElements(driver, CardTvChannel.class);
-        cardTvProgram = PageFactory.initElements(driver, CardTvProgram.class);
-        popUpCreatePassword = PageFactory.initElements(driver, PopUpCreatePassword.class);
-        popUpInputCod = PageFactory.initElements(driver, PopUpInputCod.class);
-        pageCMS = PageFactory.initElements(driver, PageCMS.class);
-        resultsSearchPage = PageFactory.initElements(driver, ResultsSearchPage.class);
-        collectionsPage = PageFactory.initElements(driver, CollectionPage.class);
-        cardFilm = PageFactory.initElements(driver, CardFilm.class);
-        footer = PageFactory.initElements(driver, Footer.class);
-        tvPage = PageFactory.initElements(driver, TvPage.class);
-        myPage = PageFactory.initElements(driver, MyPage.class);
-        nilPage = PageFactory.initElements(driver, NilPage.class);
-        paymentContent = PageFactory.initElements(driver, PaymentContent.class);
-        kidsPage = PageFactory.initElements(driver, KidsPage.class);
-        sportPage = PageFactory.initElements(driver, SportPage.class);
-        allCollectionsPage = PageFactory.initElements(driver, AllCollectionsPage.class);
-        promoPage = PageFactory.initElements(driver, PromoPage.class);
-        popUpInputEmail = PageFactory.initElements(driver, PopUpInputEmail.class);
-        popUpNotification = PageFactory.initElements(driver, PopUpNotification.class);
-        promoCode = PageFactory.initElements(driver, PromoCode.class);
-        personalOffer = PageFactory.initElements(driver, PersonalOffer.class);
-        ratingPage = PageFactory.initElements(driver, RatingPage.class);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        headerMenu = PageFactory.initElements(webDriver, HeaderMenu.class);
+        popUpInputPhone = PageFactory.initElements(webDriver, PopUpInputPhone.class);
+        popUpInputPassword = PageFactory.initElements(webDriver, PopUpInputPassword.class);
+        filmsPage = PageFactory.initElements(webDriver, FilmsPage.class);
+        popUpInputPromoCod = PageFactory.initElements(webDriver, PopUpInputPromoCod.class);
+        cardSerial = PageFactory.initElements(webDriver, CardSerial.class);
+        serialsPage = PageFactory.initElements(webDriver, SerialsPage.class);
+        packagesPage = PageFactory.initElements(webDriver, PackagesPage.class);
+        cardPackage = PageFactory.initElements(webDriver, CardPackage.class);
+        cardTvChannel = PageFactory.initElements(webDriver, CardTvChannel.class);
+        cardTvProgram = PageFactory.initElements(webDriver, CardTvProgram.class);
+        popUpCreatePassword = PageFactory.initElements(webDriver, PopUpCreatePassword.class);
+        popUpInputCod = PageFactory.initElements(webDriver, PopUpInputCod.class);
+        pageCMS = PageFactory.initElements(webDriver, PageCMS.class);
+        resultsSearchPage = PageFactory.initElements(webDriver, ResultsSearchPage.class);
+        collectionsPage = PageFactory.initElements(webDriver, CollectionPage.class);
+        cardFilm = PageFactory.initElements(webDriver, CardFilm.class);
+        footer = PageFactory.initElements(webDriver, Footer.class);
+        tvPage = PageFactory.initElements(webDriver, TvPage.class);
+        myPage = PageFactory.initElements(webDriver, MyPage.class);
+        nilPage = PageFactory.initElements(webDriver, NilPage.class);
+        paymentContent = PageFactory.initElements(webDriver, PaymentContent.class);
+        kidsPage = PageFactory.initElements(webDriver, KidsPage.class);
+        sportPage = PageFactory.initElements(webDriver, SportPage.class);
+        allCollectionsPage = PageFactory.initElements(webDriver, AllCollectionsPage.class);
+        promoPage = PageFactory.initElements(webDriver, PromoPage.class);
+        popUpInputEmail = PageFactory.initElements(webDriver, PopUpInputEmail.class);
+        popUpNotification = PageFactory.initElements(webDriver, PopUpNotification.class);
+        promoCode = PageFactory.initElements(webDriver, PromoCode.class);
+        personalOffer = PageFactory.initElements(webDriver, PersonalOffer.class);
+        ratingPage = PageFactory.initElements(webDriver, RatingPage.class);
 
-        driver.manage().deleteAllCookies();
+        webDriver.manage().deleteAllCookies();
 
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
@@ -109,6 +110,6 @@ public class TestBase {
 
     @AfterAll
     public static void finish() {
-        driver.quit();
+        webDriver.quit();
     }
 }

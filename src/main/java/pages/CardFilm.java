@@ -7,7 +7,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
@@ -66,10 +65,10 @@ public class CardFilm extends BasePage {
     }
 
     public void checkСounterAvailableFilms() {
-        driver.navigate().back();
+        webDriver.navigate().back();
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
-        driver.navigate().refresh();
-        Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'по акции доступно фильмов: 1')]")).size());
+        webDriver.navigate().refresh();
+        Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'по акции доступно фильмов: 1')]")).size());
     }
 
     public void clickButtonFavorites() {
@@ -79,93 +78,93 @@ public class CardFilm extends BasePage {
 
     public void checkButtonFavoriteNotAdded() {
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]"));
-        String colorButtonFavoriteNotAdded = driver.findElement(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]")).getCssValue("color");
+        String colorButtonFavoriteNotAdded = webDriver.findElement(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]")).getCssValue("color");
         System.out.println(colorButtonFavoriteNotAdded);
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorButtonFavoriteNotAdded);
     }
 
     public void checkButtonFavoriteAdded() {
-        String colorButtonFavoriteAdded = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[3]")).getCssValue("color");
+        String colorButtonFavoriteAdded = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[3]")).getCssValue("color");
         System.out.println(colorButtonFavoriteAdded);
         Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorButtonFavoriteAdded);
     }
 
     public void moveToLikeButton() {
-        String colorToLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        String colorToLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToLike);
-        String colorToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        String colorToCountLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountLike);
         // навести курсор на кнопку лайк:
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"))).build().perform();
-        String colorMoveToButtonLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"))).build().perform();
+        String colorMoveToButtonLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonLike);
-        String colorMoveToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        String colorMoveToCountLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountLike);
     }
 
     public void moveToDisLikeButton() {
-        String colorToDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        String colorToDisLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToDisLike);
-        String colorToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        String colorToCountDisLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountDisLike);
         // навести курсор на кнопку дизлайк:
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]"))).build().perform();
-        String colorMoveToButtonDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]"))).build().perform();
+        String colorMoveToButtonDisLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToButtonDisLike);
-        String colorMoveToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        String colorMoveToCountDisLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorMoveToCountDisLike);
     }
 
     public void clickToLikeButton() throws InterruptedException {
-        WebElement countLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        WebElement countLikeOld = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int oldCount = Integer.parseInt(countLikeOld.getText());
-        String colorToLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        String colorToLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToLike);
-        String colorToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        String colorToCountLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountLike);
         click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
-        driver.navigate().refresh();
-        WebElement countLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        webDriver.navigate().refresh();
+        WebElement countLikeNew = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int newCount = Integer.parseInt(countLikeNew.getText());
         Assert.assertTrue(oldCount < newCount);
-        String colorMoveToButtonLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
+        String colorMoveToButtonLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToButtonLike);
-        String colorMoveToCountLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
+        String colorMoveToCountLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToCountLike);
     }
 
     public void clickToDisLikeButton() throws InterruptedException {
-        WebElement countDisLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
+        WebElement countDisLikeOld = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
         int oldCountDisLike = Integer.parseInt(countDisLikeOld.getText());
-        WebElement countLikeOld = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        WebElement countLikeOld = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int oldCountLike = Integer.parseInt(countLikeOld.getText());
-        String colorToDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        String colorToDisLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToDisLike);
-        String colorToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        String colorToCountDisLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorToCountDisLike);
         click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]"));
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
         isElementDisplayed(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
-        driver.navigate().refresh();
-        WebElement countDisLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
+        webDriver.navigate().refresh();
+        WebElement countDisLikeNew = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
         int newCountDisLike = Integer.parseInt(countDisLikeNew.getText());
         Assert.assertTrue(oldCountDisLike < newCountDisLike);
-        WebElement countLikeNew = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
+        WebElement countLikeNew = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int newCountLike = Integer.parseInt(countLikeNew.getText());
         Assert.assertTrue(oldCountLike > newCountLike);
-        String colorMoveToButtonDisLike = driver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
+        String colorMoveToButtonDisLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToButtonDisLike);
-        String colorMoveToCountDisLike = driver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
+        String colorMoveToCountDisLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
         Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToCountDisLike);
     }
 
     public void checkStikerDiscount() {
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[text()='Автотест']"));
     }
 
@@ -183,7 +182,7 @@ public class CardFilm extends BasePage {
     }
 
     public void checkUnavailabilityStikerDiscount() {
-        Assert.assertEquals(0, driver.findElements(By.xpath("//div[text()='Скидка']")).size());
+        Assert.assertEquals(0, webDriver.findElements(By.xpath("//div[text()='Скидка']")).size());
     }
 
     public void checkPriseRent2Discount() {
@@ -203,14 +202,14 @@ public class CardFilm extends BasePage {
     public void startVideoPleer() throws Exception {
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(5000);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time1);
         Thread.sleep(5000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time2);
         Assert.assertNotEquals(time1, time2);
     }
@@ -219,21 +218,21 @@ public class CardFilm extends BasePage {
     public void testFullScreenVideoPleer() throws Exception {
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[text()='Продолжить просмотр']"));
         Thread.sleep(5000);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//div[@data-for='FullScreenButton']"));
-        actions.moveToElement(driver.findElement(By.xpath("//div[@data-for='FullScreenButton']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@data-for='FullScreenButton']"))).build().perform();
         isElementDisplayed(By.xpath("//div[text()='Выйти из полноэкранного режима']"));
-        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time1);
         Thread.sleep(5000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
 
         click(By.xpath("//div[@data-for='FullScreenButton']"));
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        actions.moveToElement(driver.findElement(By.xpath("//div[@data-for='FullScreenButton']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@data-for='FullScreenButton']"))).build().perform();
         isElementDisplayed(By.xpath("//div[text()='На весь экран']"));
-        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         //System.out.println(time2);
         Assert.assertNotEquals(time1, time2);
     }
@@ -242,33 +241,33 @@ public class CardFilm extends BasePage {
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(7000);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println("time1 " + time1);
         Thread.sleep(7000);
         //нажал на паузу - видео остановилось
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         //System.out.println("time2 "+ time2);
         Assert.assertNotEquals(time1, time2);
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time3 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         //System.out.println("time3 "+ time3);
         Assert.assertEquals(time2, time3);
 
     }
 
     public void clickToPlayVideoPleer() throws Exception {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time4 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time4 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         //нажал на плей - видео запустилось
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time5 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time5 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time4, time5);
         Thread.sleep(7000);
 
@@ -276,57 +275,57 @@ public class CardFilm extends BasePage {
     }
 
     public void clickToSpaceToVideoPleer() throws Exception {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(webDriver);
         //нажал на пробел - видео остановилось
         actions.sendKeys(Keys.chord(Keys.SPACE)).perform();
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time6 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time6 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(7000);
-        String time7 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time7 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertEquals(time6, time7);
         //нажал на пробел - видео запустилось
         actions.sendKeys(Keys.chord(Keys.SPACE)).perform();
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time8 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time8 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time7, time8);
     }
 
     public void clickToLeftButtonMouseToVideoPleer() throws Exception {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(webDriver);
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         //нажал на левую клавишу мыши - видео остановилось
         click(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"));
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time9 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time9 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(7000);
-        String time10 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time10 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertEquals(time9, time10);
         //нажал на левую клавишу мыши - видео запустилось
         click(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"));
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time11 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time11 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time10, time11);
     }
 
     public void moveSliderRewindToVideoPleer() throws Exception {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        WebElement slider = driver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        WebElement slider = webDriver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
         //WebElement target = driver.findElement(By.id("container"));
         //new Actions(driver).dragAndDrop(slider, target).perform();
-        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         actions.dragAndDropBy(slider, 450, 0).perform();
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
     }
 
@@ -335,44 +334,44 @@ public class CardFilm extends BasePage {
     }
 
     public void checkTimeStopPleer() throws InterruptedException {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time3 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        driver.navigate().back();
+        String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        webDriver.navigate().back();
         //Кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(2000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time4 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time4 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertEquals(time3, time4);
     }
 
     public void moveSliderRewindToVideoPleer18Plus() throws InterruptedException {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         click(By.xpath("//button[text()='Да']"));
         Thread.sleep(7000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        WebElement slider = driver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        WebElement slider = webDriver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
         //WebElement target = driver.findElement(By.id("container"));
         //new Actions(driver).dragAndDrop(slider, target).perform();
-        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         actions.dragAndDropBy(slider, 450, 0).perform();
         Thread.sleep(7000);
-        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
     }
 
     public void checkImageDifferCardFilm() throws IOException {
         // Сделать тестовый скриншот:
-        Screenshot screenshotCardFilmPp4 = new AShot()
+        Screenshot screenshotCardFilm = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .addIgnoredElement(By.className("_3oIAMUjIv-QAdeSq_k6cql")) // игнор область плеера
                 .addIgnoredElement(By.className("_36y3ZYWoC7rVzn6TEPp4oC")) // игнор текст описания
@@ -386,40 +385,39 @@ public class CardFilm extends BasePage {
                 .addIgnoredElement(By.className("_1-ZY27a7Isb9dohjRr0mXq")) // игнор хлебных крошек
                 .addIgnoredElement(By.className("_2YrnCSEViX2PQLwVrBYiS0")) // игнор блок "похожие"
                 .addIgnoredElement(By.className("ch-trigger__container")) // игнор блока авторизации
-                .takeScreenshot(driver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "cardFilmPp4" + ".png");
-        ImageIO.write(screenshotCardFilmPp4.getImage(), "png", actualFile1);
+                .takeScreenshot(webDriver);
+        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "cardFilm" + ".png");
+        ImageIO.write(screenshotCardFilm.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        driver.get("https://web-preprod5.megafon.tv/movies/vods/Postup_haosa_2021");
-        Screenshot screenshotCardFilmPp4Standard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(driver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/"+"cardFilmPp4Standard"+".png");
-        ImageIO.write(screenshotCardFilmPp4Standard.getImage(), "png", expectedFile1);
-        screenshotCardFilmPp4Standard.setIgnoredAreas(screenshotCardFilmPp4.getIgnoredAreas());
+//        Screenshot screenshotCardFilmStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .takeScreenshot(driver);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/"+"cardFilmStandard"+".png");
+//        ImageIO.write(screenshotCardFilmStandard.getImage(), "png", expectedFile1);
+//        screenshotCardFilmStandard.setIgnoredAreas(screenshotCardFilm.getIgnoredAreas());
 
-//        // Взять старый эталон скриншота:
-//        Screenshot screenshotCardFilmPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "cardFilmPp4Standard" + ".png")));
-//        screenshotCardFilmPp4Standard.setIgnoredAreas(screenshotCardFilmPp4.getIgnoredAreas());
+        // Взять старый эталон скриншота:
+        Screenshot screenshotCardFilmStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "cardFilmStandard" + ".png")));
+        screenshotCardFilmStandard.setIgnoredAreas(screenshotCardFilm.getIgnoredAreas());
 
         // Сравнение скриншотов:
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardFilmPp4Standard, screenshotCardFilmPp4);
+        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardFilmStandard, screenshotCardFilm);
         System.out.println(diff1.getDiffSize());
         System.out.println(diff1.getDiffImage());
-        File diffFile = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCardFilmPp4" + ".png");
+        File diffFile = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCardFilm" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
         Assert.assertTrue(diff1.getDiffSize() <= 3000);
     }
 
     public void checkAutoStartVideoPlayer() throws Exception {
         Thread.sleep(5000);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time1 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(5000);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        String time2 = driver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
     }
 
@@ -452,7 +450,7 @@ public class CardFilm extends BasePage {
 
     public void checkRollUpDescription() {
         isElementDisplayed(By.xpath("//button[text()='Прочитать описание']"));
-        Assert.assertEquals("Текст описания не свернулся", 0, driver.findElements(By.xpath("//button[text()='Свернуть']")).size());
+        Assert.assertEquals("Текст описания не свернулся", 0, webDriver.findElements(By.xpath("//button[text()='Свернуть']")).size());
     }
 
 

@@ -14,7 +14,7 @@ public class PopUpInputPhone extends BasePage {
     }
 
     public void inputLogin(String login) {
-        WebElement element = driver.findElement(By.xpath("//input[@value='+7 ']"));
+        WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
         element.sendKeys(login);
     }
 

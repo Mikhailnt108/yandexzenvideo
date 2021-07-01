@@ -13,7 +13,7 @@ public class PopUpInputEmail extends BasePage {
 
     public void inputEmail(String email) {
         isElementDisplayed(By.xpath("//div[text()='Введите E-mail']"));
-        WebElement element = driver.findElement(By.xpath("//input[@placeholder='E-mail']"));
+        WebElement element = webDriver.findElement(By.xpath("//input[@placeholder='E-mail']"));
         element.sendKeys(email);
         click(By.xpath("//button[text()='Далее']"));
     }

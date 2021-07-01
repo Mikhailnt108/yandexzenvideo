@@ -21,7 +21,7 @@ public class AllCollectionsPage extends BasePage {
     }
 
     public void clickToTailCollection() {
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
         click(By.xpath("//a[contains(@href,'collection/')]"));
     }
 
@@ -33,7 +33,7 @@ public class AllCollectionsPage extends BasePage {
     }
 
     public void checkImageDifferPageCollections() throws IOException {
-        driver.get("https://web-preprod5.megafon.tv/collection");
+        webDriver.get("https://web-preprod5.megafon.tv/collection");
         Screenshot screenshotPageCollectionPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -41,17 +41,17 @@ public class AllCollectionsPage extends BasePage {
                 .addIgnoredElement(By.xpath("//img[@class='_3te-a1teTTW-lKUjvWVxkj']")) // постер тайла контента
                 .addIgnoredElement(By.xpath("(//a[contains(@href,'/collection?page')])[last()]")) // номер последней страницы пагинации
                 .addIgnoredElement(By.xpath("//a[@class='_2W-IRVg8nfmL65JjHBY-ly']")) // целиком тайл
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
 
         File actualFile1 = new File("src/test/java/testScreenshots/actual/CollectPage/"+"collectionPagePp5"+".png");
         ImageIO.write(screenshotPageCollectionPp5.getImage(), "png", actualFile1);
 
         // Сделать новый этанолонный скриншот:
-        driver.get("https://web-preprod5.megafon.tv/collection");
+        webDriver.get("https://web-preprod5.megafon.tv/collection");
         Screenshot screenshotPageCollectionPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/CollectPage/"+"collectionPagePp5Standard"+".png");
         ImageIO.write(screenshotPageCollectionPp5Standard.getImage(), "png", expectedFile1);
         screenshotPageCollectionPp5Standard.setIgnoredAreas(screenshotPageCollectionPp5.getIgnoredAreas());

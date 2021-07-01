@@ -3,6 +3,7 @@ package pages;
 import base.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,7 +37,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void chooseSeasonsMoreOneSeason() {
-        driver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
+        webDriver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
     }
 
     public void clickOnYearInput() {
@@ -44,7 +45,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkRadioButtons() {
-        List<WebElement> radioButtons = driver.findElements(By.xpath("(//div[@class='_TKVCKE7PL8voHtm8HP2j'])[1]//span[@class='AoSy93bShFe6C6hlZfxUE']"));
+        List<WebElement> radioButtons = webDriver.findElements(By.xpath("(//div[@class='_TKVCKE7PL8voHtm8HP2j'])[1]//span[@class='AoSy93bShFe6C6hlZfxUE']"));
         Assert.assertEquals(15, radioButtons.size());
     }
 
@@ -54,16 +55,16 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkRequestResultOneYearOnly() {
-        List<WebElement> CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+        List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
         for (int i=0; i<=5; i++)
         {
-            CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+            CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
             CollectionOneCountry.get(i).click();
-            WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            WebElement button = webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            driver.findElement(By.xpath("//dd[text()='2019']"));
-            driver.navigate().back();
+            webDriver.findElement(By.xpath("//dd[text()='2019']"));
+            webDriver.navigate().back();
         }
     }
 
@@ -78,16 +79,16 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkRequestResultPeriodOfYears() {
-        List<WebElement> CollectionTwoCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+        List<WebElement> CollectionTwoCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
         for (int i=0; i<=5; i++)
         {
-            CollectionTwoCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+            CollectionTwoCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
             CollectionTwoCountry.get(i).click();
-            WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            WebElement button = webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            driver.findElement(By.xpath("//dd[text()='2018' or text()='2019' or text()='2020' or text()='2021']"));
-            driver.navigate().back();
+            webDriver.findElement(By.xpath("//dd[text()='2018' or text()='2019' or text()='2020' or text()='2021']"));
+            webDriver.navigate().back();
         }
     }
 
@@ -96,7 +97,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkCheckboxes() {
-        List<WebElement> checkboxes = driver.findElements(By.xpath("(//div[@class='_2t8gxqv7DAHrHOVOT7SNQu'])[1]//input[@type='checkbox']"));
+        List<WebElement> checkboxes = webDriver.findElements(By.xpath("(//div[@class='_2t8gxqv7DAHrHOVOT7SNQu'])[1]//input[@type='checkbox']"));
         Assert.assertEquals(28, checkboxes.size());
     }
 
@@ -107,7 +108,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkRequestResultOneGenre() {
-        List<WebElement> CollectionOneGenre = driver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]"));
+        List<WebElement> CollectionOneGenre = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]"));
         Assert.assertEquals(36, CollectionOneGenre.size());
     }
 
@@ -118,7 +119,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkRequestResultTwoGenre() {
-        List<WebElement> CollectionTwoGenre = driver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]|//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Аниме')]"));
+        List<WebElement> CollectionTwoGenre = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]|//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Аниме')]"));
         Assert.assertEquals(36, CollectionTwoGenre.size());
     }
 
@@ -127,7 +128,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkCheckboxesInCountry() {
-        List<WebElement> checkboxes = driver.findElements(By.xpath("(//div[@class='_2t8gxqv7DAHrHOVOT7SNQu'])[2]//input[@type='checkbox']"));
+        List<WebElement> checkboxes = webDriver.findElements(By.xpath("(//div[@class='_2t8gxqv7DAHrHOVOT7SNQu'])[2]//input[@type='checkbox']"));
         Assert.assertEquals(18, checkboxes.size());
     }
 
@@ -138,16 +139,16 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkRequestResultOneCountry() {
-        List<WebElement> CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+        List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
         for (int i=0; i<=8; i++)
         {
-            CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+            CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
             CollectionOneCountry.get(i).click();
-            WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            WebElement button = webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            driver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
-            driver.navigate().back();
+            webDriver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
+            webDriver.navigate().back();
         }
     }
 
@@ -155,21 +156,21 @@ public class SerialsPage extends BasePage {
         click(By.xpath("//div[text()='Россия']"));
         click(By.xpath("//span[text()='США']"));
         click(By.xpath("//div[text()='Страна']"));
-        driver.navigate().refresh();
+        webDriver.navigate().refresh();
 
     }
 
     public void checkRequestResultTwoCountry() {
-        List<WebElement> CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+        List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
         for (int i=0; i<=8; i++)
         {
-            CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
+            CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[contains(@href,'/shows/')]"));
             CollectionOneCountry.get(i).click();
-            WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            WebElement button = webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            driver.findElement(By.xpath("//div[contains(text(),'Россия') or contains(text(),'США')]"));
-            driver.navigate().back();
+            webDriver.findElement(By.xpath("//div[contains(text(),'Россия') or contains(text(),'США')]"));
+            webDriver.navigate().back();
         }
 
     }
@@ -179,7 +180,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkResetAllFilters() {
-        List<WebElement> Filters = driver.findElements(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']"));
+        List<WebElement> Filters = webDriver.findElements(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']"));
         Assert.assertEquals(6, Filters.size());
     }
 
@@ -197,19 +198,19 @@ public class SerialsPage extends BasePage {
     }
     public void checkImageDifferCherdakAndBanners() throws IOException {
         // Сделать тестовый скриншот чердака:
-        WebElement headerCherdakPp5 = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
+        WebElement headerCherdakPp5 = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(driver, headerCherdakPp5);
+                .takeScreenshot(webDriver, headerCherdakPp5);
         File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "serialsPageCherdakPp5" + ".png");
         ImageIO.write(screenshotHeaderCherdakPp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот чердака:
-        driver.get("https://web-preprod5.megafon.tv/shows");
-        WebElement headerCherdakPp5Standard = driver.findElement(By.xpath("//div[@class='ch-cherdak']"));
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        WebElement headerCherdakPp5Standard = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(driver, headerCherdakPp5Standard);
+                .takeScreenshot(webDriver, headerCherdakPp5Standard);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/"+"serialsPageCherdakPp5Standard"+".png");
         ImageIO.write(screenshotHeaderCherdakPp5Standard.getImage(), "png", expectedFile1);
 
@@ -225,20 +226,20 @@ public class SerialsPage extends BasePage {
 
         // Сделать тестовый скриншот баннерной зоны:
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        WebElement headerBannerPp5 = driver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
+        WebElement headerBannerPp5 = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
         Screenshot screenshotHeaderBannerPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
-                .takeScreenshot(driver, headerBannerPp5);
+                .takeScreenshot(webDriver, headerBannerPp5);
         File actualFile2 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "serialsPageBannerPp5" + ".png");
         ImageIO.write(screenshotHeaderBannerPp5.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот баннерной зоны:
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        WebElement headerBannerPp5Standard = driver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
+        WebElement headerBannerPp5Standard = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
         Screenshot screenshotHeaderBannerPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(driver, headerBannerPp5Standard);
+                .takeScreenshot(webDriver, headerBannerPp5Standard);
         File expectedFile2 = new File("src/test/java/testScreenshots/expected/SerialsPage/"+"serialsPageBannerPp5Standard"+".png");
         ImageIO.write(screenshotHeaderBannerPp5Standard.getImage(), "png", expectedFile2);
         screenshotHeaderBannerPp5Standard.setIgnoredAreas(screenshotHeaderBannerPp5.getIgnoredAreas());
@@ -257,7 +258,9 @@ public class SerialsPage extends BasePage {
 
     public void checkImageDifferBlocksCollection() throws IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        JavascriptExecutor blockQuickFilters1 = (JavascriptExecutor) webDriver;
+        blockQuickFilters1.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotCollectionWithTitlePp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -267,16 +270,18 @@ public class SerialsPage extends BasePage {
                 .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
                 .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
                 .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "serialsPageCollectionWithTitlePp5" + ".png");
         ImageIO.write(screenshotCollectionWithTitlePp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот блока подборки с заголовком:
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        JavascriptExecutor blockQuickFilters2 = (JavascriptExecutor) webDriver;
+        blockQuickFilters2.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotCollectionWithTitlePp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/"+"serialsPageCollectionWithTitlePp5Standard"+".png");
         ImageIO.write(screenshotCollectionWithTitlePp5Standard.getImage(), "png", expectedFile1);
         screenshotCollectionWithTitlePp5Standard.setIgnoredAreas(screenshotCollectionWithTitlePp5.getIgnoredAreas());
@@ -293,7 +298,9 @@ public class SerialsPage extends BasePage {
         Assert.assertTrue(diff1.getDiffSize() <= 50);
 
         // Сделать тестовый скриншот блока подборки без заголовка:
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        JavascriptExecutor blockQuickFilters3 = (JavascriptExecutor) webDriver;
+        blockQuickFilters3.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotCollectionWithoutTitlePp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -302,16 +309,18 @@ public class SerialsPage extends BasePage {
                 .addIgnoredElement(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор блоки подборки без заголовка, кроме первого найденного
                 .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@data-test='CollectionBlock']")) // игнор постеры первого найденного блока подборки без заголовка
                 .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']")) // игнор блоки подборки с заголовком
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File actualFile2 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "serialsPageCollectionWithoutTitlePp5" + ".png");
         ImageIO.write(screenshotCollectionWithoutTitlePp5.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот блока подборки без заголовка:
-        driver.get("https://web-prepro5.megafon.tv/shows");
+        webDriver.get("https://web-prepro5.megafon.tv/shows");
+        JavascriptExecutor blockQuickFilters4 = (JavascriptExecutor) webDriver;
+        blockQuickFilters4.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotCollectionWithoutTitlePp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File expectedFile2 = new File("src/test/java/testScreenshots/expected/SerialsPage/" + "serialsPageCollectionWithoutTitlePp5Standard" + ".png");
         ImageIO.write(screenshotCollectionWithoutTitlePp5Standard.getImage(), "png", expectedFile2);
         screenshotCollectionWithoutTitlePp5Standard.setIgnoredAreas(screenshotCollectionWithoutTitlePp5.getIgnoredAreas());
@@ -330,22 +339,22 @@ public class SerialsPage extends BasePage {
 
     public void checkImageDifferFooter() throws IOException {
         // Сделать тестовый скриншот футера:
-        driver.get("https://web-preprod5.megafon.tv/shows");
-        WebElement footerPp5 = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        WebElement footerPp5 = webDriver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver, footerPp5);
+                .takeScreenshot(webDriver, footerPp5);
         File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "serialsPageFooterPp5" + ".png");
         ImageIO.write(screenshotFooterPp5.getImage(), "png", actualFile1);
 
         //Сделать новый эталонный скриншот футера:
-        driver.get("https://web-preprod5.megafon.tv/shows");
-        WebElement footerPp5Standard = driver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        WebElement footerPp5Standard = webDriver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver, footerPp5Standard);
+                .takeScreenshot(webDriver, footerPp5Standard);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/"+"serialsPageFooterPp5Standard"+".png");
         ImageIO.write(screenshotFooterPp5Standard.getImage(), "png", expectedFile1);
         screenshotFooterPp5Standard.setIgnoredAreas(screenshotFooterPp5.getIgnoredAreas());
@@ -364,7 +373,9 @@ public class SerialsPage extends BasePage {
 
     public void checkImageDifferSerialsPageScroll() throws IOException {
         // Сделать тестовый скриншот скролла страницы "Сериалы":
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        JavascriptExecutor blockQuickFilters5 = (JavascriptExecutor) webDriver;
+        blockQuickFilters5.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
 //        WebElement pageSerials = driver.findElement(By.xpath("//div[@class='appMountContainer']"));
         Screenshot screenshotSerialsPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -378,17 +389,19 @@ public class SerialsPage extends BasePage {
                 .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
                 .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) // целиком название блока и счетчик
                 .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@data-test='CollectionBlock']")) // игнор постеры первого найденного блока подборки без заголовка
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "scrollSerialsPagePp5" + ".png");
         ImageIO.write(screenshotSerialsPp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот скролла страницы "Сериалы":
-        driver.get("https://web-prepro5.megafon.tv/shows");
+        webDriver.get("https://web-prepro5.megafon.tv/shows");
+        JavascriptExecutor blockQuickFilters6 = (JavascriptExecutor) webDriver;
+        blockQuickFilters6.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
 //        WebElement pageSerials2 = driver.findElement(By.xpath("//div[@class='appMountContainer']"));
         Screenshot screenshotSerialsPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/"+"scrollSerialsPagePp5Standard"+".png");
         ImageIO.write(screenshotSerialsPp5Standard.getImage(), "png", expectedFile1);
         screenshotSerialsPp5Standard.setIgnoredAreas(screenshotSerialsPp5.getIgnoredAreas());
@@ -403,26 +416,29 @@ public class SerialsPage extends BasePage {
         File diffFile = new File("src/test/java/testScreenshots/markedImages/SerialsPage/" + "diffSerialsPageScroll" + ".png");
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
         Assert.assertTrue(diff1.getDiffSize() <= 500);
+        webDriver.navigate().refresh();
+        JavascriptExecutor scrollUp = (JavascriptExecutor) webDriver;
+        scrollUp.executeScript("scroll(0, -250);");
     }
 
     public void checkImageDifferBreadcrumbsAndBlocksFilters() throws IOException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Сериалы":
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
                 .addIgnoredElement(By.xpath("//div[@class='_1f1-eBWSN1rERnEOvc6ScB _3ux7gCl0W5jAfa3bi4V4FU']")) // игнор область подробок
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "crumbsAndFiltersSerialsPagePp5" + ".png");
         ImageIO.write(screenshotBreadcrumbsAndBlocksFiltersPp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот области хлебных крошек и блока фильтров страницы "Сериалы":
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/"+"crumbsAndFiltersPagePp5Standard"+".png");
         ImageIO.write(screenshotBreadcrumbsAndBlocksFiltersPp5Standard.getImage(), "png", expectedFile1);
         screenshotBreadcrumbsAndBlocksFiltersPp5Standard.setIgnoredAreas(screenshotBreadcrumbsAndBlocksFiltersPp5.getIgnoredAreas());
@@ -453,26 +469,26 @@ public class SerialsPage extends BasePage {
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
 
-        List<WebElement> BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForSerials = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForSerials.size());
         for (int i = 0; i < BannerForSerials.size(); i++) {
-            BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForSerials = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForSerials.get(i).click();
             isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
             isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
-            System.out.println(driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText());
+            System.out.println(webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText());
         }
 
-        List<WebElement> BannerForSerials2 = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForSerials2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForSerials2.size());
         for (int i = 0; i < BannerForSerials2.size(); i++) {
-            BannerForSerials2 = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForSerials2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForSerials2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            Assert.assertEquals(1, driver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size());
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size());
             Thread.sleep(2000);
-            driver.navigate().back();
+            webDriver.navigate().back();
         }
     }
 
@@ -482,70 +498,70 @@ public class SerialsPage extends BasePage {
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
 
-        String banner1 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        String banner1 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(banner1);
         Thread.sleep(5000);
-        String banner2 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        String banner2 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner2);
         Assert.assertNotEquals(banner1, banner2);
         Thread.sleep(5000);
-        String banner3 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        String banner3 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner3);
         Assert.assertNotEquals(banner2, banner3);
         Thread.sleep(5000);
-        String banner4 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        String banner4 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner4);
         Assert.assertNotEquals(banner3, banner4);
         Thread.sleep(5000);
-        String banner5 = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        String banner5 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner5);
         Assert.assertNotEquals(banner4, banner5);
     }
 
     public void scrollBannersToLeft() throws InterruptedException {
-        List<WebElement> BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForSerials = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForSerials.size());
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
         Thread.sleep(2000);
-        String bannerFirst = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerFirst);
         click(By.xpath("//button[@data-test='leftCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
         Thread.sleep(2000);
-        String bannerLast = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         Assert.assertNotEquals(bannerFirst, bannerLast);
     }
 
     public void scrollBannersToRight() throws InterruptedException {
-        List<WebElement> BannerForSerials = driver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForSerials = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForSerials.size());
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][last()]"));
-        String bannerLast = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
+        String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         click(By.xpath("//button[@data-test='rightCarouselButton']"));
         //isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][1]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
         Thread.sleep(2000);
-        String bannerFirst = driver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
+        String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(bannerFirst);
         Assert.assertNotEquals(bannerLast, bannerFirst);
     }
 
     public void scrollСollectionToRightAndLeft() throws InterruptedException {
         // разовый скролл подборки вправо:
-        String tail1Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
-        String tail2Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
-        String tail3Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        String tail1Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
         System.out.println(tail1Right);
         System.out.println(tail2Right);
         System.out.println(tail3Right);
 
         click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
 
-        String tail4Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
-        String tail5Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
-        String tail6Right = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        String tail4Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]"));
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]"));
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]"));
@@ -558,26 +574,26 @@ public class SerialsPage extends BasePage {
         Assert.assertNotEquals(tail3Right, tail6Right);
 
         // разовый скролл подборки влево:
-        String tail4Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
-        String tail5Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
-        String tail6Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        String tail4Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
         click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
-        String tail1Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
-        String tail2Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
-        String tail3Left = driver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        String tail1Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
         Thread.sleep(5000);
         Assert.assertNotEquals(tail1Left, tail4Left);
         Assert.assertNotEquals(tail2Left, tail5Left);
         Assert.assertNotEquals(tail3Left, tail6Left);
 
         // скоролл подборки вправо до упора:
-        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
+        while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
             for (int i = 0; i <= 10; i++) {
                 click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
             }
         }
         // скоролл подборки вдлево до упора:
-        while (driver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
+        while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
             for (int i = 0; i <= 10; i++) {
                 click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
             }
@@ -586,7 +602,7 @@ public class SerialsPage extends BasePage {
 
     public void checkImageDifferScrollQuickFilters() throws IOException, AWTException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         click(By.xpath("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]"));
         Robot bot1 = new Robot();
         bot1.mouseMove(0, 0);
@@ -595,19 +611,19 @@ public class SerialsPage extends BasePage {
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
                 .addIgnoredElement(By.xpath("//div[@class='_1f1-eBWSN1rERnEOvc6ScB _1u_yecGhipzBAdhHgvWkg9']")) // игнор область подробок
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "scrollQuickFiltersSerialsPagePp4" + ".png");
         ImageIO.write(screenshotScrollQuickFiltersPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         click(By.xpath("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]"));
         Robot bot2 = new Robot();
         bot2.mouseMove(0, 0);
         Screenshot screenshotScrollQuickFiltersPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(driver);
+                .takeScreenshot(webDriver);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/" + "scrollQuickFiltersSerialsPagePp4" + ".png");
         ImageIO.write(screenshotScrollQuickFiltersPp4Standard.getImage(), "png", expectedFile1);
         screenshotScrollQuickFiltersPp4Standard.setIgnoredAreas(screenshotScrollQuickFiltersPp4.getIgnoredAreas());
@@ -630,11 +646,11 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkCatalogViewFilmsPage() {
-        Assert.assertEquals("вид страницы не каталог", 0, driver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+        Assert.assertEquals("вид страницы не каталог", 0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
     }
 
     public void checkRequestResultOneQuickFilter() {
-        List<WebElement> CollectionQuickFilter = driver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Приключения')]"));
+        List<WebElement> CollectionQuickFilter = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Приключения')]"));
         Assert.assertEquals(36, CollectionQuickFilter.size());
     }
 
@@ -645,35 +661,35 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkRequestResultTwoQuickFilter() {
-        List<WebElement> CollectionQuickFilter = driver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Приключения')]|//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Боевик')]"));
+        List<WebElement> CollectionQuickFilter = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Приключения')]|//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Боевик')]"));
         Assert.assertEquals(36, CollectionQuickFilter.size());
     }
 
     public void checkUnplugQuickFilter() {
         click(By.xpath("//button[text()='Боевик']"));
-        Assert.assertEquals("не отключен быстрый фильтр", 0, driver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
+        Assert.assertEquals("не отключен быстрый фильтр", 0, webDriver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
     }
 
     public void checkRequestResultOneCountryAndTwoGenre() {
-        List<WebElement> CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
+        List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
         for (int i = 0; i <= 5; i++) {
-            CollectionOneCountry = driver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
+            CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
             CollectionOneCountry.get(i).click();
-            WebElement button = driver.findElement(By.xpath("//button[text()='Прочитать описание']"));
-            driver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
+            WebElement button = webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            webDriver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            driver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
-            driver.navigate().back();
+            webDriver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
+            webDriver.navigate().back();
         }
     }
 
     public void checkCollectionsViewSerialsPage() {
-        Assert.assertNotEquals("вид страницы не каталог", 0, driver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+        Assert.assertNotEquals("вид страницы не каталог", 0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
     }
 
     public void checkCatalogViewSerialsPage() {
-        Assert.assertEquals("вид страницы не каталог", 0, driver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+        Assert.assertEquals("вид страницы не каталог", 0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
     }
     public void checkElementsBlockCollectHistoryWatch() {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
@@ -688,8 +704,8 @@ public class SerialsPage extends BasePage {
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
     public void checkImageDifferBlockCollectHistoryWatch() throws IOException {
-        driver.get("https://web-preprod5.megafon.tv/shows");
-        WebElement blockCollectHistoryWatch = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        WebElement blockCollectHistoryWatch = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Set<By> posterTailsCollection = new HashSet<>();
         posterTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='HZzNvtNX5fExVnjY_Popf']"));
         Set<By> nameTailsCollection = new HashSet<>();
@@ -702,20 +718,20 @@ public class SerialsPage extends BasePage {
                 .ignoredElements(posterTailsCollection)
                 .ignoredElements(nameTailsCollection)
                 .ignoredElements(counterTailsCollection)
-                .takeScreenshot(driver, blockCollectHistoryWatch);
+                .takeScreenshot(webDriver, blockCollectHistoryWatch);
 
         File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "collectHistoryWatch" + ".png");
         ImageIO.write(screenshotCollectHistoryWatch.getImage(), "png", actualFile1);
 
         // Сделать новый эталон скриншота:
-        driver.get("https://web-preprod5.megafon.tv/shows");
-        WebElement blockCollectHistoryWatchStandard = driver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        WebElement blockCollectHistoryWatchStandard = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Screenshot screenshotCollectHistoryWatchStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
                 .ignoredElements(posterTailsCollection)
                 .ignoredElements(nameTailsCollection)
-                .takeScreenshot(driver, blockCollectHistoryWatchStandard);
+                .takeScreenshot(webDriver, blockCollectHistoryWatchStandard);
         File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/" + "collectHistoryWatchStandard" + ".png");
         ImageIO.write(screenshotCollectHistoryWatchStandard.getImage(), "png", expectedFile1);
         screenshotCollectHistoryWatchStandard.setIgnoredAreas(screenshotCollectHistoryWatch.getIgnoredAreas());
@@ -754,30 +770,30 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkContentOnlySerialsWithout18Plus() throws InterruptedException {
-        List<WebElement> tailsBlockCollectHistoryWatch = driver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
+        List<WebElement> tailsBlockCollectHistoryWatch = webDriver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
         for(int i=0;i<tailsBlockCollectHistoryWatch.size();i++){
-            tailsBlockCollectHistoryWatch = driver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
+            tailsBlockCollectHistoryWatch = webDriver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
             tailsBlockCollectHistoryWatch.get(i).click();
-            Assert.assertEquals("есть контент 18+",0, driver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
-            Assert.assertEquals("есть контент не сериал",1, driver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size());
-            driver.get("https://web-preprod5.megafon.tv/shows");
+            Assert.assertEquals("есть контент 18+",0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
+            Assert.assertEquals("есть контент не сериал",1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size());
+            webDriver.get("https://web-preprod5.megafon.tv/shows");
             Thread.sleep(5000);
         }
     }
     public void checkToMoveTailToFirstPlace() {
-        String nameSerial = driver.findElement(By.xpath("//h1[text()]")).getText();
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        String nameSerial = webDriver.findElement(By.xpath("//h1[text()]")).getText();
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         System.out.println(nameSerial);
-        System.out.println(driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
-        Assert.assertEquals("элементы не совпадают", nameSerial, driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
+        System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
+        Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 
     public void checkToMoveTailToLastPlace() {
-        String nameSerial = driver.findElement(By.xpath("//h1[text()]")).getText();
-        driver.get("https://web-preprod5.megafon.tv/shows");
+        String nameSerial = webDriver.findElement(By.xpath("//h1[text()]")).getText();
+        webDriver.get("https://web-preprod5.megafon.tv/shows");
         System.out.println(nameSerial);
-        System.out.println(driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
-        Assert.assertEquals("элементы не совпадают", nameSerial, driver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
+        System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
+        Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
     }
 
     public void clickToLastTailBlockCollectHistoryWatch() {
@@ -788,7 +804,7 @@ public class SerialsPage extends BasePage {
     }
 
     public void checkAbsentBlockCollectHistoryWatch() {
-        Assert.assertEquals("есть подборка 'Продолжить просмотр'", 0, driver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size());
+        Assert.assertEquals("есть подборка 'Продолжить просмотр'", 0, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size());
     }
 
     public void clickOnFastFilterGenre() {

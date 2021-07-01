@@ -15,7 +15,7 @@ public class PopUpCreatePassword extends BasePage {
     }
 
     public void inputPassword(String password) {
-        WebElement element = driver.findElement(By.xpath("//input[@type='password']"));
+        WebElement element = webDriver.findElement(By.xpath("//input[@type='password']"));
         element.sendKeys(password);
     }
 

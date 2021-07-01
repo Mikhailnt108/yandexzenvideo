@@ -66,68 +66,68 @@ public class PackagesPage extends BasePage {
     }
 
     public void checkTabAllPackagesInMenuShopPage() {
-        List<WebElement> countTails = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//a[@href]"));
-        List<WebElement> packages = driver.findElements(By.xpath("//a[@href]//h3[not(text()='START' or text()='more.tv' or text()='Амедиатека')]"));
+        List<WebElement> countTails = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//a[@href]"));
+        List<WebElement> packages = webDriver.findElements(By.xpath("//a[@href]//h3[not(text()='START' or text()='more.tv' or text()='Амедиатека')]"));
         System.out.println(countTails.size());
         System.out.println(packages.size());
         Assert.assertEquals(countTails.size(), packages.size());
     }
 
     public void checkTypePackagesInTabAll() {
-        List<WebElement> CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
-        Assert.assertEquals(CollectionTailAllPackages.size(), driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
+        List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        Assert.assertEquals(CollectionTailAllPackages.size(), webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
-            CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
-            Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
 
-            if (driver.findElements(By.xpath("//div[text()='Фильмы, входящие в пакет:']")).size() != 0) {
-                driver.navigate().back();
+            if (webDriver.findElements(By.xpath("//div[text()='Фильмы, входящие в пакет:']")).size() != 0) {
+                webDriver.navigate().back();
                 break;
             } else {
-                driver.navigate().back();
+                webDriver.navigate().back();
             }
         }
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
-            CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
 
             CollectionTailAllPackages.get(i).click();
-            Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
-            if (driver.findElements(By.xpath("//div[text()='Сериалы, входящие в пакет:']")).size() != 0) {
-                driver.navigate().back();
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            if (webDriver.findElements(By.xpath("//div[text()='Сериалы, входящие в пакет:']")).size() != 0) {
+                webDriver.navigate().back();
                 break;
             } else {
-                driver.navigate().back();
+                webDriver.navigate().back();
             }
         }
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
-            CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
-            Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
-            if (driver.findElements(By.xpath("//div[text()='Каналы, входящие в пакет:']")).size() != 0) {
-                driver.navigate().back();
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            if (webDriver.findElements(By.xpath("//div[text()='Каналы, входящие в пакет:']")).size() != 0) {
+                webDriver.navigate().back();
                 break;
             } else {
-                driver.navigate().back();
+                webDriver.navigate().back();
             }
         }
     }
 
     public void checkAllPackegesWithoutOwnership() {
-        List<WebElement> CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']//div[text()='Подключен']"));
+        List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']//div[text()='Подключен']"));
         Assert.assertEquals(0, CollectionTailAllPackages.size());
     }
     public void checkConnectedOnTailPackage() {
-        List<WebElement> CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']//div[text()='Подключен']"));
+        List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']//div[text()='Подключен']"));
         Assert.assertEquals(2, CollectionTailAllPackages.size());
     }
 
     public void checkTypePackagesInTabTvChannel() {
-        List<WebElement> CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
-            CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
             isElementDisplayed(By.xpath("//span[contains(text(),'Подключить')]"));
             isElementDisplayed(By.xpath("//a[@class='_2SBFkKqCGAQ96AZk-0n_uA' and contains(@href,'/tv/channels/')]"));
@@ -137,13 +137,13 @@ public class PackagesPage extends BasePage {
     }
 
     public void checkTypePackagesInTabSerials() {
-        List<WebElement> CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
-            CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
             isElementDisplayed(By.xpath("//span[contains(text(),'Подключить')]"));
-            if (driver.findElements(By.xpath("//a[@class='_8m5mByCjTuND14zuGKagi' and contains(@href,'/shows/')]")).size() != 0) {
+            if (webDriver.findElements(By.xpath("//a[@class='_8m5mByCjTuND14zuGKagi' and contains(@href,'/shows/')]")).size() != 0) {
                 click(By.xpath("(//div[text()='Магазин'])[1]"));
                 click(By.xpath("(//div[text()='Сериалы'])[3]"));
             } else {
@@ -156,13 +156,13 @@ public class PackagesPage extends BasePage {
     }
 
     public void checkTypePackagesInTabKino() {
-        List<WebElement> CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
-            CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
             isElementDisplayed(By.xpath("//span[contains(text(),'Подключить')]"));
-            if (driver.findElements(By.xpath("//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')]")).size() != 0) {
+            if (webDriver.findElements(By.xpath("//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')]")).size() != 0) {
                 click(By.xpath("(//div[text()='Магазин'])[1]"));
                 click(By.xpath("//div[text()='Кино']"));
             } else {
@@ -175,15 +175,15 @@ public class PackagesPage extends BasePage {
     }
 
     public void checkTypePackagesInTabMixed() {
-        List<WebElement> CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
-            CollectionTailAllPackages = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+            CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
-            Assert.assertEquals(1, driver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
-            Assert.assertEquals(1, driver.findElements(By.xpath("(//div[text()='Фильмы'])[3]")).size());
-            Assert.assertEquals(1, driver.findElements(By.xpath("(//div[text()='Сериалы'])[3]")).size());
-            if (driver.findElements(By.xpath("//div[text()='ТВ-каналы']")).size() != 0) {
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Фильмы'])[3]")).size());
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Сериалы'])[3]")).size());
+            if (webDriver.findElements(By.xpath("//div[text()='ТВ-каналы']")).size() != 0) {
                 click(By.xpath("(//div[text()='Магазин'])[1]"));
                 click(By.xpath("//div[text()='Микс']"));
             } else {
@@ -194,15 +194,15 @@ public class PackagesPage extends BasePage {
     }
 
     public void checkNotDisplayedTabConnectedInMenuShopPage() {
-        Assert.assertEquals(0, driver.findElements(By.xpath("//div[text()='Подключенные']")).size());
+        Assert.assertEquals(0, webDriver.findElements(By.xpath("//div[text()='Подключенные']")).size());
     }
 
     public void checkDisplayedTabConnectedInMenuShopPage() {
-        Assert.assertEquals(1, driver.findElements(By.xpath("//div[text()='Подключенные']")).size());
+        Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[text()='Подключенные']")).size());
     }
 
     public void checkTypePackagesInTabConnectedInMenuShopPage() {
-        List<WebElement> tails = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
+        List<WebElement> tails = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(tails.size());
         for (WebElement tail : tails) {
             tail.findElement(By.xpath("//div[text()='Подключен']"));
@@ -227,8 +227,8 @@ public class PackagesPage extends BasePage {
 
     public void checkTabAllServiceInMenuShopPage() {
         isElementDisplayed(By.xpath("//div[@class='_1LCYNI4dD8ao7p9rhd_Qcl _2efXVczynhUCLi_CJzGTuL' and text()='Все сервисы']"));
-        List<WebElement> countTails = driver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//a[contains(@href,'/mixed_groups/')]"));
-        List<WebElement> services = driver.findElements(By.xpath("//h3[text()='START']|//h3[text()='more.tv']|//h3[text()='Амедиатека']"));
+        List<WebElement> countTails = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//a[contains(@href,'/mixed_groups/')]"));
+        List<WebElement> services = webDriver.findElements(By.xpath("//h3[text()='START']|//h3[text()='more.tv']|//h3[text()='Амедиатека']"));
         System.out.println(countTails.size());
         System.out.println(services.size());
         Assert.assertEquals(countTails.size(),services.size());
