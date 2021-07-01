@@ -1,11 +1,11 @@
 package TestSmoke.Р5_Профиль.П1_Акции.пп3_Остальные;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Тариф_не_определился_АКТУАЛЕН_25_02_21 extends TestBase {
+public class Test_03_Тариф_не_определился_АКТУАЛЕН_25_02_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")

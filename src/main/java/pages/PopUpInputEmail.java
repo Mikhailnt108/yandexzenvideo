@@ -1,11 +1,11 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PopUpInputEmail extends BasePage {
+public class PopUpInputEmail extends BasePageWebDriver {
     public PopUpInputEmail(WebDriver driver) {
         super(driver);
     }

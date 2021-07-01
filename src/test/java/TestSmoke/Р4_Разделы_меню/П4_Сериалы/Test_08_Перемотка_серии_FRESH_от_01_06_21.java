@@ -1,11 +1,11 @@
 package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_08_Перемотка_серии_FRESH_от_01_06_21 extends TestBase {
+public class Test_08_Перемотка_серии_FRESH_от_01_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")

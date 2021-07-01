@@ -1,11 +1,11 @@
 package TestSmoke.старые_кейсы.разделы_меню.фильмы;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Old_Фильтр_по_годам extends TestBase {
+public class Old_Фильтр_по_годам extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")

@@ -1,6 +1,6 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.Is.is;
 
-public class PersonalOffer extends BasePage {
+public class PersonalOffer extends BasePageWebDriver {
     public PersonalOffer(WebDriver driver) {
         super(driver);
     }

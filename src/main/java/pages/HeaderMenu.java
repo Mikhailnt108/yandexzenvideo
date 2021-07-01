@@ -1,14 +1,13 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 
-public class HeaderMenu extends BasePage {
-    public Object deleteAllCookies;
+public class HeaderMenu extends BasePageWebDriver {
     //ПП1
     String NIL_Page_PP1 = "https://web-preprod1.megafon.tv/";
     String TV_Page_PP1 = "https://web-preprod1.megafon.tv/tv/";

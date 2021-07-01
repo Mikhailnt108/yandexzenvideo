@@ -1,11 +1,11 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PopUpCreatePassword extends BasePage {
+public class PopUpCreatePassword extends BasePageWebDriver {
     public PopUpCreatePassword(WebDriver driver) {
         super(driver);
     }

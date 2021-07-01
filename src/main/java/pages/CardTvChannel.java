@@ -1,6 +1,6 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class CardTvChannel extends BasePage {
+public class CardTvChannel extends BasePageWebDriver {
     public CardTvChannel(WebDriver driver) {
         super(driver);
     }

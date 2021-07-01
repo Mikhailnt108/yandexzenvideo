@@ -1,11 +1,11 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PopUpInputPhone extends BasePage {
+public class PopUpInputPhone extends BasePageWebDriver {
     public PopUpInputPhone(WebDriver driver) {super(driver);
 
     }

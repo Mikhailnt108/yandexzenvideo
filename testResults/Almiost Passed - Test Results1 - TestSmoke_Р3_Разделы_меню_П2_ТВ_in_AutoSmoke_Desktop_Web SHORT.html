@@ -668,7 +668,7 @@ jQuery.cookie = function(name, value, options) {
                                             <li class="text">
                                                 <span class="stderr">org.junit.ComparisonFailure: Кнопка не зелёного цвета expected:&lt;rgb([0, 185, 86])&gt; but was:&lt;rgb([14, 185, 93])&gt;
 <br/>	at org.junit.Assert.assertEquals(Assert.java:117)
-<br/>	at pages.TvPage.checkColorButtonChooseGenre(TvPage.java:133)
+<br/>	at pages.TvPageWebDriver.checkColorButtonChooseGenre(TvPage.java:133)
 <br/>	at TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21.Test_09_Жанры_передач_в_эфире_FRESH_от_28_06_21.genresTvProgramInAir(Test_09_Жанры_передач_в_эфире_FRESH_от_10_05_21.java:21)
 <br/>	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 <br/>	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -805,8 +805,8 @@ jQuery.cookie = function(name, value, options) {
                                                 <span class="stderr">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.xpath: (//div[@class=&#39;oog6D4ljOTvbih-_NivDx&#39;])[3] (tried for 40 second(s) with 500 milliseconds interval)<br/>Build info: version: &#39;3.141.59&#39;, revision: &#39;e82be7d358&#39;, time: &#39;2018-11-14T08:17:03&#39;<br/>System info: host: &#39;MTABUNKOV&#39;, ip: &#39;172.21.17.82&#39;, os.name: &#39;Windows 10&#39;, os.arch: &#39;amd64&#39;, os.version: &#39;10.0&#39;, java.version: &#39;11.0.11&#39;<br/>Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 90.0.4430.212, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: C:\Users\MTABUN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53469}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: eager, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>Session ID: fc559e368c2de7086a20a2138b6cc98d
 <br/>	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 <br/>	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-<br/>	at base.BasePage.waitVisibility(BasePage.java:22)
-<br/>	at base.BasePage.click(BasePage.java:25)
+<br/>	at base.BasePageWebDriver.waitVisibility(BasePage.java:22)
+<br/>	at base.BasePageWebDriver.click(BasePage.java:25)
 <br/>	at swithOtherTvChannelInsidePlayerForRecording(CardTvProgram.java:398)
 <br/>	at TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21.Test_12_Записываемая_передача_Ashot_FRESH_от_10_05_21_добавить_проверку_передачи_кликабельны_шаг_5_ор.recordedTvProgram(Test_12_Записываемая_передача_Ashot_FRESH_от_10_05_21_добавить_проверку_передачи_кликабельны_шаг_5_ор.java:38)
 <br/>	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1176,7 +1176,7 @@ jQuery.cookie = function(name, value, options) {
 <br/>	at org.junit.Assert.fail(Assert.java:89)
 <br/>	at org.junit.Assert.failNotEquals(Assert.java:835)
 <br/>	at org.junit.Assert.assertEquals(Assert.java:647)
-<br/>	at pages.TvPage.checkElementsTvPage(TvPage.java:263)
+<br/>	at pages.TvPageWebDriver.checkElementsTvPage(TvPage.java:263)
 <br/>	at TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21.Test_01_Программа_передач_ASHOT_FRESH_от_28_06_21.historyViewing(Test_01_Программа_передач_ASHOT_FRESH_от_20_05_21_stable.java:19)
 <br/>	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 <br/>	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

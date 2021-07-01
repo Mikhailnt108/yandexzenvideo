@@ -1,10 +1,10 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class PaymentContent extends BasePage {
+public class PaymentContent extends BasePageWebDriver {
     public PaymentContent(WebDriver driver) {
         super(driver);
     }

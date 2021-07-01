@@ -1,11 +1,11 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_04_Разные_типы_ПП extends TestBase {
+public class Test_04_Разные_типы_ПП extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")

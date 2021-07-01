@@ -1,6 +1,6 @@
 package TestSmoke.старые_кейсы.профиль;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class K02_Обычный_МФ_НУЖЕН_ОБЫЧНЫЙ_НОМЕР_МФ extends TestBase {
+public class K02_Обычный_МФ_НУЖЕН_ОБЫЧНЫЙ_НОМЕР_МФ extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Обычный МФ")

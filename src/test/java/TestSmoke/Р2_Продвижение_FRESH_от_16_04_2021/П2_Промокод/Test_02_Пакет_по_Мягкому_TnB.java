@@ -1,11 +1,11 @@
 package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П2_Промокод;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_02_Пакет_по_Мягкому_TnB extends TestBase {
+public class Test_02_Пакет_по_Мягкому_TnB extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")

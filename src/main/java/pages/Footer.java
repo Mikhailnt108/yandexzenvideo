@@ -1,13 +1,13 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
 
-public class Footer extends BasePage {
+public class Footer extends BasePageWebDriver {
     public Footer(WebDriver driver) {
         super(driver);
     }

@@ -1,6 +1,6 @@
 package TestSmoke.старые_кейсы.авторизация_и_регистрация;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-public class Old_05_Авторизация_из_карточки_Пакета_Сериалов extends TestBase {
+public class Old_05_Авторизация_из_карточки_Пакета_Сериалов extends TestBaseWebDriver {
 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Авторизация и регистрация")

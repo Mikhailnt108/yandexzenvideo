@@ -1,11 +1,11 @@
 package TestSmoke.старые_кейсы.профиль;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class К10_Переход_к_списку_тарифов_СТАРЫЙ extends TestBase {
+public class К10_Переход_к_списку_тарифов_СТАРЫЙ extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "1. Акции")

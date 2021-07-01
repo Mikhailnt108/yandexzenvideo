@@ -1,6 +1,6 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CardTvProgram extends BasePage {
+public class CardTvProgram extends BasePageWebDriver {
     public CardTvProgram(WebDriver driver) {
         super(driver);
     }

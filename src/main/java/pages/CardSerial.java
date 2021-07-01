@@ -1,6 +1,6 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class CardSerial extends BasePage {
+public class CardSerial extends BasePageWebDriver {
 
     public CardSerial(WebDriver driver) {
         super(driver);

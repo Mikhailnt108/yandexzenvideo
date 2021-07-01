@@ -1,11 +1,11 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PopUpInputPassword extends BasePage {
+public class PopUpInputPassword extends BasePageWebDriver {
     public PopUpInputPassword(WebDriver driver){super(driver);}
     public void checkOpenFrameInputPassword() {
         isElementDisplayed(By.xpath("//div[text()='Введите пароль']"));

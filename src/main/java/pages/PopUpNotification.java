@@ -1,12 +1,11 @@
 package pages;
 
-import base.BasePage;
-import org.junit.Assert;
+import base.BasePageWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import static io.restassured.RestAssured.given;
 
-public class PopUpNotification extends BasePage {
+public class PopUpNotification extends BasePageWebDriver {
     public PopUpNotification(WebDriver driver) {super(driver);}
 
     public void createAndPublishedPopUpNotifScreenNilPayFilm() {

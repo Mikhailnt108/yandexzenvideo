@@ -1,6 +1,6 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class CardFilm extends BasePage {
+public class CardFilm extends BasePageWebDriver {
 
     public CardFilm(WebDriver driver) {
         super(driver);

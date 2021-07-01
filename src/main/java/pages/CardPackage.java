@@ -1,11 +1,11 @@
 package pages;
 
-import base.BasePage;
+import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CardPackage extends BasePage {
+public class CardPackage extends BasePageWebDriver {
 
     public CardPackage(WebDriver driver) {
         super(driver);

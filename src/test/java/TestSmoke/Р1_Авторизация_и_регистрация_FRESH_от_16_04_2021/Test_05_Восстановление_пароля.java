@@ -1,6 +1,6 @@
 package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import com.automation.remarks.junit.VideoRule;
 import com.automation.remarks.video.annotations.Video;
 import io.qameta.allure.*;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
 
-public class Test_05_Восстановление_пароля extends TestBase {
+public class Test_05_Восстановление_пароля extends TestBaseWebDriver {
     @Rule
     public VideoRule videoRule = new VideoRule();
     @Epic(value = "Smoke MFTV Desktop Web")

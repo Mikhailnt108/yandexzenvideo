@@ -1,9 +1,9 @@
 package TestSmoke.старые_кейсы.разделы_меню.тв;
 
-import base.TestBase;
+import base.TestBaseWebDriver;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Tech_selectors_swith_channel_inside_player extends TestBase {
+public class Tech_selectors_swith_channel_inside_player extends TestBaseWebDriver {
     @RepeatedTest(1)
     public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToPackagesPage();
