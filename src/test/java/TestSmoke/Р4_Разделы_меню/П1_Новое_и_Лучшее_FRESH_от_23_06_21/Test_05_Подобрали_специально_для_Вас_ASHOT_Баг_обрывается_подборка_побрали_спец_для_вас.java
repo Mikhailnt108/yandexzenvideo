@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_05_Подобрали_специально_для_Вас_ASHOT_Баг_обрывается_подборка_побрали_спец_для_васWebDriver extends TestBaseWebDriver {
+public class Test_05_Подобрали_специально_для_Вас_ASHOT_Баг_обрывается_подборка_побрали_спец_для_вас extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
@@ -16,7 +16,7 @@ public class Test_05_Подобрали_специально_для_Вас_ASHOT
         // не авторизованный пользователь:
         headerMenu.goToNilPage();
         headerMenu.checkNotLoggedIsCorrect();
-        nilPage.checkImageDifferBlockCollectionSpecialForYou();
+//        nilPage.checkImageDifferBlockCollectionSpecialForYou();
         nilPage.checkElementsBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
@@ -32,7 +32,7 @@ public class Test_05_Подобрали_специально_для_Вас_ASHOT
         // авторизованный пользователь:
         headerMenu.goToNilPage();
         flowRegistation();
-        nilPage.checkImageDifferBlockCollectionSpecialForYou();
+//        nilPage.checkImageDifferBlockCollectionSpecialForYou();
         nilPage.checkElementsBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();

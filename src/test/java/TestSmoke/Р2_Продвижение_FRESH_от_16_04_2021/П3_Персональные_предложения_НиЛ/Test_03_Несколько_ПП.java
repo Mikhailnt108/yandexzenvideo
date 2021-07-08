@@ -5,25 +5,26 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_01_Внешний_вид_и_навигацияWebDriver extends TestBaseWebDriver {
+public class Test_03_Несколько_ПП extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "Внешний вид и навигация")
+    @DisplayName(value = "Несколько ПП")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
-    public void appearanceAndNavigation() {
+    @RepeatedTest(2)
+    public void fewPersonalOffers() throws InterruptedException {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
+        personalOffer.createPersonalOfferTypeSubscription();
         headerMenu.goToNilPage();
         flowRegistation();
-        personalOffer.checkElementsOnePersonalOffer();
-        headerMenu.goToKidsPage();
-        headerMenu.goToNilPage();
-        personalOffer.checkElementsOnePersonalOffer();
+        personalOffer.checkElementsFewPersonalOffers();
+        personalOffer.clickToElementPersonalOffer();
+        promoPage.checkOpenPromoPage();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
+        personalOffer.archivePersonalOfferSubscription();
         pageCMS.deleteAccountMF("79260192144");
-    }
 
+    }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -37,5 +38,4 @@ public class Test_01_Внешний_вид_и_навигацияWebDriver extend
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
-
 }

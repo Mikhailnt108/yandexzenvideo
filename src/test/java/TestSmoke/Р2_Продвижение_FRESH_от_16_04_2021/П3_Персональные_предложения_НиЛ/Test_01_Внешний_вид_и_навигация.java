@@ -5,26 +5,21 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_02_ПП_разные_состоянияWebDriver extends TestBaseWebDriver {
+public class Test_01_Внешний_вид_и_навигация extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "ПП разные состояния")
+    @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void POdifferentState() {
-        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
-        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
-        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
-        personalOffer.archivePersonalOfferSubscription();
+    public void appearanceAndNavigation() {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         headerMenu.goToNilPage();
         flowRegistation();
-        personalOffer.checkElementsWhiteColorSandPersonalOffer();
-        personalOffer.checkElementsYellowColorSandPersonalOffer();
-        personalOffer.checkElementsRedColorSandPersonalOffer();
-        personalOffer.clickToElementPersonalOffer();
-        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
+        personalOffer.checkElementsOnePersonalOffer();
+        headerMenu.goToKidsPage();
+        headerMenu.goToNilPage();
+        personalOffer.checkElementsOnePersonalOffer();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         pageCMS.deleteAccountMF("79260192144");
     }
@@ -42,5 +37,5 @@ public class Test_02_ПП_разные_состоянияWebDriver extends TestB
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
-}
 
+}

@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_01_Внешний_вид_раздела_ASHOT_FRESHWebDriver extends TestBaseWebDriver {
+public class Test_01_Внешний_вид_раздела_ASHOT_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и Лучшее")
@@ -14,9 +14,9 @@ public class Test_01_Внешний_вид_раздела_ASHOT_FRESHWebDriver e
     @Test
     public void appearanceSectionNilPage() throws Exception {
         headerMenu.goToNilPage();
-        nilPage.checkImageDifferCherdakAndBanners();
-        nilPage.checkImageDifferBlocksCollection();
-        nilPage.checkImageDifferFooter();
-        nilPage.checkImageDifferNilPageScroll();
+//        nilPage.checkImageDifferCherdakAndBanners();
+//        nilPage.checkImageDifferBlocksCollection();
+//        nilPage.checkImageDifferFooter();
+//        nilPage.checkImageDifferNilPageScroll();
     }
 }

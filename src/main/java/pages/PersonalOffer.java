@@ -24,7 +24,7 @@ public class PersonalOffer extends BasePageWebDriver {
 
     public void createPersonalOfferTypePackageForZeroRublesForMF() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(3);
         //конец действия промоподписки
@@ -69,7 +69,7 @@ public class PersonalOffer extends BasePageWebDriver {
 
     public void checkElementsWhiteColorSandPersonalOffer() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(3);
         //конец действия промоподписки
@@ -105,7 +105,7 @@ public class PersonalOffer extends BasePageWebDriver {
 
     public void checkElementsYellowColorSandPersonalOffer() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(2);
         //конец действия промоподписки
@@ -144,7 +144,7 @@ public class PersonalOffer extends BasePageWebDriver {
 
     public void checkElementsRedColorSandPersonalOffer() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(1);
         //конец действия промоподписки
@@ -189,7 +189,7 @@ public class PersonalOffer extends BasePageWebDriver {
 
     public void createPersonalOfferTypeSubscription() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(3);
         //конец действия подписки
@@ -235,7 +235,7 @@ public class PersonalOffer extends BasePageWebDriver {
 
     public void createPersonalOfferTypePartnerOfferForNonMF() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(3);
         //конец действия подписки
@@ -267,7 +267,7 @@ public class PersonalOffer extends BasePageWebDriver {
     }
     public void createPersonalOfferTypePartnerOfferKinoPoiskForMF() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(3);
         //конец действия подписки
@@ -299,7 +299,7 @@ public class PersonalOffer extends BasePageWebDriver {
     }
     public void createPersonalOfferTypePartnerOfferOkkoTvForMF() {
         //начало перс предложения
-        LocalDateTime startOffer = LocalDateTime.now();
+        LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
         LocalDateTime  endOffer = startOffer.plusDays(3);
         //конец действия подписки

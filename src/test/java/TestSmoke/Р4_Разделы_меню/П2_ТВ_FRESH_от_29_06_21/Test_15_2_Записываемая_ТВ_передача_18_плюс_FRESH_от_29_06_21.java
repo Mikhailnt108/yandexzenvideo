@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_15_2_Записываемая_ТВ_передача_18_плюс_FRESH_от_29_06_21WebDriver extends TestBaseWebDriver {
+public class Test_15_2_Записываемая_ТВ_передача_18_плюс_FRESH_от_29_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")

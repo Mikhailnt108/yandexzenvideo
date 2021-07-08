@@ -5,30 +5,32 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-import java.io.IOException;
-
-public class Test_14_Фильтр_платности_ASHOT_FRESH_от_29_06_21WebDriver extends TestBaseWebDriver {
+public class Test_11_Незаписываемая_передача_ASHOT_FRESH_от_29_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Фильтр платности")
+    @DisplayName(value ="Незаписываемая ТВ передача")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void checkFilterPayment() throws InterruptedException, IOException {
+    public void unrecordedTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.clickOnTabInRecording();
-        tvPage.checkImageDifferToglPaymentOn();
-        tvPage.navigateMouseToToglPaymentOn();
-        tvPage.checkTvChannelsAll();
-        tvPage.clickToTailTvChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.clickPaymentButtonInCardTvChannel();
-        cardTvChannel.checkPaymentComplete();
-        headerMenu.goToTvPage();
-        tvPage.clickToglePaymentForOff();
-        tvPage.navigateMouseToToglePaymentOff();
-        tvPage.checkTvChannelsOnlyPlugged();
+        tvPage.clickOnTabTvProgramInAir();
+        tvPage.clickToTailTvProgram();
+        cardTvProgram.checkOpenCardTvProgram();
+        cardTvProgram.clickPaymentButtonInCardTvProgram();
+        cardTvProgram.checkPaymentComplete();
+        headerMenu.refreshPage();
+        cardTvProgram.checkAutoStartVideoPlayer();
+//        cardTvProgram.checkImageDifferVideoPlayerUnrecordedAndSchedule();
+        headerMenu.refreshPage();
+        cardTvProgram.checkElementsPlayerUnrecordedTvProgram();
+        cardTvProgram.testFullScreenPlayer();
+        cardTvProgram.testOnAndOffAudioInPlayer();
+        cardTvProgram.clickOnScheduleInPlayerUnrecordedAndCheckeElements();
+        headerMenu.refreshPage();
+        cardTvProgram.swithOtherTvChannelInsidePlayerForUnRecording();
+        cardTvProgram.checkAutoStartVideoPlayer();
         pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {

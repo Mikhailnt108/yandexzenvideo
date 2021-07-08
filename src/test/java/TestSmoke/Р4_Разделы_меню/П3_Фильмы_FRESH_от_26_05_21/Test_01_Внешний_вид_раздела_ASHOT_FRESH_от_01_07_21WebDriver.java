@@ -4,7 +4,6 @@ import base.TestBaseWebDriver;
 import com.automation.remarks.junit.VideoRule;
 import io.qameta.allure.*;
 import com.automation.remarks.video.annotations.Video;
-
 import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;

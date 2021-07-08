@@ -1,28 +1,31 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
+package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-
-public class Test_01_Внешний_вид_всплывающего_уведомления_APIWebDriver extends TestBaseWebDriver {
+public class Test_02_ПП_разные_состояния extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
-    @Story(value = "1. ВУ")
-    @DisplayName(value = "Внешний вид и навигация")
+    @Story(value = "3. Персональное предложение")
+    @DisplayName(value = "ПП разные состояния")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void appearanceOfPopUpNotification() {
+    public void POdifferentState() {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
-        popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
+        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         headerMenu.goToNilPage();
         flowRegistation();
-        popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
-        popUpNotification.deletePopUpNotifScreenNilPayFilm();
+        personalOffer.checkElementsWhiteColorSandPersonalOffer();
+        personalOffer.checkElementsYellowColorSandPersonalOffer();
+        personalOffer.checkElementsRedColorSandPersonalOffer();
+        personalOffer.clickToElementPersonalOffer();
+        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         pageCMS.deleteAccountMF("79260192144");
     }
 
@@ -37,7 +40,7 @@ public class Test_01_Внешний_вид_всплывающего_уведом
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlowForAPINotif();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }
 

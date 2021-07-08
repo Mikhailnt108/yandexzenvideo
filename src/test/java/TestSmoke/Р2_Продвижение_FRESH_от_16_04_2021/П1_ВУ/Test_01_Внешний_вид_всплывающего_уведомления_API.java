@@ -1,30 +1,31 @@
-package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П3_Персональные_предложения_НиЛ;
+package TestSmoke.Р2_Продвижение_FRESH_от_16_04_2021.П1_ВУ;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_03_Несколько_ППWebDriver extends TestBaseWebDriver {
+
+public class Test_01_Внешний_вид_всплывающего_уведомления_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
-    @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "Несколько ПП")
+    @Story(value = "1. ВУ")
+    @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void fewPersonalOffers() throws InterruptedException {
-        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
-        personalOffer.createPersonalOfferTypeSubscription();
-        headerMenu.goToNilPage();
-        flowRegistation();
-        personalOffer.checkElementsFewPersonalOffers();
-        personalOffer.clickToElementPersonalOffer();
-        promoPage.checkOpenPromoPage();
+    public void appearanceOfPopUpNotification() {
+        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
+        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
+        popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
+        headerMenu.goToNilPage();
+        flowRegistation();
+        popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
+        popUpNotification.deletePopUpNotifScreenNilPayFilm();
         pageCMS.deleteAccountMF("79260192144");
-
     }
+
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -36,6 +37,7 @@ public class Test_03_Несколько_ППWebDriver extends TestBaseWebDriver 
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlowForMF();
+        headerMenu.checkLoginUserIsCorrectFlowForAPINotif();
     }
 }
+

@@ -5,32 +5,30 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-
-public class Test_01_Кнопка_промокодаWebDriver extends TestBaseWebDriver {
+public class Test_03_Пакет_по_Жесткому_TnB extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "2. Промокод")
-    @DisplayName(value = "Кнопка промокода")
+    @DisplayName(value = "Пакет по Жесткому ТнБ")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void clickButtonPromoCodeAndInputPromoCode() {
+    public void packageHardTnB() {
         promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();
+        promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.clickToButtonPromo();
         headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.checkElementsPopUpPromoCode();
-        headerMenu.inputInvalidPromoCode("12345");
-        headerMenu.checkActiveButtonActivatePromoCode();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkErrorMessage3();
-        headerMenu.inputValidPromoCode("promoCodeSoftTnB");
+        headerMenu.inputValidPromoCode("promoCodeHardTnB");
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpBeforeActivation();
+        headerMenu.checkElementsPopUpBeforeActivationPackageMoreTvHardTnB();
         headerMenu.clickToButtonActivatePromoCode();
         headerMenu.checkOpenPopUpAfterActivation();
-        promoCode.archiveCodeGroupPackageStartSoftTnB();
+        headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
+        headerMenu.clickToButtonCloseInPopUpAfterActivation();
+        headerMenu.checkClosePopUpAfterActivation();
+        promoCode.archiveCodeGroupPackageMoreTvHardTnB();
         pageCMS.deleteAccountMF("79260192144");
     }
 

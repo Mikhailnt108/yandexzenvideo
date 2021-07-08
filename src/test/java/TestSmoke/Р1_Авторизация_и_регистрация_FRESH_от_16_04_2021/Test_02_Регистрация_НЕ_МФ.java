@@ -8,7 +8,7 @@ import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_02_Регистрация_НЕ_МФWebDriver extends TestBaseWebDriver {
+public class Test_02_Регистрация_НЕ_МФ extends TestBaseWebDriver {
     @Rule
     public VideoRule videoRule = new VideoRule();
     @Epic(value = "Smoke MFTV Desktop Web")
