@@ -13,17 +13,17 @@ public class Test_02_Переходы_в_карточки_контента_ДО�
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void goToContentCards() throws InterruptedException {
-        headerMenu.goToSportPage();
-        sportPage.autoScrollBanners();
-        sportPage.scrollBannersToLeft();
-        sportPage.scrollBannersToRight();
-        sportPage.chooseDotCarouselBanners();
-        sportPage.clickToBanner();
-        headerMenu.goToSportPage();
-        sportPage.checkLogoTvOnTailTvChannel();
-        sportPage.clickToTailTvChannel();
-        headerMenu.goToSportPage();
-        sportPage.checkElementsOnTailTvProgram();
-        sportPage.clickToTailTvProgram();
+//        headerMenu.goToSportPage();
+//        sportPage.autoScrollBanners();
+//        sportPage.scrollBannersToLeft();
+//        sportPage.scrollBannersToRight();
+//        sportPage.chooseDotCarouselBanners();
+//        sportPage.clickToBanner();
+//        headerMenu.goToSportPage();
+//        sportPage.checkLogoTvOnTailTvChannel();
+//        sportPage.clickToTailTvChannel();
+//        headerMenu.goToSportPage();
+//        sportPage.checkElementsOnTailTvProgram();
+//        sportPage.clickToTailTvProgram();
     }
 }

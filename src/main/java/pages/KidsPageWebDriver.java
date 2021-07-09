@@ -686,8 +686,17 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         click(By.xpath("(//a[contains(@href, '/tv/channels/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void checkBackgroundForKids() {
-        String Background = webDriver.findElement(By.xpath("//div[contains(@class,'_2sP9pLK9_aJHeEhZWMRSOv')]")).getCssValue("background-image");
+
+    public void checkBackgroundCardContentForKids() {
+        String Background = webDriver.findElement(By.xpath("//div[contains(@class,'pVR4ae8Ou3a6rSIZfX6Fd')]")).getCssValue("background-image");
+        System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'pVR4ae8Ou3a6rSIZfX6Fd')]")).getCssValue("background-image"));
+        System.out.println(Background.substring(0,3));
+        Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
+    }
+
+    public void checkBackgroundPageCollectForKids() {
+        String Background = webDriver.findElement(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]")).getCssValue("background-image");
+        System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]")).getCssValue("background-image"));
         System.out.println(Background.substring(0,3));
         Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
     }

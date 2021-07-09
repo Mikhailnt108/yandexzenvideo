@@ -11,7 +11,7 @@ public class Test_09_Жанры_передач_в_эфире_FRESH_от_28_06_21
     @Story(value = "2. ТВ")
     @DisplayName(value ="Жанры передач в эфире")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @RepeatedTest(3)
     public void genresTvProgramInAir() throws Exception {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

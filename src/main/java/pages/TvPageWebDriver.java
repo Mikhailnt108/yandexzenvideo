@@ -309,6 +309,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkGenreInRecordingTvProgramInAir() throws InterruptedException {
+        webDriver.navigate().refresh();
         waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
@@ -321,6 +322,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkGenreHDTvProgramInAir() {
+        webDriver.navigate().refresh();
         waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
@@ -333,6 +335,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkGenreForKidsTvProgramInAir() {
+        webDriver.navigate().refresh();
         waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
@@ -345,6 +348,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkGenreKinoTvProgramInAir() {
+        webDriver.navigate().refresh();
         waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
