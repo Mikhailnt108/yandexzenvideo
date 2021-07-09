@@ -16,7 +16,7 @@ public class Test_04_Подписка_на_пакет_по_SubsPromo_FRESH_от_
         // пользователь МФ, сервис по SubsPromo:
         headerMenu.goToPackagesPage();
         flowRegistationMF();
-        packagesPage.clickToTabAllServices();
+        packagesPage.checkOpenShopPage();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.checkOpenCardPackage();
         cardPackage.clickOnPaymentButtonInCardPackage();

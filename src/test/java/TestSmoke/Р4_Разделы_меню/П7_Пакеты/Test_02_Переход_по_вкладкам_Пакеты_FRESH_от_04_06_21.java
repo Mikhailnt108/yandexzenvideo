@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_02_Переход_по_вкладкам_Пакеты_FRESH_от_04_06_21_изменены_табы_пакетов_для_ПП5 extends TestBaseWebDriver {
+public class Test_02_Переход_по_вкладкам_Пакеты_FRESH_от_04_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "7. Пакеты")
