@@ -5,20 +5,22 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_Переходы_Баннеры_ASHOT_FRESH extends TestBaseWebDriver {
+import java.awt.*;
+import java.io.IOException;
+
+public class Test_07_1_FAQ_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
-    @DisplayName(value = "Переходы. Баннеры")
+    @DisplayName(value ="FAQ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    public void goToBanner() throws Exception {
+    public void checkFooter() throws IOException, AWTException {
         headerMenu.goToNilPage();
-        nilPage.checkElementsBanner();
-//        nilPage.checkImageDifferCherdakAndBanners();
-        nilPage.switchingFromBannerToCardFilm();
-        headerMenu.goToNilPage();
-        nilPage.switchingFromBannerToCardSerial();
+        footer.clickToLinkFromDevices();
+        footer.clickToLinkFromSupport();
+        footer.clickToLinkFromSocialNetworks();
+        footer.clickToLinkFromDownloadApp();
+        footer.clickToLinkDocsAndRules();
     }
 }

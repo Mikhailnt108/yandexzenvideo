@@ -208,7 +208,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
         Assert.assertNotNull(webDriver.findElement(By.xpath("(//button[@title='Отображаются только подключенные телеканалы']//div)[2]")));
     }
 
-    public void checkImageDifferTvPageTabProgramTv() throws IOException, InterruptedException {
+    public void checkImageDifferTvPageTabProgramTv() throws IOException{
         // Сделать тестовый скриншот таба программы передач:
         webDriver.get("https://web-preprod5.megafon.tv/tv");
         Set<By> posterTailsTvChannel = new HashSet<>();

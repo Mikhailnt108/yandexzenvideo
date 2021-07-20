@@ -3,6 +3,7 @@ package pages;
 import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -466,6 +467,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkElementsBlockCollectionWithHeader() {
+        isElementDisplayed(By.xpath("(//div[@data-test='PackageListWrapper'])[1]"));
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a)[1]"));
         isElementDisplayed(By.partialLinkText("Все"));
         isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]"));
@@ -474,6 +476,13 @@ public class NilPageWebDriver extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span)[1]"));
         isElementDisplayed(By.xpath("(//button[@data-test='ArrowButtonNext'])[1]"));
         isElementDisplayed(By.xpath("(//button[@data-test='ArrowButtonPrev' and @disabled])[1]"));
+    }
+    public void checkElementsBlockCollectionWithoutHeader() {
+        isElementDisplayed(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']//div[@data-test='CollectionBlock']"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']//h3[@data-test='CollectionName']"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//button[@data-test='ArrowButtonNext']"));
+        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 
     public void clickToTailCardTvProgram() {
@@ -504,12 +513,16 @@ public class NilPageWebDriver extends BasePageWebDriver {
         click(By.xpath("(//a[contains(@href, '/mixed_groups/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void checkElementsBanner() {
+    public void checkElementsBanner() throws InterruptedException {
         isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
         isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
         isElementDisplayed(By.xpath("(//div[@class='_3pSmMGlz2N-PDRuE_jtIuS'])[2]"));
         isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[2]"));
+//        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+//        WebElement element = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]"));
+//        js.executeScript("arguments[0].innerText='Меняем заголовок'",element);
+
         isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription'])[2]"));
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
@@ -548,15 +561,15 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkElementsBlockCollectionSpecialForYou() {
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a)[1]"));
+        isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']"));
         isElementDisplayed(By.linkText("Подобрали специально для вас"));
-        isElementDisplayed(By.partialLinkText("Все"));
-        isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        isElementDisplayed(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]"));
-        isElementDisplayed(By.xpath("(//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span)[1]"));
-        isElementDisplayed(By.xpath("(//button[@data-test='ArrowButtonNext'])[1]"));
-        isElementDisplayed(By.xpath("(//button[@data-test='ArrowButtonPrev' and @disabled])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//a[@data-test='PackageLink'])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh'])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::h3[@data-test='PackageDescriptionTitle'])[1]"));
+        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span)[1]"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']]"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled])[1]"));
     }
 
     public void clickToTailContentCollectionSpecialForYou() {
@@ -799,13 +812,5 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
     public void clickToLastTailInCollectionSpecialForYou() {
         click(By.xpath("//div[text()='Повысить точность персональных рекомендаций']"));
-    }
-
-    public void checkElementsBlockCollectionWithoutHeader() {
-        isElementDisplayed(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
-        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']//div[@data-test='CollectionBlock']"));
-        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']//h3[@data-test='CollectionName']"));
-        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//button[@data-test='ArrowButtonNext']"));
-        isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 }

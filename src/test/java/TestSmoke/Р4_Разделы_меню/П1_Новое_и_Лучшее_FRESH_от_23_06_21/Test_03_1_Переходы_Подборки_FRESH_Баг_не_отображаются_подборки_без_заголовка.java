@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Переходы_Подборки_ASHOT_FRESH_Баг_не_отображаются_подборки_без_заголовка extends TestBaseWebDriver {
+public class Test_03_1_Переходы_Подборки_FRESH_Баг_не_отображаются_подборки_без_заголовка extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
@@ -14,7 +14,6 @@ public class Test_03_Переходы_Подборки_ASHOT_FRESH_Баг_не_�
     @Test
     public void goToCollection() throws Exception {
         headerMenu.goToNilPage();
-//        nilPage.checkImageDifferBlocksCollection();
         nilPage.checkElementsBlockCollectionWithHeader();
         nilPage.checkElementsBlockCollectionWithoutHeader();
         nilPage.clickToTailCardFilm();
@@ -31,7 +30,6 @@ public class Test_03_Переходы_Подборки_ASHOT_FRESH_Баг_не_�
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllOnCollectionBlock();
         collectionsPage.checkOpenCollectionPage();
-        collectionsPage.checkImageDifferPageBlockCollection();
         collectionsPage.checkElementsPageBlockCollection();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionFilms();

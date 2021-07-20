@@ -210,17 +210,17 @@ public class PackagesPageWebDriver extends BasePageWebDriver {
     }
 
     public void clickToTabAllPackage() {
-        click(By.xpath("//div[text()='Все пакеты']"));
+        isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
     }
 
     public void goToCardPackageTnBFlow() {
-        click(By.xpath("//div[text()='Все пакеты']"));
+        isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
         click(By.xpath("(//span[text()='Бесплатно по акции'])[1]"));
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
     }
 
     public void goToCardPackage18PlusFlow() {
-        click(By.xpath("//div[text()='Все пакеты']"));
+        isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
         click(By.xpath("//h3[text()='18+']"));
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
     }

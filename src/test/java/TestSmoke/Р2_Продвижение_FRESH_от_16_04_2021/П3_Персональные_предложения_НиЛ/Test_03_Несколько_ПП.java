@@ -11,7 +11,7 @@ public class Test_03_Несколько_ПП extends TestBaseWebDriver {
     @Story(value = "3. Персональное предложение")
     @DisplayName(value = "Несколько ПП")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(2)
+    @RepeatedTest(1)
     public void fewPersonalOffers() throws InterruptedException {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.createPersonalOfferTypeSubscription();

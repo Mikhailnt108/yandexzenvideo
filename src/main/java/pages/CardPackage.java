@@ -128,14 +128,14 @@ public class CardPackage extends BasePageWebDriver {
     }
 
     public void clickToFirstTailCardSerial() {
-
+        click(By.xpath("(//div[text()='Сериалы'])[3]"));
         click(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]"));
     }
 
     public void clickOnTailCardChannel() throws InterruptedException {
         click(By.xpath("//div[text()='ТВ-каналы']"));
         click(By.xpath("(//a[@class='_2SBFkKqCGAQ96AZk-0n_uA'])[1]"));
-        Thread.sleep(65000);
+
 //        click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
     }
 
@@ -147,7 +147,6 @@ public class CardPackage extends BasePageWebDriver {
     public void clickOnTailCardChannel18Plus() throws InterruptedException {
         click(By.xpath("(//a[@class='_2SBFkKqCGAQ96AZk-0n_uA'])[3]"));
         click(By.xpath("//button[text()='Да']"));
-        Thread.sleep(65000);
     }
 
     public void clickOnTailFirstCardFilm18Plus() {

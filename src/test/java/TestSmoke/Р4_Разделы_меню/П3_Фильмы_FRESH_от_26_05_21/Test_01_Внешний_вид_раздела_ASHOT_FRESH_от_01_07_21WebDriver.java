@@ -27,7 +27,7 @@ public class Test_01_Внешний_вид_раздела_ASHOT_FRESH_от_01_07
 //        filmsPage.checkImageDifferBlocksCollectionGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
 //        filmsPage.checkImageDifferFooter();
 //        headerMenu.goToFilmsPage();
-//        filmsPage.checkImageDifferFilmsPageScrollGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
+        filmsPage.checkImageDifferFilmsPageScrollGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
 //        filmsPage.checkElementsFilmsPage();
 //        filmsPage.checkElementsBannersCarousel();
 //        filmsPage.autoScrollBanners();

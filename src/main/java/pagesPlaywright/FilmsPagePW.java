@@ -3,17 +3,15 @@ package pagesPlaywright;
 import base.BasePagePlaywright;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
-
 import static base.TestBasePlaywright.vrt;
 
 public class FilmsPagePW extends BasePagePlaywright {
     private Page page;
 
-    public FilmsPagePW(Page page){
+    public FilmsPagePW (Page page){
         this.page = page;
     }
 

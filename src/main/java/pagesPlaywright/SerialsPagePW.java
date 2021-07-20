@@ -1,13 +1,13 @@
 package pagesPlaywright;
 
+import base.BasePagePlaywright;
 import com.microsoft.playwright.Page;
-
 import java.nio.file.Paths;
 
-public class SerialsPagePW {
+public class SerialsPagePW extends BasePagePlaywright {
     private Page page;
 
-    public SerialsPagePW(Page page) {
+    public SerialsPagePW (Page page) {
         this.page = page;
     }
     public void screenshotSerialsPagePW () {

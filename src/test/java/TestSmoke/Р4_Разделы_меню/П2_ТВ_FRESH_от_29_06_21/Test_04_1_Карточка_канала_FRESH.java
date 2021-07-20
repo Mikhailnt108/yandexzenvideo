@@ -7,7 +7,7 @@ import org.junit.jupiter.api.RepeatedTest;
 
 import java.io.IOException;
 
-public class Test_04_Карточка_канала_ASHOT_FRESH_от_28_06_21 extends TestBaseWebDriver {
+public class Test_04_1_Карточка_канала_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
@@ -21,7 +21,6 @@ public class Test_04_Карточка_канала_ASHOT_FRESH_от_28_06_21 ext
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
-//        cardTvChannel.checkImageDifferCardTvChannelForUnauthorized();
         cardTvChannel.checkElementsInCardTvChannel();
         // авторизованный пользователь:
         headerMenu.goToTvPage();
