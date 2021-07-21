@@ -18,7 +18,7 @@ public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_Playwri
     public void appearanceSectionNilPage() throws IOException, InterruptedException{
         niLPagePW.checkImageCherdakAndBanners();
         niLPagePW.checkImageBlocksCollectionWithHeader();
-        niLPagePW.checkImageBlocksCollectionWithoutHeader();
+//        niLPagePW.checkImageBlocksCollectionWithoutHeader();
         niLPagePW.checkImageFooter();
         niLPagePW.checkImageNilPageScroll();
     }

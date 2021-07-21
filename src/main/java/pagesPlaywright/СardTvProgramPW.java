@@ -6,40 +6,44 @@ import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
 import static base.TestBasePlaywright.vrt;
 
-public class СardTvChannelPW extends BasePagePlaywright {
+public class СardTvProgramPW extends BasePagePlaywright {
     private Page page;
 
 
-    public СardTvChannelPW(Page page) {
+    public СardTvProgramPW(Page page) {
         this.page = page;
     }
 
-    public void checkImageCardTvChannelForUnauthorized() throws IOException, InterruptedException {
+    public void checkImageCardTvProgramForUnauthorized() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
-        // подготовка полной страницы "CardTvChannel" к скриншот-тесту:
-        page.waitForSelector("(//span[@itemprop='name'])[3]");
+        page.click("._1nAXLMkHN0PXnwvulfBvK0");
+        // подготовка видимой части страницы "CardTvProgram" к скриншот-тесту:
+        page.waitForSelector("(//span[@itemprop='name'])[4]");
         ElementHandle nameTvChannelCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
         page.evaluate("n => n.innerText='Название канала'", nameTvChannelCrumbs);
+        ElementHandle nameTvProgramCrumbs = page.querySelector("(//span[@itemprop='name'])[4]");
+        page.evaluate("n => n.innerText='Название передачи'", nameTvProgramCrumbs);
 
-        ElementHandle imgTvChannel = page.querySelector("//img[@src]");
+        ElementHandle imgTvChannel = page.querySelector("._3lvyrUkaGN_QANJMIvjX5c");
         page.evaluate("i => i.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/7f/4e/62d9c9b6d708dcaf23d41a28c8b9b4b699a1/logo_tv_guide__web-wp.png')", imgTvChannel);
 
         ElementHandle nameTvChannel = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
         page.evaluate("nC => nC.innerText='Название канала'", nameTvChannel);
 
-        ElementHandle dateTimeAge = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]");
-        page.evaluate("d => d.innerText='Сегодня, 00:00, 18+'", dateTimeAge);
+        ElementHandle genres = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]");
+        page.evaluate("d => d.innerText='Сегодня, 00:00, 18+'", genres);
 
-        ElementHandle genres = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]");
-        page.evaluate("g => g.innerText='Познавательные, HD, В записи'", genres);
+        ElementHandle dateTimeAge = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]");
+        page.evaluate("g => g.innerText='Познавательные, HD, В записи'", dateTimeAge);
 
         ElementHandle nameTvProgram = page.querySelector("//a[@class='_1nAXLMkHN0PXnwvulfBvK0']");
         page.evaluate("nP => nP.innerText='Название передачи'", nameTvProgram);
@@ -87,9 +91,9 @@ public class СardTvChannelPW extends BasePagePlaywright {
             page.evaluate("a => a.innerText='18+'", ageAll.get(i));
         }
 
-        // делаем скриншот полной части страницы "СardTvChannel":
+        // делаем скриншот видимой части страницы "СardTvProgram":
         vrt.track(
-                "СardTvChannelForUnauthorized",
+                "СardTvProgramForUnauthorized",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -99,28 +103,32 @@ public class СardTvChannelPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCardTvChannelForAuthorized() throws IOException, InterruptedException {
-        // Сделать тестовый скриншот таба программы передач:
+    public void checkImageCardTvProgramForAuthorized() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
-        // подготовка полной страницы "CardTvChannel" к скриншот-тесту:
-        page.waitForSelector("(//span[@itemprop='name'])[3]");
+        page.click("._1nAXLMkHN0PXnwvulfBvK0");
+        // подготовка видимой части страницы "CardTvProgram" к скриншот-тесту:
+        page.waitForSelector("(//span[@itemprop='name'])[4]");
+
         ElementHandle nameTvChannelCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
         page.evaluate("n => n.innerText='Название канала'", nameTvChannelCrumbs);
 
-        ElementHandle imgTvChannel = page.querySelector("//img[@src]");
+        ElementHandle nameTvProgramCrumbs = page.querySelector("(//span[@itemprop='name'])[4]");
+        page.evaluate("n => n.innerText='Название передачи'", nameTvProgramCrumbs);
+
+        ElementHandle imgTvChannel = page.querySelector("._3lvyrUkaGN_QANJMIvjX5c");
         page.evaluate("i => i.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/7f/4e/62d9c9b6d708dcaf23d41a28c8b9b4b699a1/logo_tv_guide__web-wp.png')", imgTvChannel);
 
         ElementHandle nameTvChannel = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
         page.evaluate("nC => nC.innerText='Название канала'", nameTvChannel);
 
-        ElementHandle dateTimeAge = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]");
-        page.evaluate("d => d.innerText='Сегодня, 00:00, 18+'", dateTimeAge);
+        ElementHandle genres = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]");
+        page.evaluate("d => d.innerText='Сегодня, 00:00, 18+'", genres);
 
-        ElementHandle genres = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]");
-        page.evaluate("g => g.innerText='Познавательные, HD, В записи'", genres);
+        ElementHandle dateTimeAge = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]");
+        page.evaluate("g => g.innerText='Познавательные, HD, В записи'", dateTimeAge);
 
         ElementHandle nameTvProgram = page.querySelector("//a[@class='_1nAXLMkHN0PXnwvulfBvK0']");
         page.evaluate("nP => nP.innerText='Название передачи'", nameTvProgram);
@@ -171,9 +179,9 @@ public class СardTvChannelPW extends BasePagePlaywright {
             page.evaluate("a => a.innerText='18+'", ageAll.get(i));
         }
 
-        // делаем скриншот полной части страницы "СardTvChannel":
+        // делаем скриншот видимой части страницы "СardTvProgram":
         vrt.track(
-                "СardTvChannelForAuthorized",
+                "СardTvProgramForAuthorized",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -183,4 +191,3 @@ public class СardTvChannelPW extends BasePagePlaywright {
                         .build());
     }
 }
-

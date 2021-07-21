@@ -219,7 +219,7 @@ public class CardTvProgram extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[contains(@class,'_2e92e-_RzKCZ4VypEl02Kj')]"));
     }
 
-    public void checkImageDifferCardTvProgramForUnauthorized() throws IOException {
+    public void checkImageCardTvProgramForUnauthorized() throws IOException {
         Set<By> daysSchedule = new HashSet<>();
         daysSchedule.add(By.xpath("//div[@class='_2g4yeSiNbxlU4wgd7X-sN2']"));
         Set<By> timeSchedule = new HashSet<>();

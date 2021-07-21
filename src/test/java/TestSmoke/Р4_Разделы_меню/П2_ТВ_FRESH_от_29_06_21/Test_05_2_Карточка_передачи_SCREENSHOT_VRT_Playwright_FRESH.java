@@ -4,23 +4,21 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import java.io.IOException;
 
-public class Test_04_2_Карточка_канала_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
+public class Test_05_2_Карточка_передачи_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value = "Карточка канала (скринщоты)")
+    @DisplayName(value ="Карточка передачи (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void cardTvChannel() throws IOException, InterruptedException {
-        // неавторизованный пользователь:
-        сardTvChannelPW.checkImageCardTvChannelForUnauthorized();
-        // авторизованный пользователь:
+    public void cardTvProgram() throws Exception {
+        //неавторизованный пользователь:
+        cardTvProgramPW.checkImageCardTvProgramForUnauthorized();
+        //авторизованный пользователь:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        сardTvChannelPW.checkImageCardTvChannelForAuthorized();
-        headerMenuPW.deleteAccountMF("79260192144");
+        cardTvProgramPW.checkImageCardTvProgramForAuthorized();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

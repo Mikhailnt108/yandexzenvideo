@@ -4,6 +4,11 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.ArrayList;
 
 public class HeaderMenuPW extends BasePagePlaywright {
     private Page page;
@@ -117,5 +122,20 @@ public class HeaderMenuPW extends BasePagePlaywright {
         }
         page.reload();
         page.waitForLoadState();
+    }
+
+    public void deleteAccountMF(String login) {
+        pageCMS = browser.newPage(new Browser.NewPageOptions());
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+        pageCMS.click("//form[@method='GET']//input[1]");
+        pageCMS.fill("//form[@method='GET']//input[1]", login);
+        pageCMS.click("//button[text()='Поиск']");
+        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']");
+        pageCMS.click("//a[contains(@href, '/cms/households/')]");
+        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+        pageCMS.click("//button[text()='Удалить']");
+        pageCMS.onDialog(dialog -> dialog.accept());
+        pageCMS.click("//button[text()='Удалить']");
+        pageCMS.close();
     }
 }

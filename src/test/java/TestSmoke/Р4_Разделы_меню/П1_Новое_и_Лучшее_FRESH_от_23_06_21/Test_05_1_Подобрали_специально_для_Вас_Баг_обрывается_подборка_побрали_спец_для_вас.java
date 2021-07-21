@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_05_1_Подобрали_специально_для_Вас_ASHOT_Баг_обрывается_подборка_побрали_спец_для_вас extends TestBaseWebDriver {
+public class Test_05_1_Подобрали_специально_для_Вас_Баг_обрывается_подборка_побрали_спец_для_вас extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
@@ -14,25 +14,23 @@ public class Test_05_1_Подобрали_специально_для_Вас_ASH
     @Test
     public void collectionSpecialForYou() throws Exception {
         // не авторизованный пользователь:
-//        headerMenu.goToNilPage();
-//        headerMenu.checkNotLoggedIsCorrect();
-        nilPage.checkImageDifferBlockCollectionSpecialForYou();
+        headerMenu.goToNilPage();
+        headerMenu.checkNotLoggedIsCorrect();
         nilPage.checkElementsBlockCollectionSpecialForYou();
-//        nilPage.clickToTailContentCollectionSpecialForYou();
-//        headerMenu.goToNilPage();
-//        nilPage.clickToLinkAllWithCollectionSpecialForYou();
-//        collectionsPage.checkOpenCollectionPage();
-//        collectionsPage.clickToTailContentOnPageCollect();
-//        headerMenu.goToNilPage();
-//        nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();
-//        nilPage.checkLastTailInCollectionSpecialForYou();
-//        nilPage.clickToLastTailInCollectionSpecialForYou();
-//        ratingPage.checkOpenRatingPage();
-//        headerMenu.goToNilPage();
+        nilPage.clickToTailContentCollectionSpecialForYou();
+        headerMenu.goToNilPage();
+        nilPage.clickToLinkAllWithCollectionSpecialForYou();
+        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.clickToTailContentOnPageCollect();
+        headerMenu.goToNilPage();
+        nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();
+        nilPage.checkLastTailInCollectionSpecialForYou();
+        nilPage.clickToLastTailInCollectionSpecialForYou();
+        ratingPage.checkOpenRatingPage();
+        headerMenu.goToNilPage();
         // авторизованный пользователь:
         headerMenu.goToNilPage();
         flowRegistation();
-//        nilPage.checkImageDifferBlockCollectionSpecialForYou();
         nilPage.checkElementsBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
