@@ -1,32 +1,34 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21;
+package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_05_2_Карточка_передачи_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
+import java.io.IOException;
+
+public class Test_14_2_Фильтр_платности_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Карточка передачи (скриншоты)")
+    @DisplayName(value = "Фильтр платности (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void cardTvProgram() throws Exception {
-        //неавторизованный пользователь:
-        cardTvProgramPW.checkImageCardTvProgramForUnauthorized();
-        //авторизованный пользователь:
-        headerMenuPW.goToNilPage();
+    public void checkFilterPayment() throws InterruptedException, IOException {
+        headerMenuPW.goToTvTabProgramTv();
         flowRegistation();
-        cardTvProgramPW.checkImageCardTvProgramForAuthorized();
+        // авторизованный пользователь:
+        tvPagePW.checkImageTvPageTabProgramTvForAuthorized();
+        headerMenuPW.deleteAccountMF("79260192144");
     }
+
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
         headerMenuPW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44" , "111111");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");

@@ -1,4 +1,4 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21;
+package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;

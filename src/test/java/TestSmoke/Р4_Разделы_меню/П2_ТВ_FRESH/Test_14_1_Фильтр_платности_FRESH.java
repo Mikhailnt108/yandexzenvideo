@@ -1,4 +1,4 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21;
+package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.RepeatedTest;
 
 import java.io.IOException;
 
-public class Test_14_Фильтр_платности_ASHOT_FRESH_от_29_06_21 extends TestBaseWebDriver {
+public class Test_14_1_Фильтр_платности_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
@@ -18,7 +18,6 @@ public class Test_14_Фильтр_платности_ASHOT_FRESH_от_29_06_21 e
         headerMenu.goToTvPage();
         flowRegistation();
         tvPage.clickOnTabInRecording();
-//        tvPage.checkImageDifferToglPaymentOn();
         tvPage.navigateMouseToToglPaymentOn();
         tvPage.checkTvChannelsAll();
         tvPage.clickToTailTvChannel();

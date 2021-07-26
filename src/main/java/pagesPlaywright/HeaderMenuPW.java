@@ -14,15 +14,16 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private Page page;
     private Page pageCMS;
     private BrowserContext context;
-    private Browser browser;
+    private Browser browserHeadless;
+    private Browser browserHeadfull;
 
 
     public HeaderMenuPW(Page page, Page pageCMS, BrowserContext context) {
         this.page = page;
         this.pageCMS = pageCMS;
         this.context = context;
-        this.browser = context.browser();
-
+        this.browserHeadfull = context.browser();;
+        this.browserHeadless = context.browser();
     }
 
     public void checkNotLoggedIsCorrect() {
@@ -49,8 +50,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
         page.waitForSelector("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']");
         if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
-//            page.evaluate("() => window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
-            pageCMS = browser.newPage(new Browser.NewPageOptions().setViewportSize(1880,930));
+
+            pageCMS = browserHeadfull.newPage(new Browser.NewPageOptions().setViewportSize(1880,930));
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
@@ -92,7 +93,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void copyPasteCodMsisdn(String login) {
-        pageCMS = browser.newPage(new Browser.NewPageOptions().setViewportSize(1880,930));
+        pageCMS = browserHeadless.newPage(new Browser.NewPageOptions().setViewportSize(1880,930));
         pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
@@ -125,7 +126,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void deleteAccountMF(String login) {
-        pageCMS = browser.newPage(new Browser.NewPageOptions());
+        pageCMS = browserHeadless.newPage(new Browser.NewPageOptions());
         pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
@@ -137,5 +138,17 @@ public class HeaderMenuPW extends BasePagePlaywright {
         pageCMS.onDialog(dialog -> dialog.accept());
         pageCMS.click("//button[text()='Удалить']");
         pageCMS.close();
+    }
+
+    public void goToTvTabTvProgramInAir() {
+        page.navigate("https://web-preprod5.megafon.tv/tv/tv_catalog");
+    }
+
+    public void goToTvTabProgramTv() {
+        page.navigate("https://web-preprod5.megafon.tv/tv");
+    }
+
+    public void goToFilmsPage() {
+        page.navigate("https://web-preprod5.megafon.tv/movies/vods");
     }
 }

@@ -12,9 +12,11 @@ import java.io.IOException;
 
 public class TestBasePlaywright extends BasePagePlaywright{
     public static Playwright playwright;
-    public static Browser browser;
+    public static Browser browserHeadless;
+    public static Browser browserHeadfull;
     public static BrowserContext context;
     public static Page page;
+    public static Page pageHeadfull;
     public static Page pageCMS;
     public static HeaderMenuPW headerMenuPW;
     public static FilmsPagePW filmsPagePW;
@@ -27,7 +29,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("P8J6EDQ989M51HPVFCDJAC13YV2X")
+                    .apiKey("SA30R7V6EQ4N0DHK4ZWFRV2BEPSS")
                     .project("MFTV_Web")
                     .branchName("master")
                     .httpTimeoutInSeconds(30)
@@ -37,19 +39,21 @@ public class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     static void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
-        page = browser.newPage(new Browser.NewPageOptions());
-        context = browser.newContext();
+        browserHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true));
+        browserHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
+        page = browserHeadless.newPage(new Browser.NewPageOptions().setViewportSize(1880, 930));
+        page.setDefaultNavigationTimeout(60000);
+        pageHeadfull.setDefaultNavigationTimeout(60000);
+        context = browserHeadless.newContext();
         headerMenuPW = new HeaderMenuPW(page,pageCMS,context);
-        filmsPagePW = new FilmsPagePW(page);
-        serialsPagePW = new SerialsPagePW(page);
+        filmsPagePW = new FilmsPagePW(page, context);
+        serialsPagePW = new SerialsPagePW(page,pageCMS,context);
         niLPagePW = new NiLPagePW(page);
         collectionsPagePW = new CollectionsPagePW(page);
         tvPagePW = new TvPagePW(page);
         сardTvChannelPW = new СardTvChannelPW(page);
         cardTvProgramPW = new СardTvProgramPW(page);
 
-//        page.waitForTimeout(60000);
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
@@ -57,7 +61,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
 
     @AfterAll
     static void closeBrowser() throws IOException, InterruptedException {
-        browser.close();
+        browserHeadless.close();
         playwright.close();
         vrt.stop();
     }

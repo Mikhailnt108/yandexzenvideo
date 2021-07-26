@@ -1,7 +1,6 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21;
+package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
 
 import base.TestBasePlaywright;
-import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -14,6 +13,6 @@ public class Test_01_2_Программа_передач_SCREENSHOT_VRT_Playwrig
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     public void historyViewing() throws Exception {
-        tvPagePW.checkImageTvPageTabProgramTv();
+        tvPagePW.checkImageTvPageTabProgramTvForUnauthorized();
     }
 }

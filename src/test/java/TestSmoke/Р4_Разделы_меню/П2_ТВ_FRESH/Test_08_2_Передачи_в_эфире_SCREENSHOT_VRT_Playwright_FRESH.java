@@ -1,7 +1,6 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH_от_29_06_21;
+package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
 
 import base.TestBasePlaywright;
-import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -12,10 +11,11 @@ public class Test_08_2_Передачи_в_эфире_SCREENSHOT_VRT_Playwright_
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value ="Передачи в эфире")
+    @DisplayName(value ="Передачи в эфире (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     public void tvProgramInAir() throws IOException, InterruptedException {
+        // неавторизованный пользователь:
         tvPagePW.checkImageTabTvProgramInAir();
 
     }

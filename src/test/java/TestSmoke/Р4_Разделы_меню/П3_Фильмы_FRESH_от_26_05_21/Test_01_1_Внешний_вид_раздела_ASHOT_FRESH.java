@@ -8,7 +8,7 @@ import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_01_Внешний_вид_раздела_ASHOT_FRESH_от_01_07_21WebDriver extends TestBaseWebDriver {
+public class Test_01_1_Внешний_вид_раздела_ASHOT_FRESH extends TestBaseWebDriver {
     @Rule
     public VideoRule videoRule = new VideoRule();
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -20,20 +20,20 @@ public class Test_01_Внешний_вид_раздела_ASHOT_FRESH_от_01_07
     @RepeatedTest(3)
     public void appearanceSectionFilmsPage() throws Exception {
 //        // пользователь НЕ авторизован
-//        headerMenu.goToFilmsPage();
-//        filmsPage.checkImageDifferCherdakAndBannersGuest();
-//        filmsPage.checkImageDifferBreadcrumbsAndBlocksFiltersGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
-//        headerMenu.goToFilmsPage();
-//        filmsPage.checkImageDifferBlocksCollectionGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
-//        filmsPage.checkImageDifferFooter();
-//        headerMenu.goToFilmsPage();
+        headerMenu.goToFilmsPage();
+        filmsPage.checkImageDifferCherdakAndBannersGuest();
+        filmsPage.checkImageDifferBreadcrumbsAndBlocksFiltersGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
+        headerMenu.goToFilmsPage();
+        filmsPage.checkImageDifferBlocksCollectionGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
+        filmsPage.checkImageDifferFooter();
+        headerMenu.goToFilmsPage();
         filmsPage.checkImageDifferFilmsPageScrollGuest(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
-//        filmsPage.checkElementsFilmsPage();
-//        filmsPage.checkElementsBannersCarousel();
-//        filmsPage.autoScrollBanners();
-//        filmsPage.scrollBannersToLeft();
-//        filmsPage.scrollBannersToRight();
-//        filmsPage.scrollСollectionToRightAndLeft();
+        filmsPage.checkElementsFilmsPage();
+        filmsPage.checkElementsBannersCarousel();
+        filmsPage.autoScrollBanners();
+        filmsPage.scrollBannersToLeft();
+        filmsPage.scrollBannersToRight();
+        filmsPage.scrollСollectionToRightAndLeft();
         // пользоваеть авторизован:
         headerMenu.goToFilmsPage();
         flowRegistation();

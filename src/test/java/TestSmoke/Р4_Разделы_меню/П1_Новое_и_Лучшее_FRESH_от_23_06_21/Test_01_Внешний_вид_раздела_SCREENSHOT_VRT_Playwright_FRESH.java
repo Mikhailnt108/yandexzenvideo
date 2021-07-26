@@ -16,10 +16,10 @@ public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_Playwri
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void appearanceSectionNilPage() throws IOException, InterruptedException{
-        niLPagePW.checkImageCherdakAndBanners();
-        niLPagePW.checkImageBlocksCollectionWithHeader();
+//        niLPagePW.checkImageCherdakAndBanners();
+//        niLPagePW.checkImageBlocksCollectionWithHeader();
 //        niLPagePW.checkImageBlocksCollectionWithoutHeader();
-        niLPagePW.checkImageFooter();
+//        niLPagePW.checkImageFooter();
         niLPagePW.checkImageNilPageScroll();
     }
 }

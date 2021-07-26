@@ -44,12 +44,12 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageCherdakAndBanners() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/");
 //        page.waitForSelector("(//div[text()='Новое и Лучшее'])[1]");
-        // подготовка элемента "cherdak" к скриншот-тесту:
+        // подготовка элемента "cherdakPageNil" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
-        // делаем скриншот элемента "cherdak":
+        // делаем скриншот элемента "cherdakPageNil":
         vrt.track(
-                "cherdak",
+                "cherdakPageNil",
                 Base64.getEncoder().encodeToString(cherdak.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -60,7 +60,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
         page.focus("//div[@data-test='BannerCarousel']");
         ElementHandle banners = page.querySelector("//div[@class='_3VpQMliI0kzCfTPxfHPOa- _2RpZ3dJ5og17m8Uf5So1cd poster']");
-        // подготовка элемента "banners" к скриншот-тесту:
+        // подготовка элемента "bannersPageNil" к скриншот-тесту:
         List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
         if (dotBefore.size() > 48) {
             while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 48) {
@@ -95,9 +95,9 @@ public class NiLPagePW extends BasePagePlaywright {
         page.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
         // перематываем на первый баннер:
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        // делаем скриншот элемента "banners":
+        // делаем скриншот элемента "bannersPageNil":
         vrt.track(
-                "banners",
+                "bannersPageNil",
                 Base64.getEncoder().encodeToString(banners.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -110,7 +110,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.navigate("https://web-preprod5.megafon.tv/");
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithHeader = page.querySelector("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
-        // подготовка элемента 'blockCollectionWithHeader' к скриншот-тесту:
+        // подготовка элемента 'blockCollectionWithHeaderPageNil' к скриншот-тесту:
         ElementHandle counterCollection = page.querySelector("(//a[@data-test='PackageListWrapperMoreText'])[1]");
         page.evaluate("c => c.innerText='Все 10'", counterCollection);
         ElementHandle titleBlockCollection = page.querySelector("(//h3[@data-test='PackageListWrapperName']//a)[1]");
@@ -131,9 +131,9 @@ public class NiLPagePW extends BasePagePlaywright {
             ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
             page.evaluate("a => a.innerText='18+'", ageAll.get(i));
         }
-        // делаем скриншот элемента "blockCollectionWithHeader":
+        // делаем скриншот элемента "blockCollectionWithHeaderPageNil":
         vrt.track(
-                "blockCollectionWithHeader",
+                "blockCollectionWithHeaderPageNil",
                 Base64.getEncoder().encodeToString(blockCollectionWithHeader.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -158,9 +158,9 @@ public class NiLPagePW extends BasePagePlaywright {
         page.evaluate("p2 => p2.setAttribute('style', 'background-image: url(\"https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp\");')", posterCollection2);
         ElementHandle titleCollection2 = page.querySelector("(//h3[@data-test='CollectionName'])[2]");
         page.evaluate("t2 => t2.innerText='Автотест (18+)'", titleCollection2);
-        // делаем скриншот элемента "blockCollectionWithoutHeader":
+        // делаем скриншот элемента "blockCollectionWithoutHeaderPageNil":
         vrt.track(
-                "blockCollectionWithoutHeader",
+                "blockCollectionWithoutHeaderPageNil",
                 Base64.getEncoder().encodeToString(blockCollectionWithoutHeader.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -173,9 +173,9 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageFooter() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/");
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
-        // делаем скриншот элемента "footer":
+        // делаем скриншот элемента "footerPageNil":
         vrt.track(
-                "footer",
+                "footerPageNil",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -262,7 +262,7 @@ public class NiLPagePW extends BasePagePlaywright {
         // делаем скриншот полной страницы "NilPage":
         vrt.track(
                     "NilPage",
-                    Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("NilPage4.png")).setFullPage(true))),
+                    Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("NilPage4.png")).setFullPage(true).setTimeout(10000))),
                     TestRunOptions.builder()
                             .device("Acer")
                             .os("Win10 Pro")
