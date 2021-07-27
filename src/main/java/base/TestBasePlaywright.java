@@ -9,11 +9,14 @@ import pages.CardTvProgram;
 import pagesPlaywright.*;
 import java.awt.*;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class TestBasePlaywright extends BasePagePlaywright{
     public static Playwright playwright;
-    public static Browser browserHeadless;
     public static Browser browserHeadfull;
+    public static BrowserContext contextHeadfull;
     public static BrowserContext context;
     public static Page page;
     public static Page pageHeadfull;
@@ -29,7 +32,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("SA30R7V6EQ4N0DHK4ZWFRV2BEPSS")
+                    .apiKey("BS5PATF1MYMW3XNARRC67FED4JHS")
                     .project("MFTV_Web")
                     .branchName("master")
                     .httpTimeoutInSeconds(30)
@@ -39,21 +42,20 @@ public class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     static void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
-        browserHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true));
-        browserHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
-        page = browserHeadless.newPage(new Browser.NewPageOptions().setViewportSize(1880, 930));
+        Path userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+        contextHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
+                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
+                        .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
+        page = contextHeadfull.pages().get(0);
         page.setDefaultNavigationTimeout(60000);
-        pageHeadfull.setDefaultNavigationTimeout(60000);
-        context = browserHeadless.newContext();
-        headerMenuPW = new HeaderMenuPW(page,pageCMS,context);
-        filmsPagePW = new FilmsPagePW(page, context);
+        headerMenuPW = new HeaderMenuPW(page,pageCMS);
+        filmsPagePW = new FilmsPagePW(page);
         serialsPagePW = new SerialsPagePW(page,pageCMS,context);
         niLPagePW = new NiLPagePW(page);
         collectionsPagePW = new CollectionsPagePW(page);
         tvPagePW = new TvPagePW(page);
         сardTvChannelPW = new СardTvChannelPW(page);
         cardTvProgramPW = new СardTvProgramPW(page);
-
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
@@ -61,7 +63,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
 
     @AfterAll
     static void closeBrowser() throws IOException, InterruptedException {
-        browserHeadless.close();
+        contextHeadfull.close();
         playwright.close();
         vrt.stop();
     }

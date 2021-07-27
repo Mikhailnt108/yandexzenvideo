@@ -18,7 +18,7 @@ public class Test_12_2_Записываемая_передача_SCREENSHOT_VRT_
         tvPagePW.clickOnTabInRecording();
         tvPagePW.clickToTailTvProgram();
         cardTvProgramPW.checkOpenCardTvProgram();
-        cardTvProgramPW.checkAutoStartVideoPlayer();
+        cardTvProgramPW.checkAutoStartVideoPlayer("79260192144","111111");
         cardTvProgramPW.checkImagePlayerСardTvProgramRecorded();
         cardTvProgramPW.checkImageScheduleСardTvProgramRecorded();
         headerMenuPW.deleteAccountMF("79260192144");

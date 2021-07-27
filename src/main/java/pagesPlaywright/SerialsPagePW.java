@@ -15,8 +15,6 @@ public class SerialsPagePW extends BasePagePlaywright {
     public SerialsPagePW (Page page, Page pageCMS, BrowserContext context) {
         this.page = page;
         this.pageCMS = pageCMS;
-        this.context = context;
-        this.browser = context.browser();
     }
     public void screenshotSerialsPagePW () {
         page.navigate("https://web-preprod5.megafon.tv/shows");

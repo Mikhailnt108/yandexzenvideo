@@ -24,18 +24,18 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Playw
 //        filmsPagePW.checkImageBlocksFiltersForUnauthorized();
 //        filmsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
 //        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
-//        filmsPagePW.checkImageFooterForUnauthorized();
-        filmsPagePW.checkImageFilmsPageScrollForUnauthorized();
-        // пользоваеть авторизован:
-        headerMenuPW.goToFilmsPage();
-        flowRegistation();
-        filmsPagePW.checkImageCherdakAndBannersForAuthorized();
-        filmsPagePW.checkImageBlocksFiltersForAuthorized();
-        filmsPagePW.checkImageBlocksCollectionWithHeaderForAuthorized();
-        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForAuthorized();
-        filmsPagePW.checkImageFooterForAuthorized();
-        filmsPagePW.checkImageFilmsPageScrollForAuthorized();
-        headerMenuPW.deleteAccountMF("79260192144");
+        filmsPagePW.checkImageFooterForUnauthorized();
+//        filmsPagePW.checkImageFilmsPageScrollForUnauthorized();
+//        // пользоваеть авторизован:
+//        headerMenuPW.goToFilmsPage();
+//        flowRegistation();
+//        filmsPagePW.checkImageCherdakAndBannersForAuthorized();
+//        filmsPagePW.checkImageBlocksFiltersForAuthorized();
+//        filmsPagePW.checkImageBlocksCollectionWithHeaderForAuthorized();
+//        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForAuthorized();
+//        filmsPagePW.checkImageFooterForAuthorized();
+//        filmsPagePW.checkImageFilmsPageScrollForAuthorized();
+//        headerMenuPW.deleteAccountMF("79260192144");
     }
 
     private void flowRegistation() {

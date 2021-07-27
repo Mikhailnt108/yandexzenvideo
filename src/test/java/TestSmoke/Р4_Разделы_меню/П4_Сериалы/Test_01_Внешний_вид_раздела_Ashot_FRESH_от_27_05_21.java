@@ -14,7 +14,7 @@ public class Test_01_Внешний_вид_раздела_Ashot_FRESH_от_27_05
     @RepeatedTest(1)
     public void appearanceSectionSerialsPage() throws Exception {
         headerMenu.goToSerialsPage();
-//        serialsPage.checkImageDifferCherdakAndBanners();
+        serialsPage.checkImageDifferCherdakAndBanners();
 //        serialsPage.checkImageDifferBreadcrumbsAndBlocksFilters(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
 //        serialsPage.checkImageDifferBlocksCollection(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
 //        serialsPage.checkImageDifferFooter();

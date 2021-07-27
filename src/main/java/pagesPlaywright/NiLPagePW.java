@@ -259,9 +259,9 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         page.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
-        // делаем скриншот полной страницы "NilPage":
+        // делаем скриншот полной страницы "NilPageFull":
         vrt.track(
-                    "NilPage",
+                    "NilPageFull",
                     Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("NilPage4.png")).setFullPage(true).setTimeout(10000))),
                     TestRunOptions.builder()
                             .device("Acer")

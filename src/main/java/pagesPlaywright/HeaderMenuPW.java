@@ -18,12 +18,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private Browser browserHeadfull;
 
 
-    public HeaderMenuPW(Page page, Page pageCMS, BrowserContext context) {
+    public HeaderMenuPW(Page page, Page pageCMS) {
         this.page = page;
         this.pageCMS = pageCMS;
-        this.context = context;
-        this.browserHeadfull = context.browser();;
-        this.browserHeadless = context.browser();
+
     }
 
     public void checkNotLoggedIsCorrect() {

@@ -2,9 +2,13 @@ package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
 
 import base.TestBasePlaywright;
 import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+
+import java.io.File;
+import java.nio.file.Paths;
 
 public class Test_11_2_Незаписываемая_передача_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -16,7 +20,10 @@ public class Test_11_2_Незаписываемая_передача_SCREENSHOT_
     public void unrecordedTvProgram() throws Exception {
         headerMenuPW.goToTvTabTvProgramInAir();
         flowRegistation();
-        cardTvProgramPW.checkAutoStartVideoPlayer();
+//        File state = new File("src/main/java/base/" + "state" + ".json").toString();
+
+//        context.storageState(new BrowserContext.StorageStateOptions().setPath(state));
+        cardTvProgramPW.checkAutoStartVideoPlayer("+7 926 019 21 44", "111111");
         cardTvProgramPW.checkImagePlayerСardTvProgramUnrecorded();
         cardTvProgramPW.checkImageScheduleСardTvProgramUnrecorded();
         headerMenuPW.deleteAccountMF("79260192144");

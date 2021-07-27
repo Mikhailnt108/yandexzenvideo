@@ -14,13 +14,9 @@ import static base.TestBasePlaywright.vrt;
 public class FilmsPagePW extends BasePagePlaywright {
     private Page page;
 
-    private BrowserContext context;
-    private Browser browser;
-
-    public FilmsPagePW (Page page, BrowserContext context){
+    public FilmsPagePW (Page page){
         this.page = page;
-        this.context = context;
-        this.browser = context.browser();
+
     }
 
     public void checkImageCherdakAndBannersForUnauthorized() throws IOException, InterruptedException {
@@ -187,8 +183,8 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFilmsPageScrollForUnauthorized() throws IOException, InterruptedException {
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
-        page = browser.newPage(new Browser.NewPageOptions().setViewportSize(1880, 930));
+//        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
+//        page = browser.newPage(new Browser.NewPageOptions().setViewportSize(1880, 930));
         page.navigate("https://web-preprod5.megafon.tv/movies/vods");
         // подготовка страницы "FilmsPageScrollForUnauthorized" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
