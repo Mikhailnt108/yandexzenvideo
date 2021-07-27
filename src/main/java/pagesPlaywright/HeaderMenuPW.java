@@ -10,12 +10,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 
+import static base.TestBasePlaywright.contextHeadfull;
+
 public class HeaderMenuPW extends BasePagePlaywright {
     private Page page;
     private Page pageCMS;
-    private BrowserContext context;
-    private Browser browserHeadless;
-    private Browser browserHeadfull;
+
 
 
     public HeaderMenuPW(Page page, Page pageCMS) {
@@ -48,8 +48,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
         page.waitForSelector("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']");
         if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
-
-            pageCMS = browserHeadfull.newPage(new Browser.NewPageOptions().setViewportSize(1880,930));
+            pageCMS = contextHeadfull.newPage();
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
@@ -91,7 +90,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void copyPasteCodMsisdn(String login) {
-        pageCMS = browserHeadless.newPage(new Browser.NewPageOptions().setViewportSize(1880,930));
+        pageCMS = contextHeadfull.newPage();
         pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
@@ -124,7 +123,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void deleteAccountMF(String login) {
-        pageCMS = browserHeadless.newPage(new Browser.NewPageOptions());
+        pageCMS = contextHeadfull.newPage();
         pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);

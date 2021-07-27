@@ -1,6 +1,7 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
+import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
@@ -9,10 +10,12 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
-import static base.TestBasePlaywright.vrt;
+
+import static base.TestBasePlaywright.*;
 
 public class NiLPagePW extends BasePagePlaywright {
     private Page page;
+
 
     public NiLPagePW (Page page) {
         this.page = page;
@@ -193,7 +196,7 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> counterCollectionAll;
         for (int i = 0; i < page.querySelectorAll("//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size(); i++) {
             titleCollectionAll = page.querySelectorAll("//h3[@data-test='PackageListWrapperName']//a");
-            page.evaluate("t => t.innerText='Автотест'", titleCollectionAll.get(i));
+            page.evaluate("t => t.innerText='Название подборки'", titleCollectionAll.get(i));
             counterCollectionAll = page.querySelectorAll("//a[@data-test='PackageListWrapperMoreText']");
             page.evaluate("c => c.innerText='Все 100'", counterCollectionAll.get(i));
         }
@@ -207,9 +210,9 @@ public class NiLPagePW extends BasePagePlaywright {
                     "background-color: rgb(238, 238, 238); " +
                     "background-image: url(https://static-sesure.cdn.megafon.tv/images/Mixed/35/ee/4cb8df5e72d867ab46ba2da8169c56159b71/tile__web-wp.webp);')", posterPackageAll.get(i));
             titlePackageAll = page.querySelectorAll("//h3[@data-test='PackageDescriptionTitle']");
-            page.evaluate("t => t.innerText='Автотест'", titlePackageAll.get(i));
+            page.evaluate("t => t.innerText='Название контента'", titlePackageAll.get(i));
             descriptionTextPackage1All = page.querySelectorAll("//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span");
-            page.evaluate("d => d.textContent='Автотест'", descriptionTextPackage1All.get(i));
+            page.evaluate("d => d.textContent='Description'", descriptionTextPackage1All.get(i));
             ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
             page.evaluate("a => a.innerText='18+'", ageAll.get(i));
         }
@@ -223,9 +226,9 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> titleCollection2All;
         for (int i = 0; i < page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(); i++) {
             posterCollection2All = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']");
-            page.evaluate("pC => pC.setAttribute('style', 'background-image: url(\"https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp\");')", posterCollection2All.get(i));
+            page.evaluate("pC => pC.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp);')", posterCollection2All.get(i));
             titleCollection2All = page.querySelectorAll("//h3[@data-test='CollectionName']");
-            page.evaluate("t => t.innerText='Автотест (18+)'", titleCollection2All.get(i));
+            page.evaluate("t => t.innerText='Название подборки (18+)'", titleCollection2All.get(i));
         }
         // подготовка баннеров:
         List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
@@ -262,7 +265,7 @@ public class NiLPagePW extends BasePagePlaywright {
         // делаем скриншот полной страницы "NilPageFull":
         vrt.track(
                     "NilPageFull",
-                    Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("NilPage4.png")).setFullPage(true).setTimeout(10000))),
+                    Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true).setTimeout(10000))),
                     TestRunOptions.builder()
                             .device("Acer")
                             .os("Win10 Pro")

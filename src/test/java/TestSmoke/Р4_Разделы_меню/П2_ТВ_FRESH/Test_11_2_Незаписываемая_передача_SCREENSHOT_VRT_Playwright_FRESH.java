@@ -20,10 +20,7 @@ public class Test_11_2_Незаписываемая_передача_SCREENSHOT_
     public void unrecordedTvProgram() throws Exception {
         headerMenuPW.goToTvTabTvProgramInAir();
         flowRegistation();
-//        File state = new File("src/main/java/base/" + "state" + ".json").toString();
-
-//        context.storageState(new BrowserContext.StorageStateOptions().setPath(state));
-        cardTvProgramPW.checkAutoStartVideoPlayer("+7 926 019 21 44", "111111");
+        cardTvProgramPW.checkAutoStartVideoPlayer();
         cardTvProgramPW.checkImagePlayerСardTvProgramUnrecorded();
         cardTvProgramPW.checkImageScheduleСardTvProgramUnrecorded();
         headerMenuPW.deleteAccountMF("79260192144");

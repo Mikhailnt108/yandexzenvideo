@@ -9,10 +9,8 @@ import java.nio.file.Paths;
 public class SerialsPagePW extends BasePagePlaywright {
     private Page page;
     private Page pageCMS;
-    private BrowserContext context;
-    private Browser browser;
 
-    public SerialsPagePW (Page page, Page pageCMS, BrowserContext context) {
+        public SerialsPagePW (Page page, Page pageCMS) {
         this.page = page;
         this.pageCMS = pageCMS;
     }

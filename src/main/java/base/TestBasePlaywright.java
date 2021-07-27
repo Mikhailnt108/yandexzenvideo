@@ -17,7 +17,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static Playwright playwright;
     public static Browser browserHeadfull;
     public static BrowserContext contextHeadfull;
-    public static BrowserContext context;
+    public static BrowserContext contextHeadless;
     public static Page page;
     public static Page pageHeadfull;
     public static Page pageCMS;
@@ -32,7 +32,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("BS5PATF1MYMW3XNARRC67FED4JHS")
+                    .apiKey("R3PH2MHXJMM3G4GEPC8PB6SV8DKM")
                     .project("MFTV_Web")
                     .branchName("master")
                     .httpTimeoutInSeconds(30)
@@ -42,15 +42,16 @@ public class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     static void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
-        Path userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+        Path userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User");
         contextHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
                 new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
                         .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
+        contextHeadfull.clearCookies();
         page = contextHeadfull.pages().get(0);
         page.setDefaultNavigationTimeout(60000);
         headerMenuPW = new HeaderMenuPW(page,pageCMS);
         filmsPagePW = new FilmsPagePW(page);
-        serialsPagePW = new SerialsPagePW(page,pageCMS,context);
+        serialsPagePW = new SerialsPagePW(page,pageCMS);
         niLPagePW = new NiLPagePW(page);
         collectionsPagePW = new CollectionsPagePW(page);
         tvPagePW = new TvPagePW(page);
