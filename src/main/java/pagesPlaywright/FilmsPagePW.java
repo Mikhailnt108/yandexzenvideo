@@ -40,13 +40,13 @@ public class FilmsPagePW extends BasePagePlaywright {
         // подготовка элемента "bannersPageFilmsForUnauthorized" к скриншот-тесту:
         List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
         if (dotBefore.size() > 22) {
-            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 48) {
+            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 22) {
                 page.evaluate("dU => dU.remove();", page.querySelector("(//button[@data-test='CarouselDotButton'])[last()]"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }
         if (dotBefore.size() < 22) {
-            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 48) {
+            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 22) {
                 page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
@@ -86,8 +86,6 @@ public class FilmsPagePW extends BasePagePlaywright {
 
     public void checkImageBlocksFiltersForUnauthorized() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/movies/vods");
-        //div[@class='_10lCh4uWCss6HRDZrOjSEk'] - block quick filters
-        //div[@class='_3vWFiYltc8dtOgsuRbqAyX'] - block bases filters
         ElementHandle blockQuickFilters = page.querySelector("//div[@class='_10lCh4uWCss6HRDZrOjSEk']");
 
         // делаем скриншот элемента "blockQuickFiltersPageFilmsForUnauthorized":
@@ -552,6 +550,25 @@ public class FilmsPagePW extends BasePagePlaywright {
         vrt.track(
                 "FilmsPageScrollForAuthorized",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void clickToTailCardFilm() {
+        page.click("(//a[@data-test='PackageLink'])[3]");
+    }
+
+    public void checkImageScrollQuickFiltersForUnauthorized() throws IOException, InterruptedException {
+        page.click("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]");
+        // делаем скриншот элемента "blockQuickFiltersPageFilmsForUnauthorized":
+        ElementHandle scrollQuickFiltersForUnauthorized = page.querySelector("//div[@class='_10lCh4uWCss6HRDZrOjSEk']");
+        vrt.track(
+                "scrollQuickFiltersForUnauthorized",
+                Base64.getEncoder().encodeToString(scrollQuickFiltersForUnauthorized.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
                         .os("Win10 Pro")

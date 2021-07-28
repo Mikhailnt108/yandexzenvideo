@@ -5,31 +5,23 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_07_Покупка_фильма_со_скидкой_FRESH_от_29_06_21_создание_скидки_заменить_APIWebDriver extends TestBaseWebDriver {
+public class Test_09_Просмотр_фильма_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Покупка фильма со скидкой")
+    @DisplayName(value ="Просмотр фильма")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void paymentFilmWithDiscount() throws Exception {
+    public void testFullScreenPleer() throws Exception {
         headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        pageCMS.createPriseEstOrRent2WithDiscount();
         flowRegistation();
-        headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-        cardFilm.checkStikerDiscount();
-        cardFilm.checkPriseEstDiscount();
-        cardFilm.paymentFilmAtEstDiscount();
-        cardFilm.checkUnavailabilityStikerDiscount();
-        cardFilm.startVideoPleer();
-        pageCMS.deleteDiscount();
+        cardFilm.paymentFilmAtEst();
+        cardFilm.testFullScreenVideoPleer();
         pageCMS.deleteAccountMF("79260205027");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

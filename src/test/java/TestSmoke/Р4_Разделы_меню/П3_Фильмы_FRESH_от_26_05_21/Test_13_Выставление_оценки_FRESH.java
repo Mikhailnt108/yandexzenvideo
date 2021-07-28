@@ -5,40 +5,34 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_08_Аренда_фильма_со_скидкой_FRESH_от_29_06_21_создание_скидки_заменить_APIWebDriver extends TestBaseWebDriver {
+public class Test_13_Выставление_оценки_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Аренда фильма со скидкой")
+    @DisplayName(value ="Выставление оценки")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void rentFilmWithDiscount() throws Exception {
+    public void ratingFilm() throws InterruptedException {
         headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        pageCMS.createPriseEstOrRent2WithDiscount();
         flowRegistation();
-        headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-        cardFilm.checkStikerDiscount();
-        cardFilm.checkPriseRent2Discount();
-        cardFilm.paymentFilmAtRent2Discount();
-        cardFilm.checkUnavailabilityStikerDiscount();
-        cardFilm.startVideoPleer();
-        pageCMS.deleteDiscount();
-        pageCMS.deleteAccountMF("79260205027");
+        cardFilm.moveToLikeButton();
+        cardFilm.moveToDisLikeButton();
+        cardFilm.clickToLikeButton();
+        cardFilm.clickToDisLikeButton();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260205027");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("79260205027", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260205027");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

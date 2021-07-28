@@ -5,27 +5,25 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_06_Аренда_фильма_за_бандл_FRESH_от_29_06_21WebDriver extends TestBaseWebDriver {
+public class Test_12_Добавление_в_избранное_фильма_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Аренда фильма за бандл")
+    @DisplayName(value ="Добавление_в_избранное_фильма")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void PaymentFilmForRent2Promo() throws Exception {
+    public void AddingFilmToFavorites() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
-        filmsPage.clickOnFiltrPayment();
-        filmsPage.chooseTabPromo();
-        filmsPage.clickToTailCardFilmFromAvailable();
-        cardFilm.paymentFilmAtRent2Promo();
-        cardFilm.startVideoPleer();
-        cardFilm.checkСounterAvailableFilms();
-        pageCMS.chooseBundleNotSelected("79260192144");
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.checkButtonFavoriteNotAdded();
+        cardFilm.clickButtonFavorites();
+        cardFilm.checkButtonFavoriteAdded();
+        myPage.checkAddingFilmToFavorites();
         pageCMS.deleteAccountMF("79260192144");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
@@ -38,4 +36,5 @@ public class Test_06_Аренда_фильма_за_бандл_FRESH_от_29_06_
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
+
 }

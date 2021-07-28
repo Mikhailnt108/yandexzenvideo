@@ -5,23 +5,28 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_10_Пауза_фильма_FRESH_от_29_06_21WebDriver extends TestBaseWebDriver {
+public class Test_08_Аренда_фильма_со_скидкой_FRESH_от_29_06_21_создание_скидки_заменить_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Пауза фильма")
+    @DisplayName(value ="Аренда фильма со скидкой")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void testPauseVideoPleer() throws Exception {
+    public void rentFilmWithDiscount() throws Exception {
         headerMenu.goToFilmsPage();
-        flowRegistation();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-        cardFilm.paymentFilmAtEst();
-        cardFilm.clickToPauseVideoPleer();
-        cardFilm.clickToPlayVideoPleer();
-        cardFilm.clickToSpaceToVideoPleer();
-        cardFilm.clickToLeftButtonMouseToVideoPleer();
+        pageCMS.createPriseEstOrRent2WithDiscount();
+        flowRegistation();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.checkStikerDiscount();
+        cardFilm.checkPriseRent2Discount();
+        cardFilm.paymentFilmAtRent2Discount();
+        cardFilm.checkUnavailabilityStikerDiscount();
+        cardFilm.startVideoPleer();
+        pageCMS.deleteDiscount();
         pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {
@@ -30,7 +35,7 @@ public class Test_10_Пауза_фильма_FRESH_от_29_06_21WebDriver extend
         headerMenu.checkOpenPopUpInputPhone();
         headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("79260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260205027");
