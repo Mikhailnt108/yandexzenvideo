@@ -1,32 +1,27 @@
-package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_26_05_21;
+package TestSmoke.Р4_Разделы_меню.П4_Сериалы;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_03_2_Внешний_вид_карточки_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
+public class Test_10_2_Выбор_серии_из_плеера_SCREENSHOT_VRT_Playwright_FRESH_NEED_COMPLETE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
-    @DisplayName(value ="Внешний вид карточки (скриншоты")
+    @Story(value = "4. Сериалы")
+    @DisplayName(value ="Выбор серии из плеера (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void appearanceSectionCardFilm() throws Exception {
-        // неавторизованный пользователь:
-        headerMenuPW.goToFilmsPage();
-        filmsPagePW.clickToTailCardFilm();
-        cardFilmPW.checkOpenCardFilm();
-        cardFilmPW.checkAutoStartTrailerPlayer();
-        cardFilmPW.checkImageCardFilmForUnauthorized();
+    public void chooseEpisodeFromBlockEpisodes() throws Exception {
         // авторизованный пользователь:
-        headerMenuPW.goToFilmsPage();
+        headerMenuPW.goToSerialsPage();
         flowRegistation();
-        filmsPagePW.clickToTailCardFilm();
-        cardFilmPW.checkOpenCardFilm();
-        cardFilmPW.paymentForFilm();
-        cardFilmPW.checkAutoStartTrailerPlayer();;
-        cardFilmPW.checkImageCardFilmForAuthorized();
+        serialsPagePW.clickToFirstTailCardSerial();
+        cardSerialPW.checkOpenCardSerial();
+        cardSerialPW.subscribeToPackageSerials();
+        cardSerialPW.clickToButtonWatch();
+        cardSerialPW.checkAutoStartTrailerPlayer();
+        cardSerialPW.checkImageSwitchEpisodeInPlayer();
         headerMenuPW.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
@@ -43,4 +38,3 @@ public class Test_03_2_Внешний_вид_карточки_SCREENSHOT_VRT_Pla
         headerMenuPW.checkLoginUserIsCorrectFlowForMF();
     }
 }
-

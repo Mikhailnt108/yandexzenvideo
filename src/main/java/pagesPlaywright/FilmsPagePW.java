@@ -238,9 +238,12 @@ public class FilmsPagePW extends BasePagePlaywright {
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[2]");
+        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
+        page.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
         ElementHandle titleBanner = page.querySelector("(//div[@data-test='SlideTitle'])[2]");
-        page.evaluate("t => t.innerText='Название контента'", titleBanner);
+        page.evaluate("t => t.innerText='Название фильма'", titleBanner);
         ElementHandle stiker = page.querySelector("(//div[@class='kjFUbLahFxqq2AjHY8j2R'])[2]");
         page.evaluate("s => s.innerText='Автотест'", stiker);
         ElementHandle colorStiker = page.querySelector("(//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb'])[2]");
@@ -252,10 +255,7 @@ public class FilmsPagePW extends BasePagePlaywright {
         ElementHandle poster = page.querySelector("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW'])[2]");
         page.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp);')", poster);
         System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
-        // перематываем на первый баннер:
-        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
-        page.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
+
         // делаем скриншот полной страницы "FilmsPageScrollForUnauthorized":
         vrt.track(
                 "FilmsPageScrollForUnauthorized",
@@ -528,9 +528,12 @@ public class FilmsPagePW extends BasePagePlaywright {
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[2]");
+        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
+        page.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
         ElementHandle titleBanner = page.querySelector("(//div[@data-test='SlideTitle'])[2]");
-        page.evaluate("t => t.innerText='Название контента'", titleBanner);
+        page.evaluate("t => t.innerText='Название фильма'", titleBanner);
         ElementHandle stiker = page.querySelector("(//div[@class='kjFUbLahFxqq2AjHY8j2R'])[2]");
         page.evaluate("s => s.innerText='Автотест'", stiker);
         ElementHandle colorStiker = page.querySelector("(//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb'])[2]");
@@ -542,10 +545,7 @@ public class FilmsPagePW extends BasePagePlaywright {
         ElementHandle poster = page.querySelector("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW'])[2]");
         page.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp);')", poster);
         System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
-        // перематываем на первый баннер:
-        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
-        page.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
+
         // делаем скриншот полной страницы "FilmsPageScrollForUnauthorized":
         vrt.track(
                 "FilmsPageScrollForAuthorized",
@@ -564,10 +564,11 @@ public class FilmsPagePW extends BasePagePlaywright {
 
     public void checkImageScrollQuickFiltersForUnauthorized() throws IOException, InterruptedException {
         page.click("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]");
-        // делаем скриншот элемента "blockQuickFiltersPageFilmsForUnauthorized":
+        page.waitForTimeout(3000);
+        // делаем скриншот элемента "scrollQuickFiltersForUnauthorized":
         ElementHandle scrollQuickFiltersForUnauthorized = page.querySelector("//div[@class='_10lCh4uWCss6HRDZrOjSEk']");
         vrt.track(
-                "scrollQuickFiltersForUnauthorized",
+                "scrollQuickFiltersPageFilmsForUnauthorized",
                 Base64.getEncoder().encodeToString(scrollQuickFiltersForUnauthorized.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")

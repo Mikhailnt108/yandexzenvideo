@@ -245,10 +245,13 @@ public class NiLPagePW extends BasePagePlaywright {
                     System.out.println(pageFull.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
                 }
             }
+        pageFull.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[2]");
+        ElementHandle changeTransform = pageFull.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
+        pageFull.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
         pageFull.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
         ElementHandle titleBanner = pageFull.querySelector("(//div[@data-test='SlideTitle'])[2]");
         pageFull.evaluate("t => t.innerText='Название контента'", titleBanner);
-        ElementHandle stiker = pageFull.querySelector("(//div[@class='kjFUbLahFxqq2AjHY8j2R'])[2]");
+        ElementHandle stiker = pageFull.querySelector("(//div[@class='kjFUbLahFxqq2AjHY8j2R'])[1]");
         pageFull.evaluate("s => s.innerText='Автотест'", stiker);
         ElementHandle colorStiker = pageFull.querySelector("(//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb'])[2]");
         pageFull.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')", colorStiker);
@@ -259,10 +262,7 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle poster = pageFull.querySelector("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW'])[2]");
         pageFull.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp);')", poster);
         System.out.println(pageFull.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
-        // перематываем на первый баннер:
-        pageFull.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        ElementHandle changeTransform = pageFull.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
-        pageFull.evaluate("ch => ch.setAttribute('style', 'transform: translateX(0px); transition-duration: 0ms;')", changeTransform);
+
         // делаем скриншот полной страницы "NilPageFull":
         vrt.track(
                     "NilPageFull",

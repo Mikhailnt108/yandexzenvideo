@@ -30,10 +30,12 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static СardTvChannelPW сardTvChannelPW;
     public static СardTvProgramPW cardTvProgramPW;
     public static CardFilmPW cardFilmPW;
+    public static CardSerialPW cardSerialPW;
+    public static KidsPagePW kidsPagePW;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("7S8B9YA3TQMTP1J0QR939B88RAXB")
+                    .apiKey("QFAHS5427PMPTZPBWCDF9K5EM14A")
                     .project("MFTV_Web")
                     .branchName("master")
                     .httpTimeoutInSeconds(30)
@@ -43,10 +45,18 @@ public class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     static void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
-        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+//      // ноут:
+//        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+        // комп:
+        userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
                 new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
                         .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
+
+//        contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
+//                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
+//                        .setViewportSize(1930, 830));
+
         contextNormalModeHeadfull.clearCookies();
         page = contextNormalModeHeadfull.pages().get(0);
         page.setDefaultNavigationTimeout(60000);
@@ -61,6 +71,8 @@ public class TestBasePlaywright extends BasePagePlaywright{
         сardTvChannelPW = new СardTvChannelPW(page);
         cardTvProgramPW = new СardTvProgramPW(page);
         cardFilmPW = new CardFilmPW(page);
+        cardSerialPW = new CardSerialPW(page);
+        kidsPagePW = new KidsPagePW(page);
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

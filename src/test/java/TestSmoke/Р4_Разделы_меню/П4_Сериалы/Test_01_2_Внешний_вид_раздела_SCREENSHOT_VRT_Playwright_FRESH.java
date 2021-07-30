@@ -21,7 +21,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Playw
         serialsPagePW.checkImageFooterForUnauthorized();
         serialsPagePW.checkImageSerialsPageScrollForUnauthorized();
         // пользоваеть авторизован:
-        headerMenuPW.goToFilmsPage();
+        headerMenuPW.goToSerialsPage();
         flowRegistation();
         serialsPagePW.checkImageCherdakAndBannersForAuthorized();
         serialsPagePW.checkImageBlocksFiltersForAuthorized();

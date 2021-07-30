@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_01_1_Внешний_вид_раздела_Ashot_FRESH extends TestBaseWebDriver {
+public class Test_01_1_Внешний_вид_раздела_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
@@ -14,11 +14,6 @@ public class Test_01_1_Внешний_вид_раздела_Ashot_FRESH extends 
     @RepeatedTest(1)
     public void appearanceSectionSerialsPage() throws Exception {
         headerMenu.goToSerialsPage();
-        serialsPage.checkImageDifferCherdakAndBanners();
-//        serialsPage.checkImageDifferBreadcrumbsAndBlocksFilters(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
-//        serialsPage.checkImageDifferBlocksCollection(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
-//        serialsPage.checkImageDifferFooter();
-//        serialsPage.checkImageDifferSerialsPageScroll();
         serialsPage.checkElementsSerialsPage();
         serialsPage.checkElementsBannersCarousel();
         serialsPage.autoScrollBanners();
@@ -26,11 +21,6 @@ public class Test_01_1_Внешний_вид_раздела_Ashot_FRESH extends 
         serialsPage.scrollBannersToRight();
         serialsPage.scrollСollectionToRightAndLeft();
         flowRegistation();
-//        serialsPage.checkImageDifferCherdakAndBanners();
-//        serialsPage.checkImageDifferBreadcrumbsAndBlocksFilters(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
-//        serialsPage.checkImageDifferBlocksCollection(); // на пп4 нет выпадушки "Сортировка" в форме фильтров
-//        serialsPage.checkImageDifferFooter();
-//        serialsPage.checkImageDifferSerialsPageScroll();
         serialsPage.checkElementsSerialsPage();
         serialsPage.checkElementsBannersCarousel();
         serialsPage.autoScrollBanners();

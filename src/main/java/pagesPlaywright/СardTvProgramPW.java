@@ -205,7 +205,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     public void checkAutoStartVideoPlayer() throws InterruptedException {
         if(page.querySelectorAll("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]").size()!=0) {
             page.click("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]");
-            page.waitForSelector("//button[text()='Подтвердить']");
+            page.waitForSelector("//button[text()='Подтвердить']|//button[text()='Принять и подключить']");
             page.click("//button[text()='Подтвердить']");
             page.waitForSelector("//button[text()='Закрыть']");
             page.click("//button[text()='Закрыть']");

@@ -14,16 +14,18 @@ import static base.TestBasePlaywright.vrt;
 
 public class CardFilmPW extends BasePagePlaywright {
     private Page page;
-    public CardFilmPW (Page page){
+
+    public CardFilmPW(Page page) {
         this.page = page;
     }
 
     public void checkOpenCardFilm() {
+
         page.waitForSelector("//span[@itemprop='name' and text()='Фильмы']");
     }
 
-    public void checkAutoStartVideoPlayer() throws InterruptedException {
-        if(page.querySelectorAll("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]").size()!=0) {
+    public void paymentForFilm() {
+        if (page.querySelectorAll("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]").size() != 0) {
             page.click("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]");
             page.waitForSelector("(//button[@class='_3W3bxW5DPDIV5i4O3588XI'])[1]");
             page.click("(//button[@class='_3W3bxW5DPDIV5i4O3588XI'])[1]");
@@ -31,6 +33,9 @@ public class CardFilmPW extends BasePagePlaywright {
             page.click("//span[text()='Подтвердить']");
             page.reload();
         }
+    }
+
+    public void checkAutoStartTrailerPlayer() throws InterruptedException {
         Thread.sleep(7000);
         page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
         String timeStart = page.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
@@ -47,8 +52,11 @@ public class CardFilmPW extends BasePagePlaywright {
         ElementHandle nameFilm = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
         page.evaluate("nC => nC.innerText='Название фильма'", nameFilm);
 
-        ElementHandle ratingFilm = page.querySelector("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
-        page.evaluate("rF => rF.innerText='IMDb: 5.5'", ratingFilm);
+        List<ElementHandle> ratingFilmAll;
+        for (int i = 0; i < page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size(); i++) {
+            ratingFilmAll = page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
+            page.evaluate("fP => fP.innerText='IMDb: 8.8'", ratingFilmAll.get(i));
+        }
 
         ElementHandle ageYearGenres = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
         page.evaluate("d => d.innerText='18+, 2021, Аниме, Мультфильм, Комедия, Фэнтези'", ageYearGenres);
@@ -58,14 +66,31 @@ public class CardFilmPW extends BasePagePlaywright {
                 "Она ищет себя; своё место в мире и пытается быть не похожей на других. Её волосы выкрашены в странный красно-розовый цвет; " +
                 "а имя Леди Бёрд'", discriptionFilm);
 
-        ElementHandle posterFilm = page.querySelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']");
-        page.evaluate("pF => pF.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster_2018__web-wp.webp);')", posterFilm);
+//        ElementHandle posterFilm = page.querySelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']");
+//        page.evaluate("pF => pF.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster_2018__web-wp.webp);')", posterFilm);
+//
+//        ElementHandle age = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN'])[2]");
+//        page.evaluate("d => d.innerText='18+'",age);
+
+        ElementHandle videoFilm = page.querySelector("//video[@src]");
+        page.evaluate("vP => vP.setAttribute('src', 'blob:notVideo')", videoFilm);
+
+        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+
+        ElementHandle nameFilmInPlayer = page.querySelector("//div[@class='_2GPoEznIkBV65Iqkud1teP']");
+        page.evaluate("fP => fP.innerText='Название сериала'", nameFilmInPlayer);
 
         ElementHandle age = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN'])[2]");
-        page.evaluate("d => d.innerText='18+'",age);
+        page.evaluate("d => d.innerText='10+'", age);
+
+        List<ElementHandle> progressVideoAll;
+        for (int i = 0; i < page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']").size(); i++) {
+            progressVideoAll = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");
+            page.evaluate("pV => pV.innerText='0'", progressVideoAll.get(i));
+        }
 
         ElementHandle textPayButton = page.querySelector("//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']");
-        page.evaluate("fP => fP.innerText='Навсегда за 100 Р'", textPayButton);
+        page.evaluate("fP => fP.innerText='Навсегда за 100 ₽'", textPayButton);
 
         List<ElementHandle> textStickerAll;
         for (int i = 0; i < page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']").size(); i++) {
@@ -105,14 +130,18 @@ public class CardFilmPW extends BasePagePlaywright {
 
     public void checkImageCardFilmForAuthorized() throws IOException, InterruptedException {
         page.reload();
+
         ElementHandle nameFilmCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
         page.evaluate("n => n.innerText='Название фильма'", nameFilmCrumbs);
 
         ElementHandle nameFilm = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
         page.evaluate("nC => nC.innerText='Название фильма'", nameFilm);
 
-        ElementHandle ratingFilm = page.querySelector("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
-        page.evaluate("rF => rF.innerText='IMDb: 5.5'", ratingFilm);
+        List<ElementHandle> ratingSerialAll;
+        for (int i = 0; i < page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size(); i++) {
+            ratingSerialAll = page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
+            page.evaluate("fP => fP.innerText='IMDb: 8.8'", ratingSerialAll.get(i));
+        }
 
         ElementHandle ageYearGenres = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
         page.evaluate("d => d.innerText='18+, 2021, Аниме, Мультфильм, Комедия, Фэнтези'", ageYearGenres);
@@ -144,6 +173,8 @@ public class CardFilmPW extends BasePagePlaywright {
             progressVideoAll = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");
             page.evaluate("pV => pV.innerText='0'", progressVideoAll.get(i));
         }
+
+        // блок подборки "Похожие":
         List<ElementHandle> posterFilmAll;
         List<ElementHandle> titleFilmAll;
         List<ElementHandle> descriptionTextFilmAll;
@@ -166,7 +197,7 @@ public class CardFilmPW extends BasePagePlaywright {
         // делаем скриншот страницы "cardFilmForAuthorized":
         vrt.track(
                 "cardFilmForAuthorized",
-                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true).setTimeout(10000))),
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                 TestRunOptions.builder()
                         .device("Acer")
                         .os("Win10 Pro")

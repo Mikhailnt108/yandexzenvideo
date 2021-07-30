@@ -19,7 +19,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Playw
     @Video
     @RepeatedTest(1)
     public void appearanceSectionFilmsPage() throws Exception {
-        // пользователь НЕ авторизован
+        // пользователь НЕ авторизован:
         filmsPagePW.checkImageCherdakAndBannersForUnauthorized();
         filmsPagePW.checkImageBlocksFiltersForUnauthorized();
         filmsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();

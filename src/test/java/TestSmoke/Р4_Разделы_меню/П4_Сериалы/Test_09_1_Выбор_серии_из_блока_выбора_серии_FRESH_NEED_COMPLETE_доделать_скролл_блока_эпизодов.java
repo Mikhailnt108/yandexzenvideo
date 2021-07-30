@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_09_Выбор_серии_из_блока_выбора_серии_ASHOT_FRESH_NEED_COMPLETE_доделать_скролл_блока_эпизодов extends TestBaseWebDriver {
+public class Test_09_1_Выбор_серии_из_блока_выбора_серии_FRESH_NEED_COMPLETE_доделать_скролл_блока_эпизодов extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
@@ -16,7 +16,6 @@ public class Test_09_Выбор_серии_из_блока_выбора_сери
         headerMenu.goToSerialsPage();
         serialsPage.chooseSeasonsMoreOneSeason();
         cardSerial.checkOpenCardSerial();
-//        cardSerial.checkImageDifferBlockEpisodes();
         cardSerial.checkElementsBlockEpisodes();
         cardSerial.clickTailEpisode();
         flowRegistation();

@@ -141,4 +141,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void goToFilmsPage() {
         page.navigate("https://web-preprod5.megafon.tv/movies/vods");
     }
+
+    public void goToSerialsPage() {
+        page.navigate("https://web-preprod5.megafon.tv/shows");
+    }
 }
