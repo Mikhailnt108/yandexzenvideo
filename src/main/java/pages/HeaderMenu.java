@@ -97,8 +97,7 @@ public class HeaderMenu extends BasePageWebDriver {
 
     public void goToAllCollectionsPage() {
         webDriver.get(Collections_Page_PP5);
-        isElementDisplayed(By.xpath("//span[text()='Подборки']"));
-        isElementDisplayed(By.xpath("//button[contains(text(), 'Следующая')]"));
+
     }
 
     public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
@@ -176,7 +175,6 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("//button[text()='Подключить Smart TV']"));
         Assert.assertEquals("Нет текста 'Неверный код'", "Неверный код1", webDriver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
         click(By.className("_1bciqjt58pgm0il2tiJTtp"));
-
     }
 
     public void connectSmartTv() {

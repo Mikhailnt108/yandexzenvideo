@@ -5,14 +5,14 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_12_Сортировка_контента_FRESH_от_14_06_21WebDriver extends TestBaseWebDriver {
+public class Test_10_Нажатие_в_разные_зоны_тайлов_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Сортировка контента")
+    @DisplayName(value = "Нажатие в разные зоны тайлов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void sortingContent() throws Exception {
+    public void clickingInDifferentAreasTails() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
@@ -36,27 +36,29 @@ public class Test_12_Сортировка_контента_FRESH_от_14_06_21We
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
-        //проверка отображения сериала в подборке:
-        //проверка последнего тайла:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
-        cardPackage.clickToFirstTailCardSerial();
-        serialsPage.checkToMoveTailToLastPlace();
-
-        //проверка первого тайла:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
-        cardPackage.clickToThirdTailCardSerial();
-        serialsPage.checkToMoveTailToFirstPlace();
-
-        //проверка перемещения тайла на первое место после просмотра:
+        // клики в разные области тайлов при подключенном пакете:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToLastTailBlockCollectHistoryWatch();
-        cardSerial.checkTimeStopPleerAndAutoStartPlayer();
-        serialsPage.checkToMoveTailToFirstPlace();
+        serialsPage.clickToPosterFirstTailBlockCollectHistoryWatch();
+        cardSerial.checkOpenCardSerial();
+        headerMenu.goToSerialsPage();
+        serialsPage.clickToTextFirstTailBlockCollectHistoryWatch();
+        cardSerial.checkOpenCardSerial();
+
+        // отключить пакет просмотренных сериалов:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToFirstTailCardPackage();
+        cardPackage.disablePackageTnB();
+
+        // клики в разные области тайлов при отключенном пакете:
+        headerMenu.goToSerialsPage();
+        serialsPage.checkElementsBlockCollectHistoryWatch();
+        serialsPage.clickToPosterFirstTailBlockCollectHistoryWatch();
+        cardSerial.checkOpenCardSerial();
+        headerMenu.goToSerialsPage();
+        serialsPage.clickToTextFirstTailBlockCollectHistoryWatch();
+        cardSerial.checkOpenCardSerial();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

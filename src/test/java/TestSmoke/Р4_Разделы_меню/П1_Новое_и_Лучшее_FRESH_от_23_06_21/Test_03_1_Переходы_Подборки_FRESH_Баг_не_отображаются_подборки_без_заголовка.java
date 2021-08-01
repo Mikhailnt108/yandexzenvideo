@@ -29,7 +29,7 @@ public class Test_03_1_Переходы_Подборки_FRESH_Баг_не_от�
         cardPackage.checkOpenCardPackage();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllOnCollectionBlock();
-        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPageForKids();
         collectionsPage.checkElementsPageBlockCollection();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionFilms();

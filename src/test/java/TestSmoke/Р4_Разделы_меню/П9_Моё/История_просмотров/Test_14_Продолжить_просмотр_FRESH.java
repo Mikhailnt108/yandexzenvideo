@@ -5,14 +5,14 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_10_Нажатие_в_разные_зоны_тайлов_FRESH_от_14_06_21WebDriver extends TestBaseWebDriver {
+public class Test_14_Продолжить_просмотр_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Нажатие в разные зоны тайлов")
+    @DisplayName(value = "Продолжить просмотр")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void clickingInDifferentAreasTails() throws Exception {
+    public void continueWatching() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
@@ -36,29 +36,12 @@ public class Test_10_Нажатие_в_разные_зоны_тайлов_FRESH_
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
-        // клики в разные области тайлов при подключенном пакете:
+        //чек автозапуска плеера с места остановки:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToPosterFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
-        headerMenu.goToSerialsPage();
-        serialsPage.clickToTextFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
-
-        // отключить пакет просмотренных сериалов:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
-        cardPackage.disablePackageTnB();
-
-        // клики в разные области тайлов при отключенном пакете:
-        headerMenu.goToSerialsPage();
-        serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToPosterFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
-        headerMenu.goToSerialsPage();
-        serialsPage.clickToTextFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
+        serialsPage.clickToFirstTailBlockCollectHistoryWatch();
+        cardSerial.checkTimeStopPleerAndAutoStartPlayer();
+        cardSerial.checkButtonContinueWatching();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

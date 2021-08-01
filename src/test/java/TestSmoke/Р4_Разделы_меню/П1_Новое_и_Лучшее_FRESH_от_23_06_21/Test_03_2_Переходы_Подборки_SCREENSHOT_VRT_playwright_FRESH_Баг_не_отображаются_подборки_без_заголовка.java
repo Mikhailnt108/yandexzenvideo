@@ -16,6 +16,6 @@ public class Test_03_2_Переходы_Подборки_SCREENSHOT_VRT_playwrig
     public void goToCollection() throws Exception {
         niLPagePW.checkImageBlocksCollectionWithHeader();
         niLPagePW.checkImageBlocksCollectionWithoutHeader();
-        collectionsPagePW.checkImageCollectionsPage();
+        kidsPagePW.checkBackgroundPageCollectionForKids();
     }
 }

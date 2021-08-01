@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_Персональные_предложения_ДОБАВИТЬ_ASHOT_FRESH_от_15_06_21 extends TestBaseWebDriver {
+public class Test_04_1_Персональные_предложения_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")

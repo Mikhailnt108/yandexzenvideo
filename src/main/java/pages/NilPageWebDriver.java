@@ -568,7 +568,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh'])[1]"));
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::h3[@data-test='PackageDescriptionTitle'])[1]"));
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span)[1]"));
-        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']]"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
         isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled])[1]"));
     }
 

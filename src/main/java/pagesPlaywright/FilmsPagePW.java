@@ -210,11 +210,12 @@ public class FilmsPagePW extends BasePagePlaywright {
             ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
             page.evaluate("a => a.innerText='18+'", ageAll.get(i));
         }
-        List<ElementHandle> stickerAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']").size(); i++) {
-            stickerAll = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']");
-            page.evaluate("s => s.remove();", stickerAll.get(i));
+
+        List<ElementHandle> stickerAll = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']");
+        for(ElementHandle stiker : stickerAll){
+            stiker.evaluate("s => s.remove();");
         }
+
         // подготовка блоков подборок без заголовка:
         List<ElementHandle> posterCollection2All;
         List<ElementHandle> titleCollection2All;

@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_13_Удаление_всех_отметок_о_просмотрах_FRESH_от_14_06_21WebDriver extends TestBaseWebDriver {
+public class Test_13_Удаление_всех_отметок_о_просмотрах_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")

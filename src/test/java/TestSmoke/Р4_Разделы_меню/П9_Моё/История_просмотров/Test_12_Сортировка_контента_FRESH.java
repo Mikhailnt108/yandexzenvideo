@@ -5,14 +5,14 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_14_Продолжить_просмотр_FRESH_от_14_06_21 extends TestBaseWebDriver {
+public class Test_12_Сортировка_контента_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Продолжить просмотр")
+    @DisplayName(value = "Сортировка контента")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void continueWatching() throws Exception {
+    public void sortingContent() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
@@ -36,12 +36,27 @@ public class Test_14_Продолжить_просмотр_FRESH_от_14_06_21 e
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
-        //чек автозапуска плеера с места остановки:
+        //проверка отображения сериала в подборке:
+        //проверка последнего тайла:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToFirstTailCardPackage();
+        cardPackage.clickToFirstTailCardSerial();
+        serialsPage.checkToMoveTailToLastPlace();
+
+        //проверка первого тайла:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToFirstTailCardPackage();
+        cardPackage.clickToThirdTailCardSerial();
+        serialsPage.checkToMoveTailToFirstPlace();
+
+        //проверка перемещения тайла на первое место после просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToFirstTailBlockCollectHistoryWatch();
+        serialsPage.clickToLastTailBlockCollectHistoryWatch();
         cardSerial.checkTimeStopPleerAndAutoStartPlayer();
-        cardSerial.checkButtonContinueWatching();
+        serialsPage.checkToMoveTailToFirstPlace();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -1,24 +1,27 @@
-package TestSmoke.Р5_Профиль.П2_Другие_кнопки;
+package TestSmoke.Р5_Профиль.П1_Акции.пп3_Остальные;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_01_Способы_оплаты_ДОБАВИТЬ_ASHOT_АКТУАЛЕН_10_02_21 extends TestBaseWebDriver {
+public class Test_03_Тариф_не_определился_добавить_ASHOT extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "2. Другие кнопки")
-    @DisplayName(value ="Способы оплаты")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="Тариф не определился")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void paymentMethod() {
+    public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.openSubsectionPaymentMethod();
+        pageCMS.chooseNotDefinedTariff("79260192144");
+        headerMenu.closePopUpNotDefinedTariff();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkNotDefinedTariff();
+        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
         pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

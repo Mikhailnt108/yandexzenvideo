@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_08_Внешний_вид_блока_подборки_История_просмотров_ASHOT_FRESH_от_14_06_21WebDriver extends TestBaseWebDriver {
+public class Test_08_Внешний_вид_блока_подборки_История_просмотров_ASHOT_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")

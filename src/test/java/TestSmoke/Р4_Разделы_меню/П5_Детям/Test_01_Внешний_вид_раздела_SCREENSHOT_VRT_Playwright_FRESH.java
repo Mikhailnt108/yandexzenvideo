@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
+public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")
@@ -13,11 +13,13 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Playw
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     public void appearanceSectioтKidsPage() throws Exception {
-//        // пользователь НЕ авторизован:
-//        kidsPagePW.checkImageCherdakAndBannersForUnauthorized();
-//        kidsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
-////        kidsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
-//        kidsPagePW.checkImageFooterForUnauthorized();
+        // пользователь НЕ авторизован:
+        kidsPagePW.checkImageCherdakAndBannersForUnauthorized();
+        kidsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
+        kidsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
+        kidsPagePW.checkImageFooterForUnauthorized();
         kidsPagePW.checkImageKidsPageScrollForUnauthorized();
+        kidsPagePW.checkBackgroundKidsPage();
+
     }
 }

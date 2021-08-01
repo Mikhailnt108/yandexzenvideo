@@ -32,6 +32,9 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static CardFilmPW cardFilmPW;
     public static CardSerialPW cardSerialPW;
     public static KidsPagePW kidsPagePW;
+    public static AllCollectionsPagePW allCollectionsPagePW;
+    public static PromoPagePW promoPagePW;
+    public static PersonalOfferPW personalOfferPW;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
@@ -73,6 +76,9 @@ public class TestBasePlaywright extends BasePagePlaywright{
         cardFilmPW = new CardFilmPW(page);
         cardSerialPW = new CardSerialPW(page);
         kidsPagePW = new KidsPagePW(page);
+        allCollectionsPagePW = new AllCollectionsPagePW(page);
+        promoPagePW = new PromoPagePW(page);
+        personalOfferPW = new PersonalOfferPW(page);
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

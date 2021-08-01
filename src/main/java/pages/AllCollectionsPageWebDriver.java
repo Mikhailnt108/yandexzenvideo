@@ -28,6 +28,8 @@ public class AllCollectionsPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkElementsPageCollections() {
+        isElementDisplayed(By.xpath("//span[text()='Подборки']"));
+        isElementDisplayed(By.xpath("//button[contains(text(), 'Следующая')]"));
         isElementDisplayed(By.xpath("//h1[text()='Популярные подборки фильмов и сериалов']"));
         isElementDisplayed(By.xpath("//p[contains(text(),'Мы собрали коллекции лучших фильмов, мультфильмов и сериалов, чтобы смотреть МегаФон ТВ где и когда удобно с любых устройств.')]"));
         isElementDisplayed(By.xpath("//a[@class='_2W-IRVg8nfmL65JjHBY-ly']"));

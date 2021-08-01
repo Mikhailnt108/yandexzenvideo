@@ -22,7 +22,7 @@ public class CollectionPageWebDriver extends BasePageWebDriver {
         super(driver);
     }
 
-    public void checkOpenCollectionPage() {
+    public void checkOpenCollectionPageForKids() {
         isElementDisplayed(By.xpath("//a[@href='/collection']//span[1]"));
     }
 
@@ -121,5 +121,7 @@ public class CollectionPageWebDriver extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/mixed_groups/')])[1]"));
     }
 
+    public void checkBackgroundPageForKids() {
 
+    }
 }

@@ -20,7 +20,7 @@ public class Test_05_1_Подобрали_специально_для_Вас_Б�
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionSpecialForYou();
-        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPageForKids();
         collectionsPage.clickToTailContentOnPageCollect();
         headerMenu.goToNilPage();
         nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();
@@ -35,7 +35,7 @@ public class Test_05_1_Подобрали_специально_для_Вас_Б�
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllWithCollectionSpecialForYou();
-        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPageForKids();
         collectionsPage.clickToTailContentOnPageCollect();
         headerMenu.goToNilPage();
         nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();

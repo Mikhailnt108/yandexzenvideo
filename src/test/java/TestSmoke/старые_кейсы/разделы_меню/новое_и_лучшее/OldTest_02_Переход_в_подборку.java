@@ -16,6 +16,6 @@ public class OldTest_02_Переход_в_подборку extends TestBaseWebDr
     public void goToCollectionPage() {
         headerMenu.goToNilPage();
         nilPage.clickToLinkAllOnCollectionBlock();
-        collectionsPage.checkOpenCollectionPage();
+        collectionsPage.checkOpenCollectionPageForKids();
    }
 }

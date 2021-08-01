@@ -694,9 +694,9 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
     }
 
-    public void checkBackgroundPageCollectForKids() {
-        String Background = webDriver.findElement(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]")).getCssValue("background-image");
-        System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]")).getCssValue("background-image"));
+    public void checkBackgroundPageCollectionForKids() {
+        String Background = webDriver.findElement(By.xpath("//div[@class='_3c9FjHVIHIuT3fX6yTP3IO zK5BWWTConuPWpB-NgSkJ']")).getCssValue("background-image");
+        System.out.println(webDriver.findElement(By.xpath("//div[@class='_3c9FjHVIHIuT3fX6yTP3IO zK5BWWTConuPWpB-NgSkJ']")).getCssValue("background-image"));
         System.out.println(Background.substring(0,3));
         Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
     }

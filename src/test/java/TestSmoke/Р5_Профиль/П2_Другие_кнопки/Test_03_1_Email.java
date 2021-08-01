@@ -5,18 +5,17 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_Подключить_Smart_TV_ДОБАВИТЬ_ASHOT_АКТУАЛЕН_10_02_21 extends TestBaseWebDriver {
+public class Test_03_1_Email extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Другие кнопки")
-    @DisplayName(value ="Подключить Smart_TV")
+    @DisplayName(value ="Email")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void ConnectSmartTv() {
+    public void email() {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.noConnectSmartTv();
-        headerMenu.connectSmartTv();
+        headerMenu.inputEmail();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
