@@ -561,24 +561,24 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkElementsBlockCollectionSpecialForYou() {
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']"));
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']"));
-        isElementDisplayed(By.linkText("Подобрали специально для вас"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//a[@data-test='PackageLink'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::h3[@data-test='PackageDescriptionTitle'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span)[1]"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_2I_pgomfMGx8HVFvHlZhKj']"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText']"));
         isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
         isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled])[1]"));
     }
 
     public void clickToTailContentCollectionSpecialForYou() {
-        click(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']//following::div[@class='_1byOct53kb4KlmAs0JuRSX']"));
+        click(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1byOct53kb4KlmAs0JuRSX']"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]|//a[@href='/shows']//span[1]"));
     }
 
     public void clickToLinkAllWithCollectionSpecialForYou() {
-        click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
+        click(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText']"));
     }
 
     public void scrollСollectionToRightInBlockCollectionSpecialForYou() {
@@ -630,42 +630,47 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkElementsBlockCollectHistoryWatch() {
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']"));
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ'])[1]"));
-        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
-        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_2I_pgomfMGx8HVFvHlZhKj']"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]"));
+//        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
+//        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 
     public void checkAndClickOnTailCardFilmInCollectHistoryWatch() {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_2I_pgomfMGx8HVFvHlZhKj'])[1]"));
-        isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
-        click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
-
-
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]//div[@class='_2I_pgomfMGx8HVFvHlZhKj']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]"));
+        click(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]"));
     }
 
     public void checkAndClickOnTailCardSerialInCollectHistoryWatch() {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_2I_pgomfMGx8HVFvHlZhKj'])[1]"));
-        isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
-        click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]//div[@class='_2I_pgomfMGx8HVFvHlZhKj']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]"));
+        click(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]"));
 
     }
 
     public void checkAndClickOnTailCardTvProgramInCollectHistoryWatch() {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ'])[1]"));
-        isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
-        String nameTVProgram = webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3)[1]")).getText();
-        click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/tv/channels/')]//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/tv/channels/')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/tv/channels/')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span"));
+        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/tv/channels/')]"));
+        String nameTVProgram = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3")).getText();
+        click(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
         Assert.assertEquals(nameTVProgram, webDriver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
     }
 
@@ -688,7 +693,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
     public void checkToMoveTileToFirstPlace() {
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.navigate().back();
+        webDriver.get("https://web-preprod5.megafon.tv/");
         Assert.assertEquals("элементы не совпадают",nameFilm, webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 

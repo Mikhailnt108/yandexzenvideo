@@ -60,7 +60,7 @@ public class TestBaseWebDriver {
         //driver = new ChromeDriver(capabilities);
         ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--window-size=1900,1000");
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         options.addArguments("start-maximized");
         //запуск браузера в фоне:
         //options.setHeadless(true);

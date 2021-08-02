@@ -28,7 +28,6 @@ public class CardPackage extends BasePageWebDriver {
 
 
     public void checkOpenCardPackage() {
-
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
     }
 

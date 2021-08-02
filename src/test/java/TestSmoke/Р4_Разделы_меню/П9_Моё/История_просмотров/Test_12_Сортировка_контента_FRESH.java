@@ -55,7 +55,7 @@ public class Test_12_Сортировка_контента_FRESH extends TestBas
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
         serialsPage.clickToLastTailBlockCollectHistoryWatch();
-        cardSerial.checkTimeStopPleerAndAutoStartPlayer();
+        cardSerial.checkTimeStopPlayer();
         serialsPage.checkToMoveTailToFirstPlace();
         pageCMS.deleteAccountMF("79260192144");
     }

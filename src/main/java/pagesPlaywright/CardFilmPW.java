@@ -2,9 +2,14 @@ package pagesPlaywright;
 
 import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
+import com.microsoft.playwright.Mouse;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.BoundingBox;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -43,6 +48,21 @@ public class CardFilmPW extends BasePagePlaywright {
         String timeEnd = page.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
         Assert.assertNotEquals(timeStart, timeEnd);
     }
+
+    public void moveSliderRewindToVideoPleer() throws InterruptedException {
+        //нажать "Смотреть" - видео запустилось
+        page.click("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]");
+        page.waitForTimeout(5000);
+        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        //переместить слайдер на середину прогресс бара:
+        ElementHandle progressBar = page.querySelector("(//div[@class='_1y3ojG7nWNTRJiI_87BjFx'])[1]");
+        progressBar.click();
+        //кликнуть в середину прогресс бара:
+        page.click("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]");
+        page.waitForTimeout(5000);
+    }
+
+
 
     public void checkImageCardFilmForUnauthorized() throws IOException, InterruptedException {
         page.reload();

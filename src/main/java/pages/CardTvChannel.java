@@ -96,14 +96,14 @@ public class CardTvChannel extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void clickToButtonPlay() {
+    public void clickToButtonPlay() throws InterruptedException {
         click(By.xpath("(//span[contains(text(),'Смотреть бесплатно')])[1]|(//span[contains(text(),'Подключить бесплатно')])[1]"));
     }
 
     public void clickTvProgramRecordInCardTvChannel() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]")));
+        Thread.sleep(5000);
         click(By.xpath("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]"));
-
     }
 
     public void checkImageDifferCardTvChannelForUnauthorized() throws IOException {

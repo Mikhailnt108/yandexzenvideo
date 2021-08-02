@@ -13,7 +13,7 @@ public class Test_05_1_Подобрали_специально_для_Вас_Б�
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void collectionSpecialForYou() throws Exception {
-        // не авторизованный пользователь:
+        //пользователь НЕ авторизован:
         headerMenu.goToNilPage();
         headerMenu.checkNotLoggedIsCorrect();
         nilPage.checkElementsBlockCollectionSpecialForYou();
@@ -28,7 +28,7 @@ public class Test_05_1_Подобрали_специально_для_Вас_Б�
         nilPage.clickToLastTailInCollectionSpecialForYou();
         ratingPage.checkOpenRatingPage();
         headerMenu.goToNilPage();
-        // авторизованный пользователь:
+        //пользователь авторизован:
         headerMenu.goToNilPage();
         flowRegistation();
         nilPage.checkElementsBlockCollectionSpecialForYou();

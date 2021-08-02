@@ -138,6 +138,7 @@ public class CardTvProgram extends BasePageWebDriver {
         Thread.sleep(5000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
+        Thread.sleep(7000);
     }
 
     public void rewindOn10secondsToVideoPleer() throws InterruptedException {

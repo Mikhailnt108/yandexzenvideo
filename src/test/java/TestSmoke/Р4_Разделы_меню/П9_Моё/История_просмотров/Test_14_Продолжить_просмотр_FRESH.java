@@ -40,7 +40,7 @@ public class Test_14_Продолжить_просмотр_FRESH extends TestBas
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
         serialsPage.clickToFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkTimeStopPleerAndAutoStartPlayer();
+        cardSerial.checkTimeStopPlayer();
         cardSerial.checkButtonContinueWatching();
         pageCMS.deleteAccountMF("79260192144");
     }

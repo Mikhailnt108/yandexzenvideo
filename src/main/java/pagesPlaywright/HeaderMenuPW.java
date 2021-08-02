@@ -340,4 +340,50 @@ public class HeaderMenuPW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
     }
+
+    public void goToPackagesPage() {
+        page.navigate("https://web-preprod5.megafon.tv/packages");
+    }
+
+    public void checkImageBlockCollectHistoryWatch() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod5.megafon.tv/");
+        List<ElementHandle> posterPackageAll;
+        List<ElementHandle> titlePackageAll;
+        List<ElementHandle> descriptionTextPackageAll;
+        List<ElementHandle> ageAll;
+        for (int i = 0; i < page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']").size(); i++) {
+            posterPackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+            page.evaluate("p => p.setAttribute('style', 'background-size: cover; " +
+                    "background-color: rgb(238, 238, 238); " +
+                    "background-image: url(https://static-sesure.cdn.megafon.tv/images/Mixed/35/ee/4cb8df5e72d867ab46ba2da8169c56159b71/tile__web-wp.webp);')", posterPackageAll.get(i));
+            titlePackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//h3[@data-test='PackageDescriptionTitle']");
+            page.evaluate("t => t.innerText='Название контента'", titlePackageAll.get(i));
+            descriptionTextPackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span");
+            page.evaluate("d => d.textContent='description'", descriptionTextPackageAll.get(i));
+            ageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        }
+        ElementHandle blockCollectHistoryWatchNil = page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
+        // делаем скриншот элемента "blockCollectHistoryWatchNil":
+        vrt.track(
+                "blockCollectHistoryWatchNil",
+                Base64.getEncoder().encodeToString(blockCollectHistoryWatchNil.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        ElementHandle tailWatchAndEditCollectHistoryWatchNil = page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+        // делаем скриншот элемента "tailWatchAndEditCollectHistoryWatchNil":
+        vrt.track(
+                "tailWatchAndEditCollectHistoryWatchNil",
+                Base64.getEncoder().encodeToString(tailWatchAndEditCollectHistoryWatchNil.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
 }

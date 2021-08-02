@@ -213,22 +213,25 @@ public class CardSerial extends BasePageWebDriver {
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
+        Thread.sleep(7000);
     }
 
-    public void checkTimeStopPleerAndAutoStartPlayer() throws InterruptedException {
+    public void checkTimeStopPlayer() throws InterruptedException {
         Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(7000);
+        Thread.sleep(2000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        //нажал на стоп:
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         webDriver.get("https://web-preprod5.megafon.tv/shows");
-        //Кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
+        //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
-        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
+//        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(2000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        //нажал на стоп:
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time4 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertEquals(time3, time4);
@@ -249,6 +252,7 @@ public class CardSerial extends BasePageWebDriver {
         Thread.sleep(7000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
+        Thread.sleep(7000);
     }
 
     public void checkAutoStartVideoPlayer() throws InterruptedException {

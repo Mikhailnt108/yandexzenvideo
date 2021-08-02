@@ -244,7 +244,13 @@ public class HeaderMenu extends BasePageWebDriver {
         }
         webDriver.navigate().refresh();
     }
-
+    public void checkLoginUserIsCorrectFlowForMFFast()  {
+        isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+    }
     public void checkLoginUserIsCorrectFlowForAPINotif()  {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();

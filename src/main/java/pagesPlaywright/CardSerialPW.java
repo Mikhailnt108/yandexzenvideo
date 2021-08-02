@@ -424,6 +424,19 @@ public class CardSerialPW extends BasePagePlaywright {
                             .diffTollerancePercent(0.3f)
                             .build());
         }
+
+    public void moveSliderRewindToVideoPleer() {
+        //нажать "Смотреть" - видео запустилось
+        page.click("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]");
+        page.waitForTimeout(7000);
+        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        //переместить слайдер на середину прогресс бара:
+        ElementHandle progressBar = page.querySelector("(//div[@class='_1y3ojG7nWNTRJiI_87BjFx'])[1]");
+        progressBar.click();
+        //кликнуть в середину прогресс бара:
+        page.click("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]");
+        page.waitForTimeout(7000);
+    }
 }
 
 
