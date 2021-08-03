@@ -50,10 +50,12 @@ public class CardFilmPW extends BasePagePlaywright {
     }
 
     public void moveSliderRewindToVideoPleer() throws InterruptedException {
+        page.waitForTimeout(5000);
         //нажать "Смотреть" - видео запустилось
         page.click("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]");
         page.waitForTimeout(5000);
         page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        page.waitForTimeout(5000);
         //переместить слайдер на середину прогресс бара:
         ElementHandle progressBar = page.querySelector("(//div[@class='_1y3ojG7nWNTRJiI_87BjFx'])[1]");
         progressBar.click();

@@ -15,8 +15,8 @@ public class PackagesPagePW extends BasePagePlaywright {
        page.waitForSelector("//div[text()='Все пакеты']");
     }
 
-    public void clickToTailCardPackageTnB() {
-        page.click("(//span[text()='Бесплатно по акции'])[1]");
+    public void clickToTailCardPackageKinoPoPodpiske() {
+        page.click("//h3[text()='Кино по подписке']");
     }
 
     public void clickToFirstTailCardPackage() {

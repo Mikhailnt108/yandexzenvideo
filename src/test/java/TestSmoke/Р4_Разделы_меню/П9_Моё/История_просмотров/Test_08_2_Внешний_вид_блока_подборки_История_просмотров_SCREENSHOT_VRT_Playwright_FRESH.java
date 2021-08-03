@@ -18,37 +18,34 @@ public class Test_08_2_Внешний_вид_блока_подборки_Ист�
         headerMenuPW.goToPackagesPage();
         flowRegistationMF();
         packagesPagePW.checkOpenShopPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToTailCardPackageTnB();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.checkOpenCardPackage();
         cardPackagePW.paymentPackageTnB();
 
         // просмотр первого сериала:
         headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToFirstTailCardPackage();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.clickToFirstTailCardSerial();
         cardSerialPW.moveSliderRewindToVideoPleer();
         headerMenuPW.goToSerialsPage();
 
         // просмотр второго сериала:
         headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToFirstTailCardPackage();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.clickToSecondTailCardSerial();
         cardSerialPW.moveSliderRewindToVideoPleer();
         headerMenuPW.goToSerialsPage();
 
         // просмотр третьего сериала:
         headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToFirstTailCardPackage();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.clickToThirdTailCardSerial();
         cardSerialPW.moveSliderRewindToVideoPleer();
         headerMenuPW.goToSerialsPage();
 
         // скриншот подборки "продолжить просмотр":
         headerMenuPW.goToSerialsPage();
+        headerMenuPW.reloadPage();
         serialsPagePW.checkImageBlockCollectHistoryWatchForMF();
         headerMenuPW.deleteAccountMF("79260192144");
 
@@ -57,33 +54,30 @@ public class Test_08_2_Внешний_вид_блока_подборки_Ист�
         headerMenuPW.goToNilPage();
         flowRegistationNonMF();
         headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToFirstTailCardPackage();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
 
         // просмотр первого сериала:
         headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToFirstTailCardPackage();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.clickToFirstTailCardSerial();
         cardSerialPW.moveSliderRewindToVideoPleer();
 
         // просмотр второго сериала:
         headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToFirstTailCardPackage();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.clickToSecondTailCardSerial();
         cardSerialPW.moveSliderRewindToVideoPleer();
 
         // просмотр третьего сериала:
         headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToTabSerialsInMenuShopPage();
-        packagesPagePW.clickToFirstTailCardPackage();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.clickToThirdTailCardSerial();
         cardSerialPW.moveSliderRewindToVideoPleer();
 
         // скриншот подборки "продолжить просмотр":
         headerMenuPW.goToSerialsPage();
+        headerMenuPW.reloadPage();
         serialsPagePW.checkImageBlockCollectHistoryWatchForNonMF();
         headerMenuPW.deleteAccountNonMF("79261184972");
     }
@@ -104,9 +98,9 @@ public class Test_08_2_Внешний_вид_блока_подборки_Ист�
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("9261184972");
+        headerMenuPW.inputLogin("+7 926 118 49 72");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpInputEmail("+7 926 019 21 44");
+        headerMenuPW.checkOpenPopUpInputEmail("+7 926 118 49 72");
         headerMenuPW.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenuPW.clickToNext();
         headerMenuPW.inputPassword("111111");

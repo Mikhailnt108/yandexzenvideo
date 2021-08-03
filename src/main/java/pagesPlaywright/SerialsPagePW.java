@@ -624,6 +624,7 @@ public class SerialsPagePW extends BasePagePlaywright {
                         .build());
         page.click("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']");
         page.waitForSelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+        page.waitForTimeout(3000);
         ElementHandle tailWatchAndEditCollectHistoryWatchSerials = page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
 
         // делаем скриншот элемента "tailWatchAndEditCollectHistoryWatchSerialsForMF":

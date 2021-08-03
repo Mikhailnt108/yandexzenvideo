@@ -16,10 +16,9 @@ public class Test_06_1_История_просмотров_ASHOT_FRESH_unstable_
         headerMenu.goToPackagesPage();
         flowAuthorization();
         packagesPage.checkOpenShopPage();
-//        packagesPage.clickToTailCardPackageTnB();
-//        cardPackage.checkOpenCardPackage();
-//        cardPackage.paymentPackageTnB();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.checkOpenCardPackage();
+        cardPackage.paymentPackageTnB();
 
         //проверка отображения фильма в подборке:
         cardPackage.clickOnTailFirstCardFilm();
@@ -32,7 +31,7 @@ public class Test_06_1_История_просмотров_ASHOT_FRESH_unstable_
 
         //проверка отображения сериала в подборке:
         headerMenu.goToPackagesPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         headerMenu.goToNilPage();
@@ -41,14 +40,14 @@ public class Test_06_1_История_просмотров_ASHOT_FRESH_unstable_
         cardSerial.checkTimeStopPlayer();
         nilPage.checkToMoveTileToFirstPlace();
 
-//        //проверка отображения тв передачи в подборке:
-//        headerMenu.goToPackagesPage();
-//        packagesPage.clickToFirstTailCardPackage();
-//        cardPackage.clickOnTailCardChannel();
-//        cardTvChannel.clickTvProgramRecordInCardTvChannel();
-//        cardTvProgram.moveSliderRewindToVideoPlayer();
-//        headerMenu.goToNilPage();
-//        nilPage.checkAndClickOnTailCardTvProgramInCollectHistoryWatch();
+        //проверка отображения тв передачи в подборке:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickOnTailCardChannel();
+        cardTvChannel.clickTvProgramRecordInCardTvChannel();
+        cardTvProgram.moveSliderRewindToVideoPlayer();
+        headerMenu.goToNilPage();
+        nilPage.checkAndClickOnTailCardTvProgramInCollectHistoryWatch();
 
         //проверка отсутствия эротического контента в подборке:
         //тв передача 18+:
@@ -78,7 +77,7 @@ public class Test_06_1_История_просмотров_ASHOT_FRESH_unstable_
         headerMenu.goToNilPage();
         nilPage.checkAbsentFilm18PlusInCollectHistoryWatch();
 
-        //скриншоты и переходы:
+        //чек подборки и переходы:
         headerMenu.goToNilPage();
         nilPage.checkElementsBlockCollectHistoryWatch();
         nilPage.clickToAllOnBlockCollectHistoryWatch();

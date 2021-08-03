@@ -16,7 +16,7 @@ public class Test_06_2_История_просмотров_SCREENSHOT_VRT_Playwr
         headerMenuPW.goToPackagesPage();
         flowRegistationMF();
         packagesPagePW.checkOpenShopPage();
-        packagesPagePW.clickToTailCardPackageTnB();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
         cardPackagePW.checkOpenCardPackage();
         cardPackagePW.paymentPackageTnB();
 
@@ -32,13 +32,13 @@ public class Test_06_2_История_просмотров_SCREENSHOT_VRT_Playwr
         cardSerialPW.moveSliderRewindToVideoPleer();
         headerMenuPW.goToNilPage();
 
-//        //просмотр тв передачи:
-//        headerMenuPW.goToPackagesPage();
-//        packagesPagePW.clickToFirstTailCardPackage();
-//        cardPackagePW.clickOnTailCardChannel();
-//        cardTvChannelPW.clickTvProgramRecordInCardTvChannel();
-//        cardTvProgramPW.moveSliderRewindToVideoPlayer();
-//        headerMenuPW.goToNilPage();
+        //просмотр тв передачи:
+        headerMenuPW.goToPackagesPage();
+        packagesPagePW.clickToFirstTailCardPackage();
+        cardPackagePW.clickOnTailCardChannel();
+        cardTvChannelPW.clickTvProgramRecordInCardTvChannel();
+        cardTvProgramPW.moveSliderRewindToVideoPlayer();
+        headerMenuPW.goToNilPage();
         headerMenuPW.checkImageBlockCollectHistoryWatch();
     }
 

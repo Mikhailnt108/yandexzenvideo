@@ -335,10 +335,10 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void checkTimeStopPleer() throws InterruptedException {
+        //автозапуск продолжения фильма:
         Actions actions = new Actions(webDriver);
-        //нажал "Смотреть" - видео запустилось
-        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        //нажать стоп:
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         webDriver.navigate().back();

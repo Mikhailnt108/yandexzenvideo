@@ -28,6 +28,7 @@ public class CardPackagePW extends BasePagePlaywright {
     }
 
     public void clickToFirstTailCardSerial() {
+        page.click("(//div[text()='Сериалы'])[3]");
         page.click("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]");
     }
 
@@ -37,17 +38,19 @@ public class CardPackagePW extends BasePagePlaywright {
     }
 
     public void clickToSecondTailCardSerial() {
+        page.click("(//div[text()='Сериалы'])[3]");
         page.click("(//a[@class='_8m5mByCjTuND14zuGKagi'])[2]");
     }
 
     public void clickToThirdTailCardSerial() {
+        page.click("(//div[text()='Сериалы'])[3]");
         page.click("(//a[@class='_8m5mByCjTuND14zuGKagi'])[3]");
     }
 
     public void paymentPackageTnBForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) {
         page.click("//span[contains(text(), 'Подключить бесплатно')]");
         page.waitForSelector("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]");
-        page.click("//button[text()='Подтвердить' or text()='Принять и подключить']");
+        page.click("//button[text()='Подтвердить' or text()='Добавить и подключить']");
         page.waitForSelector("//h3[text()=' Привязать банковскую карту']");
         page.fill("//input[@placeholder='Номер карты']", numberBankCard);
         page.fill("//input[@placeholder='Срок действия']", dataValidity);

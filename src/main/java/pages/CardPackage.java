@@ -285,12 +285,12 @@ public class CardPackage extends BasePageWebDriver {
     }
 
     public void clickToSecondTailCardSerial() {
-
+        click(By.xpath("(//div[text()='Сериалы'])[3]"));
         click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[2]"));
     }
 
     public void clickToThirdTailCardSerial() {
-
+        click(By.xpath("(//div[text()='Сериалы'])[3]"));
         click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[3]"));
     }
 

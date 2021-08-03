@@ -454,4 +454,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
         pageCMS.click("//button[text()='Удалить']");
         pageCMS.close();
     }
+
+    public void reloadPage() {
+        page.reload();
+    }
 }

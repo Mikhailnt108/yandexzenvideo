@@ -41,7 +41,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("PVWMBZRR38MB3FJZWBP7BKQHGSEM")
+                    .apiKey("VB2XAT15YZ4VN7J1410HDNMPMN2V")
                     .project("MFTV_Web")
                     .branchName("master")
                     .httpTimeoutInSeconds(30)
@@ -52,9 +52,9 @@ public class TestBasePlaywright extends BasePagePlaywright{
     static void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
 //      // ноут:
-        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+//        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         // комп:
-//        userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+        userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
                 new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
                         .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));

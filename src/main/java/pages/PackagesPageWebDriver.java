@@ -241,4 +241,8 @@ public class PackagesPageWebDriver extends BasePageWebDriver {
     public void clickToTabAllServices() {
         click(By.xpath("//div[text()='Все сервисы']"));
     }
+
+    public void clickToTailCardPackageKinoPoPodpiske() {
+        click(By.xpath("//h3[text()='Кино по подписке']"));
+    }
 }
