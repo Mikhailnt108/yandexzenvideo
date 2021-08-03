@@ -925,6 +925,13 @@ public class HeaderMenu extends BasePageWebDriver {
     public void goToPromoPage() {
         webDriver.get(Promo_Page_PP5);
     }
+
+    public void inputPassword(String password) {
+        isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']"));
+        WebElement element1 = webDriver.findElement(By.xpath("//input[@type='password']"));
+        element1.sendKeys(password);
+
+    }
 }
 
 

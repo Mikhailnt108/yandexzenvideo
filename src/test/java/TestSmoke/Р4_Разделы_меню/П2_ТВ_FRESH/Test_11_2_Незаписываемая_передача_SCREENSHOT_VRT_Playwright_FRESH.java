@@ -1,14 +1,9 @@
 package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
 
 import base.TestBasePlaywright;
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class Test_11_2_Незаписываемая_передача_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -36,6 +31,6 @@ public class Test_11_2_Незаписываемая_передача_SCREENSHOT_
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMF();
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

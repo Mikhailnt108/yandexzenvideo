@@ -6,8 +6,12 @@ import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -84,7 +88,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.navigate("https://web-preprod5.megafon.tv/");
     }
 
-    public void clickToComeIn(String button) {
+    public void clickToComeIn(String buttons) {
         page.click("//button[text()='Войти']");
     }
 
@@ -104,7 +108,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.fill("//input[@placeholder='Код подтверждения']",codMsisdn);
     }
 
-    public void checkLoginUserIsCorrectFlowForMF() {
+    public void checkLoginUserIsCorrectFlowForMfOrNonMf() {
         page.waitForSelector("(//span[contains(text(),'+792')])[2]");
         page.reload();
 //        page.waitForLoadState();
@@ -359,7 +363,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
             titlePackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//h3[@data-test='PackageDescriptionTitle']");
             page.evaluate("t => t.innerText='Название контента'", titlePackageAll.get(i));
             descriptionTextPackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span");
-            page.evaluate("d => d.textContent='description'", descriptionTextPackageAll.get(i));
+            page.evaluate("d => d.textContent='Description'", descriptionTextPackageAll.get(i));
             ageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
             page.evaluate("a => a.innerText='18+'", ageAll.get(i));
         }
@@ -385,5 +389,69 @@ public class HeaderMenuPW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
+    }
+
+    public void checkOpenPopUpInputEmail(String login) {
+        page.waitForSelector("//div[text()='Введите E-mail']|//div[text()='Введите пароль']");
+        if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
+            pageCMS = contextNormalModeHeadfull.newPage();
+            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+            pageCMS.click("//form[@method='GET']//input[1]");
+            pageCMS.fill("//form[@method='GET']//input[1]", login);
+            pageCMS.click("//button[text()='Поиск']");
+            pageCMS.waitForSelector("//td[text()='79261184972']");
+            pageCMS.click("//a[contains(@href, '/cms/households/')]");
+            pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+            pageCMS.click("//button[text()='Удалить']");
+            pageCMS.onDialog(dialog -> dialog.accept());
+            pageCMS.click("//button[text()='Удалить']");
+            pageCMS.close();
+            page.bringToFront();
+            page.reload();
+            page.waitForSelector("(//span[text()='Вход'])[1]");
+            page.click("(//span[text()='Вход'])[1]");
+            page.waitForSelector("//div[text()='Введите номер телефона']");
+            page.focus("//input[@name='login']");
+            page.fill("//input[@name='login']", login);
+            page.click("//button[text()='Далее']");
+            page.waitForSelector("//div[text()='Введите E-mail']");
+        }
+    }
+
+    public void inputValidEmailInPopUpInputEmail(String email) {
+        page.querySelector("//div[text()='Введите E-mail']");
+        page.fill("//input[@placeholder='E-mail']", email);
+    }
+
+    public void inputPassword(String password) {
+        page.querySelector("//div[text()='Придумайте пароль']");
+        page.fill("//input[@type='password']", password);
+    }
+
+    public void copyPasteCodMsisdnForNonMF(String login) {
+        pageCMS = contextNormalModeHeadfull.newPage();
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations");
+        pageCMS.click("//form[@method='GET']//input[1]");
+        pageCMS.fill("//form[@method='GET']//input[1]", login);
+        pageCMS.click("//button[text()='Поиск']");
+        String codMsisdn = pageCMS.waitForSelector("(//td[text()='79261184972']/following-sibling::td)[4]").innerText();
+        pageCMS.close();
+        page.waitForSelector("//input[@placeholder='Код подтверждения']");
+        page.fill("//input[@placeholder='Код подтверждения']",codMsisdn);
+    }
+
+    public void deleteAccountNonMF(String login) {
+        pageCMS = contextNormalModeHeadfull.newPage();
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+        pageCMS.click("//form[@method='GET']//input[1]");
+        pageCMS.fill("//form[@method='GET']//input[1]", login);
+        pageCMS.click("//button[text()='Поиск']");
+        pageCMS.waitForSelector("//td[text()='79261184972']");
+        pageCMS.click("//a[contains(@href, '/cms/households/')]");
+        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+        pageCMS.click("//button[text()='Удалить']");
+        pageCMS.onDialog(dialog -> dialog.accept());
+        pageCMS.click("//button[text()='Удалить']");
+        pageCMS.close();
     }
 }

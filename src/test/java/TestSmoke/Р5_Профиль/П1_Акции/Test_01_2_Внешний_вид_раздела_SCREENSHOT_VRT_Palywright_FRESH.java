@@ -1,12 +1,10 @@
 package TestSmoke.Р5_Профиль.П1_Акции;
 
 import base.TestBasePlaywright;
-import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Palywright_FRESH extends TestBasePlaywright {
@@ -47,6 +45,6 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Palyw
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMF();
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

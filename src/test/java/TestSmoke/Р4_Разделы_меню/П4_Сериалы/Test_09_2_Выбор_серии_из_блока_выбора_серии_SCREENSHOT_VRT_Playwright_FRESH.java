@@ -36,7 +36,7 @@ public class Test_09_2_Выбор_серии_из_блока_выбора_сер
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMF();
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 
 }

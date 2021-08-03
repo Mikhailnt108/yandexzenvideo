@@ -33,6 +33,6 @@ public class Test_02_2_Подключить_Smart_TV_SCREENSHOT_VRT_Playwright_F
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMF();
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

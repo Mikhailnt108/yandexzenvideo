@@ -31,6 +31,6 @@ public class Test_01_Общий_вид_окна_Ввести_промокод_SC
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMF();
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

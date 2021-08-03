@@ -1,15 +1,12 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
@@ -580,5 +577,112 @@ public class SerialsPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
     }
+
+    public void checkElementsBlockCollectHistoryWatch() {
+        page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
+        page.querySelector("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']");
+        page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]");
+        page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']");
+        page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3");
+        page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span");
+        page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_2I_pgomfMGx8HVFvHlZhKj']");
+        page.querySelector("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText']");
+        page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        page.querySelector("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']");
+        page.querySelector("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]");
+    }
+
+    public void checkImageBlockCollectHistoryWatchForMF() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod5.megafon.tv/shows");
+        List<ElementHandle> posterPackageAll;
+        List<ElementHandle> titlePackageAll;
+        List<ElementHandle> descriptionTextPackageAll;
+        List<ElementHandle> ageAll;
+        for (int i = 0; i < page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']").size(); i++) {
+            posterPackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+            page.evaluate("p => p.setAttribute('style', 'background-size: cover; " +
+                    "background-color: rgb(238, 238, 238); " +
+                    "background-image: url(https://static-sesure.cdn.megafon.tv/images/Mixed/35/ee/4cb8df5e72d867ab46ba2da8169c56159b71/tile__web-wp.webp);')", posterPackageAll.get(i));
+            titlePackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//h3[@data-test='PackageDescriptionTitle']");
+            page.evaluate("t => t.innerText='Название сериала'", titlePackageAll.get(i));
+            descriptionTextPackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span");
+            page.evaluate("d => d.textContent='1 сезон, Жанр'", descriptionTextPackageAll.get(i));
+            ageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        }
+        ElementHandle blockCollectHistoryWatchSerials = page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
+
+        // делаем скриншот элемента "blockCollectHistoryWatchSerialsForMF":
+        vrt.track(
+                "blockCollectHistoryWatchSerialsForMF",
+                Base64.getEncoder().encodeToString(blockCollectHistoryWatchSerials.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.click("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']");
+        page.waitForSelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+        ElementHandle tailWatchAndEditCollectHistoryWatchSerials = page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+
+        // делаем скриншот элемента "tailWatchAndEditCollectHistoryWatchSerialsForMF":
+        vrt.track(
+                "tailWatchAndEditCollectHistoryWatchSerialsForMF",
+                Base64.getEncoder().encodeToString(tailWatchAndEditCollectHistoryWatchSerials.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageBlockCollectHistoryWatchForNonMF() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod5.megafon.tv/shows");
+        List<ElementHandle> posterPackageAll;
+        List<ElementHandle> titlePackageAll;
+        List<ElementHandle> descriptionTextPackageAll;
+        List<ElementHandle> ageAll;
+        for (int i = 0; i < page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']").size(); i++) {
+            posterPackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+            page.evaluate("p => p.setAttribute('style', 'background-size: cover; " +
+                    "background-color: rgb(238, 238, 238); " +
+                    "background-image: url(https://static-sesure.cdn.megafon.tv/images/Mixed/35/ee/4cb8df5e72d867ab46ba2da8169c56159b71/tile__web-wp.webp);')", posterPackageAll.get(i));
+            titlePackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//h3[@data-test='PackageDescriptionTitle']");
+            page.evaluate("t => t.innerText='Название сериала'", titlePackageAll.get(i));
+            descriptionTextPackageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span");
+            page.evaluate("d => d.textContent='1 сезон, Жанр'", descriptionTextPackageAll.get(i));
+            ageAll = page.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        }
+        ElementHandle blockCollectHistoryWatchSerials = page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
+
+        // делаем скриншот элемента "blockCollectHistoryWatchSerialsForNonMF":
+        vrt.track(
+                "blockCollectHistoryWatchSerialsForNonMF",
+                Base64.getEncoder().encodeToString(blockCollectHistoryWatchSerials.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.click("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']");
+        page.waitForSelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+        ElementHandle tailWatchAndEditCollectHistoryWatchSerials = page.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+
+        // делаем скриншот элемента "tailWatchAndEditCollectHistoryWatchSerialsForNonMF":
+        vrt.track(
+                "tailWatchAndEditCollectHistoryWatchSerialsForNonMF",
+                Base64.getEncoder().encodeToString(tailWatchAndEditCollectHistoryWatchSerials.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
 }
+
 

@@ -16,9 +16,9 @@ public class Test_06_1_История_просмотров_ASHOT_FRESH_unstable_
         headerMenu.goToPackagesPage();
         flowAuthorization();
         packagesPage.checkOpenShopPage();
-        packagesPage.clickToTailCardPackageTnB();
-        cardPackage.checkOpenCardPackage();
-        cardPackage.paymentPackageTnB();
+//        packagesPage.clickToTailCardPackageTnB();
+//        cardPackage.checkOpenCardPackage();
+//        cardPackage.paymentPackageTnB();
         packagesPage.clickToFirstTailCardPackage();
 
         //проверка отображения фильма в подборке:
@@ -44,8 +44,8 @@ public class Test_06_1_История_просмотров_ASHOT_FRESH_unstable_
 //        //проверка отображения тв передачи в подборке:
 //        headerMenu.goToPackagesPage();
 //        packagesPage.clickToFirstTailCardPackage();
-        cardPackage.clickOnTailCardChannel();
-        cardTvChannel.clickTvProgramRecordInCardTvChannel();
+//        cardPackage.clickOnTailCardChannel();
+//        cardTvChannel.clickTvProgramRecordInCardTvChannel();
 //        cardTvProgram.moveSliderRewindToVideoPlayer();
 //        headerMenu.goToNilPage();
 //        nilPage.checkAndClickOnTailCardTvProgramInCollectHistoryWatch();
@@ -78,20 +78,19 @@ public class Test_06_1_История_просмотров_ASHOT_FRESH_unstable_
         headerMenu.goToNilPage();
         nilPage.checkAbsentFilm18PlusInCollectHistoryWatch();
 
-//        //скриншоты и переходы:
-//        headerMenu.goToNilPage();
+        //скриншоты и переходы:
+        headerMenu.goToNilPage();
         nilPage.checkElementsBlockCollectHistoryWatch();
-////        nilPage.checkImageDifferBlockCollectHistoryWatch();
-//        nilPage.clickToAllOnBlockCollectHistoryWatch();
-//        myPage.checkOpenPageMyHistory();
-//        myPage.checkVisibleContent18Plus();
-//        nilPage.checkAndClickOnTailWatchAndEdit();
-//        myPage.checkOpenPageMyHistory();
-//        myPage.checkVisibleContent18Plus();
-//        myPage.clickToButtonClearAllHistory();
-//        headerMenu.goToNilPage();
-//        nilPage.checkAbsentBlockCollectHistoryWatch();
-//        pageCMS.deleteAccountMF("79260192144");
+        nilPage.clickToAllOnBlockCollectHistoryWatch();
+        myPage.checkOpenPageMyHistory();
+        myPage.checkVisibleContent18Plus();
+        nilPage.checkAndClickOnTailWatchAndEdit();
+        myPage.checkOpenPageMyHistory();
+        myPage.checkVisibleContent18Plus();
+        myPage.clickToButtonClearAllHistory();
+        headerMenu.goToNilPage();
+        nilPage.checkAbsentBlockCollectHistoryWatch();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowAuthorization() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();

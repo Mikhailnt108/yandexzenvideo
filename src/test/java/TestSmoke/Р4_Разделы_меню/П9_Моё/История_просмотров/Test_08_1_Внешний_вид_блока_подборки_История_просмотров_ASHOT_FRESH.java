@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_08_Внешний_вид_блока_подборки_История_просмотров_ASHOT_FRESH extends TestBaseWebDriver {
+public class Test_08_1_Внешний_вид_блока_подборки_История_просмотров_ASHOT_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
@@ -93,7 +93,7 @@ public class Test_08_Внешний_вид_блока_подборки_Исто�
         headerMenu.checkElementsPopUpInputEmail();
         headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationNonMF("9261184972", "111111");
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");

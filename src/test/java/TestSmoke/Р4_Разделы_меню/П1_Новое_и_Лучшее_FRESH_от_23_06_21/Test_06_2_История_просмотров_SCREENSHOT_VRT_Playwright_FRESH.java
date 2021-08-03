@@ -14,7 +14,7 @@ public class Test_06_2_История_просмотров_SCREENSHOT_VRT_Playwr
     @Test
     public void historyViewing() throws Exception {
         headerMenuPW.goToPackagesPage();
-        flowRegistation();
+        flowRegistationMF();
         packagesPagePW.checkOpenShopPage();
         packagesPagePW.clickToTailCardPackageTnB();
         cardPackagePW.checkOpenCardPackage();
@@ -32,17 +32,17 @@ public class Test_06_2_История_просмотров_SCREENSHOT_VRT_Playwr
         cardSerialPW.moveSliderRewindToVideoPleer();
         headerMenuPW.goToNilPage();
 
-        //просмотр тв передачи:
-        headerMenuPW.goToPackagesPage();
-        packagesPagePW.clickToFirstTailCardPackage();
-        cardPackagePW.clickOnTailCardChannel();
-        cardTvChannelPW.clickTvProgramRecordInCardTvChannel();
-        cardTvProgramPW.moveSliderRewindToVideoPlayer();
-        headerMenuPW.goToNilPage();
+//        //просмотр тв передачи:
+//        headerMenuPW.goToPackagesPage();
+//        packagesPagePW.clickToFirstTailCardPackage();
+//        cardPackagePW.clickOnTailCardChannel();
+//        cardTvChannelPW.clickTvProgramRecordInCardTvChannel();
+//        cardTvProgramPW.moveSliderRewindToVideoPlayer();
+//        headerMenuPW.goToNilPage();
         headerMenuPW.checkImageBlockCollectHistoryWatch();
     }
 
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
@@ -53,6 +53,6 @@ public class Test_06_2_История_просмотров_SCREENSHOT_VRT_Playwr
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMF();
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

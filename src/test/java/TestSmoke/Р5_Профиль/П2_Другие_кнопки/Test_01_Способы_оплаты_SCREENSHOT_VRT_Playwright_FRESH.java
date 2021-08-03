@@ -1,7 +1,6 @@
 package TestSmoke.Р5_Профиль.П2_Другие_кнопки;
 
 import base.TestBasePlaywright;
-import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,6 +33,6 @@ public class Test_01_Способы_оплаты_SCREENSHOT_VRT_Playwright_FRESH
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMF();
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

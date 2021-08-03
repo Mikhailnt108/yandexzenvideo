@@ -685,7 +685,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkAndClickOnTailWatchAndEdit() {
-        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
+//        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Смотреть и редактировать")));
         isElementDisplayed(By.partialLinkText("Смотреть и редактировать"));
         click(By.partialLinkText("Смотреть и редактировать"));
