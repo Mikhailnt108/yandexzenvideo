@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_11_2_Незаписываемая_передача_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
+public class Test_11_2_Незаписываемая_передача_SCREENSHOT_VRT_Playwright_PLAYER extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
@@ -15,9 +15,7 @@ public class Test_11_2_Незаписываемая_передача_SCREENSHOT_
     public void unrecordedTvProgram() throws Exception {
         headerMenuPW.goToTvTabTvProgramInAir();
         flowRegistation();
-        cardTvProgramPW.checkAutoStartVideoPlayer();
-        cardTvProgramPW.checkImagePlayerСardTvProgramUnrecorded();
-        cardTvProgramPW.checkImageScheduleСardTvProgramUnrecorded();
+        cardTvProgramPW.checkImagePlayerСardTvProgramUnrecorded("+7 926 019 21 44" , "111111");
         headerMenuPW.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

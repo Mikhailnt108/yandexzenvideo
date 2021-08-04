@@ -14,11 +14,11 @@ import java.util.Arrays;
 
 public class TestBasePlaywright extends BasePagePlaywright{
     public static Playwright playwright;
-    public static Browser browserIncognitoModeHeadless;
-    public static BrowserContext contextNormalModeHeadfull;
-    public static BrowserContext contextIncognitoModeHeadless;
+    public static Browser browserIncognitoModeHeadfull;
+    public static BrowserContext contextNormalModeHeadless;
+    public static BrowserContext contextIncognitoModeHeadfull;
     public static Page page;
-    public static Page pageFull;
+    public static Page pagePlayer;
     public static Page pageCMS;
     public static Path userDataDir;
     public static HeaderMenuPW headerMenuPW;
@@ -55,23 +55,24 @@ public class TestBasePlaywright extends BasePagePlaywright{
 //        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         // комп:
         userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
-        contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
-                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
-                        .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
-
 //        contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
-//                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
-//                        .setViewportSize(1930, 830));
+//                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
+//                        .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
 
-        contextNormalModeHeadfull.clearCookies();
-        page = contextNormalModeHeadfull.pages().get(0);
+        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
+                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
+                        .setViewportSize(1930, 830));
+
+        contextNormalModeHeadless.clearCookies();
+        page = contextNormalModeHeadless.pages().get(0);
         page.setDefaultNavigationTimeout(60000);
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--start-maximized")));
-        contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions().setViewportSize(null));
+
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--start-maximized")));
+        contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions().setViewportSize(null));
         headerMenuPW = new HeaderMenuPW(page,pageCMS);
         filmsPagePW = new FilmsPagePW(page);
         serialsPagePW = new SerialsPagePW(page,pageCMS);
-        niLPagePW = new NiLPagePW(page, pageFull);
+        niLPagePW = new NiLPagePW(page, pagePlayer);
         collectionsPagePW = new CollectionsPagePW(page);
         tvPagePW = new TvPagePW(page);
         сardTvChannelPW = new СardTvChannelPW(page);
@@ -92,7 +93,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
 
     @AfterAll
     static void closeBrowser() throws IOException, InterruptedException {
-        contextNormalModeHeadfull.close();
+        contextNormalModeHeadless.close();
         playwright.close();
         vrt.stop();
     }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_Playwright_FRESH extends TestBasePlaywright {
+public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_Playwright_FullPage extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
@@ -16,10 +16,10 @@ public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_Playwri
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void appearanceSectionNilPage() throws IOException, InterruptedException{
-        niLPagePW.checkImageCherdakAndBanners();
-        niLPagePW.checkImageBlocksCollectionWithHeader();
-        niLPagePW.checkImageBlocksCollectionWithoutHeader();
-        niLPagePW.checkImageFooter();
+//        niLPagePW.checkImageCherdakAndBanners();
+//        niLPagePW.checkImageBlocksCollectionWithHeader();
+//        niLPagePW.checkImageBlocksCollectionWithoutHeader();
+//        niLPagePW.checkImageFooter();
         niLPagePW.checkImageNilPageScroll();
     }
 }

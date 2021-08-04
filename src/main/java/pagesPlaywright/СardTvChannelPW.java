@@ -87,7 +87,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
             page.evaluate("a => a.innerText='18+'", ageAll.get(i));
         }
 
-        // делаем скриншот полной части страницы "СardTvChannel":
+        // делаем скриншот полной страницы "СardTvChannel":
         vrt.track(
                 "СardTvChannelForUnauthorized",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
