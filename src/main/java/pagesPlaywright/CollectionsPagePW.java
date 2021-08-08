@@ -4,6 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -86,5 +87,12 @@ public class CollectionsPagePW extends BasePagePlaywright {
                             .diffTollerancePercent(0.3f)
                             .build());
         }
+
+    public void checkBackgroundPageCollectionForKids() {
+        String Background = page.querySelector("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]").getAttribute("background-image");
+        System.out.println(page.querySelector("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]").getAttribute("background-image"));
+        System.out.println(Background.substring(0,3));
+        Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
     }
+}
 

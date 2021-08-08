@@ -1,8 +1,13 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
+import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
-import org.openqa.selenium.By;
+
+import java.nio.file.Paths;
+
+import static base.TestBasePlaywright.*;
+import static base.TestBasePlaywright.contextNormalModeHeadless;
 
 public class PackagesPagePW extends BasePagePlaywright {
     private Page page;
@@ -26,5 +31,9 @@ public class PackagesPagePW extends BasePagePlaywright {
     public void clickToTabSerialsInMenuShopPage() {
         page.waitForSelector("(//div[text()='Сериалы'])[3]");
         page.click("(//div[text()='Сериалы'])[3]");
+    }
+
+    public void clickToTailCardPackageKinoPoPodpiskeHeadfull() {
+        pageHeadfull.click("//h3[text()='Кино по подписке']");
     }
 }

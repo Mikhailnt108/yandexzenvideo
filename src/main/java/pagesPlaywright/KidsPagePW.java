@@ -21,7 +21,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageCherdakAndBannersForUnauthorized() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod4.megafon.tv/kids");
         // подготовка элемента "cherdakPageKidsForUnauthorized" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -86,7 +86,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithHeaderForUnauthorized() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod4.megafon.tv/kids");
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithHeader = page.querySelector("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         // подготовка элемента 'blockCollectionWithHeaderPageKidsForUnauthorized' к скриншот-тесту:
@@ -128,11 +128,11 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithoutHeaderForUnauthorized() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod4.megafon.tv/kids");
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
-        Assert.assertNotEquals("нет элемента - collectionName", page.querySelectorAll("//h3[@data-test='CollectionName']//text()").size(), 0);
+        Assert.assertNotEquals("нет элемента - collectionName", page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0);
         // подготовка элемента "blockCollectionWithoutHeaderForUnauthorized" к скриншот-тесту:
         ElementHandle posterCollection1 = page.querySelector("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B'])[1]");
         page.evaluate("pW => pW.setAttribute('style', 'background-image: url(\"https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp\");')", posterCollection1);
@@ -155,7 +155,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFooterForUnauthorized() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod4.megafon.tv/kids");
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
         // делаем скриншот элемента "footerPageKidsForUnauthorized":
         vrt.track(
@@ -172,7 +172,7 @@ public class KidsPagePW extends BasePagePlaywright {
     public void checkImageKidsPageScrollForUnauthorized() throws IOException, InterruptedException {
 //        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
 //        page = browser.newPage(new Browser.NewPageOptions().setViewportSize(1880, 930));
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod4.megafon.tv/kids");
         // подготовка страницы "PageKidsScrollForUnauthorized" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         List<ElementHandle> titleCollectionAll;
@@ -205,6 +205,8 @@ public class KidsPagePW extends BasePagePlaywright {
             page.evaluate("s => s.remove();", stickerAll.get(i));
         }
         // подготовка блоков подборок без заголовка:
+        Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
+        Assert.assertNotEquals("нет элемента - collectionName", page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0);
         List<ElementHandle> posterCollection2All;
         List<ElementHandle> titleCollection2All;
         for (int i = 0; i < page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(); i++) {
@@ -258,15 +260,8 @@ public class KidsPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkBackgroundPageCollectionForKids() {
-        String Background = page.querySelector("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]").getAttribute("background-image");
-        System.out.println(page.querySelector("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]").getAttribute("background-image"));
-        System.out.println(Background.substring(0,3));
-        Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
-    }
-
     public void checkBackgroundKidsPage() {
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod4.megafon.tv/kids");
         String Background = page.querySelector("//div[@class='_35YQGs7aas93eRD-8vTLT- _26VUc9ouKb9F8gVK9Zokon']").getAttribute("background-image");
         System.out.println(page.querySelector("//div[@class='_35YQGs7aas93eRD-8vTLT- _26VUc9ouKb9F8gVK9Zokon']").getAttribute("background-image"));
         System.out.println(Background.substring(0,3));

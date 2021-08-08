@@ -10,19 +10,20 @@ import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
-import static base.TestBasePlaywright.*;
+import static base.TestBasePlaywright.vrt;
 
 public class TvPagePW extends BasePagePlaywright {
     private Page page;
 
 
-    public TvPagePW (Page page) {
+    public TvPagePW(Page page) {
         this.page = page;
+
     }
 
     public void checkImageTvPageTabProgramTvForUnauthorized() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        page.navigate("https://web-preprod5.megafon.tv/tv");
+        page.navigate("https://web-preprod4.megafon.tv/tv");
         // подготовка полной страницы "TvPageTabProgramTv" к скриншот-тесту:
         List<ElementHandle> imgTvAll;
         List<ElementHandle> nameTvChannelAll;
@@ -55,7 +56,7 @@ public class TvPagePW extends BasePagePlaywright {
     }
 
     public void checkImageTabTvProgramInAir() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/tv/tv_catalog");
+        page.navigate("https://web-preprod4.megafon.tv/tv/tv_catalog");
         // подготовка полной страницы "TvPageTabTvProgramInAir" к скриншот-тесту:
         List<ElementHandle> posterTvProgramAll;
         List<ElementHandle> nameTvProgramAll;
@@ -97,7 +98,7 @@ public class TvPagePW extends BasePagePlaywright {
 
     public void checkImageTvPageTabProgramTvForAuthorized() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        page.navigate("https://web-preprod5.megafon.tv/tv");
+        page.navigate("https://web-preprod4.megafon.tv/tv");
         // подготовка полной страницы "TvPageTabProgramTv" к скриншот-тесту:
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);

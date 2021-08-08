@@ -1,17 +1,19 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
-import static base.TestBasePlaywright.contextNormalModeHeadless;
-import static base.TestBasePlaywright.vrt;
+import static base.TestBasePlaywright.*;
 
 public class HeaderMenuPW extends BasePagePlaywright {
     public Object openSubsectionConnectSmartTv;
@@ -23,7 +25,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public HeaderMenuPW(Page page, Page pageCMS) {
         this.page = page;
         this.pageCMS = pageCMS;
-
     }
 
     public void checkNotLoggedIsCorrect() {
@@ -51,7 +52,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.waitForSelector("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']");
         if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
             pageCMS = contextNormalModeHeadless.newPage();
-            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user");
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
             pageCMS.click("//button[text()='Поиск']");
@@ -80,7 +81,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void goToNilPage() {
-        page.navigate("https://web-preprod5.megafon.tv/");
+        page.navigate("https://web-preprod4.megafon.tv/");
     }
 
     public void clickToComeIn(String buttons) {
@@ -93,7 +94,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void copyPasteCodMsisdn(String login) {
         pageCMS = contextNormalModeHeadless.newPage();
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations");
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/msisdn_confirmations");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
         pageCMS.click("//button[text()='Поиск']");
@@ -106,27 +107,23 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkLoginUserIsCorrectFlowForMfOrNonMf() {
         page.waitForSelector("(//span[contains(text(),'+792')])[2]");
         page.reload();
-//        page.waitForLoadState();
         if (page.querySelectorAll("//div[@aria-label='Notification']").size() != 0) {
             page.click("//button[text()='Закрыть']");
         }
         page.reload();
-//        page.waitForLoadState();
         if (page.querySelectorAll("//div[@aria-label='Notification']").size() != 0) {
             page.click("//button[text()='Закрыть']");
         }
         page.reload();
-//        page.waitForLoadState();
         if (page.querySelectorAll("//div[@aria-label='Notification']").size() != 0) {
             page.click("//button[text()='Закрыть']");
         }
         page.reload();
-//        page.waitForLoadState();
     }
 
     public void deleteAccountMF(String login) {
         pageCMS = contextNormalModeHeadless.newPage();
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
         pageCMS.click("//button[text()='Поиск']");
@@ -140,29 +137,29 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void goToTvTabTvProgramInAir() {
-        page.navigate("https://web-preprod5.megafon.tv/tv/tv_catalog");
+        page.navigate("https://web-preprod4.megafon.tv/tv/tv_catalog");
     }
 
     public void goToTvTabProgramTv() {
 
-        page.navigate("https://web-preprod5.megafon.tv/tv");
+        page.navigate("https://web-preprod4.megafon.tv/tv");
     }
 
     public void goToFilmsPage() {
 
-        page.navigate("https://web-preprod5.megafon.tv/movies/vods");
+        page.navigate("https://web-preprod.megafon.tv/movies/vods");
     }
 
     public void goToSerialsPage() {
-        page.navigate("https://web-preprod5.megafon.tv/shows");
+        page.navigate("https://web-preprod4.megafon.tv/shows");
     }
 
     public void goToAllCollectionsPage() {
-        page.navigate("https://web-preprod5.megafon.tv/collection");
+        page.navigate("https://web-preprod4.megafon.tv/collection");
     }
 
     public void goToKidsPage() {
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod4.megafon.tv/kids");
     }
 
     public void clickToSearchButton() {
@@ -341,11 +338,11 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPage() {
-        page.navigate("https://web-preprod5.megafon.tv/packages");
+        page.navigate("https://web-preprod4.megafon.tv/packages");
     }
 
     public void checkImageBlockCollectHistoryWatch() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/");
+        page.navigate("https://web-preprod4.megafon.tv/");
         List<ElementHandle> posterPackageAll;
         List<ElementHandle> titlePackageAll;
         List<ElementHandle> descriptionTextPackageAll;
@@ -390,7 +387,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.waitForSelector("//div[text()='Введите E-mail']|//div[text()='Введите пароль']");
         if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
             pageCMS = contextNormalModeHeadless.newPage();
-            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user");
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
             pageCMS.click("//button[text()='Поиск']");
@@ -425,7 +422,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void copyPasteCodMsisdnForNonMF(String login) {
         pageCMS = contextNormalModeHeadless.newPage();
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations");
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-prepro4.megafon.tv/cms/msisdn_confirmations");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
         pageCMS.click("//button[text()='Поиск']");
@@ -437,7 +434,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void deleteAccountNonMF(String login) {
         pageCMS = contextNormalModeHeadless.newPage();
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-prepro4.megafon.tv/cms/households?role=user");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
         pageCMS.click("//button[text()='Поиск']");
@@ -452,5 +449,37 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void reloadPage() {
         page.reload();
+    }
+
+    public void saveCookiesBrowserHeadless() {
+        contextNormalModeHeadless.storageState(new BrowserContext.StorageStateOptions().setPath(Paths.get("state.json")));
+    }
+
+    public void getCookiesAndOpenHeadfullBrowser() {
+        contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions().setViewportSize(null).setStorageStatePath(Paths.get("state.json")));
+        pageHeadfull = contextIncognitoModeHeadfull.newPage();
+        pageHeadfull.navigate("https://web-preprod4.megafon.tv");
+        pageHeadfull.setDefaultNavigationTimeout(60000);
+        contextNormalModeHeadless.close();
+    }
+
+    public void goToNilPageHeadfull() {
+        pageHeadfull.navigate("https://web-preprod4.megafon.tv");
+    }
+
+    public void goToPackagesPageHeadfull() {
+        pageHeadfull.navigate("https://web-preprod4.megafon.tv/packages");
+    }
+
+    public void goToTvTabTvProgramInAirHeadfull() {
+        pageHeadfull.navigate("https://web-preprod4.megafon.tv/tv/tv_catalog");
+    }
+
+    public void goToSerialsPageHeadfull() {
+        pageHeadfull.navigate("https://web-preprod4.megafon.tv/shows");
+    }
+
+    public void reloadPageHeadfull() {
+        pageHeadfull.reload();
     }
 }

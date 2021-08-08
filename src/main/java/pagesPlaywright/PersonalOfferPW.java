@@ -52,7 +52,7 @@ public class PersonalOfferPW extends BasePagePlaywright {
                 multiPart("tnb.tnb_type", "soft").
                 multiPart("valid_since", startOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
-                when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/1/edit").
+                when().post("https://bmp-preprod4.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200), is(302)));
     }
     public void createPersonalOfferTypeSubscription() {
@@ -86,7 +86,7 @@ public class PersonalOfferPW extends BasePagePlaywright {
                 multiPart("subscription.payment_interval", "10").
                 multiPart("valid_since", startOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
-                when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/2/edit").
+                when().post("https://bmp-preprod4.megafon.tv/cms/personal_offers/2/edit").
                 then().statusCode(anyOf(is(200),is(302)));
     }
     public void createPersonalOfferTypePartnerOfferKinoPoiskForMF() {
@@ -117,7 +117,7 @@ public class PersonalOfferPW extends BasePagePlaywright {
                 multiPart("partner_offer.partner_button", "KinoPoiskHD").
                 multiPart("valid_since", startOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
-                when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/3/edit").
+                when().post("https://bmp-preprod4.megafon.tv/cms/personal_offers/3/edit").
                 then().statusCode(anyOf(is(200), is(302)));
     }
     public void createPersonalOfferTypePartnerOfferOkkoTvForMF() {
@@ -148,33 +148,33 @@ public class PersonalOfferPW extends BasePagePlaywright {
                 multiPart("partner_offer.partner_button", "OkkoTv").
                 multiPart("valid_since", startOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
-                when().post("https://bmp-preprod5.megafon.tv/cms/personal_offers/4/edit").
+                when().post("https://bmp-preprod4.megafon.tv/cms/personal_offers/4/edit").
                 then().statusCode(anyOf(is(200),is(302)));
     }
 
     public void archivePersonalOfferPackageForZeroRublesForMF() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                get("https://bmp-preprod5.megafon.tv/cms/personal_offers/1/archive").
+                get("https://bmp-preprod4.megafon.tv/cms/personal_offers/1/archive").
                 then().statusCode(anyOf(is(200),is(302)));
     }
 
     public void archivePersonalOfferSubscription() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                get("https://bmp-preprod5.megafon.tv/cms/personal_offers/2/archive").
+                get("https://bmp-preprod4.megafon.tv/cms/personal_offers/2/archive").
                 then().statusCode(anyOf(is(200),is(302)));
     }
     public void archivePersonalOfferPartnerOfferKinoPoiskForMF() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                get("https://bmp-preprod5.megafon.tv/cms/personal_offers/3/archive").
+                get("https://bmp-preprod4.megafon.tv/cms/personal_offers/3/archive").
                 then().statusCode(anyOf(is(200), is(302)));
     }
     public void archivePersonalOfferPartnerOfferOkkoTvForMF() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                get("https://bmp-preprod5.megafon.tv/cms/personal_offers/4/archive").
+                get("https://bmp-preprod4.megafon.tv/cms/personal_offers/4/archive").
                 then().statusCode(anyOf(is(200), is(302)));
     }
 

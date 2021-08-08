@@ -1,21 +1,20 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
+import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.ElementHandle;
-import com.microsoft.playwright.Mouse;
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.BoundingBox;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
-import static base.TestBasePlaywright.vrt;
+import static base.TestBasePlaywright.*;
+import static base.TestBasePlaywright.contextIncognitoModeHeadfull;
+
 
 public class CardFilmPW extends BasePagePlaywright {
     private Page page;
@@ -30,117 +29,115 @@ public class CardFilmPW extends BasePagePlaywright {
     }
 
     public void paymentForFilm() {
-        if (page.querySelectorAll("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]").size() != 0) {
-            page.click("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]");
+        if (page.querySelectorAll("//span[contains(text(),'Навсегда за')]").size() != 0) {
+            page.click("//span[contains(text(),'Навсегда за')]");
             page.waitForSelector("(//button[@class='_3W3bxW5DPDIV5i4O3588XI'])[1]");
             page.click("(//button[@class='_3W3bxW5DPDIV5i4O3588XI'])[1]");
             page.waitForSelector("//span[text()='Подтвердить']");
             page.click("//span[text()='Подтвердить']");
             page.reload();
+            page.waitForSelector("//span[text()='Смотреть']");
         }
     }
 
-    public void checkAutoStartTrailerPlayer() throws InterruptedException {
-        Thread.sleep(7000);
-        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+    public void checkStartTrailerPlayer() throws InterruptedException {
+        //автозапуск плеера:
+        page.waitForTimeout(5000);
+        if(page.querySelectorAll("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").size() < 1){
+            page.click("//button[text()='Трейлер']");
+        }
         String timeStart = page.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
-        Thread.sleep(7000);
+        page.waitForTimeout(5000);
         String timeEnd = page.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
         Assert.assertNotEquals(timeStart, timeEnd);
     }
 
-    public void moveSliderRewindToVideoPleer() throws InterruptedException {
-        page.waitForTimeout(5000);
+    public void moveSliderRewindToVideoPlayerHeadfull() throws InterruptedException {
+        pageHeadfull.waitForTimeout(5000);
         //нажать "Смотреть" - видео запустилось
-        page.click("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]");
-        page.waitForTimeout(5000);
-        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
-        page.waitForTimeout(5000);
+        pageHeadfull.click("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]");
+        pageHeadfull.waitForTimeout(5000);
+        pageHeadfull.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        pageHeadfull.waitForTimeout(5000);
         //переместить слайдер на середину прогресс бара:
-        ElementHandle progressBar = page.querySelector("(//div[@class='_1y3ojG7nWNTRJiI_87BjFx'])[1]");
+        ElementHandle progressBar = pageHeadfull.querySelector("(//div[@class='_1y3ojG7nWNTRJiI_87BjFx'])[1]");
         progressBar.click();
         //кликнуть в середину прогресс бара:
-        page.click("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]");
-        page.waitForTimeout(5000);
+        pageHeadfull.click("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]");
+        pageHeadfull.waitForTimeout(5000);
     }
 
-
-
-    public void checkImageCardFilmForUnauthorized() throws IOException, InterruptedException {
-        page.reload();
+    public void checkImageCardFilmForGuest() throws IOException, InterruptedException {
+        // подготовка карточки фильма к скриншот-тесту:
+        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']");
         ElementHandle nameFilmCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
-        page.evaluate("n => n.innerText='Название фильма'", nameFilmCrumbs);
+        nameFilmCrumbs.evaluate("n => n.innerText='Название фильма'");
 
         ElementHandle nameFilm = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
-        page.evaluate("nC => nC.innerText='Название фильма'", nameFilm);
+        nameFilm.evaluate("nC => nC.innerText='Название фильма'");
 
-        List<ElementHandle> ratingFilmAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size(); i++) {
-            ratingFilmAll = page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
-            page.evaluate("fP => fP.innerText='IMDb: 8.8'", ratingFilmAll.get(i));
+        List<ElementHandle> ratingFilmCountAll = page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
+        if (ratingFilmCountAll.size() > 1) {
+            while (page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size() != 1) {
+                page.evaluate("dR => dR.remove();", page.querySelector("(//div[@class='SSy1FiFkrq7A1RhDYt-Xx'])[last()]"));
+                System.out.println(page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size());
+            }
         }
+        ElementHandle ratingFilm = page.querySelector("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
+        ratingFilm.evaluate("fP => fP.innerText='IMDb: 8.8'");
+
 
         ElementHandle ageYearGenres = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
-        page.evaluate("d => d.innerText='18+, 2021, Аниме, Мультфильм, Комедия, Фэнтези'", ageYearGenres);
+        ageYearGenres.evaluate("d => d.innerText='18+, 2021, Аниме, Мультфильм, Комедия, Фэнтези'");
 
         ElementHandle discriptionFilm = page.querySelector("//span[@class='_139cuGvs1A6AM-bkfvot7S']");
-        page.evaluate("g => g.innerText='Кристина МакФерсон учится в консервативной католической школе в Сакраменто. " +
+        discriptionFilm.evaluate("g => g.innerText='Кристина МакФерсон учится в консервативной католической школе в Сакраменто. " +
                 "Она ищет себя; своё место в мире и пытается быть не похожей на других. Её волосы выкрашены в странный красно-розовый цвет; " +
-                "а имя Леди Бёрд'", discriptionFilm);
-
-//        ElementHandle posterFilm = page.querySelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']");
-//        page.evaluate("pF => pF.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster_2018__web-wp.webp);')", posterFilm);
-//
-//        ElementHandle age = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN'])[2]");
-//        page.evaluate("d => d.innerText='18+'",age);
+                "а имя Леди Бёрд'");
 
         ElementHandle videoFilm = page.querySelector("//video[@src]");
-        page.evaluate("vP => vP.setAttribute('src', 'blob:notVideo')", videoFilm);
-
-        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        videoFilm.evaluate("vP => vP.setAttribute('src', 'blob:notVideo')");
 
         ElementHandle nameFilmInPlayer = page.querySelector("//div[@class='_2GPoEznIkBV65Iqkud1teP']");
-        page.evaluate("fP => fP.innerText='Название сериала'", nameFilmInPlayer);
+        nameFilmInPlayer.evaluate("fP => fP.innerText='Название фильма'");
 
-        ElementHandle age = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN'])[2]");
-        page.evaluate("d => d.innerText='10+'", age);
-
-        List<ElementHandle> progressVideoAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']").size(); i++) {
-            progressVideoAll = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");
-            page.evaluate("pV => pV.innerText='0'", progressVideoAll.get(i));
+        List<ElementHandle> timeProgressVideoAll = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");
+        for(ElementHandle timeProgressVideo : timeProgressVideoAll){
+            timeProgressVideo.evaluate("pV => pV.innerText='0'");
         }
 
         ElementHandle textPayButton = page.querySelector("//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']");
-        page.evaluate("fP => fP.innerText='Навсегда за 100 ₽'", textPayButton);
+        textPayButton.evaluate("fP => fP.innerText='Навсегда за 100 ₽'");
 
-        List<ElementHandle> textStickerAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']").size(); i++) {
-            textStickerAll = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
-            page.evaluate("fP => fP.innerText='Автотест'", textStickerAll.get(i));
+        List<ElementHandle> textStickerAll = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+        for(ElementHandle textSticker : textStickerAll){
+            textSticker.evaluate("fP => fP.innerText='Автотест'");
         }
-        List<ElementHandle> posterFilmAll;
-        List<ElementHandle> titleFilmAll;
-        List<ElementHandle> descriptionTextFilmAll;
-        List<ElementHandle> ageAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']").size(); i++) {
-            posterFilmAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
-            page.evaluate("p => p.setAttribute('style', 'background-size: cover; background-color: rgb(238, 238, 238); background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/d7/c5/ffb7d649f8a4cec74734d2effeb715f8e6e9/tile__web-wp.webp);')", posterFilmAll.get(i));
-            titleFilmAll = page.querySelectorAll("//h3[@data-test='PackageDescriptionTitle']");
-            page.evaluate("t => t.innerText='Название фильма'", titleFilmAll.get(i));
-            descriptionTextFilmAll = page.querySelectorAll("//span[@class='_3mvyhNdQM-dhsR11QU-BY9']//span");
-            page.evaluate("d => d.textContent='2021, Жанр'", descriptionTextFilmAll.get(i));
-            ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        List<ElementHandle> posterFilmAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+        for(ElementHandle posterFilm : posterFilmAll){
+            posterFilm.evaluate("p => p.setAttribute('style', 'background-size: cover; background-color: rgb(238, 238, 238); " +
+                    "background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/d7/c5/ffb7d649f8a4cec74734d2effeb715f8e6e9/tile__web-wp.webp);')");
         }
-        List<ElementHandle> stickerAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='kjFUbLahFxqq2AjHY8j2R']").size(); i++) {
-            stickerAll = page.querySelectorAll("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='kjFUbLahFxqq2AjHY8j2R']");
-            page.evaluate("s => s.remove();", stickerAll.get(i));
+        List<ElementHandle> titleFilmAll = page.querySelectorAll("//h3[@data-test='PackageDescriptionTitle']");
+        for(ElementHandle titleFilm : titleFilmAll){
+            titleFilm.evaluate("t => t.innerText='Название фильма'");
         }
-        // делаем скриншот страницы "CardFilmForUnauthorized":
+        List<ElementHandle> descriptionTextFilmAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+        for(ElementHandle descriptionTextFilm : descriptionTextFilmAll){
+            descriptionTextFilm.evaluate("d => d.textContent='2021, Жанр'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle age : ageAll){
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> stickerTailCollectAll = page.querySelectorAll("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+        for(ElementHandle stickerTailCollect : stickerTailCollectAll){
+            stickerTailCollect.evaluate("s => s.remove();");
+        }
+
+        // делаем скриншот страницы "CardFilmForGuest":
         vrt.track(
-                "cardFilmForUnauthorized",
+                "cardFilmForGuest",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -150,75 +147,74 @@ public class CardFilmPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCardFilmForAuthorized() throws IOException, InterruptedException {
-        page.reload();
-
-        ElementHandle nameFilmCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
-        page.evaluate("n => n.innerText='Название фильма'", nameFilmCrumbs);
-
-        ElementHandle nameFilm = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
-        page.evaluate("nC => nC.innerText='Название фильма'", nameFilm);
-
-        List<ElementHandle> ratingSerialAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size(); i++) {
-            ratingSerialAll = page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
-            page.evaluate("fP => fP.innerText='IMDb: 8.8'", ratingSerialAll.get(i));
-        }
-
-        ElementHandle ageYearGenres = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
-        page.evaluate("d => d.innerText='18+, 2021, Аниме, Мультфильм, Комедия, Фэнтези'", ageYearGenres);
-
-        ElementHandle discriptionFilm = page.querySelector("//span[@class='_139cuGvs1A6AM-bkfvot7S']");
-        page.evaluate("g => g.innerText='Кристина МакФерсон учится в консервативной католической школе в Сакраменто. " +
-                "Она ищет себя; своё место в мире и пытается быть не похожей на других. Её волосы выкрашены в странный красно-розовый цвет; " +
-                "а имя Леди Бёрд'", discriptionFilm);
-
-        List<ElementHandle> textStickerAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']").size(); i++) {
-            textStickerAll = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
-            page.evaluate("fP => fP.innerText='Автотест'", textStickerAll.get(i));
-        }
-
-        ElementHandle videoFilm = page.querySelector("//video[@src]");
-        page.evaluate("vP => vP.setAttribute('src', 'blob:notVideo')", videoFilm);
-
+    public void checkImageCardFilmForUser() throws IOException, InterruptedException {
+        // подготовка карточки фильма к скриншот-тесту:
+        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']");
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
-        page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
+        userLogin.evaluate("uL => uL.innerText='+79260010101'");
+        ElementHandle nameFilmCrumbsUser = page.querySelector("(//span[@itemprop='name'])[3]");
+        nameFilmCrumbsUser.evaluate("n => n.innerText='Название фильма'");
 
-        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        ElementHandle nameFilmUser = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
+        nameFilmUser.evaluate("nC => nC.innerText='Название фильма'");
 
-        ElementHandle nameFilmInPlayer = page.querySelector("//div[@class='_2GPoEznIkBV65Iqkud1teP']");
-        page.evaluate("fP => fP.innerText='Название передачи'", nameFilmInPlayer);
+        List<ElementHandle> ratingFilmCountAllUser = page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
+        if (ratingFilmCountAllUser.size() > 1) {
+            while (page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size() != 1) {
+                page.evaluate("dR => dR.remove();", page.querySelector("(//div[@class='SSy1FiFkrq7A1RhDYt-Xx'])[last()]"));
+                System.out.println(page.querySelectorAll("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']").size());
+            }
+        }
+        ElementHandle ratingFilmUser = page.querySelector("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
+        ratingFilmUser.evaluate("fP => fP.innerText='IMDb: 8.8'");
 
-        List<ElementHandle> progressVideoAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']").size(); i++) {
-            progressVideoAll = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");
-            page.evaluate("pV => pV.innerText='0'", progressVideoAll.get(i));
+        ElementHandle ageYearGenresUser = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
+        ageYearGenresUser.evaluate("d => d.innerText='18+, 2021, Жанр'");
+
+        ElementHandle discriptionFilmUser = page.querySelector("//span[@class='_139cuGvs1A6AM-bkfvot7S']");
+        discriptionFilmUser.evaluate("g => g.innerText='Кристина МакФерсон учится в консервативной католической школе в Сакраменто. " +
+                "Она ищет себя; своё место в мире и пытается быть не похожей на других. Её волосы выкрашены в странный красно-розовый цвет; " +
+                "а имя Леди Бёрд'");
+
+        ElementHandle videoFilmUser = page.querySelector("//video[@src]");
+        videoFilmUser.evaluate("vP => vP.setAttribute('src', 'blob:notVideo')");
+
+        ElementHandle nameFilmInPlayerUser = page.querySelector("//div[@class='_2GPoEznIkBV65Iqkud1teP']");
+        nameFilmInPlayerUser.evaluate("fP => fP.innerText='Название фильма'");
+
+        List<ElementHandle> timeProgressVideoAllUser = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");
+        for(ElementHandle timeProgressVideo : timeProgressVideoAllUser){
+            timeProgressVideo.evaluate("pV => pV.innerText='0'");
         }
 
-        // блок подборки "Похожие":
-        List<ElementHandle> posterFilmAll;
-        List<ElementHandle> titleFilmAll;
-        List<ElementHandle> descriptionTextFilmAll;
-        List<ElementHandle> ageAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']").size(); i++) {
-            posterFilmAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
-            page.evaluate("p => p.setAttribute('style', 'background-size: cover; background-color: rgb(238, 238, 238); background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/d7/c5/ffb7d649f8a4cec74734d2effeb715f8e6e9/tile__web-wp.webp);')", posterFilmAll.get(i));
-            titleFilmAll = page.querySelectorAll("//h3[@data-test='PackageDescriptionTitle']");
-            page.evaluate("t => t.innerText='Название фильма'", titleFilmAll.get(i));
-            descriptionTextFilmAll = page.querySelectorAll("//span[@class='_3mvyhNdQM-dhsR11QU-BY9']//span");
-            page.evaluate("d => d.textContent='2021, Жанр'", descriptionTextFilmAll.get(i));
-            ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        List<ElementHandle> textStickerAllUser = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+        for(ElementHandle textSticker : textStickerAllUser){
+            textSticker.evaluate("fP => fP.innerText='Автотест'");
         }
-        List<ElementHandle> stickerAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='kjFUbLahFxqq2AjHY8j2R']").size(); i++) {
-            stickerAll = page.querySelectorAll("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='kjFUbLahFxqq2AjHY8j2R']");
-            page.evaluate("s => s.remove();", stickerAll.get(i));
+        List<ElementHandle> posterFilmAllUser = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+        for(ElementHandle posterFilm : posterFilmAllUser){
+            posterFilm.evaluate("p => p.setAttribute('style', 'background-size: cover; background-color: rgb(238, 238, 238); " +
+                    "background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/d7/c5/ffb7d649f8a4cec74734d2effeb715f8e6e9/tile__web-wp.webp);')");
         }
-        // делаем скриншот страницы "cardFilmForAuthorized":
+        List<ElementHandle> titleFilmAllUser = page.querySelectorAll("//h3[@data-test='PackageDescriptionTitle']");
+        for(ElementHandle titleFilm : titleFilmAllUser){
+            titleFilm.evaluate("t => t.innerText='Название фильма'");
+        }
+        List<ElementHandle> descriptionTextFilmAllUser = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+        for(ElementHandle descriptionTextFilm : descriptionTextFilmAllUser){
+            descriptionTextFilm.evaluate("d => d.textContent='2021, Жанр'");
+        }
+        List<ElementHandle> ageAllUser = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle age : ageAllUser){
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> stickerTailCollectAllUser = page.querySelectorAll("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+        for(ElementHandle stickerTailCollect : stickerTailCollectAllUser){
+            stickerTailCollect.evaluate("s => s.remove();");
+        }
+        // делаем скриншот страницы "cardFilmForUser":
         vrt.track(
-                "cardFilmForAuthorized",
+                "cardFilmForUser",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -226,6 +222,11 @@ public class CardFilmPW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
+    }
+
+    public void openFirstCardFilmFromPackageKinoPoPodpiskeHeadfull() {
+        // открыть карточку фильма:
+        pageHeadfull.click("(//a[@data-test='PackageLink'])[1]");
     }
 }
 
