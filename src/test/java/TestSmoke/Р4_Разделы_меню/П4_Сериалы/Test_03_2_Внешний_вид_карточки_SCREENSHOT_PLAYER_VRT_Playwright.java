@@ -14,7 +14,7 @@ public class Test_03_2_Внешний_вид_карточки_SCREENSHOT_PLAYER_
     @RepeatedTest(1)
     public void appearanceSectionCardSerial() throws Exception {
         headerMenuPW.goToSerialsPage();
-        serialsPagePW.clickToFirstTailCardSerial();
+        serialsPagePW.clickToTailCardSerial();
         cardSerialPW.checkStartTrailerPlayer();
         cardSerialPW.checkImageCardSerialForGuest();
         flowRegistation();

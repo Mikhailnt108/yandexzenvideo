@@ -60,15 +60,15 @@ public class TestBasePlaywright extends BasePagePlaywright{
 //                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
 //                        .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
         // браузер Headless:
-//        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
-//                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
-//                        .setViewportSize(1900, 920));
+        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
+                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
+                        .setViewportSize(1900, 920));
 
         // браузер Headless с записью видео:
-        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
-                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
-                        .setViewportSize(1900, 920).setRecordVideoDir(Paths.get("videos/"))
-                        .setRecordVideoSize(1900, 920));
+//        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
+//                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
+//                        .setViewportSize(1900, 920).setRecordVideoDir(Paths.get("videos/"))
+//                        .setRecordVideoSize(1900, 920));
 
         contextNormalModeHeadless.clearCookies();
         page = contextNormalModeHeadless.pages().get(0);

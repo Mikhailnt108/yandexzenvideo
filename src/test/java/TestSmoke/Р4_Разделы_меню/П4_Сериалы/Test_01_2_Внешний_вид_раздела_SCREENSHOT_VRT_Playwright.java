@@ -13,21 +13,21 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Playw
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     public void appearanceSectionSerialsPage() throws Exception {
-        serialsPagePW.checkImageCherdakAndBannersForUnauthorized();
-        serialsPagePW.checkImageBlocksFiltersForUnauthorized();
-        serialsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
-        serialsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
-        serialsPagePW.checkImageFooterForUnauthorized();
-        serialsPagePW.checkImageSerialsPageScrollForUnauthorized();
+        serialsPagePW.checkImageCherdakAndBannersForGuest();
+        serialsPagePW.checkImageBlocksFiltersForGuest();
+        serialsPagePW.checkImageBlocksCollectionWithHeaderForGuest();
+        serialsPagePW.checkImageBlocksCollectionWithoutHeaderForGuest();
+        serialsPagePW.checkImageFooterForGuest();
+        serialsPagePW.checkImageSerialsPageScrollForGuest();
         // пользоваеть авторизован:
         headerMenuPW.goToSerialsPage();
         flowRegistation();
-        serialsPagePW.checkImageCherdakAndBannersForAuthorized();
-        serialsPagePW.checkImageBlocksFiltersForAuthorized();
-        serialsPagePW.checkImageBlocksCollectionWithHeaderForAuthorized();
-        serialsPagePW.checkImageBlocksCollectionWithoutHeaderForAuthorized();
-        serialsPagePW.checkImageFooterForAuthorized();
-        serialsPagePW.checkImageSerialsPageScrollForAuthorized();
+        serialsPagePW.checkImageCherdakAndBannersForUser();
+        serialsPagePW.checkImageBlocksFiltersForUser();
+        serialsPagePW.checkImageBlocksCollectionWithHeaderForUser();
+        serialsPagePW.checkImageBlocksCollectionWithoutHeaderForUser();
+        serialsPagePW.checkImageFooterForUser();
+        serialsPagePW.checkImageSerialsPageScrollForUser();
         headerMenuPW.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

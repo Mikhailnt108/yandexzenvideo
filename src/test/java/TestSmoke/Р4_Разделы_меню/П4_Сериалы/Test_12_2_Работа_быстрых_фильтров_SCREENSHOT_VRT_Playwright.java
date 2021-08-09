@@ -14,7 +14,7 @@ public class Test_12_2_Работа_быстрых_фильтров_SCREENSHOT_V
     @RepeatedTest(1)
     public void quickFilters() throws Exception {
         headerMenuPW.goToSerialsPage();
-        serialsPagePW.checkImageBlocksFiltersForUnauthorized();
+        serialsPagePW.checkImageBlocksFiltersForGuest();
         serialsPagePW.checkImageScrollQuickFiltersForUnauthorized();
     }
 }

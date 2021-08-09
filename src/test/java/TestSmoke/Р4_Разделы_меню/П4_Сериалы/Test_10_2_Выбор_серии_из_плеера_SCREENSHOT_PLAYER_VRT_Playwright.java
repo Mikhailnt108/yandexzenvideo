@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_10_2_Выбор_серии_из_плеера_SCREENSHOT_VRT_Playwright extends TestBasePlaywright {
+public class Test_10_2_Выбор_серии_из_плеера_SCREENSHOT_PLAYER_VRT_Playwright extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
@@ -16,13 +16,16 @@ public class Test_10_2_Выбор_серии_из_плеера_SCREENSHOT_VRT_Pl
         // авторизованный пользователь:
         headerMenuPW.goToSerialsPage();
         flowRegistation();
-        serialsPagePW.clickToFirstTailCardSerial();
+        serialsPagePW.clickToTailCardSerial();
         cardSerialPW.checkOpenCardSerial();
         cardSerialPW.subscribeToPackageSerials();
-        cardSerialPW.clickToButtonWatch();
-        cardSerialPW.checkStartTrailerPlayer();
-        cardSerialPW.checkImageSwitchEpisodeInPlayer();
-        headerMenuPW.deleteAccountMF("79260192144");
+        headerMenuPW.saveCookiesBrowserHeadless();
+        headerMenuPW.getCookiesAndOpenHeadfullBrowser();
+        headerMenuPW.goToSerialsPageHeadfull();
+        serialsPagePW.clickToTailCardSerialHeadfull();
+        cardSerialPW.clickToButtonWatchHeadfull();
+        cardSerialPW.checkStartVideoPlayerHeadfull();
+        cardSerialPW.checkImageSwitchEpisodeInPlayerHeadfull();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

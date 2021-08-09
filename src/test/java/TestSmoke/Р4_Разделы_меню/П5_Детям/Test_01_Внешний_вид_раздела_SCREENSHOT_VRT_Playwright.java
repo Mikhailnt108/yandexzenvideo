@@ -14,12 +14,11 @@ public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_Playwri
     @RepeatedTest(1)
     public void appearanceSectioтKidsPage() throws Exception {
         // пользователь НЕ авторизован:
-        kidsPagePW.checkImageCherdakAndBannersForUnauthorized();
-        kidsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
-        kidsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
-        kidsPagePW.checkImageFooterForUnauthorized();
-        kidsPagePW.checkImageKidsPageScrollForUnauthorized();
-        kidsPagePW.checkBackgroundKidsPage();
-
+        kidsPagePW.checkImageKidsPageScrollForGuest();
+        kidsPagePW.checkImageCherdakAndBannersForGuest();
+        kidsPagePW.checkImageBlocksCollectionWithHeaderFofGuest();
+        kidsPagePW.checkImageBlocksCollectionWithoutHeaderForGuest();
+        kidsPagePW.checkImageFooterForGuest();
+//        kidsPagePW.checkBackgroundKidsPage();
     }
 }

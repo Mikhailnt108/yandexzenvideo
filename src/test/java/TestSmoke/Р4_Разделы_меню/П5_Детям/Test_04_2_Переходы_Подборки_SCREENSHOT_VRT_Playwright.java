@@ -15,7 +15,7 @@ public class Test_04_2_Переходы_Подборки_SCREENSHOT_VRT_Playwrig
     public void goToCollection() throws Exception {
         headerMenuPW.goToKidsPage();
         kidsPagePW.clickToLinkAllOnCollectionBlock();
-        collectionPagePW.checkBackgroundPageCollectionForKids();
+//        collectionPagePW.checkBackgroundPageCollectionForKids();
         collectionPagePW.checkImagePageCollectionForKids();
     }
 }

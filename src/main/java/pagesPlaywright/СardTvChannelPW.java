@@ -39,7 +39,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
         page.evaluate("d => d.innerText='Сегодня, 00:00, 18+'", dateTimeAge);
 
         ElementHandle genres = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]");
-        page.evaluate("g => g.innerText='Познавательные, HD, В записи'", genres);
+        page.evaluate("g => g.innerText='Жанр'", genres);
 
         ElementHandle nameTvProgram = page.querySelector("//a[@class='_1nAXLMkHN0PXnwvulfBvK0']");
         page.evaluate("nP => nP.innerText='Название передачи'", nameTvProgram);

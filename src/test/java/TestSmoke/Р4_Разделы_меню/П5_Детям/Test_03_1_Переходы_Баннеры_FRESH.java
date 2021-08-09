@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_03_Переходы_Баннеры_FRESH__от_03_06_21 extends TestBaseWebDriver {
+public class Test_03_1_Переходы_Баннеры_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")

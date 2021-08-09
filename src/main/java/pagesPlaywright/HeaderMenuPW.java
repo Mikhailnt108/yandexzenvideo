@@ -28,6 +28,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void checkNotLoggedIsCorrect() {
+        if (page.querySelectorAll("//div[@aria-label='Notification']").size() != 0) {
+            page.click("//button[text()='Закрыть']");}
         page.waitForSelector("(//span[text()='Вход'])[1]");
     }
 
@@ -146,8 +148,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void goToFilmsPage() {
-
-        page.navigate("https://web-preprod.megafon.tv/movies/vods");
+        page.navigate("https://web-preprod4.megafon.tv/movies/vods");
     }
 
     public void goToSerialsPage() {
@@ -422,7 +423,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void copyPasteCodMsisdnForNonMF(String login) {
         pageCMS = contextNormalModeHeadless.newPage();
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-prepro4.megafon.tv/cms/msisdn_confirmations");
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/msisdn_confirmations");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
         pageCMS.click("//button[text()='Поиск']");

@@ -97,7 +97,6 @@ public class CardSerialPW extends BasePagePlaywright {
             }
         }
         ElementHandle ratingFilm = page.querySelector("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
-        ratingFilm.evaluate("fP => fP.innerText='IMDb: 8.8'");
 
         ElementHandle ageYearGenres = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
         ageYearGenres.evaluate("d => d.innerText='18+, 2021, 1 сезон, Жанр'");
@@ -318,48 +317,49 @@ public class CardSerialPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void clickToButtonWatch() {
-        page.click("//span[text()='Смотреть']");
+    public void clickToButtonWatchHeadfull() {
+        pageHeadfull.click("//span[text()='Смотреть']");
     }
 
-    public void checkImageSwitchEpisodeInPlayer() throws IOException, InterruptedException {
-        ElementHandle videoFilm = page.querySelector("//video[@src]");
-        page.evaluate("vP => vP.setAttribute('src', 'blob:notVideo')", videoFilm);
+    public void checkImageSwitchEpisodeInPlayerHeadfull() throws IOException, InterruptedException {
+        ElementHandle videoSerial = pageHeadfull.querySelector("//video[@src]");
+        videoSerial.evaluate("vP => vP.setAttribute('src', 'blob:notVideo')");
 
-        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
-        page.waitForSelector("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]");
-        page.click("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]");
+        pageHeadfull.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        pageHeadfull.waitForSelector("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]");
+        pageHeadfull.click("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]");
 
-        List<ElementHandle> progressTimerVideoAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']").size(); i++) {
-            progressTimerVideoAll = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");
-            page.evaluate("pV => pV.innerText='0'", progressTimerVideoAll.get(i));
+        List<ElementHandle> progressTimerVideoAll = pageHeadfull.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");;
+        for(ElementHandle progressTimerVideo : progressTimerVideoAll){
+            progressTimerVideo.evaluate("pV => pV.innerText='0'");
         }
 
-        List<ElementHandle> tabSeasonInPlayerAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2pIs_2pQWfayxBenlBjOHG']").size(); i++) {
-            tabSeasonInPlayerAll = page.querySelectorAll("//div[@class='_2pIs_2pQWfayxBenlBjOHG']");
-            page.evaluate("pV => pV.innerText='Сезон №'", tabSeasonInPlayerAll.get(i));
+        List<ElementHandle> tabSeasonInPlayerAll = pageHeadfull.querySelectorAll("//div[@class='_2pIs_2pQWfayxBenlBjOHG']");
+        for(ElementHandle tabSeasonInPlayer : tabSeasonInPlayerAll){
+            tabSeasonInPlayer.evaluate("pV => pV.innerText='Сезон №'");
         }
-        ElementHandle progressBarVideoAll = page.querySelector("(//div[@class='_3uP0ihiEVqMOuIXkcIlhiL'])[1]");
-        page.evaluate("pB => pB.setAttribute('style', 'width: 50%;')", progressBarVideoAll);
 
-        List<ElementHandle> progressBar2VideoAll;
-        List<ElementHandle> titleNameEpisodeAll;
-        List<ElementHandle> discriptionEpisodeAll;
-        List<ElementHandle> posterEpisodeAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_8P6azv71zJfQn_JeUD36Z']").size(); i++) {
-            progressBar2VideoAll = page.querySelectorAll("//div[@class='_8P6azv71zJfQn_JeUD36Z']");
-            page.evaluate("pB2 => pB2.setAttribute('style', 'width: 50%;')", progressBar2VideoAll.get(i));
-            titleNameEpisodeAll = page.querySelectorAll("//div[@class='_11XQ2D9tsITknHC5rpvrbB']");
-            page.evaluate("tNE => tNE.innerText='Серия №'", titleNameEpisodeAll.get(i));
-            discriptionEpisodeAll = page.querySelectorAll("//div[@class='_3UzxwVei8FqE-DF7wGsanh']");
-            page.evaluate("dE => dE.innerText='Cерия №, Сезон №'", discriptionEpisodeAll.get(i));
-            posterEpisodeAll = page.querySelectorAll("//div[@class='_1xy-z0WAeLX75yKO6LzXLR']");
-            page.evaluate("pB2 => pB2.setAttribute('style', 'background-image: " +
-                    "url(https://static-sesure.cdn.megafon.tv/images/Episode/35/c7/25a6de33d807999dd39fc6e1f0c19d9be414/tile__web-wp.webp);')", posterEpisodeAll.get(i));
+        ElementHandle progressBarVideoAll = pageHeadfull.querySelector("(//div[@class='_3uP0ihiEVqMOuIXkcIlhiL'])[1]");
+        progressBarVideoAll.evaluate("pB => pB.setAttribute('style', 'width: 50%;')");
+
+
+        List<ElementHandle> progressBar2VideoAll = pageHeadfull.querySelectorAll("//div[@class='_8P6azv71zJfQn_JeUD36Z']");
+        for(ElementHandle progressBar2Video : progressBar2VideoAll){
+            progressBar2Video.evaluate("pB2 => pB2.setAttribute('style', 'width: 50%;')");
         }
-        ElementHandle switchEpisodeInPlayer = page.querySelector("//div[@class='_225UkJHx_nI4_qaJ2XxLnH']");
+        List<ElementHandle> titleNameEpisodeAll = pageHeadfull.querySelectorAll("//div[@class='_11XQ2D9tsITknHC5rpvrbB']");
+        for(ElementHandle titleNameEpisode : titleNameEpisodeAll){
+            titleNameEpisode.evaluate("tNE => tNE.innerText='Серия №'");
+        }
+        List<ElementHandle> discriptionEpisodeAll = pageHeadfull.querySelectorAll("//div[@class='_3UzxwVei8FqE-DF7wGsanh']");
+        for(ElementHandle discriptionEpisode : discriptionEpisodeAll){
+            discriptionEpisode.evaluate("dE => dE.innerText='Cерия №, Сезон №'");
+        }
+        List<ElementHandle> posterEpisodeAll = pageHeadfull.querySelectorAll("//div[@class='_1xy-z0WAeLX75yKO6LzXLR']");
+        for(ElementHandle posterEpisode : posterEpisodeAll){
+            posterEpisode.evaluate("pB2 => pB2.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Episode/35/c7/25a6de33d807999dd39fc6e1f0c19d9be414/tile__web-wp.webp);')");
+        }
+        ElementHandle switchEpisodeInPlayer = pageHeadfull.querySelector("//div[@class='_225UkJHx_nI4_qaJ2XxLnH']");
 
         // делаем скриншот элемента "switchEpisodeInPlayer":
         vrt.track(
@@ -451,6 +451,18 @@ public class CardSerialPW extends BasePagePlaywright {
         // открыть вторую карточку сериала:
         pageHeadfull.click("(//div[text()='Сериалы'])[3]");
         pageHeadfull.click("(//a[@class='_8m5mByCjTuND14zuGKagi'])[3]");
+    }
+
+    public void checkStartVideoPlayerHeadfull() {
+        //запуск плеера:
+        pageHeadfull.waitForTimeout(5000);
+        if(pageHeadfull.querySelectorAll("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").size() < 1){
+            pageHeadfull.click("//button[text()='Трейлер']");
+        }
+        String timeStart = pageHeadfull.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
+        pageHeadfull.waitForTimeout(5000);
+        String timeEnd = pageHeadfull.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
+        Assert.assertNotEquals(timeStart, timeEnd);
     }
 }
 

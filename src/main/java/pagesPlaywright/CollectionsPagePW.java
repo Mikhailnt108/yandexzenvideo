@@ -76,6 +76,8 @@ public class CollectionsPagePW extends BasePagePlaywright {
             stiker.evaluate("s => s.remove();");
         }
 
+        ElementHandle numberPage = page.querySelector("(//a[@class='_321YEvw8w6G20aKg-N8nNe'])[last()]");
+        page.evaluate("a => a.innerText='34'", numberPage);
         // делаем скриншот полной страницы "PageCollectionsForKidsScrollForUnauthorized":
         vrt.track(
                     "PageCollectionForKidsScrollForUnauthorized",

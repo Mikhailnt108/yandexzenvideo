@@ -20,21 +20,22 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_Playw
     @RepeatedTest(1)
     public void appearanceSectionFilmsPage() throws Exception {
         // пользователь НЕ авторизован:
+        filmsPagePW.checkImageFilmsPageScrollForGuest();
         filmsPagePW.checkImageCherdakAndBannersForUnauthorized();
         filmsPagePW.checkImageBlocksFiltersForUnauthorized();
         filmsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
         filmsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
         filmsPagePW.checkImageFooterForUnauthorized();
-        filmsPagePW.checkImageFilmsPageScrollForUnauthorized();
+
         // пользоваеть авторизован:
         headerMenuPW.goToFilmsPage();
         flowRegistation();
-        filmsPagePW.checkImageCherdakAndBannersForAuthorized();
-        filmsPagePW.checkImageBlocksFiltersForAuthorized();
-        filmsPagePW.checkImageBlocksCollectionWithHeaderForAuthorized();
-        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForAuthorized();
-        filmsPagePW.checkImageFooterForAuthorized();
-        filmsPagePW.checkImageFilmsPageScrollForAuthorized();
+        filmsPagePW.checkImageFilmsPageScrollForUser();
+        filmsPagePW.checkImageCherdakAndBannersForUser();
+        filmsPagePW.checkImageBlocksFiltersForUser();
+        filmsPagePW.checkImageBlocksCollectionWithHeaderForUser();
+        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForUser();
+        filmsPagePW.checkImageFooterForUser();
         headerMenuPW.deleteAccountMF("79260192144");
     }
 
