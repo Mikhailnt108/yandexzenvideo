@@ -10,16 +10,16 @@ public class Test_04_2_Карточка_канала_SCREENSHOT_VRT_Playwright e
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "2. ТВ")
-    @DisplayName(value = "Карточка канала (скринщоты)")
+    @DisplayName(value = "Карточка канала (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     public void cardTvChannel() throws IOException, InterruptedException {
         // неавторизованный пользователь:
-        сardTvChannelPW.checkImageCardTvChannelForUnauthorized();
+        сardTvChannelPW.checkImageCardTvChannelForGuest();
         // авторизованный пользователь:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        сardTvChannelPW.checkImageCardTvChannelForAuthorized();
+        сardTvChannelPW.checkImageCardTvChannelForUser();
         headerMenuPW.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

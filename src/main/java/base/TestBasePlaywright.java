@@ -41,9 +41,10 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("VB2XAT15YZ4VN7J1410HDNMPMN2V")
+                    .apiKey("15T5FMYM2VMPJYGWBCJPAZPTMT9Q")
                     .project("MFTV_Web")
                     .branchName("master")
+                    .enableSoftAssert(true)
                     .httpTimeoutInSeconds(30)
                     .enableSoftAssert(false)
                     .build());
@@ -52,9 +53,9 @@ public class TestBasePlaywright extends BasePagePlaywright{
     static void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
         // ноут:
-//        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         // комп:
-        userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+//        userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         // браузер Headfull:
 //        contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
 //                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
@@ -62,7 +63,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
         // браузер Headless:
         contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
                 new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
-                        .setViewportSize(1900, 920));
+                        .setViewportSize(1366, 768));
 
         // браузер Headless с записью видео:
 //        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,

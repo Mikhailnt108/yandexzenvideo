@@ -23,7 +23,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvProgramForUnauthorized() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/tv");
+        page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -72,8 +72,8 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle text2SubscribeButton = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]//div[text()]");
         page.evaluate("t2B => t2B.innerText='В пакете «Основной+»'", text2SubscribeButton);
 
-        ElementHandle text1SubscribeButtonSecond = page.querySelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[2]");
-        page.evaluate("tBS => tBS.innerText='Другие варианты'", text1SubscribeButtonSecond);
+        ElementHandle text1SubscribeButtonSecond = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _3f0wpWSLNwEn9_twVy01wx')]");
+        text1SubscribeButtonSecond.evaluate("tBS => tBS.innerText='Другие варианты'");
 
         ElementHandle dayAgo = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[1]");
         page.evaluate("dA => dA.innerText='Вс, 1'", dayAgo);
@@ -106,7 +106,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvProgramForAuthorized() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/tv");
+        page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -157,8 +157,8 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle text2SubscribeButton = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]//div[text()]");
         page.evaluate("t2B => t2B.innerText='В пакете «Основной+»'", text2SubscribeButton);
 
-        ElementHandle text1SubscribeButtonSecond = page.querySelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[2]");
-        page.evaluate("tBS => tBS.innerText='Другие варианты'", text1SubscribeButtonSecond);
+        ElementHandle text1SubscribeButtonSecond = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _3f0wpWSLNwEn9_twVy01wx')]");
+        text1SubscribeButtonSecond.evaluate("tBS => tBS.innerText='Другие варианты'");
 
         ElementHandle dayAgo = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[1]");
         page.evaluate("dA => dA.innerText='Вс, 1'", dayAgo);
@@ -625,7 +625,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate("https://web-preprod4.megafon.tv/packages");
+        pageHeadfull.navigate("https://web-preprod5.megafon.tv/packages");
     }
 
     public void openCardTvProgramInRecordFromPackageKinoPoPodpiskeHeadfull() {
@@ -639,7 +639,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageBlockCollectHistoryWatchOnNilPage() throws IOException, InterruptedException {
-        pageHeadfull.navigate("https://web-preprod4.megafon.tv/");
+        pageHeadfull.navigate("https://web-preprod5.megafon.tv/");
         List<ElementHandle> posterPackageAll;
         List<ElementHandle> titlePackageAll;
         List<ElementHandle> descriptionTextPackageAll;

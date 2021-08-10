@@ -86,7 +86,6 @@ public class CardFilmPW extends BasePagePlaywright {
         ElementHandle ratingFilm = page.querySelector("//div[@class='SSy1FiFkrq7A1RhDYt-Xx']");
         ratingFilm.evaluate("fP => fP.innerText='IMDb: 8.8'");
 
-
         ElementHandle ageYearGenres = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
         ageYearGenres.evaluate("d => d.innerText='18+, 2021, Аниме, Мультфильм, Комедия, Фэнтези'");
 

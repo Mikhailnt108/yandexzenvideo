@@ -13,6 +13,6 @@ public class Test_01_2_Программа_передач_SCREENSHOT_VRT_Playwrig
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
     public void historyViewing() throws Exception {
-        tvPagePW.checkImageTvPageTabProgramTvForUnauthorized();
+        tvPagePW.checkImageTvPageTabProgramTvForGuest();
     }
 }

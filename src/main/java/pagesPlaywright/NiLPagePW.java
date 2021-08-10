@@ -19,15 +19,15 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void screenshotNiLPagePW() {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot-" + ".png")));
         page.click("text=Премьеры");
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         page.click("text=Русские фильмы");
     }
 
     public void screenshotsNiLPagePwUsingVRT() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         vrt.track("NiL Page", Base64.getEncoder().encodeToString(page.screenshot()));
         page.click("text=Премьеры");
         vrt.track(
@@ -42,7 +42,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageCherdakAndBanners() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-prepro5.megafon.tv/");
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -116,7 +116,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
     public void checkImageBlocksCollectionWithHeader() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithHeader = page.querySelector("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         // подготовка элемента 'blockCollectionWithHeaderPageNil' к скриншот-тесту:
@@ -157,7 +157,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithoutHeader() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
@@ -184,7 +184,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFooter() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
@@ -199,7 +199,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageNilPageScroll() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         // подготовка страницы "NilPage" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         List<ElementHandle> titleCollectionAll = page.querySelectorAll("//h3[@data-test='PackageListWrapperName']//a");
@@ -306,7 +306,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
 
     public void checkImageBlockCollectionSpecialForYou() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod4.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         page.waitForSelector("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']");
         // подготовка элемента "blockCollectionSpecialForYou" к скриншот-тесту:
         List<ElementHandle> posterPackageAllSFU;
