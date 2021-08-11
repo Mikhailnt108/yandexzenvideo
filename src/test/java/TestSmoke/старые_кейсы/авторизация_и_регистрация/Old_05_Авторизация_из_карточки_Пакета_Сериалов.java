@@ -16,7 +16,7 @@ public class Old_05_Авторизация_из_карточки_Пакета_С
     @DisplayName(value = "Авторизация из карточки Пакета Сериалов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardPackageSerials() {
+    public void loginFromCardPackageSerials() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();

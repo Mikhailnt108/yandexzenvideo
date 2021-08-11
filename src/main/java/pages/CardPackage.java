@@ -4,6 +4,7 @@ import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CardPackage extends BasePageWebDriver {
 
@@ -15,9 +16,10 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[contains(text(),' сериал')]"));
     }
 
-    public void clickOnPaymentButtonInCardPackage() {
-        webDriver.navigate().refresh();
-        click(By.xpath("//button[@type='button']//div[1]"));
+    public void clickOnPaymentButtonInCardPackage() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')]")));
+        click(By.xpath("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Введите номер телефона']")));
     }
 
     public void checkOpenCardPackageTvChannel() {

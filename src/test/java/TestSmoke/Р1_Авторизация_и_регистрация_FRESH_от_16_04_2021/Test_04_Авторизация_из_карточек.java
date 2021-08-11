@@ -19,7 +19,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
     @RepeatedTest(1)
 //    @TmsLink("31541982")
     @Video
-    public void loginFromCardFilm() {
+    public void loginFromCardFilm() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();
@@ -53,7 +53,9 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         packagesPage.checkOpenShopPage();
         packagesPage.clickToTabTvСhannelInMenuShopPage();
         packagesPage.clickToFirstTailCardPackage();
+        packagesPage.scrollCardPackage();
         cardPackage.checkOpenCardPackageTvChannel();
+
         cardPackage.clickOnPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccountMF("79260192144");

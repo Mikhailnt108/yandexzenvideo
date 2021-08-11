@@ -15,7 +15,7 @@ public class Old_04_Авторизация_из_карточки_Пакета_К
     @DisplayName(value = "Авторизация из карточки Пакета Каналов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void loginFromCardPackageTvChannel() {
+    public void loginFromCardPackageTvChannel() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.logOut();

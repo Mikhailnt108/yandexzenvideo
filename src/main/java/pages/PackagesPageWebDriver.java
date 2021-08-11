@@ -3,6 +3,7 @@ package pages;
 import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -244,5 +245,10 @@ public class PackagesPageWebDriver extends BasePageWebDriver {
 
     public void clickToTailCardPackageKinoPoPodpiske() {
         click(By.xpath("//h3[text()='Кино по подписке']"));
+    }
+
+    public void scrollCardPackage() {
+        JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
+        jsDown.executeScript("window.scrollTo(0, 200);");
     }
 }

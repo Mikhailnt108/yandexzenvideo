@@ -288,7 +288,7 @@ public class CardSerial extends BasePageWebDriver {
         ImageIO.write(screenshotCardSerialPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        webDriver.get("https://web-preprod4.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
+        webDriver.get("https://web-preprod5.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
         Screenshot screenshotCardSerialPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(webDriver);
