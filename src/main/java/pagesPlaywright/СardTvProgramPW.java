@@ -22,7 +22,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
 
     }
 
-    public void checkImageCardTvProgramForUnauthorized() throws IOException, InterruptedException {
+    public void checkImageCardTvProgramForGuest() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
@@ -81,6 +81,13 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle afterTomorrow = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[last()]");
         page.evaluate("aT => aT.innerText='Чт, 4'", afterTomorrow);
 
+        List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvPrograminSchedule.size() > 4) {
+            while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                page.evaluate("dU => dU.remove();", page.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
         List<ElementHandle> timeAll;
         List<ElementHandle> nameTvProgramAll;
         List<ElementHandle> ageAll;
@@ -105,7 +112,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCardTvProgramForAuthorized() throws IOException, InterruptedException {
+    public void checkImageCardTvProgramForUser() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
@@ -169,6 +176,13 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
 
+        List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvPrograminSchedule.size() > 4) {
+            while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                page.evaluate("dU => dU.remove();", page.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
         List<ElementHandle> timeAll;
         List<ElementHandle> nameTvProgramAll;
         List<ElementHandle> ageAll;

@@ -87,7 +87,7 @@ public class CardFilmPW extends BasePagePlaywright {
         ratingFilm.evaluate("fP => fP.innerText='IMDb: 8.8'");
 
         ElementHandle ageYearGenres = page.querySelector("//div[@class='_1v_D6wOANknQeJMBPo_rKK']");
-        ageYearGenres.evaluate("d => d.innerText='18+, 2021, Аниме, Мультфильм, Комедия, Фэнтези'");
+        ageYearGenres.evaluate("d => d.innerText='18+, 2021, Жанр'");
 
         ElementHandle discriptionFilm = page.querySelector("//span[@class='_139cuGvs1A6AM-bkfvot7S']");
         discriptionFilm.evaluate("g => g.innerText='Кристина МакФерсон учится в консервативной католической школе в Сакраменто. " +
@@ -104,7 +104,15 @@ public class CardFilmPW extends BasePagePlaywright {
         for(ElementHandle timeProgressVideo : timeProgressVideoAll){
             timeProgressVideo.evaluate("pV => pV.innerText='0'");
         }
+        if(page.querySelectorAll("//span[@class='tAP2pLkM7Aktd4cKGGa5N']").size()!=0){
+            ElementHandle bottomText = page.querySelector("//span[@class='tAP2pLkM7Aktd4cKGGa5N']");
+            bottomText.evaluate("bT => bT.remove();");
+        }
 
+        if(page.querySelectorAll("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')]").size() > 1){
+            ElementHandle secondButton = page.querySelector("(//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')])[2]");
+            secondButton.evaluate("sB => sB.remove();");
+        }
         ElementHandle textPayButton = page.querySelector("//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']");
         textPayButton.evaluate("fP => fP.innerText='Навсегда за 100 ₽'");
 

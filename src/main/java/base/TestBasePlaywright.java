@@ -44,9 +44,8 @@ public class TestBasePlaywright extends BasePagePlaywright{
                     .apiKey("15T5FMYM2VMPJYGWBCJPAZPTMT9Q")
                     .project("MFTV_Web")
                     .branchName("master")
-                    .enableSoftAssert(true)
-                    .httpTimeoutInSeconds(30)
                     .enableSoftAssert(false)
+                    .httpTimeoutInSeconds(30)
                     .build());
 
     @BeforeAll

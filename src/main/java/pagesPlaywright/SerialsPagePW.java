@@ -67,13 +67,13 @@ public class SerialsPagePW extends BasePagePlaywright {
 
         List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
         for(ElementHandle stiker : stikers){
-            stiker.evaluate("s => s.innerText='Автотест'");
+            stiker.evaluate("s => s.remove();");
         }
 
-        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
-        for(ElementHandle colorStiker : colorStikers){
-            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
-        }
+//        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
+//        for(ElementHandle colorStiker : colorStikers){
+//            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
+//        }
 
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
         for(ElementHandle yearAndGenre : yearAndGenres){
@@ -275,7 +275,6 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
-
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
             poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Season/aa/07/66b2b20d6fcbaa0e2fc7dbbc7b606e22c986/poster__web-wp.webp);')");
@@ -284,30 +283,25 @@ public class SerialsPagePW extends BasePagePlaywright {
         for(ElementHandle titleBanner : titleBanners){
             titleBanner.evaluate("t => t.innerText='Название сериала'");
         }
-
         List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
         for(ElementHandle stiker : stikers){
-            stiker.evaluate("s => s.innerText='Автотест'");
+            stiker.evaluate("s => s.remove();");
         }
-
-        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
-        for(ElementHandle colorStiker : colorStikers){
-            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
-        }
-
+//        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
+//        for(ElementHandle colorStiker : colorStikers){
+//            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
+//        }
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
         for(ElementHandle yearAndGenre : yearAndGenres){
             yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
         }
-
         List<ElementHandle> ages = page.querySelectorAll("//div[contains(@class,'_2lExk7vBwXdikRmrmW8iJ_ _3ee886k9ILen72-SjCqCR6')]");
         for(ElementHandle age : ages){
             age.evaluate("yG => yG.innerText='18+'");
         }
         System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(2000);
-
+        page.waitForTimeout(4000);
         // делаем скриншот полной страницы "SerialsPageScrollForGuest":
         vrt.track(
                 "SerialsPageScrollForGuest",
@@ -607,7 +601,7 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(2000);
+        page.waitForTimeout(4000);
 
         // делаем скриншот полной страницы "SerialsPageScrollForAuthorized":
         vrt.track(
@@ -738,6 +732,7 @@ public class SerialsPagePW extends BasePagePlaywright {
                         .build());
         pageHeadfull.click("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']");
         pageHeadfull.waitForSelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+        pageHeadfull.waitForTimeout(10000);
         ElementHandle tailWatchAndEditCollectHistoryWatchSerials = pageHeadfull.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
 
         // делаем скриншот элемента "tailWatchAndEditCollectHistoryWatchSerialsForNonMF":

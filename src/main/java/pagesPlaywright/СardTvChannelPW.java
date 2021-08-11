@@ -75,6 +75,13 @@ public class СardTvChannelPW extends BasePagePlaywright {
         ElementHandle afterTomorrow = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[last()]");
         afterTomorrow.evaluate("aT => aT.innerText='Чт, 4'");
 
+        List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvPrograminSchedule.size() > 4) {
+            while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                page.evaluate("dU => dU.remove();", page.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
         List<ElementHandle> timeAll;
         List<ElementHandle> nameTvProgramAll;
         List<ElementHandle> ageAll;
@@ -158,6 +165,14 @@ public class СardTvChannelPW extends BasePagePlaywright {
 
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
+
+        List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvPrograminSchedule.size() > 4) {
+            while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                page.evaluate("dU => dU.remove();", page.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
 
         List<ElementHandle> timeAll;
         List<ElementHandle> nameTvProgramAll;

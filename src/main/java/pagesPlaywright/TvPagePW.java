@@ -59,30 +59,33 @@ public class TvPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageTabTvProgramInAir() throws IOException, InterruptedException {
+    public void checkImageTabTvProgramInAirForGuest() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/tv/tv_catalog");
-        // подготовка полной страницы "TvPageTabTvProgramInAir" к скриншот-тесту:
-        List<ElementHandle> posterTvProgramAll;
-        List<ElementHandle> nameTvProgramAll;
-        List<ElementHandle> ageAll;
-        List<ElementHandle> timeNameTvChannelAll;
-        List<ElementHandle> progressAll;
-        for (int i = 0; i < page.querySelectorAll("//a[@class='_3qpWWwbv1F2VcSRTSjiIgS']").size(); i++) {
-            posterTvProgramAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']");
-            page.evaluate("pP => pP.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/31/25/f8f17fb50a914336ac35561afc290db5fe8f/tile__web-wp.webp);')", posterTvProgramAll.get(i));
-            nameTvProgramAll = page.querySelectorAll("//h3[@class='hhYBfS5SYd9UjRyn3tWgw']");
-            page.evaluate("nP => nP.textContent='Название передачи'", nameTvProgramAll.get(i));
-            ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
-            timeNameTvChannelAll = page.querySelectorAll("//div[@class='_3jrfnhGV2HAWEcqDrup1qU']");
-            page.evaluate("tN => tN.innerText='00:00, Discovery Channel HD'", timeNameTvChannelAll.get(i));
-            progressAll = page.querySelectorAll("//span[@class='L3rzdT7KYzyE1ClBQKxNL']");
-            page.evaluate("pR => pR.setAttribute('style', 'width: 50%; height: 4px; background-color: var(--color-base);')", progressAll.get(i));
+        // подготовка полной страницы "TvPageTabTvProgramInAirForGuest" к скриншот-тесту:
+        List<ElementHandle> posterTvProgramAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']");
+        for(ElementHandle posterTvProgram : posterTvProgramAll){
+            posterTvProgram.evaluate("pP => pP.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/31/25/f8f17fb50a914336ac35561afc290db5fe8f/tile__web-wp.webp);')");
+        }
+        List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//h3[@class='hhYBfS5SYd9UjRyn3tWgw']");
+        for(ElementHandle nameTvProgram : nameTvProgramAll){
+            nameTvProgram.evaluate("nP => nP.textContent='Название передачи'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle age : ageAll){
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> timeNameTvChannelAll = page.querySelectorAll("//div[@class='_3jrfnhGV2HAWEcqDrup1qU']");
+        for(ElementHandle timeNameTvChannel : timeNameTvChannelAll){
+            timeNameTvChannel.evaluate("tN => tN.innerText='00:00, Discovery Channel HD'");
+        }
+        List<ElementHandle> progressAll = page.querySelectorAll("//span[@class='L3rzdT7KYzyE1ClBQKxNL']");
+        for(ElementHandle progress : progressAll){
+            progress.evaluate("pR => pR.setAttribute('style', 'width: 50%; height: 4px; background-color: var(--color-base);')");
         }
 
-        // делаем скриншот видимой части страницы "TvPageTabTvProgramInAir":
+        // делаем скриншот видимой части страницы "TvPageTabTvProgramInAirForGuest":
         vrt.track(
-                "TvPageTabTvProgramInAirForUnauthorized",
+                "TvPageTabTvProgramInAirForGuest",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                 TestRunOptions.builder()
                         .device("Acer")

@@ -328,7 +328,7 @@ public class CardSerialPW extends BasePagePlaywright {
         pageHeadfull.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
         pageHeadfull.waitForSelector("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]");
         pageHeadfull.click("(//button[@class='_1y2MwvAuO97Xb0-8ccbmkk'])[6]");
-
+        pageHeadfull.waitForTimeout(3000);
         List<ElementHandle> progressTimerVideoAll = pageHeadfull.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi']");;
         for(ElementHandle progressTimerVideo : progressTimerVideoAll){
             progressTimerVideo.evaluate("pV => pV.innerText='0'");

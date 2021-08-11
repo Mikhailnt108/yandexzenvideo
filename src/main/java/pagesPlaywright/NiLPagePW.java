@@ -42,7 +42,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageCherdakAndBanners() throws IOException, InterruptedException {
-        page.navigate("https://web-prepro5.megafon.tv/");
+        page.navigate("https://web-preprod5.megafon.tv/");
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -102,7 +102,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
 
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(2000);
+        page.waitForTimeout(3000);
 
         // делаем скриншот элемента "bannersPageNil":
         vrt.track(

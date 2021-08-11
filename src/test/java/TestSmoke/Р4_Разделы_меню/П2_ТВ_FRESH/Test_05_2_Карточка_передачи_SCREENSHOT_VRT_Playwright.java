@@ -14,11 +14,11 @@ public class Test_05_2_Карточка_передачи_SCREENSHOT_VRT_Playwrig
     @RepeatedTest(1)
     public void cardTvProgram() throws Exception {
         //неавторизованный пользователь:
-        cardTvProgramPW.checkImageCardTvProgramForUnauthorized();
+        cardTvProgramPW.checkImageCardTvProgramForGuest();
         //авторизованный пользователь:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        cardTvProgramPW.checkImageCardTvProgramForAuthorized();
+        cardTvProgramPW.checkImageCardTvProgramForUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

@@ -16,7 +16,7 @@ public class Test_08_2_Передачи_в_эфире_SCREENSHOT_VRT_Playwright 
     @RepeatedTest(1)
     public void tvProgramInAir() throws IOException, InterruptedException {
         // неавторизованный пользователь:
-        tvPagePW.checkImageTabTvProgramInAir();
+        tvPagePW.checkImageTabTvProgramInAirForGuest();
 
     }
 }
