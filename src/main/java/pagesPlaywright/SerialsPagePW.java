@@ -56,6 +56,8 @@ public class SerialsPagePW extends BasePagePlaywright {
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
 
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
             poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Season/aa/07/66b2b20d6fcbaa0e2fc7dbbc7b606e22c986/poster__web-wp.webp);')");
@@ -85,10 +87,12 @@ public class SerialsPagePW extends BasePagePlaywright {
             age.evaluate("yG => yG.innerText='18+'");
         }
         System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
-        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(2000);
 
-        // делаем скриншот элемента "bannersPageSerialsForUnauthorized":
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
+        page.waitForTimeout(3000);
+
+        // делаем скриншот элемента "bannersPageSerialsForGuest":
         vrt.track(
                 "bannersPageSerialsForGuest",
                 Base64.getEncoder().encodeToString(banners.screenshot()),
@@ -275,6 +279,9 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
+
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
             poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Season/aa/07/66b2b20d6fcbaa0e2fc7dbbc7b606e22c986/poster__web-wp.webp);')");
@@ -350,6 +357,8 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
+
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
 
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
@@ -510,7 +519,7 @@ public class SerialsPagePW extends BasePagePlaywright {
 
     public void checkImageSerialsPageScrollForUser() throws IOException, InterruptedException {
         page.navigate("https://web-preprod5.megafon.tv/shows");
-        // подготовка страницы "SerialsPageScrollForAuthorized" к скриншот-тесту:
+        // подготовка страницы "serialsPageScrollForUser" к скриншот-тесту:
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
         // подготовка блоков подборок с заголовком:
@@ -571,6 +580,8 @@ public class SerialsPagePW extends BasePagePlaywright {
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
 
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
             poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Season/aa/07/66b2b20d6fcbaa0e2fc7dbbc7b606e22c986/poster__web-wp.webp);')");
@@ -579,22 +590,18 @@ public class SerialsPagePW extends BasePagePlaywright {
         for(ElementHandle titleBanner : titleBanners){
             titleBanner.evaluate("t => t.innerText='Название сериала'");
         }
-
         List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
         for(ElementHandle stiker : stikers){
             stiker.evaluate("s => s.innerText='Автотест'");
         }
-
         List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
         for(ElementHandle colorStiker : colorStikers){
             colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
         }
-
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
         for(ElementHandle yearAndGenre : yearAndGenres){
             yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
         }
-
         List<ElementHandle> ages = page.querySelectorAll("//div[contains(@class,'_2lExk7vBwXdikRmrmW8iJ_ _3ee886k9ILen72-SjCqCR6')]");
         for(ElementHandle age : ages){
             age.evaluate("yG => yG.innerText='18+'");
@@ -603,9 +610,9 @@ public class SerialsPagePW extends BasePagePlaywright {
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
         page.waitForTimeout(4000);
 
-        // делаем скриншот полной страницы "SerialsPageScrollForAuthorized":
+        // делаем скриншот полной страницы "serialsPageScrollForUser":
         vrt.track(
-                "SerialsPageScrollForAuthorized",
+                "serialsPageScrollForUser",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                 TestRunOptions.builder()
                         .device("Acer")

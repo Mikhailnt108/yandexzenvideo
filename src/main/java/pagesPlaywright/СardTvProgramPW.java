@@ -39,7 +39,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         page.evaluate("i => i.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/7f/4e/62d9c9b6d708dcaf23d41a28c8b9b4b699a1/logo_tv_guide__web-wp.png')", imgTvChannel);
 
         ElementHandle nameTvChannel = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
-        page.evaluate("nC => nC.innerText='Название канала'", nameTvChannel);
+        page.evaluate("nC => nC.innerText='Название передачи'", nameTvChannel);
 
         ElementHandle genres = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]");
         page.evaluate("d => d.innerText='Сегодня, 00:00, 18+'", genres);
@@ -48,7 +48,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         page.evaluate("g => g.innerText='Познавательные, HD, В записи'", dateTimeAge);
 
         ElementHandle nameTvProgram = page.querySelector("//a[@class='_1nAXLMkHN0PXnwvulfBvK0']");
-        page.evaluate("nP => nP.innerText='Название передачи'", nameTvProgram);
+        page.evaluate("nP => nP.innerText='Название канала'", nameTvProgram);
 
         ElementHandle agePoster = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN'])[2]");
         page.evaluate("aP => aP.innerText='18+'", agePoster);
@@ -57,14 +57,9 @@ public class СardTvProgramPW extends BasePagePlaywright {
         page.evaluate("pP => pP.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/c8/f9/65467a9cb1db598036537f85514828af0b0d/secondary_poster__web-wp.webp);')", posterTvProgram);
 
         ElementHandle descriptionTvProgram = page.querySelector("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g']");
-        page.evaluate("dP => dP.innerText='С помощью последних научных данных и потрясающей трёхмерной " +
-                "компьютерной графики вы проникнете внутрь звёзд, планет и галактик и исследуете тайны " +
-                "происхождения и будущего Вселенной.'", descriptionTvProgram);
-
+        page.evaluate("dP => dP.innerText='Канал находится на острие научного и технологического поиска, рассказывает об изобретениях, показывая, как наука воздействует на нашу жизнь. Охватывается весь спектр научных интересов – от изучения нашей Вселенной до практической науки вокруг нас.'", descriptionTvProgram);
         ElementHandle descriptionTvChannel = page.querySelector("//div[contains(@class,'_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6')]");
-        page.evaluate("dP => dP.innerText='Канал находится на острие научного и технологического поиска, рассказывает об изобретениях, " +
-                "показывая, как наука воздействует на нашу жизнь. Охватывается весь спектр научных интересов – от изучения нашей Вселенной " +
-                "до практической науки вокруг нас.'", descriptionTvChannel);
+        page.evaluate("dP => dP.innerText='С помощью последних научных данных и потрясающей трёхмерной компьютерной графики вы проникнете внутрь звёзд, планет и галактик и исследуете тайны происхождения и будущего Вселенной.'", descriptionTvChannel);
 
         ElementHandle text1SubscribeButton = page.querySelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[1]");
         page.evaluate("t1B => t1B.innerText='Подключить бесплатно на 21 день'", text1SubscribeButton);
@@ -81,28 +76,29 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle afterTomorrow = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[last()]");
         page.evaluate("aT => aT.innerText='Чт, 4'", afterTomorrow);
 
-        List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
-        if (listTvPrograminSchedule.size() > 4) {
+        List<ElementHandle> listTvProgramInSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvProgramInSchedule.size() > 4) {
             while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
                 page.evaluate("dU => dU.remove();", page.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
                 System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
             }
         }
-        List<ElementHandle> timeAll;
-        List<ElementHandle> nameTvProgramAll;
-        List<ElementHandle> ageAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']").size(); i++) {
-            timeAll = page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
-            page.evaluate("t => t.innerText='00:00'", timeAll.get(i));
-            nameTvProgramAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
-            page.evaluate("nP => nP.textContent='Название передачи'", nameTvProgramAll.get(i));
-            ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        List<ElementHandle> timeInScheduleAll= page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
+        for(ElementHandle timeInSchedule : timeInScheduleAll){
+            timeInSchedule.evaluate("t => t.innerText='00:00'");
         }
-
-        // делаем скриншот видимой части страницы "СardTvProgram":
+        List<ElementHandle> nameTvProgramInScheduleAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
+        for(ElementHandle nameTvProgramInSchedule : nameTvProgramInScheduleAll){
+            nameTvProgramInSchedule.evaluate("nP => nP.textContent='Название передачи'");
+        }
+        List<ElementHandle> ageInScheduleAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle ageInSchedule : ageInScheduleAll){
+            ageInSchedule.evaluate("a => a.innerText='18+'");
+        }
+        page.querySelector("._3lvyrUkaGN_QANJMIvjX5c").hover();
+        // делаем скриншот видимой части страницы "cardTvProgramForGuest":
         vrt.track(
-                "СardTvProgramForUnauthorized",
+                "cardTvProgramForGuest",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -118,7 +114,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
         page.click("._1nAXLMkHN0PXnwvulfBvK0");
-        // подготовка видимой части страницы "CardTvProgram" к скриншот-тесту:
+        // подготовка видимой части страницы "cardTvProgramForUser" к скриншот-тесту:
         page.waitForSelector("(//span[@itemprop='name'])[4]");
 
         ElementHandle nameTvChannelCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
@@ -183,21 +179,22 @@ public class СardTvProgramPW extends BasePagePlaywright {
                 System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
             }
         }
-        List<ElementHandle> timeAll;
-        List<ElementHandle> nameTvProgramAll;
-        List<ElementHandle> ageAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']").size(); i++) {
-            timeAll = page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
-            page.evaluate("t => t.innerText='00:00'", timeAll.get(i));
-            nameTvProgramAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
-            page.evaluate("nP => nP.textContent='Название передачи'", nameTvProgramAll.get(i));
-            ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        List<ElementHandle> timeInScheduleAll= page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
+        for(ElementHandle timeInSchedule : timeInScheduleAll){
+            timeInSchedule.evaluate("t => t.innerText='00:00'");
         }
-
-        // делаем скриншот видимой части страницы "СardTvProgram":
+        List<ElementHandle> nameTvProgramInScheduleAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
+        for(ElementHandle nameTvProgramInSchedule : nameTvProgramInScheduleAll){
+            nameTvProgramInSchedule.evaluate("nP => nP.textContent='Название передачи'");
+        }
+        List<ElementHandle> ageInScheduleAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle ageInSchedule : ageInScheduleAll){
+            ageInSchedule.evaluate("a => a.innerText='18+'");
+        }
+        page.querySelector("._3lvyrUkaGN_QANJMIvjX5c").hover();
+        // делаем скриншот видимой части страницы "cardTvProgramForUser":
         vrt.track(
-                "СardTvProgramForAuthorized",
+                "cardTvProgramForUser",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -296,8 +293,16 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle progressPlayerTvProgram = pageHeadfull.querySelector("//div[@class='_3uP0ihiEVqMOuIXkcIlhiL']");
         pageHeadfull.evaluate("pP => pP.setAttribute('style', 'width: 50%;')", progressPlayerTvProgram);
 
-        List<ElementHandle> timeAll = pageHeadfull.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
-        for (ElementHandle time : timeAll) {
+        List<ElementHandle> listTvPrograminSchedule = pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvPrograminSchedule.size() > 4) {
+            while (pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                pageHeadfull.evaluate("dU => dU.remove();", pageHeadfull.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
+
+        List<ElementHandle> timeInScheduleAll = pageHeadfull.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
+        for (ElementHandle time : timeInScheduleAll) {
             time.evaluate("t => t.innerText='00:00'");
         }
 
@@ -306,8 +311,8 @@ public class СardTvProgramPW extends BasePagePlaywright {
             nameTvProgramInSchedule.evaluate("nP => nP.textContent='Название передачи'");
         }
 
-        List<ElementHandle> ageAll = pageHeadfull.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-        for (ElementHandle age : ageAll) {
+        List<ElementHandle> ageInScheduleAll = pageHeadfull.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for (ElementHandle age : ageInScheduleAll) {
             age.evaluate("a => a.innerText='18+'");
         }
 
@@ -372,6 +377,21 @@ public class СardTvProgramPW extends BasePagePlaywright {
 
         pageHeadfull.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
 
+//        List<ElementHandle> listTvProgramInSchedule = pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+//        if (listTvProgramInSchedule.size() > 4) {
+//            while (pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+//                pageHeadfull.evaluate("dU => dU.remove();", pageHeadfull.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
+//                System.out.println(pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
+//            }
+//        }
+        List<ElementHandle> listTvProgramInPlayer = pageHeadfull.querySelectorAll("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvProgramInPlayer.size() > 4) {
+            while (pageHeadfull.querySelectorAll("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                pageHeadfull.evaluate("dU => dU.remove();", pageHeadfull.querySelector("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(pageHeadfull.querySelectorAll("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
+
         List<ElementHandle> timeInPlayerAll = pageHeadfull.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
         for (ElementHandle timeInPlayer : timeInPlayerAll) {
             timeInPlayer.evaluate("t => t.innerText='00:00'");
@@ -397,7 +417,6 @@ public class СardTvProgramPW extends BasePagePlaywright {
         dayAgo2.evaluate("dA => dA.innerText='Вс, 1'");
         ElementHandle afterTomorrow2 = pageHeadfull.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[last()]");
         afterTomorrow2.evaluate("aT => aT.innerText='Чт, 4'");
-
         // делаем скриншот видимой части страницы "PlayerUnrecordedTvProgramWithSchedule":
         pageHeadfull.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
         vrt.track(
@@ -476,9 +495,18 @@ public class СardTvProgramPW extends BasePagePlaywright {
             pageHeadfull.evaluate("pOT => pOT.setAttribute('style', 'width: 50%;')", progressOtherTvProgramAll.get(i));
         }
 
-        List<ElementHandle> timeAll = pageHeadfull.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
-        for (ElementHandle time : timeAll) {
-            time.evaluate("t => t.innerText='00:00'");
+
+        List<ElementHandle> listTvPrograminSchedule = pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvPrograminSchedule.size() > 4) {
+            while (pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                pageHeadfull.evaluate("dU => dU.remove();", pageHeadfull.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(pageHeadfull.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
+
+        List<ElementHandle> timeInScheduleAll = pageHeadfull.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
+        for (ElementHandle timeInSchedule : timeInScheduleAll) {
+            timeInSchedule.evaluate("t => t.innerText='00:00'");
         }
 
         List<ElementHandle> nameTvProgramInScheduleAll = pageHeadfull.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
@@ -486,9 +514,9 @@ public class СardTvProgramPW extends BasePagePlaywright {
             nameTvProgramInSchedule.evaluate("nP => nP.textContent='Название передачи'");
         }
 
-        List<ElementHandle> ageAll = pageHeadfull.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-        for (ElementHandle age : ageAll) {
-            age.evaluate("a => a.innerText='18+'");
+        List<ElementHandle> ageInScheduleAll = pageHeadfull.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for (ElementHandle ageInSchedule : ageInScheduleAll) {
+            ageInSchedule.evaluate("a => a.innerText='18+'");
         }
 
         ElementHandle dayAgo = pageHeadfull.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[6]");
@@ -504,7 +532,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle progressPlayerTvProgram = pageHeadfull.querySelector("//div[@class='_3uP0ihiEVqMOuIXkcIlhiL']");
         progressPlayerTvProgram.evaluate("pP => pP.setAttribute('style', 'width: 50%;')");
 
-        // делаем скриншот видимой части страницы "VideoPlayerUnrecordedTvProgram":
+        // делаем скриншот видимой части страницы "VideoPlayerRecordedTvProgram":
 //        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
         vrt.track(
                 "PlayerСardTvProgramRecorded",
@@ -559,22 +587,26 @@ public class СardTvProgramPW extends BasePagePlaywright {
         userLogin2.evaluate("uL => uL.innerText='+79260010101'");
 
         pageHeadfull.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
-
+        pageHeadfull.click("(//div[@class='_2PTjd7wVQg-DJZQcg2IqIO _2BeyjGisf12UNX8mPALW98']//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[1]");
+        List<ElementHandle> listTvProgramInPlayer = pageHeadfull.querySelectorAll("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvProgramInPlayer.size() > 4) {
+            while (pageHeadfull.querySelectorAll("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
+                pageHeadfull.evaluate("dU => dU.remove();", pageHeadfull.querySelector("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']"));
+                System.out.println(pageHeadfull.querySelectorAll("//div[@class='_2SOEapoa-Kc5Wc978Nni5I _1J7Bd53tGM88cshwxVlWNF']").size());
+            }
+        }
         List<ElementHandle> timeInPlayerAll = pageHeadfull.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
         for (ElementHandle timeInPlayer : timeInPlayerAll) {
             timeInPlayer.evaluate("t => t.innerText='00:00'");
         }
-
         List<ElementHandle> nameTvProgramInSchedulePlayerAll = pageHeadfull.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
         for (ElementHandle nameTvProgramInSchedulePlayer : nameTvProgramInSchedulePlayerAll) {
             nameTvProgramInSchedulePlayer.evaluate("nP => nP.textContent='Название передачи'");
         }
-
         List<ElementHandle> ageInPlayerAll = pageHeadfull.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
         for (ElementHandle ageInPlayer : ageInPlayerAll) {
             ageInPlayer.evaluate("a => a.innerText='18+'");
         }
-
         ElementHandle dayAgoInPlayer = pageHeadfull.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[1]");
         dayAgoInPlayer.evaluate("dA => dA.innerText='Вс, 1'");
         ElementHandle afterTomorrowInPlayer = pageHeadfull.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[5]");

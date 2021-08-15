@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class PackagesPageWebDriver extends BasePageWebDriver {
     }
 
     public void clickToTailCardPackageSerials() {
-        click(By.xpath("//h3[text()='Русские сериалы']"));
+        click(By.xpath("//h3[text()='START']"));
     }
 
     public void clickToTabTvСhannelInMenuShopPage() {
@@ -51,7 +52,8 @@ public class PackagesPageWebDriver extends BasePageWebDriver {
     }
 
     public void clickToFirstTailCardPackage() {
-        click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[1]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]")));
+        click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]"));
     }
 
     public void clickToTailCardPackageTnB() {
@@ -245,10 +247,5 @@ public class PackagesPageWebDriver extends BasePageWebDriver {
 
     public void clickToTailCardPackageKinoPoPodpiske() {
         click(By.xpath("//h3[text()='Кино по подписке']"));
-    }
-
-    public void scrollCardPackage() {
-        JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
-        jsDown.executeScript("window.scrollTo(0, 200);");
     }
 }

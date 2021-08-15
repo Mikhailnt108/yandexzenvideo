@@ -3,6 +3,7 @@ package pages;
 import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -304,5 +305,10 @@ public class CardPackage extends BasePageWebDriver {
     public void clickToTabSerials() {
 
         click(By.xpath("(//div[text()='Сериалы'])[3]"));
+    }
+
+    public void scrollCardPackage() {
+        JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
+        jsDown.executeScript("window.scrollTo(0, 200);");
     }
 }

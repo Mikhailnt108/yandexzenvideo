@@ -41,7 +41,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("15T5FMYM2VMPJYGWBCJPAZPTMT9Q")
+                    .apiKey("NA6N66H61HMZP4M0KMEVHTGMGE03")
                     .project("MFTV_Web")
                     .branchName("master")
                     .enableSoftAssert(false)
@@ -52,9 +52,9 @@ public class TestBasePlaywright extends BasePagePlaywright{
     static void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
         // ноут:
-        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+//        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         // комп:
-//        userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+        userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         // браузер Headfull:
 //        contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
 //                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
@@ -62,7 +62,8 @@ public class TestBasePlaywright extends BasePagePlaywright{
         // браузер Headless:
         contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
                 new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
-                        .setViewportSize(1366, 768));
+                        .setViewportSize(1900, 920));
+//        для ноута:                .setViewportSize(1366, 768));
 
         // браузер Headless с записью видео:
 //        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,

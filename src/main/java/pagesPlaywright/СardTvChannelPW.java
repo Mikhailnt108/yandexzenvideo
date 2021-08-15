@@ -24,7 +24,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
-        // подготовка полной страницы "CardTvChannel" к скриншот-тесту:
+        // подготовка полной страницы "сardTvChannel" к скриншот-тесту:
         page.waitForSelector("(//span[@itemprop='name'])[3]");
         ElementHandle nameTvChannelCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
         nameTvChannelCrumbs.evaluate("n => n.innerText='Название канала'");
@@ -75,28 +75,29 @@ public class СardTvChannelPW extends BasePagePlaywright {
         ElementHandle afterTomorrow = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[last()]");
         afterTomorrow.evaluate("aT => aT.innerText='Чт, 4'");
 
-        List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
-        if (listTvPrograminSchedule.size() > 4) {
+        List<ElementHandle> listTvProgramInSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
+        if (listTvProgramInSchedule.size() > 4) {
             while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
                 page.evaluate("dU => dU.remove();", page.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
                 System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
             }
         }
-        List<ElementHandle> timeAll;
-        List<ElementHandle> nameTvProgramAll;
-        List<ElementHandle> ageAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']").size(); i++) {
-            timeAll = page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
-            page.evaluate("t => t.innerText='00:00'", timeAll.get(i));
-            nameTvProgramAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
-            page.evaluate("nP => nP.textContent='Название передачи'", nameTvProgramAll.get(i));
-            ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        List<ElementHandle> timeInScheduleAll = page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
+        for(ElementHandle timeInSchedule : timeInScheduleAll){
+            timeInSchedule.evaluate("t => t.innerText='00:00'");
         }
-
-        // делаем скриншот полной страницы "СardTvChannelForGuest":
+        List<ElementHandle> nameTvProgramInScheduleAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
+        for(ElementHandle nameTvProgramInSchedule : nameTvProgramInScheduleAll){
+            nameTvProgramInSchedule.evaluate("nP => nP.textContent='Название передачи'");
+        }
+        List<ElementHandle> ageInScheduleAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle ageInSchedule : ageInScheduleAll){
+            ageInSchedule.evaluate("a => a.innerText='18+'");
+        }
+        page.waitForTimeout(5000);
+        // делаем скриншот полной страницы "сardTvChannelForGuest":
         vrt.track(
-                "СardTvChannelForGuest",
+                "cardTvChannelForGuest",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -112,7 +113,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
-        // подготовка полной страницы "CardTvChannel" к скриншот-тесту:
+        // подготовка полной страницы "сardTvChannel" к скриншот-тесту:
         page.waitForSelector("(//span[@itemprop='name'])[3]");
         ElementHandle nameTvChannelCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
         nameTvChannelCrumbs.evaluate("n => n.innerText='Название канала'");
@@ -173,22 +174,22 @@ public class СardTvChannelPW extends BasePagePlaywright {
                 System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
             }
         }
-
-        List<ElementHandle> timeAll;
-        List<ElementHandle> nameTvProgramAll;
-        List<ElementHandle> ageAll;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']").size(); i++) {
-            timeAll = page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
-            page.evaluate("t => t.innerText='00:00'", timeAll.get(i));
-            nameTvProgramAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
-            page.evaluate("nP => nP.textContent='Название передачи'", nameTvProgramAll.get(i));
-            ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-            page.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        List<ElementHandle> timeInScheduleAll = page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
+        for(ElementHandle timeInSchedule : timeInScheduleAll){
+            timeInSchedule.evaluate("t => t.innerText='00:00'");
         }
-
-        // делаем скриншот полной части страницы "СardTvChannelForUser":
+        List<ElementHandle> nameTvProgramInScheduleAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
+        for(ElementHandle nameTvProgramInSchedule : nameTvProgramInScheduleAll){
+            nameTvProgramInSchedule.evaluate("nP => nP.textContent='Название передачи'");
+        }
+        List<ElementHandle> ageInScheduleAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle ageInSchedule : ageInScheduleAll){
+            ageInSchedule.evaluate("a => a.innerText='18+'");
+        }
+        page.waitForTimeout(5000);
+        // делаем скриншот полной части страницы "сardTvChannelForUser":
         vrt.track(
-                "СardTvChannelForUser",
+                "cardTvChannelForUser",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")

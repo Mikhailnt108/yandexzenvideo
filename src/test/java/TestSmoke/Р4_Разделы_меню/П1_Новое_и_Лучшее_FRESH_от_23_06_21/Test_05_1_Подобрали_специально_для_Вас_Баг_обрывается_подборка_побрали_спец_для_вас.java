@@ -16,13 +16,16 @@ public class Test_05_1_Подобрали_специально_для_Вас_Б�
         //пользователь НЕ авторизован:
         headerMenu.goToNilPage();
         headerMenu.checkNotLoggedIsCorrect();
+
         nilPage.checkElementsBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
+
         nilPage.clickToLinkAllWithCollectionSpecialForYou();
         collectionsPage.checkOpenCollectionPageForKids();
         collectionsPage.clickToTailContentOnPageCollect();
         headerMenu.goToNilPage();
+        headerMenu.scrollDownPage();
         nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();
         nilPage.checkLastTailInCollectionSpecialForYou();
         nilPage.clickToLastTailInCollectionSpecialForYou();
@@ -34,10 +37,12 @@ public class Test_05_1_Подобрали_специально_для_Вас_Б�
         nilPage.checkElementsBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();
+
         nilPage.clickToLinkAllWithCollectionSpecialForYou();
         collectionsPage.checkOpenCollectionPageForKids();
         collectionsPage.clickToTailContentOnPageCollect();
         headerMenu.goToNilPage();
+
         nilPage.scrollСollectionToRightInBlockCollectionSpecialForYou();
         nilPage.checkLastTailInCollectionSpecialForYou();
         nilPage.clickToLastTailInCollectionSpecialForYou();

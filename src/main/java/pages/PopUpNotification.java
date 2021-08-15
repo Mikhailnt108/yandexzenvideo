@@ -3,6 +3,8 @@ package pages;
 import base.BasePageWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import static io.restassured.RestAssured.given;
 
 public class PopUpNotification extends BasePageWebDriver {
@@ -27,6 +29,7 @@ public class PopUpNotification extends BasePageWebDriver {
     public void checkElementsPopUpNotifScreenNilPayFilm() {
         isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
         isElementDisplayed(By.xpath("(//div[@role='dialog']//button)[3]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("x8TnYuA0SaYGPCw7RRFOL")));
         isElementDisplayed(By.className("x8TnYuA0SaYGPCw7RRFOL"));
         isElementDisplayed(By.xpath("//div[@aria-label='Notification']//h3[text()='автотест ВУ для экрана НиЛ']"));
         isElementDisplayed(By.xpath("//div[@aria-label='Notification']//div[text()='тело']"));

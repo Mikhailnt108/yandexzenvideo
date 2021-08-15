@@ -12,7 +12,7 @@ public class Test_01_Внешний_вид_всплывающего_уведом
     @Story(value = "1. ВУ")
     @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @RepeatedTest(5)
     public void appearanceOfPopUpNotification() {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();

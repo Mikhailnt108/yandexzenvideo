@@ -12,7 +12,7 @@ public class Test_04_Разные_типы_ПП extends TestBaseWebDriver {
     @DisplayName(value = "Разные типы ПП")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void otherTypesPersonalOffers() {
+    public void otherTypesPersonalOffers() throws InterruptedException {
         //проверка доступности перс предложения тип - пакет за ноль рублей для МФ
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();

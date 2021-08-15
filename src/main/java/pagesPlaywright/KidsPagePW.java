@@ -54,6 +54,8 @@ public class KidsPagePW extends BasePagePlaywright {
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
 
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
             poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/9a/95/c67e32ddc7552160dfb0c9153543ab776d7b/poster__web-wp.webp);')");
@@ -239,6 +241,8 @@ public class KidsPagePW extends BasePagePlaywright {
         }
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
+
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
 
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){

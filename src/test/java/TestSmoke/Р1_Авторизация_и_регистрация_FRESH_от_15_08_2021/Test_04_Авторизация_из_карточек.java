@@ -1,4 +1,4 @@
-package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
+package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_15_08_2021;
 
 import base.TestBaseWebDriver;
 import com.automation.remarks.junit.VideoRule;
@@ -7,7 +7,6 @@ import io.qameta.allure.*;
 import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-
 
 public class Test_04_Авторизация_из_карточек extends TestBaseWebDriver {
     @Rule
@@ -52,10 +51,10 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         headerMenu.clickToTabShop();
         packagesPage.checkOpenShopPage();
         packagesPage.clickToTabTvСhannelInMenuShopPage();
+        headerMenu.refreshPage();
         packagesPage.clickToFirstTailCardPackage();
-        packagesPage.scrollCardPackage();
         cardPackage.checkOpenCardPackageTvChannel();
-
+//        cardPackage.scrollCardPackage();  // для ноутбука
         cardPackage.clickOnPaymentButtonInCardPackage();
         flowAutorisation();
         pageCMS.deleteAccountMF("79260192144");

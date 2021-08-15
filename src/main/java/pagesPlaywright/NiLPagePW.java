@@ -76,6 +76,8 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
 
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
             poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp);')");
@@ -261,6 +263,8 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
         changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
 
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
             poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp);')");
@@ -291,7 +295,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
 
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(2000);
+        page.waitForTimeout(3000);
 
         // делаем скриншот полной страницы "NilPageFull":
         vrt.track(

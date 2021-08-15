@@ -563,13 +563,21 @@ public class NilPageWebDriver extends BasePageWebDriver {
     public void checkElementsBlockCollectionSpecialForYou() {
         isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']"));
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Подобрали специально для вас']"));
-        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
-        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
-        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span"));
-        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_2I_pgomfMGx8HVFvHlZhKj']"));
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3)[1]"));
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span)[1]"));
+
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m'])[2]"));
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3)[2]"));
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span)[2]"));
+
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m'])[3]"));
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3)[3]"));
+        isElementDisplayed(By.xpath("(//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span)[3]"));
+
         isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText']"));
         isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
-        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled])[1]"));
+        isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 
     public void clickToTailContentCollectionSpecialForYou() {
@@ -584,7 +592,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
     public void scrollСollectionToRightInBlockCollectionSpecialForYou() {
         while (webDriver.findElements(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
 //            click(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
-            for (int i = 0; i <= 5; i++) {
+            for (int i = 0; i <= 10; i++) {
                 click(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
             }
         }

@@ -18,8 +18,9 @@ public class PromoCode extends BasePageWebDriver {
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 multiPart("id", "RC_autotest").
                 multiPart("name", "RC_autotest").
+                multiPart("partner","megafon_tv").
                 when().post("https://bmp-preprod5.megafon.tv/cms/ad_campaigns/create").
-                then().statusCode(anyOf(is(302),is(500)));
+                then().statusCode(anyOf(is(200),is(302),is(500)));
     }
 
 
@@ -43,7 +44,7 @@ public class PromoCode extends BasePageWebDriver {
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
                 when().post("https://bmp-preprod5.megafon.tv/cms/code_groups/CG_autotest_SotTnb/add_promocode").
-                then().statusCode(anyOf(is(302),is(409)));
+                then().statusCode(anyOf(is(200),is(302),is(409)));
     }
 
     public void createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB() {
@@ -66,7 +67,7 @@ public class PromoCode extends BasePageWebDriver {
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
                 when().post("https://bmp-preprod5.megafon.tv/cms/code_groups/CG_autotest_HardTnB/add_promocode").
-                then().statusCode(anyOf(is(302),is(409)));
+                then().statusCode(anyOf(is(200),is(302),is(409)));
     }
     public void createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo() {
         //Создание и активация код-группы:
@@ -87,7 +88,7 @@ public class PromoCode extends BasePageWebDriver {
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
                 when().post("https://bmp-preprod5.megafon.tv/cms/code_groups/СG_autotest_Film_RentPromo/add_promocode").
-                then().statusCode(anyOf(is(302),is(409)));
+                then().statusCode(anyOf(is(200),is(302),is(409)));
     }
 
     public void createAndPublishedCodeGroupAndPromoCodeFilmOnEST() {
@@ -109,7 +110,7 @@ public class PromoCode extends BasePageWebDriver {
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
                 when().post("https://bmp-preprod5.megafon.tv/cms/code_groups/СG_autotest_Film_EST/add_promocode").
-                then().statusCode(anyOf(is(302),is(409)));
+                then().statusCode(anyOf(is(200),is(302),is(409)));
     }
 
     public void archiveCodeGroupPackageStartSoftTnB() {

@@ -417,18 +417,18 @@ public class CardSerialPW extends BasePagePlaywright {
     }
 
     public void moveSliderRewindToVideoPlayerHeadfull() {
-        pageHeadfull.waitForTimeout(5000);
+        pageHeadfull.waitForTimeout(7000);
         //нажать "Смотреть" - видео запустилось
         pageHeadfull.click("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]");
-        pageHeadfull.waitForTimeout(5000);
+        pageHeadfull.waitForTimeout(7000);
         pageHeadfull.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
-        pageHeadfull.waitForTimeout(5000);
+        pageHeadfull.waitForTimeout(7000);
         //переместить слайдер на середину прогресс бара:
         ElementHandle progressBar = pageHeadfull.querySelector("(//div[@class='_1y3ojG7nWNTRJiI_87BjFx'])[1]");
         progressBar.click();
         //кликнуть в середину прогресс бара:
         pageHeadfull.click("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]");
-        pageHeadfull.waitForTimeout(5000);
+        pageHeadfull.waitForTimeout(7000);
     }
 
     public void goToPackagesPageHeadfull() {

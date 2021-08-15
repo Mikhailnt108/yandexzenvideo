@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HeaderMenu extends BasePageWebDriver {
     //ПП1
@@ -759,7 +760,7 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkElementsPopUpBeforeActivationPackageStartSoftTnB() {
         isElementDisplayed(By.xpath("//h3[text()='«START» бесплатно по промокоду!']"));
         isElementDisplayed(By.xpath("//div//*[@class='_38mZjUWD1k5VLnjhj0vj8T']"));
-        isElementDisplayed(By.xpath("//span[contains(text(),'Бесплатный доступ к пакету «START» по промокоду предоставляется до 01.10.2021.')]"));
+        isElementDisplayed(By.xpath("//span[contains(text(),'Бесплатный доступ к пакету «START» по промокоду предоставляется до')]"));
         isElementDisplayed(By.xpath("//span[contains(text(),'По окончании срока бесплатного доступа пакет будет отключен автоматически.')]"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Сервис предоставляется ООО «Старт.ру».')]"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Подтверждая подписку, вы принимаете условия оферты ООО «Старт.ру»:')]"));
@@ -931,6 +932,11 @@ public class HeaderMenu extends BasePageWebDriver {
         WebElement element1 = webDriver.findElement(By.xpath("//input[@type='password']"));
         element1.sendKeys(password);
 
+    }
+
+    public void scrollDownPage() {
+        JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
+        jsDown.executeScript("window.scrollTo(0, 1500);");
     }
 }
 

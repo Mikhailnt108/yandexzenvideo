@@ -1,4 +1,4 @@
-package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_16_04_2021;
+package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_от_15_08_2021;
 
 import base.TestBaseWebDriver;
 import com.automation.remarks.junit.VideoRule;
