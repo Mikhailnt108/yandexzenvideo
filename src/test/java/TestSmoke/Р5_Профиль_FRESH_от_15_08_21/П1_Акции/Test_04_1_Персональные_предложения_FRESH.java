@@ -9,7 +9,7 @@ public class Test_04_1_Персональные_предложения_FRESH ext
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Персональные предложения")
+    @DisplayName(value ="4.1 Персональные предложения")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void personalOffers() throws InterruptedException {

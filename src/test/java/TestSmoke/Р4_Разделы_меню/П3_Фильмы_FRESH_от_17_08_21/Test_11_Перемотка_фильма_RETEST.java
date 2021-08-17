@@ -5,35 +5,32 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_10_Пауза_фильма_FRESH extends TestBaseWebDriver {
+public class Test_11_Перемотка_фильма_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Пауза фильма")
+    @DisplayName(value ="Перемотка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void testPauseVideoPleer() throws Exception {
+    public void rewindFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-        cardFilm.paymentFilmAtEst();
-        cardFilm.clickToPauseVideoPleer();
-        cardFilm.clickToPlayVideoPleer();
-        cardFilm.clickToSpaceToVideoPleer();
-        cardFilm.clickToLeftButtonMouseToVideoPleer();
-        pageCMS.deleteAccountMF("79260205027");
+        cardFilm.paymentButtonRent2InCardFilm();
+        cardFilm.moveSliderRewindToVideoPlayer();
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260205027");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260205027");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

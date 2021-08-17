@@ -12,7 +12,7 @@ public class Test_01_1_Внешний_вид_раздела_FRESH extends TestBa
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Внешний вид раздела")
+    @DisplayName(value ="1. Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void appearancePagePromo() throws InterruptedException, IOException, AWTException {

@@ -3,15 +3,15 @@ package TestSmoke.Р4_Разделы_меню.П7_Пакеты_FRESH_от_16_08_
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_02_Переход_по_вкладкам_Пакеты_FRESH extends TestBaseWebDriver {
+public class Test_02_ПАКЕТЫ_Переход_по_вкладкам_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "7. Пакеты")
-    @DisplayName(value = "Переход по вкладкам Пакеты")
+    @DisplayName(value = "2. Переход по вкладкам Пакеты")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void goToTabPackage() {
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabTvСhannelInMenuShopPage();

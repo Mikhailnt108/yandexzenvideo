@@ -1,32 +1,27 @@
-package TestSmoke.Р4_Разделы_меню.П4_Сериалы_FRESH_от_16_08_21;
+package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_17_08_21;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_01_1_Внешний_вид_раздела_FRESH extends TestBaseWebDriver {
+public class Test_10_Пауза_фильма_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "4. Сериалы")
-    @DisplayName(value ="Внешний вид раздела")
+    @Story(value = "3. Фильмы")
+    @DisplayName(value ="Пауза фильма")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void appearanceSectionSerialsPage() throws Exception {
-        headerMenu.goToSerialsPage();
-        serialsPage.checkElementsSerialsPage();
-        serialsPage.checkElementsBannersCarousel();
-        serialsPage.autoScrollBanners();
-        serialsPage.scrollBannersToLeft();
-        serialsPage.scrollBannersToRight();
-        serialsPage.scrollСollectionToRightAndLeft();
+    public void testPauseVideoPleer() throws Exception {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        serialsPage.checkElementsSerialsPage();
-        serialsPage.checkElementsBannersCarousel();
-        serialsPage.autoScrollBanners();
-        serialsPage.scrollBannersToLeft();
-        serialsPage.scrollBannersToRight();
-        serialsPage.scrollСollectionToRightAndLeft();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.paymentButtonRent2InCardFilm();
+        cardFilm.clickToPauseVideoPlayer();
+        cardFilm.clickToPlayVideoPlayer();
+        cardFilm.clickToSpaceToVideoPlayer();
+        cardFilm.clickToLeftButtonMouseToVideoPlayer();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -486,7 +486,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size());
             Thread.sleep(2000);
-            webDriver.navigate().back();
+            webDriver.get("https://web-preprod5.megafon.tv/shows");
         }
     }
 
@@ -678,7 +678,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
             webDriver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
-            webDriver.navigate().back();
+            webDriver.get("https://web-preprod5.megafon.tv/shows");
         }
     }
 

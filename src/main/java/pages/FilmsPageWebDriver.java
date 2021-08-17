@@ -700,7 +700,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
             webDriver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
-            webDriver.navigate().back();
+            webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
         }
     }
 

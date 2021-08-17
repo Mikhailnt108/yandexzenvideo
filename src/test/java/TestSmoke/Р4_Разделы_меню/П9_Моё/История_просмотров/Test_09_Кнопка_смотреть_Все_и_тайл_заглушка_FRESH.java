@@ -11,7 +11,7 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
     @Story(value = "9. Моё")
     @DisplayName(value ="Кнопка смотреть Все и тайл заглушка")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(3)
+    @RepeatedTest(1)
     public void buttonAllWatchAndTailWatchAndEdit() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

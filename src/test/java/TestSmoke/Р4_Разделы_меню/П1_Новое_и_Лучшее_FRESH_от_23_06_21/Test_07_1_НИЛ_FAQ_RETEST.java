@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 import java.io.IOException;
 
-public class Test_07_1_FAQ_FRESH extends TestBaseWebDriver {
+public class Test_07_1_НИЛ_FAQ_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")

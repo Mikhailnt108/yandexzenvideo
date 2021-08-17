@@ -210,11 +210,19 @@ public class HeaderMenuPW extends BasePagePlaywright {
             subtitleSerialResultSearchAll = page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__subtitle']");
             page.evaluate("d => d.textContent='1 сезон, Жанр'", subtitleSerialResultSearchAll.get(i));
         }
+        List<ElementHandle> posterCollectionResultSearchAll;
+        List<ElementHandle> titleCollectionResultSearchAll;
+        for (int i = 0; i < page.querySelectorAll("(//div[@class='ch-search__title-line'])[3]/following-sibling::a[@class='ch-search-item ch-search__item']").size(); i++) {
+            posterCollectionResultSearchAll = page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Подборки']/following::img[@class='ch-search-item__img']");
+            page.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Season/f3/e2/d64f0cdef60e2eaacec576b87e8cb005bacf/tile__web-wp.webp')", posterCollectionResultSearchAll.get(i));
+            titleCollectionResultSearchAll = page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Подборки']/following::div[@class='ch-search-item__title']");
+            page.evaluate("t => t.innerText='Название подборки'", titleCollectionResultSearchAll.get(i));
+        }
 
         List<ElementHandle> posterTvProgramResultSearchAll;
         List<ElementHandle> titleTvProgramResultSearchAll;
         List<ElementHandle> subtitleTvProgramResultSearchAll;
-        for (int i = 0; i < page.querySelectorAll("(//div[@class='ch-search__title-line'])[3]/following-sibling::a[@class='ch-search-item ch-search__item']").size(); i++) {
+        for (int i = 0; i < page.querySelectorAll("(//div[@class='ch-search__title-line'])[4]/following-sibling::a[@class='ch-search-item ch-search__item']").size(); i++) {
             posterTvProgramResultSearchAll = page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::img[@class='ch-search-item__img']");
             page.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/img/dc/3e/89aaa164a2655c2aa0301e375d48f0cd5940/tile__web-wp.webp')", posterTvProgramResultSearchAll.get(i));
             titleTvProgramResultSearchAll = page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']");

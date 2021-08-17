@@ -22,7 +22,7 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
 
         //проверка отображения фильма в подборке:
         cardPackage.clickOnTailFirstCardFilm();
-        cardFilm.moveSliderRewindToVideoPleer();
+        cardFilm.moveSliderRewindToVideoPlayer();
         headerMenu.goToNilPage();
         nilPage.checkAndClickOnTailCardFilmInCollectHistoryWatch();
         cardFilm.checkOpenCardFilm();

@@ -4,14 +4,15 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 public class Test_04_2_Переходы_Подборки_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")
-    @DisplayName(value ="Переходы.Подборки (скриншоты)")
+    @DisplayName(value ="4.2 Переходы.Подборки (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void goToCollection() throws Exception {
         headerMenuPW.goToKidsPage();
         kidsPagePW.clickToLinkAllOnCollectionBlock();

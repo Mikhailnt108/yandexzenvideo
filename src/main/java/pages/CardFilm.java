@@ -35,6 +35,7 @@ public class CardFilm extends BasePageWebDriver {
         click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
     }
 
@@ -48,11 +49,13 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void paymentButtonRent2InCardFilm() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'На 48 часов за')]")));
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
         click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'Смотреть до')]")));
         isElementDisplayed(By.xpath("//span[contains(text(), 'Смотреть до')]"));
     }
 
@@ -238,7 +241,7 @@ public class CardFilm extends BasePageWebDriver {
         Assert.assertNotEquals(time1, time2);
     }
 
-    public void clickToPauseVideoPleer() throws Exception {
+    public void clickToPauseVideoPlayer() throws Exception {
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(7000);
@@ -260,75 +263,73 @@ public class CardFilm extends BasePageWebDriver {
 
     }
 
-    public void clickToPlayVideoPleer() throws Exception {
+    public void clickToPlayVideoPlayer() throws Exception {
         Actions actions = new Actions(webDriver);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time4 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         //нажал на плей - видео запустилось
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time5 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time4, time5);
         Thread.sleep(7000);
-
-
     }
 
-    public void clickToSpaceToVideoPleer() throws Exception {
+    public void clickToSpaceToVideoPlayer() throws Exception {
         Actions actions = new Actions(webDriver);
         //нажал на пробел - видео остановилось
         actions.sendKeys(Keys.chord(Keys.SPACE)).perform();
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time6 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         String time7 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertEquals(time6, time7);
         //нажал на пробел - видео запустилось
         actions.sendKeys(Keys.chord(Keys.SPACE)).perform();
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time8 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time7, time8);
     }
 
-    public void clickToLeftButtonMouseToVideoPleer() throws Exception {
+    public void clickToLeftButtonMouseToVideoPlayer() throws Exception {
         Actions actions = new Actions(webDriver);
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         //нажал на левую клавишу мыши - видео остановилось
         click(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"));
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time9 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         String time10 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertEquals(time9, time10);
         //нажал на левую клавишу мыши - видео запустилось
         click(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"));
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time11 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time10, time11);
     }
 
-    public void moveSliderRewindToVideoPleer() throws Exception {
+    public void moveSliderRewindToVideoPlayer() throws Exception {
         Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         WebElement slider = webDriver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
         //WebElement target = driver.findElement(By.id("container"));
         //new Actions(driver).dragAndDrop(slider, target).perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         actions.dragAndDropBy(slider, 450, 0).perform();
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
-        Thread.sleep(7000);
+        Thread.sleep(5000);
     }
 
     public void clickPaymentButtonInCardFilm() {

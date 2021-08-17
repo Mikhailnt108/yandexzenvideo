@@ -12,7 +12,7 @@ public class Test_12_Сортировка_контента_FRESH extends TestBas
     @Story(value = "9. Моё")
     @DisplayName(value = "Сортировка контента")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(3)
+    @RepeatedTest(1)
     public void sortingContent() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

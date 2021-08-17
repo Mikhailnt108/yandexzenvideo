@@ -4,7 +4,6 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 public class Test_11_Контент_cоответствует_разделу_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -42,7 +41,7 @@ public class Test_11_Контент_cоответствует_разделу_FRE
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickOnTailFirstCardFilm();
-        cardFilm.moveSliderRewindToVideoPleer();
+        cardFilm.moveSliderRewindToVideoPlayer();
 
         // просмотр сериала 18+:
         headerMenu.goToPackagesPage();

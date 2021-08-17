@@ -9,7 +9,7 @@ public class Test_03_Переход_на_страницу_Пакета_FRESH ext
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Переход на страницу Пакета")
+    @DisplayName(value ="3. Переход на страницу Пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void goToPackagePage() throws InterruptedException {

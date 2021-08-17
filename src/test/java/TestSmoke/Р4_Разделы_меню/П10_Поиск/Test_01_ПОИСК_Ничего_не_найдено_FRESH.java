@@ -5,20 +5,19 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_Показать_все_FRESH extends TestBaseWebDriver {
+public class Test_01_ПОИСК_Ничего_не_найдено_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "10. Поиск")
-    @DisplayName(value ="Показать все")
+    @DisplayName(value ="Ничего не найдено")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void inputInvalidRequestInSearch(){
         headerMenu.goToNilPage();
         headerMenu.clickToSearchButton();
         headerMenu.checkOpenFieldSearch();
-        headerMenu.inputValidRequestSearch();
-        headerMenu.checkResponseOnValidSearch();
-        headerMenu.clickToLinkShowAll();
-        resultsSearchPage.checkOpenResultsSearchPage();
+        headerMenu.inputInvalidRequestSearch();
+        headerMenu.checkResponseOnInvalidSearch();
     }
+
 }

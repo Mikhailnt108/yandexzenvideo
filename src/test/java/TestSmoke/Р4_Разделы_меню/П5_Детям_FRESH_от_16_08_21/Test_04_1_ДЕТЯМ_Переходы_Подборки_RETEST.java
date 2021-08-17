@@ -4,14 +4,15 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_04_1_Переходы_Подборки_FRESH extends TestBaseWebDriver {
+public class Test_04_1_ДЕТЯМ_Переходы_Подборки_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")
-    @DisplayName(value ="Переходы.Подборки")
+    @DisplayName(value ="4.1 Переходы.Подборки")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void goToCollection() throws Exception {
         headerMenu.goToKidsPage();
         kidsPage.checkElementsBlockCollectionWithHeader();

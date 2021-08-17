@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_02_Предварительные_результаты_поиска_SCREENSHOT_VRT_PW extends TestBasePlaywright {
+public class Test_02_ПОИСК_Предварительные_результаты_поиска_SCREENSHOT_VRT_PW_RETEST extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "10. Поиск")
     @DisplayName(value ="Предварительные результаты поиска (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void inputInvalidRequestInSearch() throws IOException, InterruptedException {
+    public void inputValidRequestInSearch() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToSearchButton();
         headerMenuPW.checkOpenFieldSearch();

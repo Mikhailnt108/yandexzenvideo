@@ -9,7 +9,7 @@ public class Test_02_Переход_в_раздел_Фильмы_FRESH extends T
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Переход в раздел Фильмы")
+    @DisplayName(value ="2. Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void goToMoviesPromoSection() throws InterruptedException {

@@ -51,7 +51,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]")).size());
             Thread.sleep(2000);
-            webDriver.navigate().back();
+            webDriver.get("https://web-preprod5.megafon.tv/kids");
         }
     }
 
@@ -99,7 +99,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.navigate().back();
+                webDriver.get("https://web-preprod5.megafon.tv/kids");
             }
         }
     }
@@ -115,7 +115,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.navigate().back();
+                webDriver.get("https://web-preprod5.megafon.tv/kids");
             }
         }
     }
@@ -132,7 +132,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='ТВ']")).size() > 0) {
                 break;
             } else {
-                webDriver.navigate().back();
+                webDriver.get("https://web-preprod5.megafon.tv/kids");
             }
         }
     }

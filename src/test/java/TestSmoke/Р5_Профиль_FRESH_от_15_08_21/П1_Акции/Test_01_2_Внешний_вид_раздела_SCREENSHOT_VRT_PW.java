@@ -11,7 +11,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Внешний вид раздела (скриншоты)")
+    @DisplayName(value ="1.1 Внешний вид раздела (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void appearancePagePromo() throws InterruptedException, IOException {

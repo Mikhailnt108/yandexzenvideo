@@ -11,7 +11,7 @@ public class Test_04_2_Персональные_предложения_SCREENSHO
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Персональные предложения (скриншоты)")
+    @DisplayName(value ="4.2 Персональные предложения (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void personalOffers() throws InterruptedException, IOException {

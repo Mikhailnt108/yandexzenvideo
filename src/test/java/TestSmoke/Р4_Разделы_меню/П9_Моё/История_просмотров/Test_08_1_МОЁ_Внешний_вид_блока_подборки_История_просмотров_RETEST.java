@@ -5,11 +5,11 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_08_1_Внешний_вид_блока_подборки_История_просмотров_FRESH extends TestBaseWebDriver {
+public class Test_08_1_МОЁ_Внешний_вид_блока_подборки_История_просмотров_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Внешний вид блока подборки История просмотров")
+    @DisplayName(value ="8.1 Внешний вид блока подборки История просмотров Моё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void appearanceBlockCollectViewingHistory() throws Exception {
@@ -20,6 +20,7 @@ public class Test_08_1_Внешний_вид_блока_подборки_Ист�
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
@@ -48,6 +49,7 @@ public class Test_08_1_Внешний_вид_блока_подборки_Ист�
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
