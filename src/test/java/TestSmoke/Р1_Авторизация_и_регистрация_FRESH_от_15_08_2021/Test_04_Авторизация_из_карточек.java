@@ -44,7 +44,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageSerials();
         cardPackage.checkOpenCardPackageSerials();
-        cardPackage.clickOnPaymentButtonInCardPackage();
+        cardPackage.clickOnPaymentButtonInCardPackageForGuest();
         flowAutorisation();
         headerMenu.logOut();
         headerMenu.checkNotLoggedIsCorrect();
@@ -55,7 +55,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         packagesPage.clickToFirstTailCardPackage();
         cardPackage.checkOpenCardPackageTvChannel();
 //        cardPackage.scrollCardPackage();  // для ноутбука
-        cardPackage.clickOnPaymentButtonInCardPackage();
+        cardPackage.clickOnPaymentButtonInCardPackageForGuest();
         flowAutorisation();
         pageCMS.deleteAccountMF("79260192144");
     }

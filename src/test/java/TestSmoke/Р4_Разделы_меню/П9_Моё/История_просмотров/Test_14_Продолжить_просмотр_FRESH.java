@@ -19,20 +19,20 @@ public class Test_14_Продолжить_просмотр_FRESH extends TestBas
         flowRegistation();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 

@@ -3,6 +3,7 @@ package TestSmoke.Р4_Разделы_меню.П9_Моё.История_прос
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_11_Контент_cоответствует_разделу_FRESH extends TestBaseWebDriver {
@@ -11,7 +12,7 @@ public class Test_11_Контент_cоответствует_разделу_FRE
     @Story(value = "9. Моё")
     @DisplayName(value = "Контент cоответствует разделу")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void contentСorrespondsToSection() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
@@ -19,28 +20,27 @@ public class Test_11_Контент_cоответствует_разделу_FRE
         flowRegistation();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
         // просмотр фильма из подключенного пакета:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
-        cardPackage.clickToTabFilms();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickOnTailFirstCardFilm();
         cardFilm.moveSliderRewindToVideoPleer();
 
@@ -48,7 +48,6 @@ public class Test_11_Контент_cоответствует_разделу_FRE
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackage18Plus();
         cardPackage.paymentPackageTnB();
-        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer18Plus();
 

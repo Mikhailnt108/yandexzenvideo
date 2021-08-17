@@ -108,9 +108,9 @@ public class HeaderMenu extends BasePageWebDriver {
             ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
             webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
-            writeText(By.xpath("//form[@method='GET']//input[1]"),login);
+            writeText(By.xpath("//form[@method='GET']//input[1]"), login);
             click(By.xpath("//button[text()='Поиск']"));
-            isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+            isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']|//td[text()='79267644248']"));
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));
             isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
             click(By.xpath("//button[text()='Удалить']"));
@@ -134,6 +134,7 @@ public class HeaderMenu extends BasePageWebDriver {
             element1.sendKeys(password);
         }
     }
+
     public void checkOpenPopUpCreatePasswordForFlowRegistrationNonMF(String login, String password) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
@@ -167,6 +168,7 @@ public class HeaderMenu extends BasePageWebDriver {
             element1.sendKeys(password);
         }
     }
+
     public void noConnectSmartTv() {
         String invalidСodSmartTv = "12345";
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
@@ -174,24 +176,26 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
         webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(invalidСodSmartTv);
         click(By.xpath("//button[text()='Подключить Smart TV']"));
-        Assert.assertEquals("Нет текста 'Неверный код'", "Неверный код1", webDriver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
+        Assert.assertEquals("Нет текста 'Неверный код'", "Неверный код", webDriver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
         click(By.className("_1bciqjt58pgm0il2tiJTtp"));
     }
 
-    public void connectSmartTv() {
+    public void connectSmartTv() throws InterruptedException {
         ((JavascriptExecutor) webDriver).executeScript("window.open('http://staging-smart-nettv.megafon.tv/#scene/start')");
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs2.get(1));
+//        click(By.xpath("//span[text()='Закрыть']"));
         click(By.xpath("//div[@data-type='preprod5']"));
         click(By.xpath("(//div[@data-action='back']//div)[1]"));
         waitVisibility(By.xpath("(//div[@data-action='tile'])[1]"));
         isElementDisplayed(By.xpath("//div[@data-action='openMainMenu']"));
         click(By.cssSelector("div#side-menu>div>div"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[@data-action='down']"));
-        click(By.xpath("//div[text()[normalize-space()='Вход']]"));
+//        while(webDriver.findElements(By.xpath("//div[text()[normalize-space()='Вход']]")).size()<1){
+//            click(By.xpath("//div[@data-action='down']"));
+//        }
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
+                , webDriver.findElement(By.xpath("//div[text()='Войти']")));
+        click(By.xpath("//div[text()='Войти']"));
         String codSmartTv = webDriver.findElement(By.xpath("//div[@class='enter-msisdn-pair__code js-code']")).getText();
         //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
@@ -229,7 +233,7 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("(//span[text()='Вход'])[1]"));
     }
 
-    public void checkLoginUserIsCorrectFlowForMF()  {
+    public void checkLoginUserIsCorrectFlowForMF() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
@@ -245,14 +249,16 @@ public class HeaderMenu extends BasePageWebDriver {
         }
         webDriver.navigate().refresh();
     }
-    public void checkLoginUserIsCorrectFlowForMFFast()  {
+
+    public void checkLoginUserIsCorrectFlowForMFFast() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
     }
-    public void checkLoginUserIsCorrectFlowForAPINotif()  {
+
+    public void checkLoginUserIsCorrectFlowForAPINotif() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
@@ -265,12 +271,17 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkLoginUserIsCorrectForBlockingMf() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
-        if (webDriver.findElements(By.xpath("//h3[contains(text(), 'Хочешь')]")).size() != 0) {
-            //isElementDisplayed(By.xpath("//h3[contains(text(), 'Хочешь')]"));
-            click(By.xpath("//button[text()='Нет']"));
-            webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
         }
-
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
         webDriver.navigate().refresh();
     }
 
@@ -345,7 +356,6 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Акции'])[1]"));
         Thread.sleep(3000);
-
     }
 
     public void checkLoginUserIsCorrectFlowForNonMF() {
@@ -423,7 +433,7 @@ public class HeaderMenu extends BasePageWebDriver {
 
     public void inputSixSimbolPassword(String password) {
         WebElement element = webDriver.findElement(By.xpath("//input[@type='password']"));
-        element.sendKeys(Keys.CONTROL,"a");
+        element.sendKeys(Keys.CONTROL, "a");
         element.sendKeys(Keys.DELETE);
         element.sendKeys(password);
     }
@@ -571,7 +581,7 @@ public class HeaderMenu extends BasePageWebDriver {
             ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
             webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
-            writeText(By.xpath("//form[@method='GET']//input[1]"),login);
+            writeText(By.xpath("//form[@method='GET']//input[1]"), login);
             click(By.xpath("//button[text()='Поиск']"));
             isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));
@@ -664,7 +674,6 @@ public class HeaderMenu extends BasePageWebDriver {
         element.clear();
         element.sendKeys(invalidpass);
     }
-
 
 
     public void closePopUpInputPassword() {
@@ -789,7 +798,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkClosePopUpBeforeActivationPackageStartSoftTnB() {
-        Assert.assertEquals("Не закрылся попап 'до активации'",0, webDriver.findElements(By.xpath("//h3[text()='«START» бесплатно по промокоду!']")).size());
+        Assert.assertEquals("Не закрылся попап 'до активации'", 0, webDriver.findElements(By.xpath("//h3[text()='«START» бесплатно по промокоду!']")).size());
         isElementDisplayed(By.xpath("//h3[text()='Введите промокод']"));
     }
 
@@ -829,7 +838,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkClosePopUpAfterActivation() {
-        Assert.assertEquals("Не закрылся попап 'после активации'",0, webDriver.findElements(By.xpath("//h3[text()='Промокод активирован!']")).size());
+        Assert.assertEquals("Не закрылся попап 'после активации'", 0, webDriver.findElements(By.xpath("//h3[text()='Промокод активирован!']")).size());
     }
 
     public void checkElementsPopUpBeforeActivationFilmOnRent() {
@@ -938,6 +947,12 @@ public class HeaderMenu extends BasePageWebDriver {
         JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
         jsDown.executeScript("window.scrollTo(0, 1500);");
     }
+
+    public void closePopUpNotif() {
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+    }
+
 }
-
-

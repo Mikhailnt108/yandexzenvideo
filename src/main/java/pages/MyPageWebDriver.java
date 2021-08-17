@@ -28,10 +28,12 @@ public class MyPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkAddingFilmInPurchases() {
+        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
         webDriver.get(My_purchases);
-        click(By.xpath("//a[@data-test='PackageLink']"));
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
 
@@ -40,6 +42,8 @@ public class MyPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkAddingFilmToFavorites() {
+        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
         webDriver.get(My_favorites);

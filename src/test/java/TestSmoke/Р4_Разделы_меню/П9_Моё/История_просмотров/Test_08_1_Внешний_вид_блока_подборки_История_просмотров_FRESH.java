@@ -16,7 +16,7 @@ public class Test_08_1_Внешний_вид_блока_подборки_Ист�
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
-        flowRegistation();
+        flowRegistationMF();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
@@ -38,13 +38,13 @@ public class Test_08_1_Внешний_вид_блока_подборки_Ист�
         // чек подборки "продолжить просмотр":
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.checkTailWatchAndEdit();
+        serialsPage.scrollToTailWatchAndEdit();
         pageCMS.deleteAccountMF("79260192144");
 
         // пользователь НЕ МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
-        flowRegistation();
+        flowRegistationNonMF();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
@@ -66,10 +66,10 @@ public class Test_08_1_Внешний_вид_блока_подборки_Ист�
         // чек подборки "продолжить просмотр":
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.checkTailWatchAndEdit();
+        serialsPage.scrollToTailWatchAndEdit();
         pageCMS.deleteAccountNonMF("79261184972");
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

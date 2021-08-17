@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
@@ -165,7 +166,7 @@ public class CardFilm extends BasePageWebDriver {
 
     public void checkStikerDiscount() {
         webDriver.navigate().refresh();
-        isElementDisplayed(By.xpath("//div[text()='Автотест']"));
+        isElementDisplayed(By.xpath("//div[text()='Автотест -30%']"));
     }
 
     public void checkPriseEstDiscount() {
@@ -206,7 +207,7 @@ public class CardFilm extends BasePageWebDriver {
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time1);
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
@@ -456,7 +457,43 @@ public class CardFilm extends BasePageWebDriver {
         Assert.assertEquals("Текст описания не свернулся", 0, webDriver.findElements(By.xpath("//button[text()='Свернуть']")).size());
     }
 
+    public void acceptOfferInPopUp() throws InterruptedException {
+            if(webDriver.findElements(By.xpath("//div[@aria-label='Popup']")).size()!=0){
+                click(By.xpath("//input[@type='checkbox']/following-sibling::div[1]"));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Смотреть']")));
+                click(By.xpath("//button[text()='Смотреть']"));
+                Thread.sleep(5000);
+                Actions actions = new Actions(webDriver);
+                actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+                String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+                System.out.println(time1);
+                Thread.sleep(10000);
+                actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+                click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+                String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+                System.out.println(time2);
+                Assert.assertNotEquals(time1, time2);
+            }
+    }
 
+    public void ifAbsentOfferInPopUp() throws InterruptedException {
+        if(webDriver.findElements(By.xpath("//div[@aria-label='Popup']")).size()<1){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Смотреть']")));
+            click(By.xpath("//button[text()='Смотреть']"));
+            Thread.sleep(5000);
+            Actions actions = new Actions(webDriver);
+            actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+            String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+            System.out.println(time1);
+            Thread.sleep(10000);
+            actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+            click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+            String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
+            System.out.println(time2);
+            Assert.assertNotEquals(time1, time2);
+        }
+    }
 }
+
 
 

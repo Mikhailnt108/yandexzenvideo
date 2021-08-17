@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.util.List;
 import java.awt.*;
 import java.io.IOException;
@@ -33,7 +35,7 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         click(By.xpath("//button[text()='Перейти']"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
-        isElementDisplayed(By.xpath("//h1[text()='Перейти в МегаФон со своим номером']"));
+        isElementDisplayed(By.xpath("//h2[text()='Перейти в МегаФон со своим номером']"));
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
     }
@@ -71,7 +73,6 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("Нет заголовока 'Фильмы' на странице","Фильмы", webDriver.findElement(By.tagName("h1")).getText());
         Assert.assertEquals("Нет таба 'По акции' на странице","По акции", webDriver.findElement(By.xpath("//div[text()='По акции']")).getText());
         //isElementDisplayed(By.xpath("//div[text()='По акции']"));
-
     }
 
     public void clickButtonGoToPackage() {
@@ -79,7 +80,7 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         String onlyName = namePackage.substring(7,namePackage.length() - 1);
         System.out.println(onlyName);
         click(By.xpath("(//div[contains(text(),'Пакет')]/following-sibling::div//a[@href])[1]"));
-        Assert.assertEquals("не карточка пакета/не тот пакет",onlyName, webDriver.findElement(By.xpath("//div[@class='_2xk2Eu6ap3jm6_BvfXkXvs']")).getText());
+        Assert.assertEquals("не карточка пакета/не тот пакет",onlyName, webDriver.findElement(By.xpath("//div[@class='_3JWCAjonEZRvpx1iIk6Y0n']")).getText());
         isElementDisplayed(By.xpath("//div[contains(text(), 'Входит')]"));
     }
 
@@ -89,7 +90,6 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//a[@href='https://megafon.ru/go/vip_tariff']"));
         click(By.linkText("Скрыть"));
         Assert.assertEquals(0, webDriver.findElements(By.xpath("(//div[text()='VIP'])[2]")).size());
-
     }
 
     public void imageDifferBlockTarif() throws AWTException, IOException {
@@ -122,11 +122,11 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", webDriver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());
         isElementDisplayed(By.xpath("//div[text()='При просмотре видео контента через мобильную сеть МегаФона интернет трафик для номера + 7 926 019 21 44 не тарифицируется']"));
         Assert.assertEquals("Не найден текст: 'Пакет «МегаФон»'","Пакет «МегаФон»", webDriver.findElement(By.xpath("//div[text()='Пакет «МегаФон»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «Амедиатека»'","Пакет «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Пакет «Амедиатека»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «Амедиатека»'","Сервис «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Сервис «Амедиатека»']")).getText());
         Assert.assertEquals("Не найден текст: 'Пакет «Мировое кино»'","Пакет «Мировое кино»", webDriver.findElement(By.xpath("//div[text()='Пакет «Мировое кино»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «START»'","Пакет «START»", webDriver.findElement(By.xpath("//div[text()='Пакет «START»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «more.tv»'","Пакет «more.tv»", webDriver.findElement(By.xpath("//div[text()='Пакет «more.tv»']")).getText());
-        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
+        Assert.assertEquals("Не найден текст: 'Сервис «START»'","Сервис «START»", webDriver.findElement(By.xpath("//div[text()='Сервис «START»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «more.tv»'","Сервис «more.tv»", webDriver.findElement(By.xpath("//div[text()='Сервис «more.tv»']")).getText());
+        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 180 дней']")).size());
         isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
         isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
     }
@@ -140,11 +140,11 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", webDriver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());
         isElementDisplayed(By.xpath("//div[text()='При просмотре видео контента через мобильную сеть МегаФона интернет трафик для номера + 7 926 019 21 44 не тарифицируется']"));
         Assert.assertEquals("Не найден текст: 'Пакет «МегаФон»'","Пакет «МегаФон»", webDriver.findElement(By.xpath("//div[text()='Пакет «МегаФон»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «Амедиатека»'","Пакет «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Пакет «Амедиатека»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «Амедиатека»'","Сервис «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Сервис «Амедиатека»']")).getText());
         Assert.assertEquals("Не найден текст: 'Пакет «Мировое кино»'","Пакет «Мировое кино»", webDriver.findElement(By.xpath("//div[text()='Пакет «Мировое кино»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «START»'","Пакет «START»", webDriver.findElement(By.xpath("//div[text()='Пакет «START»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «more.tv»'","Пакет «more.tv»", webDriver.findElement(By.xpath("//div[text()='Пакет «more.tv»']")).getText());
-        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
+        Assert.assertEquals("Не найден текст: 'Сервис «START»'","Сервис «START»", webDriver.findElement(By.xpath("//div[text()='Сервис «START»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «more.tv»'","Сервис «more.tv»", webDriver.findElement(By.xpath("//div[text()='Сервис «more.tv»']")).getText());
+        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 90 дней']")).size());
         isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
         isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
     }
@@ -158,11 +158,11 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", webDriver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());
         isElementDisplayed(By.xpath("//div[text()='При просмотре видео контента через мобильную сеть МегаФона интернет трафик для номера + 7 926 019 21 44 не тарифицируется']"));
         Assert.assertEquals("Не найден текст: 'Пакет «МегаФон»'","Пакет «МегаФон»", webDriver.findElement(By.xpath("//div[text()='Пакет «МегаФон»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «Амедиатека»'","Пакет «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Пакет «Амедиатека»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «Амедиатека»'","Сервис «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Сервис «Амедиатека»']")).getText());
         Assert.assertEquals("Не найден текст: 'Пакет «Мировое кино»'","Пакет «Мировое кино»", webDriver.findElement(By.xpath("//div[text()='Пакет «Мировое кино»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «START»'","Пакет «START»", webDriver.findElement(By.xpath("//div[text()='Пакет «START»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «more.tv»'","Пакет «more.tv»", webDriver.findElement(By.xpath("//div[text()='Пакет «more.tv»']")).getText());
-        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
+        Assert.assertEquals("Не найден текст: 'Сервис «START»'","Сервис «START»", webDriver.findElement(By.xpath("//div[text()='Сервис «START»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «more.tv»'","Сервис «more.tv»", webDriver.findElement(By.xpath("//div[text()='Сервис «more.tv»']")).getText());
+        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 90 дней']")).size());
         isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
         isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
     }
@@ -176,11 +176,11 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", webDriver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());
         isElementDisplayed(By.xpath("//div[text()='При просмотре видео контента через мобильную сеть МегаФона интернет трафик для номера + 7 926 019 21 44 не тарифицируется']"));
         Assert.assertEquals("Не найден текст: 'Пакет «МегаФон»'","Пакет «МегаФон»", webDriver.findElement(By.xpath("//div[text()='Пакет «МегаФон»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «Амедиатека»'","Пакет «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Пакет «Амедиатека»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «Амедиатека»'","Сервис «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Сервис «Амедиатека»']")).getText());
         Assert.assertEquals("Не найден текст: 'Пакет «Мировое кино»'","Пакет «Мировое кино»", webDriver.findElement(By.xpath("//div[text()='Пакет «Мировое кино»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «START»'","Пакет «START»", webDriver.findElement(By.xpath("//div[text()='Пакет «START»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «more.tv»'","Пакет «more.tv»", webDriver.findElement(By.xpath("//div[text()='Пакет «more.tv»']")).getText());
-        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
+        Assert.assertEquals("Не найден текст: 'Сервис «START»'","Сервис «START»", webDriver.findElement(By.xpath("//div[text()='Сервис «START»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «more.tv»'","Сервис «more.tv»", webDriver.findElement(By.xpath("//div[text()='Сервис «more.tv»']")).getText());
+        Assert.assertEquals("Не найдено:",4, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 90 дней']")).size());
         isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
         isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
     }
@@ -194,11 +194,11 @@ public class PromoPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", webDriver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());
         isElementDisplayed(By.xpath("//div[text()='При просмотре видео контента через мобильную сеть МегаФона интернет трафик для номера + 7 926 019 21 44 не тарифицируется']"));
         Assert.assertEquals("Не найден текст: 'Пакет «МегаФон»'","Пакет «МегаФон»", webDriver.findElement(By.xpath("//div[text()='Пакет «МегаФон»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «Амедиатека»'","Пакет «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Пакет «Амедиатека»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «Амедиатека»'","Сервис «Амедиатека»", webDriver.findElement(By.xpath("//div[text()='Сервис «Амедиатека»']")).getText());
         Assert.assertEquals("Не найден текст: 'Пакет «Мировое кино»'","Пакет «Мировое кино»", webDriver.findElement(By.xpath("//div[text()='Пакет «Мировое кино»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «START»'","Пакет «START»", webDriver.findElement(By.xpath("//div[text()='Пакет «START»']")).getText());
-        Assert.assertEquals("Не найден текст: 'Пакет «more.tv»'","Пакет «more.tv»", webDriver.findElement(By.xpath("//div[text()='Пакет «more.tv»']")).getText());
-        Assert.assertEquals("Не найдено:",0, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
+        Assert.assertEquals("Не найден текст: 'Сервис «START»'","Сервис «START»", webDriver.findElement(By.xpath("//div[text()='Сервис «START»']")).getText());
+        Assert.assertEquals("Не найден текст: 'Сервис «more.tv»'","Сервис «more.tv»", webDriver.findElement(By.xpath("//div[text()='Сервис «more.tv»']")).getText());
+        Assert.assertEquals("Не найдено:",0, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 90 дней']")).size());
         //isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
         //isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
         Assert.assertEquals("Не найден текст: 'Вам доступны акции'","Вам доступны акции", webDriver.findElement(By.xpath("//div[text()='Вам доступны акции']")).getText());
@@ -208,13 +208,13 @@ public class PromoPageWebDriver extends BasePageWebDriver {
     public void checkBundleCorpBezlimit() {
         isElementDisplayed(By.xpath("(//span[text()='Акции'])[3]"));
         isElementDisplayed(By.xpath("//div[text()='Ваша тарифная опция в МегаФоне']|//div[text()='Ваш тарифный план в МегаФоне']"));
-        isElementDisplayed(By.xpath("//div[text()='Корпоративный безлимит']"));
+        isElementDisplayed(By.xpath("//div[contains(text(),'Управляй!')]|//div[contains(text(),'Корпоративный безлимит')]"));
         //Assert.assertEquals("Не найден текст: 'Без переплат. Всё'", "Ваш тарифный план в МегаФоне Без переплат. Всё", driver.findElement(By.xpath("//div[text()='Без переплат. Максимум']")).getText());
         isElementDisplayed(By.xpath("//div[text()='Вам доступно без оплаты:']"));
         Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", webDriver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());
         isElementDisplayed(By.xpath("//div[text()='При просмотре видео контента через мобильную сеть МегаФона интернет трафик для номера + 7 926 019 21 44 не тарифицируется']"));
         Assert.assertEquals("Не найден текст: 'Пакет «МегаФон Бизнес»'","Пакет «МегаФон Бизнес»", webDriver.findElement(By.xpath("//div[text()='Пакет «МегаФон Бизнес»']")).getText());
-        Assert.assertEquals("Не найдено:",0, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 30 дней']")).size());
+        Assert.assertEquals("Не найдено:",0, webDriver.findElements(By.xpath("//div[@class='_2rMo3FpJGJLE6rvcA1kfjM']//div[text()='Без дополнительной платы на 90 дней']")).size());
         isElementDisplayed(By.xpath("//div[text()='Вам доступны акции']"));
         isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
     }
@@ -233,17 +233,18 @@ public class PromoPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkExpandDiscriptionPromo() {
-        click(By.xpath("(//a[@role='button' and 'Подробнее'])[1]"));
+        click(By.xpath("//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role='button' and text()='Подробнее']"));
         isElementDisplayed(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span[text()]"));
-        isElementDisplayed(By.xpath("(//a[@role='button' and 'Скрыть'])[1]"));
+        isElementDisplayed(By.xpath("//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role='button' and text()='Скрыть']"));
     }
 
     public void checkHideDiscriptionPromo() {
-        List<WebElement> promo = webDriver.findElements(By.xpath("//div[@class='_1OdPMwhbIJZwIzJl24pqkj']"));
-        List<WebElement> buttonMoreDetailed = webDriver.findElements(By.xpath("//a[@role='button' and 'Подробнее']"));
-        click(By.xpath("(//a[@role='button' and 'Скрыть'])[1]"));
+        click(By.xpath("//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role='button' and text()='Скрыть']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='_10O7cpAXDpA_ApTVdk3tJq'])[1]//a[@role='button' and text()='Подробнее']")));
+        List<WebElement> buttonMoreDetailed = webDriver.findElements(By.xpath("//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role='button' and text()='Подробнее']"));
+        List<WebElement> promo = webDriver.findElements(By.xpath("//div[@class='_10O7cpAXDpA_ApTVdk3tJq']"));
         Assert.assertEquals("не скрыто описание",0, webDriver.findElements(By.xpath("//div[@class='_3KtGW53ESdkgO-PeTDXkdm']//span[text()]")).size());
-        Assert.assertEquals("не скрыто описание", 0, webDriver.findElements(By.xpath("(//a[@role='button' and 'Скрыть'])[1]")));
+        Assert.assertEquals("не скрыто описание", 0, webDriver.findElements(By.xpath("//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role='button' and text()='Скрыть']")).size());
         Assert.assertEquals("количество не равно", promo.size(),buttonMoreDetailed.size());
     }
 

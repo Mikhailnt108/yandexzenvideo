@@ -3,6 +3,7 @@ package TestSmoke.Р4_Разделы_меню.П9_Моё.История_прос
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_12_Сортировка_контента_FRESH extends TestBaseWebDriver {
@@ -11,7 +12,7 @@ public class Test_12_Сортировка_контента_FRESH extends TestBas
     @Story(value = "9. Моё")
     @DisplayName(value = "Сортировка контента")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(3)
     public void sortingContent() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
@@ -19,20 +20,20 @@ public class Test_12_Сортировка_контента_FRESH extends TestBas
         flowRegistation();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
@@ -40,14 +41,14 @@ public class Test_12_Сортировка_контента_FRESH extends TestBas
         //проверка последнего тайла:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToFirstTailCardSerial();
         serialsPage.checkToMoveTailToLastPlace();
 
         //проверка первого тайла:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         serialsPage.checkToMoveTailToFirstPlace();
 
@@ -55,7 +56,7 @@ public class Test_12_Сортировка_контента_FRESH extends TestBas
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
         serialsPage.clickToLastTailBlockCollectHistoryWatch();
-        cardSerial.checkTimeStopPlayer();
+        cardSerial.continueWatching();
         serialsPage.checkToMoveTailToFirstPlace();
         pageCMS.deleteAccountMF("79260192144");
     }

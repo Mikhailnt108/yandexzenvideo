@@ -6,6 +6,7 @@ import com.automation.remarks.video.annotations.Video;
 import io.qameta.allure.*;
 import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_01_Регистрация_МФ extends TestBaseWebDriver {
@@ -17,7 +18,7 @@ public class Test_01_Регистрация_МФ extends TestBaseWebDriver {
     @Severity(SeverityLevel.BLOCKER)
 //    @TmsLink("35669320")
     @Video
-    @Test
+    @RepeatedTest(1)
     public void registrationMF() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

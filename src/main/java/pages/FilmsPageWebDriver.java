@@ -71,11 +71,9 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
     public void choosePeriodOfYears() {
         click(By.xpath("//div[text()='Год с']"));
         click(By.xpath("(//span[text()='2010'])[1]"));
-        click(By.xpath("//div[text()='Год с']"));
 
         click(By.xpath("//div[text()='по']"));
         click(By.xpath("(//span[text()='2020'])[2]"));
-        click(By.xpath("//div[text()='по']"));
     }
 
     public void checkRequestResultPeriodOfYears() {
@@ -498,7 +496,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
             Thread.sleep(2000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/movies/vods']//span[text()='Фильмы']")).size());
             Thread.sleep(2000);
-            webDriver.navigate().back();
+            webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
         }
 
     }

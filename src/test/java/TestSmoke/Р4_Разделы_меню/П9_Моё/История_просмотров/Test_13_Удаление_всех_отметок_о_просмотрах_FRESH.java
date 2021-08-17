@@ -19,27 +19,27 @@ public class Test_13_Удаление_всех_отметок_о_просмот�
         flowRegistation();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
 
         //удаление истории просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.checkTailWatchAndEdit();
+        serialsPage.scrollToTailWatchAndEdit();
         serialsPage.clickToTailWatchAndEdit();
         myPage.clickToButtonClearAllHistory();
         headerMenu.goToSerialsPage();

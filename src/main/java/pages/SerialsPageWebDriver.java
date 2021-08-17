@@ -71,11 +71,9 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
     public void choosePeriodOfYears() {
         click(By.xpath("//div[text()='Год с']"));
         click(By.xpath("(//span[text()='2010'])[1]"));
-        click(By.xpath("//div[text()='Год с']"));
 
         click(By.xpath("//div[text()='по']"));
         click(By.xpath("(//span[text()='2020'])[2]"));
-        click(By.xpath("//div[text()='по']"));
     }
 
     public void checkRequestResultPeriodOfYears() {
@@ -746,12 +744,18 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
         Assert.assertTrue(diff1.getDiffSize() <= 100);
     }
-    public void checkTailWatchAndEdit() {
+    public void scrollToTailWatchAndEdit() {
         click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Смотреть и редактировать")));
         isElementDisplayed(By.partialLinkText("Смотреть и редактировать"));
         isElementDisplayed(By.xpath("//p[text()='всю историю просмотров']"));
     }
+
+    public void checkTailWatchAndEdit() {
+        isElementDisplayed(By.partialLinkText("Смотреть и редактировать"));
+        isElementDisplayed(By.xpath("//p[text()='всю историю просмотров']"));
+    }
+
     public void clickToAllOnBlockCollectHistoryWatch() {
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
         click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
@@ -780,6 +784,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
             Thread.sleep(5000);
         }
     }
+
     public void checkToMoveTailToFirstPlace() {
         String nameSerial = webDriver.findElement(By.xpath("//h1[text()]")).getText();
         webDriver.get("https://web-preprod5.megafon.tv/shows");
@@ -799,6 +804,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
     public void clickToLastTailBlockCollectHistoryWatch() {
         click(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink'])[last()]"));
     }
+
     public void clickToFirstTailBlockCollectHistoryWatch() {
         click(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink'])[1]"));
     }

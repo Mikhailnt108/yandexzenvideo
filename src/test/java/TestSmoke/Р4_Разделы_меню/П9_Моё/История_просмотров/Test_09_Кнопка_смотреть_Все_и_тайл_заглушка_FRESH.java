@@ -3,7 +3,7 @@ package TestSmoke.Р4_Разделы_меню.П9_Моё.История_прос
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 public class Test_09_Кнопка_смотреть_Все_и_тайл_заглушка_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -11,28 +11,28 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
     @Story(value = "9. Моё")
     @DisplayName(value ="Кнопка смотреть Все и тайл заглушка")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(3)
     public void buttonAllWatchAndTailWatchAndEdit() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
-        flowRegistation();
+        flowRegistationMF();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // переходы в историю просмотра:
@@ -41,7 +41,7 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
         serialsPage.clickToAllOnBlockCollectHistoryWatch();
         myPage.checkOpenPageMyHistory();
         headerMenu.goToSerialsPage();
-        serialsPage.checkTailWatchAndEdit();
+        serialsPage.scrollToTailWatchAndEdit();
         serialsPage.clickToTailWatchAndEdit();
         myPage.checkOpenPageMyHistory();
         pageCMS.deleteAccountMF("79260192144");
@@ -49,23 +49,23 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
         // пользователь НЕ МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
-        flowRegistation();
+        flowRegistationNonMF();
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToFirstTailCardPackage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer();
         // переходы в историю просмотра:
@@ -74,12 +74,12 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
         serialsPage.clickToAllOnBlockCollectHistoryWatch();
         myPage.checkOpenPageMyHistory();
         headerMenu.goToSerialsPage();
-        serialsPage.checkTailWatchAndEdit();
+        serialsPage.scrollToTailWatchAndEdit();
         serialsPage.clickToTailWatchAndEdit();
         myPage.checkOpenPageMyHistory();
         pageCMS.deleteAccountNonMF("79261184972");
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
@@ -102,7 +102,7 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
         headerMenu.checkElementsPopUpInputEmail();
         headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationNonMF("9261184972", "111111");
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");

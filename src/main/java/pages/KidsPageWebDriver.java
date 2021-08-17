@@ -30,16 +30,16 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']")); // точки пагинации
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']")); // кнопка прокрутки баннера вправо
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']")); // кнопка прокрутки баннера влево
-
+        click(By.xpath("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]"));
         List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[2]"));
-            isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[2]"));
-            isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[2]"));
-            System.out.println(webDriver.findElement(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[2]")).getText());
+            isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
+            System.out.println(webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText());
+            isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
+            isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]"));
         }
 
         List<WebElement> BannerForKids2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
@@ -688,8 +688,8 @@ public class KidsPageWebDriver extends BasePageWebDriver {
 
 
     public void checkBackgroundCardContentForKids() {
-        String Background = webDriver.findElement(By.xpath("//div[contains(@class,'pVR4ae8Ou3a6rSIZfX6Fd')]")).getCssValue("background-image");
-        System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'pVR4ae8Ou3a6rSIZfX6Fd')]")).getCssValue("background-image"));
+        String Background = webDriver.findElement(By.xpath("//div[contains(@class,'_26VUc9ouKb9F8gVK9Zokon')]")).getCssValue("background-image");
+        System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'_26VUc9ouKb9F8gVK9Zokon')]")).getCssValue("background-image"));
         System.out.println(Background.substring(0,3));
         Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
     }

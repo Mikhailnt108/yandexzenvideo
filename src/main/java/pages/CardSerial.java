@@ -105,7 +105,7 @@ public class CardSerial extends BasePageWebDriver {
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time1);
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
@@ -201,19 +201,19 @@ public class CardSerial extends BasePageWebDriver {
         Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(7000);
+        Thread.sleep(5000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         WebElement slider = webDriver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
         //WebElement target = driver.findElement(By.id("container"));
         //new Actions(driver).dragAndDrop(slider, target).perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         actions.dragAndDropBy(slider, 450, 0).perform();
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
-        Thread.sleep(7000);
+        Thread.sleep(5000);
     }
 
     public void checkTimeStopPlayer() throws InterruptedException {
@@ -228,7 +228,6 @@ public class CardSerial extends BasePageWebDriver {
         webDriver.get("https://web-preprod5.megafon.tv/shows");
         //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
-//        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         Thread.sleep(2000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         //нажал на стоп:
@@ -470,7 +469,7 @@ public class CardSerial extends BasePageWebDriver {
     }
 
     public void paymentSerialAtSubsInPoUp() {
-        click(By.xpath("(//span[contains(text(),'Подключить бесплатно')])[2]"));
+        click(By.xpath("//div[@aria-label='Popup']//span[contains(text(),'Подключить бесплатно') or contains(text(),'Смотреть бесплатно')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка')]"));
         click(By.xpath("//button[text()='Принять и подключить']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
@@ -540,6 +539,14 @@ public class CardSerial extends BasePageWebDriver {
         String colorButton = webDriver.findElement(By.xpath("//button[contains(@class,'_1FfeR84AXAbi63sErW3rma')]")).getCssValue("background-color");
         System.out.println(colorButton);
 //        Assert.assertEquals("не зеленый цвет",colorButton, );
+    }
+
+    public void continueWatching() throws InterruptedException {
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        Thread.sleep(10000);
+        //нажал на паузу - видео остановилось
+        click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
     }
 }
 

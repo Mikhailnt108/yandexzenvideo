@@ -517,13 +517,13 @@ public class NilPageWebDriver extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
         isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        isElementDisplayed(By.xpath("(//div[@class='_3pSmMGlz2N-PDRuE_jtIuS'])[2]"));
-        isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[2]"));
+        isElementDisplayed(By.xpath("(//div[@class='_3pSmMGlz2N-PDRuE_jtIuS'])[3]"));
+        isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
 //        JavascriptExecutor js = (JavascriptExecutor) webDriver;
 //        WebElement element = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]"));
 //        js.executeScript("arguments[0].innerText='Меняем заголовок'",element);
 
-        isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription'])[2]"));
+        isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription'])[3]"));
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
     }
@@ -539,7 +539,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.navigate().back();
+                webDriver.get("https://web-preprod5.megafon.tv/");
             }
         }
     }
@@ -555,7 +555,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.navigate().back();
+                webDriver.get("https://web-preprod5.megafon.tv/");
             }
         }
     }
@@ -638,6 +638,8 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkElementsBlockCollectHistoryWatch() {
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
+                , webDriver.findElement(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']"));
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));

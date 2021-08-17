@@ -422,6 +422,29 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
     }
+
+    public void chooseRoleUser(String login) {
+        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
+        webDriver.switchTo().window((String) tabs2.get(1));
+        click(By.xpath("//form[@method='GET']//input[1]"));
+        writeText(By.xpath("//form[@method='GET']//input[1]"), login);
+        click(By.xpath("//button[text()='Поиск']"));
+        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        click(By.xpath("//a[contains(@href, '/cms/households/')]"));
+        isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+        click(By.xpath("(//a[@role='button'])[2]"));
+        isElementDisplayed(By.xpath("//h3[text()=' Редактирование хаусхолда ']"));
+        webDriver.findElement(By.id("role")).click();
+        webDriver.findElement(By.xpath("//option[. = 'user']")).click();
+        click(By.xpath("//input[@value='Сохранить']"));
+        isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+        click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
+        isElementDisplayed(By.xpath("//td[text()='user']"));
+        //здесь переключаемся опять на вкладку с мегафонТВ
+        webDriver.close();
+        webDriver.switchTo().window((String) tabs2.get(0));
+    }
 }
 
 

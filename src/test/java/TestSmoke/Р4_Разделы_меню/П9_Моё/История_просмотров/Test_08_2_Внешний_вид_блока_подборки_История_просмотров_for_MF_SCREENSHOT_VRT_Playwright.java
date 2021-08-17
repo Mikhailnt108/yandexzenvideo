@@ -3,6 +3,7 @@ package TestSmoke.Р4_Разделы_меню.П9_Моё.История_прос
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 public class Test_08_2_Внешний_вид_блока_подборки_История_просмотров_for_MF_SCREENSHOT_VRT_Playwright extends TestBasePlaywright {
@@ -11,7 +12,7 @@ public class Test_08_2_Внешний_вид_блока_подборки_Ист�
     @Story(value = "9. Моё")
     @DisplayName(value ="Внешний вид блока подборки История просмотров для МФ (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @RepeatedTest(1)
     public void appearanceBlockCollectViewingHistory() throws Exception {
         // пользователь МФ:
         // подключение пакета:

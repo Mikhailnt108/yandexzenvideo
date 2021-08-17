@@ -14,7 +14,7 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
     @Test
     public void historyViewing() throws Exception {
         headerMenu.goToPackagesPage();
-        flowAuthorization();
+        flowRegistation();
         packagesPage.checkOpenShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.checkOpenCardPackage();
@@ -112,7 +112,7 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
-//        headerMenu.checkLoginUserIsCorrectFlowForMF();
-        headerMenu.checkLoginUserIsCorrectFlowForMFFast();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
+//        headerMenu.checkLoginUserIsCorrectFlowForMFFast();
     }
 }
