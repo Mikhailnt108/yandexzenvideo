@@ -14,7 +14,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
     @RepeatedTest(1)
     public void appearanceSectionSerialsPage() throws Exception {
         serialsPagePW.checkImageSerialsPageScrollForGuest();
-        serialsPagePW.checkImageCherdakAndBannersForGuest();
+//        serialsPagePW.checkImageCherdakAndBannersForGuest();
         serialsPagePW.checkImageBlocksFiltersForGuest();
         serialsPagePW.checkImageBlocksCollectionWithHeaderForGuest();
         serialsPagePW.checkImageBlocksCollectionWithoutHeaderForGuest();
@@ -23,7 +23,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
         headerMenuPW.goToSerialsPage();
         flowRegistation();
         serialsPagePW.checkImageSerialsPageScrollForUser();
-        serialsPagePW.checkImageCherdakAndBannersForUser();
+//        serialsPagePW.checkImageCherdakAndBannersForUser();
         serialsPagePW.checkImageBlocksFiltersForUser();
         serialsPagePW.checkImageBlocksCollectionWithHeaderForUser();
         serialsPagePW.checkImageBlocksCollectionWithoutHeaderForUser();

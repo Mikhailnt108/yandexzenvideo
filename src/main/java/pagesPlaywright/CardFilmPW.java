@@ -141,6 +141,9 @@ public class CardFilmPW extends BasePagePlaywright {
         for(ElementHandle stickerTailCollect : stickerTailCollectAll){
             stickerTailCollect.evaluate("s => s.remove();");
         }
+        if(page.querySelectorAll("//div[@class='_1rFI0KDcQjaCwgg4CshFS8']").size()!=0){
+            page.evaluate("s => s.remove();", page.querySelector("//div[@class='_1rFI0KDcQjaCwgg4CshFS8']"));
+        }
 
         // делаем скриншот страницы "CardFilmForGuest":
         vrt.track(
@@ -219,6 +222,10 @@ public class CardFilmPW extends BasePagePlaywright {
         for(ElementHandle stickerTailCollect : stickerTailCollectAllUser){
             stickerTailCollect.evaluate("s => s.remove();");
         }
+        if(page.querySelectorAll("//div[@class='_1rFI0KDcQjaCwgg4CshFS8']").size()!=0){
+            page.evaluate("s => s.remove();", page.querySelector("//div[@class='_1rFI0KDcQjaCwgg4CshFS8']"));
+        }
+
         // делаем скриншот страницы "cardFilmForUser":
         vrt.track(
                 "cardFilmForUser",

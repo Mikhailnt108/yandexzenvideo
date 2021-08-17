@@ -37,8 +37,6 @@ public class SerialsPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
 
-        page.focus("//div[@data-test='BannerCarousel']");
-        ElementHandle banners = page.querySelector("//div[@class='_3VpQMliI0kzCfTPxfHPOa- _2RpZ3dJ5og17m8Uf5So1cd poster']");
         // подготовка элемента "bannersPageSerialsForUnauthorized" к скриншот-тесту:
         List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
         if (dotBefore.size() > 25) {
@@ -49,7 +47,7 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         if (dotBefore.size() < 25) {
             while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 25) {
-                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
+                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[2].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }
@@ -72,11 +70,6 @@ public class SerialsPagePW extends BasePagePlaywright {
             stiker.evaluate("s => s.remove();");
         }
 
-//        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
-//        for(ElementHandle colorStiker : colorStikers){
-//            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
-//        }
-
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
         for(ElementHandle yearAndGenre : yearAndGenres){
             yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
@@ -90,8 +83,8 @@ public class SerialsPagePW extends BasePagePlaywright {
 
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
 
-        page.waitForTimeout(3000);
-
+//        page.waitForTimeout(4000);
+        ElementHandle banners = page.querySelector("//div[@data-test='BannerCarousel']");
         // делаем скриншот элемента "bannersPageSerialsForGuest":
         vrt.track(
                 "bannersPageSerialsForGuest",
@@ -273,7 +266,7 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         if (dotBefore.size() < 25) {
             while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 25) {
-                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
+                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[2].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }
@@ -294,10 +287,7 @@ public class SerialsPagePW extends BasePagePlaywright {
         for(ElementHandle stiker : stikers){
             stiker.evaluate("s => s.remove();");
         }
-//        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
-//        for(ElementHandle colorStiker : colorStikers){
-//            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
-//        }
+
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
         for(ElementHandle yearAndGenre : yearAndGenres){
             yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
@@ -339,8 +329,6 @@ public class SerialsPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
 
-        page.focus("//div[@data-test='BannerCarousel']");
-        ElementHandle banners = page.querySelector("//div[@class='_3VpQMliI0kzCfTPxfHPOa- _2RpZ3dJ5og17m8Uf5So1cd poster']");
         // подготовка элемента "bannersPageSerialsForAuthorized" к скриншот-тесту:
         List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
         if (dotBefore.size() > 25) {
@@ -351,7 +339,7 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         if (dotBefore.size() < 25) {
             while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 25) {
-                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
+                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[2].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }
@@ -368,30 +356,23 @@ public class SerialsPagePW extends BasePagePlaywright {
         for(ElementHandle titleBanner : titleBanners){
             titleBanner.evaluate("t => t.innerText='Название сериала'");
         }
-
-        List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
-        for(ElementHandle stiker : stikers){
-            stiker.evaluate("s => s.innerText='Автотест'");
-        }
-
-        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
-        for(ElementHandle colorStiker : colorStikers){
-            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(247, 121, 28); color: rgb(255, 255, 255); box-shadow: none;')");
-        }
-
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
         for(ElementHandle yearAndGenre : yearAndGenres){
             yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
         }
-
         List<ElementHandle> ages = page.querySelectorAll("//div[contains(@class,'_2lExk7vBwXdikRmrmW8iJ_ _3ee886k9ILen72-SjCqCR6')]");
         for(ElementHandle age : ages){
             age.evaluate("yG => yG.innerText='18+'");
         }
         System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(2000);
 
+//        page.waitForTimeout(4000);
+        List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+        for(ElementHandle stiker : stikers){
+            stiker.evaluate("s => s.remove;");
+        }
+        ElementHandle banners = page.querySelector("//div[@data-test='BannerCarousel']");
         // делаем скриншот элемента "bannersPageFilmsForUser":
         vrt.track(
                 "bannersPageSerialsForUser",
@@ -573,7 +554,7 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         if (dotBefore.size() < 25) {
             while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 25) {
-                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
+                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[2].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }

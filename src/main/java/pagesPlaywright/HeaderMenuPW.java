@@ -7,9 +7,12 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -436,7 +439,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void deleteAccountNonMF(String login) {
         pageCMS = contextNormalModeHeadless.newPage();
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-prepro5.megafon.tv/cms/households?role=user");
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
         pageCMS.click("//button[text()='Поиск']");
@@ -483,5 +486,33 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void reloadPageHeadfull() {
         pageHeadfull.reload();
+    }
+
+    public void logOut() {
+        page.click("(//div[@class='ch-trigger__container'])[4]");
+        page.click("(//span[text()='Выйти'])[1]");
+    }
+    public void chooseBundleNotSelected(String login) {
+        pageCMS = contextNormalModeHeadless.newPage();
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user");
+        pageCMS.click("//form[@method='GET']//input[1]");
+        pageCMS.fill("//form[@method='GET']//input[1]", login);
+        pageCMS.click("//button[text()='Поиск']");
+        pageCMS.waitForSelector("//td[text()='79260192144']");
+        pageCMS.click("//a[contains(@href, '/cms/households/')]");
+        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+        pageCMS.click("(//a[@role='button'])[2]");
+        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
+        pageCMS.reload();
+        pageCMS.querySelector("id=bundle").click();
+//        pageCMS.querySelector("//option[. = '(не выбрано)']").hover();
+        pageCMS.hover("//select[@id='bundle']//option[text()='(не выбрано)']");
+        pageCMS.click("//select[@id='bundle']//option[text()='(не выбрано)']");
+        pageCMS.click("//input[@value='Сохранить']");
+        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
+        pageCMS.close();
+        page.bringToFront();
+        page.reload();
     }
 }

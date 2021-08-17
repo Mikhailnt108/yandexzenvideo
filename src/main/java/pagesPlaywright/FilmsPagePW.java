@@ -158,6 +158,9 @@ public class FilmsPagePW extends BasePagePlaywright {
         for(ElementHandle sticker : stickerAll){
             sticker.evaluate("s => s.innerText='Автотест'");
         }
+        if(page.querySelectorAll("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']").size()!=0){
+            page.evaluate("s => s.remove();", page.querySelector("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']"));
+        }
 
         // делаем скриншот элемента "blockCollectionWithHeaderPageFilmsForUnauthorized":
         vrt.track(
@@ -231,6 +234,9 @@ public class FilmsPagePW extends BasePagePlaywright {
         List<ElementHandle> stickerAll = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']");
         for(ElementHandle stiker : stickerAll){
             stiker.evaluate("s => s.remove();");
+        }
+        if(page.querySelectorAll("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']").size()!=0){
+            page.evaluate("s => s.remove();", page.querySelector("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']"));
         }
 
         // подготовка блоков подборок без заголовка:
@@ -468,6 +474,10 @@ public class FilmsPagePW extends BasePagePlaywright {
         for(ElementHandle sticker : stickerAll){
             sticker.evaluate("s => s.innerText='Автотест'");
         }
+
+        if(page.querySelectorAll("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']").size()!=0){
+            page.evaluate("s => s.remove();", page.querySelector("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']"));
+        }
         // делаем скриншот элемента "blockCollectionWithHeaderPageFilmsForAuthorized":
         vrt.track(
                 "blockCollectionWithHeaderPageFilmsForAuthorized",
@@ -560,6 +570,10 @@ public class FilmsPagePW extends BasePagePlaywright {
         List<ElementHandle> stickerAll = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']");
         for(ElementHandle stiker : stickerAll){
             stiker.evaluate("s => s.remove();");
+        }
+
+        if(page.querySelectorAll("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']").size()!=0){
+            page.evaluate("s => s.remove();", page.querySelector("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1rFI0KDcQjaCwgg4CshFS8']"));
         }
 
         // подготовка блоков подборок без заголовка:

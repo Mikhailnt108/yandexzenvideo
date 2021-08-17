@@ -16,6 +16,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
     @Test
     public void appearancePagePromo() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
+//        headerMenuPW.chooseBundleNotSelected("79260192144");
         flowRegistation();
         headerMenuPW.openSubsectionPromo();
         personalOfferPW.archivePersonalOfferPackageForZeroRublesForMF();
@@ -27,6 +28,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
         personalOfferPW.createPersonalOfferTypeSubscription();
         personalOfferPW.createPersonalOfferTypePartnerOfferKinoPoiskForMF();
         personalOfferPW.createPersonalOfferTypePartnerOfferOkkoTvForMF();
+        headerMenuPW.reloadPage();
         promoPagePW.checkImagePromoPageWithPersonalOffers();
         personalOfferPW.archivePersonalOfferPackageForZeroRublesForMF();
         personalOfferPW.archivePersonalOfferSubscription();
