@@ -248,6 +248,10 @@ public class HeaderMenu extends BasePageWebDriver {
             click(By.xpath("//button[text()='Закрыть']"));
         }
         webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        webDriver.navigate().refresh();
     }
 
     public void checkLoginUserIsCorrectFlowForMFFast() {

@@ -17,6 +17,7 @@ public class Test_02_Фильм_по_покупке_за_деньги_API extend
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
+        popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
         popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToNilPage();
         flowRegistation();
@@ -24,7 +25,7 @@ public class Test_02_Фильм_по_покупке_за_деньги_API extend
         popUpNotification.clickToButtonPayToPopUpNotif();
         paymentContent.checkOpenPopUpChoosePaymentMethodEst();
         cardFilm.paymentFilmAtEstFromPopUpNotif();
-        myPage.checkAddingFilmInPurchases();
+        myPage.checkAddingFilmInPurchasesForNotif();
         popUpNotification.deletePopUpNotifScreenNilPayFilm();
         pageCMS.deleteAccountMF("79260172279");
     }

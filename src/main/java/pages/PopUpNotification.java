@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.core.AnyOf.anyOf;
+import static org.hamcrest.core.Is.is;
 
 public class PopUpNotification extends BasePageWebDriver {
     public PopUpNotification(WebDriver driver) {super(driver);}
@@ -22,8 +24,7 @@ public class PopUpNotification extends BasePageWebDriver {
                 "{\"msisdn_filter\":false,\"auth_filter\":\"registered\",\"vk_only_filter\":false,\"partners\":[\"megafon_tv\"]}}").
                 when().
                 put("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest1").
-                then().
-                statusCode(200);
+                then().statusCode(anyOf(is(200),is(404)));
     }
 
     public void checkElementsPopUpNotifScreenNilPayFilm() {
@@ -41,8 +42,7 @@ public class PopUpNotification extends BasePageWebDriver {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
                 delete("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest1").
-                then().
-                statusCode(204);
+                then().statusCode(anyOf(is(200),is(204),is(404)));
     }
 
     public void clickToButtonPayToPopUpNotif() {
@@ -80,8 +80,7 @@ public class PopUpNotification extends BasePageWebDriver {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
                 delete("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest2").
-                then().
-                statusCode(204);
+                then().statusCode(anyOf(is(200),is(204),is(404)));
     }
 
     public void checkElementsPopUpBundleUserMF() {
@@ -131,7 +130,6 @@ public class PopUpNotification extends BasePageWebDriver {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
                 delete("https://bmp-preprod5.megafon.tv/cms/api/v0/notification_factories/autotest3").
-                then().
-                statusCode(204);
+                then().statusCode(anyOf(is(200),is(204),is(404)));
     }
 }

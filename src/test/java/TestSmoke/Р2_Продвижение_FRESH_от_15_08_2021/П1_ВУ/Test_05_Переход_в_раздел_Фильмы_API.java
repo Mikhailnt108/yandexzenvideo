@@ -17,6 +17,7 @@ public class Test_05_Переход_в_раздел_Фильмы_API extends Tes
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
+        popUpNotification.deletePopUpNotifScreenNilPayFilm();
         popUpNotification.createAndPublishedPopUpNotifScreenNilDeepLinkFilms();
         headerMenu.goToNilPage();
         flowRegistation();
@@ -25,7 +26,6 @@ public class Test_05_Переход_в_раздел_Фильмы_API extends Tes
         filmsPage.checkOpenFilmsPage();
         popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
         pageCMS.deleteAccountMF("79260192144");
-
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

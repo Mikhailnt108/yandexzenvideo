@@ -71,8 +71,6 @@ public class PersonalOffer extends BasePageWebDriver {
         Assert.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorElementPO);
     }
 
-
-
     public void clickToElementPersonalOffer() {
         click(By.className("_3oPCKMu7Sfm9IMsxuhwuXy"));
     }

@@ -18,6 +18,7 @@ public class Test_01_Внешний_вид_всплывающего_уведом
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
+        popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
         popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToNilPage();
         flowRegistation();

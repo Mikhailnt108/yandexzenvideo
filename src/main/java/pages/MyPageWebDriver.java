@@ -179,6 +179,14 @@ public class MyPageWebDriver extends BasePageWebDriver {
         clipboard.setContents(stringSelection, null);
 
     }
+
+    public void checkAddingFilmInPurchasesForNotif() {
+        String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
+        System.out.println(nameFilm);
+        webDriver.get(My_purchases);
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
+    }
 }
 
 
