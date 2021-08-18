@@ -1,4 +1,4 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
+package TestSmoke.Р0_Разделы_меню_ТВ.П1_ТВ_FRESH;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class Test_04_1_Карточка_канала_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "2. ТВ")
+    @Feature(value = "0. Разделы меню")
+    @Story(value = "1. ТВ")
     @DisplayName(value ="Карточка канала")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)

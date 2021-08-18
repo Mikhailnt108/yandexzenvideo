@@ -1,18 +1,18 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
+package TestSmoke.Р0_Разделы_меню_ТВ.П1_ТВ_FRESH;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_15_1_Незаписываемая_ТВ_передача_18_плюс_FRESH_от_29_06_21 extends TestBaseWebDriver {
+public class Test_15_2_Записываемая_ТВ_передача_18_плюс_FRESH_от_29_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "2. ТВ")
-    @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
+    @Feature(value = "0. Разделы меню")
+    @Story(value = "1. ТВ")
+    @DisplayName(value ="Записываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void unrecordedTvProgram18Plus() throws Exception {
+    public void recordedTvProgram18Plus() throws Exception {
         headerMenu.goToNilPage();
         flowRegistation();
         headerMenu.goToPackagesPage();
@@ -20,7 +20,7 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
         packagesPage.checkTabAllPackagesInMenuShopPage();
         packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
-        cardPackage.chooseUnrecordedTvChannel18Plus();
+        cardPackage.chooseRecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
         cardTvChannel.goToTvProgram18Plus();
@@ -32,16 +32,16 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
         cardTvProgram.checkOpenPopUp18plus();
         //запуск плеера передачи 18+:
         cardTvProgram.clickYesInPopUp18Plus();
-        //переключение на соседнюю передачу 18+ внутри плеера:
-        cardTvProgram.swithOtherTvChannelInsidePlayerForUnRecording();
+        //переключение на передачу 18+ внутри плеера:
+        cardTvProgram.swithOnRecordedTvChannel18PlusInsidePlayer();
         cardTvProgram.checkAbsentPopUp18plus();
-        //переключение c передачи 18+ на передачу НЕ 18+ внутри плеера:
+        //переключение на передачу не 18+ внутри плеера:
         cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
-        //переключение c передачи НЕ 18+ на передачу 18+ внутри плеера:
-        cardTvProgram.swithOnUnrecordedTvChannel18PlusInsidePlayer();
+        //переключение на соседнюю передачу 18+ внутри плеера:
+        cardTvProgram.swithOnRecordedTvChannel18PlusInsidePlayer2();
         pageCMS.deleteAccountMF("79260205027");
     }
-    private void flowRegistation() throws InterruptedException {
+    private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

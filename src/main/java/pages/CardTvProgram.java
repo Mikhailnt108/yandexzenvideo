@@ -695,13 +695,13 @@ public class CardTvProgram extends BasePageWebDriver {
         Assert.assertNotEquals("передача не переключена", nameTvProgram, webDriver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
     }
 
-    public void swithOtherTvChannelInsidePlayerForUnRecording() throws InterruptedException {
+    public void swithOtherTvChannelInsidePlayerForUnrecorded() throws InterruptedException {
         Thread.sleep(3000);
         Actions actions = new Actions(webDriver);
         String nameTvChannel = webDriver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText();
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         Thread.sleep(3000);
-        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[position()=3]"));
+        click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[3]"));
         Thread.sleep(3000);
         System.out.println(webDriver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
         Assert.assertNotEquals("канал не переключен", nameTvChannel, webDriver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());

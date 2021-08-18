@@ -1,27 +1,26 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
+package TestSmoke.Р0_Разделы_меню_ТВ.П1_ТВ_FRESH;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import java.io.IOException;
 
-public class Test_11_2_Незаписываемая_передача_SCREENSHOT_PLAYER_VRT_PW extends TestBasePlaywright {
+public class Test_04_2_Карточка_канала_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "2. ТВ")
-    @DisplayName(value ="Незаписываемая ТВ передача (скриншоты)")
+    @Feature(value = "0. Разделы меню")
+    @Story(value = "1. ТВ")
+    @DisplayName(value = "Карточка канала (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void unrecordedTvProgram() throws Exception {
-        headerMenuPW.goToTvTabTvProgramInAir();
+    public void cardTvChannel() throws IOException, InterruptedException {
+        // неавторизованный пользователь:
+        сardTvChannelPW.checkImageCardTvChannelForGuest();
+        // авторизованный пользователь:
+        headerMenuPW.goToNilPage();
         flowRegistation();
-        headerMenuPW.saveCookiesBrowserHeadless();
-        headerMenuPW.getCookiesAndOpenHeadfullBrowser();
-        headerMenuPW.goToTvTabTvProgramInAirHeadfull();
-        cardTvProgramPW.chooseTailTvProgramTabAll();
-        cardTvProgramPW.checkAutoStartVideoPlayer();
-        cardTvProgramPW.checkImagePlayerСardTvProgramUnrecordedUser();
-        cardTvProgramPW.checkImageScheduleСardTvProgramUnrecorded();
+        сardTvChannelPW.checkImageCardTvChannelForUser();
+        headerMenuPW.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

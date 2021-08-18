@@ -1,45 +1,33 @@
-package TestSmoke.Р4_Разделы_меню.П2_ТВ_FRESH;
+package TestSmoke.Р0_Разделы_меню_ТВ.П1_ТВ_FRESH;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_12_1_Записываемая_передача_FRESH extends TestBaseWebDriver {
+public class Test_10_Подписка_на_пакет_каналов_FRESH_от_28_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "2. ТВ")
-    @DisplayName(value ="Записываемая ТВ передача")
+    @Feature(value = "0. Разделы меню")
+    @Story(value = "1. ТВ")
+    @DisplayName(value ="Подписка на пакет каналов")
     @Severity(SeverityLevel.BLOCKER)
     @RepeatedTest(1)
-    public void recordedTvProgram() throws Exception {
+    public void subscribeOnPackageTvChannel() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
+        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickOnLinkTvProgramInRecording();
         cardTvProgram.clickPaymentButtonInCardTvProgram();
         cardTvProgram.checkPaymentComplete();
         headerMenu.refreshPage();
         cardTvProgram.checkAutoStartVideoPlayer();
-        cardTvProgram.checkElementsPlayerRecordedTvProgram();
-        cardTvProgram.testFullScreenPlayer();
-        cardTvProgram.testOnAndOffAudioInPlayer();
-        cardTvProgram.clickOnScheduleInPlayerInRecordedAndCheckeElements();
-        cardTvProgram.switchOtherTvProgramInsidePleerSchedule();
-        headerMenu.refreshPage();
-        cardTvProgram.clickToPauseVideoPleer();
-        cardTvProgram.clickToPlayVideoPleer();
-        cardTvProgram.rewindOn10secondsToVideoPleer();
-        cardTvProgram.swithOtherTvProgramInsidePlayerCarousel();
-        cardTvProgram.clickOnLinkNextTvProgramInRecording();
-        cardTvProgram.swithOtherTvChannelInsidePlayerForRecording();
-        cardTvProgram.checkAutoStartVideoPlayer();
         pageCMS.deleteAccountMF("79260205027");
     }
-    private void flowRegistation() throws InterruptedException {
+
+    private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
