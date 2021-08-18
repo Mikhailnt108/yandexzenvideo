@@ -4,36 +4,40 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_03_2_Внешний_вид_карточки_SCREENSHOT_PLAYER_VRT_PW extends TestBasePlaywright {
+public class Test_09_2_Выбор_серии_из_блока_выбора_серии_SCREENSHOT_VRT_PW_RETEST extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value = "Внешний вид карточки (скриншоты)")
+    @DisplayName(value ="9.2 Выбор серии из блока выбора серии (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
-    public void appearanceSectionCardSerial() throws Exception {
+    @Test
+    public void chooseEpisodeFromBlockEpisodes() throws Exception {
+        // пользователь НЕ авторизован:
         headerMenuPW.goToSerialsPage();
-        serialsPagePW.clickToTailCardSerial();
-        cardSerialPW.checkStartTrailerPlayer();
-        cardSerialPW.checkImageCardSerialForGuest();
+        serialsPagePW.chooseSeasonsMoreOneSeason();
+        cardSerialPW.checkOpenCardSerial();
+        cardSerialPW.checkImageBlockSeason();
+        // пользователь авторизован:
+        headerMenuPW.goToSerialsPage();
         flowRegistation();
-        cardSerialPW.subscribeToPackageSerials();
-        cardSerialPW.checkStartTrailerPlayer();
-        cardSerialPW.checkImageCardSerialForUser();
-        headerMenuPW.deleteAccountMF("79260192144");
+        serialsPagePW.clickToTailCardSerial();
+        cardSerialPW.checkOpenCardSerial();
+        cardSerialPW.checkImagePopUpSubscription();
     }
-    private void flowRegistation () {
+    private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
         headerMenuPW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44" , "111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
+
 }

@@ -604,7 +604,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void clickToTailCardSerial() {
-        page.click("(//div[@data-test='PackageListWrapper'])[5]//a[@data-test='PackageLink']");
+        page.click("//a[@data-test='PackageLink']");
     }
 
     public void chooseSeasonsMoreOneSeason() {

@@ -65,6 +65,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void chooseBundleBezPereplatMaxFromMsisdn(String login) {
@@ -89,6 +93,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void chooseBundleBezPereplatVseFromMsisdn(String login) {
@@ -113,6 +121,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void chooseBundleBezPereplatInternetFromMsisdn(String login) {
@@ -137,6 +149,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void chooseBundleBezPereplatZvonkiFromMsisdn(String login) {
@@ -161,6 +177,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void chooseBundlePremiumFromMsisdn(String login) {
@@ -185,6 +205,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
     public void chooseBundleCorpBezlimitFromMsisdn(String login) {
         ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
@@ -208,6 +232,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void deleteAccountMF(String login) {
@@ -326,6 +354,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void copyPasteCodMsisdnForNonMF(String login) {
@@ -376,6 +408,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void chooseBundleOsnovnoyFromMsisdn(String login) {
@@ -400,9 +436,13 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
-    public void chooseBundleNotSelected(String login) {
+    public void chooseBundleNotSelected(String login) throws InterruptedException {
         ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs2.get(1));
@@ -415,7 +455,7 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         click(By.xpath("(//a[@role='button'])[2]"));
         isElementDisplayed(By.xpath("//h3[text()=' Редактирование хаусхолда ']"));
         webDriver.findElement(By.id("bundle")).click();
-        webDriver.findElement(By.xpath("//option[. = '(не выбрано)']")).click();
+        webDriver.findElement(By.xpath("//select[@id='bundle']//option[. = '(не выбрано)']")).click();
         click(By.xpath("//input[@value='Сохранить']"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
@@ -444,6 +484,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 }
 

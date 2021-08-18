@@ -4,14 +4,15 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_03_1_Внешний_вид_карточки_FRESH extends TestBaseWebDriver {
+public class Test_03_1_СЕРИАЛЫ_Внешний_вид_карточки_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Внешний вид карточки")
+    @DisplayName(value ="3.1 Внешний вид карточки")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void appearanceSectionCardSerial() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToSerialsPage();

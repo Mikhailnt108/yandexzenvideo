@@ -132,7 +132,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
 
     public void chooseOneCountry() throws InterruptedException {
         click(By.xpath("//div[text()='Страна']"));
-        click(By.xpath("//span[text()='Россия']"));
+        click(By.xpath("//span[text()='США']"));
         click(By.xpath("//div[text()='Страна']"));
     }
 
@@ -669,7 +669,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkRequestResultOneCountryAndTwoGenre() throws InterruptedException {
-        List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
+        List<WebElement> CollectionOneCountry;
         for (int i = 0; i <= 5; i++) {
             CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
             CollectionOneCountry.get(i).click();
@@ -677,8 +677,8 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
             webDriver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
-            webDriver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
-            webDriver.get("https://web-preprod5.megafon.tv/shows");
+            webDriver.findElement(By.xpath("//div[contains(text(),'США')]"));
+            webDriver.navigate().back();
             Thread.sleep(5000);
         }
     }
