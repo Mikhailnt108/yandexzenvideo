@@ -36,17 +36,17 @@ public class PromoPagePW extends BasePagePlaywright {
                 System.out.println(page.querySelectorAll("//div[@class='_21KKyuE8LKHEcXtTdfv3wl']").size());
             }
         }
-        List<ElementHandle> blockPromoAll = page.querySelectorAll("(//div[@class='_1roPetKby_jKdS5ggJNlFx'])[2]//div[@class='_1OdPMwhbIJZwIzJl24pqkj']");
+        List<ElementHandle> blockPromoAll = page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']");
         if (blockPromoAll.size() > 10) {
-            while (page.querySelectorAll("//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
-                page.evaluate("bP => bP.remove();", page.querySelector("(//div[@class='_1OdPMwhbIJZwIzJl24pqkj'])[last()]"));
-                System.out.println(page.querySelectorAll("//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
+            while (page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
+                page.evaluate("bP => bP.remove();", page.querySelector("(//a[@class='_1OdPMwhbIJZwIzJl24pqkj'])[last()]"));
+                System.out.println(page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
             }
         }
         if (blockPromoAll.size() < 10) {
-            while (page.querySelectorAll("(//div[@class='_1roPetKby_jKdS5ggJNlFx'])[2]//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
+            while (page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
                 page.evaluate("bP => bP.appendChild(document.querySelector('._1OdPMwhbIJZwIzJl24pqkj:nth-child(5)').cloneNode(true));", page.querySelector("(//div[@class='_1roPetKby_jKdS5ggJNlFx'])[2]"));
-                System.out.println(page.querySelectorAll("//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
+                System.out.println(page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
             }
         }
         List<ElementHandle> namePromoAll = page.querySelectorAll("//div[@class='r6H6NK5mC_vc0zd0SmO-H']");
@@ -87,17 +87,17 @@ public class PromoPagePW extends BasePagePlaywright {
                 System.out.println(page.querySelectorAll("//div[@class='_21KKyuE8LKHEcXtTdfv3wl']").size());
             }
         }
-        List<ElementHandle> blockPromoAll = page.querySelectorAll("(//div[@class='_1roPetKby_jKdS5ggJNlFx'])[2]//div[@class='_1OdPMwhbIJZwIzJl24pqkj']");
+        List<ElementHandle> blockPromoAll = page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']");
         if (blockPromoAll.size() > 10) {
-            while (page.querySelectorAll("//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
-                page.evaluate("bP => bP.remove();", page.querySelector("(//div[@class='_1OdPMwhbIJZwIzJl24pqkj'])[last()]"));
-                System.out.println(page.querySelectorAll("//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
+            while (page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
+                page.evaluate("bP => bP.remove();", page.querySelector("(//a[@class='_1OdPMwhbIJZwIzJl24pqkj'])[last()]"));
+                System.out.println(page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
             }
         }
         if (blockPromoAll.size() < 10) {
-            while (page.querySelectorAll("(//div[@class='_1roPetKby_jKdS5ggJNlFx'])[2]//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
+            while (page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size() != 10) {
                 page.evaluate("bP => bP.appendChild(document.querySelector('._1OdPMwhbIJZwIzJl24pqkj:nth-child(5)').cloneNode(true));", page.querySelector("(//div[@class='_1roPetKby_jKdS5ggJNlFx'])[2]"));
-                System.out.println(page.querySelectorAll("//div[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
+                System.out.println(page.querySelectorAll("//a[@class='_1OdPMwhbIJZwIzJl24pqkj']").size());
             }
         }
         List<ElementHandle> namePromoAll = page.querySelectorAll("//div[@class='r6H6NK5mC_vc0zd0SmO-H']");

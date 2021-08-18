@@ -134,6 +134,8 @@ public class CardPackage extends BasePageWebDriver {
     }
 
     public void clickToFirstTailCardSerial() {
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
+                , webDriver.findElement(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]")));
         click(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]"));
     }
 

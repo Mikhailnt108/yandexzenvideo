@@ -3,16 +3,16 @@ package TestSmoke.Р4_Разделы_меню.П9_Моё.История_прос
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_11_Контент_cоответствует_разделу_FRESH extends TestBaseWebDriver {
+public class Test_13_МОЁ_Удаление_всех_отметок_о_просмотрах_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Контент cоответствует разделу")
+    @DisplayName(value = "Удаление всех отметок о просмотрах")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
-    public void contentСorrespondsToSection() throws Exception {
+    @Test
+    public void sortingContent() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
@@ -21,39 +21,30 @@ public class Test_11_Контент_cоответствует_разделу_FRE
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
-        // просмотр фильма из подключенного пакета:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.clickOnTailFirstCardFilm();
-        cardFilm.moveSliderRewindToVideoPlayer();
-
-        // просмотр сериала 18+:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTailCardPackage18Plus();
-        cardPackage.paymentPackageTnB();
-        cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer18Plus();
-
-        // чек контент - только сериалы без 18+ в подборке продолжить просмтор:
+        //удаление истории просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.checkContentOnlySerialsWithout18Plus();
+        serialsPage.scrollToTailWatchAndEdit();
+        serialsPage.clickToTailWatchAndEdit();
+        myPage.clickToButtonClearAllHistory();
+        headerMenu.goToSerialsPage();
+        serialsPage.checkAbsentBlockCollectHistoryWatch();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

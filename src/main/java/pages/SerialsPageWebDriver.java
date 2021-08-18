@@ -668,7 +668,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         Assert.assertEquals("не отключен быстрый фильтр", 0, webDriver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
     }
 
-    public void checkRequestResultOneCountryAndTwoGenre() {
+    public void checkRequestResultOneCountryAndTwoGenre() throws InterruptedException {
         List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
         for (int i = 0; i <= 5; i++) {
             CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
@@ -679,6 +679,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
             button.click();
             webDriver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
             webDriver.get("https://web-preprod5.megafon.tv/shows");
+            Thread.sleep(5000);
         }
     }
 

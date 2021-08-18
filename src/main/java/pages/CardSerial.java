@@ -4,6 +4,7 @@ import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
@@ -14,6 +15,7 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class CardSerial extends BasePageWebDriver {
 
@@ -181,31 +183,29 @@ public class CardSerial extends BasePageWebDriver {
         Assert.assertNotEquals(time10, time11);
     }
 
-    public void episodeSliderRewindToVideoPleer() throws Exception {
+    public void episodeSliderRewindToVideoPlayer() throws Exception {
         Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         WebElement slider = webDriver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
         //WebElement target = driver.findElement(By.id("container"));
         //new Actions(driver).dragAndDrop(slider, target).perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         actions.dragAndDropBy(slider, 155, 0).perform();
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
     }
 
-    public void moveSliderRewindToVideoPleer() throws InterruptedException {
+    public void moveSliderRewindToVideoPlayer() throws InterruptedException {
         Actions actions = new Actions(webDriver);
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         WebElement slider = webDriver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
-        //WebElement target = driver.findElement(By.id("container"));
-        //new Actions(driver).dragAndDrop(slider, target).perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         actions.dragAndDropBy(slider, 450, 0).perform();
         Thread.sleep(10000);
@@ -213,27 +213,55 @@ public class CardSerial extends BasePageWebDriver {
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 
     public void checkTimeStopPlayer() throws InterruptedException {
         Actions actions = new Actions(webDriver);
-        //нажал "Смотреть" - видео запустилось
-        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(2000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         //нажал на стоп:
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        List<WebElement> time3AllElements = webDriver.findElements(By.xpath("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi'][position()<7]"));
+        String[] time3AllText = new String[time3AllElements.size()];
+            int a =0;
+            for(WebElement textNumberTimeBefore : time3AllElements){
+                time3AllText[a]= textNumberTimeBefore.getText();
+                a++;
+        }
+        Integer[] time3AllNumber=new Integer[time3AllText.length];
+            int b =0;
+            for(String numberTimeBefore :time3AllText){
+                time3AllNumber[b]=Integer.parseInt(numberTimeBefore);
+                b++;
+                System.out.println("numberTimeBefore:" + numberTimeBefore);
+            }
+        webDriver.get("https://web-preprod5.megafon.tv/");
         //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         Thread.sleep(2000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         //нажал на стоп:
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']")));
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time4 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertEquals(time3, time4);
+        List<WebElement> time4AllElements = webDriver.findElements(By.xpath("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi'][position()<7]"));
+        String[] time4AllText = new String[time4AllElements.size()];
+        int c =0;
+        for(WebElement textNumberTimeAfter : time4AllElements){
+            time4AllText[c]= textNumberTimeAfter.getText();
+            c++;
+        }
+        Integer[] time4AllNumber=new Integer[time4AllText.length];
+        int d =0;
+        for(String numberTimeAfter :time4AllText){
+            time4AllNumber[d]=Integer.parseInt(numberTimeAfter);
+            d++;
+            System.out.println("numberTimeAfter:" + numberTimeAfter);
+        }
+        for (int e = 0; e < time4AllNumber.length; e++){
+            Assert.assertTrue("время меньше отметки стопа видео",time4AllNumber[e] >= time3AllNumber[e]);
+        }
+        Thread.sleep(3000);
     }
 
     public void moveSliderRewindToVideoPleer18Plus() throws InterruptedException {
@@ -241,25 +269,25 @@ public class CardSerial extends BasePageWebDriver {
         //нажал "Смотреть" - видео запустилось
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
         click(By.xpath("//button[text()='Да']"));
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         WebElement slider = webDriver.findElement(By.xpath("(//div[@class='_2xKeEBccHr0M7TaONTh33M'])[1]"));
         //WebElement target = driver.findElement(By.id("container"));
         //new Actions(driver).dragAndDrop(slider, target).perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         actions.dragAndDropBy(slider, 450, 0).perform();
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
-        Thread.sleep(7000);
+        Thread.sleep(3000);
     }
 
     public void checkAutoStartVideoPlayer() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         Actions actions = new Actions(webDriver);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
@@ -547,6 +575,11 @@ public class CardSerial extends BasePageWebDriver {
         Thread.sleep(10000);
         //нажал на паузу - видео остановилось
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
+    }
+
+    public void removeBlockQuickFilters() {
+        JavascriptExecutor blockQuickFilters1 = (JavascriptExecutor) webDriver;
+        blockQuickFilters1.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
     }
 }
 

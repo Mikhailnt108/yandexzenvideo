@@ -20,7 +20,7 @@ public class Test_04_Переключение_сезонов_FRESH_Баг_не_�
         cardSerial.chooseOtherSeasonAndCheckPoster();
         cardSerial.checkAutoStartVideoPlayer();
         cardSerial.paymentSerialAtSubs();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         cardSerial.checkSeasonAndEpisode();
         pageCMS.deleteAccountMF("79260192144");
     }

@@ -3,15 +3,15 @@ package TestSmoke.Р4_Разделы_меню.П9_Моё.История_прос
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_09_Кнопка_смотреть_Все_и_тайл_заглушка_FRESH extends TestBaseWebDriver {
+public class Test_09_МОЁ_Кнопка_смотреть_Все_и_тайл_заглушка_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Кнопка смотреть Все и тайл заглушка")
+    @DisplayName(value ="9. Кнопка смотреть Все и тайл заглушка")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void buttonAllWatchAndTailWatchAndEdit() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
@@ -21,20 +21,21 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // переходы в историю просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
@@ -54,20 +55,21 @@ public class Test_09_Кнопка_смотреть_Все_и_тайл_заглу
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // переходы в историю просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();

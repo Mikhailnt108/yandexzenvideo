@@ -22,19 +22,19 @@ public class Test_08_1_МОЁ_Внешний_вид_блока_подборки_
         cardPackage.paymentPackageTnB();
         cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
         // чек подборки "продолжить просмотр":
         headerMenu.goToSerialsPage();
@@ -51,19 +51,19 @@ public class Test_08_1_МОЁ_Внешний_вид_блока_подборки_
         cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
         cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
         // чек подборки "продолжить просмотр":
         headerMenu.goToSerialsPage();

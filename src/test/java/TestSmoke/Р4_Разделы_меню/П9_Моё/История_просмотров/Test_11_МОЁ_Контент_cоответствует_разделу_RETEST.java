@@ -6,14 +6,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_12_Сортировка_контента_FRESH extends TestBaseWebDriver {
+public class Test_11_МОЁ_Контент_cоответствует_разделу_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Сортировка контента")
+    @DisplayName(value = "11. Контент cоответствует разделу")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
-    public void sortingContent() throws Exception {
+    @Test
+    public void contentСorrespondsToSection() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
@@ -22,42 +22,41 @@ public class Test_12_Сортировка_контента_FRESH extends TestBas
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
-        //проверка отображения сериала в подборке:
-        //проверка последнего тайла:
+        // просмотр фильма из подключенного пакета:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickOnTailFirstCardFilm();
+        cardFilm.moveSliderRewindToVideoPlayer();
+
+        // просмотр сериала 18+:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTailCardPackage18Plus();
+        cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        serialsPage.checkToMoveTailToLastPlace();
+        cardSerial.moveSliderRewindToVideoPleer18Plus();
 
-        //проверка первого тайла:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.clickToThirdTailCardSerial();
-        serialsPage.checkToMoveTailToFirstPlace();
-
-        //проверка перемещения тайла на первое место после просмотра:
+        // чек контент - только сериалы без 18+ в подборке продолжить просмтор:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToLastTailBlockCollectHistoryWatch();
-        cardSerial.continueWatching();
-        serialsPage.checkToMoveTailToFirstPlace();
+        serialsPage.checkContentOnlySerialsWithout18Plus();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -152,7 +152,7 @@ public class PromoPageWebDriver extends BasePageWebDriver {
     public void checkBundleBezPereplatInternet() {
         isElementDisplayed(By.xpath("(//span[text()='Акции'])[3]"));
         isElementDisplayed(By.xpath("//div[text()='Ваша тарифная опция в МегаФоне']|//div[text()='Ваш тарифный план в МегаФоне']"));
-        isElementDisplayed(By.xpath("//div[text()='Без переплат. Интернет']"));
+        isElementDisplayed(By.xpath("//div[text()='Без переплат. Интернет']|//div[contains(text(),'Персональный')]"));
         //Assert.assertEquals("Не найден текст: 'Без переплат. Всё'", "Ваш тарифный план в МегаФоне Без переплат. Всё", driver.findElement(By.xpath("//div[text()='Без переплат. Максимум']")).getText());
         isElementDisplayed(By.xpath("//div[text()='Вам доступно без оплаты:']"));
         Assert.assertEquals("Не найден текст: 'Бесплатный видео трафик'","Бесплатный видео трафик", webDriver.findElement(By.xpath("//div[text()='Бесплатный видео трафик']")).getText());

@@ -5,14 +5,14 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_14_Продолжить_просмотр_FRESH extends TestBaseWebDriver {
+public class Test_15_МОЁ_Включение_каталогов_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Продолжить просмотр")
+    @DisplayName(value = "15. Включение каталогов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void continueWatching() throws Exception {
+    public void enablingCatalogViewSerialsPage() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
@@ -21,27 +21,26 @@ public class Test_14_Продолжить_просмотр_FRESH extends TestBas
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
-        //чек автозапуска плеера с места остановки:
+        //чек отсутствия подборки 'Продолжить просмотр' в режиме 'каталог':
         headerMenu.goToSerialsPage();
-        serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkTimeStopPlayer();
-        cardSerial.checkButtonContinueWatching();
+        serialsPage.clickOnFastFilterGenre();
+        serialsPage.checkAbsentBlockCollectHistoryWatch();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -1,27 +1,22 @@
-package TestSmoke.Р5_Профиль_FRESH_от_15_08_21.П1_Акции;
+package TestSmoke.Р5_Профиль_FRESH_от_15_08_21.П2_Другие_кнопки;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.io.IOException;
-
-public class Test_01_1_Внешний_вид_раздела_FRESH extends TestBaseWebDriver {
+public class Test_02_1_ПРОФИЛЬ_Подключить_Smart_TV_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "2. Акции")
-    @DisplayName(value ="1. Внешний вид раздела")
+    @Story(value = "2. Другие кнопки")
+    @DisplayName(value ="Подключить Smart_TV")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void appearancePagePromo() throws InterruptedException, IOException, AWTException {
+    public void ConnectSmartTv() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.openSubsectionPromo();
-        promoPage.checkElementsWithoutBlockPersonalOffer();
-        promoPage.checkExpandDiscriptionPromo();
-        promoPage.checkHideDiscriptionPromo();
+        headerMenu.noConnectSmartTv();
+        headerMenu.connectSmartTv();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

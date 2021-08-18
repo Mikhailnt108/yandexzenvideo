@@ -181,21 +181,16 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void connectSmartTv() throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('http://staging-smart-nettv.megafon.tv/#scene/start')");
+        ((JavascriptExecutor) webDriver).executeScript("window.open('http://smart-viera.megafon.tv/#scene/start')");
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs2.get(1));
-//        click(By.xpath("//span[text()='Закрыть']"));
+        click(By.xpath("//div[text()='Очистить настройки']"));
         click(By.xpath("//div[@data-type='preprod5']"));
-        click(By.xpath("(//div[@data-action='back']//div)[1]"));
-        waitVisibility(By.xpath("(//div[@data-action='tile'])[1]"));
-        isElementDisplayed(By.xpath("//div[@data-action='openMainMenu']"));
-        click(By.cssSelector("div#side-menu>div>div"));
-//        while(webDriver.findElements(By.xpath("//div[text()[normalize-space()='Вход']]")).size()<1){
-//            click(By.xpath("//div[@data-action='down']"));
-//        }
+//        waitVisibility(By.xpath("//div[text()='Войти']"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
                 , webDriver.findElement(By.xpath("//div[text()='Войти']")));
         click(By.xpath("//div[text()='Войти']"));
+        click(By.xpath("//span[text()='Скрыть']"));
         String codSmartTv = webDriver.findElement(By.xpath("//div[@class='enter-msisdn-pair__code js-code']")).getText();
         //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();

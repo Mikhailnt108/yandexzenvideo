@@ -7,16 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW extends TestBasePlaywright {
+public class Test_01_2_АКЦИИ_Внешний_вид_раздела_SCREENSHOT_VRT_PW_RETEST extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="1.1 Внешний вид раздела (скриншоты)")
+    @DisplayName(value ="1.2 Внешний вид раздела (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void appearancePagePromo() throws InterruptedException, IOException {
-        headerMenuPW.goToNilPage();
-//        headerMenuPW.chooseBundleNotSelected("79260192144");
+        headerMenuPW.goToNilPage();;
         flowRegistation();
         headerMenuPW.openSubsectionPromo();
         personalOfferPW.archivePersonalOfferPackageForZeroRublesForMF();
@@ -28,7 +27,10 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
         personalOfferPW.createPersonalOfferTypeSubscription();
         personalOfferPW.createPersonalOfferTypePartnerOfferKinoPoiskForMF();
         personalOfferPW.createPersonalOfferTypePartnerOfferOkkoTvForMF();
-        headerMenuPW.reloadPage();
+        headerMenuPW.goToNilPage();
+        headerMenuPW.logOut();
+        flowAuthorization();
+        headerMenuPW.openSubsectionPromo();
         promoPagePW.checkImagePromoPageWithPersonalOffers();
         personalOfferPW.archivePersonalOfferPackageForZeroRublesForMF();
         personalOfferPW.archivePersonalOfferSubscription();
@@ -46,6 +48,16 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+    }
+    private void flowAuthorization() {
+        headerMenuPW.checkNotLoggedIsCorrect();
+        headerMenuPW.clickToEnter();
+        headerMenuPW.checkOpenPopUpInputPhone();
+        headerMenuPW.inputLogin("+7 926 019 21 44");
+        headerMenuPW.clickToNext();
+        headerMenuPW.inputPassword("111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

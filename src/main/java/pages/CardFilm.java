@@ -17,6 +17,7 @@ import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class CardFilm extends BasePageWebDriver {
 
@@ -336,24 +337,53 @@ public class CardFilm extends BasePageWebDriver {
         click(By.xpath("(//button[@type='button']//span)[4]"));
     }
 
-    public void checkTimeStopPleer() throws InterruptedException {
-        //автозапуск продолжения фильма:
+    public void checkTimeStopPlayer() throws InterruptedException {
+        // автозапуск продолжения фильма:
         Actions actions = new Actions(webDriver);
+        Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        //нажать стоп:
+        // нажал на стоп:
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        webDriver.navigate().back();
-        //кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
+        List<WebElement> time3AllElements = webDriver.findElements(By.xpath("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi'][position()<7]"));
+        String[] time3AllText = new String[time3AllElements.size()];
+        int a =0;
+        for(WebElement textNumberTimeBefore : time3AllElements){
+            time3AllText[a]= textNumberTimeBefore.getText();
+            a++;
+        }
+        Integer[] time3AllNumber=new Integer[time3AllText.length];
+        int b =0;
+        for(String numberTimeBefore :time3AllText){
+            time3AllNumber[b]=Integer.parseInt(numberTimeBefore);
+            b++;
+            System.out.println("numberTimeBefore:" + numberTimeBefore);
+        }
+        webDriver.get("https://web-preprod5.megafon.tv/");
+        // Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
-        //нажать "Продолжить просмотр" - видео запустилось
-        click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]"));
-        Thread.sleep(2000);
+        Thread.sleep(15000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
-        //нажать стоп:
+        // нажал на стоп:
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']")));
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
-        String time4 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertEquals(time3, time4);
+        List<WebElement> time4AllElements = webDriver.findElements(By.xpath("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi'][position()<7]"));
+        String[] time4AllText = new String[time4AllElements.size()];
+        int c =0;
+        for(WebElement textNumberTimeAfter : time4AllElements){
+            time4AllText[c]= textNumberTimeAfter.getText();
+            c++;
+        }
+        Integer[] time4AllNumber=new Integer[time4AllText.length];
+        int d =0;
+        for(String numberTimeAfter :time4AllText){
+            time4AllNumber[d]=Integer.parseInt(numberTimeAfter);
+            d++;
+            System.out.println("numberTimeAfter:" + numberTimeAfter);
+        }
+        for (int e = 0; e < time4AllNumber.length; e++){
+            Assert.assertTrue("время меньше отметки стопа видео",time4AllNumber[e] >= time3AllNumber[e]);
+        }
+        Thread.sleep(3000);
     }
 
     public void moveSliderRewindToVideoPleer18Plus() throws InterruptedException {

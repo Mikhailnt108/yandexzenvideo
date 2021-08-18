@@ -5,15 +5,14 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_10_Нажатие_в_разные_зоны_тайлов_FRESH extends TestBaseWebDriver {
+public class Test_14_МОЁ_Продолжить_просмотр_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Нажатие в разные зоны тайлов")
+    @DisplayName(value = "14. Продолжить просмотр")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void clickingInDifferentAreasTails() throws Exception {
-        // пользователь МФ:
+    public void continueWatching() throws Exception {
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
         flowRegistation();
@@ -21,44 +20,28 @@ public class Test_10_Нажатие_в_разные_зоны_тайлов_FRESH 
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.moveSliderRewindToVideoPlayer();
 
-        // клики в разные области тайлов при подключенном пакете:
+        // чек автозапуска плеера с места остановки:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToPosterFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
-        headerMenu.goToSerialsPage();
-        serialsPage.clickToTextFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
-
-        // отключить пакет просмотренных сериалов:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.disablePackageTnB();
-
-        // клики в разные области тайлов при отключенном пакете:
-        headerMenu.goToSerialsPage();
-        serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToPosterFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
-        headerMenu.goToSerialsPage();
-        serialsPage.clickToTextFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkOpenCardSerial();
+        serialsPage.clickToFirstTailBlockCollectHistoryWatch();
+        cardSerial.checkTimeStopPlayer();
+        cardSerial.checkButtonContinueWatching();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

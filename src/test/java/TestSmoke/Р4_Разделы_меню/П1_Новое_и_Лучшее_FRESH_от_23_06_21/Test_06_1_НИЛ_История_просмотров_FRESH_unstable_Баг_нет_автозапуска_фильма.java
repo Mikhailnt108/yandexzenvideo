@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_1_История_просмотров_FRESH_unstable_Баг_нет_автозапуска_фильма extends TestBaseWebDriver {
+public class Test_06_1_НИЛ_История_просмотров_FRESH_unstable_Баг_нет_автозапуска_фильма extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")
@@ -13,6 +13,7 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void historyViewing() throws Exception {
+        // подключение пакета:
         headerMenu.goToPackagesPage();
         flowRegistation();
         packagesPage.checkOpenShopPage();
@@ -20,27 +21,30 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
         cardPackage.checkOpenCardPackage();
         cardPackage.paymentPackageTnB();
 
-        //проверка отображения фильма в подборке:
+        // проверка отображения фильма в подборке:
         cardPackage.clickOnTailFirstCardFilm();
         cardFilm.moveSliderRewindToVideoPlayer();
         headerMenu.goToNilPage();
         nilPage.checkAndClickOnTailCardFilmInCollectHistoryWatch();
         cardFilm.checkOpenCardFilm();
-        cardFilm.checkTimeStopPleer();
+        cardFilm.checkTimeStopPlayer();
         nilPage.checkToMoveTileToFirstPlace();
 
-        //проверка отображения сериала в подборке:
+        // проверка отображения сериала в подборке:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickToTabSerials();
+        headerMenu.refreshPage();
         cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.moveSliderRewindToVideoPlayer();
         headerMenu.goToNilPage();
         nilPage.checkAndClickOnTailCardSerialInCollectHistoryWatch();
         cardSerial.checkOpenCardSerial();
         cardSerial.checkTimeStopPlayer();
         nilPage.checkToMoveTileToFirstPlace();
 
-        //проверка отображения тв передачи в подборке:
+        // проверка отображения тв передачи в подборке:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickOnTailCardChannel();
@@ -49,27 +53,28 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
         headerMenu.goToNilPage();
         nilPage.checkAndClickOnTailCardTvProgramInCollectHistoryWatch();
 
-        //проверка отсутствия эротического контента в подборке:
-        //тв передача 18+:
+        // проверка отсутствия эротического контента в подборке:
+        // тв передача 18+:
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabAllPackage();
         packagesPage.clickToTailCardPackage18Plus();
-//        cardPackage.paymentPackageTnB();
+        cardPackage.paymentPackageTnB();
         cardPackage.clickOnTailCardChannel18Plus();
         cardTvChannel.clickTvProgramRecordInCardTvChannel();
         cardTvProgram.moveSliderRewindToVideoPlayer();
         headerMenu.goToNilPage();
         nilPage.checkAbsentTvProgram18PlusInCollectHistoryWatch();
 
-        //сериал 18+:
+        // сериал 18+:
         headerMenu.goToPackagesPage();
         packagesPage.goToCardPackage18PlusFlow();
+        cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPleer18Plus();
         headerMenu.goToNilPage();
         nilPage.checkAbsentSerial18PlusInCollectHistoryWatch();
 
-        //фильм 18+:
+        // фильм 18+:
         headerMenu.goToPackagesPage();
         packagesPage.goToCardPackage18PlusFlow();
         cardPackage.clickOnTailFirstCardFilm18Plus();
@@ -77,12 +82,13 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
         headerMenu.goToNilPage();
         nilPage.checkAbsentFilm18PlusInCollectHistoryWatch();
 
-        //чек подборки и переходы:
+        // чек подборки и переходы:
         headerMenu.goToNilPage();
         nilPage.checkElementsBlockCollectHistoryWatch();
         nilPage.clickToAllOnBlockCollectHistoryWatch();
         myPage.checkOpenPageMyHistory();
         myPage.checkVisibleContent18Plus();
+        headerMenu.goToNilPage();
         nilPage.checkAndClickOnTailWatchAndEdit();
         myPage.checkOpenPageMyHistory();
         myPage.checkVisibleContent18Plus();
@@ -113,6 +119,5 @@ public class Test_06_1_История_просмотров_FRESH_unstable_Баг
         pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
-//        headerMenu.checkLoginUserIsCorrectFlowForMFFast();
     }
 }

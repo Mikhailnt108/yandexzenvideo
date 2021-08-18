@@ -18,7 +18,7 @@ public class Test_08_Перемотка_серии_FRESH_от_01_06_21 extends T
         serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.paymentSerialAtSubs();
-        cardSerial.episodeSliderRewindToVideoPleer();
+        cardSerial.episodeSliderRewindToVideoPlayer();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
