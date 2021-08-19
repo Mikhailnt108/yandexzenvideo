@@ -3,22 +3,22 @@ package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_17_08_
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_03_2_Внешний_вид_карточки_SCREENSHOT_PLAYER_VRT_PW_RETEST19 extends TestBasePlaywright {
+public class Test_03_2_ФИЛЬМЫ_Внешний_вид_карточки_SCREENSHOT_PLAYER_VRT_PW_RETEST19 extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Внешний вид карточки (скриншоты")
+    @DisplayName(value ="3.2 Внешний вид карточки (скриншоты")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void appearanceSectionCardFilm() throws Exception {
         headerMenuPW.goToFilmsPage();
         filmsPagePW.clickToTailCardFilm();
         cardFilmPW.checkStartTrailerPlayer();
         cardFilmPW.checkImageCardFilmForGuest();
         flowRegistation();
-        cardFilmPW.paymentForFilm();
+        cardFilmPW.paymentRent2ForFilm();
         cardFilmPW.checkStartTrailerPlayer();
         cardFilmPW.checkImageCardFilmForUser();
         headerMenuPW.deleteAccountMF("79260192144");

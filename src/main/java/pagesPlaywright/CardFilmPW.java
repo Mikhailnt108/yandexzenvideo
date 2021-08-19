@@ -6,6 +6,8 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -28,7 +30,7 @@ public class CardFilmPW extends BasePagePlaywright {
         page.waitForSelector("//span[@itemprop='name' and text()='Фильмы']");
     }
 
-    public void paymentForFilm() {
+    public void paymentESTForFilm() {
         if (page.querySelectorAll("//span[contains(text(),'Навсегда за')]").size() != 0) {
             page.click("//span[contains(text(),'Навсегда за')]");
             page.waitForSelector("(//button[@class='_3W3bxW5DPDIV5i4O3588XI'])[1]");
@@ -39,6 +41,15 @@ public class CardFilmPW extends BasePagePlaywright {
             page.waitForSelector("//span[text()='Смотреть']");
         }
     }
+    public void paymentRent2ForFilm() {
+        page.waitForSelector("//span[contains(text(), 'На 48 часов за')]");
+        page.click("//span[contains(text(), 'На 48 часов за')]");
+        page.waitForSelector("//h2[text()='Аренда фильма на 48 часов']");
+        page.click("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']");
+        page.waitForSelector("//h1[contains(text(), 'Подтверждение оплаты фильма')]");
+        page.click("//span[text()='Подтвердить']");
+        page.waitForSelector("//span[contains(text(), 'Смотреть до')]");
+        }
 
     public void checkStartTrailerPlayer() throws InterruptedException {
         //автозапуск плеера:
@@ -218,6 +229,9 @@ public class CardFilmPW extends BasePagePlaywright {
         for(ElementHandle age : ageAllUser){
             age.evaluate("a => a.innerText='18+'");
         }
+        ElementHandle textPayButton = page.querySelector("//span[@class='_3Y5HJDtaQ_RV6kFCsByyzz']//span[2]");
+        textPayButton.evaluate("fP => fP.innerText='Смотреть'");
+
         List<ElementHandle> stickerTailCollectAllUser = page.querySelectorAll("//div[@class='_3GjqQPs5h2T_Dp5BPmv9ld']//div[@class='kjFUbLahFxqq2AjHY8j2R']");
         for(ElementHandle stickerTailCollect : stickerTailCollectAllUser){
             stickerTailCollect.evaluate("s => s.remove();");

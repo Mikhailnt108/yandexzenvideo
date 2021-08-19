@@ -16,13 +16,13 @@ public class Test_05_Подборка_Моё_RETEST19 extends TestBaseWebDriver 
         headerMenu.goToKidsPage();
         flowRegistation();
         kidsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
+        cardFilm.paymentButtonRent2InCardFilm();
         headerMenu.goToKidsPage();
         kidsPage.clickToTailCardSerial();
         cardSerial.paymentSerialAtSubs();
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
+        cardFilm.paymentButtonRent2InCardFilm();
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionOfMy();
         collectionsPage.checkCollectionOfMy();

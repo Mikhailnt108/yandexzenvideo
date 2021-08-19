@@ -3,15 +3,15 @@ package TestSmoke.Р0_Разделы_меню_ТВ.П1_ТВ_FRESH;
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 public class Test_05_1_Карточка_передачи_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="Карточка передачи")
+    @DisplayName(value ="5.1 Карточка передачи")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void cardTvProgram() throws Exception {
         //неавторизованный пользователь:
         headerMenu.goToTvPage();

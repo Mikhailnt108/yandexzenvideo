@@ -211,7 +211,7 @@ public class CardTvProgram extends BasePageWebDriver {
         isElementDisplayed(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
         isElementDisplayed(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]"));
         isElementDisplayed(By.className("_3DKCWpmCv7Gf2hQA0mQQ2g"));
-        isElementDisplayed(By.xpath("//ol[@class='_1-ZY27a7Isb9dohjRr0mXq _2JcPAFyPdrCLgIuTHxDufK']"));
+        isElementDisplayed(By.xpath("//ol[contains(@class,'_1-ZY27a7Isb9dohjRr0mXq')]"));
         isElementDisplayed(By.className("_1v_D6wOANknQeJMBPo_rKK"));
         isElementDisplayed(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]"));
         isElementDisplayed(By.xpath("//div[contains(@class,'_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6')]"));
