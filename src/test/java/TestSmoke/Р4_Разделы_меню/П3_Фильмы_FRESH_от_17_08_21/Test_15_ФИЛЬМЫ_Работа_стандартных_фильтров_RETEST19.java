@@ -3,15 +3,15 @@ package TestSmoke.Р4_Разделы_меню.П3_Фильмы_FRESH_от_17_08_
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_15_Работа_стандартных_фильтров_FRESH extends TestBaseWebDriver {
+public class Test_15_ФИЛЬМЫ_Работа_стандартных_фильтров_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Работа стандартных фильтров")
+    @DisplayName(value ="15. Работа стандартных фильтров")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
     public void standardFilters() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.checkElementsFilmsPage();

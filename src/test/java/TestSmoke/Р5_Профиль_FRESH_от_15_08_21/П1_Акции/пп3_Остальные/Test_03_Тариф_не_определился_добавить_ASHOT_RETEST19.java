@@ -1,22 +1,25 @@
-package TestSmoke.Р5_Профиль_FRESH_от_15_08_21.П2_Другие_кнопки;
+package TestSmoke.Р5_Профиль_FRESH_от_15_08_21.П1_Акции.пп3_Остальные;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_02_1_ПРОФИЛЬ_Подключить_Smart_TV_RETEST extends TestBaseWebDriver {
+public class Test_03_Тариф_не_определился_добавить_ASHOT_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "2. Другие кнопки")
-    @DisplayName(value ="Подключить Smart_TV")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="Тариф не определился")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void ConnectSmartTv() throws InterruptedException {
+    public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        headerMenu.noConnectSmartTv();
-        headerMenu.connectSmartTv();
+        pageCMS.chooseNotDefinedTariff("79260192144");
+        headerMenu.closePopUpNotDefinedTariff();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkNotDefinedTariff();
+        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

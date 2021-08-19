@@ -1,21 +1,18 @@
-package TestSmoke.Р4_Разделы_меню.П9_Моё.История_просмотров;
+package TestSmoke.Р4_Разделы_меню.П1_Новое_и_Лучшее_FRESH_от_23_06_21;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_08_2_Внешний_вид_блока_подборки_История_просмотров_for_MF_SCREENSHOT_VRT_PW extends TestBasePlaywright {
+public class Test_06_2_НИЛ_История_просмотров_Баг_не_отображается_тв_передача_в_подборке_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
-    @DisplayName(value ="Внешний вид блока подборки История просмотров для МФ (скриншоты)")
+    @Story(value = "1. Новое и лучшее")
+    @DisplayName(value = "История просмотров (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
-    public void appearanceBlockCollectViewingHistory() throws Exception {
-        // пользователь МФ:
-        // подключение пакета:
+    @Test
+    public void historyViewing() throws Exception {
         headerMenuPW.goToPackagesPage();
         flowRegistationMF();
         packagesPagePW.checkOpenShopPage();
@@ -24,34 +21,31 @@ public class Test_08_2_Внешний_вид_блока_подборки_Ист�
         cardPackagePW.paymentPackageTnB();
         headerMenuPW.saveCookiesBrowserHeadless();
         headerMenuPW.getCookiesAndOpenHeadfullBrowser();
+        // просмотр фильма:
+        headerMenuPW.goToPackagesPageHeadfull();
+        packagesPagePW.clickToTailCardPackageKinoPoPodpiskeHeadfull();
+        cardFilmPW.openFirstCardFilmFromPackageKinoPoPodpiskeHeadfull();
+        cardFilmPW.moveSliderRewindToVideoPlayerHeadfull();
+        headerMenuPW.goToNilPageHeadfull();
 
-        // просмотр первого сериала:
+        // просмотр сериала:
         headerMenuPW.goToPackagesPageHeadfull();
         packagesPagePW.clickToTailCardPackageKinoPoPodpiskeHeadfull();
         cardSerialPW.openFirstCardSerialFromPackageKinoPoPodpiskeHeadfull();
         cardSerialPW.moveSliderRewindToVideoPlayerHeadfull();
-        headerMenuPW.goToSerialsPageHeadfull();
+        headerMenuPW.goToNilPageHeadfull();
 
-        // просмотр второго сериала:
+        // просмотр тв передачи:
         headerMenuPW.goToPackagesPageHeadfull();
         packagesPagePW.clickToTailCardPackageKinoPoPodpiskeHeadfull();
-        cardSerialPW.openSecondCardSerialFromPackageKinoPoPodpiskeHeadfull();
-        cardSerialPW.moveSliderRewindToVideoPlayerHeadfull();
-        headerMenuPW.goToSerialsPageHeadfull();
+        cardTvProgramPW.openCardTvProgramInRecordFromPackageKinoPoPodpiskeHeadfull();
+        cardTvProgramPW.moveSliderRewindToVideoPlayerHeadfull();
+        headerMenuPW.goToNilPageHeadfull();
 
-        // просмотр третьего сериала:
-        headerMenuPW.goToPackagesPageHeadfull();
-        packagesPagePW.clickToTailCardPackageKinoPoPodpiskeHeadfull();
-        cardSerialPW.openThirdCardSerialFromPackageKinoPoPodpiskeHeadfull();
-        cardSerialPW.moveSliderRewindToVideoPlayerHeadfull();
-        headerMenuPW.goToSerialsPageHeadfull();
-
-        // скриншот подборки "продолжить просмотр":
-        headerMenuPW.reloadPageHeadfull();
-        serialsPagePW.checkImageBlockCollectHistoryWatchForMfHeadfull();
-
-
+        // скриншот-тест подборки:
+        cardTvProgramPW.checkImageBlockCollectHistoryWatchOnNilPage();
     }
+
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();

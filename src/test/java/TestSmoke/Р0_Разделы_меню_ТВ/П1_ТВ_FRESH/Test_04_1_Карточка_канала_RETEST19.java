@@ -7,7 +7,7 @@ import org.junit.jupiter.api.RepeatedTest;
 
 import java.io.IOException;
 
-public class Test_04_1_Карточка_канала_FRESH extends TestBaseWebDriver {
+public class Test_04_1_Карточка_канала_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")

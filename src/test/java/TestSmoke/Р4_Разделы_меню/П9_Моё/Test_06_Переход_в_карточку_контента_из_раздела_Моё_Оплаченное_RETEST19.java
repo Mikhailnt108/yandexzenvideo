@@ -1,28 +1,25 @@
-package TestSmoke.Р5_Профиль_FRESH_от_15_08_21.П1_Акции;
+package TestSmoke.Р4_Разделы_меню.П9_Моё;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.io.IOException;
-
-public class Test_01_1_АКЦИИ_Внешний_вид_раздела_FRESH extends TestBaseWebDriver {
+public class Test_06_Переход_в_карточку_контента_из_раздела_Моё_Оплаченное_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Профиль")
-    @Story(value = "2. Акции")
-    @DisplayName(value ="1.1 Внешний вид раздела")
+    @Feature(value = "2. Разделы меню")
+    @Story(value = "9. Моё")
+    @DisplayName(value ="6. Переход в карточку контента из раздела Моё_Оплаченное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    public void appearancePagePromo() throws InterruptedException, IOException, AWTException {
-        headerMenu.goToNilPage();
+    public void goToContentCardFromMyMyPagePurchases() {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleNotSelected("79260192144");
-        headerMenu.openSubsectionPromo();
-        promoPage.checkElementsWithoutBlockPersonalOffer();
-        promoPage.checkExpandDiscriptionPromo();
-        promoPage.checkHideDiscriptionPromo();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.paymentFilmAtEst();
+        myPage.goToMyPagePurchases();
+        myPage.clickToTailCardFilmFromPurchases();
+        cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

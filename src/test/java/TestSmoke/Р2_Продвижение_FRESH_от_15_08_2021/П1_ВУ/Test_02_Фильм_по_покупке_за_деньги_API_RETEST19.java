@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_02_Фильм_по_покупке_за_деньги_API extends TestBaseWebDriver {
+public class Test_02_Фильм_по_покупке_за_деньги_API_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")

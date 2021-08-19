@@ -36,6 +36,7 @@ public class CollectionPageWebDriver extends BasePageWebDriver {
 
     public void checkCollectionOfMy() {
         // проверка все тайлы коллекции - "Для детей":
+        isElementDisplayed(By.xpath("//h1[text()='Мое']|//h1[text()='Моё']"));
         List<WebElement> countAllTail = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         List<WebElement> countForKids = webDriver.findElements(By.xpath("//span[contains(text(),'Для детей')]"));
         Assert.assertEquals(countAllTail.size(), countForKids.size());

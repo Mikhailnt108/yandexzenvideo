@@ -5,11 +5,11 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_04_Финблок_добавить_ASHOT extends TestBaseWebDriver {
+public class Test_04_Финблок_добавить_ASHOT_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Финблок юзер МФ")
+    @DisplayName(value ="4. Финблок юзер МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void financialBlockingMegafon() throws InterruptedException {

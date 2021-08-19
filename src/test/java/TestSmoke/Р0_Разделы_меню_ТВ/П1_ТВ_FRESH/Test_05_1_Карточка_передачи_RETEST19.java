@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-public class Test_05_1_Карточка_передачи_FRESH_от_28_06_21 extends TestBaseWebDriver {
+public class Test_05_1_Карточка_передачи_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
@@ -15,11 +15,9 @@ public class Test_05_1_Карточка_передачи_FRESH_от_28_06_21 ext
     public void cardTvProgram() throws Exception {
         //неавторизованный пользователь:
         headerMenu.goToTvPage();
-        tvPage.checkOpenTvPageTabScheduleTv();
+        tvPage.clickOnTabTvProgramInAir();
         tvPage.clickOnTabInRecording();
-        tvPage.clickToTailTvChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.clickOnTvProgramInCardChannel();
+        tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.checkElementsInCardTvProgram();
         //авторизованный пользователь:

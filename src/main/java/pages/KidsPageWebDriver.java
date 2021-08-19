@@ -61,23 +61,18 @@ public class KidsPageWebDriver extends BasePageWebDriver {
 
     public void clickToTailCardFilm() {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/vods')][1]"));
-
     }
-
-
 
     public void clickToTailCardSerial() {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/shows')][1]"));
-
     }
-
 
     public void clickToTailCardTvProgram() {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/tv/channels/')][1]"));
     }
 
     public void clickToHeaderCollectionOfMy() {
-        click(By.linkText("Мое"));
+        click(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Мое' or text()='Моё']"));
     }
 
     public void clickToHeaderCollectionOfFavorites() {

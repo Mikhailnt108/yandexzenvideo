@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_06_1_НИЛ_История_просмотров_FRESH_unstable_Баг_нет_автозапуска_фильма extends TestBaseWebDriver {
+public class Test_06_1_НИЛ_История_просмотров_FRESH_unstable_Баг_не_отображается_тв_передача_в_подборке extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "1. Новое и лучшее")

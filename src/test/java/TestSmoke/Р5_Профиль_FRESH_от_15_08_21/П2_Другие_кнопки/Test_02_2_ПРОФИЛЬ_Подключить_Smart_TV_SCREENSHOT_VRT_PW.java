@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_02_2_Подключить_Smart_TV_SCREENSHOT_VRT_PW extends TestBasePlaywright {
+public class Test_02_2_ПРОФИЛЬ_Подключить_Smart_TV_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Другие кнопки")
-    @DisplayName(value = "Подключить Smart_TV (скриншоты)")
+    @DisplayName(value = "2.2 Подключить Smart_TV (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     public void ConnectSmartTv() throws IOException, InterruptedException {

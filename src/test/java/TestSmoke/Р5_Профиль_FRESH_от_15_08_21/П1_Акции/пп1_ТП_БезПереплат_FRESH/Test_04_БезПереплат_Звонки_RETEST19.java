@@ -1,31 +1,25 @@
-package TestSmoke.Р4_Разделы_меню.П5_Детям_FRESH_от_16_08_21;
+package TestSmoke.Р5_Профиль_FRESH_от_15_08_21.П1_Акции.пп1_ТП_БезПереплат_FRESH;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_05_Подборка_Моё_FRESH extends TestBaseWebDriver {
+public class Test_04_БезПереплат_Звонки_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "5. Детям")
-    @DisplayName(value ="Подборка Моё")
+    @Feature(value = "3. Профиль")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="4. БезПереплат.Звонки")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
-    public void collectionOfMy() {
-        headerMenu.goToKidsPage();
+    @Test
+    public void bundlBezPereplatMax() throws InterruptedException {
+        headerMenu.goToNilPage();
         flowRegistation();
-        kidsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
-        headerMenu.goToKidsPage();
-        kidsPage.clickToTailCardSerial();
-        cardSerial.paymentSerialAtSubs();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
-        headerMenu.goToKidsPage();
-        kidsPage.clickToHeaderCollectionOfMy();
-        collectionsPage.checkCollectionOfMy();
+        pageCMS.chooseBundleBezPereplatZvonkiFromMsisdn("79260192144");
+        headerMenu.closePopUpNotif();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkBundleBezPereplatZvonki();
+        pageCMS.chooseBundleNotSelected("79260192144");
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {

@@ -354,10 +354,6 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
-        webDriver.navigate().refresh();
-        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
-            click(By.xpath("//button[text()='Закрыть']"));
-        }
     }
 
     public void copyPasteCodMsisdnForNonMF(String login) {
@@ -461,6 +457,10 @@ public class PageWebDriverCMS extends BasePageWebDriver {
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
     }
 
     public void chooseRoleUser(String login) {

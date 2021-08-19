@@ -3,15 +3,15 @@ package TestSmoke.Р0_Разделы_меню_ТВ.П1_ТВ_FRESH;
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
-public class Test_09_Жанры_передач_в_эфире_FRESH_от_28_06_21 extends TestBaseWebDriver {
+public class Test_09_Жанры_передач_в_эфире_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="Жанры передач в эфире")
+    @DisplayName(value ="9. Жанры передач в эфире")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(3)
+    @Test
     public void genresTvProgramInAir() throws Exception {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();
