@@ -142,8 +142,8 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-<!--                        <include>**/Test*.java</include>-->
-                        <include>**/*RETEST19.java</include>
+                        <include>**/Test*.java</include>
+<!--                        <include>**/*RETEST19.java</include>-->
                     </includes>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
