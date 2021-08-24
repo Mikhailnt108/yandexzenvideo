@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-public class Test_11_МОЁ_Контент_cоответствует_разделу_RETEST extends TestBaseWebDriver {
+public class Test_11_МОЁ_Контент_cоответствует_разделу_RETEST2408 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")

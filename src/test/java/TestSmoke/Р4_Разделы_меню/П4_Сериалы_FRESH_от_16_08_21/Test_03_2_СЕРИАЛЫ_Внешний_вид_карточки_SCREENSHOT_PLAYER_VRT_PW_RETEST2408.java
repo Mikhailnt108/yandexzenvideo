@@ -5,7 +5,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class Test_03_2_СЕРИАЛЫ_Внешний_вид_карточки_SCREENSHOT_PLAYER_VRT_PW_RETEST19 extends TestBasePlaywright {
+public class Test_03_2_СЕРИАЛЫ_Внешний_вид_карточки_SCREENSHOT_PLAYER_VRT_PW_RETEST2408 extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
