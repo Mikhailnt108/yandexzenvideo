@@ -4,8 +4,11 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.parallel.ResourceLock;
+
 import java.io.IOException;
 
+@ResourceLock("Suite#1")
 public class Test_04_2_Карточка_канала_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")

@@ -5,6 +5,8 @@ import io.visual_regression_tracker.sdk_java.VisualRegressionTracker;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import pagesPlaywright.*;
 import java.awt.*;
 import java.io.IOException;
@@ -12,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+@Execution(ExecutionMode.CONCURRENT)
 public class TestBasePlaywright extends BasePagePlaywright{
     public static Playwright playwright;
     public static Browser browserIncognitoModeHeadfull;
@@ -32,6 +35,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static CardFilmPW cardFilmPW;
     public static CardSerialPW cardSerialPW;
     public static KidsPagePW kidsPagePW;
+    public static SportPagePW sportPagePW;
     public static AllCollectionsPagePW allCollectionsPagePW;
     public static PromoPagePW promoPagePW;
     public static PersonalOfferPW personalOfferPW;
@@ -98,6 +102,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
         packagesPagePW = new PackagesPagePW(page);
         cardPackagePW = new CardPackagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
+        sportPagePW = new SportPagePW(page);
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

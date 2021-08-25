@@ -4,9 +4,11 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
+@ResourceLock("Suite#1")
 public class Test_08_2_Передачи_в_эфире_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
@@ -17,6 +19,5 @@ public class Test_08_2_Передачи_в_эфире_SCREENSHOT_VRT_PW extends 
     public void tvProgramInAir() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         tvPagePW.checkImageTabTvProgramInAirForGuest();
-
     }
 }

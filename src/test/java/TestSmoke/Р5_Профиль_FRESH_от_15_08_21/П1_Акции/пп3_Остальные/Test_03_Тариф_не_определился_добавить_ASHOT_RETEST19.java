@@ -15,23 +15,23 @@ public class Test_03_Тариф_не_определился_добавить_ASH
     public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseNotDefinedTariff("79260192144");
+        pageCMS.chooseNotDefinedTariff("79260205027");
         headerMenu.closePopUpNotDefinedTariff();
         headerMenu.openSubsectionPromo();
         promoPage.checkNotDefinedTariff();
-        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260192144");
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260205027");
+        pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

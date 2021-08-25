@@ -4,7 +4,9 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
+@ResourceLock("Suite#3")
 public class Test_02_Фильм_по_покупке_за_деньги_API_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
@@ -27,18 +29,18 @@ public class Test_02_Фильм_по_покупке_за_деньги_API_RETEST
         cardFilm.paymentFilmAtEstFromPopUpNotif();
         myPage.checkAddingFilmInPurchasesForNotif();
         popUpNotification.deletePopUpNotifScreenNilPayFilm();
-        pageCMS.deleteAccountMF("79260172279");
+        pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForAPINotif();
     }

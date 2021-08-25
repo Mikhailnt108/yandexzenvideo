@@ -15,24 +15,24 @@ public class Test_02_Переход_в_раздел_Фильмы_FRESH extends T
     public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
+        pageCMS.chooseBundleInternetMFromMsisdn("79260205027");
         headerMenu.closePopUpNotif();
         headerMenu.openSubsectionPromo();
         promoPage.clickButtonGoToFilms();
         filmsPage.checkFilmsPromo();
-        pageCMS.chooseBundleNotSelected("79260192144");
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.chooseBundleNotSelected("79260205027");
+        pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

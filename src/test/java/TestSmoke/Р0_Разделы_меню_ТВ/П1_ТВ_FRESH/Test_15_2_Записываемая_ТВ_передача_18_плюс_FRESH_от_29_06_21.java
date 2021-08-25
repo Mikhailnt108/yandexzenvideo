@@ -4,7 +4,9 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
+@ResourceLock("Suite#1")
 public class Test_15_2_Записываемая_ТВ_передача_18_плюс_FRESH_от_29_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
@@ -39,18 +41,18 @@ public class Test_15_2_Записываемая_ТВ_передача_18_плю�
         cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
         //переключение на соседнюю передачу 18+ внутри плеера:
         cardTvProgram.swithOnRecordedTvChannel18PlusInsidePlayer2();
-        pageCMS.deleteAccountMF("79260205027");
+        pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260205027");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260205027");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

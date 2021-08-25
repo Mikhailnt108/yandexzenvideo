@@ -36,18 +36,18 @@ public class Test_01_2_АКЦИИ_Внешний_вид_раздела_SCREENSHO
         personalOfferPW.archivePersonalOfferSubscription();
         personalOfferPW.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOfferPW.archivePersonalOfferPartnerOfferOkkoTvForMF();
-        headerMenuPW.deleteAccountMF("79260192144");
+        headerMenuPW.deleteAccountMF("79260205027");
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        headerMenuPW.inputLogin("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.copyPasteCodMsisdn("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
@@ -55,7 +55,7 @@ public class Test_01_2_АКЦИИ_Внешний_вид_раздела_SCREENSHO
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        headerMenuPW.inputLogin("+7 926 020 50 27");
         headerMenuPW.clickToNext();
         headerMenuPW.inputPassword("111111");
         headerMenuPW.clickToComeIn("Войти");

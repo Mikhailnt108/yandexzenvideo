@@ -4,7 +4,9 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
+@ResourceLock("Suite#3")
 public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
@@ -23,7 +25,7 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
         personalOffer.activatePersonalOfferPackageForZeroRubles();
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.deleteAccountMF("79260205027");
 
         //проверка недоступности перс предложения тип - пакет за ноль рублей для НЕ МФ
         headerMenu.goToNilPage();
@@ -39,7 +41,7 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferSubscription();
         personalOffer.activatePersonalOfferSubscription();
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.deleteAccountMF("79260205027");
 
         //проверка доступности перс предложения тип - подписка для НЕ МФ
         headerMenu.goToNilPage();
@@ -66,19 +68,19 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
         flowRegistationMF();
         personalOffer.checkAbsentElementPersonalOffer();
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.deleteAccountMF("79260205027");
     }
 
     private void flowRegistationMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

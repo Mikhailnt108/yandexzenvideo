@@ -2,13 +2,16 @@ package TestSmoke.Р1_Авторизация_и_регистрация_FRESH_о�
 
 import base.TestBaseWebDriver;
 import com.automation.remarks.junit.VideoRule;
-import com.automation.remarks.video.annotations.Video;
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
-
+@ResourceLock("Suite#1")
 public class Test_05_Восстановление_пароля extends TestBaseWebDriver {
     @Rule
     public VideoRule videoRule = new VideoRule();
@@ -16,8 +19,7 @@ public class Test_05_Восстановление_пароля extends TestBaseW
     @Feature(value = "1. Авторизация и регистрация")
     @DisplayName(value = "Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
-    @Video
-    @RepeatedTest(1)
+    @Test
 //    @TmsLink("35669322")
     public void passwordRecovery() {
         headerMenu.goToNilPage();

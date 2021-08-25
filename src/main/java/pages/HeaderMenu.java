@@ -221,6 +221,9 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkNotLoggedIsCorrect() {
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));}
+        webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
     }
 

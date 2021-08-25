@@ -4,6 +4,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +16,7 @@ import pages.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
+@Execution(ExecutionMode.CONCURRENT)
 @ExtendWith(TestRailReportExtension.class)
 public class TestBaseWebDriver {
     public static WebDriver webDriver;

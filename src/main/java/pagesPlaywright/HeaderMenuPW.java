@@ -523,4 +523,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.bringToFront();
         page.reload();
     }
+
+    public void goToSportPage() {
+        page.navigate("https://web-preprod5.megafon.tv/sport");
+    }
 }
