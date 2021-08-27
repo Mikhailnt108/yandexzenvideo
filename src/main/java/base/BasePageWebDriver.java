@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePageWebDriver {
-    public static WebDriver webDriver;
+    public WebDriver webDriver;
     public WebDriverWait wait;
 
 

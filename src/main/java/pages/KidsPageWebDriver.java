@@ -60,7 +60,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
     }
 
     public void clickToTailCardFilm() {
-        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/vods')][1]"));
+        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/vods')][2]"));
     }
 
     public void clickToTailCardSerial() {

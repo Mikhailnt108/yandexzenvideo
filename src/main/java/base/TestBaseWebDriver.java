@@ -3,57 +3,57 @@ package base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
-
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
+import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
-@Execution(ExecutionMode.CONCURRENT)
-@ExtendWith(TestRailReportExtension.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Execution(CONCURRENT)
+//@ExtendWith(TestRailReportExtension.class)
 public class TestBaseWebDriver {
-    public static WebDriver webDriver;
-    public static HeaderMenu headerMenu;
-    public static PopUpInputPhone popUpInputPhone;
-    public static PopUpInputPassword popUpInputPassword;
-    public static FilmsPageWebDriver filmsPage;
-    public static PopUpInputPromoCod popUpInputPromoCod;
-    public static CardSerial cardSerial;
-    public static SerialsPageWebDriver serialsPage;
-    public static PackagesPageWebDriver packagesPage;
-    public static CardPackage cardPackage;
-    public static CardTvChannel cardTvChannel;
-    public static CardTvProgram cardTvProgram;
-    public static PopUpCreatePassword popUpCreatePassword;
-    public static PopUpInputCod popUpInputCod;
-    public static PageWebDriverCMS pageCMS;
-    public static ResultsSearchPageWebDriver resultsSearchPage;
-    public static CollectionPageWebDriver collectionsPage;
-    public static CardFilm cardFilm;
-    public static Footer footer;
-    public static TvPageWebDriver tvPage;
-    public static MyPageWebDriver myPage;
-    public static NilPageWebDriver nilPage;
-    public static PaymentContent paymentContent;
-    public static KidsPageWebDriver kidsPage;
-    public static SportPageWebDriver sportPage;
-    public static AllCollectionsPageWebDriver allCollectionsPage;
-    public static PromoPageWebDriver promoPage;
-    public static PopUpInputEmail popUpInputEmail;
-    public static PopUpNotification popUpNotification;
-    public static PromoCode promoCode;
-    public static PersonalOffer personalOffer;
-    public static RatingPageWebDriver ratingPage;
-
+    public WebDriver webDriver;
+    public HeaderMenu headerMenu;
+    public PopUpInputPhone popUpInputPhone;
+    public PopUpInputPassword popUpInputPassword;
+    public FilmsPageWebDriver filmsPage;
+    public PopUpInputPromoCod popUpInputPromoCod;
+    public CardSerial cardSerial;
+    public SerialsPageWebDriver serialsPage;
+    public PackagesPageWebDriver packagesPage;
+    public CardPackage cardPackage;
+    public CardTvChannel cardTvChannel;
+    public CardTvProgram cardTvProgram;
+    public PopUpCreatePassword popUpCreatePassword;
+    public PopUpInputCod popUpInputCod;
+    public PageWebDriverCMS pageCMS;
+    public ResultsSearchPageWebDriver resultsSearchPage;
+    public CollectionPageWebDriver collectionsPage;
+    public CardFilm cardFilm;
+    public Footer footer;
+    public TvPageWebDriver tvPage;
+    public MyPageWebDriver myPage;
+    public NilPageWebDriver nilPage;
+    public PaymentContent paymentContent;
+    public KidsPageWebDriver kidsPage;
+    public SportPageWebDriver sportPage;
+    public AllCollectionsPageWebDriver allCollectionsPage;
+    public PromoPageWebDriver promoPage;
+    public PopUpInputEmail popUpInputEmail;
+    public PopUpNotification popUpNotification;
+    public PromoCode promoCode;
+    public PersonalOffer personalOffer;
+    public RatingPageWebDriver ratingPage;
     @BeforeAll
-    public static void start() throws AWTException {
+    public void start() throws AWTException {
         WebDriverManager.chromedriver().setup();
         //запуск браузера в режиме инкогнито:
         //ChromeOptions options = new ChromeOptions();
@@ -68,6 +68,7 @@ public class TestBaseWebDriver {
         //запуск браузера в фоне:
         //options.setHeadless(true);
         webDriver = new ChromeDriver(options);
+        webDriver.manage().deleteAllCookies();
         //driver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
@@ -103,14 +104,12 @@ public class TestBaseWebDriver {
         personalOffer = PageFactory.initElements(webDriver, PersonalOffer.class);
         ratingPage = PageFactory.initElements(webDriver, RatingPageWebDriver.class);
 
-        webDriver.manage().deleteAllCookies();
-
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
     }
 
     @AfterAll
-    public static void finish() {
+    public void finish() {
         webDriver.quit();
     }
 }

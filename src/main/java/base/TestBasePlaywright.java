@@ -5,8 +5,8 @@ import io.visual_regression_tracker.sdk_java.VisualRegressionTracker;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import pagesPlaywright.*;
 import java.awt.*;
 import java.io.IOException;
@@ -14,7 +14,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-@Execution(ExecutionMode.CONCURRENT)
+import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Execution(CONCURRENT)
+//@ExtendWith(TestRailReportExtension.class)
 public class TestBasePlaywright extends BasePagePlaywright{
     public static Playwright playwright;
     public static Browser browserIncognitoModeHeadfull;
@@ -53,7 +56,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
                     .build());
 
     @BeforeAll
-    static void launchBrowser() throws IOException, InterruptedException, AWTException {
+    void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
         // ноут:
 //        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
@@ -109,7 +112,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     }
 
     @AfterAll
-    static void closeBrowser() throws IOException, InterruptedException {
+    void closeBrowser() throws IOException, InterruptedException {
         contextNormalModeHeadless.close();
         playwright.close();
         vrt.stop();
