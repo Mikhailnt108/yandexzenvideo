@@ -3,23 +3,26 @@ package base;
 import com.microsoft.playwright.*;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTracker;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.parallel.Execution;
 import pagesPlaywright.*;
 import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Execution(CONCURRENT)
 //@ExtendWith(TestRailReportExtension.class)
 public class TestBasePlaywright extends BasePagePlaywright{
-    public static Playwright playwright;
+    public Playwright playwright;
     public static Browser browserIncognitoModeHeadfull;
     public static BrowserContext contextNormalModeHeadless;
     public static BrowserContext contextIncognitoModeHeadfull;
@@ -45,6 +48,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static PackagesPagePW packagesPagePW;
     public static CardPackagePW cardPackagePW;
     public static CardTvChannelPW cardTvChannelPW;
+    public static PreconditionPW preconditionPW;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
@@ -52,27 +56,48 @@ public class TestBasePlaywright extends BasePagePlaywright{
                     .project("MFTV_Web")
                     .branchName("master")
                     .enableSoftAssert(false)
-                    .httpTimeoutInSeconds(30)
+                    .httpTimeoutInSeconds(60)
                     .build());
+    public static final String USER_NAME = "bmp";
+    public static final String PASSWORD = "bmp";
+    public static final String URL = "jdbc:postgresql://10.236.24.178:5432/bmp";
+    public static Statement statement;
+    public static Connection connection;
+
+    static {
+        try {
+            connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    static {
+        try{
+            statement = connection.createStatement();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
 
     @BeforeAll
     void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
-        // ноут:
-//        userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
-        // комп:
+//      ноут:
+//      userDataDir = Paths.get("C:\\Users\\mtabunkov\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+//      комп:
         userDataDir = Paths.get("C:\\Users\\Mikhailnt\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
         // браузер Headfull:
 //        contextNormalModeHeadfull = playwright.chromium().launchPersistentContext(userDataDir,
 //                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
 //                        .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
-        // браузер Headless:
+//      браузер Headless:
         contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
                 new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
                         .setViewportSize(1900, 920));
 //        для ноута:                .setViewportSize(1366, 768));
-
-        // браузер Headless с записью видео:
+//        браузер Headless с записью видео:
 //        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
 //                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
 //                        .setViewportSize(1900, 920).setRecordVideoDir(Paths.get("videos/"))
@@ -105,7 +130,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
         packagesPagePW = new PackagesPagePW(page);
         cardPackagePW = new CardPackagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
-        sportPagePW = new SportPagePW(page);
+        preconditionPW = new PreconditionPW(page, statement);
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

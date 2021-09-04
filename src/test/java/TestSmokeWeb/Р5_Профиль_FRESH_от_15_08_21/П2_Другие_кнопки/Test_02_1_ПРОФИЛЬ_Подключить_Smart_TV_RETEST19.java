@@ -3,8 +3,12 @@ package TestSmokeWeb.Р5_Профиль_FRESH_от_15_08_21.П2_Другие_к�
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
+@ResourceLock(value = "Suite#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_1_ПРОФИЛЬ_Подключить_Smart_TV_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
@@ -12,6 +16,7 @@ public class Test_02_1_ПРОФИЛЬ_Подключить_Smart_TV_RETEST19 ext
     @DisplayName(value ="2.1 Подключить Smart_TV")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#3")
     public void ConnectSmartTv() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

@@ -17,7 +17,7 @@ public class Test_02_Пакет_по_Мягкому_TnB_API extends TestBaseWebD
     @DisplayName(value = "Пакет по Мягкому TnB")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3")
+    @Tag("Suite#3Exp")
     public void packageSoftTnB() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();

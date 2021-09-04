@@ -80,7 +80,7 @@ public class MyPageWebDriver extends BasePageWebDriver {
             List<WebElement> count3 = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
             JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
             jsDown.executeScript("window.scrollTo(0, 50000);");
-            Thread.sleep(3000);
+            Thread.sleep(10000);
             System.out.println(count3.size());
             Assert.assertNotEquals("количество элементов равно", count3.size(), webDriver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
             System.out.println(webDriver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());

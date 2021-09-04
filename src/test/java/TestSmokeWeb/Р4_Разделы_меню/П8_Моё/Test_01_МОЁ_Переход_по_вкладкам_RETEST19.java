@@ -3,10 +3,12 @@ package TestSmokeWeb.Р4_Разделы_меню.П8_Моё;
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#2")
+@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_МОЁ_Переход_по_вкладкам_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -14,6 +16,7 @@ public class Test_01_МОЁ_Переход_по_вкладкам_RETEST19 extend
     @DisplayName(value ="1. Переход по вкладкам Моё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#2")
     public void clickOnTheMyTabs() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();

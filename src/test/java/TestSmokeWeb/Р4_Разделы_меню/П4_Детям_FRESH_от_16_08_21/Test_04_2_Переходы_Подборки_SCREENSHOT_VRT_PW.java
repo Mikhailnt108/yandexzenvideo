@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_2_Переходы_Подборки_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -17,8 +17,7 @@ public class Test_04_2_Переходы_Подборки_SCREENSHOT_VRT_PW exten
     @DisplayName(value ="4.2 Переходы.Подборки (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    @Tag("Suite#2")
+    @Tag("Suite#2Exp")
     public void goToCollection() throws Exception {
         headerMenuPW.goToKidsPage();
         kidsPagePW.clickToLinkAllOnCollectionBlock();

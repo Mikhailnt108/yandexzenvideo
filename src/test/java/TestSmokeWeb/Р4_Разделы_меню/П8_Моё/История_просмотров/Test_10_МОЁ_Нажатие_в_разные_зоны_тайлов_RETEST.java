@@ -3,10 +3,12 @@ package TestSmokeWeb.Р4_Разделы_меню.П8_Моё.История_пр�
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#2")
+@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_10_МОЁ_Нажатие_в_разные_зоны_тайлов_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -14,6 +16,7 @@ public class Test_10_МОЁ_Нажатие_в_разные_зоны_тайлов
     @DisplayName(value = "10. Нажатие в разные зоны тайлов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#2")
     public void clickingInDifferentAreasTails() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:

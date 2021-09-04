@@ -3,10 +3,12 @@ package TestSmokeWeb.Р4_Разделы_меню.П9_Поиск;
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#3")
+@ResourceLock(value = "Suite#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_ПОИСК_Ничего_не_найдено_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -14,6 +16,7 @@ public class Test_01_ПОИСК_Ничего_не_найдено_FRESH extends T
     @DisplayName(value ="1. Ничего не найдено")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#3")
     public void inputInvalidRequestInSearch(){
         headerMenu.goToNilPage();
         headerMenu.clickToSearchButton();

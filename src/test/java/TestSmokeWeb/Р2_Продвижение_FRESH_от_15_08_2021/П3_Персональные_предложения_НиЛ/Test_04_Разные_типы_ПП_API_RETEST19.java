@@ -17,7 +17,7 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
     @DisplayName(value = "Разные типы ПП")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3")
+    @Tag("Suite#3Exp")
     public void otherTypesPersonalOffers() throws InterruptedException {
         //проверка доступности перс предложения тип - пакет за ноль рублей для МФ
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();

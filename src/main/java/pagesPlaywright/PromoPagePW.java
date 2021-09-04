@@ -24,10 +24,10 @@ public class PromoPagePW extends BasePagePlaywright {
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
 
-        ElementHandle nameTarifMF = page.querySelector("._1euSoCawCqa9mH8vBqUrAD");
+        ElementHandle nameTarifMF = page.querySelector("//div[@class='_1C41C7IZ0gWHYLQuaFV0-_']");
         nameTarifMF.evaluate("nT => nT.innerText='Название тарифа'");
 
-        ElementHandle numberPhone = page.querySelector("(//div[@class='_1B0lnE5auiAsmJdPHRfPOq'])[1]");
+        ElementHandle numberPhone = page.querySelector("(//div[@class='_2C1XmA8AHRa6Twr5YKUkuU'])[1]");
         numberPhone.evaluate("nP => nP.innerText='При просмотре видео контента через мобильную сеть МегаФона " +
                 "интернет трафик для номера + 7 926 001 01 01 не тарифицируется'");
         if (page.querySelectorAll("//div[@class='_21KKyuE8LKHEcXtTdfv3wl']").size() > 1) {
@@ -75,10 +75,10 @@ public class PromoPagePW extends BasePagePlaywright {
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
 
-        ElementHandle nameTarifMF = page.querySelector("._1euSoCawCqa9mH8vBqUrAD");
+        ElementHandle nameTarifMF = page.querySelector("//div[@class='_1C41C7IZ0gWHYLQuaFV0-_']");
         nameTarifMF.evaluate("nT => nT.innerText='Название тарифа'");
 
-        ElementHandle numberPhone = page.querySelector("(//div[@class='_1B0lnE5auiAsmJdPHRfPOq'])[1]");
+        ElementHandle numberPhone = page.querySelector("(//div[@class='_2C1XmA8AHRa6Twr5YKUkuU'])[1]");
         numberPhone.evaluate("nP => nP.innerText='При просмотре видео контента через мобильную сеть МегаФона " +
                 "интернет трафик для номера + 7 926 001 01 01 не тарифицируется'");
         if (page.querySelectorAll("//div[@class='_21KKyuE8LKHEcXtTdfv3wl']").size() > 1) {

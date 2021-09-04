@@ -17,8 +17,7 @@ public class Test_05_Подборка_Моё_RETEST19 extends TestBaseWebDriver 
     @DisplayName(value ="5. Подборка Моё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    @Tag("Suite#2")
+    @Tag("Suite#2Exp")
     public void collectionOfMy() {
         headerMenu.goToKidsPage();
         flowRegistation();

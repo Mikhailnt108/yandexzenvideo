@@ -3,10 +3,12 @@ package TestSmokeWeb.Р4_Разделы_меню.П8_Моё;
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#2")
+@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_Переход_на_страницу_Моё_Избранное_FRESH_от_13_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -14,6 +16,7 @@ public class Test_02_Переход_на_страницу_Моё_Избранн�
     @DisplayName(value ="Переход на страницу Моё_Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#2")
     public void goToFavoritesPage() {
         headerMenu.goToFilmsPage();
         flowRegistation();

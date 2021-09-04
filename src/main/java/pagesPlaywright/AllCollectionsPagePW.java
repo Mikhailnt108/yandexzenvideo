@@ -49,7 +49,7 @@ public class AllCollectionsPagePW extends BasePagePlaywright {
     }
 
     public void clickToTailCollection() {
-        page.click("//a[@class='_2W-IRVg8nfmL65JjHBY-ly']");
+        page.click("(//a[@class='_2W-IRVg8nfmL65JjHBY-ly'])[2]");
         page.waitForTimeout(5000);
     }
 

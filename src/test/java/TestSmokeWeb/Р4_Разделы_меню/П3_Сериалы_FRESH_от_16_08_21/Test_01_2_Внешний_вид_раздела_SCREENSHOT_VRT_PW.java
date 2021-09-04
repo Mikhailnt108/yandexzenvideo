@@ -4,16 +4,20 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#1")
+@ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
     @DisplayName(value ="Внешний вид раздела (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
+    @Tag("Suite#2Exp")
     public void appearanceSectionSerialsPage() throws Exception {
         serialsPagePW.checkImageSerialsPageScrollForGuest();
 //        serialsPagePW.checkImageCherdakAndBannersForGuest();
@@ -30,18 +34,18 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
         serialsPagePW.checkImageBlocksCollectionWithHeaderForUser();
         serialsPagePW.checkImageBlocksCollectionWithoutHeaderForUser();
         serialsPagePW.checkImageFooterForUser();
-        headerMenuPW.deleteAccountMF("79260192144");
+        headerMenuPW.deleteAccountMF("79260172279");
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        headerMenuPW.inputLogin("+7 926 017 22 79");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 017 22 79", "111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.copyPasteCodMsisdn("79260172279");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

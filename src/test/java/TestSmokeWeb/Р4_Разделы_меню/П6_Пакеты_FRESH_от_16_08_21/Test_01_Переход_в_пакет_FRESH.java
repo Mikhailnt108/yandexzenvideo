@@ -6,13 +6,13 @@ import com.automation.remarks.video.annotations.Video;
 import io.qameta.allure.*;
 import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#2")
+@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_Переход_в_пакет_FRESH extends TestBaseWebDriver {
-
-    @Rule
     public VideoRule videoRule = new VideoRule();
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -20,6 +20,7 @@ public class Test_01_Переход_в_пакет_FRESH extends TestBaseWebDrive
     @DisplayName(value ="Переход в пакет")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#2")
     public void goToPackage() {
         headerMenu.goToPackagesPage();
         packagesPage.clickToFirstTailCardPackage();

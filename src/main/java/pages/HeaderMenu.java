@@ -186,35 +186,34 @@ public class HeaderMenu extends BasePageWebDriver {
         webDriver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//div[text()='Очистить настройки']"));
         click(By.xpath("//div[@data-type='preprod5']"));
-//        waitVisibility(By.xpath("//div[text()='Войти']"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
                 , webDriver.findElement(By.xpath("//div[text()='Войти']")));
         click(By.xpath("//div[text()='Войти']"));
         click(By.xpath("//span[text()='Скрыть']"));
         String codSmartTv = webDriver.findElement(By.xpath("//div[@class='enter-msisdn-pair__code js-code']")).getText();
-        //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
+        // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
-        //перезалогиниться тем же юзером
+        // перезалогиниться тем же юзером:
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Выйти'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
         click(By.xpath("(//span[text()='Вход'])[1]"));
         WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
-        element.sendKeys("9260192144");
+        element.sendKeys("9260205027");
         click(By.xpath("//button[text()='Далее']"));
         WebElement element2 = webDriver.findElement(By.xpath("//input[@type='password']"));
         element2.sendKeys("111111");
         click(By.xpath("//button[text()='Войти']"));
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Вам доступно')]"));
-        click(By.xpath("//button[text()='Закрыть']"));
-        //подключить смарт тв
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));}
+        webDriver.navigate().refresh();
+        // подключить смарт тв:
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Подключить SmartTV'])[1]"));
         isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
         writeText(By.xpath("//input[@placeholder='Код подтверждения']"), codSmartTv);
-        //driver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codSmartTv);
         click(By.xpath("//button[text()='Подключить Smart TV']"));
         isElementDisplayed(By.xpath("//div[text()='SmartTV подключен!']"));
         click(By.xpath("//button[text()='Закрыть']"));
@@ -814,7 +813,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkElementsPopUpBeforeActivationPackageMoreTvHardTnB() {
-        isElementDisplayed(By.xpath("//h3[text()='«more.tv» бесплатно по промокоду!']"));
+        isElementDisplayed(By.xpath("//h3[text()='«morе.tv» бесплатно по промокоду!']"));
         isElementDisplayed(By.xpath("//div//*[@class='_38mZjUWD1k5VLnjhj0vj8T']"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Бесплатный доступ к пакету по промокоду предоставляется по 30.09.2021.')]"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Начиная с 01.10.2021 стоимость пакета составит')]"));
@@ -830,7 +829,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.className("_2VizWvlDNzA0Ud_F09jJco"));
         isElementDisplayed(By.className("wEpDEZzWIj5YGechGyzkl"));
         isElementDisplayed(By.xpath("//div[text()='Вам доступно:']"));
-        isElementDisplayed(By.xpath("//span[text()='\"more.tv\"']"));
+        isElementDisplayed(By.xpath("//span[text()='\"morе.tv\"']"));
         isElementDisplayed(By.xpath("//span[text()='текст для описания']"));
         isElementDisplayed(By.linkText("Подробнее"));
     }

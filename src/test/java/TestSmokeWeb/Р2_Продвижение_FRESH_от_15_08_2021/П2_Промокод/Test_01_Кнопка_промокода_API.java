@@ -17,7 +17,7 @@ public class Test_01_Кнопка_промокода_API extends TestBaseWebDriv
     @DisplayName(value = "Кнопка промокода")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3")
+    @Tag("Suite#3Exp")
     public void clickButtonPromoCodeAndInputPromoCode() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();

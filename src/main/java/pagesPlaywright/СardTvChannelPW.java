@@ -23,6 +23,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
+        page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
         // подготовка полной страницы "сardTvChannel" к скриншот-тесту:
         page.waitForSelector("(//span[@itemprop='name'])[3]");
@@ -66,7 +67,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
         ElementHandle text2SubscribeButton = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]//div[text()]");
         text2SubscribeButton.evaluate("t2B => t2B.innerText='В пакете «Основной+»'");
 
-        ElementHandle text1SubscribeButtonSecond = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _3f0wpWSLNwEn9_twVy01wx')]");
+        ElementHandle text1SubscribeButtonSecond = page.querySelector("(//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')])[2]");
         text1SubscribeButtonSecond.evaluate("tBS => tBS.innerText='Другие варианты'");
 
         ElementHandle dayAgo = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[1]");
@@ -112,6 +113,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
+        page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
         // подготовка полной страницы "сardTvChannel" к скриншот-тесту:
         page.waitForSelector("(//span[@itemprop='name'])[3]");
@@ -155,7 +157,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
         ElementHandle text2SubscribeButton = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]//div[text()]");
         text2SubscribeButton.evaluate("t2B => t2B.innerText='В пакете «Основной+»'");
 
-        ElementHandle text1SubscribeButtonSecond = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _3f0wpWSLNwEn9_twVy01wx')]");
+        ElementHandle text1SubscribeButtonSecond = page.querySelector("(//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')])[2]");
         text1SubscribeButtonSecond.evaluate("tBS => tBS.innerText='Другие варианты'");
 
         ElementHandle dayAgo = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[1]");

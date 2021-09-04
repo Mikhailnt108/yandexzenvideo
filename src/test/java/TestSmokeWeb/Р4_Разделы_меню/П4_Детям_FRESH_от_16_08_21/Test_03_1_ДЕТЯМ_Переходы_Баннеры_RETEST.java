@@ -17,8 +17,7 @@ public class Test_03_1_ДЕТЯМ_Переходы_Баннеры_RETEST extends
     @DisplayName(value ="3.1 Переходы.Баннеры")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    @Tag("Suite#2")
+    @Tag("Suite#2Exp")
     public void goToBanner() throws Exception {
         headerMenu.goToKidsPage();
         kidsPage.checkElementsBannersCarousel();

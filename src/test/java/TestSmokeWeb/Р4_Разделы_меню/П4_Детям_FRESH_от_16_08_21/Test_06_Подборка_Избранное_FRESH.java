@@ -17,8 +17,7 @@ public class Test_06_Подборка_Избранное_FRESH extends TestBaseW
     @DisplayName(value ="Подборка Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    @Tag("Suite#2")
+    @Tag("Suite#2Exp")
     public void collectionOfFavorites() throws InterruptedException {
         headerMenu.goToKidsPage();
         flowRegistation();

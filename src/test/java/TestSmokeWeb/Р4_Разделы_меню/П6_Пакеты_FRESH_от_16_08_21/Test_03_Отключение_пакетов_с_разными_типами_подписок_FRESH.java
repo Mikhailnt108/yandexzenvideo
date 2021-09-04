@@ -4,16 +4,20 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#2")
+@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_Отключение_пакетов_с_разными_типами_подписок_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "7. Пакеты")
     @DisplayName(value ="Отключение пакетов с разными типами подписок")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
+    @Tag("Suite#2")
     public void disablingPackagesDifferentSubscriptionTypes() throws InterruptedException {
         // пользователь МФ:
         headerMenu.goToPackagesPage();

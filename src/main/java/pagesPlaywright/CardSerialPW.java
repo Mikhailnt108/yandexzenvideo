@@ -26,7 +26,7 @@ public class CardSerialPW extends BasePagePlaywright {
 
     public void checkStartTrailerPlayer() throws InterruptedException {
         //автозапуск плеера:
-        page.waitForTimeout(5000);
+        page.waitForTimeout(10000);
         if(page.querySelectorAll("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").size() < 1){
             page.click("//button[text()='Трейлер']");
         }
@@ -266,7 +266,7 @@ public class CardSerialPW extends BasePagePlaywright {
 
 
     public void subscribeToPackageSerials() {
-        if (page.querySelectorAll("//span[contains(text(),'Смотреть за')]|//span[contains(text(),'Подключить за')]|//span[contains(text(),'Смотреть бесплатно')]").size() != 0) {
+            page.waitForSelector("//span[contains(text(),'Смотреть за')]|//span[contains(text(),'Подключить за')]|//span[contains(text(),'Смотреть бесплатно')]");
             page.click("//span[contains(text(),'Смотреть за')]|//span[contains(text(),'Подключить за')]|//span[contains(text(),'Смотреть бесплатно')]");
             page.waitForSelector("//button[text()='Подтвердить']|//button[text()='Принять и подключить']");
             page.click("//button[text()='Подтвердить']|//button[text()='Принять и подключить']");
@@ -275,7 +275,6 @@ public class CardSerialPW extends BasePagePlaywright {
             page.reload();
             page.waitForSelector("//span[text()='Смотреть']");
         }
-    }
 
     public void checkImageBlockSeason() throws IOException, InterruptedException {
         // блок серий сезона:
@@ -318,6 +317,7 @@ public class CardSerialPW extends BasePagePlaywright {
     }
 
     public void clickToButtonWatchHeadfull() {
+        pageHeadfull.waitForSelector("//span[text()='Смотреть']");
         pageHeadfull.click("//span[text()='Смотреть']");
     }
 
@@ -360,7 +360,7 @@ public class CardSerialPW extends BasePagePlaywright {
             posterEpisode.evaluate("pB2 => pB2.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Episode/35/c7/25a6de33d807999dd39fc6e1f0c19d9be414/tile__web-wp.webp);')");
         }
         ElementHandle switchEpisodeInPlayer = pageHeadfull.querySelector("//div[@class='_225UkJHx_nI4_qaJ2XxLnH']");
-
+        pageHeadfull.waitForTimeout(3000);
         // делаем скриншот элемента "switchEpisodeInPlayer":
         vrt.track(
                 "switchEpisodeInPlayer",

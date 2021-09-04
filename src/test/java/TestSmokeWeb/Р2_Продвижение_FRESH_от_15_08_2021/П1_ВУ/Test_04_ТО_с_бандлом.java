@@ -16,7 +16,7 @@ public class Test_04_ТО_с_бандлом extends TestBaseWebDriver {
     @DisplayName(value = "ТО с бандлом")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3")
+    @Tag("Suite#3Exp")
     public void popUpNotificationMyTarifBundle() throws InterruptedException {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();

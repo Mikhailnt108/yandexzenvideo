@@ -289,14 +289,14 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.waitForSelector("//h1//span[text()='Способы оплаты']");
         page.waitForSelector("//div[text()='Счет основного номера телефона']");
         Assert.assertEquals("Нет текста 'Счет основного номера телефона'", "Счет основного номера телефона", page.querySelector("//div[text()='Счет основного номера телефона']").innerText());
-        Assert.assertEquals("Нет текста '+7 926 019 21 44'", "+7 926 019 21 44", page.querySelector("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']").innerText());
+        page.querySelector("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']");
     }
 
     public void checkImagePagePaymentMethod() throws IOException, InterruptedException {
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
 
-        ElementHandle numberPhone = page.querySelector("//div[@class='_2_jEgkBSZ_RICvJD4zdJfi']//span");
+        ElementHandle numberPhone = page.querySelector("//div[@class='_3sPPVdFZlo5j1Ys7pGgnnQ']//span");
         numberPhone.evaluate("nP => nP.innerText='+7 926 001 01 01'");
         // делаем скриншот полной страницы "PagePaymentMethod":
         vrt.track(
@@ -506,7 +506,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         pageCMS.click("//form[@method='GET']//input[1]");
         pageCMS.fill("//form[@method='GET']//input[1]", login);
         pageCMS.click("//button[text()='Поиск']");
-        pageCMS.waitForSelector("//td[text()='79260192144']");
+        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
         pageCMS.click("//a[contains(@href, '/cms/households/')]");
         pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
         pageCMS.click("(//a[@role='button'])[2]");

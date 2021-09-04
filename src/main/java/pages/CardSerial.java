@@ -127,12 +127,9 @@ public class CardSerial extends BasePageWebDriver {
         //нажал на паузу - видео остановилось
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        //System.out.println("time2 "+ time2);
-        Assert.assertNotEquals(time1, time2);
         Thread.sleep(7000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        //System.out.println("time3 "+ time3);
         Assert.assertEquals(time2, time3);
     }
 
@@ -171,6 +168,7 @@ public class CardSerial extends BasePageWebDriver {
         //нажал на левую клавишу мыши - видео остановилось
         click(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"));
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
+        Thread.sleep(2000);
         String time9 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(7000);
         String time10 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();

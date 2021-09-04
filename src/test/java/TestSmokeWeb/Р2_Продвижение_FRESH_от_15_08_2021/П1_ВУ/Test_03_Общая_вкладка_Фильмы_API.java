@@ -16,7 +16,7 @@ public class Test_03_Общая_вкладка_Фильмы_API extends TestBase
     @DisplayName(value = "Общая вкладка Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3")
+    @Tag("Suite#3Exp")
     public void popUpNotificationFilterPageFilms() {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
@@ -30,7 +30,6 @@ public class Test_03_Общая_вкладка_Фильмы_API extends TestBase
         popUpNotification.checkElementsPopUpNotifScreenFilms();
         popUpNotification.deletePopUpNotifScreenFilms();
         pageCMS.deleteAccountMF("79260205027");
-
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();

@@ -4,16 +4,20 @@ import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#1")
+@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_12_1_Работа_быстрых_фильтров_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
     @DisplayName(value = "Работа быстрых фильтров")
     @Severity(SeverityLevel.BLOCKER)
-    @RepeatedTest(1)
+    @Test
+    @Tag("Suite#2Exp")
     public void quickFilters() throws Exception {
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsSerialsPage();

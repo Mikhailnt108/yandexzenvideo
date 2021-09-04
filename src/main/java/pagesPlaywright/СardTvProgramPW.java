@@ -26,7 +26,9 @@ public class СardTvProgramPW extends BasePagePlaywright {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
+        page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
+        page.waitForSelector("._1nAXLMkHN0PXnwvulfBvK0");
         page.click("._1nAXLMkHN0PXnwvulfBvK0");
         // подготовка видимой части страницы "CardTvProgram" к скриншот-тесту:
         page.waitForSelector("(//span[@itemprop='name'])[4]");
@@ -61,7 +63,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle descriptionTvChannel = page.querySelector("//div[contains(@class,'_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6')]");
         page.evaluate("dP => dP.innerText='С помощью последних научных данных и потрясающей трёхмерной компьютерной графики вы проникнете внутрь звёзд, планет и галактик и исследуете тайны происхождения и будущего Вселенной.'", descriptionTvChannel);
 
-        ElementHandle text1SubscribeButton = page.querySelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[1]");
+        ElementHandle text1SubscribeButton = page.waitForSelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[1]");
         page.evaluate("t1B => t1B.innerText='Подключить бесплатно на 21 день'", text1SubscribeButton);
 
         ElementHandle text2SubscribeButton = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]//div[text()]");
@@ -76,6 +78,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle afterTomorrow = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[last()]");
         page.evaluate("aT => aT.innerText='Чт, 4'", afterTomorrow);
 
+        page.waitForSelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
         List<ElementHandle> listTvProgramInSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
         if (listTvProgramInSchedule.size() > 4) {
             while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
@@ -112,7 +115,9 @@ public class СardTvProgramPW extends BasePagePlaywright {
         page.navigate("https://web-preprod5.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
+        page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
         page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
+        page.waitForSelector("._1nAXLMkHN0PXnwvulfBvK0");
         page.click("._1nAXLMkHN0PXnwvulfBvK0");
         // подготовка видимой части страницы "cardTvProgramForUser" к скриншот-тесту:
         page.waitForSelector("(//span[@itemprop='name'])[4]");
@@ -154,7 +159,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
                 "показывая, как наука воздействует на нашу жизнь. Охватывается весь спектр научных интересов – от изучения нашей Вселенной " +
                 "до практической науки вокруг нас.'", descriptionTvChannel);
 
-        ElementHandle text1SubscribeButton = page.querySelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[1]");
+        ElementHandle text1SubscribeButton = page.waitForSelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[1]");
         page.evaluate("t1B => t1B.innerText='Подключить бесплатно на 21 день'", text1SubscribeButton);
 
         ElementHandle text2SubscribeButton = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]//div[text()]");
@@ -172,6 +177,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
 
+        page.waitForSelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
         List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
         if (listTvPrograminSchedule.size() > 4) {
             while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {

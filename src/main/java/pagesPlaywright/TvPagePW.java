@@ -130,7 +130,7 @@ public class TvPagePW extends BasePagePlaywright {
         // делаем скриншот видимой части страницы "TvPageTabProgramTvForAuthorized":
         vrt.track(
                 "TvPageTabProgramTvForAuthorized",
-                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("TvPage.png")))),
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")
                         .os("Win10 Pro")

@@ -16,7 +16,7 @@ public class Test_05_Переход_в_раздел_Фильмы_API extends Tes
     @DisplayName(value = "Переход_в_раздел_Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3")
+    @Tag("Suite#3Exp")
     public void goToPageFimlsFromPopUpNotif() {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();

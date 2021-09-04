@@ -3,10 +3,12 @@ package TestSmokeWeb.Р4_Разделы_меню.П8_Моё;
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock("Suite#2")
+@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_Переход_в_подраздел_из_Пакетов_FRESH_от_14_06_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -14,6 +16,7 @@ public class Test_04_Переход_в_подраздел_из_Пакетов_FR
     @DisplayName(value ="Переход в подраздел из Пакетов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#2")
     public void goToPackagesPage() {
         headerMenu.goToPackagesPage();
         flowRegistation();

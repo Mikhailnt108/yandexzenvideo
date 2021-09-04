@@ -17,8 +17,7 @@ public class Test_04_1_ДЕТЯМ_Переходы_Подборки_RETEST exten
     @DisplayName(value ="4.1 Переходы.Подборки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-
-    @Tag("Suite#2")
+    @Tag("Suite#2Exp")
     public void goToCollection() throws Exception {
         headerMenu.goToKidsPage();
         kidsPage.checkElementsBlockCollectionWithHeader();

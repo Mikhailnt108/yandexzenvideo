@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -52,6 +51,7 @@ public class TestBaseWebDriver {
     public PromoCode promoCode;
     public PersonalOffer personalOffer;
     public RatingPageWebDriver ratingPage;
+
     @BeforeAll
     public void start() throws AWTException {
         WebDriverManager.chromedriver().setup();

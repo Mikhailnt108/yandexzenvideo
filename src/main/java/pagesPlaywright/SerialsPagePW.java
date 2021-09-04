@@ -603,7 +603,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void clickToTailCardSerial() {
-        page.click("//a[@data-test='PackageLink']");
+        page.click("(//a[@data-test='PackageLink'])[7]");
     }
 
     public void chooseSeasonsMoreOneSeason() {

@@ -6,14 +6,19 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
+@ResourceLock(value = "Suite#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Пользователь НЕ_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
+    @Tag("Suite#3Exp")
     public void userNotMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistationNonMF();

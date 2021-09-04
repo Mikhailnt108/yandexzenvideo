@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_2_Переходы_Баннеры_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -17,8 +17,7 @@ public class Test_03_2_Переходы_Баннеры_SCREENSHOT_VRT_PW extends
     @DisplayName(value ="Переходы.Баннеры (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
-    @Tag("Suite#2")
+    @Tag("Suite#2Exp")
     public void goToBanner() throws Exception {
         kidsPagePW.checkImageCherdakAndBannersForGuest();
     }

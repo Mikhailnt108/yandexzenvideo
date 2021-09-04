@@ -133,6 +133,11 @@
             <version>3.0.0-M5</version>
         </dependency>
         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.23</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.6</version>
@@ -159,15 +164,20 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <parallel>suites</parallel>
                     <threadCountSuites>3</threadCountSuites>
-<!--                    <perCoreThreadCount>true</perCoreThreadCount>-->
+                    <perCoreThreadCount>true</perCoreThreadCount>
 <!--                    <redirectTestOutputToFile>true</redirectTestOutputToFile>-->
 <!--                    <forkCount>2</forkCount>-->
 <!--                    <reuseForks>false</reuseForks>-->
 <!--                    <reportsDirectory>target/surefire-reports-${surefire.forkNumber}</reportsDirectory>-->
+<!--                    <includes>-->
+<!--                        &lt;!&ndash;                        <include>**/Test*.java</include>&ndash;&gt;-->
+<!--                        <include>**/*PW.java</include>-->
+<!--                    </includes>-->
                     <properties>
-                        <groups>Suite#1,Suite#2,Suite#3</groups>
+                        <groups>Suite#1Exp,Suite#2Exp,Suite#3Exp</groups>
 <!--                        <include>**/Test*.java</include>-->
 <!--                        <include>**/*RETEST2408.java</include>-->
+<!--                        <include>**/*PW.java</include>-->
                     </properties>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
