@@ -24,7 +24,6 @@ public class Test_05_1_Подобрали_специально_для_Вас_Б�
         //пользователь НЕ авторизован:
         headerMenu.goToNilPage();
         headerMenu.checkNotLoggedIsCorrect();
-
         nilPage.checkElementsBlockCollectionSpecialForYou();
         nilPage.clickToTailContentCollectionSpecialForYou();
         headerMenu.goToNilPage();

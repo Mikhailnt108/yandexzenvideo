@@ -17,6 +17,14 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>repo-cuba-platform-work</id>
+            <name>repo</name>
+            <url>https://repo.cuba-platform.com/content/groups/work</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -27,7 +35,7 @@
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
-            <version>1.13.0</version>
+            <version>1.14.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -152,6 +160,12 @@
             <artifactId>junit-platform-launcher</artifactId>
             <version>1.8.0-M1</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.haulmont.yarg</groupId>
+            <artifactId>yarg</artifactId>
+            <version>2.2.11</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
     <build>
