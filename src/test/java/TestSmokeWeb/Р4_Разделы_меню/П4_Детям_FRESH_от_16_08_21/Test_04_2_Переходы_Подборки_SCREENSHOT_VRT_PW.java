@@ -17,7 +17,7 @@ public class Test_04_2_Переходы_Подборки_SCREENSHOT_VRT_PW exten
     @DisplayName(value ="4.2 Переходы.Подборки (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void goToCollection() throws Exception {
         headerMenuPW.goToKidsPage();
         kidsPagePW.clickToLinkAllOnCollectionBlock();

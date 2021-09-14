@@ -363,7 +363,7 @@ public class CardFilm extends BasePageWebDriver {
             b++;
             System.out.println("numberTimeBefore:" + numberTimeBefore);
         }
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         // Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
         Thread.sleep(15000);

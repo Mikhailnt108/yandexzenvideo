@@ -19,7 +19,7 @@ public class Test_01_2_Программа_передач_SCREENSHOT_VRT_PW exten
     @DisplayName(value = "Программа передач (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void historyViewing() throws Exception {
         tvPagePW.checkImageTvPageTabProgramTvForGuest();
     }

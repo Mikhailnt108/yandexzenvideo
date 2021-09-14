@@ -21,7 +21,7 @@ public class CardTvProgram extends BasePageWebDriver {
     public CardTvProgram(WebDriver driver) {
         super(driver);
     }
-    String NIL_Page_PP4 = "https://web-preprod4.megafon.tv/";
+    String NIL_Page_PP4 = "https://web-preprod2.megafon.tv/";
 
     public void checkOpenCardTvProgram() {
 

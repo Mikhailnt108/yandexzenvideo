@@ -22,7 +22,7 @@ public class AllCollectionsPagePW extends BasePagePlaywright {
     public void checkImagePageAllCollections() throws IOException, InterruptedException {
 //        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
 //        page = browser.newPage(new Browser.NewPageOptions().setViewportSize(1880, 930));
-        page.navigate("https://web-preprod5.megafon.tv/collection");
+        page.navigate("https://web-preprod2.megafon.tv/collection");
         // подготовка страницы "PageAllCollectionsScrollForUnauthorized" к скриншот-тесту:
         List<ElementHandle> posterCollectionAll;
         List<ElementHandle> titleCollectionAll;
@@ -54,10 +54,10 @@ public class AllCollectionsPagePW extends BasePagePlaywright {
     }
 
     public void selectCollectionForKids() {
-        page.navigate("https://web-preprod5.megafon.tv/kids");
+        page.navigate("https://web-preprod2.megafon.tv/kids");
         String nameForKidsBlockCollect = page.querySelector("(//h3[@data-test='PackageListWrapperName'])[5]").innerText();
         System.out.println(nameForKidsBlockCollect);
-        page.navigate("https://web-preprod5.megafon.tv/collection");
+        page.navigate("https://web-preprod2.megafon.tv/collection");
         List<ElementHandle> collectNames = page.querySelectorAll("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']");
         List<ElementHandle> paginations = page.querySelectorAll("//a[@class='_321YEvw8w6G20aKg-N8nNe']");
         for (int a = 0; a < paginations.size(); a++) {

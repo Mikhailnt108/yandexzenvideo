@@ -18,7 +18,7 @@ public class Test_01_Пользователь_VIP_FRESH extends TestBaseWebDrive
     @DisplayName(value ="Пользователь VIP")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void userVip() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();

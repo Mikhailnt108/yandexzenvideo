@@ -19,7 +19,7 @@ public class Test_09_Жанры_передач_в_эфире_RETEST19 extends Te
     @DisplayName(value ="9. Жанры передач в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void genresTvProgramInAir() throws Exception {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

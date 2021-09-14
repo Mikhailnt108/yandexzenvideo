@@ -17,7 +17,7 @@ public class Test_01_Навигация_по_разделу_FRESH extends TestBa
     @DisplayName(value ="Навигация по разделу")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void navigatingSection() throws Exception {
         headerMenu.goToKidsPage();
         kidsPage.checkAutoScrollBanners();

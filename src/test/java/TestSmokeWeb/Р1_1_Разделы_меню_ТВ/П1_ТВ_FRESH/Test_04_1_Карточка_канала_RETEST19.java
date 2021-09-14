@@ -22,7 +22,7 @@ public class Test_04_1_Карточка_канала_RETEST19 extends TestBaseWe
     @DisplayName(value ="Карточка канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void cardTvChannel() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         headerMenu.goToTvPage();

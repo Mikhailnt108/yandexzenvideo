@@ -20,7 +20,7 @@ public class Test_11_1_Незаписываемая_передача_FRESH exten
     @DisplayName(value ="Незаписываемая ТВ передача")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void unrecordedTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

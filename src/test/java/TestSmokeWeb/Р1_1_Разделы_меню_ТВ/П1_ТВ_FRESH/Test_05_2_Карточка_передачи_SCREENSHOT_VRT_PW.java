@@ -20,7 +20,7 @@ public class Test_05_2_Карточка_передачи_SCREENSHOT_VRT_PW exten
     @DisplayName(value ="Карточка передачи (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void cardTvProgram() throws Exception {
         //неавторизованный пользователь:
         cardTvProgramPW.checkImageCardTvProgramForGuest();

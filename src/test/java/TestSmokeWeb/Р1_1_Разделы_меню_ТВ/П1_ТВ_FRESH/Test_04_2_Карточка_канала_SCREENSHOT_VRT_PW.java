@@ -22,7 +22,7 @@ public class Test_04_2_Карточка_канала_SCREENSHOT_VRT_PW extends T
     @DisplayName(value = "Карточка канала (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void cardTvChannel() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         сardTvChannelPW.checkImageCardTvChannelForGuest();

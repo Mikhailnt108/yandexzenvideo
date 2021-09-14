@@ -20,7 +20,7 @@ public class Test_10_Подписка_на_пакет_каналов_FRESH_от_
     @DisplayName(value ="Подписка на пакет каналов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void subscribeOnPackageTvChannel() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

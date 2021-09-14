@@ -19,7 +19,7 @@ public class PromoPagePW extends BasePagePlaywright {
     }
 
     public void checkImagePromoPageWithoutPersonalOffers() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/profile/promotions");
+        page.navigate("https://web-preprod2.megafon.tv/profile/promotions");
 
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
@@ -70,7 +70,7 @@ public class PromoPagePW extends BasePagePlaywright {
                         .build());
     }
     public void checkImagePromoPageWithPersonalOffers() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/profile/promotions");
+        page.navigate("https://web-preprod2.megafon.tv/profile/promotions");
 
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");

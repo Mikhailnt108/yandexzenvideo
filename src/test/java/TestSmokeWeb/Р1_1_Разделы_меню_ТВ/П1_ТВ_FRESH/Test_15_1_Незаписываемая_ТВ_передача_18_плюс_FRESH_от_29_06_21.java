@@ -20,7 +20,7 @@ public class Test_15_1_Незаписываемая_ТВ_передача_18_п�
     @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToNilPage();
         flowRegistation();

@@ -22,7 +22,7 @@ public class Test_03_Регистрация_НЕ_МФ extends TestBaseWebDriver 
     @Severity(SeverityLevel.BLOCKER)
 //    @TmsLink("35669321")
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void registrationNotMF()  {
         headerMenu.goToNilPage();
         flowRegistation();

@@ -16,7 +16,7 @@ public class Test_02_БезПереплат_Всё extends TestBaseWebDriver {
     @DisplayName(value ="БезПереплат.Всё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void bundlBezPereplatMax() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

@@ -6,6 +6,7 @@ import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.parallel.Execution;
 import pagesPlaywright.*;
+
 import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -52,7 +53,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
                     .builder()
                     .apiUrl("http://localhost:4200")
-                    .apiKey("NA6N66H61HMZP4M0KMEVHTGMGE03")
+                    .apiKey("D43ND5V29K4CJTQTEEVEJ130JQPX")
                     .project("MFTV_Web")
                     .branchName("master")
                     .enableSoftAssert(false)
@@ -81,7 +82,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
         }
     }
 
-    @BeforeAll
+    @BeforeEach
     void launchBrowser() throws IOException, InterruptedException, AWTException {
         playwright = Playwright.create();
 //      ноут:
@@ -94,7 +95,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
 //                        .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
 //      браузер Headless:
         contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
-                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
+                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
                         .setViewportSize(1900, 920));
 //        для ноута:                .setViewportSize(1366, 768));
 //        браузер Headless с записью видео:
@@ -137,7 +138,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
         bot.mouseMove(0, 0);
     }
 
-    @AfterAll
+    @AfterEach
     void closeBrowser() throws IOException, InterruptedException {
         contextNormalModeHeadless.close();
         playwright.close();

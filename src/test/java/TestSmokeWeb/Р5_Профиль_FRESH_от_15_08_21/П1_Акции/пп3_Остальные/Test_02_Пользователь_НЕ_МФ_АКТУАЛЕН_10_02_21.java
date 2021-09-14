@@ -18,7 +18,7 @@ public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_2
     @DisplayName(value ="Пользователь НЕ_МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void userNotMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistationNonMF();

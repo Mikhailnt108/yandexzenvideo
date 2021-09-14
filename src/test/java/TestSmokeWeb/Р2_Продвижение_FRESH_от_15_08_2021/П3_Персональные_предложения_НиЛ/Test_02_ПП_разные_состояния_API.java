@@ -17,7 +17,7 @@ public class Test_02_ПП_разные_состояния_API extends TestBaseWe
     @DisplayName(value = "ПП разные состояния")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void POdifferentState() {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();

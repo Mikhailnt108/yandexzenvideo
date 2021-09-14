@@ -210,7 +210,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferTvPageTabProgramTv() throws IOException{
         // Сделать тестовый скриншот таба программы передач:
-        webDriver.get("https://web-preprod5.megafon.tv/tv");
+        webDriver.get("https://web-preprod2.megafon.tv/tv");
         Set<By> posterTailsTvChannel = new HashSet<>();
         posterTailsTvChannel.add(By.xpath("//div[@class='_3xplzuhwSABoqCYH8ffVtJ']//img[@src]"));
         Set<By> nameTvChannel = new HashSet<>();
@@ -274,7 +274,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferTabTvProgramInAir() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        webDriver.get("https://web-preprod5.megafon.tv/tv/tv_catalog");
+        webDriver.get("https://web-preprod2.megafon.tv/tv/tv_catalog");
         waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
         Screenshot screenshotTabTvProgramInAir = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -378,7 +378,7 @@ public class TvPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkImageDifferToglPaymentOn() throws IOException {
-        webDriver.get("https://web-preprod5.megafon.tv/tv");
+        webDriver.get("https://web-preprod2.megafon.tv/tv");
         Screenshot screenshotTvPageToglPaymentOn = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .addIgnoredElement(By.className("ch-drop-down__inner"))

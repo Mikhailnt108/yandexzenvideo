@@ -16,7 +16,7 @@ public class Test_02_АКЦИИ_Переход_в_раздел_Фильмы_FRES
     @DisplayName(value ="2. Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

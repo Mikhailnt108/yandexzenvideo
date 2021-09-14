@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "Suite#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_1_СЕРИАЛЫ_Внешний_вид_карточки_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -16,7 +16,7 @@ public class Test_03_1_СЕРИАЛЫ_Внешний_вид_карточки_RET
     @DisplayName(value ="3.1 Внешний вид карточки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void appearanceSectionCardSerial() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToSerialsPage();
@@ -44,18 +44,18 @@ public class Test_03_1_СЕРИАЛЫ_Внешний_вид_карточки_RET
         cardSerial.checkRollUpDescription();
         cardSerial.clickToLikeButton();
         cardSerial.clickToDisLikeButton();
-        pageCMS.deleteAccountMF("79260172279");
+        pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79250110166");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

@@ -19,7 +19,7 @@ public class Test_05_1_Карточка_передачи_RETEST2408 extends Test
     @DisplayName(value ="5.1 Карточка передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void cardTvProgram() throws Exception {
         //неавторизованный пользователь:
         headerMenu.goToTvPage();

@@ -16,7 +16,7 @@ public class Test_01_БезПереплат_Максимум extends TestBaseWeb
     @DisplayName(value ="БезПереплат.Максимум")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void bundleBezPereplatMax() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

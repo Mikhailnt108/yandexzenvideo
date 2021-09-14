@@ -16,7 +16,7 @@ public class Test_04_Финблок_добавить_ASHOT_RETEST19 extends Test
     @DisplayName(value ="4. Финблок юзер МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void financialBlockingMegafon() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistration();

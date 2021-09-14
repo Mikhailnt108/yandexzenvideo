@@ -17,7 +17,7 @@ public class Test_05_Фильм_по_покупке_API extends TestBaseWebDrive
     @DisplayName(value = "Фильм по покупке")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void filmOnEST() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnEST();

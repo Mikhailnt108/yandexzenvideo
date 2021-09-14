@@ -16,7 +16,7 @@ public class Test_09_2_Выбор_серии_из_блока_выбора_сер
     @DisplayName(value ="9.2 Выбор серии из блока выбора серии (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void chooseEpisodeFromBlockEpisodes() throws Exception {
         // пользователь НЕ авторизован:
         headerMenuPW.goToSerialsPage();
@@ -34,12 +34,12 @@ public class Test_09_2_Выбор_серии_из_блока_выбора_сер
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 017 22 79");
+        headerMenuPW.inputLogin("+7 925 011 01 66");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 017 22 79" , "111111");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 925 011 01 66" , "111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260172279");
+        headerMenuPW.copyPasteCodMsisdn("79250110166");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

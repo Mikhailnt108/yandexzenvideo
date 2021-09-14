@@ -19,7 +19,7 @@ public class Test_12_2_Записываемая_передача_SCREENSHOT_PLAY
     @DisplayName(value ="Записываемая ТВ передача (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void recordedTvProgram() throws Exception {
         headerMenuPW.goToTvTabTvProgramInAir();
         flowRegistation();

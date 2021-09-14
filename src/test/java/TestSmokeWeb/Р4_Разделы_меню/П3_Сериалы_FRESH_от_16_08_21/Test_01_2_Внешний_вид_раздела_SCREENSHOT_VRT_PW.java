@@ -17,7 +17,7 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
     @DisplayName(value ="Внешний вид раздела (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void appearanceSectionSerialsPage() throws Exception {
         serialsPagePW.checkImageSerialsPageScrollForGuest();
 //        serialsPagePW.checkImageCherdakAndBannersForGuest();
@@ -40,12 +40,12 @@ public class Test_01_2_Внешний_вид_раздела_SCREENSHOT_VRT_PW ex
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 017 22 79");
+        headerMenuPW.inputLogin("+7 925 011 01 66");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 017 22 79", "111111");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 925 011 01 66", "111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260172279");
+        headerMenuPW.copyPasteCodMsisdn("79250110166");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

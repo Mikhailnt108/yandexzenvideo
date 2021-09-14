@@ -20,7 +20,7 @@ public class Test_12_1_Записываемая_передача_FRESH extends T
     @DisplayName(value ="Записываемая ТВ передача")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void recordedTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();

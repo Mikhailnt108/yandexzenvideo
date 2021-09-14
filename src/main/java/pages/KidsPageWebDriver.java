@@ -51,7 +51,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]")).size());
             Thread.sleep(2000);
-            webDriver.get("https://web-preprod5.megafon.tv/kids");
+            webDriver.get("https://web-preprod2.megafon.tv/kids");
         }
     }
 
@@ -94,7 +94,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod5.megafon.tv/kids");
+                webDriver.get("https://web-preprod2.megafon.tv/kids");
             }
         }
     }
@@ -110,7 +110,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod5.megafon.tv/kids");
+                webDriver.get("https://web-preprod2.megafon.tv/kids");
             }
         }
     }
@@ -127,7 +127,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='ТВ']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod5.megafon.tv/kids");
+                webDriver.get("https://web-preprod2.megafon.tv/kids");
             }
         }
     }
@@ -381,7 +381,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferKidsPageScroll() throws AWTException, IOException {
         // Сделать тестовый скриншот скролла страницы НиЛ:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         JavascriptExecutor jsDownToElement = (JavascriptExecutor) webDriver;
         jsDownToElement.executeScript("arguments[0].scrollIntoView(true);", webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[1]")));
 //        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
@@ -408,7 +408,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotKidsPagePp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот скролла страницы НиЛ:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         JavascriptExecutor jsDownToElement2 = (JavascriptExecutor) webDriver;
         jsDownToElement2.executeScript("arguments[0].scrollIntoView(true);", webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[1]")));
         Screenshot screenshotKidsPagePp4Standard = new AShot()
@@ -455,7 +455,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotHeaderBannerPp4.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот чердака:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         WebElement headerCherdakPp4Standard = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -497,7 +497,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferBlocksCollection() throws AWTException, IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         WebElement blockCollectionWithTitlePp4 = webDriver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
         Screenshot screenshotCollectionWithTitlePp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -514,7 +514,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotCollectionWithTitlePp4.getImage(), "png", actualFile1);
 
         //Сделать тестовый скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         WebElement collectionWithoutTitlePp4 = webDriver.findElement(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']"));
         Screenshot screenshotCollectionWithoutTitlePp4 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -531,7 +531,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotCollectionWithoutTitlePp4.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот блока подборки с заголовком:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         WebElement blockCollectionWithTitlePp4Standard = webDriver.findElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]"));
         Screenshot screenshotCollectionWithTitlePp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -547,7 +547,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
 //        screenshotCollectionWithTitlePp4Standard.setIgnoredAreas(screenshotCollectionWithTitlePp4.getIgnoredAreas());
 
         //Сделать новый эталонный скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         WebElement collectionWithoutTitlePp4Standard = webDriver.findElement(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']"));
         Screenshot screenshotCollectionWithoutTitlePp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -588,7 +588,7 @@ public class KidsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotFooterPp4.getImage(), "png", actualFile1);
 
         //Сделать новый эталонный скриншот футера:
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         WebElement footerPp4Standard = webDriver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())

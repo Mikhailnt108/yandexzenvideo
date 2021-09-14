@@ -22,7 +22,7 @@ public class Test_02_Авторизация_через_кнопку_Вход ext
     @Severity(SeverityLevel.BLOCKER)
 //    @TmsLink("31541981")
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void loginFromHeaderMenu() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegister();

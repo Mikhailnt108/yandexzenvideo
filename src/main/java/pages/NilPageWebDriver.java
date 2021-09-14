@@ -14,12 +14,14 @@ import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class NilPageWebDriver extends BasePageWebDriver {
     private WebElement ToRight;
@@ -118,7 +120,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferNilPageScroll() throws AWTException, IOException {
         // Сделать тестовый скриншот скролла страницы НиЛ:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         Screenshot screenshotNil = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -158,7 +160,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferCherdakAndBanners() throws AWTException, IOException {
         // Сделать тестовый скриншот чердака:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         WebElement headerCherdak = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdak = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -187,7 +189,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
 
         // Сделать тестовый скриншот баннерной зоны:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][2]"));
         WebElement headerBanner = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
         Screenshot screenshotHeaderBanner = new AShot()
@@ -253,7 +255,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferBlocksCollection() throws AWTException, IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         Screenshot screenshotCollectionWithTitle = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -289,7 +291,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
         Assert.assertTrue(diff1.getDiffSize() <= 3000);
 
         // Сделать тестовый скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         Screenshot screenshotCollectionWithoutTitle = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -325,7 +327,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferFooter() throws AWTException, IOException {
         // Сделать тестовый скриншот футера:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         WebElement footer = webDriver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooter = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -539,7 +541,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod5.megafon.tv/");
+                webDriver.get("https://web-preprod2.megafon.tv/");
             }
         }
     }
@@ -555,7 +557,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod5.megafon.tv/");
+                webDriver.get("https://web-preprod2.megafon.tv/");
             }
         }
     }
@@ -599,7 +601,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkImageDifferBlockCollectionSpecialForYou() throws IOException {
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
 //        WebElement blockCollectSpecialForYou = driver.findElement(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']"));
         Screenshot screenshotCollectSpecialForYou = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -703,7 +705,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
 
     public void checkToMoveTileToFirstPlace() {
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         Assert.assertEquals("элементы не совпадают",nameFilm, webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 
@@ -739,7 +741,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkImageDifferBlockCollectHistoryWatch() throws IOException {
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         WebElement blockCollectHistoryWatch = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Set<By> posterTailsCollection = new HashSet<>();
         posterTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='HZzNvtNX5fExVnjY_Popf']"));
@@ -759,7 +761,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotCollectHistoryWatch.getImage(), "png", actualFile1);
 
         // Сделать новый эталон скриншота:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         WebElement blockCollectHistoryWatchStandard = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Screenshot screenshotCollectHistoryWatchStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -783,7 +785,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkImageDifferTailWatchAndEditInCollectHistoryWatch() throws IOException, InterruptedException {
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
 //        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']")));
 //        Thread.sleep(6000);
@@ -798,7 +800,7 @@ public class NilPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotTailWatchAndEdit.getImage(), "png", actualFile1);
 
         //Сделать новый эталон скриншота:
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
 //        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Продолжить просмотр']/following::a[@class='ArHiwAcYUlO8lYdGJYyYT']")));
 //        Thread.sleep(3000);

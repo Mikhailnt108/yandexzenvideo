@@ -17,7 +17,7 @@ public class Test_01_Внешний_вид_и_навигация_API extends Tes
     @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void appearanceAndNavigation() {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         headerMenu.goToNilPage();

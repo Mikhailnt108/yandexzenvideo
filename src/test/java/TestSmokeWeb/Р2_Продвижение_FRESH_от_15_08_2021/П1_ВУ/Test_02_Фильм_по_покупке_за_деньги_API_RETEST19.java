@@ -16,7 +16,7 @@ public class Test_02_Фильм_по_покупке_за_деньги_API_RETEST
     @DisplayName(value = "Фильм по покупке за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void payFilmFromPopUpNotification() {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();

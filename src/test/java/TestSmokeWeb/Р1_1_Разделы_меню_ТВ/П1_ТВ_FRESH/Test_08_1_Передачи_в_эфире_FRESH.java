@@ -22,7 +22,7 @@ public class Test_08_1_Передачи_в_эфире_FRESH extends TestBaseWebD
     @DisplayName(value ="Передачи в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void tvProgramInAir() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

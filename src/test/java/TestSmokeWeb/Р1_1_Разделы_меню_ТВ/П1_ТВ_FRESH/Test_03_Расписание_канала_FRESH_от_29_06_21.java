@@ -22,7 +22,7 @@ public class Test_03_Расписание_канала_FRESH_от_29_06_21 exten
     @DisplayName(value ="Расписание_канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void openScheduleChannel() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

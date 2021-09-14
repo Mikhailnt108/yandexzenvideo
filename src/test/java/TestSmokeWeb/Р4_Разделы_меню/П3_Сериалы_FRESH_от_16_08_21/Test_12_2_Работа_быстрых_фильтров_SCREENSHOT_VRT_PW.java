@@ -17,7 +17,7 @@ public class Test_12_2_Работа_быстрых_фильтров_SCREENSHOT_V
     @DisplayName(value = "Работа быстрых фильтров (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void quickFilters() throws Exception {
         headerMenuPW.goToSerialsPage();
         serialsPagePW.checkImageBlocksFiltersForGuest();

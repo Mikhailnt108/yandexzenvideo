@@ -37,7 +37,7 @@ public class AllCollectionsPageWebDriver extends BasePageWebDriver {
     }
 
     public void checkImageDifferPageCollections() throws IOException {
-        webDriver.get("https://web-preprod5.megafon.tv/collection");
+        webDriver.get("https://web-preprod2.megafon.tv/collection");
         Screenshot screenshotPageCollectionPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -51,7 +51,7 @@ public class AllCollectionsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotPageCollectionPp5.getImage(), "png", actualFile1);
 
         // Сделать новый этанолонный скриншот:
-        webDriver.get("https://web-preprod5.megafon.tv/collection");
+        webDriver.get("https://web-preprod2.megafon.tv/collection");
         Screenshot screenshotPageCollectionPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -72,10 +72,10 @@ public class AllCollectionsPageWebDriver extends BasePageWebDriver {
     }
 
     public void selectCollectionForKids() throws InterruptedException {
-        webDriver.get("https://web-preprod5.megafon.tv/kids");
+        webDriver.get("https://web-preprod2.megafon.tv/kids");
         String nameForKidsBlockCollect = webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[5]")).getText();
         System.out.println(nameForKidsBlockCollect);
-        webDriver.get("https://web-preprod5.megafon.tv/collection");
+        webDriver.get("https://web-prepro25.megafon.tv/collection");
         List<WebElement> collectNames = webDriver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
         List<WebElement> paginations = webDriver.findElements(By.xpath("//a[@class='_321YEvw8w6G20aKg-N8nNe']"));
         for (int a = 0; a < paginations.size(); a++) {

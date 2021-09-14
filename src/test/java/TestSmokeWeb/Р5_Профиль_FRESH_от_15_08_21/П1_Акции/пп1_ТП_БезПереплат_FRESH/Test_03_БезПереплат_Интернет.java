@@ -16,7 +16,7 @@ public class Test_03_БезПереплат_Интернет extends TestBaseWeb
     @DisplayName(value ="БезПереплат.Интернет")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void bundlBezPereplatMax() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

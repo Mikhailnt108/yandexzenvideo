@@ -234,7 +234,7 @@ public class CardSerial extends BasePageWebDriver {
                 b++;
                 System.out.println("numberTimeBefore:" + numberTimeBefore);
             }
-        webDriver.get("https://web-preprod5.megafon.tv/");
+        webDriver.get("https://web-preprod2.megafon.tv/");
         //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         Thread.sleep(5000);
@@ -313,7 +313,7 @@ public class CardSerial extends BasePageWebDriver {
         ImageIO.write(screenshotCardSerialPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        webDriver.get("https://web-preprod5.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
+        webDriver.get("https://web-preprod2.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
         Screenshot screenshotCardSerialPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(webDriver);
@@ -429,7 +429,7 @@ public class CardSerial extends BasePageWebDriver {
     public void checkSeasonAndEpisode() throws InterruptedException {
         String seasonAndEpisode1 = webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText();
         System.out.println(seasonAndEpisode1);
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
         webDriver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
@@ -453,7 +453,7 @@ public class CardSerial extends BasePageWebDriver {
         ImageIO.write(screenshotBlockEpisodesPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот:
-        webDriver.get("https://web-preprod5.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
+        webDriver.get("https://web-preprod2.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
         Screenshot screenshotBlockEpisodesPp4Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))

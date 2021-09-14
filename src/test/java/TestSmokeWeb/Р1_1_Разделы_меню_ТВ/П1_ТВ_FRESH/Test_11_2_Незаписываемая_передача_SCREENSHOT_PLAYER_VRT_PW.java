@@ -20,7 +20,7 @@ public class Test_11_2_Незаписываемая_передача_SCREENSHOT_
     @DisplayName(value ="Незаписываемая ТВ передача (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void unrecordedTvProgram() throws Exception {
         headerMenuPW.goToTvTabTvProgramInAir();
         flowRegistation();

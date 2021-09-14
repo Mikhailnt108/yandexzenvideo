@@ -17,7 +17,7 @@ public class Test_03_2_Переходы_Баннеры_SCREENSHOT_VRT_PW extends
     @DisplayName(value ="Переходы.Баннеры (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void goToBanner() throws Exception {
         kidsPagePW.checkImageCherdakAndBannersForGuest();
     }

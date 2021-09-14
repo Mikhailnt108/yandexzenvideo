@@ -17,7 +17,7 @@ public class Test_04_Фильм_по_аренде_API extends TestBaseWebDriver 
     @DisplayName(value = "Фильм по аренде")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void filmOnRentPromo() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();

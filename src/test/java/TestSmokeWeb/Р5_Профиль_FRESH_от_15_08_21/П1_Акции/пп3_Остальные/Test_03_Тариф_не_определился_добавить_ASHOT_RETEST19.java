@@ -16,7 +16,7 @@ public class Test_03_Тариф_не_определился_добавить_ASH
     @DisplayName(value ="Тариф не определился")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void tariffNotDefined() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

@@ -18,7 +18,7 @@ public class Test_01_2_АКЦИИ_Внешний_вид_раздела_SCREENSHO
     @DisplayName(value ="1.2 Внешний вид раздела (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void appearancePagePromo() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();;
         flowRegistation();

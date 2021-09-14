@@ -20,7 +20,7 @@ public class Test_02_Жанры_программы_передач_FRESH_от_28_
     @DisplayName(value ="Жанры программы передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void genresTvProgram() throws InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

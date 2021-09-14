@@ -17,7 +17,7 @@ public class Test_04_Переключение_сезонов_FRESH_Баг_не_�
     @DisplayName(value ="Переключение сезонов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void switchingSeasons() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();
@@ -28,18 +28,18 @@ public class Test_04_Переключение_сезонов_FRESH_Баг_не_�
         cardSerial.paymentSerialAtSubs();
         cardSerial.moveSliderRewindToVideoPlayer();
         cardSerial.checkSeasonAndEpisode();
-        pageCMS.deleteAccountMF("79260172279");
+        pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79250110166");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

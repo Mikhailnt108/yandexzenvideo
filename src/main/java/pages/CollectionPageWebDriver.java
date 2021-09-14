@@ -68,7 +68,7 @@ public class CollectionPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferPageBlockCollection() throws IOException {
         // Сделать тестовый скриншот:
-        webDriver.get("https://web-preprod5.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
+        webDriver.get("https://web-preprod2.megafon.tv/collection/poprobui_besplatno?referrer_screen=main");
         Screenshot screenshotPageBlockCollection = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))

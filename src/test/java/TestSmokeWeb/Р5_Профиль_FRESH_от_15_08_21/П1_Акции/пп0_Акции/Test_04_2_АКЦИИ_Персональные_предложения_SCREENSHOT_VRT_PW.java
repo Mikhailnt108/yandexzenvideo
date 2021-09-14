@@ -18,7 +18,7 @@ public class Test_04_2_АКЦИИ_Персональные_предложени�
     @DisplayName(value ="4.2 Персональные предложения (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void personalOffers() throws InterruptedException, IOException {
         personalOfferPW.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOfferPW.createPersonalOfferTypeSubscription();

@@ -17,16 +17,19 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>repo-cuba-platform-work</id>
-            <name>repo</name>
-            <url>https://repo.cuba-platform.com/content/groups/work</url>
-        </repository>
     </repositories>
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.influxdb</groupId>-->
+<!--            <artifactId>influxdb-java</artifactId>-->
+<!--            <version>2.12</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.24.2</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -162,10 +165,10 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.haulmont.yarg</groupId>
-            <artifactId>yarg</artifactId>
-            <version>2.2.11</version>
-            <type>pom</type>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.24.2</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
@@ -178,7 +181,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <parallel>suites</parallel>
                     <threadCountSuites>3</threadCountSuites>
-                    <perCoreThreadCount>true</perCoreThreadCount>
+<!--                    <perCoreThreadCount>true</perCoreThreadCount>-->
 <!--                    <redirectTestOutputToFile>true</redirectTestOutputToFile>-->
 <!--                    <forkCount>2</forkCount>-->
 <!--                    <reuseForks>false</reuseForks>-->
@@ -188,7 +191,7 @@
 <!--                        <include>**/*PW.java</include>-->
 <!--                    </includes>-->
                     <properties>
-                        <groups>Suite#1Exp,Suite#2Exp,Suite#3Exp</groups>
+                        <groups>Suite#1,Suite#2,Suite#3,Suite#4</groups>
 <!--                        <include>**/Test*.java</include>-->
 <!--                        <include>**/*RETEST2408.java</include>-->
 <!--                        <include>**/*PW.java</include>-->

@@ -16,7 +16,7 @@ public class Test_01_Корпоративный_безлимит_АКТУАЛЕ�
     @DisplayName(value ="Корпоративный безлимит")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void bundleCorpBezlimit() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

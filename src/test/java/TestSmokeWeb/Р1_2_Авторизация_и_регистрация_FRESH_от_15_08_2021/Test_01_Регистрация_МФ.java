@@ -22,7 +22,7 @@ public class Test_01_Регистрация_МФ extends TestBaseWebDriver {
     @Severity(SeverityLevel.BLOCKER)
 //    @TmsLink("35669320")
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void registrationMF() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

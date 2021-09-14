@@ -21,7 +21,7 @@ public class Test_05_Восстановление_пароля extends TestBaseW
     @DisplayName(value = "5. Восстановление пароля")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
 //    @TmsLink("35669322")
     public void passwordRecovery() {
         headerMenu.goToNilPage();

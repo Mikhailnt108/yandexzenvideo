@@ -21,7 +21,7 @@ public class Test_14_1_Фильтр_платности_FRESH extends TestBaseWeb
     @DisplayName(value ="Фильтр платности")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void checkFilterPayment() throws InterruptedException, IOException {
         headerMenu.goToTvPage();
         flowRegistation();

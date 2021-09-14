@@ -16,7 +16,7 @@ public class Test_03_АКЦИИ_Переход_на_страницу_Пакет�
     @DisplayName(value ="3. Переход на страницу Пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void goToPackagePage() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

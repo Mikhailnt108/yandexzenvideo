@@ -17,7 +17,7 @@ public class Test_03_Пакет_по_Жесткому_TnB_API extends TestBaseWe
     @DisplayName(value = "Пакет по Жесткому ТнБ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void packageHardTnB() {
         promoCode.createAndPublishedRC();
         promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();

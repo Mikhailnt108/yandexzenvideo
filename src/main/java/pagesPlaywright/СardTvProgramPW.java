@@ -23,7 +23,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvProgramForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/tv");
+        page.navigate("https://web-preprod2.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -112,7 +112,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvProgramForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/tv");
+        page.navigate("https://web-preprod2.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -146,8 +146,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
         ElementHandle agePoster = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN'])[2]");
         page.evaluate("aP => aP.innerText='18+'", agePoster);
 
-        ElementHandle posterTvProgram = page.querySelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2FslsQhbQ8YUGzqjYdejYu']");
-        page.evaluate("pP => pP.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/c8/f9/65467a9cb1db598036537f85514828af0b0d/secondary_poster__web-wp.webp);')", posterTvProgram);
+
 
         ElementHandle descriptionTvProgram = page.querySelector("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g']");
         page.evaluate("dP => dP.innerText='С помощью последних научных данных и потрясающей трёхмерной " +
@@ -176,6 +175,9 @@ public class СardTvProgramPW extends BasePagePlaywright {
 
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
+
+        ElementHandle posterTvProgram = page.querySelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2FslsQhbQ8YUGzqjYdejYu']");
+        page.evaluate("pP => pP.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/c8/f9/65467a9cb1db598036537f85514828af0b0d/secondary_poster__web-wp.webp);')", posterTvProgram);
 
         page.waitForSelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
         List<ElementHandle> listTvPrograminSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
@@ -677,7 +679,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate("https://web-preprod5.megafon.tv/packages");
+        pageHeadfull.navigate("https://web-preprod2.megafon.tv/packages");
     }
 
     public void openCardTvProgramInRecordFromPackageKinoPoPodpiskeHeadfull() {
@@ -691,7 +693,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageBlockCollectHistoryWatchOnNilPage() throws IOException, InterruptedException {
-        pageHeadfull.navigate("https://web-preprod5.megafon.tv/");
+        pageHeadfull.navigate("https://web-preprod2.megafon.tv/");
         List<ElementHandle> posterPackageAll;
         List<ElementHandle> titlePackageAll;
         List<ElementHandle> descriptionTextPackageAll;

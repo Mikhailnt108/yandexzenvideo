@@ -16,7 +16,7 @@ public class Test_04_БезПереплат_Звонки_RETEST19 extends TestBa
     @DisplayName(value ="4. БезПереплат.Звонки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void bundlBezPereplatMax() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

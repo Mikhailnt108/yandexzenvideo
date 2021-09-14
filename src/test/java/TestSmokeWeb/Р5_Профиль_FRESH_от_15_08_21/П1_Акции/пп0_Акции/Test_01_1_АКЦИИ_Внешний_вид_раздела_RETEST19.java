@@ -19,7 +19,7 @@ public class Test_01_1_АКЦИИ_Внешний_вид_раздела_RETEST19 
     @DisplayName(value ="1.1 Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void appearancePagePromo() throws InterruptedException, IOException, AWTException {
         headerMenu.goToNilPage();
         flowRegistation();

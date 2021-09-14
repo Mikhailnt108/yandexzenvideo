@@ -1,18 +1,27 @@
 package base;
 
+import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
+
 import java.awt.*;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -52,26 +61,37 @@ public class TestBaseWebDriver {
     public PersonalOffer personalOffer;
     public RatingPageWebDriver ratingPage;
 
-    @BeforeAll
-    public void start() throws AWTException {
-        WebDriverManager.chromedriver().setup();
-        //запуск браузера в режиме инкогнито:
-        //ChromeOptions options = new ChromeOptions();
-        //options.addArguments("-incognito");
-        //DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        //driver = new ChromeDriver(capabilities);
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--window-size=1900,1000");
-        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
-        options.addArguments("start-maximized");
-        //запуск браузера в фоне:
-        //options.setHeadless(true);
-        webDriver = new ChromeDriver(options);
-        webDriver.manage().deleteAllCookies();
-        //driver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+
+    @BeforeEach
+    public void start() throws AWTException, MalformedURLException {
+        // start remote browser:
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "93.0");
+//        capabilities.setCapability("resolution","1920x1080");
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", false
+        ));
+        RemoteWebDriver webDriver = new RemoteWebDriver(
+                URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
+                capabilities
+        );
+        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
+        WebDriverRunner.setWebDriver(webDriver);
+
+        // start local browser:
+//        WebDriverManager.chromedriver().setup();
+//        ChromeOptions options = new ChromeOptions();
+//        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+//        options.addArguments("start-maximized");
+//        //запуск браузера в фоне:
+//        //options.setHeadless(true);
+//        webDriver = new ChromeDriver(options);
+//        webDriver.manage().deleteAllCookies();
+//        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+
         headerMenu = PageFactory.initElements(webDriver, HeaderMenu.class);
         popUpInputPhone = PageFactory.initElements(webDriver, PopUpInputPhone.class);
         popUpInputPassword = PageFactory.initElements(webDriver, PopUpInputPassword.class);
@@ -103,13 +123,13 @@ public class TestBaseWebDriver {
         promoCode = PageFactory.initElements(webDriver, PromoCode.class);
         personalOffer = PageFactory.initElements(webDriver, PersonalOffer.class);
         ratingPage = PageFactory.initElements(webDriver, RatingPageWebDriver.class);
-
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
     }
 
-    @AfterAll
+    @AfterEach
     public void finish() {
-        webDriver.quit();
+        Optional.ofNullable(WebDriverRunner.getWebDriver()).ifPresent(WebDriver::quit);
+//        webDriver.quit();
     }
 }

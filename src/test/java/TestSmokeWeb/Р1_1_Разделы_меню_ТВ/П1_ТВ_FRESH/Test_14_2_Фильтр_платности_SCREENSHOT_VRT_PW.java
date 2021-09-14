@@ -22,7 +22,7 @@ public class Test_14_2_Фильтр_платности_SCREENSHOT_VRT_PW extends
     @DisplayName(value = "Фильтр платности (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void checkFilterPayment() throws InterruptedException, IOException {
         headerMenuPW.goToTvTabProgramTv();
         flowRegistation();

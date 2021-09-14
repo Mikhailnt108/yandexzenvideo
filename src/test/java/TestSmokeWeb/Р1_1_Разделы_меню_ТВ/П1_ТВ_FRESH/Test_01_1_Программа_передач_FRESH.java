@@ -19,7 +19,7 @@ public class Test_01_1_Программа_передач_FRESH extends TestBaseW
     @DisplayName(value = "Программа передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void historyViewing() throws Exception {
         headerMenu.goToTvPage();
         tvPage.checkElementsTvPage();

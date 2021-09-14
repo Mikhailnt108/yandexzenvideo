@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "Suite#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_Подборка_Моё_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -17,7 +17,7 @@ public class Test_05_Подборка_Моё_RETEST19 extends TestBaseWebDriver 
     @DisplayName(value ="5. Подборка Моё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void collectionOfMy() {
         headerMenu.goToKidsPage();
         flowRegistation();
@@ -32,18 +32,18 @@ public class Test_05_Подборка_Моё_RETEST19 extends TestBaseWebDriver 
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionOfMy();
         collectionsPage.checkCollectionOfMy();
-        pageCMS.deleteAccountMF("79260172279");
+        pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79250110166");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

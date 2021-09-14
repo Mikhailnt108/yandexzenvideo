@@ -15,13 +15,13 @@ public class Test_01_Внешний_вид_раздела_Спорт_PW extends 
     @Test
     public void visualDesignPageSport() throws IOException, InterruptedException {
         sportPagePW.createSportKindsAndAddChannels();
-//        headerMenuPW.goToSportPage();
-//        sportPagePW.checkImageCherdakAndBannersSportPageGuest(); // добавить скриншот тесты
-//        sportPagePW.checkImageBlockFastFiltersSportPageForGuest(); // добавить скриншот тесты
-//        sportPagePW.checkImageBlocksCollectionSportPageFofGuest(); // добавить скриншот тесты
-//        sportPagePW.checkImageSportPageScrollForGuest(); // добавить скриншот тесты
-//        sportPagePW.checkElementsOnPageSport();
-//        sportPagePW.scrollCollectionSportChannelsToRightAndLeft();
-//        sportPagePW.scrollCollectionSportVodsToRightAndLeft();
+        headerMenuPW.goToSportPage();
+        sportPagePW.checkImageCherdakAndBannersSportPageGuest(); // добавить скриншот тесты
+        sportPagePW.checkImageBlockFastFiltersSportPageForGuest(); // добавить скриншот тесты
+        sportPagePW.checkImageBlocksCollectionSportPageFofGuest(); // добавить скриншот тесты
+        sportPagePW.checkImageSportPageScrollForGuest(); // добавить скриншот тесты
+        sportPagePW.checkElementsOnPageSport();
+        sportPagePW.scrollCollectionSportChannelsToRightAndLeft();
+        sportPagePW.scrollCollectionSportVodsToRightAndLeft();
     }
 }

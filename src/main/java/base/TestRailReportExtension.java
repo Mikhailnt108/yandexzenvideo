@@ -1,7 +1,5 @@
 package base;
 
-import com.github.rsheremeta.testrail.TestRailCreds;
-import com.github.rsheremeta.testrail.TestRailHelper;
 import io.github.legionivo.api.testrail.TestRail;
 import io.github.legionivo.api.testrail.model.*;
 import io.qameta.allure.TmsLink;

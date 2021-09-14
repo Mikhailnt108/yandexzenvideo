@@ -204,7 +204,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotHeaderCherdakPp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот чердака:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         WebElement headerCherdakPp5Standard = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -256,7 +256,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferBlocksCollection() throws IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         JavascriptExecutor blockQuickFilters1 = (JavascriptExecutor) webDriver;
         blockQuickFilters1.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotCollectionWithTitlePp5 = new AShot()
@@ -273,7 +273,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotCollectionWithTitlePp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот блока подборки с заголовком:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         JavascriptExecutor blockQuickFilters2 = (JavascriptExecutor) webDriver;
         blockQuickFilters2.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotCollectionWithTitlePp5Standard = new AShot()
@@ -296,7 +296,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         Assert.assertTrue(diff1.getDiffSize() <= 50);
 
         // Сделать тестовый скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         JavascriptExecutor blockQuickFilters3 = (JavascriptExecutor) webDriver;
         blockQuickFilters3.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotCollectionWithoutTitlePp5 = new AShot()
@@ -337,7 +337,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferFooter() throws IOException {
         // Сделать тестовый скриншот футера:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         WebElement footerPp5 = webDriver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -347,7 +347,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotFooterPp5.getImage(), "png", actualFile1);
 
         //Сделать новый эталонный скриншот футера:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         WebElement footerPp5Standard = webDriver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooterPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -371,7 +371,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferSerialsPageScroll() throws IOException {
         // Сделать тестовый скриншот скролла страницы "Сериалы":
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         JavascriptExecutor blockQuickFilters5 = (JavascriptExecutor) webDriver;
         blockQuickFilters5.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
 //        WebElement pageSerials = driver.findElement(By.xpath("//div[@class='appMountContainer']"));
@@ -421,7 +421,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferBreadcrumbsAndBlocksFilters() throws IOException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Сериалы":
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersPp5 = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -432,7 +432,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotBreadcrumbsAndBlocksFiltersPp5.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот области хлебных крошек и блока фильтров страницы "Сериалы":
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersPp5Standard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -486,7 +486,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size());
             Thread.sleep(2000);
-            webDriver.get("https://web-preprod5.megafon.tv/shows");
+            webDriver.get("https://web-preprod2.megafon.tv/shows");
         }
     }
 
@@ -600,7 +600,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferScrollQuickFilters() throws IOException, AWTException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         click(By.xpath("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]"));
         Robot bot1 = new Robot();
         bot1.mouseMove(0, 0);
@@ -614,7 +614,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotScrollQuickFiltersPp4.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         click(By.xpath("//button[contains(@class,'_1P8UP167h6OHinoWcPAL23 _1mUdY0HH_3ift9AyWAmWx1')]"));
         Robot bot2 = new Robot();
         bot2.mouseMove(0, 0);
@@ -703,7 +703,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
     public void checkImageDifferBlockCollectHistoryWatch() throws IOException {
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         WebElement blockCollectHistoryWatch = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Set<By> posterTailsCollection = new HashSet<>();
         posterTailsCollection.add(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='HZzNvtNX5fExVnjY_Popf']"));
@@ -723,7 +723,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotCollectHistoryWatch.getImage(), "png", actualFile1);
 
         // Сделать новый эталон скриншота:
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         WebElement blockCollectHistoryWatchStandard = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']"));
         Screenshot screenshotCollectHistoryWatchStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -781,14 +781,14 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
             tailsBlockCollectHistoryWatch.get(i).click();
             Assert.assertEquals("есть контент 18+",0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
             Assert.assertEquals("есть контент не сериал",1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size());
-            webDriver.get("https://web-preprod5.megafon.tv/shows");
+            webDriver.get("https://web-preprod2.megafon.tv/shows");
             Thread.sleep(5000);
         }
     }
 
     public void checkToMoveTailToFirstPlace() {
         String nameSerial = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         System.out.println(nameSerial);
         System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
         Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
@@ -796,7 +796,7 @@ public class SerialsPageWebDriver extends BasePageWebDriver {
 
     public void checkToMoveTailToLastPlace() {
         String nameSerial = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.get("https://web-preprod5.megafon.tv/shows");
+        webDriver.get("https://web-preprod2.megafon.tv/shows");
         System.out.println(nameSerial);
         System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
         Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());

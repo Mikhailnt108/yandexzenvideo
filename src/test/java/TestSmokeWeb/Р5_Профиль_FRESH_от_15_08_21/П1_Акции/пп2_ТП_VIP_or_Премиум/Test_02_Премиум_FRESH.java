@@ -16,7 +16,7 @@ public class Test_02_Премиум_FRESH extends TestBaseWebDriver {
     @DisplayName(value ="Премиум")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void bundlPremium() throws InterruptedException {
         headerMenu.goToNilPage();
         flowRegistation();

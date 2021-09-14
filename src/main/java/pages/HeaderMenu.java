@@ -6,7 +6,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HeaderMenu extends BasePageWebDriver {
     //ПП1
@@ -63,48 +62,48 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void goToNilPage() {
-        webDriver.get(NIL_Page_PP5);
+        webDriver.get(NIL_Page_PP2);
     }
 
     public void goToTvPage() {
-        webDriver.get(TV_Page_PP5);
+        webDriver.get(TV_Page_PP2);
     }
 
 
     public void goToFilmsPage() {
-        webDriver.get(Films_Page_PP5);
+        webDriver.get(Films_Page_PP2);
         isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
     }
 
     public void goToSerialsPage() {
-        webDriver.get(Serials_Page_PP5);
+        webDriver.get(Serials_Page_PP2);
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
     }
 
     public void goToKidsPage() {
-        webDriver.get(Kids_Page_PP5);
+        webDriver.get(Kids_Page_PP2);
         isElementDisplayed(By.xpath("//span[text()='Детям']"));
     }
 
     public void goToSportPage() {
-        webDriver.get(Sport_Page_PP5);
+        webDriver.get(Sport_Page_PP2);
         isElementDisplayed(By.xpath("//h1[text()='Спорт']"));
     }
 
     public void goToPackagesPage() {
-        webDriver.get(Packages_Page_PP5);
+        webDriver.get(Packages_Page_PP2);
         isElementDisplayed(By.xpath("//span[text()='Магазин']"));
     }
 
     public void goToAllCollectionsPage() {
-        webDriver.get(Collections_Page_PP5);
+        webDriver.get(Collections_Page_PP2);
 
     }
 
     public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
             webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -138,7 +137,7 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkOpenPopUpCreatePasswordForFlowRegistrationNonMF(String login, String password) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
             webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -185,7 +184,7 @@ public class HeaderMenu extends BasePageWebDriver {
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs2.get(1));
         click(By.xpath("//div[text()='Очистить настройки']"));
-        click(By.xpath("//div[@data-type='preprod5']"));
+        click(By.xpath("//div[@data-type='preprod2']"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
                 , webDriver.findElement(By.xpath("//div[text()='Войти']")));
         click(By.xpath("//div[text()='Войти']"));
@@ -495,7 +494,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void logOut() {
-        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//div[@class='ch-trigger__container'])[3]"));
         click(By.xpath("(//span[text()='Выйти'])[1]"));
     }
 
@@ -578,7 +577,7 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkOpenPopUpCreatePasswordForCaseRegistrationMF(String login) {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
             webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -607,7 +606,7 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkOpenPopUpInputEmail(String login) {
         isElementDisplayed(By.xpath("//div[text()='Введите E-mail']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user')");
+            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user')");
             ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
             webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
@@ -934,7 +933,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void goToPromoPage() {
-        webDriver.get(Promo_Page_PP5);
+        webDriver.get(Promo_Page_PP2);
     }
 
     public void inputPassword(String password) {

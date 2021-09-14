@@ -432,7 +432,7 @@ public class CardSerialPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate("https://web-preprod5.megafon.tv/packages");
+        pageHeadfull.navigate("https://web-preprod2.megafon.tv/packages");
     }
 
     public void openFirstCardSerialFromPackageKinoPoPodpiskeHeadfull() {

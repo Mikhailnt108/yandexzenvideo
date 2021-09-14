@@ -3,6 +3,7 @@ package TestSmokeWeb.Р4_Разделы_меню.П5_Спорт_В_РАБОТЕ;
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class Test_02_Работа_фильтров_PW extends TestBasePlaywright {
@@ -11,7 +12,7 @@ public class Test_02_Работа_фильтров_PW extends TestBasePlaywright
     @Story(value = "6. Спорт")
     @DisplayName(value = "2. Работа фильтров")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @Tag("Suite#2")
     public void operationFiltersPageSport() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkImageBlockFastFiltersSportPageForGuest();

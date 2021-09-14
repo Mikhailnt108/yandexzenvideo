@@ -21,7 +21,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
     @DisplayName(value = "4. Авторизация из карточек")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
 //    @TmsLink("31541982")
     public void loginFromCardFilm() throws InterruptedException {
         headerMenu.goToNilPage();
@@ -69,9 +69,9 @@ public class Test_04_Авторизация_из_карточек extends TestBa
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin(" 9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF(" 9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260192144");
@@ -81,7 +81,7 @@ public class Test_04_Авторизация_из_карточек extends TestBa
 
     private void flowAutorisation() {
         headerMenu.checkOpenPopUpInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin(" 9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputPassword();
         headerMenu.inputSixSimbolPassword("111111");

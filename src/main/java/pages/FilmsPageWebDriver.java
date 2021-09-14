@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class FilmsPageWebDriver extends BasePageWebDriver {
-    String SITE_URL = "https://web-preprod5.megafon.tv/";
+    String SITE_URL = "https://web-preprod2.megafon.tv/";
 
     public FilmsPageWebDriver(WebDriver driver) {
         super(driver);
@@ -210,142 +210,142 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotHeaderCherdakGuest.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот чердака:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        WebElement headerCherdakGuestStandard = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
-        Screenshot screenshotHeaderCherdakGuestStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(webDriver, headerCherdakGuestStandard);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCherdakGuestStandard" + ".png");
-        ImageIO.write(screenshotHeaderCherdakGuestStandard.getImage(), "png", expectedFile1);
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        WebElement headerCherdakGuestStandard = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
+//        Screenshot screenshotHeaderCherdakGuestStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .takeScreenshot(webDriver, headerCherdakGuestStandard);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCherdakGuestStandard" + ".png");
+//        ImageIO.write(screenshotHeaderCherdakGuestStandard.getImage(), "png", expectedFile1);
 
 //        // Взять старый эталонный скриншот чердака:
 //        Screenshot screenshotHeaderCherdakGuestStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCherdakGuestStandard" + ".png")));
 
-        // Сравнить скриншоты чердака (тестовый и эталонный):
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotHeaderCherdakGuestStandard, screenshotHeaderCherdakGuest);
-        System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCherdakGuest" + ".png");
-        ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
-        Assert.assertTrue(diff1.getDiffSize() <= 50);
+//        // Сравнить скриншоты чердака (тестовый и эталонный):
+//        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotHeaderCherdakGuestStandard, screenshotHeaderCherdakGuest);
+//        System.out.println(diff1.getDiffSize());
+//        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCherdakGuest" + ".png");
+//        ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
+//        Assert.assertTrue(diff1.getDiffSize() <= 50);
 
-        // Сделать тестовый скриншот баннерной зоны:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][2]"));
-        WebElement headerBanner = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
-        Screenshot screenshotHeaderBanner = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
-                .takeScreenshot(webDriver, headerBanner);
-        File actualFile2 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageBanner" + ".png");
-        ImageIO.write(screenshotHeaderBanner.getImage(), "png", actualFile2);
-
-        // Сделать новый эталонный скриншот баннерной зоны:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        WebElement headerBannerStandard = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
-        Screenshot screenshotHeaderBannerStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(webDriver, headerBannerStandard);
-        File expectedFile2 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageBannerStandard" + ".png");
-        ImageIO.write(screenshotHeaderBannerStandard.getImage(), "png", expectedFile2);
-        screenshotHeaderBannerStandard.setIgnoredAreas(screenshotHeaderBanner.getIgnoredAreas());
+//        // Сделать тестовый скриншот баннерной зоны:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][2]"));
+//        WebElement headerBanner = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
+//        Screenshot screenshotHeaderBanner = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']"))
+//                .takeScreenshot(webDriver, headerBanner);
+//        File actualFile2 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageBanner" + ".png");
+//        ImageIO.write(screenshotHeaderBanner.getImage(), "png", actualFile2);
+//
+//        // Сделать новый эталонный скриншот баннерной зоны:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
+//        WebElement headerBannerStandard = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
+//        Screenshot screenshotHeaderBannerStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .takeScreenshot(webDriver, headerBannerStandard);
+//        File expectedFile2 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageBannerStandard" + ".png");
+//        ImageIO.write(screenshotHeaderBannerStandard.getImage(), "png", expectedFile2);
+//        screenshotHeaderBannerStandard.setIgnoredAreas(screenshotHeaderBanner.getIgnoredAreas());
 
 //        // Взять старый эталонный скриншот баннерной зоны:
 //        Screenshot screenshotHeaderBannerStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageBannerStandard" + ".png")));
 //        screenshotHeaderBannerStandard.setIgnoredAreas(screenshotHeaderBanner.getIgnoredAreas());
 
-        // Сравнить скриншоты баннерной зоны (тестовый и эталонный):
-        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotHeaderBannerStandard, screenshotHeaderBanner);
-        System.out.println(diff2.getDiffSize());
-        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffBanner" + ".png");
-        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
-        Assert.assertTrue(diff2.getDiffSize() <= 50);
+//        // Сравнить скриншоты баннерной зоны (тестовый и эталонный):
+//        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotHeaderBannerStandard, screenshotHeaderBanner);
+//        System.out.println(diff2.getDiffSize());
+//        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffBanner" + ".png");
+//        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
+//        Assert.assertTrue(diff2.getDiffSize() <= 50);
     }
 
     public void checkImageDifferBlocksCollectionGuest() throws IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
 //        driver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFiltersGuest = (JavascriptExecutor) webDriver;
-        blockQuickFiltersGuest.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithTitleGuest = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор все блоки подборок, кроме первой
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постера и элементов баннера
-                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
-                .takeScreenshot(webDriver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithTitleGuest" + ".png");
-        ImageIO.write(screenshotCollectionWithTitleGuest.getImage(), "png", actualFile1);
-
-        // Сделать новый эталонный скриншот блока подборки с заголовком:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters2 = (JavascriptExecutor) webDriver;
-        blockQuickFilters2.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithTitleGuestStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(webDriver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithTitleGuestStandard" + ".png");
-        ImageIO.write(screenshotCollectionWithTitleGuestStandard.getImage(), "png", expectedFile1);
-        screenshotCollectionWithTitleGuestStandard.setIgnoredAreas(screenshotCollectionWithTitleGuest.getIgnoredAreas());
+//        JavascriptExecutor blockQuickFiltersGuest = (JavascriptExecutor) webDriver;
+//        blockQuickFiltersGuest.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithTitleGuest = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор все блоки подборок, кроме первой
+//                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постера и элементов баннера
+//                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
+//                .takeScreenshot(webDriver);
+//        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithTitleGuest" + ".png");
+//        ImageIO.write(screenshotCollectionWithTitleGuest.getImage(), "png", actualFile1);
+//
+//        // Сделать новый эталонный скриншот блока подборки с заголовком:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters2 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters2.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithTitleGuestStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(webDriver);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithTitleGuestStandard" + ".png");
+//        ImageIO.write(screenshotCollectionWithTitleGuestStandard.getImage(), "png", expectedFile1);
+//        screenshotCollectionWithTitleGuestStandard.setIgnoredAreas(screenshotCollectionWithTitleGuest.getIgnoredAreas());
 
 //        // Взять старый эталонный скриншот блока подборки с заголовком:
 //        Screenshot screenshotCollectionWithTitleGuestStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithTitleGuestStandard" + ".png")));
 //        screenshotCollectionWithTitleGuestStandard.setIgnoredAreas(screenshotCollectionWithTitleGuest.getIgnoredAreas());
 
-        // Сравнение скриншотов блока подборки с заголовком (тестовый и эталонный):
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectionWithTitleGuestStandard, screenshotCollectionWithTitleGuest);
-        System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithTitleGuest" + ".png");
-        ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
-        Assert.assertTrue(diff1.getDiffSize() <= 50);
+//        // Сравнение скриншотов блока подборки с заголовком (тестовый и эталонный):
+//        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectionWithTitleGuestStandard, screenshotCollectionWithTitleGuest);
+//        System.out.println(diff1.getDiffSize());
+//        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithTitleGuest" + ".png");
+//        ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
+//        Assert.assertTrue(diff1.getDiffSize() <= 50);
 
-        // Сделать тестовый скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters3 = (JavascriptExecutor) webDriver;
-        blockQuickFilters3.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithoutTitleGuest = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
-                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
-                .addIgnoredElement(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор блоки подборки без заголовка, кроме первого найденного
-                .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@data-test='CollectionBlock']")) // игнор постеры первого найденного блока подборки без заголовка
-                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']")) // игнор блоки подборки с заголовком
-                .takeScreenshot(webDriver);
-        File actualFile2 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithoutTitleGuest" + ".png");
-        ImageIO.write(screenshotCollectionWithoutTitleGuest.getImage(), "png", actualFile2);
+//        // Сделать тестовый скриншот блока подборки без заголовка:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters3 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters3.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithoutTitleGuest = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
+//                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
+//                .addIgnoredElement(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор блоки подборки без заголовка, кроме первого найденного
+//                .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@data-test='CollectionBlock']")) // игнор постеры первого найденного блока подборки без заголовка
+//                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']")) // игнор блоки подборки с заголовком
+//                .takeScreenshot(webDriver);
+//        File actualFile2 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithoutTitleGuest" + ".png");
+//        ImageIO.write(screenshotCollectionWithoutTitleGuest.getImage(), "png", actualFile2);
 
-        // Сделать новый эталонный скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters4 = (JavascriptExecutor) webDriver;
-        blockQuickFilters4.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithoutTitleGuestStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(webDriver);
-        File expectedFile2 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithoutTitleGuestStandard" + ".png");
-        ImageIO.write(screenshotCollectionWithoutTitleGuestStandard.getImage(), "png", expectedFile2);
-        screenshotCollectionWithoutTitleGuestStandard.setIgnoredAreas(screenshotCollectionWithoutTitleGuest.getIgnoredAreas());
-
-//        //Взять старый эталонный скриншот блока подборки без заголовка:
-//        Screenshot screenshotCollectionWithoutTitleGuestStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithoutTitleGuestStandard" + ".png")));
+//        // Сделать новый эталонный скриншот блока подборки без заголовка:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters4 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters4.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithoutTitleGuestStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(webDriver);
+//        File expectedFile2 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithoutTitleGuestStandard" + ".png");
+//        ImageIO.write(screenshotCollectionWithoutTitleGuestStandard.getImage(), "png", expectedFile2);
 //        screenshotCollectionWithoutTitleGuestStandard.setIgnoredAreas(screenshotCollectionWithoutTitleGuest.getIgnoredAreas());
-
-        //Сравнение скриншотов блока подборки без заголовка (тестовый и эталонный):
-        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotCollectionWithoutTitleGuestStandard, screenshotCollectionWithoutTitleGuest);
-        System.out.println(diff2.getDiffSize());
-        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithoutTitleGuest" + ".png");
-        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
-        Assert.assertTrue(diff2.getDiffSize() <= 50);
+//
+////        //Взять старый эталонный скриншот блока подборки без заголовка:
+////        Screenshot screenshotCollectionWithoutTitleGuestStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithoutTitleGuestStandard" + ".png")));
+////        screenshotCollectionWithoutTitleGuestStandard.setIgnoredAreas(screenshotCollectionWithoutTitleGuest.getIgnoredAreas());
+//
+//        //Сравнение скриншотов блока подборки без заголовка (тестовый и эталонный):
+//        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotCollectionWithoutTitleGuestStandard, screenshotCollectionWithoutTitleGuest);
+//        System.out.println(diff2.getDiffSize());
+//        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithoutTitleGuest" + ".png");
+//        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
+//        Assert.assertTrue(diff2.getDiffSize() <= 50);
     }
 
     public void checkImageDifferFooter() throws IOException {
         // Сделать тестовый скриншот футера:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         WebElement footer = webDriver.findElement(By.xpath("//footer[@class='uy6cMg76OlWzJbrz5UGzE']"));
         Screenshot screenshotFooter = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -401,7 +401,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotFilmsGuest.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот скролла страницы "Фильмы:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         JavascriptExecutor blockQuickFilters6 = (JavascriptExecutor) webDriver;
         blockQuickFilters6.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
         Screenshot screenshotFilmsGuestStandard = new AShot()
@@ -429,7 +429,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
 
     public void checkImageDifferBreadcrumbsAndBlocksFiltersGuest() throws IOException {
         // Сделать тестовый скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersGuest = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -440,7 +440,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotBreadcrumbsAndBlocksFiltersGuest.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersGuestStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -496,7 +496,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
             Thread.sleep(2000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/movies/vods']//span[text()='Фильмы']")).size());
             Thread.sleep(2000);
-            webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+            webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         }
 
     }
@@ -718,7 +718,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotHeaderCherdakUser.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот чердака:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         WebElement headerCherdakUserStandard = webDriver.findElement(By.xpath("//div[@class='ch-cherdak']"));
         Screenshot screenshotHeaderCherdakUserStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
@@ -737,7 +737,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
         Assert.assertTrue(diff1.getDiffSize() <= 50);
 
         // Сделать тестовый скриншот баннерной зоны:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][2]"));
         WebElement headerBanner = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
         Screenshot screenshotHeaderBanner = new AShot()
@@ -748,7 +748,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotHeaderBanner.getImage(), "png", actualFile2);
 
         // Сделать новый эталонный скриншот баннерной зоны:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
         WebElement headerBannerStandard = webDriver.findElement(By.xpath("//div[@data-test='BannerCarousel']"));
         Screenshot screenshotHeaderBannerStandard = new AShot()
@@ -783,7 +783,7 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
         ImageIO.write(screenshotBreadcrumbsAndBlocksFiltersUser.getImage(), "png", actualFile1);
 
         // Сделать новый эталонный скриншот области хлебных крошек и блока фильтров страницы "Фильмы:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod2.megafon.tv/movies/vods");
         Screenshot screenshotBreadcrumbsAndBlocksFiltersUserStandard = new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .shootingStrategy(ShootingStrategies.viewportPasting(100))
@@ -807,130 +807,130 @@ public class FilmsPageWebDriver extends BasePageWebDriver {
     public void checkImageDifferBlocksCollectionUser() throws IOException {
         // Сделать тестовый скриншот блока подборки с заголовком:
 //        driver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFiltersGuest = (JavascriptExecutor) webDriver;
-        blockQuickFiltersGuest.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithTitleUser = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор все блоки подборок, кроме первой
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постера и элементов баннера
-                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
-                .takeScreenshot(webDriver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithTitleGuest" + ".png");
-        ImageIO.write(screenshotCollectionWithTitleUser.getImage(), "png", actualFile1);
-
-        // Сделать новый эталонный скриншот блока подборки с заголовком:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters2 = (JavascriptExecutor) webDriver;
-        blockQuickFilters2.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithTitleUserStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(webDriver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithTitleUserStandard" + ".png");
-        ImageIO.write(screenshotCollectionWithTitleUserStandard.getImage(), "png", expectedFile1);
-        screenshotCollectionWithTitleUserStandard.setIgnoredAreas(screenshotCollectionWithTitleUser.getIgnoredAreas());
+//        JavascriptExecutor blockQuickFiltersGuest = (JavascriptExecutor) webDriver;
+//        blockQuickFiltersGuest.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithTitleUser = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор все блоки подборок, кроме первой
+//                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постера и элементов баннера
+//                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
+//                .takeScreenshot(webDriver);
+//        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithTitleGuest" + ".png");
+//        ImageIO.write(screenshotCollectionWithTitleUser.getImage(), "png", actualFile1);
+//
+//        // Сделать новый эталонный скриншот блока подборки с заголовком:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters2 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters2.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithTitleUserStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(webDriver);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithTitleUserStandard" + ".png");
+//        ImageIO.write(screenshotCollectionWithTitleUserStandard.getImage(), "png", expectedFile1);
+//        screenshotCollectionWithTitleUserStandard.setIgnoredAreas(screenshotCollectionWithTitleUser.getIgnoredAreas());
 
 //        // Взять старый эталонный скриншот блока подборки с заголовком:
 //        Screenshot screenshotCollectionWithTitleUserStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithTitleUserStandard" + ".png")));
 //        screenshotCollectionWithTitleUserStandard.setIgnoredAreas(screenshotCollectionWithTitleUser.getIgnoredAreas());
 
-        // Сравнение скриншотов блока подборки с заголовком (тестовый и эталонный):
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectionWithTitleUserStandard, screenshotCollectionWithTitleUser);
-        System.out.println(diff1.getDiffSize());
-        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithTitleUser" + ".png");
-        ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
-        Assert.assertTrue(diff1.getDiffSize() <= 50);
-
-        // Сделать тестовый скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters3 = (JavascriptExecutor) webDriver;
-        blockQuickFilters3.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithoutTitleUser = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
-                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
-                .addIgnoredElement(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор блоки подборки без заголовка, кроме первого найденного
-                .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@data-test='CollectionBlock']")) // игнор постеры первого найденного блока подборки без заголовка
-                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']")) // игнор блоки подборки с заголовком
-                .takeScreenshot(webDriver);
-        File actualFile2 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithoutTitleUser" + ".png");
-        ImageIO.write(screenshotCollectionWithoutTitleUser.getImage(), "png", actualFile2);
-
-        // Сделать новый эталонный скриншот блока подборки без заголовка:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters4 = (JavascriptExecutor) webDriver;
-        blockQuickFilters4.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotCollectionWithoutTitleUserStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(webDriver);
-        File expectedFile2 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithoutTitleUserStandard" + ".png");
-        ImageIO.write(screenshotCollectionWithoutTitleUserStandard.getImage(), "png", expectedFile2);
-        screenshotCollectionWithoutTitleUserStandard.setIgnoredAreas(screenshotCollectionWithoutTitleUser.getIgnoredAreas());
+//        // Сравнение скриншотов блока подборки с заголовком (тестовый и эталонный):
+//        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCollectionWithTitleUserStandard, screenshotCollectionWithTitleUser);
+//        System.out.println(diff1.getDiffSize());
+//        File diffFile1 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithTitleUser" + ".png");
+//        ImageIO.write(diff1.getMarkedImage(), "png", diffFile1);
+//        Assert.assertTrue(diff1.getDiffSize() <= 50);
+//
+//        // Сделать тестовый скриншот блока подборки без заголовка:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters3 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters3.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithoutTitleUser = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постер и элементы баннера
+//                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
+//                .addIgnoredElement(By.xpath("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>1]")) // игнор блоки подборки без заголовка, кроме первого найденного
+//                .addIgnoredElement(By.xpath("//div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@data-test='CollectionBlock']")) // игнор постеры первого найденного блока подборки без заголовка
+//                .addIgnoredElement(By.xpath("//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']")) // игнор блоки подборки с заголовком
+//                .takeScreenshot(webDriver);
+//        File actualFile2 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "filmsPageCollectionWithoutTitleUser" + ".png");
+//        ImageIO.write(screenshotCollectionWithoutTitleUser.getImage(), "png", actualFile2);
+//
+//        // Сделать новый эталонный скриншот блока подборки без заголовка:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters4 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters4.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotCollectionWithoutTitleUserStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(webDriver);
+//        File expectedFile2 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithoutTitleUserStandard" + ".png");
+//        ImageIO.write(screenshotCollectionWithoutTitleUserStandard.getImage(), "png", expectedFile2);
+//        screenshotCollectionWithoutTitleUserStandard.setIgnoredAreas(screenshotCollectionWithoutTitleUser.getIgnoredAreas());
 
 //        //Взять старый эталонный скриншот блока подборки без заголовка:
 //        Screenshot screenshotCollectionWithoutTitleUserStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "filmsPageCollectionWithoutTitleUserStandard" + ".png")));
 //        screenshotCollectionWithoutTitleUserStandard.setIgnoredAreas(screenshotCollectionWithoutTitleUser.getIgnoredAreas());
 
-        //Сравнение скриншотов блока подборки без заголовка (тестовый и эталонный):
-        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotCollectionWithoutTitleUserStandard, screenshotCollectionWithoutTitleUser);
-        System.out.println(diff2.getDiffSize());
-        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithoutTitleUser" + ".png");
-        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
-        Assert.assertTrue(diff2.getDiffSize() <= 50);
+//        //Сравнение скриншотов блока подборки без заголовка (тестовый и эталонный):
+//        ImageDiff diff2 = new ImageDiffer().makeDiff(screenshotCollectionWithoutTitleUserStandard, screenshotCollectionWithoutTitleUser);
+//        System.out.println(diff2.getDiffSize());
+//        File diffFile2 = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCollectionWithoutTitleUser" + ".png");
+//        ImageIO.write(diff2.getMarkedImage(), "png", diffFile2);
+//        Assert.assertTrue(diff2.getDiffSize() <= 50);
     }
 
     public void checkImageDifferFilmsPageScrollUser() throws IOException {
         // Сделать тестовый скриншот скролла страницы "Фильмы:
-//        driver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters5 = (JavascriptExecutor) webDriver;
-        blockQuickFilters5.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotFilmsUser = new AShot().coordsProvider(new WebDriverCoordsProvider())
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>2]")) // игнорировать блоки подборки, кроме первых 2х
-                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постера и элементов баннера
-                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[2]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[2]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
-                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[2]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
-                .takeScreenshot(webDriver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "scrollPageFilmsUser" + ".png");
-        ImageIO.write(screenshotFilmsUser.getImage(), "png", actualFile1);
+////        driver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters5 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters5.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotFilmsUser = new AShot().coordsProvider(new WebDriverCoordsProvider())
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[position()>2]")) // игнорировать блоки подборки, кроме первых 2х
+//                .addIgnoredElement(By.xpath("//div[@class='_2yqndJWOuX36UWc1F5T19w']")) // игнор постера и элементов баннера
+//                .addIgnoredElement(By.xpath("//div[@class='_3vWFiYltc8dtOgsuRbqAyX']")) // игнорировать закрепленный блок фильтров
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[2]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']")) // название и мета контента
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[2]//div[@class='HZzNvtNX5fExVnjY_Popf']")) // постер и возраст тайла в подборке
+//                .addIgnoredElement(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[2]//div[@class='_3dON2ZfMNClOIKEKKf0KE9']")) //целиком название блока и счетчик
+//                .takeScreenshot(webDriver);
+//        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "scrollPageFilmsUser" + ".png");
+//        ImageIO.write(screenshotFilmsUser.getImage(), "png", actualFile1);
 
-        // Сделать новый эталонный скриншот скролла страницы "Фильмы:
-        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
-        JavascriptExecutor blockQuickFilters6 = (JavascriptExecutor) webDriver;
-        blockQuickFilters6.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
-        Screenshot screenshotFilmsUserStandard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(webDriver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "scrollFilmsPageUserStandard" + ".png");
-        ImageIO.write(screenshotFilmsUserStandard.getImage(), "png", expectedFile1);
-        screenshotFilmsUserStandard.setIgnoredAreas(screenshotFilmsUser.getIgnoredAreas());
-
-//        // Взять старый эталонный скриншот скролла страницы "Фильмы:
-//        Screenshot screenshotFilmsUserStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "scrollFilmsPageUserStandard" + ".png")));
-//        screenshotFilmsUserStandard.setIgnoredAreas(screenshotFilmsGuest.getIgnoredAreas());
-
-        // Сравнить скриншоты скролла страницы "Фильмы" (тестовый и эталонный):
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotFilmsUserStandard, screenshotFilmsUser);
-        System.out.println(diff1.getDiffSize());
-        File diffFile = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffFilmsPageScrollUser" + ".png");
-        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
-        Assert.assertTrue(diff1.getDiffSize() <= 500);
-        webDriver.navigate().refresh();
-        JavascriptExecutor scrollUp = (JavascriptExecutor) webDriver;
-        scrollUp.executeScript("scroll(0, -250);");
+//        // Сделать новый эталонный скриншот скролла страницы "Фильмы:
+//        webDriver.get("https://web-preprod5.megafon.tv/movies/vods");
+//        JavascriptExecutor blockQuickFilters6 = (JavascriptExecutor) webDriver;
+//        blockQuickFilters6.executeScript("return document.getElementsByClassName('_3GjHo6eid2U-Hge5EKolW5')[0].remove();");
+//        Screenshot screenshotFilmsUserStandard = new AShot()
+//                .coordsProvider(new WebDriverCoordsProvider())
+//                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+//                .takeScreenshot(webDriver);
+//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/" + "scrollFilmsPageUserStandard" + ".png");
+//        ImageIO.write(screenshotFilmsUserStandard.getImage(), "png", expectedFile1);
+//        screenshotFilmsUserStandard.setIgnoredAreas(screenshotFilmsUser.getIgnoredAreas());
+//
+////        // Взять старый эталонный скриншот скролла страницы "Фильмы:
+////        Screenshot screenshotFilmsUserStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "scrollFilmsPageUserStandard" + ".png")));
+////        screenshotFilmsUserStandard.setIgnoredAreas(screenshotFilmsGuest.getIgnoredAreas());
+//
+//        // Сравнить скриншоты скролла страницы "Фильмы" (тестовый и эталонный):
+//        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotFilmsUserStandard, screenshotFilmsUser);
+//        System.out.println(diff1.getDiffSize());
+//        File diffFile = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffFilmsPageScrollUser" + ".png");
+//        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
+//        Assert.assertTrue(diff1.getDiffSize() <= 500);
+//        webDriver.navigate().refresh();
+//        JavascriptExecutor scrollUp = (JavascriptExecutor) webDriver;
+//        scrollUp.executeScript("scroll(0, -250);");
     }
 }
 

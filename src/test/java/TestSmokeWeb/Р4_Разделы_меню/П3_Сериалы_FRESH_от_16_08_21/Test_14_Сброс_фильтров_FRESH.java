@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "Suite#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_14_Сброс_фильтров_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -17,7 +17,7 @@ public class Test_14_Сброс_фильтров_FRESH extends TestBaseWebDriver
     @DisplayName(value ="Сброс фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#2Exp")
+    @Tag("Suite#4")
     public void resetAllFilters() throws InterruptedException {
         headerMenu.goToFilmsPage();
         serialsPage.chooseOneQuickFilter();

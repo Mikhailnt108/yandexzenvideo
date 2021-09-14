@@ -22,7 +22,7 @@ public class Test_08_2_Передачи_в_эфире_SCREENSHOT_VRT_PW extends 
     @DisplayName(value ="Передачи в эфире (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1Exp")
+    @Tag("Suite#1")
     public void tvProgramInAir() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         tvPagePW.checkImageTabTvProgramInAirForGuest();

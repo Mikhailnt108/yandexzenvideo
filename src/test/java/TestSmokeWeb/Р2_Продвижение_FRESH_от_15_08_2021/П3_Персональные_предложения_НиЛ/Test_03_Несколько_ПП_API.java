@@ -17,7 +17,7 @@ public class Test_03_Несколько_ПП_API extends TestBaseWebDriver {
     @DisplayName(value = "Несколько ПП")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3Exp")
+    @Tag("Suite#3")
     public void fewPersonalOffers() throws InterruptedException {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.createPersonalOfferTypeSubscription();
