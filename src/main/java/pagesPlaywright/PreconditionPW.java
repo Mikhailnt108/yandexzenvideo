@@ -5,10 +5,7 @@ import com.microsoft.playwright.Page;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.AnyOf.anyOf;
@@ -135,28 +132,45 @@ public class PreconditionPW extends BasePagePlaywright {
 //                    "value('Test','Test', 0, 2021-08-26 00:40:35, 2021-08-26 00:40:35, megafon_tv)");
     }
 
-    public void checkCountCodeGroups() throws ClassNotFoundException, SQLException {
+    public void checkCountPersonal_Offers() throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
-        ResultSet countCG = statement.executeQuery("select count(*) as count from code_groups");
-        countCG.next();
-        int count = countCG.getInt(1);
-        countCG.next();
+        ResultSet countCG = statement.executeQuery("SELECT COUNT(*) FROM personal_offers");
+            countCG.next();
+//            int count = countCG.getInt(1);
+            System.out.println(countCG.getInt(1));
+            if (countCG.getInt(1) < 4) {
+                statement.executeUpdate("INSERT INTO personal_offers (name, description, cms_description, mechanics, processed_images_id, questions, params, valid_since, valid_until, created_at, updated_at, color, activation_type) VALUES('POPartner2', 'text for description', NULL, 'partner_offer', 'personal_offer/e6/e8/cf452abe8109ed0b04fcfb6b4a079bb8e07d', '{}', '{\"tnb\": {\"tnb_type\": \"\", \"package_id\": \"\", \"expiration_type\": \"\"}, \"subscription\": {\"price\": 0, \"package_id\": \"\", \"payment_interval\": 0}, \"user_filters\": {\"partners\": [\"megafon_tv\"], \"device_filter\": {\"os_types\": null, \"device_types\": null, \"manufacturers\": null}, \"msisdn_filter\": false, \"vk_only_filter\": false, \"auth_filter_multiple\": [\"megafon\"]}, \"partner_offer\": {\"partner_link\": \"https://okko.tv/\", \"partner_button\": \"OkkoTv\"}}'::jsonb::jsonb, '2021-09-11 22:28:54.000', '2021-09-14 10:57:33.000', '2021-09-03 13:44:12.000', '2021-09-14 10:57:33.000', '#310062', 'segment');");
+            }
+            ResultSet countCgCurrent = statement.executeQuery("SELECT COUNT(*) FROM personal_offers");
+            countCgCurrent.next();
+            System.out.println(countCgCurrent.getInt(1));
+            if (countCgCurrent.getInt(1) < 4) {
+                statement.executeUpdate("INSERT INTO personal_offers (name, description, cms_description, mechanics, processed_images_id, questions, params, valid_since, valid_until, created_at, updated_at, color, activation_type) VALUES('POPartner2', 'text for description', NULL, 'partner_offer', 'personal_offer/e6/e8/cf452abe8109ed0b04fcfb6b4a079bb8e07d', '{}', '{\"tnb\": {\"tnb_type\": \"\", \"package_id\": \"\", \"expiration_type\": \"\"}, \"subscription\": {\"price\": 0, \"package_id\": \"\", \"payment_interval\": 0}, \"user_filters\": {\"partners\": [\"megafon_tv\"], \"device_filter\": {\"os_types\": null, \"device_types\": null, \"manufacturers\": null}, \"msisdn_filter\": false, \"vk_only_filter\": false, \"auth_filter_multiple\": [\"megafon\"]}, \"partner_offer\": {\"partner_link\": \"https://okko.tv/\", \"partner_button\": \"OkkoTv\"}}'::jsonb::jsonb, '2021-09-11 22:28:54.000', '2021-09-14 10:57:33.000', '2021-09-03 13:44:12.000', '2021-09-14 10:57:33.000', '#310062', 'segment');");
+            }
+                ResultSet countCgCurrent2 = statement.executeQuery("SELECT COUNT(*) FROM personal_offers");
+                countCgCurrent2.next();
+                System.out.println(countCgCurrent2.getInt(1));
 
+            if (countCgCurrent2.getInt(1) < 4){
+                statement.executeUpdate("INSERT INTO personal_offers (name, description, cms_description, mechanics, processed_images_id, questions, params, valid_since, valid_until, created_at, updated_at, color, activation_type) VALUES('POPartner2', 'text for description', NULL, 'partner_offer', 'personal_offer/e6/e8/cf452abe8109ed0b04fcfb6b4a079bb8e07d', '{}', '{\"tnb\": {\"tnb_type\": \"\", \"package_id\": \"\", \"expiration_type\": \"\"}, \"subscription\": {\"price\": 0, \"package_id\": \"\", \"payment_interval\": 0}, \"user_filters\": {\"partners\": [\"megafon_tv\"], \"device_filter\": {\"os_types\": null, \"device_types\": null, \"manufacturers\": null}, \"msisdn_filter\": false, \"vk_only_filter\": false, \"auth_filter_multiple\": [\"megafon\"]}, \"partner_offer\": {\"partner_link\": \"https://okko.tv/\", \"partner_button\": \"OkkoTv\"}}'::jsonb::jsonb, '2021-09-11 22:28:54.000', '2021-09-14 10:57:33.000', '2021-09-03 13:44:12.000', '2021-09-14 10:57:33.000', '#310062', 'segment');");
+            }
+            ResultSet countCgCurrent3 = statement.executeQuery("SELECT COUNT(*) FROM personal_offers");
+            countCgCurrent3.next();
+            System.out.println(countCgCurrent3.getInt(1));
 
-//       int i = Integer.parseInt(String.valueOf());
-//       while(countCG.next()){
-//       countCG.getString(1)};
-//        while (rows < 4) {
-//        }
-//        if (i < 4) {
-//            Class.forName("org.postgresql.Driver");
-////           statement.executeUpdate("INSERT INTO code_groups (id,ad_campaign_id,name,valid_from,valid_to,published,description_popup,description_promotion,max_usages,register_days,user_type,mechanics,created_at,updated_at,device_type,os_type,manufacturer,multiple_activation) " +
-////                   "value()");
-////
-////       }
-//       System.out.println(i);
+            if (countCgCurrent3.getInt(1) < 4){
+                statement.executeUpdate("INSERT INTO personal_offers (name, description, cms_description, mechanics, processed_images_id, questions, params, valid_since, valid_until, created_at, updated_at, color, activation_type) VALUES('POPartner2', 'text for description', NULL, 'partner_offer', 'personal_offer/e6/e8/cf452abe8109ed0b04fcfb6b4a079bb8e07d', '{}', '{\"tnb\": {\"tnb_type\": \"\", \"package_id\": \"\", \"expiration_type\": \"\"}, \"subscription\": {\"price\": 0, \"package_id\": \"\", \"payment_interval\": 0}, \"user_filters\": {\"partners\": [\"megafon_tv\"], \"device_filter\": {\"os_types\": null, \"device_types\": null, \"manufacturers\": null}, \"msisdn_filter\": false, \"vk_only_filter\": false, \"auth_filter_multiple\": [\"megafon\"]}, \"partner_offer\": {\"partner_link\": \"https://okko.tv/\", \"partner_button\": \"OkkoTv\"}}'::jsonb::jsonb, '2021-09-11 22:28:54.000', '2021-09-14 10:57:33.000', '2021-09-03 13:44:12.000', '2021-09-14 10:57:33.000', '#310062', 'segment');");
+            }
+            ResultSet countCgCurrent4 = statement.executeQuery("SELECT COUNT(*) FROM personal_offers");
+            countCgCurrent4.next();
+            System.out.println(countCgCurrent4.getInt(1));
         }
+
     }
+
+
+
+
 
 
 
