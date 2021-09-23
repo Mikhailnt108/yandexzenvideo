@@ -10,7 +10,8 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
-import static base.TestBasePlaywright.*;
+import static base.TestBasePlaywright.pageHeadfull;
+import static base.TestBasePlaywright.vrt;
 
 public class CardSerialPW extends BasePagePlaywright {
     private Page page;

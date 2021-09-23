@@ -6,7 +6,6 @@ import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 

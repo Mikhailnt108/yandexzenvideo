@@ -1,13 +1,9 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
-import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 
-import java.nio.file.Paths;
-
-import static base.TestBasePlaywright.*;
-import static base.TestBasePlaywright.contextNormalModeHeadless;
+import static base.TestBasePlaywright.pageHeadfull;
 
 public class PackagesPagePW extends BasePagePlaywright {
     private Page page;

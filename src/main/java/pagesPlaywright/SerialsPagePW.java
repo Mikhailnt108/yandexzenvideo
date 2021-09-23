@@ -5,11 +5,13 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
+
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
-import static base.TestBasePlaywright.*;
+import static base.TestBasePlaywright.pageHeadfull;
+import static base.TestBasePlaywright.vrt;
 
 public class SerialsPagePW extends BasePagePlaywright {
     private Page page;

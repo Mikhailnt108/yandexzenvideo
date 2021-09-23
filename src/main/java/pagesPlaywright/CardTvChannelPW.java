@@ -2,8 +2,6 @@ package pagesPlaywright;
 
 import base.BasePagePlaywright;
 import com.microsoft.playwright.Page;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CardTvChannelPW extends BasePagePlaywright {
     private Page page;

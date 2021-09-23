@@ -2,7 +2,6 @@ package pagesPlaywright;
 
 import base.BasePagePlaywright;
 import com.microsoft.playwright.Page;
-import org.openqa.selenium.By;
 
 public class CardPackagePW extends BasePagePlaywright {
     private Page page;
