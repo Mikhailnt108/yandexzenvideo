@@ -21,15 +21,15 @@ services:
     ports:
         - 8082:8080
     command: ["--selenoid-uri", "http://selenoid:4444"]
-  jenkins:
-    image: jenkins/jenkins:lts
-    volumes:
-        - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/work/jenkins:/var/jenkins_home"
-    ports:
-        - 8085:8080
-    network_mode: bridge
+#  jenkins:
+#    image: jenkins/jenkins:lts
+#    volumes:
+#        - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/work/jenkins:/var/jenkins_home"
+#    ports:
+#        - 8085:8080
+#    network_mode: bridge
   ui:
-    image: visualregressiontracker/ui:4.17.0
+    image: visualregressiontracker/ui:4.18.0
     ports:
       - "${PORT}:8080"
     # https config
@@ -42,7 +42,7 @@ services:
       REACT_APP_API_URL: ${REACT_APP_API_URL}
     restart: always
   api:
-    image: visualregressiontracker/api:4.17.0
+    image: visualregressiontracker/api:4.18.0
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       JWT_SECRET: ${JWT_SECRET}
@@ -60,7 +60,7 @@ services:
       - postgres
     restart: always
   migration:
-    image: visualregressiontracker/migration:4.17.0
+    image: visualregressiontracker/migration:4.18.0
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     depends_on:
