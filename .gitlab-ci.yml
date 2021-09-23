@@ -1,0 +1,17 @@
+image: maven:latest
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+test:
+  stage: test
+  script:
+    - mvn clean test
+
+deploy:
+  stage: deploy
+  script:
+    - mvn io.qameta.allure:allure-maven:report
+
