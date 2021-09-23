@@ -158,7 +158,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void paymentPackageTnBForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) {
+    public void paymentPackageTnBForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
         click(By.xpath("//span[contains(text(),'Подключить бесплатно на')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
         click(By.xpath("//button[text()='Добавить и подключить']"));
@@ -228,7 +228,7 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[text()='Отменить']"));
     }
 
-    public void inputDataBankCard(String numberBankCard, String dataValidity, String codeCVV) {
+    public void inputDataBankCard(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
         writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
         writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);

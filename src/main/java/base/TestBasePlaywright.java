@@ -92,7 +92,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
 //                        .setViewportSize(null).setArgs(Arrays.asList("--start-maximized")));
 //      браузер Headless:
         contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
-                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(true)
+                new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
                         .setViewportSize(1900, 920));
 //        для ноута:                .setViewportSize(1366, 768));
 //        браузер Headless с записью видео:

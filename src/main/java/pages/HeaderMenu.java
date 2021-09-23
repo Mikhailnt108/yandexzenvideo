@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
 public class HeaderMenu extends BasePageWebDriver {
     //ПП1
     String NIL_Page_PP1 = "https://web-preprod1.megafon.tv/";
@@ -57,12 +60,24 @@ public class HeaderMenu extends BasePageWebDriver {
     String CMS_PP5_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user";
     String Promo_Page_PP5 = "https://web-preprod5.megafon.tv/profile/promotions";
 
+    //ПП6
+    String NIL_Page_PP6 = "https://web-preprod6.megafon.tv/";
+    String TV_Page_PP6 = "https://web-preprod6.megafon.tv/tv/";
+    String Films_Page_PP6 = "https://web-preprod6.megafon.tv/movies/vods";
+    String Serials_Page_PP6 = "https://web-preprod6.megafon.tv/shows";
+    String Kids_Page_PP6 = "https://web-preprod6.megafon.tv/kids";
+    String Sport_Page_PP6 = "https://web-preprod6.megafon.tv/sport";
+    String Packages_Page_PP6 = "https://web-preprod6.megafon.tv/packages";
+    String Collections_Page_6 = "https://web-preprod6.megafon.tv/collection";
+    String CMS_PP6_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user";
+    String Promo_Page_PP6 = "https://web-preprod6.megafon.tv/profile/promotions";
+
     public HeaderMenu(WebDriver driver) {
         super(driver);
     }
 
     public void goToNilPage() {
-        webDriver.get(NIL_Page_PP2);
+        open(NIL_Page_PP2);
     }
 
     public void goToTvPage() {
@@ -385,7 +400,9 @@ public class HeaderMenu extends BasePageWebDriver {
 
 
     public void checkOpenPopUpInputPhone() {
-        isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
+//        isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
+
+        isElementDisplayed(By.xpath("//h1[text()='Введите номер телефона']"));
     }
 
     public void checkElementsPopUpInputPhone() {
@@ -396,8 +413,14 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void inputLogin(String login) {
-        WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
-        element.sendKeys(login);
+//        WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
+
+        $(By.xpath("//input[@value='+7']")).setValue(login);
+        //input[@name='login']
+//        writeText(By.xpath("//input[@value='+7']"), login);
+        //input[@name='login']
+//        writeText(By.xpath("//input[@name='login']"), login);
+//        element.sendKeys(login);
 
     }
 

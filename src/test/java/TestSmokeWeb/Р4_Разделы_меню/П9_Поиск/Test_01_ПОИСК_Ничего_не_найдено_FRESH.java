@@ -17,7 +17,7 @@ public class Test_01_ПОИСК_Ничего_не_найдено_FRESH extends T
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("Suite#3")
-    public void inputInvalidRequestInSearch(){
+    public void inputInvalidRequestInSearch() throws InterruptedException {
         headerMenu.goToNilPage();
         headerMenu.clickToSearchButton();
         headerMenu.checkOpenFieldSearch();

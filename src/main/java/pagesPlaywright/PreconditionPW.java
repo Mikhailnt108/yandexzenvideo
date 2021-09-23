@@ -132,7 +132,9 @@ public class PreconditionPW extends BasePagePlaywright {
 //                    "value('Test','Test', 0, 2021-08-26 00:40:35, 2021-08-26 00:40:35, megafon_tv)");
     }
 
-    public void checkCountPersonal_Offers() throws ClassNotFoundException, SQLException {
+    public void checkCountAndAddPersonal_Offers() throws ClassNotFoundException, SQLException {
+        Class.forName("org.postgresql.Driver");
+        statement.executeUpdate("update personal_offers set valid_until = '2020-05-01'");
         Class.forName("org.postgresql.Driver");
         ResultSet countCG = statement.executeQuery("SELECT COUNT(*) FROM personal_offers");
             countCG.next();

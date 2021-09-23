@@ -27,12 +27,12 @@ public class Test_01_2_ФИЛЬМЫ_Внешний_вид_раздела_SCREENS
     @Tag("Suite#1")
     public void appearanceSectionFilmsPage() throws Exception {
         // пользователь НЕ авторизован:
-        filmsPagePW.checkImageFilmsPageScrollForGuest();
-        filmsPagePW.checkImageCherdakAndBannersForUnauthorized();
-        filmsPagePW.checkImageBlocksFiltersForUnauthorized();
-        filmsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
-        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
-        filmsPagePW.checkImageFooterForUnauthorized();
+//        filmsPagePW.checkImageFilmsPageScrollForGuest();
+//        filmsPagePW.checkImageCherdakAndBannersForUnauthorized();
+//        filmsPagePW.checkImageBlocksFiltersForUnauthorized();
+//        filmsPagePW.checkImageBlocksCollectionWithHeaderForUnauthorized();
+//        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForUnauthorized();
+//        filmsPagePW.checkImageFooterForUnauthorized();
 
         // пользоваеть авторизован:
         headerMenuPW.goToFilmsPage();

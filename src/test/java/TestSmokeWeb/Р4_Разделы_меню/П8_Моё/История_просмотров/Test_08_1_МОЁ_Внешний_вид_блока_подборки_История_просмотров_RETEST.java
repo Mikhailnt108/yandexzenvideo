@@ -76,7 +76,7 @@ public class Test_08_1_МОЁ_Внешний_вид_блока_подборки_
         serialsPage.scrollToTailWatchAndEdit();
         pageCMS.deleteAccountNonMF("79261184972");
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPopUpInputPhone();

@@ -32,6 +32,7 @@ public class BasePageWebDriver {
         return false;
     }
     public void writeText(By elementBy, String text) {
+        webDriver.findElement(elementBy).click();
         waitVisibility(elementBy);
         WebElement element = webDriver.findElement(elementBy);
         element.sendKeys(Keys.CONTROL,"a");
