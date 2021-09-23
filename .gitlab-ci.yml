@@ -8,6 +8,7 @@ cache:
 test:
   stage: test
   script:
+    - docker-compose build
     - mvn clean test
 
 deploy:

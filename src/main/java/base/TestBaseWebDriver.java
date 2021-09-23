@@ -130,7 +130,7 @@ public class TestBaseWebDriver {
 
     @AfterEach
     public void finish() {
-//        Optional.ofNullable(WebDriverRunner.getWebDriver()).ifPresent(WebDriver::quit);
-        webDriver.quit();
+        Optional.ofNullable(WebDriverRunner.getWebDriver()).ifPresent(WebDriver::quit);
+//        webDriver.quit();
     }
 }
