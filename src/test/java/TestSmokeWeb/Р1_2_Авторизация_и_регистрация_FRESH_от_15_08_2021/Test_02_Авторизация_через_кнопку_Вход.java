@@ -24,6 +24,7 @@ public class Test_02_Авторизация_через_кнопку_Вход ext
     @Test
     @Tag("Suite#1")
     public void loginFromHeaderMenu() throws InterruptedException {
+
         headerMenu.goToNilPage();
         flowRegister();
         headerMenu.logOut();
