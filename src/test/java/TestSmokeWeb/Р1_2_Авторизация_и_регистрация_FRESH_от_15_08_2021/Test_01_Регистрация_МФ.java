@@ -28,7 +28,6 @@ public class Test_01_Регистрация_МФ extends TestBaseWebDriver {
         flowRegistation();
         pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
