@@ -12,6 +12,7 @@ build:
   image: docker:latest
   stage: build
   script:
+    - systemctl start docker
     - apk add --no-cache docker-compose
     - docker-compose up
 
