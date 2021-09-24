@@ -1,5 +1,13 @@
-image: maven:latest
+image:
+  - docker
+  - maven:latest
 
+services:
+  - docker:dind
+build:
+  script:
+    - apk add --no-cache docker-compose
+    - docker-compose up -d
 cache:
   paths:
     - .m2/repository/
@@ -8,7 +16,6 @@ cache:
 test:
   stage: test
   script:
-    - docker-compose build
     - mvn clean test
 
 deploy:
