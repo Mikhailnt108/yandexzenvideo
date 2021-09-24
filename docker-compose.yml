@@ -3,7 +3,7 @@ services:
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
-      - "${PWD}/init/selenoid:/etc/selenoid"
+      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/init/selenoid:/etc/selenoid"
       - "${PWD}/working/selenoid/video:/opt/selenoid/video"
       - "${PWD}/working/selenoid/logs:/opt/selenoid/logs"
       - "/var/run/docker.sock:/var/run/docker.sock"
