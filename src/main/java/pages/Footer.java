@@ -114,7 +114,7 @@ public class Footer extends BasePageWebDriver {
     }
 
     public void clickToLinkDocsAndRules() {
-        String url1 = "https://web-preprod2.megafon.tv/docs/rules-provide-telematic-services.pdf";
+        String url1 = "https://web-preprod6.megafon.tv/docs/rules-provide-telematic-services.pdf";
         click(By.linkText("Правила оказания телематических услуг связи"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
@@ -123,7 +123,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
 
-        String url3 = "https://web-preprod2.megafon.tv/docs/rules-ktv.pdf";
+        String url3 = "https://web-preprod6.megafon.tv/docs/rules-ktv.pdf";
         click(By.linkText("Правила оказания услуг телевизионного вещания"));
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs2.get(1));
@@ -141,7 +141,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
 
-        String url7 = "https://web-preprod2.megafon.tv/static/privacy.pdf";
+        String url7 = "https://web-preprod6.megafon.tv/static/privacy.pdf";
         click(By.linkText("Политика конфидециальности"));
         ArrayList tabs4 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs4.get(1));

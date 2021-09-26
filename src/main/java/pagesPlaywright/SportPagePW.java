@@ -234,7 +234,7 @@ public class SportPagePW extends BasePagePlaywright {
                 contentType("application/x-www-form-urlencoded").
                 body("id=0&name=%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB&alias=football&title=%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB&description=%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB&weight=1&is_hidden=false").
                 when().
-                post("https://bmp-preprod2.megafon.tv/cms/sport/kinds/0/edit").
+                post("https://bmp-preprod6.megafon.tv/cms/sport/kinds/0/edit").
                 then().statusCode(anyOf(is(200), is(302)));
 
         // Создание 'вид спорта - хоккей':
@@ -242,7 +242,7 @@ public class SportPagePW extends BasePagePlaywright {
                 contentType("application/x-www-form-urlencoded").
                 body("id=0&name=%D0%A5%D0%BE%D0%BA%D0%BA%D0%B5%D0%B9&alias=hockey&title=%D0%A5%D0%BE%D0%BA%D0%BA%D0%B5%D0%B9&description=%D0%A5%D0%BE%D0%BA%D0%BA%D0%B5%D0%B9&weight=2&is_hidden=false").
                 when().
-                post("https://bmp-preprod2.megafon.tv/cms/sport/kinds/0/edit").
+                post("https://bmp-preprod6.megafon.tv/cms/sport/kinds/0/edit").
                 then().statusCode(anyOf(is(200), is(302)));
 
         // Создание 'вид спорта - баскетбол':
@@ -250,7 +250,7 @@ public class SportPagePW extends BasePagePlaywright {
                 contentType("application/x-www-form-urlencoded").
                 body("id=0&name=%D0%91%D0%B0%D1%81%D0%BA%D0%B5%D1%82%D0%B1%D0%BE%D0%BB&alias=basketball&title=%D0%91%D0%B0%D1%81%D0%BA%D0%B5%D1%82%D0%B1%D0%BE%D0%BB&description=%D0%91%D0%B0%D1%81%D0%BA%D0%B5%D1%82%D0%B1%D0%BE%D0%BB&weight=4&is_hidden=false").
                 when().
-                post("https://bmp-preprod2.megafon.tv/cms/sport/kinds/0/edit").
+                post("https://bmp-preprod6.megafon.tv/cms/sport/kinds/0/edit").
                 then().statusCode(anyOf(is(200), is(302)));
 
         // Создание 'вид спорта - моторспорт':
@@ -258,7 +258,7 @@ public class SportPagePW extends BasePagePlaywright {
                 contentType("application/x-www-form-urlencoded").
                 body("id=0&name=%D0%9C%D0%BE%D1%82%D0%BE%D1%80%D1%81%D0%BF%D0%BE%D1%80%D1%82&alias=motorsport&title=%D0%9C%D0%BE%D1%82%D0%BE%D1%80%D1%81%D0%BF%D0%BE%D1%80%D1%82&description=%D0%9C%D0%BE%D1%82%D0%BE%D1%80%D1%81%D0%BF%D0%BE%D1%80%D1%82&weight=6&is_hidden=false").
                 when().
-                post("https://bmp-preprod2.megafon.tv/cms/sport/kinds/0/edit").
+                post("https://bmp-preprod6.megafon.tv/cms/sport/kinds/0/edit").
                 then().statusCode(anyOf(is(200), is(302)));
 
         // Создание 'вид спорта - боевые искусства':
@@ -266,10 +266,8 @@ public class SportPagePW extends BasePagePlaywright {
                 contentType("application/x-www-form-urlencoded").
                 body("id=0&name=%D0%91%D0%BE%D0%B5%D0%B2%D1%8B%D0%B5+%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B0&alias=fight&title=%D0%91%D0%BE%D0%B5%D0%B2%D1%8B%D0%B5+%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B0&description=%D0%91%D0%BE%D0%B5%D0%B2%D1%8B%D0%B5+%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B0&weight=6&is_hidden=false").
                 when().
-                post("https://bmp-preprod2.megafon.tv/cms/sport/kinds/0/edit").
+                post("https://bmp-preprod6.megafon.tv/cms/sport/kinds/0/edit").
                 then().statusCode(anyOf(is(200), is(302)));
-
-
     }
 }
 

@@ -8,15 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.comparison.ImageDiff;
-import ru.yandex.qatools.ashot.comparison.ImageDiffer;
-import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
-
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 public class CardFilm extends BasePageWebDriver {
@@ -24,7 +15,7 @@ public class CardFilm extends BasePageWebDriver {
     public CardFilm(WebDriver driver) {
         super(driver);
     }
-    //String Films_Page = "https://web-preprod1.megafon.tv/movies/vods?only_bundle_prices=1&display_mode=catalog";
+    //String Films_Page = "https://web-preprod6.megafon.tv/movies/vods?only_bundle_prices=1&display_mode=catalog";
 
     public void checkOpenCardFilm() {
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
@@ -363,7 +354,7 @@ public class CardFilm extends BasePageWebDriver {
             b++;
             System.out.println("numberTimeBefore:" + numberTimeBefore);
         }
-        webDriver.get("https://web-preprod2.megafon.tv/");
+        webDriver.get("https://web-preprod6.megafon.tv/");
         // Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
         Thread.sleep(15000);
@@ -407,47 +398,6 @@ public class CardFilm extends BasePageWebDriver {
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Assert.assertNotEquals(time1, time2);
         Thread.sleep(7000);
-    }
-
-    public void checkImageDifferCardFilm() throws IOException {
-        // Сделать тестовый скриншот:
-        Screenshot screenshotCardFilm = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .addIgnoredElement(By.className("_3oIAMUjIv-QAdeSq_k6cql")) // игнор область плеера
-                .addIgnoredElement(By.className("_36y3ZYWoC7rVzn6TEPp4oC")) // игнор текст описания
-                .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор название фильма
-                .addIgnoredElement(By.className("KQ2rb7ZP-tTmXFu9sn_34")) // игнотр блока рейтингов кинопоиск и IMDb
-                .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества лайков
-                .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества дизлайков
-                .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор возраст, год выпуска, жанр.
-                .addIgnoredElement(By.className("kjFUbLahFxqq2AjHY8j2R")) // игнор плашки "новинка"
-                .addIgnoredElement(By.className("_1Kps2hNPLZGQ3H2Sf5NYID")) // игнор текста в кнопке покупки
-                .addIgnoredElement(By.className("_1-ZY27a7Isb9dohjRr0mXq")) // игнор хлебных крошек
-                .addIgnoredElement(By.className("_2YrnCSEViX2PQLwVrBYiS0")) // игнор блок "похожие"
-                .addIgnoredElement(By.className("ch-trigger__container")) // игнор блока авторизации
-                .takeScreenshot(webDriver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/FilmsPage/" + "cardFilm" + ".png");
-        ImageIO.write(screenshotCardFilm.getImage(), "png", actualFile1);
-
-        // Сделать новый эталонный скриншот:
-//        Screenshot screenshotCardFilmStandard = new AShot()
-//                .coordsProvider(new WebDriverCoordsProvider())
-//                .takeScreenshot(driver);
-//        File expectedFile1 = new File("src/test/java/testScreenshots/expected/FilmsPage/"+"cardFilmStandard"+".png");
-//        ImageIO.write(screenshotCardFilmStandard.getImage(), "png", expectedFile1);
-//        screenshotCardFilmStandard.setIgnoredAreas(screenshotCardFilm.getIgnoredAreas());
-
-        // Взять старый эталон скриншота:
-        Screenshot screenshotCardFilmStandard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/FilmsPage/" + "cardFilmStandard" + ".png")));
-        screenshotCardFilmStandard.setIgnoredAreas(screenshotCardFilm.getIgnoredAreas());
-
-        // Сравнение скриншотов:
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardFilmStandard, screenshotCardFilm);
-        System.out.println(diff1.getDiffSize());
-        System.out.println(diff1.getDiffImage());
-        File diffFile = new File("src/test/java/testScreenshots/markedImages/FilmsPage/" + "diffCardFilm" + ".png");
-        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
-        Assert.assertTrue(diff1.getDiffSize() <= 3000);
     }
 
     public void checkAutoStartVideoPlayer() throws Exception {

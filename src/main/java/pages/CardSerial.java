@@ -5,16 +5,6 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.comparison.ImageDiff;
-import ru.yandex.qatools.ashot.comparison.ImageDiffer;
-import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
-
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 public class CardSerial extends BasePageWebDriver {
@@ -234,7 +224,7 @@ public class CardSerial extends BasePageWebDriver {
                 b++;
                 System.out.println("numberTimeBefore:" + numberTimeBefore);
             }
-        webDriver.get("https://web-preprod2.megafon.tv/");
+        webDriver.get("https://web-preprod6.megafon.tv/");
         //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         Thread.sleep(5000);
@@ -291,48 +281,6 @@ public class CardSerial extends BasePageWebDriver {
         Assert.assertNotEquals(time1, time2);
     }
 
-    public void checkImageDifferCardSerial() throws IOException {
-        // Сделать тестовый скриншот:
-        Screenshot screenshotCardSerialPp4 = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .addIgnoredElement(By.className("_3oIAMUjIv-QAdeSq_k6cql")) // игнор область плеера
-                .addIgnoredElement(By.className("_36y3ZYWoC7rVzn6TEPp4oC")) // игнор текст описания
-                .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор название фильма
-                .addIgnoredElement(By.className("KQ2rb7ZP-tTmXFu9sn_34")) // игнотр блока рейтингов кинопоиск и IMDb
-                .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества лайков
-                .addIgnoredElement(By.className("GRbXWlAwTd4ARHYlo21od")) // игнор количества дизлайков
-                .addIgnoredElement(By.className("_1v_D6wOANknQeJMBPo_rKK")) // игнор возраст, год выпуска, жанр.
-                .addIgnoredElement(By.className("kjFUbLahFxqq2AjHY8j2R")) // игнор плашки "новинка"
-                .addIgnoredElement(By.xpath("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')]")) // игнор текст в кнопках покупки
-                .addIgnoredElement(By.className("_1-ZY27a7Isb9dohjRr0mXq")) // игнор хлебных крошек
-                .addIgnoredElement(By.className("_1hdhJYYoLFCYFGUtF3teH1")) // игнор блок сезоны
-                .addIgnoredElement(By.className("_2YrnCSEViX2PQLwVrBYiS0")) // игнор блок "похожие"
-                .addIgnoredElement(By.className("ch-trigger__container")) // игнор блока авторизации
-                .takeScreenshot(webDriver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "cardSerialPp4" + ".png");
-        ImageIO.write(screenshotCardSerialPp4.getImage(), "png", actualFile1);
-
-        // Сделать новый эталонный скриншот:
-        webDriver.get("https://web-preprod2.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
-        Screenshot screenshotCardSerialPp4Standard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .takeScreenshot(webDriver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/" + "cardSerialPp4Standard" + ".png");
-        ImageIO.write(screenshotCardSerialPp4Standard.getImage(), "png", expectedFile1);
-        screenshotCardSerialPp4Standard.setIgnoredAreas(screenshotCardSerialPp4.getIgnoredAreas());
-
-//        // Взять старый эталон скриншота:
-//        Screenshot screenshotCardSerialPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/SerialsPage/" + "cardSerialPp4Standard" + ".png")));
-//        screenshotCardSerialPp4Standard.setIgnoredAreas(screenshotCardSerialPp4.getIgnoredAreas());
-
-        // Сравнение скриншотов:
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotCardSerialPp4Standard, screenshotCardSerialPp4);
-        System.out.println(diff1.getDiffSize());
-        System.out.println(diff1.getDiffImage());
-        File diffFile = new File("src/test/java/testScreenshots/markedImages/SerialsPage/" + "diffCardSerialPp4" + ".png");
-        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
-        Assert.assertTrue(diff1.getDiffSize() <= 3000);
-    }
 
     public void checkElementsCardSerial() {
         isElementDisplayed(By.className("_3oIAMUjIv-QAdeSq_k6cql")); // область плеера
@@ -429,50 +377,13 @@ public class CardSerial extends BasePageWebDriver {
     public void checkSeasonAndEpisode() throws InterruptedException {
         String seasonAndEpisode1 = webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText();
         System.out.println(seasonAndEpisode1);
-        webDriver.get("https://web-preprod2.megafon.tv/shows");
+        webDriver.get("https://web-preprod6.megafon.tv/shows");
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
         webDriver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
         System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText());
         String seasonAndEpisode2 = webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText();
         Assert.assertEquals("отличается сезон", seasonAndEpisode1, seasonAndEpisode2);
-    }
-
-    public void checkImageDifferBlockEpisodes() throws IOException {
-        // Сделать тестовый скриншот:
-        Screenshot screenshotBlockEpisodesPp4 = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .addIgnoredElement(By.className("_1xTt0LaoRnufuGkkLBsCPz")) // игнор область карточки до блока эпизодов
-                .addIgnoredElement(By.className("_2YrnCSEViX2PQLwVrBYiS0")) // игнор блок "похожие"
-                .addIgnoredElement(By.className("_7LRTnrwDy15pRyA2wKc1m")) // игнор постеров в блоке эпизодов
-                .addIgnoredElement(By.xpath("//div[@class='_3RenlHWpqv2tjN53MfarzN']//div[text()]")) // игнор текста табов блока эпизодов
-                .addIgnoredElement(By.className("ch-trigger__container")) // игнор блока авторизации
-                .takeScreenshot(webDriver);
-        File actualFile1 = new File("src/test/java/testScreenshots/actual/SerialsPage/" + "blockEpisodesPp4" + ".png");
-        ImageIO.write(screenshotBlockEpisodesPp4.getImage(), "png", actualFile1);
-
-        // Сделать новый эталонный скриншот:
-        webDriver.get("https://web-preprod2.megafon.tv/shows/Neobyknovennyj_plejlist_Zoi_2020/seasons/Neobyknovennyj_plejlist_Zoi_2020_se02");
-        Screenshot screenshotBlockEpisodesPp4Standard = new AShot()
-                .coordsProvider(new WebDriverCoordsProvider())
-                .shootingStrategy(ShootingStrategies.viewportPasting(100))
-                .takeScreenshot(webDriver);
-        File expectedFile1 = new File("src/test/java/testScreenshots/expected/SerialsPage/" + "blockEpisodesPp4Standard" + ".png");
-        ImageIO.write(screenshotBlockEpisodesPp4Standard.getImage(), "png", expectedFile1);
-        screenshotBlockEpisodesPp4Standard.setIgnoredAreas(screenshotBlockEpisodesPp4.getIgnoredAreas());
-
-//        // Взять старый эталон скриншота:
-//        Screenshot screenshotBlockEpisodesPp4Standard = new Screenshot(ImageIO.read(new File("src/test/java/testScreenshots/expected/SerialsPage/" + "blockEpisodesPp4Standard" + ".png")));
-//        screenshotBlockEpisodesPp4Standard.setIgnoredAreas(screenshotBlockEpisodesPp4.getIgnoredAreas());
-
-        // Сравнение скриншотов:
-        ImageDiff diff1 = new ImageDiffer().makeDiff(screenshotBlockEpisodesPp4Standard, screenshotBlockEpisodesPp4);
-        System.out.println(diff1.getDiffSize());
-        System.out.println(diff1.getDiffImage());
-        File diffFile = new File("src/test/java/testScreenshots/markedImages/SerialsPage/" + "diffBlockEpisodesPp4" + ".png");
-        ImageIO.write(diff1.getMarkedImage(), "png", diffFile);
-        Assert.assertTrue(diff1.getDiffSize() <= 3000);
     }
 
     public void checkElementsBlockEpisodes() throws InterruptedException {

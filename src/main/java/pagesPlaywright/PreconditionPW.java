@@ -34,7 +34,7 @@ public class PreconditionPW extends BasePagePlaywright {
                 multiPart("valid_since", "2021-08-01 09:09:24").
                 multiPart("valid_until", "2021-09-30 09:09:24").
                 multiPart("sticker_text", "AutoTest -30%").
-                when().post("https://bmp-preprod2.megafon.tv/cms/discounts/new").
+                when().post("https://bmp-preprod6.megafon.tv/cms/discounts/new").
                 then().statusCode(anyOf(is(200), is(302)));
     }
 
@@ -52,7 +52,7 @@ public class PreconditionPW extends BasePagePlaywright {
                 multiPart("valid_since", "2021-08-01 09:09:24").
                 multiPart("valid_until", "2021-09-30 09:09:24").
                 multiPart("sticker_text", "AutoTest -30%").
-                when().post("https://bmp-preprod2.megafon.tv/cms/discounts/1/edit").
+                when().post("https://bmp-preprod6.megafon.tv/cms/discounts/1/edit").
                 then().statusCode(anyOf(is(200), is(302)));
     }
 
@@ -61,7 +61,7 @@ public class PreconditionPW extends BasePagePlaywright {
         given().contentType("multipart/form-data").
                 auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
-                when().post("https://bmp-preprod2.megafon.tv/cms/discounts/1/packages/delete").
+                when().post("https://bmp-preprod6.megafon.tv/cms/discounts/1/packages/delete").
                 then().statusCode(anyOf(is(200), is(302)));
     }
 
@@ -69,7 +69,7 @@ public class PreconditionPW extends BasePagePlaywright {
         // Архивация цены SubsN megafon на пакет "Все и сразу":
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                get("https://bmp-preprod2.megafon.tv/cms/packages/vse_i_srazu/package_prices/66379/archive").
+                get("https://bmp-preprod6.megafon.tv/cms/packages/vse_i_srazu/package_prices/66379/archive").
                 then().statusCode(anyOf(is(200), is(400), is(500)));
     }
 
@@ -79,7 +79,7 @@ public class PreconditionPW extends BasePagePlaywright {
                 contentType("application/x-www-form-urlencoded").
                 body("package_id=vse_i_srazu&starts_at=2021-09-01+00%3A00%3A00&ends_at=2023-12-31+00%3A00%3A00&payment_type=megafon&ownership_type=subsn&price=3500&payment_interval=30&service_id=1&price_additional_attribute=none&ab_group=0&partners=megafon_tv").
                 when().
-                post("https://bmp-preprod2.megafon.tv/cms/packages/vse_i_srazu/package_prices/create").
+                post("https://bmp-preprod6.megafon.tv/cms/packages/vse_i_srazu/package_prices/create").
                 then().statusCode(anyOf(is(200), is(302)));
     }
 
@@ -87,7 +87,7 @@ public class PreconditionPW extends BasePagePlaywright {
         // Архивация цены SubsN megafon на пакет "Все и сразу":
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").when().
-                get("https://bmp-preprod2.megafon.tv/cms/packages/vse_i_srazu/package_prices/66378/archive").
+                get("https://bmp-preprod6.megafon.tv/cms/packages/vse_i_srazu/package_prices/66378/archive").
                 then().statusCode(anyOf(is(200), is(400), is(500)));
     }
 
@@ -97,7 +97,7 @@ public class PreconditionPW extends BasePagePlaywright {
                 contentType("application/x-www-form-urlencoded").
                 body("package_id=vse_i_srazu&starts_at=2021-08-01+00%3A00%3A00&ends_at=2023-12-31+00%3A00%3A00&payment_type=card&ownership_type=subsn&price=3500&payment_interval=30&template_id=1&price_additional_attribute=none&ab_group=0&partners=megafon_tv").
                 when().
-                post("https://bmp-preprod2.megafon.tv/cms/packages/vse_i_srazu/package_prices/create").
+                post("https://bmp-preprod6.megafon.tv/cms/packages/vse_i_srazu/package_prices/create").
                 then().statusCode(anyOf(is(200), is(302)));
     }
 
@@ -112,7 +112,7 @@ public class PreconditionPW extends BasePagePlaywright {
     }
 
     public void changePriceEstAndRent2FirstFilm() throws SQLException, ClassNotFoundException {
-        page.navigate("https://web-preprod2.megafon.tv/movies/vods");
+        page.navigate("https://web-preprod6.megafon.tv/movies/vods");
         String urlFilm = page.waitForSelector("//a[@data-test='PackageLink' and @href]").getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(13));

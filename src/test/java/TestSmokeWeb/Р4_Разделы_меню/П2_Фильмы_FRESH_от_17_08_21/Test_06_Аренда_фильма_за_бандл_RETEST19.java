@@ -24,7 +24,7 @@ public class Test_06_Аренда_фильма_за_бандл_RETEST19 extends 
         headerMenu.goToFilmsPage();
         flowRegistation();
         pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
-        filmsPage.clickOnFiltrPayment();
+        filmsPage.clickOnFilterPayment();
         filmsPage.chooseTabPromo();
         filmsPage.clickToTailCardFilmFromAvailable();
         cardFilm.paymentFilmAtRent2Promo();

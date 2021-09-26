@@ -23,7 +23,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvProgramForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod2.megafon.tv/tv");
+        page.navigate("https://web-preprod6.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -112,7 +112,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvProgramForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod2.megafon.tv/tv");
+        page.navigate("https://web-preprod6.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -679,7 +679,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate("https://web-preprod2.megafon.tv/packages");
+        pageHeadfull.navigate("https://web-preprod6.megafon.tv/packages");
     }
 
     public void openCardTvProgramInRecordFromPackageKinoPoPodpiskeHeadfull() {
@@ -693,7 +693,7 @@ public class СardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageBlockCollectHistoryWatchOnNilPage() throws IOException, InterruptedException {
-        pageHeadfull.navigate("https://web-preprod2.megafon.tv/");
+        pageHeadfull.navigate("https://web-preprod6.megafon.tv/");
         List<ElementHandle> posterPackageAll;
         List<ElementHandle> titlePackageAll;
         List<ElementHandle> descriptionTextPackageAll;

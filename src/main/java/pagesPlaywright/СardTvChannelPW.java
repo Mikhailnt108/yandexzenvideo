@@ -20,7 +20,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvChannelForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod2.megafon.tv/tv");
+        page.navigate("https://web-preprod6.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
@@ -110,7 +110,7 @@ public class СardTvChannelPW extends BasePagePlaywright {
 
     public void checkImageCardTvChannelForUser() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        page.navigate("https://web-preprod2.megafon.tv/tv");
+        page.navigate("https://web-preprod6.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
