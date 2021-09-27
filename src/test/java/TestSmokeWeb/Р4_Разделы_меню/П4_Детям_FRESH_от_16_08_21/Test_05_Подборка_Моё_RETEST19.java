@@ -37,7 +37,7 @@ public class Test_05_Подборка_Моё_RETEST19 extends TestBaseWebDriver 
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");

@@ -3,7 +3,6 @@ package TestSmokeWeb.Р4_Разделы_меню.П6_Пакеты_FRESH_от_16_
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
@@ -53,7 +52,7 @@ public class Test_03_Отключение_пакетов_с_разными_ти�
     private void flowRegistationMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260172279");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
@@ -66,7 +65,7 @@ public class Test_03_Отключение_пакетов_с_разными_ти�
     private void flowRegistationNonMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");

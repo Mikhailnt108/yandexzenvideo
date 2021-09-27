@@ -32,7 +32,7 @@ public class Test_01_Регистрация_МФ_adWeb extends TestBaseWebDriver
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.checkElementsPopUpInputPhone();
         headerMenu.inputLogin("79260192144");
         headerMenu.checkActiveButtonNext();

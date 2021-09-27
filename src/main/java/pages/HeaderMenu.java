@@ -399,9 +399,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
 
-    public void checkOpenPopUpInputPhone() {
-//        isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-
+    public void checkOpenPageInputPhone() {
         isElementDisplayed(By.xpath("//h1[text()='Введите номер телефона']"));
     }
 

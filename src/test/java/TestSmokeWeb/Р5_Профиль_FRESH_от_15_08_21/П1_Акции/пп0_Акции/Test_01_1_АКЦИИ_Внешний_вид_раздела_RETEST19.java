@@ -33,7 +33,7 @@ public class Test_01_1_АКЦИИ_Внешний_вид_раздела_RETEST19 
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");

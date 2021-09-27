@@ -3,10 +3,7 @@ package TestSmokeWeb.Р4_Разделы_меню.П2_Фильмы_FRESH_от_17_
 import base.TestBaseWebDriver;
 import com.automation.remarks.junit.VideoRule;
 import io.qameta.allure.*;
-import com.automation.remarks.video.annotations.Video;
-import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
@@ -51,7 +48,7 @@ public class Test_01_1_ФИЛЬМЫ_Внешний_вид_раздела_FRESH e
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");

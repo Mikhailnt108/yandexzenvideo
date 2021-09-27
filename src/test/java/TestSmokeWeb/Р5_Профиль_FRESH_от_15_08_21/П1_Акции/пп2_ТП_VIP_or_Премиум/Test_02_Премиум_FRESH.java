@@ -30,7 +30,7 @@ public class Test_02_Премиум_FRESH extends TestBaseWebDriver {
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");

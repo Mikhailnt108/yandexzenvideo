@@ -32,7 +32,7 @@ public class Old_front_01_Регистрация_МФ extends TestBaseWebDriver 
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.checkElementsPopUpInputPhone();
         headerMenu.inputLogin("79260192144");
         headerMenu.checkActiveButtonNext();

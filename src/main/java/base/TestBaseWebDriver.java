@@ -1,11 +1,15 @@
 package base;
 
 import com.codeborne.selenide.WebDriverRunner;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -54,33 +58,31 @@ public class TestBaseWebDriver {
     @BeforeEach
     public void start() throws AWTException, MalformedURLException {
         // start remote browser:
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "93.0");
-//        capabilities.setCapability("resolution","1920x1080");
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", false
-        ));
-        RemoteWebDriver webDriver = new RemoteWebDriver(
-                URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
-                capabilities
-        );
-        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
-        WebDriverRunner.setWebDriver(webDriver);
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("browserName", "chrome");
+//        capabilities.setCapability("browserVersion", "93.0");
+////        capabilities.setCapability("resolution","1920x1080");
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", false
+//        ));
+//        RemoteWebDriver webDriver = new RemoteWebDriver(
+//                URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
+//                capabilities
+//        );
+//        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
+//        WebDriverRunner.setWebDriver(webDriver);
 
         // start local browser:
-//        WebDriverManager.chromedriver().setup();
-//        ChromeOptions options = new ChromeOptions();
-//        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
-//        options.addArguments("start-maximized");
-//        //запуск браузера в фоне:
-//        //options.setHeadless(true);
-//        webDriver = new ChromeDriver(options);
-//        webDriver.manage().deleteAllCookies();
-//        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-//        WebDriverRunner.setWebDriver(webDriver);
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+        options.addArguments("start-maximized");
+
+        // запуск браузера в фоне:
+        options.setHeadless(false);
+        webDriver = new ChromeDriver(options);
+        WebDriverRunner.setWebDriver(webDriver);
 
         headerMenu = PageFactory.initElements(webDriver, HeaderMenu.class);
         filmsPage = PageFactory.initElements(webDriver, FilmsPage.class);
@@ -113,7 +115,7 @@ public class TestBaseWebDriver {
 
     @AfterEach
     public void finish() {
-        Optional.ofNullable(WebDriverRunner.getWebDriver()).ifPresent(WebDriver::quit);
-//        webDriver.quit();
+//        Optional.ofNullable(WebDriverRunner.getWebDriver()).ifPresent(WebDriver::quit);
+        webDriver.quit();
     }
 }

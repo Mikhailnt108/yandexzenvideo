@@ -89,7 +89,7 @@ public class Test_09_МОЁ_Кнопка_смотреть_Все_и_тайл_з�
     private void flowRegistationMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260172279");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
@@ -102,7 +102,7 @@ public class Test_09_МОЁ_Кнопка_смотреть_Все_и_тайл_з�
     private void flowRegistationNonMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");

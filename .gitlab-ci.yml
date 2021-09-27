@@ -1,23 +1,11 @@
+image: maven:latest
+
 cache:
   paths:
     - .m2/repository/
     - target/
 
-stages:
-  - build
-  - test
-  - deploy
-
-build:
-  image: docker:latest
-  stage: build
-  script:
-    - systemctl start docker
-    - apk add --no-cache docker-compose
-    - docker-compose up
-
 test:
-  image: maven:latest
   stage: test
   script:
     - mvn clean test

@@ -33,7 +33,7 @@ public class Test_01_Пользователь_VIP_FRESH extends TestBaseWebDrive
     private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");

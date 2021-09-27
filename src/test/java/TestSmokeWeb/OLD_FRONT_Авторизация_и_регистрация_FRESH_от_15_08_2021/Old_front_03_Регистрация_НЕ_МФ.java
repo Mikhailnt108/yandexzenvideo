@@ -31,7 +31,7 @@ public class Old_front_03_Регистрация_НЕ_МФ extends TestBaseWebDr
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");

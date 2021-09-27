@@ -204,110 +204,122 @@ public class NiLPagePW extends BasePagePlaywright {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подготовка страницы "NilPage" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
-        List<ElementHandle> titleCollectionAll = page.querySelectorAll("//h3[@data-test='PackageListWrapperName']//a");
-        for(ElementHandle titleCollection : titleCollectionAll){
-            titleCollection.evaluate("t => t.innerText='Название подборки'");
+        // подборки пакетов и коллекций MixedEST:
+        List<ElementHandle> titleCollectionPackageOrMixedEstAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[@class='MediaScroller_root__3hdBO HomePage_collection__1ZLBE']//a//h2[@class='MediaScroller_title__3LXbw']");
+        for (ElementHandle titleCollectionPackageOrMixedEst : titleCollectionPackageOrMixedEstAll) {
+            titleCollectionPackageOrMixedEst.evaluate("t => t.innerText='Название подборки пакетов / MixedEst коллекций'");
         }
-        List<ElementHandle> counterCollectionAll = page.querySelectorAll("//a[@data-test='PackageListWrapperMoreText']");
-        for(ElementHandle counterCollection : counterCollectionAll){
-            counterCollection.evaluate("c => c.innerText='Все 100'");
+        List<ElementHandle> posterPackageOrMixedEstAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/mixed_groups/')]//img");
+        for (ElementHandle posterPackageOrMixedEst : posterPackageOrMixedEstAll) {
+            posterPackageOrMixedEst.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Mixed/35/ee/4cb8df5e72d867ab46ba2da8169c56159b71/tile__aphone-mdpi-jpg.jpeg')");
         }
-        List<ElementHandle> posterPackageAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
-        for(ElementHandle posterPackage : posterPackageAll){
-            posterPackage.evaluate("p => p.setAttribute('style', 'background-size: cover; background-color: rgb(238, 238, 238); " +
-                    "background-image: url(https://static-sesure.cdn.megafon.tv/images/Mixed/35/ee/4cb8df5e72d867ab46ba2da8169c56159b71/tile__web-wp.webp);')");
+        List<ElementHandle> titlePackageOrMixedEstAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackageOrMixedEst : titlePackageOrMixedEstAll) {
+            titlePackageOrMixedEst.evaluate("t => t.innerText='Название контента'");
         }
-        List<ElementHandle> titlePackageAll = page.querySelectorAll("//h3[@data-test='PackageDescriptionTitle']");
-        for(ElementHandle titlePackage : titlePackageAll){
-            titlePackage.evaluate("t => t.innerText='Название контента'");
+        List<ElementHandle> descriptionTextPackageOrMixedEstAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackageOrMixedEst : descriptionTextPackageOrMixedEstAll) {
+            descriptionTextPackageOrMixedEst.evaluate("d => d.textContent='Текст описания'");
         }
-        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span");
-        for(ElementHandle descriptionTextPackage : descriptionTextPackageAll){
-            descriptionTextPackage.evaluate("d => d.textContent='Description'");
+        List<ElementHandle> agePackageOrMixedEstAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle agePackageOrMixedEst : agePackageOrMixedEstAll) {
+            agePackageOrMixedEst.evaluate("a => a.innerText='18+'");
         }
-        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
-        for(ElementHandle age : ageAll){
+
+        // подборки фильмов / сериалов:
+        List<ElementHandle> titleCollectionFilmsOrSerialsAll = page.querySelectorAll("//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]/ancestor::section[contains(@class,'HomePage_collection')]//a//h2[contains(@class,'MediaScroller_title')]");
+        for (ElementHandle titleCollectionFilmsOrSerials : titleCollectionFilmsOrSerialsAll) {
+            titleCollectionFilmsOrSerials.evaluate("t => t.innerText='Название подборки фильмов / сериалов'");
+        }
+        List<ElementHandle> posterFilmsOrSerialsAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]//img");
+        for (ElementHandle posterFilmsOrSerials : posterFilmsOrSerialsAll) {
+            posterFilmsOrSerials.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Season/81/63/b9c9ec75829fe4ef8205f0645bbbf72b0494/tile__aphone-mdpi-jpg.jpeg')");
+        }
+        List<ElementHandle> titleFilmsOrSerialsAll = page.querySelectorAll("//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titleFilmsOrSerials : titleFilmsOrSerialsAll) {
+            titleFilmsOrSerials.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextFilmsOrSerialsAll = page.querySelectorAll("//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextFilmsOrSerials : descriptionTextFilmsOrSerialsAll) {
+            descriptionTextFilmsOrSerials.evaluate("d => d.textContent='Текст описания'");
+        }
+        List<ElementHandle> ageFilmsOrSerialsAll = page.querySelectorAll("//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageFilmsOrSerialsAll) {
             age.evaluate("a => a.innerText='18+'");
         }
-        List<ElementHandle> stickerAll = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']");
-        for(ElementHandle sticker : stickerAll){
-            sticker.evaluate("s => s.remove();");
-        }
 
-        // подготовка блоков подборок без заголовка:
-        Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
-        Assert.assertNotEquals("нет элемента - collectionName", page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0);
-        List<ElementHandle> posterCollection2All;
-        List<ElementHandle> titleCollection2All;
-        for (int i = 0; i < page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(); i++) {
-            posterCollection2All = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']");
-            page.evaluate("pC => pC.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp);')", posterCollection2All.get(i));
-            titleCollection2All = page.querySelectorAll("//h3[@data-test='CollectionName']");
-            page.evaluate("t => t.innerText='Название подборки (18+)'", titleCollection2All.get(i));
-        }
+        List<ElementHandle> stickerAll = page.querySelectorAll("(//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]//div[contains(@class,'TilePackageCommon_sticker')])[position()>1]");
+        for (ElementHandle stickerRemove : stickerAll) {
+            stickerRemove.evaluate("s => s.remove();");
 
-        // подготовка баннеров:
-        List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
-        if (dotBefore.size() > 48) {
-            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 48) {
-                page.evaluate("dU => dU.remove();", page.querySelector("(//button[@data-test='CarouselDotButton'])[last()]"));
-                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+            List<ElementHandle> stickerFirst = page.querySelectorAll("//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]//div[contains(@class,'TilePackageCommon_sticker')]");
+            for (ElementHandle sticker : stickerFirst) {
+                sticker.evaluate("sC => sC.setAttribute('style', 'color:black;background-color:#24B56D')");
+                sticker.evaluate("sT => sT.innerText='Автотест'");
             }
-        }
-        if (dotBefore.size() < 48) {
-            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 48) {
-                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
-                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+
+//            // подготовка блоков подборок без заголовка:
+//            Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
+//            Assert.assertNotEquals("нет элемента - collectionName", page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0);
+//            List<ElementHandle> posterCollection2All;
+//            List<ElementHandle> titleCollection2All;
+//            for (int i = 0; i < page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(); i++) {
+//                posterCollection2All = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']");
+//                page.evaluate("pC => pC.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp);')", posterCollection2All.get(i));
+//                titleCollection2All = page.querySelectorAll("//h3[@data-test='CollectionName']");
+//                page.evaluate("t => t.innerText='Название подборки (18+)'", titleCollection2All.get(i));
+//            }
+
+            // подготовка баннеров:
+//            ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
+//            changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
+
+            page.click("//button[contains(@class,'buttonNext___2mOCa carousel__next-button')]");
+
+            List<ElementHandle> posters = page.querySelectorAll("//picture[@class='BannerCarouselItem_image__1bQw7']//img");
+            for (ElementHandle poster : posters) {
+                poster.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__aphone-mdpi-jpg.jpeg')");
             }
-        }
-        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
+            List<ElementHandle> titleBanners = page.querySelectorAll("//h2[contains(@class,'BannerCarouselItem_title')]");
+            for (ElementHandle titleBanner : titleBanners) {
+                titleBanner.evaluate("t => t.innerText='Название контента'");
+            }
 
-        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+//            List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+//            for (ElementHandle stiker : stikers) {
+//                stiker.evaluate("s => s.innerText='Автотест'");
+//            }
 
-        List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
-        for(ElementHandle poster : posters){
-            poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp);')");
-        }
-        List<ElementHandle> titleBanners = page.querySelectorAll("//div[@data-test='SlideTitle']");
-        for(ElementHandle titleBanner : titleBanners){
-            titleBanner.evaluate("t => t.innerText='Название контента'");
-        }
+            List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
+            for (ElementHandle colorStiker : colorStikers) {
+                colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(36, 181, 109); color: rgb(255, 255, 255); box-shadow: none;')");
+            }
 
-        List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
-        for(ElementHandle stiker : stikers){
-            stiker.evaluate("s => s.innerText='Автотест'");
-        }
+            List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
+            for (ElementHandle yearAndGenre : yearAndGenres) {
+                yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
+            }
 
-        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
-        for(ElementHandle colorStiker : colorStikers){
-            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(36, 181, 109); color: rgb(255, 255, 255); box-shadow: none;')");
-        }
+            List<ElementHandle> ages = page.querySelectorAll("//div[contains(@class,'_2lExk7vBwXdikRmrmW8iJ_ _3ee886k9ILen72-SjCqCR6')]");
+            for (ElementHandle age : ages) {
+                age.evaluate("yG => yG.innerText='18+'");
+            }
 
-        List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
-        for(ElementHandle yearAndGenre : yearAndGenres){
-            yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
-        }
+            page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+            page.waitForTimeout(3000);
 
-        List<ElementHandle> ages = page.querySelectorAll("//div[contains(@class,'_2lExk7vBwXdikRmrmW8iJ_ _3ee886k9ILen72-SjCqCR6')]");
-        for(ElementHandle age : ages){
-            age.evaluate("yG => yG.innerText='18+'");
+            // делаем скриншот полной страницы "NilPageFull":
+            vrt.track(
+                    "NilPageFull",
+                    Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                    TestRunOptions.builder()
+                            .device("Acer")
+                            .os("Win10 Pro")
+                            .browser("Chrome")
+                            .diffTollerancePercent(0.3f)
+                            .build());
         }
-
-        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(3000);
-
-        // делаем скриншот полной страницы "NilPageFull":
-        vrt.track(
-                "NilPageFull",
-                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
-                TestRunOptions.builder()
-                        .device("Acer")
-                        .os("Win10 Pro")
-                        .browser("Chrome")
-                        .diffTollerancePercent(0.3f)
-                        .build());
-        }
+    }
 
     public void checkImageBlockCollectionSpecialForYou() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");

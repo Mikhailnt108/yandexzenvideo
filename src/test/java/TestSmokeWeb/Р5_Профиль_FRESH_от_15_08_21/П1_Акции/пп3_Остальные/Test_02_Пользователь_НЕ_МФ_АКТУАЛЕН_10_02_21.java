@@ -31,7 +31,7 @@ public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_2
     private void flowRegistationNonMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");

@@ -68,7 +68,7 @@ public class Test_04_Авторизация_из_карточек_adWeb extends 
     private void flowRegistation() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin(" 9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF(" 9260192144", "111111");
@@ -80,7 +80,7 @@ public class Test_04_Авторизация_из_карточек_adWeb extends 
     }
 
     private void flowAutorisation() {
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin(" 9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputPassword();

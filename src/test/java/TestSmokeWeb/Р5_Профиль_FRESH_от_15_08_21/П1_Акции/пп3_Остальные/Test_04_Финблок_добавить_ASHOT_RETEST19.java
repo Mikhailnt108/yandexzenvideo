@@ -29,7 +29,7 @@ public class Test_04_Финблок_добавить_ASHOT_RETEST19 extends Test
     private void flowRegistration() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9267644248");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("79267644248", "111111");

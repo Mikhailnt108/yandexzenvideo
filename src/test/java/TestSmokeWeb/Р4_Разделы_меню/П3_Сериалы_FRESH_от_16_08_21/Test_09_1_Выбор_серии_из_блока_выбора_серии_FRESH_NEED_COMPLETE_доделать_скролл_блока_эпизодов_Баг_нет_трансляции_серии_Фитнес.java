@@ -3,7 +3,6 @@ package TestSmokeWeb.Р4_Разделы_меню.П3_Сериалы_FRESH_от_1
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
@@ -37,7 +36,7 @@ public class Test_09_1_Выбор_серии_из_блока_выбора_сер
 
     }
     private void flowRegistation() {
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");

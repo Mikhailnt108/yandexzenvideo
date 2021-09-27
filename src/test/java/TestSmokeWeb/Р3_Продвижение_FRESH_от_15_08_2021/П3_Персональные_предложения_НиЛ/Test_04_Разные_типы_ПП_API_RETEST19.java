@@ -77,7 +77,7 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
     private void flowRegistationMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
@@ -91,7 +91,7 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
     private void flowRegistationNonMF() {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");

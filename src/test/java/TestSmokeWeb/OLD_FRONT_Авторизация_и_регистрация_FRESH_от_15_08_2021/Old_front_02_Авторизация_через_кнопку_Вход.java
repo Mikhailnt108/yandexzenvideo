@@ -34,7 +34,7 @@ public class Old_front_02_Авторизация_через_кнопку_Вхо�
     private void flowAuthorization() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.checkElementsPopUpInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.checkActiveButtonNext();
@@ -55,7 +55,7 @@ public class Old_front_02_Авторизация_через_кнопку_Вхо�
     private void flowRegister() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPopUpInputPhone();
+        headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
