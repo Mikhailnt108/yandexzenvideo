@@ -2,9 +2,7 @@ package TestSmokeWeb.Р4_Разделы_меню.П6_Пакеты_FRESH_от_16_
 
 import base.TestBaseWebDriver;
 import com.automation.remarks.junit.VideoRule;
-import com.automation.remarks.video.annotations.Video;
 import io.qameta.allure.*;
-import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

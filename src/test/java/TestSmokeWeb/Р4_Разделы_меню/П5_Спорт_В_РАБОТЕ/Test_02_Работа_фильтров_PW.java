@@ -4,7 +4,6 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 
 public class Test_02_Работа_фильтров_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")

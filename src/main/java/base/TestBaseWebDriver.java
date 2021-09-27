@@ -10,16 +10,11 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
 
 import java.awt.*;
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.util.Map;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 

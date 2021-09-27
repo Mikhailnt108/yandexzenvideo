@@ -4,6 +4,7 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 
 public class Test_01_Внешний_вид_раздела_Спорт_PW extends TestBasePlaywright {

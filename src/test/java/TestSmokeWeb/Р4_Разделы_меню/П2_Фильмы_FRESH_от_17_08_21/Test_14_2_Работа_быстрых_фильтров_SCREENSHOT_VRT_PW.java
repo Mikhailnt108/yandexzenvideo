@@ -3,7 +3,6 @@ package TestSmokeWeb.Р4_Разделы_меню.П2_Фильмы_FRESH_от_17_
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
