@@ -3,7 +3,7 @@ services:
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
-      - "${PWD}/init/selenoid:/etc/selenoid"
+      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/init/selenoid:/etc/selenoid"
       - "${PWD}/working/selenoid/video:/opt/selenoid/video"
       - "${PWD}/working/selenoid/logs:/opt/selenoid/logs"
       - "/var/run/docker.sock:/var/run/docker.sock"
@@ -21,6 +21,12 @@ services:
     ports:
         - 8082:8080
     command: ["--selenoid-uri", "http://selenoid:4444"]
+  vnc:
+    image: selenoid/vnc:chrome_93.0
+    network_mode: bridge
+  pw:
+    image: mcr.microsoft.com/playwright/java:focal
+    network_mode: bridge
 #  jenkins:
 #    image: jenkins/jenkins:lts
 #    volumes:
@@ -68,7 +74,7 @@ services:
         condition: service_healthy
     restart: on-failure
   postgres:
-    image: postgres:latest
+    image: postgres:9.6.23-bullseye
     restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER}

@@ -98,7 +98,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
 //      браузер Headless:
         contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
                 new BrowserType.LaunchPersistentContextOptions().setChannel("chrome").setHeadless(false)
-                        .setViewportSize(1900, 920));
+                        .setViewportSize(1900, 920).setArgs(Arrays.asList("--disable-dev-shm-usage")));
 //        для ноута:                .setViewportSize(1366, 768));
 //        браузер Headless с записью видео:
 //        contextNormalModeHeadless = playwright.chromium().launchPersistentContext(userDataDir,
@@ -115,7 +115,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
 //        page = contextIncognitoModeHeadfull.pages().get(0);
 //        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--start-maximized")));
 //        contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions().setViewportSize(null));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--start-maximized")));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--start-maximized")).setArgs(Arrays.asList("--disable-dev-shm-usage")));
         headerMenuPW = new HeaderMenuPW(page,pageCMS);
         filmsPagePW = new FilmsPagePW(page);
         serialsPagePW = new SerialsPagePW(page,pageCMS);
