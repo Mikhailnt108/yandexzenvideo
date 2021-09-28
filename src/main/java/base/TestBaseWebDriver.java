@@ -1,6 +1,5 @@
 package base;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -21,7 +20,6 @@ import pages.*;
 import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URI;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -58,37 +56,24 @@ public class TestBaseWebDriver {
     public RatingPage ratingPage;
     public PaymentContent paymentContent;
 
+
     @BeforeEach
     public void start() throws AWTException, MalformedURLException {
-        Configuration.remote = "http://10.236.64.48:4444/wd/hub";
-        Configuration.reportsFolder = "target/surefire-reports";
-        Configuration.downloadsFolder = "target/downloads";
-        Map<String, Boolean> options = new HashMap<>();
-        options.put("enableVNC", true);
-        options.put("enableVideo", false);
-        options.put("enableLog", true);
+        // start remote browser:
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
-        capabilities.setVersion("93.0");
-        capabilities.setCapability("selenoid:options", options);
-        Configuration.browserCapabilities = capabilities;
-
-//        // start remote browser:
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability("platformName", "linux");
-//        capabilities.setCapability("browserName", "chrome");
-//        capabilities.setCapability("browserVersion", "93.0");
-////        capabilities.setCapability("resolution","1920x1080");
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", false
-//        ));
-//        RemoteWebDriver webDriver = new RemoteWebDriver(
-//                URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
-//                capabilities
-//        );
-//        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
-//        WebDriverRunner.setWebDriver(webDriver);
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "93.0");
+//        capabilities.setCapability("resolution","1920x1080");
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", false
+        ));
+        RemoteWebDriver webDriver = new RemoteWebDriver(
+                URI.create("http://10.236.28.81:4444/wd/hub").toURL(),
+                capabilities
+        );
+        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
+        WebDriverRunner.setWebDriver(webDriver);
 
 //        // start local browser:
 //        WebDriverManager.chromedriver().setup();
