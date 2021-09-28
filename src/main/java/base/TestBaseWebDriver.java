@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -7,9 +8,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -18,6 +21,7 @@ import pages.*;
 import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -54,24 +58,37 @@ public class TestBaseWebDriver {
     public RatingPage ratingPage;
     public PaymentContent paymentContent;
 
-
     @BeforeEach
     public void start() throws AWTException, MalformedURLException {
-        // start remote browser:
+        Configuration.remote = "http://10.236.64.48:4444/wd/hub";
+        Configuration.reportsFolder = "target/surefire-reports";
+        Configuration.downloadsFolder = "target/downloads";
+        Map<String, Boolean> options = new HashMap<>();
+        options.put("enableVNC", true);
+        options.put("enableVideo", false);
+        options.put("enableLog", true);
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "93.0");
-//        capabilities.setCapability("resolution","1920x1080");
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", false
-        ));
-        RemoteWebDriver webDriver = new RemoteWebDriver(
-                URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
-                capabilities
-        );
-        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
-        WebDriverRunner.setWebDriver(webDriver);
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("93.0");
+        capabilities.setCapability("selenoid:options", options);
+        Configuration.browserCapabilities = capabilities;
+
+//        // start remote browser:
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("platformName", "linux");
+//        capabilities.setCapability("browserName", "chrome");
+//        capabilities.setCapability("browserVersion", "93.0");
+////        capabilities.setCapability("resolution","1920x1080");
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", false
+//        ));
+//        RemoteWebDriver webDriver = new RemoteWebDriver(
+//                URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
+//                capabilities
+//        );
+//        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
+//        WebDriverRunner.setWebDriver(webDriver);
 
 //        // start local browser:
 //        WebDriverManager.chromedriver().setup();
@@ -109,6 +126,7 @@ public class TestBaseWebDriver {
         personalOffer = PageFactory.initElements(webDriver, PersonalOffer.class);
         ratingPage = PageFactory.initElements(webDriver, RatingPage.class);
         paymentContent = PageFactory.initElements(webDriver, PaymentContent.class);
+        System.setProperty("java.awt.headless", "false");
         Robot bot = new Robot();
         bot.mouseMove(0, 0);
     }
