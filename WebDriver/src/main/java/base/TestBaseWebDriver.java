@@ -56,10 +56,10 @@ public class TestBaseWebDriver {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "93.0");
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", false
-//        ));;
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", false
+        ));
         RemoteWebDriver webDriver = new RemoteWebDriver(
                 URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
                 capabilities

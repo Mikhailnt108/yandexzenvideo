@@ -1,6 +1,5 @@
 version: "3.7"
 services:
-
   ui:
     image: visualregressiontracker/ui:4.18.0
     ports:
@@ -61,7 +60,7 @@ services:
   test_runner:
     build:
       context: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only
-      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\PlaywrightNew\Dockerfile
+      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\Dockerfile
     image: tests_run
     container_name: tests_works
     network_mode: "host"

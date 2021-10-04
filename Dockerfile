@@ -4,4 +4,4 @@ WORKDIR /tests
 
 COPY . .
 
-CMD mvn -pl WebDriver clean test
+CMD mvn -pl WebPlaywright clean test

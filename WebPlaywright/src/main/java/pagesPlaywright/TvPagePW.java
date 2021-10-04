@@ -22,7 +22,7 @@ public class TvPagePW extends BasePagePlaywright {
 
     public void checkImageTvPageTabProgramTvForGuest() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        page.navigate("https://web-preprod6.megafon.tv/tv");
+        page.navigate("https://web-preprod5.megafon.tv/tv");
         // подготовка полной страницы "TvPageTabProgramTvForGuest" к скриншот-тесту:
         List<ElementHandle> imgTvAll = page.querySelectorAll("//div[@class='_3xplzuhwSABoqCYH8ffVtJ']//img[@src]");
         for(ElementHandle imgTv : imgTvAll){
@@ -59,7 +59,7 @@ public class TvPagePW extends BasePagePlaywright {
     }
 
     public void checkImageTabTvProgramInAirForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/tv/tv_catalog");
+        page.navigate("https://web-preprod5.megafon.tv/tv/tv_catalog");
         // подготовка полной страницы "TvPageTabTvProgramInAirForGuest" к скриншот-тесту:
         List<ElementHandle> tailAll = page.querySelectorAll("(//a[contains(@href,'/tv/channels/')])[position()>18]");
         for (ElementHandle tailRemove : tailAll) {
