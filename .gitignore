@@ -4,5 +4,6 @@
 /AutoSmoke_Desktop_Web.iml
 /.allure/
 /.idea/
-/db/
-/imageUploads/
+/WebPlaywright/db/
+/WebPlaywright/imageUploads/
+/WebPlaywright/imageUploads/

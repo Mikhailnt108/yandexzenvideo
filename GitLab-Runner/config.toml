@@ -1,0 +1,17 @@
+concurrent = 1
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "gitlab-ci local"
+  url = "https://gitlab.megafon.tv/"
+  token = "1iscyBsub-xyhmW44xkg"
+  executor = "shell"
+  shell = "pwsh"
+  [runners.custom_build_dir]
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]

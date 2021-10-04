@@ -24,7 +24,13 @@ services:
   vnc:
     image: selenoid/vnc:chrome_93.0
     network_mode: bridge
-
+  test_runner:
+    build:
+      context: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only
+      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\WebDriver\Dockerfile
+    image: tests_webdriver
+    container_name: tests_run_webdriver
+    network_mode: "host"
 
 #  jenkins:
 #    image: jenkins/jenkins:lts

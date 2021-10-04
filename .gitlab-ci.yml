@@ -9,9 +9,12 @@ test:
   stage: test
   script:
     - mvn clean test
+tags:
+  - qa
 
 deploy:
   stage: deploy
   script:
     - mvn io.qameta.allure:allure-maven:report
+
 
