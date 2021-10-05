@@ -8,8 +8,11 @@ stages:
 testPW-job:
   stage: testPW-job
   script:
-    - cd /mnt/c/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
-    - docker-compose up
+    - ls -l
+    - cd ..
+    - ls -l
+    - cd ..
+    - ls -l
   tags:
     - qa
   allow_failure: true
