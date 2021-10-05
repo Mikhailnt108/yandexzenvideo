@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.Р4_Разделы_меню.П1_Новое_и_Лучшее_adWeb;
+package TestSmokeWebPlaywright.Р4_Разделы_меню.SS1_New_and_Best_adWeb;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
