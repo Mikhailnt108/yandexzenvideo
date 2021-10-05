@@ -9,21 +9,21 @@ stages:
   - allure-job
 testPW-job:
   stage: testPW-job
-  tags:
-    - qa
-  allow_failure: true
   script:
     - cd MFTV_Web_Desktop_Smoke_JUnit5_only\WebPlaywright
     - docker compose up
-
-testWD-job:
-  stage: testWD-job
   tags:
     - qa
   allow_failure: true
+
+testWD-job:
+  stage: testWD-job
   script:
     - cd MFTV_Web_Desktop_Smoke_JUnit5_only\WebDriver
     - docker compose up
+  tags:
+    - qa
+  allow_failure: true
 
 allure-job:
   stage: allure-job
