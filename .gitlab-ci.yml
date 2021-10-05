@@ -9,10 +9,8 @@ testPW-job:
   stage: testPW-job
   script:
     - ls -l
-    - cd ..
-    - ls -l
-    - cd ..
-    - ls -l
+    - pwd
+
   tags:
     - qa
   allow_failure: true
