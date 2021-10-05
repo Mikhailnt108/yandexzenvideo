@@ -3,6 +3,10 @@ image:
   entrypoint: [""]
 services:
   - docker:dind
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TCP_PORT: 2375
+  DOCKER_TLS_CERTDIR: ""
 
 stages:
   - testPW-job
