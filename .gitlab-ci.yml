@@ -11,7 +11,7 @@ testPW-job:
   stage: testPW-job
   script:
     - cd WebPlaywright
-    - docker compose up
+    - docker-compose up
   tags:
     - qa
   allow_failure: true
@@ -20,7 +20,7 @@ testWD-job:
   stage: testWD-job
   script:
     - cd WebDriver
-    - docker compose up
+    - docker-compose up
   tags:
     - qa
   allow_failure: true
