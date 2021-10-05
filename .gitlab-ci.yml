@@ -10,7 +10,7 @@ stages:
 testPW-job:
   stage: testPW-job
   script:
-    - cd MFTV_Web_Desktop_Smoke_JUnit5_only\WebPlaywright
+    - cd WebPlaywright
     - docker compose up
   tags:
     - qa
@@ -19,7 +19,7 @@ testPW-job:
 testWD-job:
   stage: testWD-job
   script:
-    - cd MFTV_Web_Desktop_Smoke_JUnit5_only\WebDriver
+    - cd WebDriver
     - docker compose up
   tags:
     - qa
