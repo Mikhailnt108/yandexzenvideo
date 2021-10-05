@@ -1,4 +1,4 @@
-version: "3.7"
+version: "2.1"
 services:
   ui:
     image: visualregressiontracker/ui:4.18.0
@@ -34,7 +34,7 @@ services:
   migration:
     image: visualregressiontracker/migration:4.18.0
     environment:
-      DATABASE_URL: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     depends_on:
       postgres:
         condition: service_healthy
