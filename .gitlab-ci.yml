@@ -10,7 +10,7 @@ testPW-job:
   script:
     - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
     - ls -l
-    - docker-compose-pw up
+    - docker-compose up
 
   tags:
     - qa
@@ -19,8 +19,9 @@ testPW-job:
 testWD-job:
   stage: testWD-job
   script:
+    - cd ..
     - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
-    - ./docker-compose up
+    - docker-compose up
   tags:
     - qa
   allow_failure: true
