@@ -3,9 +3,9 @@ services:
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
-      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/init/selenoid:/etc/selenoid"
-      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/working/selenoid/video:/opt/selenoid/video"
-      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/working/selenoid/logs:/opt/selenoid/logs"
+      - "/builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/init/selenoid:/etc/selenoid"
+      - "/builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/working/selenoid/video:/opt/selenoid/video"
+      - "/builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/working/selenoid/logs:/opt/selenoid/logs"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=work/selenoid/video
