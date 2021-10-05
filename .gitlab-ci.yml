@@ -2,7 +2,7 @@ image:
   name: docker/compose:1.23.2
   entrypoint: [""]
 services:
-  - name: docker:19.03.1-dind
+  - name: docker:20-dind
     alias: docker
 
 variables:
@@ -17,6 +17,7 @@ stages:
 testPW-job:
   stage: testPW-job
   script:
+    - su  
     - docker -v
     - docker-compose -v
     - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
