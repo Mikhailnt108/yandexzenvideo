@@ -1,5 +1,5 @@
 image:
-  name: docker/compose:1.29.2
+  name: docker/compose:1.23.2
   entrypoint: [""]
 services:
   - name: docker:20-dind
