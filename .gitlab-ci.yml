@@ -1,6 +1,6 @@
 image:
   name: docker/compose:1.29.2
-  entrypoint: [""]
+  entrypoint: ["/bin/sh", "-c"]
 services:
   - name: docker:dind
     alias: docker
@@ -8,6 +8,7 @@ services:
 variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TCP_PORT: 2375
+  DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
 
 stages:
