@@ -1,5 +1,5 @@
 image:
-  name: docker/compose:1.23.2
+  name: docker/compose:latest
   entrypoint: [""]
 services:
   - name: docker:dind
@@ -21,7 +21,6 @@ testPW-job:
     - docker-compose -v
     - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
     - docker-compose up
-
   tags:
     - qa
   allow_failure: true
