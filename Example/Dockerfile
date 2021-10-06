@@ -4,4 +4,4 @@ WORKDIR /tests
 
 COPY . .
 
-CMD mvn -pl Example test
+CMD mvn -pl Example clean test
