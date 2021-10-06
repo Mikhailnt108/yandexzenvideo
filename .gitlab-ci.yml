@@ -40,5 +40,5 @@ testWD-job:
 allure-job:
   stage: allure-job
   script:
-    - mvn io.qameta.allure:allure-maven:report
+   - mvn io.qameta.allure:allure-maven:report
 
