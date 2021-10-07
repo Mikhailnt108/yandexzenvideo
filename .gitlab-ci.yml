@@ -5,7 +5,7 @@ image:
 #  - name: docker:dind
 #    alias: docker
 #
-#variables:
+variables:
 #  DOCKER_HOST: tcp://docker:2375
 #  DOCKER_TCP_PORT: 2375
 #  DOCKER_TLS_CERTDIR: ""
@@ -18,11 +18,7 @@ stages:
 testPW-job:
   stage: testPW-job
   script:
-   - docker-compose -v
-   - ls -l
-    # - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
-   - cd WebPlaywright
-   - docker-compose up
+   - mvn -pl WebPlaywright clean test
   tags:
     - qa
   allow_failure: true
