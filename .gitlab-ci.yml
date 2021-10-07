@@ -18,6 +18,11 @@ stages:
 testPW-job:
   stage: testPW-job
   script:
+   - su
+   - curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   - chmod +x /usr/local/bin/docker-compose
+   - export PATH=/usr/local/bin:$PATH
+   - echo $PATH
    - docker-compose -v
    - ls -l
     # - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
