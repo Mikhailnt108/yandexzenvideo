@@ -6,10 +6,8 @@ import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.parallel.Execution;
 import pagesPlaywright.*;
-
 import java.io.IOException;
 import java.util.Arrays;
-
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
@@ -40,7 +38,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
-            .apiUrl("http://10.236.24.133:4200")
+            .apiUrl("http://192.168.1.139:4200")
             .apiKey("D38W8WPD1KMXP3NNNQ781FX68R6P")
             .project("MFTV_Web")
             .branchName("master")

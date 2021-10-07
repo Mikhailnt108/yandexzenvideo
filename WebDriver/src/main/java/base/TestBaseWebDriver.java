@@ -54,6 +54,7 @@ public class TestBaseWebDriver {
     public void start() throws AWTException, MalformedURLException {
         // start remote browser:
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "93.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
