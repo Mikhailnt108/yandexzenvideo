@@ -22,6 +22,7 @@ testPW-job:
 #    - docker-compose -v
     - ls -l
     # - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
+    - cd WebPlaywright
     - docker-compose up
   tags:
     - qa
