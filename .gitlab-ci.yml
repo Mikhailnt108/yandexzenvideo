@@ -2,40 +2,41 @@ image:
  name: docker/compose:latest
  entrypoint: [""]
 #services:
-#  - name: docker:dind
-#    alias: docker
+# - name: docker:dind
+#   alias: docker
 #
-variables:
-#  DOCKER_HOST: tcp://docker:2375
-#  DOCKER_TCP_PORT: 2375
-#  DOCKER_TLS_CERTDIR: ""
+#variables:
+# DOCKER_HOST: tcp://docker:2375
+# DOCKER_TCP_PORT: 2375
+# DOCKER_TLS_CERTDIR: ""
 
 stages:
-  - testPW-job
-  - testWD-job
-  - allure-job
-
+ - testPW-job
+ - testWD-job
+ - allure-job
 testPW-job:
-  stage: testPW-job
-  script:
-   - mvn -pl WebPlaywright clean test
-  tags:
-    - qa
-  allow_failure: true
+ stage: testPW-job
+ script:
+  - docker -v
+  - docker-compose -v
+  - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
+  - docker-compose up
+ tags:
+  - qa
+ allow_failure: true
 
 testWD-job:
-  stage: testWD-job
-  script:
-#    - docker -v
-#    - docker-compose -v
-    - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
-    - docker-compose up
-  tags:
-    - qa
-  allow_failure: true
+ stage: testWD-job
+ script:
+  - docker -v
+  - docker-compose -v
+  - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
+  - docker-compose up
+ tags:
+  - qa
+ allow_failure: true
 
 allure-job:
-  stage: allure-job
-  script:
-   - mvn io.qameta.allure:allure-maven:report
-
+ stage: allure-job
+ script:
+  - mvn io.qameta.allure:allure-maven:report
