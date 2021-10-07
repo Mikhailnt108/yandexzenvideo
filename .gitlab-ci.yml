@@ -11,11 +11,12 @@ variables:
   DOCKER_TLS_CERTDIR: ""
 
 stages:
-  - testPW-job
   - testWD-job
+  - testPW-job
   - allure-job
-testPW-job:
-  stage: testPW-job
+
+testWD-job:
+  stage: testWD-job
   script:
     - docker -v
     - docker-compose -v
@@ -25,8 +26,8 @@ testPW-job:
     - qa
   allow_failure: true
 
-testWD-job:
-  stage: testWD-job
+testPW-job:
+  stage: testPW-job
   script:
     - docker -v
     - docker-compose -v
