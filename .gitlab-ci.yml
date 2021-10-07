@@ -15,7 +15,7 @@ stages:
   - testWD-job
   - allure-job
 
-testWD-job:
+testPW-job:
   stage: testPW-job
   script:
 #    - docker -v
@@ -27,7 +27,7 @@ testWD-job:
     - qa
   allow_failure: true
 
-testPW-job:
+testWD-job:
   stage: testWD-job
   script:
 #    - docker -v
