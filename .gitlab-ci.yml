@@ -1,14 +1,15 @@
 image:
  name: docker/compose:latest
  entrypoint: [""]
-#services:
-# - name: docker:dind
-#   alias: docker
-#
-#variables:
-# DOCKER_HOST: tcp://docker:2375
-# DOCKER_TCP_PORT: 2375
-# DOCKER_TLS_CERTDIR: ""
+ 
+services:
+- name: docker:dind
+  alias: docker
+
+variables:
+DOCKER_HOST: tcp://docker:2375
+DOCKER_TCP_PORT: 2375
+DOCKER_TLS_CERTDIR: ""
 
 stages:
  - testPW-job
