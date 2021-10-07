@@ -34,11 +34,4 @@ services:
     container_name: tests_run_webdriver
     network_mode: "host"
 
-#  jenkins:
-#    image: jenkins/jenkins:lts
-#    volumes:
-#        - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/work/jenkins:/var/jenkins_home"
-#    ports:
-#        - 8085:8080
-#    network_mode: bridge
 
