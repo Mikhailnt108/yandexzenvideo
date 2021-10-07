@@ -28,8 +28,8 @@ services:
     build:
      context: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only
 #      context: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only
-     dockerfile: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright/Dockerfile
-#      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\WebPlaywright\Dockerfile
+     dockerfile: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/Dockerfile
+#      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\WebDriver\Dockerfile
     image: tests_webdriver
     container_name: tests_run_webdriver
     network_mode: "host"
