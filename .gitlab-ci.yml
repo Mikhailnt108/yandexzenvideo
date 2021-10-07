@@ -18,7 +18,6 @@ stages:
 testPW-job:
   stage: testPW-job
   script:
-   - docker -v
    - docker-compose -v
    - ls -l
     # - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
