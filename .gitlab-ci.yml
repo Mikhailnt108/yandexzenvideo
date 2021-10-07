@@ -3,8 +3,8 @@ image:
  entrypoint: [""]
  
 services:
-- name: docker:dind
-  alias: docker
+  - name: docker:dind
+    alias: docker
 
 variables:
 DOCKER_HOST: tcp://docker:2375
