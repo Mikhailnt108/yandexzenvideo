@@ -1,6 +1,6 @@
-#image:
-#  name: docker/compose:latest
-#  entrypoint: [""]
+image:
+ name: docker/compose:latest
+ entrypoint: [""]
 #services:
 #  - name: docker:dind
 #    alias: docker
