@@ -4,11 +4,11 @@ image:
 services:
  - name: docker:dind
    alias: docker
- - name: mcr.microsoft.com/playwright/java:latest
-   alias: pw
+# - name: mcr.microsoft.com/playwright/java:latest
+#   alias: pw
 
 variables:
- DOCKER_HOST: "tcp://docker:2375"
+ DOCKER_HOST: tcp://docker:2375
  DOCKER_TCP_PORT: 2375
  DOCKER_TLS_CERTDIR: ""
  VRT_APIURL: "http://192.168.1.139:4200"
@@ -28,6 +28,7 @@ testPW-job:
   - docker -v
   - docker-compose -v
   - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
+#  - docker-compose up
   - docker build -t tests_run_playwright /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
  tags:
   - qa
