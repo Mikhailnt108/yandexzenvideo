@@ -15,9 +15,10 @@ public class Test_01_PACKAGES_Go_to_package_FRESH extends TestBaseWebDriver {
 //    @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWdTest1")
-    public void goToPackage() {
+    public void goToPackage() throws InterruptedException {
         headerMenu.goToPackagesPage();
         packagesPage.clickToFirstTailCardPackage();
+        Thread.sleep(20000);
         cardPackage.checkOpenCardPackage();
         }
     }
