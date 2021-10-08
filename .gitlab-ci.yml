@@ -16,6 +16,7 @@ variables:
  VRT_ENABLESOFTASSERT: "false"
  VRT_APIKEY: "FHJV0S16FTMW50GT7GZR8RDJJSY0"
  VRT_BRANCHNAME: "master"
+ VRT_CIBUILDID: "commit_sha"
  CHOKIDAR_USEPOLLING: 1
 
 stages:
@@ -30,7 +31,7 @@ testPW-job:
   - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
 #  - docker-compose up
   - docker build -t tests_run_playwright /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
-  - docker run --rm --network host tests_run_playwright
+  - docker run --ipc=host tests_run_playwright
  tags:
   - qa
  allow_failure: true
