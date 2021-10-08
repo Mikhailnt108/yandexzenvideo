@@ -18,7 +18,7 @@ public class Test_01_PACKAGES_Go_to_package_FRESH extends TestBaseWebDriver {
     public void goToPackage() throws InterruptedException {
         headerMenu.goToPackagesPage();
         packagesPage.clickToFirstTailCardPackage();
-        Thread.sleep(20000);
+        Thread.sleep(60000);
         cardPackage.checkOpenCardPackage();
         }
     }
