@@ -4,4 +4,4 @@ WORKDIR /tests
 
 COPY . .
 
-CMD mvn -pl WebDriver clean test
+CMD ["mvn -pl WebDriver clean test", "mvn io.qameta.allure:allure-maven:report"]

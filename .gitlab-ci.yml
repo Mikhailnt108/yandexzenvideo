@@ -19,10 +19,10 @@ variables:
  VRT_CIBUILDID: "commit_sha"
  CHOKIDAR_USEPOLLING: 1
 
-#stages:
-# - testPW-job
-# - testWD-job
-# - allure-job
+stages:
+ - testPW-job
+ - testWD-job
+ - allure-job
 testPW-job:
  stage: testPW-job
  script:

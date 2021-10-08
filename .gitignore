@@ -2,8 +2,9 @@
 /target/'.idea' 
 '.idea' 
 /AutoSmoke_Desktop_Web.iml
-/.allure/
 /.idea/
 /WebPlaywright/db/
 /WebPlaywright/imageUploads/
 /WebPlaywright/imageUploads/
+/allure-results/
+
