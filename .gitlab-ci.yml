@@ -8,9 +8,9 @@ services:
 #   alias: pw
 
 variables:
-# DOCKER_HOST: tcp://docker:2375
-# DOCKER_TCP_PORT: 2375
-# DOCKER_TLS_CERTDIR: ""
+ DOCKER_HOST: tcp://docker:2375
+ DOCKER_TCP_PORT: 2375
+ DOCKER_TLS_CERTDIR: ""
  VRT_APIURL: "http://192.168.1.139:4200"
  VRT_PROJECT: "MFTV_Web"
  VRT_ENABLESOFTASSERT: "false"
