@@ -61,7 +61,7 @@ public class TestBaseWebDriver {
                 "enableVideo", false
         ));
         RemoteWebDriver webDriver = new RemoteWebDriver(
-                URI.create("http://seleniumhub:4444/wd/hub").toURL(),
+                URI.create("http://localhost:4444/wd/hub").toURL(),
                 capabilities
         );
         webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));

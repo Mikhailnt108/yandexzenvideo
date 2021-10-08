@@ -2,58 +2,58 @@ version: "2.1"
 services:
   ui:
     image: visualregressiontracker/ui:4.18.0
-#    ports:
-#      - "${PORT}:8080"
-#    environment:
-#      REACT_APP_API_URL: ${REACT_APP_API_URL}
-#    restart: always
+    ports:
+      - "${PORT}:8080"
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_URL}
+    restart: always
   api:
     image: visualregressiontracker/api:4.18.0
-#    environment:
-#      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-#      JWT_SECRET: ${JWT_SECRET}
-#      JWT_LIFE_TIME: ${JWT_LIFE_TIME}
-#      APP_FRONTEND_URL: ${APP_FRONTEND_URL}
-#      BODY_PARSER_JSON_LIMIT: ${BODY_PARSER_JSON_LIMIT}
-#    ports:
-#      - "${APP_PORT}:3000"
-#    volumes:
-#      - ./imageUploads:/imageUploads
-#    depends_on:
-#      - postgres
-#    restart: always
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_LIFE_TIME: ${JWT_LIFE_TIME}
+      APP_FRONTEND_URL: ${APP_FRONTEND_URL}
+      BODY_PARSER_JSON_LIMIT: ${BODY_PARSER_JSON_LIMIT}
+    ports:
+      - "${APP_PORT}:3000"
+    volumes:
+      - ./imageUploads:/imageUploads
+    depends_on:
+      - postgres
+    restart: always
   migration:
     image: visualregressiontracker/migration:4.18.0
-#    environment:
-#      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-#    depends_on:
-#      postgres:
-#        condition: service_healthy
-#    restart: on-failure
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: on-failure
   postgres:
     image: postgres:9.6.23-bullseye
-#    restart: always
-#    environment:
-#      POSTGRES_USER: ${POSTGRES_USER}
-#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-#      POSTGRES_DB: ${POSTGRES_DB}
-#    ports:
-#      - "${POSTGRES_PORT}:5432"
-#    expose:
-#      - "${POSTGRES_PORT}"
-#    volumes:
-#      - "./db:/var/lib/postgresql/data"
-#    healthcheck:
-#      test: ["CMD-SHELL", "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"]
-#      interval: 10s
-#      timeout: 120s
-#      retries: 10
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    expose:
+      - "${POSTGRES_PORT}"
+    volumes:
+      - "./db:/var/lib/postgresql/data"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"]
+      interval: 10s
+      timeout: 120s
+      retries: 10
   test_runner:
     build:
-      context: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only
-#      context: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only
-      dockerfile: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright/Dockerfile
-#      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\WebPlaywright\Dockerfile
+#      context: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only
+      context: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only
+#      dockerfile: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright/Dockerfile
+      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\WebPlaywright\Dockerfile
     image: tests_playwright
     container_name: tests_run_playwright
     network_mode: "host"
