@@ -22,7 +22,7 @@ variables:
 stages:
  - testPW-job
  - testWD-job
- - allure-job
+# - allure-job
 testPW-job:
  stage: testPW-job
  script:
@@ -49,7 +49,7 @@ testWD-job:
   - qa
  allow_failure: true
 
-allure-job:
- stage: allure-job
- script:
-  - mvn io.qameta.allure:allure-maven:report
+#allure-job:
+# stage: allure-job
+# script:
+#  - mvn io.qameta.allure:allure-maven:report
