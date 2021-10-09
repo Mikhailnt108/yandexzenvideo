@@ -6,7 +6,7 @@ COPY . .
 
 RUN pwd
 RUN ls -l
-RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
+RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
 RUN mkdir target/allure-results
 
 CMD mvn -pl WebDriver clean test

@@ -46,6 +46,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageCherdakAndBanners() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
+        page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
         // делаем скриншот элемента "cherdakPageNil":
         vrt.track(
@@ -58,26 +59,12 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
 
-        page.focus("//div[@data-test='BannerCarousel']");
+        page.focus("//div[contains(@class,'carousel')]");
         ElementHandle banners = page.querySelector("//div[@class='_3VpQMliI0kzCfTPxfHPOa- _2RpZ3dJ5og17m8Uf5So1cd poster']");
-        // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
-        if (dotBefore.size() > 48) {
-            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 48) {
-                page.evaluate("dU => dU.remove();", page.querySelector("(//button[@data-test='CarouselDotButton'])[last()]"));
-                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
-            }
-        }
-        if (dotBefore.size() < 48) {
-            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 48) {
-                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
-                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
-            }
-        }
-        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
-
-        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+        // подготовка элемента "bannersPageNil" к скриншот-тесту:        }
+//        крутилка:
+//        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
+//        changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
 
         List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
         for(ElementHandle poster : posters){
