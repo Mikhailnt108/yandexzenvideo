@@ -46,7 +46,6 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageCherdakAndBanners() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
-        page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
         // делаем скриншот элемента "cherdakPageNil":
         vrt.track(
