@@ -1,0 +1,77 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "Smoke MFTV Desktop Web",
+    "children" : [ {
+      "name" : "2. Разделы меню",
+      "children" : [ {
+        "name" : "7. Пакеты",
+        "children" : [ {
+          "name" : "Переход в пакет",
+          "uid" : "97fd278c79e98380",
+          "parentUid" : "90a211bf018c70a3e2b8bd98f37a2aba",
+          "status" : "broken",
+          "time" : {
+            "start" : 1633723610916,
+            "stop" : 1633723615654,
+            "duration" : 4738
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "90a211bf018c70a3e2b8bd98f37a2aba"
+      } ],
+      "uid" : "8eeb1ab984143950a97c8590e0ca5a81"
+    }, {
+      "name" : "0. Разделы меню",
+      "children" : [ {
+        "name" : "1. ТВ",
+        "children" : [ {
+          "name" : "Передачи в эфире (скриншоты)",
+          "uid" : "313b41cc57d10db8",
+          "parentUid" : "28edb99a7c3e38b0ae42ca7a1ea83927",
+          "status" : "broken",
+          "time" : {
+            "start" : 1633723649065,
+            "stop" : 1633723667841,
+            "duration" : 18776
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "Программа передач (скриншоты)",
+          "uid" : "e131a7b2ba28dbec",
+          "parentUid" : "28edb99a7c3e38b0ae42ca7a1ea83927",
+          "status" : "broken",
+          "time" : {
+            "start" : 1633723649113,
+            "stop" : 1633723667830,
+            "duration" : 18717
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "28edb99a7c3e38b0ae42ca7a1ea83927"
+      } ],
+      "uid" : "8e3fe9e8ffe360fbdc81cc9f77935e33"
+    } ],
+    "uid" : "586b61100d6ecd1f0c287efb38ff2ddb"
+  }, {
+    "name" : "shouldClickButton()",
+    "uid" : "4527e07eacc73e6f",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1633723631692,
+      "stop" : 1633723632520,
+      "duration" : 828
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  } ],
+  "name" : "behaviors"
+}

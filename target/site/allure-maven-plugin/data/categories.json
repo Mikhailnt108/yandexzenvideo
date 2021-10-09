@@ -1,0 +1,60 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "children" : [ {
+        "name" : "Переход в пакет",
+        "uid" : "97fd278c79e98380",
+        "parentUid" : "a121ce43082b6befea8ca76cc20164b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633723610916,
+          "stop" : 1633723615654,
+          "duration" : 4738
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a121ce43082b6befea8ca76cc20164b7"
+    }, {
+      "name" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=c8ef8c6d-ba95-4e8f-8a2f-69fcdba6ef4a&testId=60d65d73-21dd-4713-b9a9-c44ab8df5af7",
+      "children" : [ {
+        "name" : "Передачи в эфире (скриншоты)",
+        "uid" : "313b41cc57d10db8",
+        "parentUid" : "1272e933aae9366ddc45459129309905",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633723649065,
+          "stop" : 1633723667841,
+          "duration" : 18776
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "1272e933aae9366ddc45459129309905"
+    }, {
+      "name" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=c8ef8c6d-ba95-4e8f-8a2f-69fcdba6ef4a&testId=7145042a-6ade-4e48-907a-b291a1332e58",
+      "children" : [ {
+        "name" : "Программа передач (скриншоты)",
+        "uid" : "e131a7b2ba28dbec",
+        "parentUid" : "d547397da40a6a682f9c474bac4d24bf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633723649113,
+          "stop" : 1633723667830,
+          "duration" : 18717
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d547397da40a6a682f9c474bac4d24bf"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}

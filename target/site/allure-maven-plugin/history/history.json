@@ -1,0 +1,81 @@
+{
+  "fca01358e52768fc0c89060042bd4e8d" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "4527e07eacc73e6f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1633723631692,
+        "stop" : 1633723632520,
+        "duration" : 828
+      }
+    } ]
+  },
+  "2e9f65d415bf577bdc32f0070c62b419" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "97fd278c79e98380",
+      "status" : "broken",
+      "statusDetails" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "time" : {
+        "start" : 1633723610916,
+        "stop" : 1633723615654,
+        "duration" : 4738
+      }
+    } ]
+  },
+  "548a19fdc1ff60ceb2d96901257d1d99" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e131a7b2ba28dbec",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=c8ef8c6d-ba95-4e8f-8a2f-69fcdba6ef4a&testId=7145042a-6ade-4e48-907a-b291a1332e58",
+      "time" : {
+        "start" : 1633723649113,
+        "stop" : 1633723667830,
+        "duration" : 18717
+      }
+    } ]
+  },
+  "5aefeca9ac67062d3ec5a10040e49475" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "313b41cc57d10db8",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=c8ef8c6d-ba95-4e8f-8a2f-69fcdba6ef4a&testId=60d65d73-21dd-4713-b9a9-c44ab8df5af7",
+      "time" : {
+        "start" : 1633723649065,
+        "stop" : 1633723667841,
+        "duration" : 18776
+      }
+    } ]
+  }
+}
