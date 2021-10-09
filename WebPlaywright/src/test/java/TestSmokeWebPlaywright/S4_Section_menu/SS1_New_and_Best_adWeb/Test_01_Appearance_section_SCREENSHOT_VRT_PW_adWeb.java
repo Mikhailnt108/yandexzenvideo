@@ -14,19 +14,19 @@ import java.io.IOException;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "Suite#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_Внешний_вид_раздела_SCREENSHOT_VRT_PW_adWeb extends TestBasePlaywright {
+public class Test_01_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "1. Новое и лучшее")
-    @DisplayName(value = "1. Внешний вид раздела (скриншоты)")
+    @Feature(value = "2. Section_menu")
+    @Story(value = "1. New_and_Best_adWeb")
+    @DisplayName(value = "1. Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("Suite#1")
     public void appearanceSectionNilPage() throws IOException, InterruptedException{
-        niLPagePW.checkImageNilPageScroll();
         niLPagePW.checkImageCherdakAndBanners();
         niLPagePW.checkImageBlocksCollectionWithHeader();
         niLPagePW.checkImageBlocksCollectionWithoutHeader();
         niLPagePW.checkImageFooter();
+        niLPagePW.checkImageNilPageScroll();
     }
 }
