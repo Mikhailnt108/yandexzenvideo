@@ -22,14 +22,12 @@ variables:
 stages:
  - testPW-job
  - testWD-job
-# - allure-job
 testPW-job:
  stage: testPW-job
  script:
   - docker -v
   - docker-compose -v
   - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
-  #  - docker-compose up
   - docker build -t tests_run_playwright /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
   - docker run --ipc=host tests_run_playwright
  tags:
@@ -44,10 +42,14 @@ testWD-job:
   - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
   - docker build -t tests_run_webdriver /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
   - docker run --network host tests_run_webdriver
-#  - docker-compose up
  tags:
   - qa
  allow_failure: true
+ artifacts:
+  when: always
+  paths:
+   - /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/target/site/allure-maven-plugin
+
 
 #allure-job:
 # stage: allure-job
