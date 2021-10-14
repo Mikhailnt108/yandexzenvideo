@@ -1,13 +1,27 @@
-FROM mcr.microsoft.com/playwright/java:latest
+FROM mcr.microsoft.com/playwright/java:v1.15.2-focal
 
-WORKDIR /MFTV_Web_Desktop_Smoke_JUnit5_only
+WORKDIR /MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
 
 COPY . .
-RUN pwd
-RUN ls -l
+
 RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
-RUN ls -l
-RUN mkdir target
+# Install node14
+RUN apt-get update && apt-get install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install -y nodejs
+
+# Upgrade to NPM7 (see https://github.com/microsoft/playwright/pull/8915)
+RUN npm install -g npm@7
+
+# Install stable chrome
+RUN npx playwright install chrome
+
+#RUN apt update
+#RUN apt install nodejs -y
+#RUN apt install npm -y
+#RUN npm install package.json
+#RUN npm i playwright
+#RUN npx playwright install chrome
 CMD mvn -pl WebPlaywright clean test
-CMD mvn io.qameta.allure:allure-maven:report
+
 

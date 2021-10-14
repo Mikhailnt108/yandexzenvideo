@@ -70,8 +70,8 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     void launchBrowser() {
         playwright = Playwright.create();
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setArgs(Arrays.asList("--start-maximized")));
+        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--start-maximized")));
     }
     @AfterAll
     void closeBrowser() {
@@ -88,6 +88,8 @@ class TestBasePlaywright extends BasePagePlaywright{
                 .setViewportSize(1900, 920));
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1900, 920));
+        contextIncognitoModeHeadless.clearCookies();
+        contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
         headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless);
         filmsPagePW = new FilmsPagePW(page);

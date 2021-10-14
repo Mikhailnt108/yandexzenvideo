@@ -21,12 +21,33 @@ public class Test_01_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends TestBase
     @DisplayName(value = "1. Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#1")
+    @Tag("adWebSuitePW#1")
     public void appearanceSectionNilPage() throws IOException, InterruptedException{
-        niLPagePW.checkImageCherdakAndBanners();
-        niLPagePW.checkImageBlocksCollectionWithHeader();
+        // Guest:
+        niLPagePW.checkImageNilPageScrollGuest();
+        niLPagePW.checkImageCherdakAndBannersGuest();
+        niLPagePW.checkImageBlocksCollectionWithHeaderGuest();
         niLPagePW.checkImageBlocksCollectionWithoutHeader();
-        niLPagePW.checkImageFooter();
-        niLPagePW.checkImageNilPageScroll();
+        niLPagePW.checkImageFooterGuest();
+        // User:
+        headerMenuPW.goToNilPage();
+        flowRegistation();
+        niLPagePW.checkImageNilPageScrollUser();
+        niLPagePW.checkImageCherdakAndBannersUser();
+        niLPagePW.checkImageBlocksCollectionWithHeaderUser();
+        niLPagePW.checkImageFooterUser();
+    }
+    private void flowRegistation() {
+        headerMenuPW.checkNotLoggedIsCorrect();
+        headerMenuPW.clickToEnter();
+        headerMenuPW.checkOpenPopUpInputPhone();
+        headerMenuPW.inputLogin("+7 926 019 21 44");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpInputCode();
+        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

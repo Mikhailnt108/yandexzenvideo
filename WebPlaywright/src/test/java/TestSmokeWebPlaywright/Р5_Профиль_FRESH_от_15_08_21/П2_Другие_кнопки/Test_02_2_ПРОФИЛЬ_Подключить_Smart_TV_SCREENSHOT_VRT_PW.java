@@ -27,7 +27,7 @@ public class Test_02_2_ПРОФИЛЬ_Подключить_Smart_TV_SCREENSHOT_V
         headerMenuPW.deleteAccountMF("79260205027");
     }
 
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();

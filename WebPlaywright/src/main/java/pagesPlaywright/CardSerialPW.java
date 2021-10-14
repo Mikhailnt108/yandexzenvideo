@@ -27,14 +27,44 @@ public class CardSerialPW extends BasePagePlaywright {
 
     public void checkStartTrailerPlayer() throws InterruptedException {
         //автозапуск плеера:
-        page.waitForTimeout(10000);
+        Thread.sleep(3000);
         if(page.querySelectorAll("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").size() < 1){
             page.click("//button[text()='Трейлер']");
         }
-        String timeStart = page.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
-        page.waitForTimeout(5000);
-        String timeEnd = page.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
-        Assert.assertNotEquals(timeStart, timeEnd);
+        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        List<ElementHandle> timeBeforeAllElements = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi'][position()<7]");
+        String[] timeBeforeText = new String[timeBeforeAllElements.size()];
+        int a =0;
+        for(ElementHandle textNumberTimeBefore : timeBeforeAllElements){
+            timeBeforeText[a]= textNumberTimeBefore.innerText();
+            a++;
+        }
+        Integer[] timeBeforeAllNumber=new Integer[timeBeforeText.length];
+        int b =0;
+        for(String numberTimeBefore :timeBeforeText){
+            timeBeforeAllNumber[b]=Integer.parseInt(numberTimeBefore);
+            b++;
+            System.out.println("numberTimeBefore:" + numberTimeBefore);
+        }
+        Thread.sleep(7000);
+        page.querySelector("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']").hover();
+        List<ElementHandle> timeAfterAllElements = page.querySelectorAll("//div[@class='_2wsl4lGkd8OHfFTRCpObeb _1EUAQDMdNFPAPHIXjrbxxi'][position()<7]");
+        String[] timeAfterText = new String[timeAfterAllElements.size()];
+        int c=0;
+        for(ElementHandle textNumberTimeAfter : timeAfterAllElements){
+            timeAfterText[c]= textNumberTimeAfter.innerText();
+            c++;
+        }
+        Integer[] timeAfterAllNumber=new Integer[timeAfterText.length];
+        int d=0;
+        for(String numberTimeAfter :timeAfterText){
+            timeAfterAllNumber[d]=Integer.parseInt(numberTimeAfter);
+            d++;
+            System.out.println("numberTimeAfter:" + numberTimeAfter);
+        }
+        for (int e = 0; e < timeBeforeAllNumber.length; e++){
+            Assert.assertTrue("bug: время After НЕ больше времени Before",timeAfterAllNumber[timeBeforeAllNumber.length-1] > timeBeforeAllNumber[timeBeforeAllNumber.length-1]);
+        }
     }
 
     public void checkImageCardSerialForGuest() throws IOException, InterruptedException {

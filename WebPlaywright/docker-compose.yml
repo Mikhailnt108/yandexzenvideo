@@ -1,5 +1,13 @@
 version: "2.1"
 services:
+#  chrome:
+#    image: local/chrome:0.0.1
+#    ports:
+#      - "5900:5900"
+#    environment:
+#      VNC_SERVER_PASSWORD: 123456
+#    user: app
+#    privileged: true
   ui:
     image: visualregressiontracker/ui:4.18.0
     ports:

@@ -63,7 +63,7 @@ public class Test_01_2_АКЦИИ_Внешний_вид_раздела_SCREENSHO
         headerMenuPW.checkOpenPopUpInputPhone();
         headerMenuPW.inputLogin("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.inputPassword("111111");
+        headerMenuPW.inputPasswordRegister("111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
