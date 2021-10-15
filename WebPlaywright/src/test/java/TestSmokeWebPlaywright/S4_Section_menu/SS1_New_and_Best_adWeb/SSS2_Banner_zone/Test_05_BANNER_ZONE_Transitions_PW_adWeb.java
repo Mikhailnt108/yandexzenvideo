@@ -29,30 +29,30 @@ public class Test_05_BANNER_ZONE_Transitions_PW_adWeb extends TestBasePlaywright
         niLPagePW.clickToButtonTrailerTvProgramOnBanner();
         headerMenuPW.goToNilPage();
         niLPagePW.clickToButtonTrailerTvChannelOnBanner();
-//        // click to banner:
-//        headerMenuPW.goToNilPage();
-//        niLPagePW.clickOnBannerFilm();
-//        cardFilmPW.checkStartTrailerPlayer();
-//        headerMenuPW.goToNilPage();
-//        niLPagePW.clickOnBannerSerial();
-//        cardSerialPW.checkStartTrailerPlayer();
-//        headerMenuPW.goToNilPage();
-//        niLPagePW.clickOnBannerTvProgram();
-//        headerMenuPW.goToNilPage();
-//        niLPagePW.clickOnBannerTvChannel();
-        // User:
-//        headerMenuPW.goToNilPage();
-//        flowRegistation();
-//        niLPagePW.clickToButtonTrailerFilmOnBanner();
-//        niLPagePW.clickToButtonTrailerSerialOnBanner();
-//        niLPagePW.clickToButtonTrailerTvProgramOnBanner();
-//        niLPagePW.clickToButtonTrailerTvChannelOnBanner();
-//        // click to banner:
-//        headerMenuPW.goToNilPage();
-//        niLPagePW.clickOnBannerFilm();
-//        niLPagePW.clickOnBannerSerial();
-//        niLPagePW.clickOnBannerTvProgram();
-//        niLPagePW.clickOnBannerTvChannel();
+        // click to banner:
+        headerMenuPW.goToNilPage();
+        niLPagePW.clickOnBannerFilm();
+        cardFilmPW.checkStartTrailerPlayer();
+        headerMenuPW.goToNilPage();
+        niLPagePW.clickOnBannerSerial();
+        cardSerialPW.checkStartTrailerPlayer();
+        headerMenuPW.goToNilPage();
+        niLPagePW.clickOnBannerTvProgram();
+        headerMenuPW.goToNilPage();
+        niLPagePW.clickOnBannerTvChannel();
+         User:
+        headerMenuPW.goToNilPage();
+        flowRegistation();
+        niLPagePW.clickToButtonTrailerFilmOnBanner();
+        niLPagePW.clickToButtonTrailerSerialOnBanner();
+        niLPagePW.clickToButtonTrailerTvProgramOnBanner();
+        niLPagePW.clickToButtonTrailerTvChannelOnBanner();
+        // click to banner:
+        headerMenuPW.goToNilPage();
+        niLPagePW.clickOnBannerFilm();
+        niLPagePW.clickOnBannerSerial();
+        niLPagePW.clickOnBannerTvProgram();
+        niLPagePW.clickOnBannerTvChannel();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
