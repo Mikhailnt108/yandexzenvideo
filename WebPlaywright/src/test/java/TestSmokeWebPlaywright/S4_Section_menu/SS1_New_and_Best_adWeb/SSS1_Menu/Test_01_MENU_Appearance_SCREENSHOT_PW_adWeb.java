@@ -45,7 +45,7 @@ public class Test_01_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePlaywri
         Thread.sleep(5000);
         niLPagePW.checkElementsMenuMinPageNilUser();
         niLPagePW.checkImageMenuMinPageNilUser();
-//        niLPagePW.openBlockMenuMegaFonMinPageNilUser();
+        niLPagePW.openBlockMenuMegaFonMinPageNilUser();
         niLPagePW.openBlockMenuMftvMinPageNilUser();
         niLPagePW.openBlockMenuProfileMinPageNil();
         // Medium:

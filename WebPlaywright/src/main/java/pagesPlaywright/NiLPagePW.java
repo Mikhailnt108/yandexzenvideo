@@ -2543,6 +2543,9 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//span[text()='ТВ']");
         Assert.assertTrue(page.url().contains("/tv/channels/"));
     }
+
+    public void openBlockMenuMegaFonMinPageNilUser() {
+    }
 }
 
 

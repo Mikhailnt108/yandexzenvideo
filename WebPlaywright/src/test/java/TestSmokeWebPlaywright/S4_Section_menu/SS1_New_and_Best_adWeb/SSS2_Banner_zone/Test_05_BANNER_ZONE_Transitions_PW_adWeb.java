@@ -25,10 +25,10 @@ public class Test_05_BANNER_ZONE_Transitions_PW_adWeb extends TestBasePlaywright
         headerMenuPW.goToNilPage();
         niLPagePW.clickToButtonTrailerSerialOnBanner();
         cardSerialPW.checkStartTrailerPlayer();
-//        headerMenuPW.goToNilPage();
-//        niLPagePW.clickToButtonTrailerTvProgramOnBanner();
-//        headerMenuPW.goToNilPage();
-//        niLPagePW.clickToButtonTrailerTvChannelOnBanner();
+        headerMenuPW.goToNilPage();
+        niLPagePW.clickToButtonTrailerTvProgramOnBanner();
+        headerMenuPW.goToNilPage();
+        niLPagePW.clickToButtonTrailerTvChannelOnBanner();
 //        // click to banner:
 //        headerMenuPW.goToNilPage();
 //        niLPagePW.clickOnBannerFilm();
