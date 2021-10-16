@@ -26,7 +26,7 @@ public class Test_01_NIL_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends Test
         // Guest:
         niLPagePW.checkImageNilPageScrollGuest();
         niLPagePW.checkImageCherdakAndBannersGuest();
-        niLPagePW.checkImageBlocksCollectionWidePageNil();
+        niLPagePW.checkImageBlocksCollectionWidePageNilGuest();
         niLPagePW.checkImageBlocksCollectionWithoutHeader();
         niLPagePW.checkImageFooterGuest();
         // User:

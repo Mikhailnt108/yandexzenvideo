@@ -98,12 +98,12 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionWidePageNil() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionWidePageNilGuest() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         Thread.sleep(3000);
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
-        page.querySelector("//section[contains(@class,'HomePage_collection')]").scrollIntoViewIfNeeded();
-        ElementHandle blockCollectionExceptTv = page.querySelector("//section[contains(@class,'HomePage_collection')]");
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
 
 
 //        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -127,14 +127,14 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ageAll) {
             age.evaluate("a => a.innerText='18+'");
         }
-        List<ElementHandle> posterPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
         for (ElementHandle posterPackage : posterPackageAll) {
             posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
         }
 
         // делаем скриншот элемента "blockCollectionNonTvPageNil":
         vrt.track(
-                "blockCollectionExceptTvWidePageNilGuestOrUser",
+                "blockCollectionExceptTvWidePageNilGuest",
                 Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -159,7 +159,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
         // делаем скриншот элемента "blockCollectionTvPageNil":
         vrt.track(
-                "blockCollectionTvWidePageNilGuestOrUser",
+                "blockCollectionTvWidePageNilGuest",
                 Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -2558,6 +2558,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkElementsCollection() throws InterruptedException {
+        Thread.sleep(5000);
         List<ElementHandle> collectionAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]");
         List<ElementHandle> titleCollectionFilmsOrSerialsOrTvProgramAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a//h2[contains(@class,'MediaScroller_title')]");
         Assert.assertEquals(titleCollectionFilmsOrSerialsOrTvProgramAll.size(), collectionAll.size());
@@ -2566,23 +2567,25 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> arrowsNextAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//button[@aria-label='show next content']");
         Assert.assertEquals(arrowsNextAll.size(), collectionAll.size());
         page.querySelector("//section[contains(@class,'HomePage_collection')]");
-        List<ElementHandle> tailAllExceptTV = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[@href and contains(@class,'TilePackageCommon_tile')]");
-        List<ElementHandle> posterAllExceptTV = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[30]//picture[contains(@class,'TilePackageCommon_image')]");
-        page.querySelector("//footer").scrollIntoViewIfNeeded();
-        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
-
-        for (int b = 0; b < tailAllExceptTV.size(); b++) {
-            tailAllExceptTV.get(b).scrollIntoViewIfNeeded();
-            tailAllExceptTV.get(b).waitForSelector("//picture[contains(@class,'TilePackageCommon_image')]");
-            Assert.assertEquals(1, tailAllExceptTV.get(b).querySelectorAll("//picture[contains(@class,'TilePackageCommon_image')]").size());
+        List<ElementHandle> tailAllExceptTvAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[@href and contains(@class,'TilePackageCommon_tile')]");
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
+        Thread.sleep(3000);
+        page.evaluate("window.scrollTo(0, -document.body.scrollHeight);");
+//        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        Thread.sleep(5000);
+        for (ElementHandle tailAllExceptTv : tailAllExceptTvAll) {
+            tailAllExceptTv.scrollIntoViewIfNeeded();
+            tailAllExceptTv.waitForSelector("//picture[contains(@class,'TilePackageCommon_image')]");
+            Assert.assertEquals(1, tailAllExceptTv.querySelectorAll("//picture[contains(@class,'TilePackageCommon_image')]").size());
             }
         }
 
-    public void checkImageBlocksCollectionMinPageNil() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionMinPageNilGuest() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
-        ElementHandle blockCollectionExceptTv = page.querySelector("//section[contains(@class,'HomePage_collection')]");
-        page.querySelector("//section[contains(@class,'HomePage_collection')]").scrollIntoViewIfNeeded();
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
 
 //        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
 //        List<ElementHandle> posterPackage1All = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]");
@@ -2593,10 +2596,6 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
         page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
 
-        List<ElementHandle> posterPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//picture[contains(@class,'TilePackageCommon_image')]//source");
-        for (ElementHandle posterPackage : posterPackageAll) {
-            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
-        }
         List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
         for (ElementHandle titlePackage : titlePackageAll) {
             titlePackage.evaluate("t => t.innerText='Название контента'");
@@ -2609,6 +2608,10 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ageAll) {
             age.evaluate("a => a.innerText='18+'");
         }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle posterPackage : posterPackageAll) {
+            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
 
 //        List<ElementHandle> stickerAll = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']");
 //        for(ElementHandle sticker : stickerAll){
@@ -2616,7 +2619,7 @@ public class NiLPagePW extends BasePagePlaywright {
 //        }
         // делаем скриншот элемента "blockCollectionNonTvPageNil":
         vrt.track(
-                "blockCollectionExceptTvMinPageNilGuestOrUser",
+                "blockCollectionExceptTvMinPageNilGuest",
                 Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -2638,10 +2641,9 @@ public class NiLPagePW extends BasePagePlaywright {
             }
         }
 
-
         // делаем скриншот элемента "blockCollectionTvPageNil":
         vrt.track(
-                "blockCollectionTvMinPageNilGuestOrUser",
+                "blockCollectionTvMinPageNilGuest",
                 Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -2651,11 +2653,11 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionMediumPageNil() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionMediumPageNilGuest() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
-        page.querySelector("//section[contains(@class,'HomePage_collection')]").scrollIntoViewIfNeeded();
-        ElementHandle blockCollectionExceptTv = page.querySelector("//section[contains(@class,'HomePage_collection')]");
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
 
 
 //        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -2679,7 +2681,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ageAll) {
             age.evaluate("a => a.innerText='18+'");
 
-            List<ElementHandle> posterPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
             for (ElementHandle posterPackage : posterPackageAll) {
                 posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
             }
@@ -2688,7 +2690,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
         // делаем скриншот элемента "blockCollectionNonTvPageNil":
         vrt.track(
-                "blockCollectionExceptTvMediumPageNilGuestOrUser",
+                "blockCollectionExceptTvMediumPageNilGuest",
                 Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -2713,7 +2715,188 @@ public class NiLPagePW extends BasePagePlaywright {
 
         // делаем скриншот элемента "blockCollectionTvPageNil":
         vrt.track(
-                "blockCollectionTvMediumPageNilGuestOrUser",
+                "blockCollectionTvMediumPageNilGuest",
+                Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageBlocksCollectionMinPageNilUser() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/");
+        // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
+        ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
+
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackage : titlePackageAll) {
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextPackageAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle posterPackage : posterPackageAll) {
+            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
+
+        // делаем скриншот элемента "blockCollectionNonTvPageNil":
+        vrt.track(
+                "blockCollectionExceptTvMinPageNilUser",
+                Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+
+        // подборки тв каналов:
+        ElementHandle blockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
+        ElementHandle titleBlockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')])[1]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionTv);
+        ElementHandle collectionTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
+            collectionTvChannel.scrollIntoViewIfNeeded();
+            List<ElementHandle> posterTvChannelAll = page.querySelectorAll("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img");
+            for (ElementHandle posterTvChannel : posterTvChannelAll) {
+                posterTvChannel.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
+        }
+
+        // делаем скриншот элемента "blockCollectionTvPageNil":
+        vrt.track(
+                "blockCollectionTvMinPageNilUser",
+                Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageBlocksCollectionMediumPageNilUser() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/");
+        // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
+        ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
+
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackage : titlePackageAll) {
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextPackageAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+            List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            for (ElementHandle posterPackage : posterPackageAll) {
+                posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
+
+        // делаем скриншот элемента "blockCollectionNonTvPageNil":
+        vrt.track(
+                "blockCollectionExceptTvMediumPageNilUser",
+                Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+
+        // подборки тв каналов:
+        ElementHandle blockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
+        ElementHandle titleBlockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')])[1]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionTv);
+        ElementHandle collectionTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
+        collectionTvChannel.scrollIntoViewIfNeeded();
+        List<ElementHandle> posterTvChannelAll = page.querySelectorAll("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img");
+        for (ElementHandle posterTvChannel : posterTvChannelAll) {
+            posterTvChannel.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
+        }
+
+        // делаем скриншот элемента "blockCollectionTvPageNil":
+        vrt.track(
+                "blockCollectionTvMediumPageNilUser",
+                Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageBlocksCollectionWidePageNilUser() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/");
+        Thread.sleep(3000);
+        // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
+        ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
+
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackage : titlePackageAll) {
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextPackageAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle posterPackage : posterPackageAll) {
+            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
+
+        // делаем скриншот элемента "blockCollectionNonTvPageNil":
+        vrt.track(
+                "blockCollectionExceptTvWidePageNilUser",
+                Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+
+        // подборки тв каналов:
+        ElementHandle blockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
+        ElementHandle titleBlockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')])[1]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionTv);
+        ElementHandle collectionTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
+        collectionTvChannel.scrollIntoViewIfNeeded();
+        List<ElementHandle> posterTvChannelAll = page.querySelectorAll("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img");
+        for (ElementHandle posterTvChannel : posterTvChannelAll) {
+            posterTvChannel.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
+        }
+
+        // делаем скриншот элемента "blockCollectionTvPageNil":
+        vrt.track(
+                "blockCollectionTvWidePageNilUser",
                 Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")

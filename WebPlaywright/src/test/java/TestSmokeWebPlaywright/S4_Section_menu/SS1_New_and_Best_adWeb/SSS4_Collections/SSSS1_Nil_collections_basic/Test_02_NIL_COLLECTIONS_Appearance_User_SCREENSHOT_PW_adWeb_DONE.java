@@ -8,34 +8,34 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_01_NIL_COLLECTIONS_Appearance_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+public class Test_02_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "1. NIL_COLLECTIONS_Appearance_SCREENSHOT")
+    @DisplayName(value = "2. NIL_COLLECTIONS_Appearance_User_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_COLLECTIONS_Appearance() throws IOException, InterruptedException {
-        // Guest:
+    public void NIL_COLLECTIONS_Appearance_User() throws IOException, InterruptedException {
+
+        // User:
+        headerMenuPW.goToNilPage();
+        flowRegistation();
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
         niLPagePW.checkElementsCollection();
-        niLPagePW.checkImageBlocksCollectionMinPageNil();
+        niLPagePW.checkImageBlocksCollectionMinPageNilUser();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
         niLPagePW.checkElementsCollection();
-        niLPagePW.checkImageBlocksCollectionMediumPageNil();
+        niLPagePW.checkImageBlocksCollectionMediumPageNilUser();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
         niLPagePW.checkElementsCollection();
-        niLPagePW.checkImageBlocksCollectionWidePageNil();
-//        // User:
-//        headerMenuPW.goToNilPage();
-//        flowRegistation();
+        niLPagePW.checkImageBlocksCollectionWidePageNilUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

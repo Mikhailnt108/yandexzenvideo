@@ -599,7 +599,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void inputPasswordAutorization(String password) {
-        page.querySelector("//h1[text()='Введите пароль']");
-        page.fill("//input[@type='password']", password);
+     page.querySelector("//h1[text()='Введите пароль']");
+     page.fill("//input[@type='password']", password);
     }
 }
