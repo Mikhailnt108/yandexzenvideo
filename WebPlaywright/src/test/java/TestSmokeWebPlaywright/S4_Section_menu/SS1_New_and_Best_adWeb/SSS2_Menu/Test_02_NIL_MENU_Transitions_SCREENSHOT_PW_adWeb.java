@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Menu;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS2_Menu;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_02_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")

@@ -1,0 +1,4 @@
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS4_Transitions;
+
+public class Test_05_NIL_COLLECTIONS_Collections_packages_PW_adWeb {
+}

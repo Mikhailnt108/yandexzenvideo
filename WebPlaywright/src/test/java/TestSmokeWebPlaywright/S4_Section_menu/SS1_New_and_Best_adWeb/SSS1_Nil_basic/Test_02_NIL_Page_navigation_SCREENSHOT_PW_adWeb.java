@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,23 +8,23 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_04_There_is_no_picture_on_tile_PW_adWeb extends TestBasePlaywright {
+public class Test_02_NIL_Page_navigation_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "4. There_is_no_picture_on_tile_SCREENSHOT")
+    @DisplayName(value = "2. Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void MessageSelectingContentForYou() throws IOException, InterruptedException {
-        headerMenuPW.deleteImagesFromFilm();
-        headerMenuPW.goToNilPage();
+    public void PageNavigation() throws InterruptedException, IOException {
         // Guest:
-        niLPagePW.checkBlockCollectionFilmWithoutImagesGuest();
+        headerMenuPW.goToNilPage();
+        niLPagePW.checkScrollPageDownGuest();
+        niLPagePW.checkScrollPageUpGuest();
         // User:
         flowRegistation();
-        niLPagePW.checkBlockCollectionFilmWithoutImagesUser();
-        headerMenuPW.addImagesFromFilm();
+        niLPagePW.checkScrollPageDownUser();
+        niLPagePW.checkScrollPageUpUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,23 +8,18 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_02_Page_navigation_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+public class Test_03_NIL_Message_Selecting_content_for_you_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "2. Appearance_section_SCREENSHOT")
+    @DisplayName(value = "3. Message_Selecting_content_for_you_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void PageNavigation() throws InterruptedException, IOException {
-        // Guest:
+    public void MessageSelectingContentForYou() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
-        niLPagePW.checkScrollPageDownGuest();
-        niLPagePW.checkScrollPageUpGuest();
-        // User:
         flowRegistation();
-        niLPagePW.checkScrollPageDownUser();
-        niLPagePW.checkScrollPageUpUser();
+        headerMenuPW.checkMessageSelectingContentForYou();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

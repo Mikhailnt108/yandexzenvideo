@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "Suite#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends TestBasePlaywright {
+public class Test_01_NIL_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
@@ -26,7 +26,7 @@ public class Test_01_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends TestBase
         // Guest:
         niLPagePW.checkImageNilPageScrollGuest();
         niLPagePW.checkImageCherdakAndBannersGuest();
-        niLPagePW.checkImageBlocksCollectionWithHeaderGuest();
+        niLPagePW.checkImageBlocksCollectionWidePageNil();
         niLPagePW.checkImageBlocksCollectionWithoutHeader();
         niLPagePW.checkImageFooterGuest();
         // User:

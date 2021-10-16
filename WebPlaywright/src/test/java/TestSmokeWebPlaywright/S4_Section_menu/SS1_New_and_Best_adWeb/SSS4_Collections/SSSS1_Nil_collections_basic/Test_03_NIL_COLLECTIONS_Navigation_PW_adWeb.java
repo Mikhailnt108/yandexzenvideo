@@ -1,0 +1,6 @@
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS1_Nil_collections_basic;
+
+import base.TestBasePlaywright;
+
+public class Test_03_NIL_COLLECTIONS_Navigation_PW_adWeb extends TestBasePlaywright {
+}

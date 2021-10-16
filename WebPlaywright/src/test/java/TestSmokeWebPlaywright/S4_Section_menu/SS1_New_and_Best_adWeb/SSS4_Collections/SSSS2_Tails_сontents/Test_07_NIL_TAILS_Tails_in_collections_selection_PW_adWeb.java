@@ -1,0 +1,4 @@
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS2_Tails_сontents;
+
+public class Test_07_NIL_TAILS_Tails_in_collections_selection_PW_adWeb {
+}
