@@ -19,35 +19,35 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
     public void BANNER_ZONE_Adding_to_Favorites() throws IOException, InterruptedException {
         // Guest:
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToFavoriteFilmOnBannerGuest();
+        nilPagePW.clickToFavoriteFilmOnBannerGuest();
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToFavoriteSerialOnBannerGuest();
+        nilPagePW.clickToFavoriteSerialOnBannerGuest();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkClickToFavoriteTvProgramOnBannerGuest();
+        nilPagePW.checkClickToFavoriteTvProgramOnBannerGuest();
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToFavoriteTvChannelOnBannerGuest();
+        nilPagePW.clickToFavoriteTvChannelOnBannerGuest();
 
         // User:
         // добавление в избранное:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        niLPagePW.checkAddToFavoriteFilmFromBannerUser();
+        nilPagePW.checkAddToFavoriteFilmFromBannerUser();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkAddToFavoriteSerialFromBannerUser();
+        nilPagePW.checkAddToFavoriteSerialFromBannerUser();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkAddToFavoriteTvProgramFromBannerUser();
+        nilPagePW.checkAddToFavoriteTvProgramFromBannerUser();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkAddToFavoriteTvChannelFromBannerUser();
+        nilPagePW.checkAddToFavoriteTvChannelFromBannerUser();
 
         // удаление из избранного:
         headerMenuPW.goToNilPage();
-        niLPagePW.checkRemoveToFavoriteFilmFromBannerUser();
+        nilPagePW.checkRemoveToFavoriteFilmFromBannerUser();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkRemoveToFavoriteSerialFromBannerUser();
+        nilPagePW.checkRemoveToFavoriteSerialFromBannerUser();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkRemoveToFavoriteTvProgramFromBannerUser();
+        nilPagePW.checkRemoveToFavoriteTvProgramFromBannerUser();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkRemoveToFavoriteTvChannelFromBannerUser();
+        nilPagePW.checkRemoveToFavoriteTvChannelFromBannerUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

@@ -1,6 +1,0 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS2_Tails_сontents;
-
-import base.TestBasePlaywright;
-
-public class Test_04_NIL_TAILS_Tv_channels_in_collection_PW_adWeb extends TestBasePlaywright {
-}

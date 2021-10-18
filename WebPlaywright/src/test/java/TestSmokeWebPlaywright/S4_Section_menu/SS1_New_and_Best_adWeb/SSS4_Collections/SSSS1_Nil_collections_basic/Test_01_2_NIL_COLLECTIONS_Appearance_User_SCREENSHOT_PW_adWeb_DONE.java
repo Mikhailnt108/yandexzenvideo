@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS1_Nil_collections_basic;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,23 +8,34 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_04_NIL_There_is_no_picture_on_tile_PW_adWeb extends TestBasePlaywright {
+public class Test_01_2_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "4. There_is_no_picture_on_tile_SCREENSHOT")
+    @DisplayName(value = "2. NIL_COLLECTIONS_Appearance_User_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void MessageSelectingContentForYou() throws IOException, InterruptedException {
-        headerMenuPW.deleteImagesFromFilm();
-        headerMenuPW.goToNilPage();
-        // Guest:
-        nilPagePW.checkBlockCollectionFilmWithoutImagesGuest();
+    public void NIL_COLLECTIONS_Appearance_User() throws IOException, InterruptedException {
+
         // User:
+        headerMenuPW.goToNilPage();
         flowRegistation();
-        nilPagePW.checkBlockCollectionFilmWithoutImagesUser();
-        headerMenuPW.addImagesFromFilm();
+        // min:
+        headerMenuPW.openMinFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkElementsCollection();
+        nilPagePW.checkImageBlocksCollectionMinPageNilUser();
+        // medium:
+        headerMenuPW.openMediumFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkElementsCollection();
+        nilPagePW.checkImageBlocksCollectionMediumPageNilUser();
+        // wide:
+        headerMenuPW.openWideFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkElementsCollection();
+        nilPagePW.checkImageBlocksCollectionWidePageNilUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

@@ -21,6 +21,6 @@ public class Test_04_2_Transitions_Banners_SCREENSHOT_VRT_PW extends TestBasePla
     @Test
     @Tag("Suite#1")
     public void goToBanner() throws Exception {
-        niLPagePW.checkImageCherdakAndBannersGuest();
+        nilPagePW.checkImageCherdakAndBannersGuest();
     }
 }

@@ -21,7 +21,7 @@ public class Test_03_2_Selection_Transitions_SCREENSHOT_VRT_PW extends TestBaseP
     @Test
     @Tag("Suite#1")
     public void goToCollection() throws Exception {
-        niLPagePW.checkImageBlocksCollectionWidePageNilGuest();
-        niLPagePW.checkImageBlocksCollectionWithoutHeader();
+        nilPagePW.checkImageBlocksCollectionWidePageNilGuest();
+        nilPagePW.checkImageBlocksCollectionWithoutHeader();
     }
 }

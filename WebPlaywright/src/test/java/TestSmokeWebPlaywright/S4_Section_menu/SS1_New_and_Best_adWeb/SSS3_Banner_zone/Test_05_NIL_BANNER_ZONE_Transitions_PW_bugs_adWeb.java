@@ -20,15 +20,15 @@ public class Test_05_NIL_BANNER_ZONE_Transitions_PW_bugs_adWeb extends TestBaseP
         // Guest:
         // click to button trailer:
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToButtonTrailerFilmOnBanner();
+        nilPagePW.clickToButtonTrailerFilmOnBanner();
 //        cardFilmPW.checkStartTrailerPlayer(); // баг: нет автозапуска трейлера при переходе из баннера НиЛ
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToButtonTrailerSerialOnBanner();
+        nilPagePW.clickToButtonTrailerSerialOnBanner();
         cardSerialPW.checkStartTrailerPlayer();
         headerMenuPW.goToNilPage();
 //        niLPagePW.clickToButtonTrailerTvProgramOnBanner(); // баг: неверная ссылка тв передачи в баннере НиЛ
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToButtonTrailerTvChannelOnBanner();
+        nilPagePW.clickToButtonTrailerTvChannelOnBanner();
         // click to banner:
         headerMenuPW.goToNilPage();
 //        niLPagePW.clickOnBannerFilm(); // баг: нет перехода в карточку контента по клику на баннер
@@ -43,15 +43,15 @@ public class Test_05_NIL_BANNER_ZONE_Transitions_PW_bugs_adWeb extends TestBaseP
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        niLPagePW.clickToButtonTrailerFilmOnBanner();
+        nilPagePW.clickToButtonTrailerFilmOnBanner();
 //        cardFilmPW.checkStartTrailerPlayer(); // баг: нет автозапуска трейлера при переходе из баннера НиЛ
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToButtonTrailerSerialOnBanner();
+        nilPagePW.clickToButtonTrailerSerialOnBanner();
         cardSerialPW.checkStartTrailerPlayer();
         headerMenuPW.goToNilPage();
 //        niLPagePW.clickToButtonTrailerTvProgramOnBanner(); // баг: неверная ссылка тв передачи в баннере НиЛ
         headerMenuPW.goToNilPage();
-        niLPagePW.clickToButtonTrailerTvChannelOnBanner();
+        nilPagePW.clickToButtonTrailerTvChannelOnBanner();
         // click to banner:
         headerMenuPW.goToNilPage();
 //        niLPagePW.clickOnBannerFilm(); // баг: нет перехода в карточку контента по клику на баннер

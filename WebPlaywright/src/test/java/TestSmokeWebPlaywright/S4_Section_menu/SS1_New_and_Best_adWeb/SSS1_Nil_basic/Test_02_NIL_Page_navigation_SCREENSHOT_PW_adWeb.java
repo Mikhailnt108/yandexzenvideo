@@ -19,12 +19,12 @@ public class Test_02_NIL_Page_navigation_SCREENSHOT_PW_adWeb extends TestBasePla
     public void PageNavigation() throws InterruptedException, IOException {
         // Guest:
         headerMenuPW.goToNilPage();
-        niLPagePW.checkScrollPageDownGuest();
-        niLPagePW.checkScrollPageUpGuest();
+        nilPagePW.checkScrollPageDownGuest();
+        nilPagePW.checkScrollPageUpGuest();
         // User:
         flowRegistation();
-        niLPagePW.checkScrollPageDownUser();
-        niLPagePW.checkScrollPageUpUser();
+        nilPagePW.checkScrollPageDownUser();
+        nilPagePW.checkScrollPageUpUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

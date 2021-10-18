@@ -17,18 +17,18 @@ public class Test_03_NIL_BANNER_ZONE_Navigation_PW_adWeb extends TestBasePlaywri
     public void BANNER_ZONE_Navigation() {
         // Guest:
         headerMenuPW.goToNilPage();
-        niLPagePW.checkScrollBannersToRight();
-        niLPagePW.checkScrollBannersToLeft();
-        niLPagePW.checkScrollLastBannerToRight();
-        niLPagePW.checkScrollFirstBannerToLeft();
+        nilPagePW.checkScrollBannersToRight();
+        nilPagePW.checkScrollBannersToLeft();
+        nilPagePW.checkScrollLastBannerToRight();
+        nilPagePW.checkScrollFirstBannerToLeft();
 
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        niLPagePW.checkScrollBannersToRight();
-        niLPagePW.checkScrollBannersToLeft();
-        niLPagePW.checkScrollLastBannerToRight();
-        niLPagePW.checkScrollFirstBannerToLeft();
+        nilPagePW.checkScrollBannersToRight();
+        nilPagePW.checkScrollBannersToLeft();
+        nilPagePW.checkScrollLastBannerToRight();
+        nilPagePW.checkScrollFirstBannerToLeft();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

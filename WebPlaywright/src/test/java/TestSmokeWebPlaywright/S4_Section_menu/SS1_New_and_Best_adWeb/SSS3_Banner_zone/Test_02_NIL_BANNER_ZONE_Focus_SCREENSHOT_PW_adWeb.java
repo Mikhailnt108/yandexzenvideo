@@ -17,18 +17,18 @@ public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBaseP
     @Tag("adWebSuitePW#1")
     public void BANNER_ZONE_Focus() throws IOException, InterruptedException {
         // Guest:
-        niLPagePW.checkHoverTrailerImageGuest();
-        niLPagePW.checkHoverFavoriteImageGuest();
-        niLPagePW.checkHoverBlockArrowNextImageGuest();
-        niLPagePW.checkHoverBlockArrowPreviousImageGuest();
+        nilPagePW.checkHoverTrailerImageGuest();
+        nilPagePW.checkHoverFavoriteImageGuest();
+        nilPagePW.checkHoverBlockArrowNextImageGuest();
+        nilPagePW.checkHoverBlockArrowPreviousImageGuest();
 
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        niLPagePW.checkHoverTrailerImageUser();
-        niLPagePW.checkHoverFavoriteImageUser();
-        niLPagePW.checkHoverBlockArrowNextImageUser();
-        niLPagePW.checkHoverBlockArrowPreviousImageUser();
+        nilPagePW.checkHoverTrailerImageUser();
+        nilPagePW.checkHoverFavoriteImageUser();
+        nilPagePW.checkHoverBlockArrowNextImageUser();
+        nilPagePW.checkHoverBlockArrowPreviousImageUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

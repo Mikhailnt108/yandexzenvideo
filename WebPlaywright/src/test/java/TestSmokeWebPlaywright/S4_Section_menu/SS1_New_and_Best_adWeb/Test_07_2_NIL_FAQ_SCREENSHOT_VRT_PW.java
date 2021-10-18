@@ -23,6 +23,6 @@ public class Test_07_2_NIL_FAQ_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @Test
     @Tag("Suite#1")
     public void checkFooter() throws IOException, InterruptedException {
-        niLPagePW.checkImageFooterGuest();
+        nilPagePW.checkImageFooterGuest();
     }
 }

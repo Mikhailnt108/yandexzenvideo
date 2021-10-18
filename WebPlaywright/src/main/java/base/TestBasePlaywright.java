@@ -21,7 +21,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public HeaderMenuPW headerMenuPW;
     public FilmsPagePW filmsPagePW;
     public SerialsPagePW serialsPagePW;
-    public NiLPagePW niLPagePW;
+    public NiLPagePW nilPagePW;
     public CollectionsPagePW collectionPagePW;
     public TvPagePW tvPagePW;
     public CardTvChannelPW cardTvChannelPW;
@@ -94,7 +94,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless);
         filmsPagePW = new FilmsPagePW(page);
         serialsPagePW = new SerialsPagePW(page,pageCMS);
-        niLPagePW = new NiLPagePW(page);
+        nilPagePW = new NiLPagePW(page);
         collectionPagePW = new CollectionsPagePW(page);
         tvPagePW = new TvPagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);

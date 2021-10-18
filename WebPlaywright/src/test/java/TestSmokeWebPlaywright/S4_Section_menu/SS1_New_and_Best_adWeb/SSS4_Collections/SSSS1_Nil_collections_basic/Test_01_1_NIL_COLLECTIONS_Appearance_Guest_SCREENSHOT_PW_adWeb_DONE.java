@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_01_NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT_PW_adWeb_DONE extends TestBasePlaywright {
+public class Test_01_1_NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT_PW_adWeb_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
@@ -21,17 +21,17 @@ public class Test_01_NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT_PW_adWeb_DONE e
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsCollection();
-        niLPagePW.checkImageBlocksCollectionMinPageNilGuest();
+        nilPagePW.checkElementsCollection();
+        nilPagePW.checkImageBlocksCollectionMinPageNilGuest();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsCollection();
-        niLPagePW.checkImageBlocksCollectionMediumPageNilGuest();
+        nilPagePW.checkElementsCollection();
+        nilPagePW.checkImageBlocksCollectionMediumPageNilGuest();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsCollection();
-        niLPagePW.checkImageBlocksCollectionWidePageNilGuest();
+        nilPagePW.checkElementsCollection();
+        nilPagePW.checkImageBlocksCollectionWidePageNilGuest();
     }
 }

@@ -21,36 +21,36 @@ public class Test_01_NIL_BANNER_ZONE_Appearance_SCREENSHOT_PW_adWeb extends Test
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsBannerMinPageNilGuest();
-        niLPagePW.checkImageBannerMinPageNilGuest();
+        nilPagePW.checkElementsBannerMinPageNilGuest();
+        nilPagePW.checkImageBannerMinPageNilGuest();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsBannerMediumPageNilGuest();
-        niLPagePW.checkImageBannerMediumPageNilGuest();
+        nilPagePW.checkElementsBannerMediumPageNilGuest();
+        nilPagePW.checkImageBannerMediumPageNilGuest();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsBannerWidePageNilGuest();
-        niLPagePW.checkImageBannerWidePageNilGuest();
+        nilPagePW.checkElementsBannerWidePageNilGuest();
+        nilPagePW.checkImageBannerWidePageNilGuest();
 
         // User:
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
         flowRegistation();
-        niLPagePW.checkElementsBannerMinPageNilUser();
-        niLPagePW.checkImageBannerMinPageNilUser();
+        nilPagePW.checkElementsBannerMinPageNilUser();
+        nilPagePW.checkImageBannerMinPageNilUser();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsBannerMediumPageNilUser();
-        niLPagePW.checkImageBannerMediumPageNilUser();
+        nilPagePW.checkElementsBannerMediumPageNilUser();
+        nilPagePW.checkImageBannerMediumPageNilUser();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.checkElementsBannerWidePageNilUser();
-        niLPagePW.checkImageBannerWidePageNilUser();
+        nilPagePW.checkElementsBannerWidePageNilUser();
+        nilPagePW.checkImageBannerWidePageNilUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

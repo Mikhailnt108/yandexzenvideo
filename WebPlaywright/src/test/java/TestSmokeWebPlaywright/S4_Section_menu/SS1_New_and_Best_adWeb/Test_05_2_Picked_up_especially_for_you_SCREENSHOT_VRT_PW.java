@@ -22,11 +22,11 @@ public class Test_05_2_Picked_up_especially_for_you_SCREENSHOT_VRT_PW extends Te
     @Tag("Suite#1")
     public void collectionSpecialForYou() throws Exception {
         // не авторизованный пользователь:
-        niLPagePW.checkImageBlockCollectionSpecialForYou();
+        nilPagePW.checkImageBlockCollectionSpecialForYou();
         // авторизованный пользователь:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        niLPagePW.checkImageBlockCollectionSpecialForYou();
+        nilPagePW.checkImageBlockCollectionSpecialForYou();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

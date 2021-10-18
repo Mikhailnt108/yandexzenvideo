@@ -24,18 +24,18 @@ public class Test_01_NIL_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends Test
     @Tag("adWebSuitePW#1")
     public void appearanceSectionNilPage() throws IOException, InterruptedException{
         // Guest:
-        niLPagePW.checkImageNilPageScrollGuest();
-        niLPagePW.checkImageCherdakAndBannersGuest();
-        niLPagePW.checkImageBlocksCollectionWidePageNilGuest();
-        niLPagePW.checkImageBlocksCollectionWithoutHeader();
-        niLPagePW.checkImageFooterGuest();
+        nilPagePW.checkImageNilPageScrollGuest();
+        nilPagePW.checkImageCherdakAndBannersGuest();
+        nilPagePW.checkImageBlocksCollectionWidePageNilGuest();
+        nilPagePW.checkImageBlocksCollectionWithoutHeader();
+        nilPagePW.checkImageFooterGuest();
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        niLPagePW.checkImageNilPageScrollUser();
-        niLPagePW.checkImageCherdakAndBannersUser();
-        niLPagePW.checkImageBlocksCollectionWithHeaderUser();
-        niLPagePW.checkImageFooterUser();
+        nilPagePW.checkImageNilPageScrollUser();
+        nilPagePW.checkImageCherdakAndBannersUser();
+        nilPagePW.checkImageBlocksCollectionWithHeaderUser();
+        nilPagePW.checkImageFooterUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

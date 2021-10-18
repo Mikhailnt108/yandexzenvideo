@@ -2586,13 +2586,6 @@ public class NiLPagePW extends BasePagePlaywright {
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
         ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
 
-
-//        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
-//        List<ElementHandle> posterPackage1All = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]");
-//        for (ElementHandle posterPackage1 : posterPackage1All) {
-//            posterPackage1.evaluate("p1 => p1.remove()");
-//        }
-
         ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
         page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
 
@@ -2613,10 +2606,6 @@ public class NiLPagePW extends BasePagePlaywright {
             posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
         }
 
-//        List<ElementHandle> stickerAll = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _20sDPzuxbeD_zlQAuQfNyy']");
-//        for(ElementHandle sticker : stickerAll){
-//            sticker.evaluate("s => s.remove();");
-//        }
         // делаем скриншот элемента "blockCollectionNonTvPageNil":
         vrt.track(
                 "blockCollectionExceptTvMinPageNilGuest",
@@ -2898,6 +2887,976 @@ public class NiLPagePW extends BasePagePlaywright {
         vrt.track(
                 "blockCollectionTvWidePageNilUser",
                 Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkHoverArrowPreviousCollectionPageNilGuest() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/");
+        // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
+        ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
+
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackage : titlePackageAll) {
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextPackageAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle posterPackage : posterPackageAll) {
+            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show previous content']").hover();
+        Thread.sleep(2000);
+        // делаем скриншот элемента "blockCollectionNonTvPageNil":
+        vrt.track(
+                "hoverArrowPreviousCollectionPageNilGuest",
+                Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.001f)
+                        .build());
+    }
+
+    public void checkHoverArrowPreviousCollectionPageNilUser() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/");
+        // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
+        ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
+
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackage : titlePackageAll) {
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextPackageAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle posterPackage : posterPackageAll) {
+            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show previous content']").hover();
+        Thread.sleep(2000);
+        // делаем скриншот элемента "blockCollectionNonTvPageNil":
+        vrt.track(
+                "hoverArrowPreviousCollectionPageNilUser",
+                Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.001f)
+                        .build());
+    }
+
+    public void checkHoverArrowNextCollectionPageNilGuest() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/");
+        // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
+        ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
+
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackage : titlePackageAll) {
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextPackageAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle posterPackage : posterPackageAll) {
+            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']").hover();
+        Thread.sleep(2000);
+        // делаем скриншот элемента "blockCollectionNonTvPageNil":
+        vrt.track(
+                "hoverArrowNextCollectionPageNilGuest",
+                Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.001f)
+                        .build());
+    }
+
+    public void checkHoverArrowNextCollectionPageNilUser() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/");
+        // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
+        ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
+
+        ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
+        page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
+
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle titlePackage : titlePackageAll) {
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextPackageAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle posterPackage : posterPackageAll) {
+            posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        }
+        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']").hover();
+        Thread.sleep(2000);
+        // делаем скриншот элемента "blockCollectionNonTvPageNil":
+        vrt.track(
+                "hoverArrowNextCollectionPageNilUser",
+                Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.1f)
+                        .build());
+    }
+
+    public void checkScrollCollection() {
+        page.querySelector("((//section[contains(@class,'HomePage_collection')])[1]//div[contains(@class,'TilePackageCommon')])[1]");
+        List<ElementHandle> tileAll = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//div[contains(@class,'TilePackageCommon')]");
+        for (ElementHandle tile : tileAll) {
+            tile.hover();
+                if(page.querySelectorAll("//span[contains(@class,'MediaScroller_lastChild')]//div[contains(@class,'TileOverlay')]").size()>0){
+                    Assert.assertTrue("bug: arrow next not disabled", page.waitForSelector("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']").isDisabled());
+                    break;
+                }
+                page.click("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']");
+            }
+    }
+
+    public void checkElementsTileFilmFromCollection() throws InterruptedException {
+        Thread.sleep(5000);
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]").scrollIntoViewIfNeeded();
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+    }
+
+    public void checkImageHoverOnTileFilmFromCollectionGust() throws IOException, InterruptedException {
+        ElementHandle tileFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]");
+        tileFilm.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverFilm = page.querySelector("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverFilm = page.querySelector("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverFilm.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle poster : posterAll) {
+            poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+        }
+        List<ElementHandle> nameFilmAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle nameFilm : nameFilmAll) {
+            nameFilm.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("d => d.textContent='18+'");
+        }
+        List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionPackage : descriptionTextTileAll) {
+            descriptionPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        tileFilm.hover();
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/movies/vods/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle duration = page.waitForSelector("//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_duration')]");
+        duration.evaluate("d => d.innerText='100 мин.'");
+        ElementHandle meta = page.waitForSelector("//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        meta.evaluate("m => m.innerText='IMDb 7.7'");
+        Thread.sleep(2000);
+        tileFilm.hover();
+        vrt.track(
+                "HoverOnTileFilmFromCollectionGuest",
+                Base64.getEncoder().encodeToString(collectionHoverFilm.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageHoverOnTileFilmFromCollectionUser() throws IOException, InterruptedException {
+        ElementHandle tileFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]");
+        tileFilm.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverFilm = page.querySelector("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverFilm = page.querySelector("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverFilm.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle poster : posterAll) {
+            poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+        }
+        List<ElementHandle> nameFilmAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle nameTvProgram : nameFilmAll) {
+            nameTvProgram.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("d => d.textContent='18+'");
+        }
+        List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextTileAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        tileFilm.hover();
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/movies/vods/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle duration = page.waitForSelector("//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_duration')]");
+        duration.evaluate("d => d.innerText='100 мин.'");
+        ElementHandle meta = page.waitForSelector("//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        meta.evaluate("m => m.innerText='IMDb 7.7'");
+        Thread.sleep(2000);
+        tileFilm.hover();
+        vrt.track(
+                "HoverOnTileFilmFromCollectionUser",
+                Base64.getEncoder().encodeToString(collectionHoverFilm.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkElementsTileSerialFromCollection() throws InterruptedException {
+        Thread.sleep(5000);
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]").scrollIntoViewIfNeeded();
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        }
+
+    public void checkImageHoverOnTileSerialFromCollectionGust() throws InterruptedException, IOException {
+        ElementHandle tileSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]");
+        tileSerial.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverSerial = page.querySelector("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverSerial = page.querySelector("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverSerial.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle poster : posterAll) {
+            poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+        }
+        List<ElementHandle> nameSerialAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle nameSerial : nameSerialAll) {
+            nameSerial.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("d => d.textContent='18+'");
+        }
+        List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionText : descriptionTextTileAll) {
+            descriptionText.evaluate("t => t.innerText='Текст описания'");
+        }
+        tileSerial.hover();
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle meta = page.waitForSelector("//a[contains(@href, '/shows/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        meta.evaluate("m => m.innerText='IMDb 7.7'");
+        tileSerial.hover();
+        Thread.sleep(2000);
+        vrt.track(
+                "HoverOnTileSerialFromCollectionGuest",
+                Base64.getEncoder().encodeToString(collectionHoverSerial.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageHoverOnTileSerialFromCollectionUser() throws InterruptedException, IOException {
+        ElementHandle tileSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]");
+        tileSerial.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverSerial = page.querySelector("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverSerial = page.querySelector("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverSerial.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle poster : posterAll) {
+            poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+        }
+        List<ElementHandle> nameSerialAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle nameSerial : nameSerialAll) {
+            nameSerial.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("d => d.textContent='18+'");
+        }
+        List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionText : descriptionTextTileAll) {
+            descriptionText.evaluate("t => t.innerText='Текст описания'");
+        }
+        tileSerial.hover();
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle meta = page.waitForSelector("//a[contains(@href, '/shows/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        meta.evaluate("m => m.innerText='IMDb 7.7'");
+        tileSerial.hover();
+        Thread.sleep(2000);
+        vrt.track(
+                "HoverOnTileSerialFromCollectionUser",
+                Base64.getEncoder().encodeToString(collectionHoverSerial.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkElementsTileTvProgramInAirFromCollection() throws InterruptedException {
+        Thread.sleep(5000);
+        if(page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']").size()!=0){
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").scrollIntoViewIfNeeded();
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']");
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        }
+        else{
+            page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").scrollIntoViewIfNeeded();
+            page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+            page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_title')]");
+            page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]");
+            page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        }
+    }
+
+    public void checkImageHoverOnTileTvProgramInAirFromCollectionGust() throws IOException, InterruptedException {
+        if(page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").size()!=0){
+        ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
+        tileTvProgram.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverTvProgram.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle poster : posterAll) {
+            poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+        }
+        List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle nameTvProgram : nameTvProgramAll) {
+            nameTvProgram.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("d => d.textContent='18+'");
+        }
+        List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionTextPackage : descriptionTextTileAll) {
+            descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+        }
+        tileTvProgram.hover();
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+        ElementHandle descriptionHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_desc')]");
+        descriptionHoverTile.evaluate("t => t.innerText='В эфире'");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle progressText = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+        progressText.evaluate("pT => pT.innerText='Осталось 10 мин.'");
+        ElementHandle progressBar = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+        progressBar.evaluate("pB => pB.setAttribute('style', 'width: 50.00%;')");
+        Thread.sleep(2000);
+        tileTvProgram.hover();
+        vrt.track(
+                "HoverOnTileTvProgramInAirFromCollectionGuest",
+                Base64.getEncoder().encodeToString(collectionHoverTvProgram.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        }
+        else{
+            ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
+            tileTvProgram.scrollIntoViewIfNeeded();
+            ElementHandle collectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]");
+            ElementHandle titleCollectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+            titleCollectionHoverTvProgram.evaluate("t => t.innerText='Название подборки'");
+            List<ElementHandle> posterAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            for (ElementHandle poster : posterAll) {
+                poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+            }
+            List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+            for (ElementHandle nameTvProgram : nameTvProgramAll) {
+                nameTvProgram.evaluate("t => t.innerText='Название контента'");
+            }
+            List<ElementHandle> ageAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+            for (ElementHandle age : ageAll) {
+                age.evaluate("d => d.textContent='18+'");
+            }
+            List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+            for (ElementHandle descriptionTextPackage : descriptionTextTileAll) {
+                descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+            }
+            tileTvProgram.hover();
+            Thread.sleep(2000);
+            // подготовка выделенного тайла:
+            ElementHandle posterHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+            ElementHandle descriptionHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_desc')]");
+            descriptionHoverTile.evaluate("t => t.innerText='Сегодня в 12:00'");
+            // подготовка контролов при ховере:
+            ElementHandle progressText = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='Сегодня в 12:00']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+            progressText.evaluate("pT => pT.innerText='Осталось 10 мин.'");
+            ElementHandle progressBar = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='Сегодня в 12:00']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+            progressBar.evaluate("pB => pB.setAttribute('style', 'width: 50.00%;')");
+            Thread.sleep(2000);
+            tileTvProgram.hover();
+            vrt.track(
+                    "HoverOnTileTvProgramTodayFromCollectionGuest",
+                    Base64.getEncoder().encodeToString(collectionHoverTvProgram.screenshot()),
+                    TestRunOptions.builder()
+                            .device("Acer")
+                            .os("Win10 Pro")
+                            .browser("Chrome")
+                            .diffTollerancePercent(0.3f)
+                            .build());
+        }
+    }
+
+    public void checkImageHoverOnTileTvProgramInAirFromCollectionUser() throws IOException, InterruptedException {
+        if(page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").size()!=0){
+            ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
+            tileTvProgram.scrollIntoViewIfNeeded();
+            ElementHandle collectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]");
+            ElementHandle titleCollectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+            titleCollectionHoverTvProgram.evaluate("t => t.innerText='Название подборки'");
+            List<ElementHandle> posterAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            for (ElementHandle poster : posterAll) {
+                poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+            }
+            List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+            for (ElementHandle nameTvProgram : nameTvProgramAll) {
+                nameTvProgram.evaluate("t => t.innerText='Название контента'");
+            }
+            List<ElementHandle> ageAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+            for (ElementHandle age : ageAll) {
+                age.evaluate("d => d.textContent='18+'");
+            }
+            List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+            for (ElementHandle descriptionTextPackage : descriptionTextTileAll) {
+                descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+            }
+            tileTvProgram.hover();
+            Thread.sleep(2000);
+            // подготовка выделенного тайла:
+            ElementHandle posterHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+            ElementHandle descriptionHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_desc')]");
+            descriptionHoverTile.evaluate("t => t.innerText='В эфире'");
+            Thread.sleep(2000);
+            // подготовка контролов при ховере:
+            ElementHandle progressText = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+            progressText.evaluate("pT => pT.innerText='Осталось 10 мин.'");
+            ElementHandle progressBar = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+            progressBar.evaluate("pB => pB.setAttribute('style', 'width: 50.00%;')");
+            Thread.sleep(2000);
+            tileTvProgram.hover();
+            vrt.track(
+                    "HoverOnTileTvProgramInAirFromCollectionUser",
+                    Base64.getEncoder().encodeToString(collectionHoverTvProgram.screenshot()),
+                    TestRunOptions.builder()
+                            .device("Acer")
+                            .os("Win10 Pro")
+                            .browser("Chrome")
+                            .diffTollerancePercent(0.3f)
+                            .build());
+        }
+        else{
+            ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
+            tileTvProgram.scrollIntoViewIfNeeded();
+            ElementHandle collectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]");
+            ElementHandle titleCollectionHoverTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+            titleCollectionHoverTvProgram.evaluate("t => t.innerText='Название подборки'");
+            List<ElementHandle> posterAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            for (ElementHandle poster : posterAll) {
+                poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+            }
+            List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+            for (ElementHandle nameTvProgram : nameTvProgramAll) {
+                nameTvProgram.evaluate("t => t.innerText='Название контента'");
+            }
+            List<ElementHandle> ageAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+            for (ElementHandle age : ageAll) {
+                age.evaluate("d => d.textContent='18+'");
+            }
+            List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+            for (ElementHandle descriptionTextPackage : descriptionTextTileAll) {
+                descriptionTextPackage.evaluate("t => t.innerText='Текст описания'");
+            }
+            tileTvProgram.hover();
+            Thread.sleep(2000);
+            // подготовка выделенного тайла:
+            ElementHandle posterHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+            posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+            ElementHandle descriptionHoverTile = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_desc')]");
+            descriptionHoverTile.evaluate("t => t.innerText='Сегодня в 12:00'");
+            // подготовка контролов при ховере:
+            ElementHandle progressText = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='Сегодня в 12:00']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+            progressText.evaluate("pT => pT.innerText='Осталось 10 мин.'");
+            ElementHandle progressBar = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and text()='Сегодня в 12:00']/ancestor::section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+            progressBar.evaluate("pB => pB.setAttribute('style', 'width: 50.00%;')");
+            Thread.sleep(2000);
+            tileTvProgram.hover();
+            vrt.track(
+                    "HoverOnTileTvProgramTodayFromCollectionUser",
+                    Base64.getEncoder().encodeToString(collectionHoverTvProgram.screenshot()),
+                    TestRunOptions.builder()
+                            .device("Acer")
+                            .os("Win10 Pro")
+                            .browser("Chrome")
+                            .diffTollerancePercent(0.3f)
+                            .build());
+        }
+    }
+
+    public void checkElementsTileTvProgramTodayFromCollection() throws InterruptedException {
+        Thread.sleep(5000);
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").scrollIntoViewIfNeeded();
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]");
+        page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+    }
+
+    public void checkImageHoverOnTileTvProgramTodayFromCollectionGust() throws InterruptedException, IOException {
+        ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
+        tileTvProgram.scrollIntoViewIfNeeded();
+        ElementHandle poster = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+        ElementHandle nameTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        nameTvProgram.evaluate("t => t.innerText='Название контента'");
+        ElementHandle age = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        age.evaluate("d => d.textContent='18+'");
+        tileTvProgram.hover();
+//        Thread.sleep(2000);
+//        ElementHandle progressText = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'progressText')]");
+//        progressText.evaluate("pT => pT.innerText='Осталось 10 мин.'");
+//        ElementHandle progressBar = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'progressBar')]");
+//        progressBar.evaluate("pB => pB.setAttribute('style', 'width: 50.00%;')");
+        Thread.sleep(2000);
+        tileTvProgram.hover();
+        Thread.sleep(5000);
+        vrt.track(
+                "HoverOnTileTvProgramTodayFromCollectionGuest",
+                Base64.getEncoder().encodeToString(tileTvProgram.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageHoverOnTileTvProgramTodayFromCollectionUser() throws IOException, InterruptedException {
+        ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
+        tileTvProgram.scrollIntoViewIfNeeded();
+        ElementHandle poster = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/10/d9/18a8c62344729e872bd4a63df7e3cd7e6fdf/tile__atablet-xhdpi.webp')");
+        ElementHandle nameTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        nameTvProgram.evaluate("t => t.innerText='Название контента'");
+        ElementHandle age = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        age.evaluate("d => d.textContent='18+'");
+        tileTvProgram.hover();
+//        Thread.sleep(2000);
+//        ElementHandle progressText = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'progressText')]");
+//        progressText.evaluate("pT => pT.innerText='Осталось 10 мин.'");
+//        ElementHandle progressBar = page.waitForSelector("//span[contains(@class,'TilePackageCommon_desc') and contains(text(),'Сегодня')]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]//span[contains(@class,'progressBar')]");
+//        progressBar.evaluate("pB => pB.setAttribute('style', 'width: 50.00%;')");
+        Thread.sleep(2000);
+        tileTvProgram.hover();
+        Thread.sleep(5000);
+        vrt.track(
+                "HoverOnTileTvProgramTodayFromCollectionUser",
+                Base64.getEncoder().encodeToString(tileTvProgram.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkLastTilePackageTvChannel() throws InterruptedException {
+        Thread.sleep(3000);
+        page.querySelector("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]").scrollIntoViewIfNeeded();
+        List<ElementHandle> tileAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/tv/channels/') and contains(@class,'TileChannelPackage')]");
+        ElementHandle lastTile = page.querySelector("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]");
+        for (ElementHandle tile : tileAll) {
+            if (page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//a[contains(@href,'/mixed_groups/')]").size() > 0) {
+                Assert.assertTrue("bug: there is no package TV channels", page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//a[contains(@href,'/mixed_groups/')]").size() > 0);
+                Assert.assertTrue("bug: there is no package TV channels", page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//span[contains(@class,'desc') and contains(text(),'канал')]").size() > 0);
+                break;
+            }
+            page.click("(//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[@aria-label='show next content'])[1]");
+            Thread.sleep(7000);
+        }
+    }
+
+    public void checkImageHoverTileTVChannelCollectionGust() throws InterruptedException, IOException {
+        ElementHandle tileTvChannel = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img)[1]");
+        tileTvChannel.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverTvChannel.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterTvChannelAll = page.querySelectorAll("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img");
+        for (ElementHandle posterTvChannel : posterTvChannelAll) {
+            posterTvChannel.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
+        }
+        tileTvChannel.hover();
+        Assert.assertTrue("bug: no favorite button on TV channel tile hover",page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[contains(@class,'favouriteButton')]").size()>0);
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('src', 'http://static.cdn.megafon.tv/images/Channel/f5/34/a2dc41fd5f908e47b0e915bd6fb4d0bbf795/logo_tile__web-wp.png')");
+        Thread.sleep(2000);
+        tileTvChannel.hover();
+        vrt.track(
+                "HoverOnTileTvChannelCollectionGuest",
+                Base64.getEncoder().encodeToString(collectionHoverTvChannel.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageHoverTileTVChannelCollectionUser() throws IOException, InterruptedException {
+        ElementHandle tileTvChannel = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img)[1]");
+        tileTvChannel.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverTvChannel.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterTvChannelAll = page.querySelectorAll("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img");
+        for (ElementHandle posterTvChannel : posterTvChannelAll) {
+            posterTvChannel.evaluate("p => p.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
+        }
+        tileTvChannel.hover();
+        Assert.assertTrue("bug: no favorite button on TV channel tile hover",page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[contains(@class,'favouriteButton')]").size()>0);
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('src', 'http://static.cdn.megafon.tv/images/Channel/f5/34/a2dc41fd5f908e47b0e915bd6fb4d0bbf795/logo_tile__web-wp.png')");
+        Thread.sleep(2000);
+        tileTvChannel.hover();
+        vrt.track(
+                "HoverOnTileTvChannelCollectionUser",
+                Base64.getEncoder().encodeToString(collectionHoverTvChannel.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkElementsCollectionPackages() throws InterruptedException {
+        Thread.sleep(5000);
+        List<ElementHandle> collectionPackagesAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//a//h2[contains(@class,'MediaScroller_title')]");
+        List<ElementHandle> titleCollectionPackagesAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        Assert.assertEquals(titleCollectionPackagesAll.size(), collectionPackagesAll.size());
+        List<ElementHandle> arrowsPreviousAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[@aria-label='show previous content']");
+        Assert.assertEquals(arrowsPreviousAll.size(), collectionPackagesAll.size());
+        List<ElementHandle> arrowsNextAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[@aria-label='show next content']");
+        Assert.assertEquals(arrowsNextAll.size(), collectionPackagesAll.size());
+
+        List<ElementHandle> tailPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/mixed_groups/') and contains(@class,'TilePackageCommon_tile')]");
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
+        Thread.sleep(3000);
+        page.evaluate("window.scrollTo(0, -document.body.scrollHeight);");
+
+        Thread.sleep(5000);
+        for (ElementHandle tailPackage : tailPackageAll) {
+            tailPackage.scrollIntoViewIfNeeded();
+            tailPackage.waitForSelector("//picture[contains(@class,'TilePackageCommon_image')]");
+            Assert.assertEquals(1, tailPackage.querySelectorAll("//picture[contains(@class,'TilePackageCommon_image')]").size());
+        }
+    }
+
+    public void checkHoverOnTilePackageCollectionGuest() throws IOException, InterruptedException {
+        ElementHandle tilePackage = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]");
+        tilePackage.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverPackage = page.querySelector("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverPackage = page.querySelector("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverPackage.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle poster : posterAll) {
+            poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/MixedEst/ac/06/de807ef0bbe1f5dfd169144f19085474f890/tile__atablet-xhdpi.webp')");
+        }
+        List<ElementHandle> namePackageAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle namePackage : namePackageAll) {
+            namePackage.evaluate("t => t.innerText='Название пакета'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("d => d.textContent='18+'");
+        }
+        List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionText : descriptionTextTileAll) {
+            descriptionText.evaluate("t => t.innerText='Текст описания'");
+        }
+        tilePackage.hover();
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/MixedEst/b1/68/ff9239391af64d5e7844e9fdac44cacce0bb/tile__atablet-xhdpi.webp')");
+        Thread.sleep(2000);
+        tilePackage.hover();
+        vrt.track(
+                "HoverOnTilePackageCollectionGuest",
+                Base64.getEncoder().encodeToString(collectionHoverPackage.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkHoverOnTilePackageCollectionUser() throws IOException, InterruptedException {
+        ElementHandle tilePackage = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]");
+        tilePackage.scrollIntoViewIfNeeded();
+        ElementHandle collectionHoverPackage = page.querySelector("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
+        ElementHandle titleCollectionHoverPackage = page.querySelector("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
+        titleCollectionHoverPackage.evaluate("t => t.innerText='Название подборки'");
+        List<ElementHandle> posterAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        for (ElementHandle poster : posterAll) {
+            poster.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/MixedEst/ac/06/de807ef0bbe1f5dfd169144f19085474f890/tile__atablet-xhdpi.webp')");
+        }
+        List<ElementHandle> namePackageAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
+        for (ElementHandle namePackage : namePackageAll) {
+            namePackage.evaluate("t => t.innerText='Название пакета'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("d => d.textContent='18+'");
+        }
+        List<ElementHandle> descriptionTextTileAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_desc')]");
+        for (ElementHandle descriptionText : descriptionTextTileAll) {
+            descriptionText.evaluate("t => t.innerText='Текст описания'");
+        }
+        tilePackage.hover();
+        Thread.sleep(2000);
+        // подготовка выделенного тайла:
+        ElementHandle posterHoverTile = page.querySelector("//a[contains(@href, '/mixed_groups/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/MixedEst/b1/68/ff9239391af64d5e7844e9fdac44cacce0bb/tile__atablet-xhdpi.webp')");
+        Thread.sleep(2000);
+        tilePackage.hover();
+        vrt.track(
+                "HoverOnTilePackageCollectionUser",
+                Base64.getEncoder().encodeToString(collectionHoverPackage.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkElementsCollectionInCollection() {
+        // нет картинок в тайлах подборок в подбороке
+       List<ElementHandle> tilesCinCall =  page.querySelectorAll("//section//div[contains(@class,'TileTriple_children')]");
+       List<ElementHandle> tilesCinCposterAll =  page.querySelectorAll("//section//div[contains(@class,'TileTriple_children')]//source");
+       Assert.assertEquals("bug: no poster on tile collection in collection", tilesCinCall.size(), tilesCinCposterAll.size());
+    }
+
+    public void clickOnButtonFavoriteFilmCollectionGuest() {
+        ElementHandle tileFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]");
+        tileFilm.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//h1[text()='Введите номер телефона']");
+    }
+
+    public void clickOnButtonFavoriteSerialCollectionGuest() {
+        ElementHandle tileSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]");
+        tileSerial.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//h1[text()='Введите номер телефона']");
+    }
+
+    public void clickOnButtonFavoriteTvProgramCollectionGuest() {
+        ElementHandle tileTvProgram = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
+        tileTvProgram.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//h1[text()='Введите номер телефона']");
+    }
+
+    public void clickOnButtonFavoriteTvChannelCollectionGuest() {
+        ElementHandle tileTvChannel = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/tv/channels/') and contains(@class, 'TileChannelPackage')][1]");
+        tileTvChannel.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//h1[text()='Введите номер телефона']");
+    }
+
+    public void clickOnButtonFavoriteAndCheckAddFavoriteFilm() throws IOException, InterruptedException {
+        ElementHandle tileFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]");
+        ElementHandle tileFilmName = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        String nameFilmAdd = tileFilmName.innerText();
+        tileFilm.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//button//*[contains(@class,'iconFavouriteActive')]");
+        // подготовка тайла в фокусе
+        ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/movies/vods/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+
+        ElementHandle nameFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/movies/vods/')]//span[contains(@class,'TilePackageCommon_title')]");
+        nameFilm.evaluate("t => t.innerText='Название контента'");
+
+        ElementHandle age = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/movies/vods/')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        age.evaluate("d => d.textContent='18+'");
+
+        ElementHandle tileFocus = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href,'/movies/vods/')]");
+        ElementHandle descriptionTextTile = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/movies/vods/')]//span[contains(@class,'TilePackageCommon_desc')]");
+        descriptionTextTile.evaluate("t => t.innerText='Текст описания'");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle duration = page.waitForSelector("//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_duration')]");
+        duration.evaluate("d => d.innerText='100 мин.'");
+        ElementHandle meta = page.waitForSelector("//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        meta.evaluate("m => m.innerText='IMDb 7.7'");
+        Thread.sleep(2000);
+        tileFilm.hover();
+        vrt.track(
+                "ActiveFavoriteOnTileFilmFromCollectionUser",
+                Base64.getEncoder().encodeToString(tileFocus.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        // проверка добавления фильма в избранное:
+        page.navigate("https://web-preprod6.megafon.tv/my/favorites");
+        Assert.assertEquals(nameFilmAdd, page.querySelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+    }
+
+    public void clickOnButtonFavoriteAndCheckAddFavoriteSerial() throws IOException, InterruptedException {
+        ElementHandle tileSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]");
+        tileSerial.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//button//*[contains(@class,'iconFavouriteActive')]");
+        // подготовка тайла в фокусе
+        ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+
+        ElementHandle nameSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/shows/')]//span[contains(@class,'TilePackageCommon_title')]");
+        nameSerial.evaluate("t => t.innerText='Название контента'");
+
+        ElementHandle age = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/shows/')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        age.evaluate("d => d.textContent='18+'");
+
+        ElementHandle tileFocus = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href,'/shows/')]");
+        ElementHandle descriptionTextTile = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/shows/')]//span[contains(@class,'TilePackageCommon_desc')]");
+        descriptionTextTile.evaluate("t => t.innerText='Текст описания'");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle meta = page.waitForSelector("//a[contains(@href, '/shows/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        meta.evaluate("m => m.innerText='IMDb 7.7'");
+        Thread.sleep(2000);
+        tileSerial.hover();
+        vrt.track(
+                "ActiveFavoriteOnTileSerialFromCollectionUser",
+                Base64.getEncoder().encodeToString(tileFocus.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void clickOnButtonFavoriteAndCheckAddFavoriteTvProgram() throws IOException, InterruptedException {
+        ElementHandle tileTvProgram = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/')][1]");
+        tileTvProgram.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//button//*[contains(@class,'iconFavouriteActive')]");
+        // подготовка тайла в фокусе
+        ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
+        posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
+
+        ElementHandle nameTvProgram = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')]//span[contains(@class,'TilePackageCommon_title')]");
+        nameTvProgram.evaluate("t => t.innerText='Название контента'");
+
+        ElementHandle age = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        age.evaluate("d => d.textContent='18+'");
+
+        ElementHandle tileFocus = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href,'/programs/')]");
+        ElementHandle descriptionTextTile = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')]//span[contains(@class,'TilePackageCommon_desc')]");
+        descriptionTextTile.evaluate("t => t.innerText='Текст описания'");
+        Thread.sleep(2000);
+        // подготовка контролов при ховере:
+        ElementHandle progressText = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+        progressText.evaluate("pT => pT.innerText='Осталось 10 мин.'");
+        ElementHandle progressBar = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+        progressBar.evaluate("pB => pB.setAttribute('style', 'width: 50.00%;')");
+        Thread.sleep(2000);
+        tileTvProgram.hover();
+        vrt.track(
+                "ActiveFavoriteOnTileTvProgramFromCollectionUser",
+                Base64.getEncoder().encodeToString(tileFocus.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
                         .os("Win10 Pro")

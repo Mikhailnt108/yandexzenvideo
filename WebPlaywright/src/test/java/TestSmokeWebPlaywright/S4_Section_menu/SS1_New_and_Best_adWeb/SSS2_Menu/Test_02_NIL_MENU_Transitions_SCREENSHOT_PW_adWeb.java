@@ -19,68 +19,68 @@ public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePl
     public void MENU_Transitions() throws IOException, InterruptedException {
         // Guest:
         headerMenuPW.goToNilPage();
-        niLPagePW.goToTabsHeaderMenuMftvGuest();
+        nilPagePW.goToTabsHeaderMenuMftvGuest();
          promocode:
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.choosePromoCodeAndCheckImageMinPageNilGuest();
+        nilPagePW.choosePromoCodeAndCheckImageMinPageNilGuest();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.choosePromoCodeAndCheckImageMediumPageNilGuest();
+        nilPagePW.choosePromoCodeAndCheckImageMediumPageNilGuest();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.choosePromoCodeAndCheckImageWidePageNilGuest();
+        nilPagePW.choosePromoCodeAndCheckImageWidePageNilGuest();
         // search:
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.chooseSearchAndCheckImageMinPageGuest();
+        nilPagePW.chooseSearchAndCheckImageMinPageGuest();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.chooseSearchAndCheckImageMediumPageGuest();
+        nilPagePW.chooseSearchAndCheckImageMediumPageGuest();
         // wibe:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.chooseSearchAndCheckImageWibePageGuest();
+        nilPagePW.chooseSearchAndCheckImageWibePageGuest();
 
-        niLPagePW.clickOnEnterButtonAndCheckImage();
+        nilPagePW.clickOnEnterButtonAndCheckImage();
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
         flowAutorization();// пропадает логин
-        niLPagePW.goToTabsHeaderMenuMftvUser();
+        nilPagePW.goToTabsHeaderMenuMftvUser();
         // promocode:
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.choosePromoCodeAndCheckImageMinPageNilUser();
+        nilPagePW.choosePromoCodeAndCheckImageMinPageNilUser();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.choosePromoCodeAndCheckImageMediumPageNilUser();
+        nilPagePW.choosePromoCodeAndCheckImageMediumPageNilUser();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.choosePromoCodeAndCheckImageWidePageNilUser();
+        nilPagePW.choosePromoCodeAndCheckImageWidePageNilUser();
         // search:
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.chooseSearchAndCheckImageMinPageUser();
+        nilPagePW.chooseSearchAndCheckImageMinPageUser();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.chooseSearchAndCheckImageMediumPageUser();
+        nilPagePW.chooseSearchAndCheckImageMediumPageUser();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        niLPagePW.chooseSearchAndCheckImageWidePageUser();
+        nilPagePW.chooseSearchAndCheckImageWidePageUser();
         // profile:
-        niLPagePW.goToSectionsProfileMenu();
+        nilPagePW.goToSectionsProfileMenu();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

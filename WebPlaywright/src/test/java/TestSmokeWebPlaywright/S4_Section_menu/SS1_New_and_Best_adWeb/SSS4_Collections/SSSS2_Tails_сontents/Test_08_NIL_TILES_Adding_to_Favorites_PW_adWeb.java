@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS2_Tails_сontents;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,23 +8,32 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_04_NIL_There_is_no_picture_on_tile_PW_adWeb extends TestBasePlaywright {
+public class Test_08_NIL_TILES_Adding_to_Favorites_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "4. There_is_no_picture_on_tile_SCREENSHOT")
+    @DisplayName(value = "8. NIL_TILES_Adding_to_Favorites")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void MessageSelectingContentForYou() throws IOException, InterruptedException {
-        headerMenuPW.deleteImagesFromFilm();
+    public void NIL_TILES_Adding_to_Favorites() throws IOException, InterruptedException {
+        // Guest
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.clickOnButtonFavoriteFilmCollectionGuest();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.clickOnButtonFavoriteSerialCollectionGuest();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.clickOnButtonFavoriteTvProgramCollectionGuest();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.clickOnButtonFavoriteTvChannelCollectionGuest();
+        // User
         headerMenuPW.goToNilPage();
-        // Guest:
-        nilPagePW.checkBlockCollectionFilmWithoutImagesGuest();
-        // User:
         flowRegistation();
-        nilPagePW.checkBlockCollectionFilmWithoutImagesUser();
-        headerMenuPW.addImagesFromFilm();
+        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteFilm();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteSerial();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteTvProgram();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
