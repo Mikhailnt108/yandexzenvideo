@@ -29,11 +29,19 @@ public class Test_08_NIL_TILES_Adding_to_Favorites_PW_adWeb extends TestBasePlay
         // User
         headerMenuPW.goToNilPage();
         flowRegistation();
+        // add:
         nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteFilm();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteSerial();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteTvProgram();
+        // remove:
         headerMenuPW.goToNilPage();
-        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteSerial();
+        nilPagePW.checkRemoveToFavoriteFilmFromCollection();
         headerMenuPW.goToNilPage();
-        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteTvProgram();
+//        nilPagePW.checkRemoveToFavoriteSerialFromCollection();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkRemoveToFavoriteTvProgramFromCollection();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

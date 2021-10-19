@@ -3,6 +3,7 @@ package pagesPlaywright;
 import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.ElementState;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
@@ -3752,7 +3753,11 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void clickOnButtonFavoriteAndCheckAddFavoriteFilm() throws IOException, InterruptedException {
-        ElementHandle tileFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]");
+        Thread.sleep(2000);
+        ElementHandle alert = page.waitForSelector("//span[text()='Подбираем контент для вас']");
+        alert.waitForElementState(ElementState.HIDDEN);
+        page.reload();
+        ElementHandle tileFilm = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]");
         ElementHandle tileFilmName = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         String nameFilmAdd = tileFilmName.innerText();
         tileFilm.hover();
@@ -3795,6 +3800,8 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void clickOnButtonFavoriteAndCheckAddFavoriteSerial() throws IOException, InterruptedException {
         ElementHandle tileSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]");
+        ElementHandle tileSerialName = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        String nameSerialAdd = tileSerialName.innerText();
         tileSerial.hover();
         page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
         page.waitForSelector("//button//*[contains(@class,'iconFavouriteActive')]");
@@ -3826,10 +3833,17 @@ public class NiLPagePW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
+        // проверка добавления фильма в избранное:
+        page.navigate("https://web-preprod6.megafon.tv/my/favorites");
+        Assert.assertEquals(nameSerialAdd, page.querySelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
     }
 
     public void clickOnButtonFavoriteAndCheckAddFavoriteTvProgram() throws IOException, InterruptedException {
-        ElementHandle tileTvProgram = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/')][1]");
+        page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").click();
+        ElementHandle nameTvChannel = page.waitForSelector("//a[contains(@href,'/tv/channels/')]");
+        String nameTvChannelAdd = nameTvChannel.innerText();
+        page.navigate("https://web-preprod6.megafon.tv/");
+        ElementHandle tileTvProgram = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
         tileTvProgram.hover();
         page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
         page.waitForSelector("//button//*[contains(@class,'iconFavouriteActive')]");
@@ -3837,14 +3851,14 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle posterHoverTile = page.querySelector("(//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')]//picture[contains(@class,'TilePackageCommon_image')]//source)[1]");
         posterHoverTile.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
 
-        ElementHandle nameTvProgram = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')]//span[contains(@class,'TilePackageCommon_title')]");
+        ElementHandle nameTvProgram = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/') and contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_title')]");
         nameTvProgram.evaluate("t => t.innerText='Название контента'");
 
-        ElementHandle age = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        ElementHandle age = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/') and contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_parentalRating')]");
         age.evaluate("d => d.textContent='18+'");
 
         ElementHandle tileFocus = page.querySelector("//div[contains(@class,'TileOverlay')]/ancestor::a[contains(@href,'/programs/')]");
-        ElementHandle descriptionTextTile = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')]//span[contains(@class,'TilePackageCommon_desc')]");
+        ElementHandle descriptionTextTile = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/') and contains(@class,'TilePackageCommon')]//span[contains(@class,'TilePackageCommon_desc')]");
         descriptionTextTile.evaluate("t => t.innerText='Текст описания'");
         Thread.sleep(2000);
         // подготовка контролов при ховере:
@@ -3863,6 +3877,36 @@ public class NiLPagePW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
+        // проверка добавления фильма в избранное:
+        page.navigate("https://web-preprod6.megafon.tv/my/favorites");
+        Assert.assertEquals(nameTvChannelAdd, page.querySelector("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+    }
+
+    public void checkRemoveToFavoriteFilmFromCollection() {
+        ElementHandle tileFilm = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]");
+        tileFilm.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
+        page.navigate("https://web-preprod6.megafon.tv/my/favorites");
+        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/vods/')]//h3[@data-test='PackageDescriptionTitle']").size()<1);
+    }
+
+    public void checkRemoveToFavoriteSerialFromCollection() {
+        ElementHandle tileSerial = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]");
+        tileSerial.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
+        page.navigate("https://web-preprod6.megafon.tv/my/favorites");
+        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").size()<1);
+    }
+
+    public void checkRemoveToFavoriteTvProgramFromCollection() {
+        ElementHandle tileTvProgram = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/')][1]");
+        tileTvProgram.hover();
+        page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
+        page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
+        page.navigate("https://web-preprod6.megafon.tv/my/favorites");
+        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/channels/')]//h3[@data-test='PackageDescriptionTitle']").size()<1);
     }
 }
 

@@ -6,6 +6,8 @@ import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.parallel.Execution;
 import pagesPlaywright.*;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
@@ -83,7 +85,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public static Page pageCMS;
 
     @BeforeEach
-    void createContextAndPage() throws IOException, InterruptedException {
+    void createContextAndPage() throws IOException, InterruptedException, AWTException {
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1900, 920));
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
@@ -111,8 +113,8 @@ class TestBasePlaywright extends BasePagePlaywright{
 //        preconditionPW = new PreconditionPW(page, statement);
         sportPagePW = new SportPagePW(page);
         vrt.start();
-//        Robot bot = new Robot();
-//        bot.mouseMove(0, 0);
+        Robot bot = new Robot();
+        bot.mouseMove(0, 0);
     }
 
     @AfterEach
