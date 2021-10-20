@@ -40,8 +40,8 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
-            .apiUrl("http://192.168.1.139:4200")
-            .apiKey("FHJV0S16FTMW50GT7GZR8RDJJSY0")
+            .apiUrl("http://localhost:4200")
+            .apiKey("MEZXW9B2NM46JEPZ8W76BB0SH7W9")
             .project("MFTV_Web")
             .branchName("master")
             .enableSoftAssert(false)
@@ -87,9 +87,11 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException, AWTException {
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));
+//                .setViewportSize(1900, 920));
+                .setViewportSize(1360, 760));
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));
+//                .setViewportSize(1900, 920));
+                .setViewportSize(1360, 760));
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();

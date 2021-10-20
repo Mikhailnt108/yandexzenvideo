@@ -17,7 +17,8 @@ public class Test_02_NIL_BROWSING_HISTORY_Focus_PW_adWeb extends TestBasePlaywri
     @Test
     @Tag("adWebSuitePW#1")
     public void NIL_BROWSING_HISTORY_Focus() throws IOException {
-        // Guest
+        // User
+
     }
 }
 

@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
+import static base.TestBasePlaywright.pageHeadfull;
 import static base.TestBasePlaywright.vrt;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -3882,11 +3883,12 @@ public class NiLPagePW extends BasePagePlaywright {
         Assert.assertEquals(nameTvChannelAdd, page.querySelector("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
     }
 
-    public void checkRemoveToFavoriteFilmFromCollection() {
+    public void checkRemoveToFavoriteFilmFromCollection() throws InterruptedException {
         ElementHandle tileFilm = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]");
         tileFilm.hover();
+        Assert.assertTrue("bug: not active icon favorite",page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible());
         page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
-        page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
+        page.waitForSelector("//button//*[contains(@class,'iconFavourite')]");
         page.navigate("https://web-preprod6.megafon.tv/my/favorites");
         Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/vods/')]//h3[@data-test='PackageDescriptionTitle']").size()<1);
     }
@@ -3894,6 +3896,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkRemoveToFavoriteSerialFromCollection() {
         ElementHandle tileSerial = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]");
         tileSerial.hover();
+        Assert.assertTrue("bug: not active icon favorite",page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible());
         page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
         page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
         page.navigate("https://web-preprod6.megafon.tv/my/favorites");
@@ -3903,10 +3906,53 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkRemoveToFavoriteTvProgramFromCollection() {
         ElementHandle tileTvProgram = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/')][1]");
         tileTvProgram.hover();
+        Assert.assertTrue("bug: not active icon favorite",page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible());
         page.click("//button[contains(@class,'TileOverlay_favouriteButton')]");
         page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
         page.navigate("https://web-preprod6.megafon.tv/my/favorites");
         Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/channels/')]//h3[@data-test='PackageDescriptionTitle']").size()<1);
+    }
+
+    public void checkImageBlockCollectHistoryWatchOnNilPage() throws IOException, InterruptedException {
+        pageHeadfull.navigate("https://web-preprod6.megafon.tv/");
+        List<ElementHandle> posterPackageAll;
+        List<ElementHandle> titlePackageAll;
+        List<ElementHandle> descriptionTextPackageAll;
+        List<ElementHandle> ageAll;
+        for (int i = 0; i < pageHeadfull.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_7LRTnrwDy15pRyA2wKc1m']").size(); i++) {
+            posterPackageAll = pageHeadfull.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+            pageHeadfull.evaluate("p => p.setAttribute('style', 'background-size: cover; " +
+                    "background-color: rgb(238, 238, 238); " +
+                    "background-image: url(https://static-sesure.cdn.megafon.tv/images/Mixed/35/ee/4cb8df5e72d867ab46ba2da8169c56159b71/tile__web-wp.webp);')", posterPackageAll.get(i));
+            titlePackageAll = pageHeadfull.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//h3[@data-test='PackageDescriptionTitle']");
+            pageHeadfull.evaluate("t => t.innerText='Название контента'", titlePackageAll.get(i));
+            descriptionTextPackageAll = pageHeadfull.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span");
+            pageHeadfull.evaluate("d => d.textContent='Description'", descriptionTextPackageAll.get(i));
+            ageAll = pageHeadfull.querySelectorAll("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+            pageHeadfull.evaluate("a => a.innerText='18+'", ageAll.get(i));
+        }
+        ElementHandle blockCollectHistoryWatchNil = pageHeadfull.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
+        // делаем скриншот элемента "blockCollectHistoryWatchNil":
+        vrt.track(
+                "blockCollectHistoryWatchNil",
+                Base64.getEncoder().encodeToString(blockCollectHistoryWatchNil.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        ElementHandle tailWatchAndEditCollectHistoryWatchNil = pageHeadfull.querySelector("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@class='ArHiwAcYUlO8lYdGJYyYT']");
+        // делаем скриншот элемента "tailWatchAndEditCollectHistoryWatchNil":
+        vrt.track(
+                "tailWatchAndEditCollectHistoryWatchNil",
+                Base64.getEncoder().encodeToString(tailWatchAndEditCollectHistoryWatchNil.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
     }
 }
 

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_08_NIL_TILES_Adding_to_Favorites_PW_adWeb extends TestBasePlaywright {
+public class Test_08_NIL_TILES_Adding_to_Favorites_PW_bug_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
@@ -18,32 +18,32 @@ public class Test_08_NIL_TILES_Adding_to_Favorites_PW_adWeb extends TestBasePlay
     @Tag("adWebSuitePW#1")
     public void NIL_TILES_Adding_to_Favorites() throws IOException, InterruptedException {
         // Guest
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.clickOnButtonFavoriteFilmCollectionGuest();
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.clickOnButtonFavoriteSerialCollectionGuest();
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.clickOnButtonFavoriteTvProgramCollectionGuest();
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.clickOnButtonFavoriteTvChannelCollectionGuest();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteFilmCollectionGuest();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteSerialCollectionGuest();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteTvProgramCollectionGuest();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteTvChannelCollectionGuest();
         // User
         headerMenuPW.goToNilPage();
-        flowRegistation();
+        flowRegistationMF();
         // add:
         nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteFilm();
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteSerial();
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteTvProgram();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteSerial();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnButtonFavoriteAndCheckAddFavoriteTvProgram();
         // remove:
         headerMenuPW.goToNilPage();
         nilPagePW.checkRemoveToFavoriteFilmFromCollection();
         headerMenuPW.goToNilPage();
-//        nilPagePW.checkRemoveToFavoriteSerialFromCollection();
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.checkRemoveToFavoriteTvProgramFromCollection();
+        nilPagePW.checkRemoveToFavoriteSerialFromCollection();
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkRemoveToFavoriteTvProgramFromCollection();
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
