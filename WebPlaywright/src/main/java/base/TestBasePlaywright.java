@@ -41,7 +41,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://localhost:4200")
-            .apiKey("MEZXW9B2NM46JEPZ8W76BB0SH7W9")
+            .apiKey("FHJV0S16FTMW50GT7GZR8RDJJSY0")
             .project("MFTV_Web")
             .branchName("master")
             .enableSoftAssert(false)
@@ -87,11 +87,11 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException, AWTException {
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-//                .setViewportSize(1900, 920));
-                .setViewportSize(1360, 760));
+                .setViewportSize(1900, 920));
+//                .setViewportSize(1360, 760));
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
-//                .setViewportSize(1900, 920));
-                .setViewportSize(1360, 760));
+                .setViewportSize(1900, 920));
+//                .setViewportSize(1360, 760));
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
@@ -112,7 +112,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         packagesPagePW = new PackagesPagePW(page);
         cardPackagePW = new CardPackagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
-//        preconditionPW = new PreconditionPW(page, statement);
+        //        preconditionPW = new PreconditionPW(page, statement);
         sportPagePW = new SportPagePW(page);
         vrt.start();
         Robot bot = new Robot();

@@ -16,7 +16,44 @@ public class Test_01_NIL_COLLECTIONS_Editorial_collections_PW_adWeb extends Test
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_COLLECTIONS_Editorial_collections() throws IOException {
+    public void NIL_COLLECTIONS_Editorial_collections() throws IOException, InterruptedException {
         // Guest
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnTitleEditCollectionAndCheckOpenCollectionPage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileFilmCollectionAndCheckOpenCardFilm();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileSerialCollectionAndCheckOpenCardSerial();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileTvProgramCollectionAndCheckOpenCardTvProgram();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileTvChannelCollectionAndCheckOpenCardTvChannel();
+        headerMenuPW.goToNilPage();
+        // User
+        flowRegistationMF();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnTitleEditCollectionAndCheckOpenCollectionPage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileFilmCollectionAndCheckOpenCardFilm();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileSerialCollectionAndCheckOpenCardSerial();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileTvProgramCollectionAndCheckOpenCardTvProgram();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickToTileTvChannelCollectionAndCheckOpenCardTvChannel();
+    }
+    private void flowRegistationMF() {
+        headerMenuPW.checkNotLoggedIsCorrect();
+        headerMenuPW.clickToEnter();
+        headerMenuPW.checkOpenPopUpInputPhone();
+        headerMenuPW.inputLogin("+7 926 019 21 44");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpInputCode();
+        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS4_Transitions;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -6,23 +6,24 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
-public class Test_03_NIL_Message_Selecting_content_for_you_PW_adWeb extends TestBasePlaywright {
+public class Test_03_NIL_COLLECTIONS_Collections_by_genre_PW_block_bug_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "3. Message_Selecting_content_for_you_SCREENSHOT")
+    @DisplayName(value = "3. NIL_COLLECTIONS_Collections_by_genre")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void MessageSelectingContentForYou() throws InterruptedException, IOException {
+    public void NIL_COLLECTIONS_Collections_by_genre() {
+        // Guest
         headerMenuPW.goToNilPage();
-        flowRegistation();
-        nilPagePW.checkMessageSelectingContentForYou();
-        nilPagePW.checkChangeContentOnColdPopular();
+        nilPagePW.clickOnTitleCinCGenresAndCheckOpenPageCollect();
+        // User
+        flowRegistationMF();
+        headerMenuPW.goToNilPage();
+        nilPagePW.clickOnTitleCinCGenresAndCheckOpenPageCollect();
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
@@ -34,6 +35,6 @@ public class Test_03_NIL_Message_Selecting_content_for_you_PW_adWeb extends Test
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
-        headerMenuPW.chooseBucket103InCmsHh("79260192144");
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

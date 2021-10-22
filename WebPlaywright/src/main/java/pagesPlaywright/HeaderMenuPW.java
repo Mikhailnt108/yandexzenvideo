@@ -547,11 +547,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.navigate("https://web-preprod6.megafon.tv/sport");
     }
 
-    public void checkMessageSelectingContentForYou() throws InterruptedException {
-        Thread.sleep(150000);
-//        page.querySelector("");
-    }
-
     public void deleteImagesFromFilm() {
         page.navigate("https://web-preprod6.megafon.tv/");
         page.click("(//section[contains(@class,'HomePage_collection')]//span[contains(@class,'TilePackageCommon_title')])[3]");
@@ -602,4 +597,53 @@ public class HeaderMenuPW extends BasePagePlaywright {
      page.querySelector("//h1[text()='Введите пароль']");
      page.fill("//input[@type='password']", password);
     }
+
+    public void chooseBucket110InCmsHh(String login) {
+        pageCMS = contextIncognitoModeHeadless.newPage();
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user");
+        pageCMS.click("//form[@method='GET']//input[1]");
+        pageCMS.fill("//form[@method='GET']//input[1]", login);
+        pageCMS.click("//button[text()='Поиск']");
+        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
+        pageCMS.click("//a[contains(@href, '/cms/households/')]");
+        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+        pageCMS.click("(//a[@role='button'])[2]");
+        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
+
+        pageCMS.selectOption("//select[@name='hypothesis_group']", "110");
+        pageCMS.selectOption("//select[@id='ab_group']", "0");
+        pageCMS.click("text=Сохранить");
+        pageCMS.click("text=Запрос на пересчет ПГ");
+//        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+//        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
+//        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
+        pageCMS.close();
+        page.bringToFront();
+        page.reload();
+    }
+
+    public void chooseBucket103InCmsHh(String login) {
+        pageCMS = contextIncognitoModeHeadless.newPage();
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user");
+        pageCMS.click("//form[@method='GET']//input[1]");
+        pageCMS.fill("//form[@method='GET']//input[1]", login);
+        pageCMS.click("//button[text()='Поиск']");
+        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
+        pageCMS.click("//a[contains(@href, '/cms/households/')]");
+        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+        pageCMS.click("(//a[@role='button'])[2]");
+        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
+
+        pageCMS.selectOption("//select[@name='hypothesis_group']", "103");
+        pageCMS.selectOption("//select[@id='ab_group']", "0");
+        pageCMS.click("text=Сохранить");
+        pageCMS.click("text=Запрос на пересчет ПГ");
+//        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+//        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
+//        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
+        pageCMS.close();
+        page.bringToFront();
+        page.reload();
+    }
+
 }

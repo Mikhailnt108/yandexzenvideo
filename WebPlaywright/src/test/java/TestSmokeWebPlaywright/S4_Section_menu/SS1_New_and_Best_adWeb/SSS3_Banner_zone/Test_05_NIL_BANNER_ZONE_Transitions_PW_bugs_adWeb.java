@@ -21,7 +21,7 @@ public class Test_05_NIL_BANNER_ZONE_Transitions_PW_bugs_adWeb extends TestBaseP
         // click to button trailer:
         headerMenuPW.goToNilPage();
         nilPagePW.clickToButtonTrailerFilmOnBanner();
-//        cardFilmPW.checkStartTrailerPlayer(); // баг: нет автозапуска трейлера при переходе из баннера НиЛ
+        cardFilmPW.checkStartTrailerPlayer(); // баг: нет автозапуска трейлера при переходе из баннера НиЛ
         headerMenuPW.goToNilPage();
         nilPagePW.clickToButtonTrailerSerialOnBanner();
         cardSerialPW.checkStartTrailerPlayer();

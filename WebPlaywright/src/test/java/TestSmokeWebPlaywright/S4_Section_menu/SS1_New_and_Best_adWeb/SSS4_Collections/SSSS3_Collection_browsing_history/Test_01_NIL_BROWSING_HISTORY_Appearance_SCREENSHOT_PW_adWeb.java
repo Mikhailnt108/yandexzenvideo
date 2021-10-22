@@ -12,7 +12,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "Suite#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_NIL_BROWSING_HISTORY_Appearance_SCREENSHOT_VRT_PW extends TestBasePlaywright {
+public class Test_01_NIL_BROWSING_HISTORY_Appearance_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
@@ -20,7 +20,7 @@ public class Test_01_NIL_BROWSING_HISTORY_Appearance_SCREENSHOT_VRT_PW extends T
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void historyViewing() throws Exception {
+    public void NIL_BROWSING_HISTORY_Appearance() throws Exception {
         headerMenuPW.goToNilPage();
         flowRegistationMF();
         headerMenuPW.goToPackagesPage();
@@ -63,5 +63,6 @@ public class Test_01_NIL_BROWSING_HISTORY_Appearance_SCREENSHOT_VRT_PW extends T
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

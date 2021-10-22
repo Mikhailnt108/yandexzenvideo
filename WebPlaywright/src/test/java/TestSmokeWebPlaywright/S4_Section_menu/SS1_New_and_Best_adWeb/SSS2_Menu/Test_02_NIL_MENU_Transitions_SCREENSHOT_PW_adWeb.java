@@ -20,7 +20,7 @@ public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePl
         // Guest:
         headerMenuPW.goToNilPage();
         nilPagePW.goToTabsHeaderMenuMftvGuest();
-         promocode:
+        // promocode:
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();

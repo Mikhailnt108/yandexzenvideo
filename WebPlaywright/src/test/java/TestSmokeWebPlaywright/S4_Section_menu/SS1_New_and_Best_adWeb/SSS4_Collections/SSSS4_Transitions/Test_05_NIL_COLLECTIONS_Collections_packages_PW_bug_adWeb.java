@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS1_Nil_collections_basic;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS4_Transitions;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,35 +8,28 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_01_2_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+public class Test_05_NIL_COLLECTIONS_Collections_packages_PW_bug_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "2. NIL_COLLECTIONS_Appearance_User_SCREENSHOT")
+    @DisplayName(value = "5. NIL_COLLECTIONS_Collections_packages")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_COLLECTIONS_Appearance_User() throws IOException, InterruptedException {
-        // User:
+    public void NIL_COLLECTIONS_Collections_packages() throws IOException, InterruptedException {
+        // Guest
         headerMenuPW.goToNilPage();
-        flowRegistation();
-        // min:
-        headerMenuPW.openMinFramePage();
+        nilPagePW.clickOnTitlePackagesCollectionAndCheckOpenCollectionPage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionMinPageNilUser();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.clickToTilePackageCollectionAndCheckOpenCardPackage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionMediumPageNilUser();
-        // wide:
-        headerMenuPW.openWideFramePage();
+        // User
+        flowRegistationMF();
+        nilPagePW.clickOnTitlePackagesCollectionAndCheckOpenCollectionPage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionWidePageNilUser();
+        nilPagePW.clickToTilePackageCollectionAndCheckOpenCardPackage();
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         headerMenuPW.checkOpenPopUpInputPhone();
@@ -48,5 +41,6 @@ public class Test_01_2_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb exten
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }
