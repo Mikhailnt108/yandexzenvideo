@@ -28,14 +28,14 @@ public class Test_01_NIL_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends Test
         nilPagePW.checkImageCherdakAndBannersGuest();
         nilPagePW.checkImageBlocksCollectionWidePageNilGuest();
         nilPagePW.checkImageBlocksCollectionWithoutHeader();
-        nilPagePW.checkImageFooterGuest();
+        nilPagePW.checkImageFooterWidePageGuest();
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
         nilPagePW.checkImageNilPageScrollUser();
         nilPagePW.checkImageCherdakAndBannersUser();
         nilPagePW.checkImageBlocksCollectionWithHeaderUser();
-        nilPagePW.checkImageFooterUser();
+        nilPagePW.checkImageFooterWidePageUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

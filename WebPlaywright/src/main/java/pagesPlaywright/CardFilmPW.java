@@ -88,7 +88,7 @@ public class CardFilmPW extends BasePagePlaywright {
         }
     }
 
-    public void moveSliderRewindToVideoPlayerHeadfull() throws InterruptedException {
+    public void moveSliderRewindToVideoPlayerHeadfull() {
         pageHeadfull.waitForTimeout(5000);
         //нажать "Смотреть" - видео запустилось
         pageHeadfull.click("//span[contains(text(), 'Смотреть')]|//span[(text()='Продолжить просмотр')]");

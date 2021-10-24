@@ -12,7 +12,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "Suite#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_NIL_BROWSING_HISTORY_Appearance_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+public class Test_01_NIL_BROWSING_HISTORY_Appearance_NC_bug_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
@@ -36,20 +36,25 @@ public class Test_01_NIL_BROWSING_HISTORY_Appearance_SCREENSHOT_PW_adWeb extends
         cardFilmPW.openFirstCardFilmFromPackageKinoPoPodpiskeHeadfull();
         cardFilmPW.moveSliderRewindToVideoPlayerHeadfull();
         headerMenuPW.goToNilPageHeadfull();
+        nilPagePW.checkTileFilmAndElementsInBhCollection();
         // просмотр сериала:
         headerMenuPW.goToPackagesPageHeadfull();
         packagesPagePW.clickToTailCardPackageKinoPoPodpiskeHeadfull();
         cardSerialPW.openFirstCardSerialFromPackageKinoPoPodpiskeHeadfull();
         cardSerialPW.moveSliderRewindToVideoPlayerHeadfull();
         headerMenuPW.goToNilPageHeadfull();
+        nilPagePW.checkTileSerialAndElementsInBhCollection();
         // просмотр тв передачи:
         headerMenuPW.goToPackagesPageHeadfull();
         packagesPagePW.clickToTailCardPackageKinoPoPodpiskeHeadfull();
         cardTvProgramPW.openCardTvProgramInRecordFromPackageKinoPoPodpiskeHeadfull();
         cardTvProgramPW.moveSliderRewindToVideoPlayerHeadfull();
         headerMenuPW.goToNilPageHeadfull();
-        // скриншот-тест подборки:
-        nilPagePW.checkImageBlockCollectHistoryWatchOnNilPage();
+//        nilPagePW.checkTileTvProgramInBhCollection();
+        // добавление нового эпизода:
+
+        // чек тайла новый эпизод:
+        nilPagePW.checkTileNewEpisodeAndElementsInBhCollection();
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();

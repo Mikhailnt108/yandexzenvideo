@@ -1,0 +1,75 @@
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS5_Footer;
+
+import base.TestBasePlaywright;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+    @Epic(value = "Smoke MFTV Desktop Web")
+    @Feature(value = "2. Section_menu")
+    @Story(value = "1. New_and_Best_adWeb")
+    @DisplayName(value = "1. FOOTER_Appearance")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test
+    @Tag("adWebSuitePW#1")
+    public void FOOTER_Appearance() throws IOException, InterruptedException {
+        // Guest:
+        // min:
+        headerMenuPW.openMinFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkElementsFooterMinPage();
+        nilPagePW.checkImageFooterMinPageGuest();
+        nilPagePW.checkImageOpenListsFooterMinPageGuest();
+        // medium:
+        headerMenuPW.openMediumFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkElementsFooterMediumPage();
+        nilPagePW.checkImageFooterMediumPageGuest();
+        nilPagePW.checkImageOpenListsFooterMediumPageGuest();
+        // wide:
+        headerMenuPW.openWideFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkElementsFooterWidePage();
+        nilPagePW.checkImageFooterWidePageGuest();
+        // User:
+        headerMenuPW.goToNilPage();
+        flowRegistationMF();
+        // min:
+        headerMenuPW.openMinFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.waitHiddenMessageSelectContentForYou();
+        nilPagePW.checkElementsFooterMinPage();
+        nilPagePW.checkImageFooterMinPageUser();
+        nilPagePW.checkImageOpenListsFooterMinPageUser();
+        // medium:
+        headerMenuPW.openMediumFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.waitHiddenMessageSelectContentForYou();
+        nilPagePW.checkElementsFooterMediumPage();
+        nilPagePW.checkImageFooterMediumPageUser();
+        nilPagePW.checkImageOpenListsFooterMediumPageUser();
+        // wide:
+        headerMenuPW.openWideFramePage();
+        headerMenuPW.goToNilPage();
+        nilPagePW.waitHiddenMessageSelectContentForYou();
+        nilPagePW.checkElementsFooterWidePage();
+        nilPagePW.checkImageFooterWidePageUser();
+    }
+    private void flowRegistationMF() {
+        headerMenuPW.checkNotLoggedIsCorrect();
+        headerMenuPW.clickToEnter();
+        headerMenuPW.checkOpenPopUpInputPhone();
+        headerMenuPW.inputLogin("+7 926 019 21 44");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpInputCode();
+        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+    }
+}

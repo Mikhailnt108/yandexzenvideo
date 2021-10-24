@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS3_Collection_browsing_history;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS6_Search;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -6,19 +6,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
-public class Test_02_NIL_BROWSING_HISTORY_Focus_PW_adWeb extends TestBasePlaywright {
+public class Test_02_SEARCH_Nothing_found_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "2. NIL_BROWSING_HISTORY_Focus")
+    @DisplayName(value = "2. SEARCH_Nothing_found")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_BROWSING_HISTORY_Focus() throws IOException {
-        // User
-
+    public void SEARCH_Nothing_found(){
+        headerMenuPW.goToNilPage();
+        nilPagePW.checkResultSearchNothingFound();
     }
 }
-

@@ -198,12 +198,11 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+    public void checkImageFooterWidePageGuest() throws IOException, InterruptedException {
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
-                "footerPageNil",
+                "footerWidePageNilGuest",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -602,12 +601,11 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageBlocksCollectionWithHeaderUser() {
     }
 
-    public void checkImageFooterUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+    public void checkImageFooterWidePageUser() throws IOException, InterruptedException {
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNilUser":
         vrt.track(
-                "footerPageNilUser",
+                "footerWidePageNilUser",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -1298,7 +1296,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void choosePromoCodeAndCheckImageMinPageNilGuest() throws InterruptedException, IOException {
-        page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
+        page.click("(//button[contains(@class,'ch-trigger_view_burger')])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         page.click("(//div[text()='Промокод'])[2]");
         Thread.sleep(5000);
@@ -1314,7 +1312,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void choosePromoCodeAndCheckImageMediumPageNilGuest() throws InterruptedException, IOException {
-        page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
+        page.click("(//button[contains(@class,'ch-trigger_view_burger')])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         page.click("(//div[text()='Промокод'])[2]");
         Thread.sleep(5000);
@@ -1330,11 +1328,11 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void chooseSearchAndCheckImageMinPageGuest() throws InterruptedException, IOException {
-        page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
+        page.click("(//button[contains(@class,'ch-trigger_view_burger')])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         ElementHandle searchForm = page.querySelector("//div[@class='ch-mobile-menu__container']");
         page.click("//button[contains(@class,'ch-mobile-menu__trigger_type_search')]");
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         vrt.track(
                 "searchFormMinPageNilGuest",
                 Base64.getEncoder().encodeToString(searchForm.screenshot()),
@@ -1347,7 +1345,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void chooseSearchAndCheckImageMediumPageGuest() throws InterruptedException, IOException {
-        page.click("//button[@class='ch-trigger ch-trigger_view_ ch-header__trigger ch-header__trigger_type_search']");
+        page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
         Thread.sleep(5000);
         ElementHandle searchForm = page.waitForSelector("//div[@class='ch-cherdak']");
         vrt.track(
@@ -1359,7 +1357,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
-        page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
+//        page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
     }
 
     public void goToTabsHeaderMenuMftvUser() throws InterruptedException {
@@ -1535,7 +1533,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
-        page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
+//        page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
     }
 
     public void goToSectionsProfileMenu() throws InterruptedException {
@@ -4122,9 +4120,26 @@ public class NiLPagePW extends BasePagePlaywright {
         tileEditAndShowAll.click();
         Assert.assertTrue("bug: not opened page /my/history", pageHeadfull.url().contains("https://web-preprod6.megafon.tv/my/history"));
     }
+    public void checkTileFilmInBhCollection() {
+        Assert.assertTrue("bug: not visible tile film in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
+    }
+    public void checkTileFilmAndElementsInBhCollection() {
+        Assert.assertTrue("bug: not visible tile film in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        pageHeadfull.hover("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_duration')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconPlay')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconFavourite')]");
+    }
 
     public void clickTileFilmFromBhCollectAndCheckOpenCardFilm() {
-        ElementHandle tileFilmBhCollect = pageHeadfull.querySelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/vods/')][1]");
+        ElementHandle tileFilmBhCollect = pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/vods/')][1]");
         tileFilmBhCollect.scrollIntoViewIfNeeded();
         ElementHandle titleFilmBhCollect = pageHeadfull.querySelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         String titleFilmBhCollectText = titleFilmBhCollect.innerText();
@@ -4132,7 +4147,611 @@ public class NiLPagePW extends BasePagePlaywright {
         Assert.assertTrue("bug: not opened page collection", page.url().contains("https://web-preprod6.megafon.tv/movies/vods/"));
         Assert.assertEquals("bug: name film do not match", titleFilmBhCollectText, page.querySelector("//h1[text()]").innerText());
     }
+    public void checkTileSerialInBhCollection() {
+        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+    }
+    public void checkTileSerialAndElementsInBhCollection() {
+        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        pageHeadfull.hover("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TileOverlay_duration')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconPlay')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconFavourite')]");
+    }
+    public void checkTileTvProgramInBhCollection() {
+        Assert.assertTrue("bug: not visible tile tv program in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
+    }
+    public void checkTileTvProgramAndElementsInBhCollection() {
+        Assert.assertTrue("bug: not visible tile tv program in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        pageHeadfull.hover("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TileOverlay_duration')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconPlay')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconFavourite')]");
+    }
+
+    public void checkTileNewEpisodeInBhCollection() {
+        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//*[text()='Новый эпизод']").isVisible());
+    }
+    public void checkTileNewEpisodeAndElementsInBhCollection() {
+        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
+        pageHeadfull.hover("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TileOverlay_duration')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TileOverlay_meta')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressText')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//span[contains(@class,'progressBar')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconPlay')]");
+        pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconFavourite')]");
+    }
+
+    public void checkElementsFooterMinPage() throws IOException, InterruptedException {
+        page.waitForSelector("//footer").scrollIntoViewIfNeeded();
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']");
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']");
+        page.waitForSelector("//div[text()='Скачайте приложение']");
+        page.waitForSelector("//img[@alt='app-store']");
+        page.waitForSelector("//img[@alt='google-store']");
+        page.waitForSelector("//img[@alt='smart-tv-store']");
+        page.waitForSelector("//div[text()='Мы в соцсетях']");
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[1]");
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[2]");
+        page.waitForSelector("//a[@href and text()='Условия оказания услуг']");
+        page.waitForSelector("//a[@href and text()='Политика конфидециальности']");
+        page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']");
+        page.waitForSelector("//a[@href and text()='Правила оказания услуг телевизионного вещания']");
+    }
+
+    public void checkElementsFooterMediumPage() throws IOException, InterruptedException {
+        page.waitForSelector("//footer").scrollIntoViewIfNeeded();
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']");
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']");
+        page.waitForSelector("//div[text()='Скачайте приложение']");
+        page.waitForSelector("//img[@alt='app-store']");
+        page.waitForSelector("//img[@alt='google-store']");
+        page.waitForSelector("//img[@alt='smart-tv-store']");
+        page.waitForSelector("//div[text()='Мы в соцсетях']");
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[1]");
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[2]");
+        page.waitForSelector("//a[@href and text()='Условия оказания услуг']");
+        page.waitForSelector("//a[@href and text()='Политика конфидециальности']");
+        page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']");
+        page.waitForSelector("//a[@href and text()='Правила оказания услуг телевизионного вещания']");
+    }
+
+    public void checkElementsFooterWidePage() throws IOException, InterruptedException {
+        page.waitForSelector("//footer").scrollIntoViewIfNeeded();
+        page.waitForSelector("//div[contains(@class,'List_title') and text()='Устройства']");
+        page.waitForSelector("(//a[@href='/devices#smartphone' and text()='Смартфоны и планшеты'])[2]");
+        page.waitForSelector("(//a[@href='/devices#smart-tv' and text()='Smart TV'])[2]");
+        page.waitForSelector("(//a[@href='/devices#smart-tv' and text()='Android TV'])[2]");
+        page.waitForSelector("(//a[@href='/devices#appletv' and text()='Apple TV'])[2]");
+        page.waitForSelector("(//a[@href='/devices#fmc' and text()='Медиаплееры'])[2]");
+        page.waitForSelector("(//a[@href='/devices' and text()='Все устройства'])[2]");
+
+        page.waitForSelector("//div[contains(@class,'List_title') and text()='Поддержка']");
+        page.waitForSelector("(//a[@href='tel:+78005509065' and text()='Тел.: 8 800 550–90–65'])[2]");
+        page.waitForSelector("(//a[@href='/' and text()='Задайте нам вопрос'])[2]");
+        page.waitForSelector("(//a[@href='/help' and text()='Вопросы и ответы'])[2]");
+        page.waitForSelector("(//a[@href='/sitemap' and text()='Карта сайта'])[2]");
+        page.waitForSelector("(//a[@href='/devices' and text()='О нас'])[2]");
+
+        page.waitForSelector("//div[text()='Скачайте приложение']");
+        page.waitForSelector("//img[@alt='app-store']");
+        page.waitForSelector("//img[@alt='google-store']");
+        page.waitForSelector("//img[@alt='smart-tv-store']");
+        page.waitForSelector("//div[text()='Мы в соцсетях']");
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[1]");
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[2]");
+        page.waitForSelector("//a[@href and text()='Условия оказания услуг']");
+        page.waitForSelector("//a[@href and text()='Политика конфидециальности']");
+        page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']");
+        page.waitForSelector("//a[@href and text()='Правила оказания услуг телевизионного вещания']");
+    }
+
+    public void checkImageFooterMinPageGuest() throws IOException, InterruptedException {
+        // скриншот футер min page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerMinPageNilGuest",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageFooterMediumPageGuest() throws IOException, InterruptedException {
+        // скриншот футер medium page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerMediumPageNilGuest",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageFooterMinPageUser() throws IOException, InterruptedException {
+        // скриншот футер min page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerMinPageNilUser",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageFooterMediumPageUser() throws IOException, InterruptedException {
+        // скриншот футер medium page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerMediumPageNilUser",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+
+    public void checkImageOpenListsFooterMinPageGuest() throws IOException, InterruptedException {
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+        // скриншот футер min page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsMinPageNilGuest",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageOpenListsFooterMinPageUser() throws IOException, InterruptedException {
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+        // скриншот футер min page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsMinPageNilUser",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageOpenListsFooterMediumPageGuest() throws IOException, InterruptedException {
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+        // скриншот футер medium page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsMediumPageNilGuest",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageOpenListsFooterMediumPageUser() throws IOException, InterruptedException {
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
+        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+        // скриншот футер medium page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsMediumPageNilUser",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void waitHiddenMessageSelectContentForYou() throws InterruptedException {
+        ElementHandle alert = page.waitForSelector("//span[text()='Подбираем контент для вас']");
+        alert.waitForElementState(ElementState.HIDDEN);
+    }
+
+    public void hoverOnListBlockDevicesFooterAndCheckColor() throws InterruptedException {
+       List<ElementHandle> deviceAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_devices')]//a[@href]");
+       for(ElementHandle device : deviceAll){
+           device.hover();
+           Thread.sleep(2000);
+           System.out.println(device.evaluate("e => window.getComputedStyle(e).color"));
+           Assert.assertEquals("bug: the color of the element is not white",device.evaluate("e => window.getComputedStyle(e).color"),"rgb(255, 255, 255)");
+       }
+    }
+    public void hoverOnListBlockSupportFooterAndCheckColor() throws InterruptedException {
+        List<ElementHandle> deviceAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_support')]//a[@href]");
+        for(ElementHandle device : deviceAll){
+            device.hover();
+            Thread.sleep(2000);
+            System.out.println(device.evaluate("e => window.getComputedStyle(e).color"));
+            Assert.assertEquals("bug: the color of the element is not white",device.evaluate("e => window.getComputedStyle(e).color"),"rgb(255, 255, 255)");
+        }
+    }
+
+    public void goToLinksBlockDevicesFooter() {
+        page.waitForSelector("(//a[@href='/devices#smartphone' and text()='Смартфоны и планшеты'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/devices#smartphone"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/devices#smart-tv' and text()='Smart TV'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/devices#smart-tv"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/devices#smart-tv' and text()='Android TV'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/devices#smart-tv"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/devices#appletv' and text()='Apple TV'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/devices#appletv"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/devices#fmc' and text()='Медиаплееры'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/devices#fmc"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/devices' and text()='Все устройства'])[2]").click();
+        Assert.assertTrue("bug: not opened page devices", page.url().contains("https://web-preprod6.megafon.tv/devices"));
+        page.navigate("https://web-preprod6.megafon.tv");
+    }
+
+    public void goToLinksBlockSupportFooter() {
+        page.waitForSelector("(//a[@href='tel:+78005509065' and text()='Тел.: 8 800 550–90–65'])[2]").click();
+        page.onDialog(dialog -> dialog.dismiss());
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/' and text()='Задайте нам вопрос'])[2]").click();
+        Assert.assertTrue("bug: not opened popUp form 'Send a question'", page.querySelectorAll("//div[text()='Отправить вопрос']").size()==1);
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/help' and text()='Вопросы и ответы'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/help"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/sitemap' and text()='Карта сайта'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/sitemap"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='/devices' and text()='О нас'])[2]").click();
+        Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/devices"));
+        page.navigate("https://web-preprod6.megafon.tv");
+    }
+
+    public void goToLinkBlockSocialNetworksFooter() {
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[1]").click();
+        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size()==1);
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[2]").click();
+        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size()==1);
+        page.navigate("https://web-preprod6.megafon.tv");
+    }
+
+    public void goToLinkBlockStoresFooter() {
+        page.waitForSelector("//img[@alt='app-store']").click();
+        Assert.assertTrue("bug: not opened page appStore", page.url().contains("https://apps.apple.com/ru/app/megafon-tv"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("//img[@alt='google-store']").click();
+        Assert.assertTrue("bug: not opened page googlePlay", page.url().contains("https://play.google.com/store/apps/"));
+        Assert.assertTrue("bug: not opened page googlePlay", page.url().contains("megafon.tv"));
+        page.navigate("https://web-preprod6.megafon.tv");
+        page.waitForSelector("//img[@alt='smart-tv-store']").click();
+        Assert.assertTrue("bug: not opened page devices", page.url().contains("https://web-preprod6.megafon.tv/devices"));
+        page.navigate("https://web-preprod6.megafon.tv");
+    }
+
+    public void goToLinksBlockDocumentsFooter() {
+        page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']").click();
+        Assert.assertTrue("bug: not opened pdf 'rules-ktv.pdf'", page.url().contains("/docs/rules-ktv.pdf"));
+        page.navigate("https://web-preprod6.megafon.tv");
+
+        page.waitForSelector("//a[@href and text()='Правила оказания услуг телевизионного вещания']").click();
+        Assert.assertTrue("bug: not opened pdf 'rules-provide-telematic-services.pdf'", page.url().contains("/docs/rules-provide-telematic-services.pdf"));
+        page.navigate("https://web-preprod6.megafon.tv");
+
+        page.waitForSelector("//a[@href and text()='Условия оказания услуг']").click();
+        Assert.assertTrue("bug: not opened pdf 'mediaportal_oferta.pdf'", page.url().contains("https://moscow.megafon.ru/download/~federal/oferts/mediaportal_oferta.pdf"));
+        page.navigate("https://web-preprod6.megafon.tv");
+
+        page.waitForSelector("//a[@href and text()='Политика конфидециальности']").click();
+        Assert.assertTrue("bug: not opened pdf 'privacy.pdf'", page.url().contains("/docs/privacy.pdf"));
+        page.navigate("https://web-preprod6.megafon.tv");
+    }
+
+    public void clickToButtonSpeedtestInFooter() {
+        page.waitForSelector("//a[@href='https://www.megafon.ru/go/s_4g']").click();
+        Assert.assertTrue("bug: not opened 'https://www.megafon.ru/go/s_4g'", page.url().contains("https://moscow.megafon.ru/internet/4g/"));
+        page.navigate("https://web-preprod6.megafon.tv");
+    }
+
+    public void checkImageBlockSocialLinkInFooterGuest() throws IOException, InterruptedException {
+        ElementHandle blockSocialLink = page.querySelector("//div[contains(@class,'LayoutFooter_socials')]");
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_socials')]//a[@href][1]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverViberInBlockSocialLinkGuest",
+                Base64.getEncoder().encodeToString(blockSocialLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_socials')]//a[@href][2]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverTelegramInBlockSocialLinkGuest",
+                Base64.getEncoder().encodeToString(blockSocialLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageBlockDownloadsInFooterGuest() throws IOException, InterruptedException {
+        ElementHandle blockDownloadsLink = page.querySelector("//div[contains(@class,'LayoutFooter_downloads')]");
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][1]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverAppStoreLinkInBlockDownloadsGuest",
+                Base64.getEncoder().encodeToString(blockDownloadsLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][2]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverGooglePlayLinkInBlockDownloadsGuest",
+                Base64.getEncoder().encodeToString(blockDownloadsLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][3]").hover();
+        // делаем скриншот элемента "blockDownloadsLink":
+        vrt.track(
+                "hoverSmartTVLinkInBlockDownloadsGuest",
+                Base64.getEncoder().encodeToString(blockDownloadsLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void hoverOnListBlockDocsFooterAndCheckColor() throws InterruptedException {
+        List<ElementHandle> docLinkAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_wrapDocumentLinks')]//a[@href]");
+        for(ElementHandle docLink : docLinkAll){
+            docLink.hover();
+            Thread.sleep(2000);
+            System.out.println(docLink.evaluate("e => window.getComputedStyle(e).color"));
+            Assert.assertEquals("bug: the color of the element is not white",docLink.evaluate("e => window.getComputedStyle(e).color"),"rgb(255, 255, 255)");
+        }
+    }
+
+    public void checkImageBlockSocialLinkInFooterUser() throws IOException, InterruptedException {
+        ElementHandle blockSocialLink = page.querySelector("//div[contains(@class,'LayoutFooter_socials')]");
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_socials')]//a[@href][1]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverViberInBlockSocialLinkUser",
+                Base64.getEncoder().encodeToString(blockSocialLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_socials')]//a[@href][2]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverTelegramInBlockSocialLinkUser",
+                Base64.getEncoder().encodeToString(blockSocialLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageBlockDownloadsInFooterUser() throws IOException, InterruptedException {
+        ElementHandle blockDownloadsLink = page.querySelector("//div[contains(@class,'LayoutFooter_downloads')]");
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][1]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverAppStoreLinkInBlockDownloadsUser",
+                Base64.getEncoder().encodeToString(blockDownloadsLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][2]").hover();
+        // делаем скриншот элемента "blockSocialLink":
+        vrt.track(
+                "hoverGooglePlayLinkInBlockDownloadsUser",
+                Base64.getEncoder().encodeToString(blockDownloadsLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+        page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][3]").hover();
+        // делаем скриншот элемента "blockDownloadsLink":
+        vrt.track(
+                "hoverSmartTVLinkInBlockDownloadsUser",
+                Base64.getEncoder().encodeToString(blockDownloadsLink.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkElementsSearchFormForMinPage() {
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[2]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//*[@class='ch-mobile-menu__back']").size());
+    }
+
+    public void checkCloseSearchFormMinPage() {
+        page.click("//*[@id='close-mobilemenu']");
+        Assert.assertEquals("not hidden element", 0, page.querySelectorAll("//div[contains(@class,'ch-search_open')]").size());
+    }
+
+    public void checkElementsSearchFormForMediumPage() {
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size());
+    }
+
+    public void checkCloseSearchFormMediumPage() {
+        page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
+        Assert.assertTrue("not hidden element",page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden());
+    }
+
+    public void checkElementsSearchFormForWidePage() {
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[contains(@class,'ch-header__section_type_search')]//*[@id='close-search'][1]").size());
+    }
+
+    public void checkCloseSearchFormWidePage() {
+        page.click("//div[contains(@class,'ch-header__section_type_search')]//*[@id='close-search'][1]");
+        Assert.assertTrue("not hidden element", page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden());
+    }
+
+    public void chooseSearchAndCheckImageWidePageGuest() throws IOException, InterruptedException {
+        page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
+        Thread.sleep(5000);
+        ElementHandle searchForm = page.waitForSelector("//div[@class='ch-cherdak']");
+        vrt.track(
+                "searchFormWidePageNilGuest",
+                Base64.getEncoder().encodeToString(searchForm.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkInputOneSimbolInSearchForm() {
+        page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
+        Assert.assertEquals("not visible element",1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
+        page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "р");
+        Assert.assertTrue("not visible element", page.waitForSelector("//div[text()='Ничего не найдено']").isVisible());
+    }
+
+    public void checkInputMultipleSimbolsInSearchForm() {
+        page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
+        page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "робот");
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__result']").size()==1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Фильмы']").size()==1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Сериалы']").size()==1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']").size()==1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//a[@class='ch-search__all-result-link' and text()='Все результаты']").size()==1);
+    }
+
+    public void checkResultSearchNothingFound() {
+        page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
+        page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "автотест");
+        Assert.assertTrue("not visible element", page.waitForSelector("//div[text()='Ничего не найдено']").isVisible());
+    }
+
+    public void checkClickOnFilmFromResultSearch() {
+        String nameFilmText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Фильмы']/following::div[@class='ch-search-item__title']").innerText();
+        page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Фильмы']/following::div[@class='ch-search-item__title']").click();
+        Assert.assertEquals("bug: names films don't match", nameFilmText, page.waitForSelector("//h1[text()]").innerText());
+        Assert.assertTrue("bug: not opened page card film", page.url().contains("/movies/vods/"));
+    }
+
+    public void checkClickOnSerialFromResultSearch() {
+        String nameSerialText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").innerText();
+        page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").click();
+        Assert.assertEquals("bug: names serials don't match", nameSerialText, page.waitForSelector("//h1[text()]").innerText());
+        Assert.assertTrue("bug: not opened page card serial", page.url().contains("/shows/"));
+    }
+
+    public void checkClickOnTvProgramFromResultSearch() {
+        String nameTvProgramText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").innerText();
+        page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").click();
+        Assert.assertEquals("bug: names tv programs don't match", nameTvProgramText, page.waitForSelector("//h1[text()]").innerText());
+        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/programs/"));
+    }
+
+    public void clickOnButtonAllResultsInSearch() {
+        String nameFilmText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Фильмы']/following::div[@class='ch-search-item__title']").innerText();
+        String nameSerialText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").innerText();
+        String nameTvProgramText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").innerText();
+        page.waitForSelector("//a[@class='ch-search__all-result-link' and text()='Все результаты']").click();
+        Assert.assertTrue("bug: not opened page all results", page.url().contains("/search?q=робот"));
+        Assert.assertEquals("bug: names films don't match", nameFilmText, page.waitForSelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assert.assertEquals("bug: names serials don't match", nameSerialText, page.waitForSelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assert.assertEquals("bug: names tv programs don't match", nameTvProgramText, page.waitForSelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+    }
+
+    public void pressEnterOnAllResultsInSearchForm() {
+        String nameFilmText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Фильмы']/following::div[@class='ch-search-item__title']").innerText();
+        String nameSerialText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").innerText();
+        String nameTvProgramText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").innerText();
+        page.keyboard().press("Enter");
+        Assert.assertTrue("bug: not opened page all results", page.url().contains("/search?q=робот"));
+        Assert.assertEquals("bug: names films don't match", nameFilmText, page.waitForSelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assert.assertEquals("bug: names serials don't match", nameSerialText, page.waitForSelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assert.assertEquals("bug: names tv programs don't match", nameTvProgramText, page.waitForSelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+    }
 }
+
 
 
 
