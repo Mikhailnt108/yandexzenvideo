@@ -410,7 +410,7 @@ public class AuthPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void clickOnButtonEnterForInvalidPassword() {
+    public void clickOnButtonEnterForInvalidPasswordAndCheckElements() {
         page.click("//button[text()='Войти']");
         ElementHandle errorText = page.waitForSelector("//span[contains(@class,'FormInput_error') and text()='Неверный пароль']");
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[contains(@class,'FormInput_error') and text()='Неверный пароль']").size());

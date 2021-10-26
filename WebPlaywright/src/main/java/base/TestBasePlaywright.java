@@ -39,6 +39,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public CardPackagePW cardPackagePW;
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
+    public PromoCodePW promoCodePW;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://localhost:4200")
@@ -117,6 +118,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         //        preconditionPW = new PreconditionPW(page, statement);
         sportPagePW = new SportPagePW(page);
         authPagePW = new AuthPagePW(page);
+        promoCodePW = new PromoCodePW(page);
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

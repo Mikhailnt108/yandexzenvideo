@@ -18,19 +18,19 @@ public class Test_04_Фильм_по_аренде_API extends TestBaseWebDriver 
     @Test
     @Tag("Suite#3")
     public void filmOnRentPromo() {
-        promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();
-        headerMenu.goToNilPage();
-        flowRegistation();
-        headerMenu.clickToButtonPromo();
-        headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeFilmOnRent");
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationFilmOnRent();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationFilmOnRent();
+//        promoCode.createAndPublishedRC();
+//        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();
+//        headerMenu.goToNilPage();
+//        flowRegistation();
+//        headerMenu.clickToButtonPromo();
+//        headerMenu.checkOpenPopUpPromoCode();
+//        headerMenu.inputValidPromoCode("promoCodeFilmOnRent");
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpBeforeActivation();
+//        headerMenu.checkElementsPopUpBeforeActivationFilmOnRent();
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpAfterActivation();
+//        headerMenu.checkElementsPopUpAfterActivationFilmOnRent();
         headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent();
         promoCode.archiveCodeGroupFilmOnRentPromo();
         pageCMS.deleteAccountMF("79260205027");

@@ -4772,6 +4772,12 @@ public class NiLPagePW extends BasePagePlaywright {
         page.fill("//input[@type='tel']", login);
         Assert.assertEquals("not active button 'Next'", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
     }
+
+    public void clickOnTabPromocodeAndCheckOpenFormPromocode() {
+        page.waitForSelector("(//div[text()='Промокод'])[1]").click();
+        page.waitForSelector("//h1[text()='Введите промокод']");
+        Assert.assertTrue("bug: not opened page promocodes", page.url().contains("/_promocodes"));
+    }
 }
 
 

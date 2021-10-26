@@ -18,22 +18,22 @@ public class Test_05_Фильм_по_покупке_API extends TestBaseWebDrive
     @Test
     @Tag("Suite#3")
     public void filmOnEST() {
-        promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnEST();
-        headerMenu.goToNilPage();
-        flowRegistation();
-        headerMenu.clickToButtonPromo();
-        headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeFilmOnEST");
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationFilmOnEST();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationFilmOnEST();
-        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST();
-        promoCode.archiveCodeGroupFilmOnEST();
-        pageCMS.deleteAccountMF("79260205027");
+//        promoCode.createAndPublishedRC();
+//        promoCode.createAndPublishedCodeGroupAndPromoCodeFilmOnEST();
+//        headerMenu.goToNilPage();
+//        flowRegistation();
+//        headerMenu.clickToButtonPromo();
+//        headerMenu.checkOpenPopUpPromoCode();
+//        headerMenu.inputValidPromoCode("promoCodeFilmOnEST");
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpBeforeActivation();
+//        headerMenu.checkElementsPopUpBeforeActivationFilmOnEST();
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpAfterActivation();
+//        headerMenu.checkElementsPopUpAfterActivationFilmOnEST();
+//        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST();
+//        promoCode.archiveCodeGroupFilmOnEST();
+//        pageCMS.deleteAccountMF("79260205027");
     }
 
     private void flowRegistation() {

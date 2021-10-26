@@ -259,7 +259,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void clickToButtonPromo() {
+    public void clickToButtonPromocode() {
         page.click("(//div[@class='ch-trigger__container'])[2]");
     }
 

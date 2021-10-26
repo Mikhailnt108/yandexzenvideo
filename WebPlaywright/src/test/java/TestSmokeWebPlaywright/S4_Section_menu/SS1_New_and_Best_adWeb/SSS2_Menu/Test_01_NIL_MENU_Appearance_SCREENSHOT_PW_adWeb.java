@@ -75,5 +75,6 @@ public class Test_01_NIL_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePla
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

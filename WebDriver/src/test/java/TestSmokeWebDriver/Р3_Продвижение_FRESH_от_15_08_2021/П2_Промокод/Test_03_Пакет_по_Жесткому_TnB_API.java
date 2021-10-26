@@ -18,23 +18,23 @@ public class Test_03_Пакет_по_Жесткому_TnB_API extends TestBaseWe
     @Test
     @Tag("Suite#3")
     public void packageHardTnB() {
-        promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
-        headerMenu.goToNilPage();
-        flowRegistation();
-        headerMenu.clickToButtonPromo();
-        headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeHardTnB");
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationPackageMoreTvHardTnB();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
-        headerMenu.clickToButtonCloseInPopUpAfterActivation();
-        headerMenu.checkClosePopUpAfterActivation();
-        promoCode.archiveCodeGroupPackageMoreTvHardTnB();
-        pageCMS.deleteAccountMF("79260205027");
+//        promoCode.createAndPublishedRC();
+//        promoCode.createAndPublishedCodeGroupAndPromoCodePackageMoreTvHardTnB();
+//        headerMenu.goToNilPage();
+//        flowRegistation();
+//        headerMenu.clickToButtonPromo();
+//        headerMenu.checkOpenPopUpPromoCode();
+//        headerMenu.inputValidPromoCode("promoCodeHardTnB");
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpBeforeActivation();
+//        headerMenu.checkElementsPopUpBeforeActivationPackageMoreTvHardTnB();
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpAfterActivation();
+//        headerMenu.checkElementsPopUpAfterActivationPackageMoreTvHardTnB();
+//        headerMenu.clickToButtonCloseInPopUpAfterActivation();
+//        headerMenu.checkClosePopUpAfterActivation();
+//        promoCode.archiveCodeGroupPackageMoreTvHardTnB();
+//        pageCMS.deleteAccountMF("79260205027");
     }
 
     private void flowRegistation() {

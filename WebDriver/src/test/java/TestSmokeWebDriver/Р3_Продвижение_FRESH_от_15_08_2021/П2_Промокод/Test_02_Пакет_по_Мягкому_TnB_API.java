@@ -18,26 +18,27 @@ public class Test_02_Пакет_по_Мягкому_TnB_API extends TestBaseWebD
     @Test
     @Tag("Suite#3")
     public void packageSoftTnB() {
-        promoCode.createAndPublishedRC();
-        promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();
-        headerMenu.goToNilPage();
-        flowRegistation();
-        headerMenu.clickToButtonPromo();
-        headerMenu.checkOpenPopUpPromoCode();
-        headerMenu.inputValidPromoCode("promoCodeSoftTnB");
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.checkElementsPopUpBeforeActivationPackageStartSoftTnB();
-        headerMenu.clickToButtonCancel();
-        headerMenu.checkClosePopUpBeforeActivationPackageStartSoftTnB();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpBeforeActivation();
-        headerMenu.clickToButtonActivatePromoCode();
-        headerMenu.checkOpenPopUpAfterActivation();
-        headerMenu.checkElementsPopUpAfterActivationPackageStartSoftTnB();
-        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardPackageStart();
-        promoCode.archiveCodeGroupPackageStartSoftTnB();
-        pageCMS.deleteAccountMF("79260205027");
+//        promoCode.createAndPublishedRC();
+//        promoCode.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();
+//        headerMenu.goToNilPage();
+//        flowRegistation();
+//        headerMenu.clickToButtonPromo();
+//        headerMenu.checkOpenPopUpPromoCode();
+//        headerMenu.inputValidPromoCode("promoCodeSoftTnB");
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpBeforeActivation();
+//        headerMenu.checkElementsPopUpBeforeActivationPackageStartSoftTnB();
+//        headerMenu.clickToButtonCancel();
+//        headerMenu.checkClosePopUpBeforeActivationPackageStartSoftTnB();
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpBeforeActivation();
+//        headerMenu.clickToButtonActivatePromoCode();
+//        headerMenu.checkOpenPopUpAfterActivation();
+//        headerMenu.checkElementsPopUpAfterActivationPackageStartSoftTnB();
+//        headerMenu.clickToButtonMoreDetailedAndCheckOpenCardPackageStart();
+//        promoCode.archiveCodeGroupPackageStartSoftTnB();
+//        pageCMS.deleteAccountMF("79260205027");
+
     }
 
     private void flowRegistation() {

@@ -1,32 +1,30 @@
-package TestSmokeWebPlaywright.S4_Section_menu.П10_Промокод;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS8_Promo_codes;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.ResourceAccessMode;
-import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
-@ResourceLock(value = "Suite#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_Общий_вид_окна_Ввести_промокод_SCREENSHOT_VRT_PW extends TestBasePlaywright {
+public class Test_07_NIL_PROMOCODE_Promo_code_with_expired_activation_period_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "11. Промокод")
-    @DisplayName(value ="1. Общий вид окна Ввести_промокод (скриншоты)")
+    @Feature(value = "2. Section_menu")
+    @Story(value = "1. New_and_Best_adWeb")
+    @DisplayName(value = "7. NIL_PROMOCODE_Promo_code_with_expired_activation_period")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("Suite#3")
-    public void checkViewOfPromoCodePopUp() throws IOException, InterruptedException {
+    @Tag("adWebSuitePW#1")
+    public void NIL_PROMOCODE_Promo_code_expired_activation_period() throws IOException, InterruptedException {
+        promoCodePW.createAndPublishedRC();
+        promoCodePW.createAndPublishedCodeGroupAndPromoCodeExpiredPackageStartSoftTnB();
         headerMenuPW.goToNilPage();
-        headerMenuPW.clickToButtonPromocode();
         flowRegistationMF();
-        headerMenuPW.clickToButtonPromocode();
-        headerMenuPW.checkOpenPopUpPromoCode();
-        headerMenuPW.checkElementsPopUpPromoCode();
-        headerMenuPW.checkImagePopUpPromoCode();
+        nilPagePW.clickOnTabPromocodeAndCheckOpenFormPromocode();
+        promoCodePW.inputValidPromoCode("promoCodeSoftTnB");
+        promoCodePW.clickOnFirstButtonActivatePromoCode();
+        promoCodePW.checkElementsPopUpErrorExpiredPromocode();
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();

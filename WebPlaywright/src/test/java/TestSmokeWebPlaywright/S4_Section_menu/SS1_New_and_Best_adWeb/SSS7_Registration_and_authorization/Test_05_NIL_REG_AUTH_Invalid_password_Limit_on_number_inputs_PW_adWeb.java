@@ -24,7 +24,7 @@ public class Test_05_NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs_PW_adW
         authPagePW.loginOut();
         authPagePW.checkOpenPageAuthFormInputPassword("+7 926 019 21 44");
         authPagePW.checkInputInvalidPasswordAuth("123456");
-        authPagePW.clickOnButtonEnterForInvalidPassword();
+        authPagePW.clickOnButtonEnterForInvalidPasswordAndCheckElements();
         authPagePW.checkImageInputInvalidPasswordAuth();
         authPagePW.checkInputThreeTimesInvalidPasswordAuth("+7 926 019 21 44","123456");
         authPagePW.checkImageInputThreeTimesInvalidPasswordAuth();

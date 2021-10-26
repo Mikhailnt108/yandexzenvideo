@@ -4,6 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -140,4 +141,6 @@ public class PromoPagePW extends BasePagePlaywright {
         page.click("//div[text()='POSubscription']");
         page.waitForSelector("//button[text()='Активировать']");
     }
+
+
 }
