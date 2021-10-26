@@ -6,12 +6,10 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
-import org.junit.experimental.theories.Theories;
 
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Base64;
-import java.util.List;
 
 import static base.TestBasePlaywright.vrt;
 
@@ -381,9 +379,9 @@ public class AuthPagePW extends BasePagePlaywright {
         page.querySelector("//div[text()='Введите пароль']");
         page.fill("//input[@type='password']", password);
         Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Войти']").size());
-        ElementHandle buttonNext = page.waitForSelector("//button[text()='Войти']");
+        ElementHandle buttonComeIn = page.waitForSelector("//button[text()='Войти']");
         Thread.sleep(6000);
-        String background = (String) buttonNext.evaluate("e => window.getComputedStyle(e).background");
+        String background = (String) buttonComeIn.evaluate("e => window.getComputedStyle(e).background");
         System.out.println(background);
         Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
     }
@@ -515,5 +513,108 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[contains(@class,'buttonBack')]").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Вы успешно зарегестрировались']").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[text()='Желаем приятного просмотра и надеемся, что вы останитесь довольны!']").size());
+    }
+
+    public void clickOnButtonChangePassAndCheckFormCreateNewPassword() {
+        page.click("//button[text()='Сменить пароль']");
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Придумайте новый пароль']").size());
+    }
+
+    public void checkElementsPageAuthFormCreateNewPassword() {
+        // page:
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+
+        // form:
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[contains(@class,'buttonBack')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Придумайте новый пароль']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[text()='Для авторизации в МегаФон ТВ']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Придумайте пароль']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='От 6 цифр']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+    }
+
+    public void checkImagePageAuthFormCreateNewPassword() throws IOException, InterruptedException {
+        // делаем скриншот полной страницы "PageAuthFull":
+        Thread.sleep(3000);
+        vrt.track(
+                "PageAuthFormCreateNewPasswordFull",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkInputNewValidPasswordAuth(String password) throws InterruptedException {
+        page.querySelector("//h1[text()='Придумайте новый пароль']");
+        page.fill("//input[@type='password']", password);
+        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+        ElementHandle buttonNext = page.waitForSelector("//button[text()='Далее']");
+        Thread.sleep(6000);
+        String background = (String) buttonNext.evaluate("e => window.getComputedStyle(e).background");
+        System.out.println(background);
+        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
+    }
+
+    public void checkElementsPageAuthFormInputEmail() {
+        // page:
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Я согласен получать новости и подарки от МегаФон ТВ']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@type='checkbox' and @name='accept']").size());
+        // form:
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[contains(@class,'buttonBack')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[text()='E-mail будет использоваться для отправки чеков по операциям']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Введите e-mail']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@type='checkbox']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+    }
+
+    public void checkImagePageAuthFormInputEmail() throws IOException, InterruptedException {
+        // делаем скриншот полной страницы "PageAuthFull":
+        Thread.sleep(3000);
+        vrt.track(
+                "PageAuthFormInputEmailFull",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkInputInvalidEmailInFormInputEmail(String email) {
+        page.querySelector("//div[text()='Введите E-mail']");
+        page.fill("//input[@placeholder='E-mail']", email);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+    }
+
+    public void checkInputValidPasswordRegist(String password) throws InterruptedException {
+        page.querySelector("//div[text()='Введите пароль']");
+        page.fill("//input[@type='password']", password);
+        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+        ElementHandle buttonComeIn = page.waitForSelector("//button[text()='Далее']");
+        Thread.sleep(3000);
+        String background = (String) buttonComeIn.evaluate("e => window.getComputedStyle(e).background");
+        System.out.println(background);
+        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
     }
 }

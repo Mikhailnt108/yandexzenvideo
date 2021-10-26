@@ -438,9 +438,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
         }
     }
 
-    public void inputValidEmailInPopUpInputEmail(String email) {
+    public void checkInputValidEmailInPopUpInputEmail(String email) throws InterruptedException {
         page.querySelector("//div[text()='Введите E-mail']");
         page.fill("//input[@placeholder='E-mail']", email);
+        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+        ElementHandle buttonComeIn = page.waitForSelector("//button[text()='Далее']");
+        Thread.sleep(3000);
+        String background = (String) buttonComeIn.evaluate("e => window.getComputedStyle(e).background");
+        System.out.println(background);
+        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
     }
 
     public void copyPasteCodMsisdnForNonMF(String login) {

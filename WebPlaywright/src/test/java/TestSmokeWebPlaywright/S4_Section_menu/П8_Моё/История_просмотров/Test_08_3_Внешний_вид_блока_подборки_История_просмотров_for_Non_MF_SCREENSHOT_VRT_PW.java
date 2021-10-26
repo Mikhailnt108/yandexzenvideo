@@ -53,14 +53,14 @@ public class Test_08_3_Внешний_вид_блока_подборки_Ист�
         headerMenuPW.reloadPageHeadfull();
         serialsPagePW.checkImageBlockCollectHistoryWatchForNonMFfHeadfull();
     }
-    private void flowRegistationNonMF() {
+    private void flowRegistationNonMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
         authPagePW.inputLogin("+7 926 118 49 72");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputEmail("+7 926 118 49 72");
-        headerMenuPW.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
+        headerMenuPW.checkInputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenuPW.clickToNext();
         authPagePW.inputValidPasswordRegister("111111");
         authPagePW.inputValidPasswordRegister("111111");

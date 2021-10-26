@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
-public class Test_02_NIL_REG_AUTH_Create_new_password_PW_adWeb extends TestBasePlaywright {
+public class Test_02_NIL_REG_AUTH_Create_password_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
@@ -15,7 +15,7 @@ public class Test_02_NIL_REG_AUTH_Create_new_password_PW_adWeb extends TestBaseP
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_REG_AUTH_Create_new_password() throws InterruptedException, IOException {
+    public void NIL_REG_AUTH_Create_password() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();

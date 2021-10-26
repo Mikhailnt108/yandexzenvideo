@@ -14,7 +14,18 @@ public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends T
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_REG_AUTH_Registered_without_password() {
-        
+    public void NIL_REG_AUTH_Registered_without_password() throws InterruptedException {
+        // ввести номер прозрачно зарегистрированный в МФТВ на телефоне:
+        headerMenuPW.goToNilPage();
+        headerMenuPW.clickToEnter();
+        authPagePW.inputLogin("+7 926 020 50 27");
+        authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
+        authPagePW.checkElementsPageAuthFormCreatePassword();
+        authPagePW.checkInputValidPasswordRegist("111111");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpInputCode();
+        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

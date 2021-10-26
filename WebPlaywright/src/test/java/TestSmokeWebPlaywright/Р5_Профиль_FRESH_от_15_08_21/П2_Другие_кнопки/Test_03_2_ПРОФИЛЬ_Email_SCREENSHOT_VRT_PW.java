@@ -24,7 +24,7 @@ public class Test_03_2_ПРОФИЛЬ_Email_SCREENSHOT_VRT_PW extends TestBasePl
         flowRegistationMF();
         headerMenuPW.openSubsectionEmail();
         headerMenuPW.checkImagePopUpEmail();
-        headerMenuPW.deleteAccountMF("79260205027");
+        headerMenuPW.deleteAccountMF("79260192144");
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
