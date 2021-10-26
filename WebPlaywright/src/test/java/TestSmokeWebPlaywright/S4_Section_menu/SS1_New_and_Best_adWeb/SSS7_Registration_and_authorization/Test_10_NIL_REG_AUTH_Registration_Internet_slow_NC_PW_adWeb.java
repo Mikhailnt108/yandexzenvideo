@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS4_Transitions;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS7_Registration_and_authorization;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -7,30 +7,23 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
-public class Test_05_NIL_COLLECTIONS_Collections_packages_PW_bug_adWeb extends TestBasePlaywright {
+public class Test_10_NIL_REG_AUTH_Registration_Internet_slow_NC_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "5. NIL_COLLECTIONS_Collections_packages")
+    @DisplayName(value = "10. NIL_REG_AUTH_Registration_Internet_slow")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_COLLECTIONS_Collections_packages() throws IOException, InterruptedException {
-        // Guest
+    public void NIL_REG_AUTH_Registration_Internet_slow() throws IOException, ExecutionException, InterruptedException, TimeoutException {
+        headerMenuPW.stopFiddlerSlowNetwork();
         headerMenuPW.goToNilPage();
-        nilPagePW.clickOnTitlePackagesCollectionAndCheckOpenCollectionPage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.clickToTilePackageCollectionAndCheckOpenCardPackage();
-        headerMenuPW.goToNilPage();
-        // User
         flowRegistationMF();
-        nilPagePW.clickOnTitlePackagesCollectionAndCheckOpenCollectionPage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.clickToTilePackageCollectionAndCheckOpenCardPackage();
     }
-
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws IOException, ExecutionException, InterruptedException, TimeoutException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -40,8 +33,9 @@ public class Test_05_NIL_COLLECTIONS_Collections_packages_PW_bug_adWeb extends T
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.startFiddlerSlowNetwork();
         headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
-        headerMenuPW.chooseBucket110InCmsHh("79260192144");
+        authPagePW.checkElementsPageAuthFormSuccessfullyRegist();
+
     }
 }

@@ -23,11 +23,12 @@ public class Test_03_NIL_COLLECTIONS_Collections_by_genre_PW_block_bug_adWeb ext
         headerMenuPW.goToNilPage();
         nilPagePW.clickOnTitleCinCGenresAndCheckOpenPageCollect();
     }
+
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();

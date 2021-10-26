@@ -25,23 +25,23 @@ public class Test_09_2_Выбор_серии_из_блока_выбора_сер
         cardSerialPW.checkImageBlockSeason();
         // пользователь авторизован:
         headerMenuPW.goToSerialsPage();
-        flowRegistation();
+        flowRegistationMF();
         serialsPagePW.clickToTailCardSerial();
         cardSerialPW.checkOpenCardSerial();
         cardSerialPW.checkImagePopUpSubscription();
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 925 011 01 66");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 925 011 01 66" , "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79250110166");
+        headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
-
 }

@@ -62,8 +62,8 @@ public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBaseP
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
@@ -71,5 +71,6 @@ public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBaseP
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

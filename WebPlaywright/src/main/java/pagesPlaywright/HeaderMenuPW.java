@@ -5,13 +5,18 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
+import io.github.alekseysotnikov.cmd.core.Cmd;
+import io.github.alekseysotnikov.cmd.listeners.WorkDir;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
+import org.zeroturnaround.exec.StartedProcess;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import static base.TestBasePlaywright.*;
 import static io.restassured.RestAssured.given;
@@ -47,15 +52,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
          page.querySelector("//button[contains(@class,'ch-account-controller')]");
          page.click("//button[contains(@class,'ch-account-controller')]");
          page.waitForSelector("//h1[text()='Введите номер телефона']");
-    }
-
-    public void checkOpenPopUpInputPhone() {
-        page.waitForSelector("//h1[text()='Введите номер телефона']");
-    }
-
-    public void inputLogin(String login) {
-        page.focus("//input[@name='phone']");
-        page.fill("//input[@name='phone']", login);
     }
 
     public void clickToNext() {
@@ -447,11 +443,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.fill("//input[@placeholder='E-mail']", email);
     }
 
-    public void inputPasswordRegister(String password) {
-        page.querySelector("//div[text()='Придумайте пароль']");
-        page.fill("//input[@type='password']", password);
-    }
-
     public void copyPasteCodMsisdnForNonMF(String login) {
         pageCMS = contextIncognitoModeHeadless.newPage();
         pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/msisdn_confirmations");
@@ -646,4 +637,13 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.reload();
     }
 
+    public void startFiddlerSlowNetwork() throws IOException, InterruptedException, TimeoutException, ExecutionException {
+        Process startSlowNetwork = Runtime.getRuntime().exec("cmd /c \"cd C:/Users/Mikhailnt/AppData/Local/Programs/Fiddler && ExecAction start\"");
+        page.setDefaultTimeout(120000);
+
+    }
+
+    public void stopFiddlerSlowNetwork() throws ExecutionException, InterruptedException, IOException {
+        Process stopSlowNetwork = Runtime.getRuntime().exec("cmd /c \"cd C:/Users/Mikhailnt/AppData/Local/Programs/Fiddler && ExecAction stop\"");
+    }
 }

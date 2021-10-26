@@ -39,8 +39,8 @@ public class Test_04_2_АКЦИИ_Персональные_предложени�
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 020 50 27");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 020 50 27");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToComeIn("Войти");

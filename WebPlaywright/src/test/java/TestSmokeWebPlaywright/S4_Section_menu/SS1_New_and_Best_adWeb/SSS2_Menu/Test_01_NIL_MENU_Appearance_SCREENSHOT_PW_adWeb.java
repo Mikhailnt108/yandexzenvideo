@@ -41,7 +41,7 @@ public class Test_01_NIL_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePla
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
         flowRegistation();
-        flowAutorization();
+//        flowAutorization();
         Thread.sleep(5000);
         nilPagePW.checkElementsMenuMinPageNilUser();
         nilPagePW.checkImageMenuMinPageNilUser();
@@ -52,7 +52,7 @@ public class Test_01_NIL_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePla
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsMenuMediumPageNilUser();
-        flowAutorization();// пропадает логин
+//        flowAutorization();// пропадает логин
         nilPagePW.checkImageMenuMediumPageNilUser();
         nilPagePW.openBlockMenuMegaFonMediumPageNilUser();
         nilPagePW.openBlockMenuMftvMediumPageNilUser();
@@ -60,14 +60,14 @@ public class Test_01_NIL_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePla
         // Wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        flowAutorization();// пропадает логин
+//        flowAutorization();// пропадает логин
         nilPagePW.checkImageMenuWidePageNilUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
@@ -75,13 +75,5 @@ public class Test_01_NIL_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePla
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
-    }
-    private void flowAutorization() {
-        headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
-        headerMenuPW.clickToNext();
-        headerMenuPW.inputPasswordAutorization("111111");
-        headerMenuPW.clickToComeIn("Войти");
     }
 }

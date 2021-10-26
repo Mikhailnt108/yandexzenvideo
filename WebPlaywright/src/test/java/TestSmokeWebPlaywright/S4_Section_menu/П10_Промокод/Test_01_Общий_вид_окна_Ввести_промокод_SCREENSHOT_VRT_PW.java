@@ -22,21 +22,24 @@ public class Test_01_Общий_вид_окна_Ввести_промокод_SC
     public void checkViewOfPromoCodePopUp() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToButtonPromo();
-        flowRegistation();
+        flowRegistationMF();
         headerMenuPW.clickToButtonPromo();
         headerMenuPW.checkOpenPopUpPromoCode();
         headerMenuPW.checkElementsPopUpPromoCode();
         headerMenuPW.checkImagePopUpPromoCode();
     }
-    private void flowRegistation() {
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 020 50 27");
+    private void flowRegistationMF() {
+        headerMenuPW.checkNotLoggedIsCorrect();
+        headerMenuPW.clickToEnter();
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

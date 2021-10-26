@@ -38,6 +38,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PackagesPagePW packagesPagePW;
     public CardPackagePW cardPackagePW;
     public PreconditionPW preconditionPW;
+    public AuthPagePW authPagePW;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://localhost:4200")
@@ -95,6 +96,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
+
         headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless);
         filmsPagePW = new FilmsPagePW(page);
         serialsPagePW = new SerialsPagePW(page,pageCMS);
@@ -114,6 +116,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         cardTvChannelPW = new CardTvChannelPW(page);
         //        preconditionPW = new PreconditionPW(page, statement);
         sportPagePW = new SportPagePW(page);
+        authPagePW = new AuthPagePW(page);
         vrt.start();
         Robot bot = new Robot();
         bot.mouseMove(0, 0);

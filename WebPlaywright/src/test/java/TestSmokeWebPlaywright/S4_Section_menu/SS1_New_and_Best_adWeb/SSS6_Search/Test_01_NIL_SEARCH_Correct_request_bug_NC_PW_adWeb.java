@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_01_SEARCH_Correct_request_bug_NC_PW_adWeb extends TestBasePlaywright {
+public class Test_01_NIL_SEARCH_Correct_request_bug_NC_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
@@ -37,6 +37,7 @@ public class Test_01_SEARCH_Correct_request_bug_NC_PW_adWeb extends TestBasePlay
         nilPagePW.chooseSearchAndCheckImageWidePageGuest();
         nilPagePW.checkElementsSearchFormForWidePage();
         nilPagePW.checkCloseSearchFormWidePage();
+
         // checkSearch:
         nilPagePW.checkInputOneSimbolInSearchForm();
         nilPagePW.checkInputMultipleSimbolsInSearchForm();

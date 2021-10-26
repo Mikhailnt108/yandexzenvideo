@@ -22,7 +22,7 @@ public class Test_12_2_Записываемая_передача_SCREENSHOT_PLAY
     @Tag("Suite#1")
     public void recordedTvProgram() throws Exception {
         headerMenuPW.goToTvTabTvProgramInAir();
-        flowRegistation();
+        flowRegistationMF();
         headerMenuPW.saveCookiesBrowserHeadless();
         headerMenuPW.getCookiesAndOpenHeadfullBrowser();
         headerMenuPW.goToTvTabTvProgramInAirHeadfull();
@@ -33,17 +33,18 @@ public class Test_12_2_Записываемая_передача_SCREENSHOT_PLAY
         cardTvProgramPW.checkImagePlayerСardTvProgramRecordedUser();
         cardTvProgramPW.checkImageScheduleСardTvProgramRecorded();
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44" , "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

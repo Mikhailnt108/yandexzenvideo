@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS4_Collections.SSSS2_Tails_сontents;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS7_Registration_and_authorization;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,24 +8,29 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class Test_03_NIL_TILES_Tv_program_in_Air_or_Today_from_collection_PW_adWeb extends TestBasePlaywright {
+public class Test_04_NIL_REG_AUTH_Enter_password_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "3.1 NIL_TILES_Tv_program_in_Air_from_collection")
+    @DisplayName(value = "4. NIL_REG_AUTH_Enter_password")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_TILES_Tv_program_in_Air_from_collection() throws IOException, InterruptedException {
-        // Guest
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsTileTvProgramInAirFromCollection();
-        nilPagePW.checkImageHoverOnTileTvProgramInAirFromCollectionGust();
-        // User
+    public void NIL_REG_AUTH_Input_password() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistation();
-        nilPagePW.checkElementsTileTvProgramInAirFromCollection();
-        nilPagePW.checkImageHoverOnTileTvProgramInAirFromCollectionUser();
+        authPagePW.loginOut();
+        authPagePW.checkOpenPageAuthFormInputPassword("+7 926 019 21 44");
+        authPagePW.checkElementsPageAuthFormInputPassword();
+        authPagePW.clickOnButtonBackAndCheckOpenFormInputPhone();
+        authPagePW.checkOpenPageAuthFormInputPassword("+7 926 019 21 44");
+        authPagePW.clickOnButtonForgotPasswordInFormInputPhone();
+        authPagePW.checkElementsPageAuthFormChangePassword();
+        authPagePW.checkImagePageAuthFormChangePassword();
+        authPagePW.clickOnButtonNoAndCheckOpenFormInputPassword();
+        authPagePW.checkInputValidPasswordAuth("111111");
+        authPagePW.checkImageInputValidPasswordAuth();
+
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

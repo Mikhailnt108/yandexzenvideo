@@ -21,7 +21,7 @@ public class Test_01_2_АКЦИИ_Внешний_вид_раздела_SCREENSHO
     @Tag("Suite#3")
     public void appearancePagePromo() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();;
-        flowRegistation();
+        flowRegistationMF();
         headerMenuPW.openSubsectionPromo();
         personalOfferPW.archivePersonalOfferPackageForZeroRublesForMF();
         personalOfferPW.archivePersonalOfferSubscription();
@@ -44,26 +44,27 @@ public class Test_01_2_АКЦИИ_Внешний_вид_раздела_SCREENSHO
         personalOfferPW.archivePersonalOfferPartnerOfferOkkoTvForMF();
         headerMenuPW.deleteAccountMF("79260205027");
     }
-    private void flowRegistation() {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 020 50 27");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
     private void flowAuthorization() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 020 50 27");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.inputPasswordRegister("111111");
+        authPagePW.inputValidPasswordRegister("111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

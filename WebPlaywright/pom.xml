@@ -39,5 +39,10 @@
             <artifactId>sdk-java</artifactId>
             <version>5.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.alekseysotnikov</groupId>
+            <artifactId>CmdTool</artifactId>
+            <version>1.0.1</version>
+        </dependency>
     </dependencies>
 </project>

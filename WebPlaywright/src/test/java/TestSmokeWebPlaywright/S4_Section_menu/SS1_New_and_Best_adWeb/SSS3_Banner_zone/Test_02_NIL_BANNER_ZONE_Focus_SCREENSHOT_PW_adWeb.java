@@ -33,8 +33,8 @@ public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBaseP
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
@@ -42,13 +42,5 @@ public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBaseP
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
-    }
-    private void flowAutorization() {
-        headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
-        headerMenuPW.clickToNext();
-        headerMenuPW.inputPasswordAutorization("111111");
-        headerMenuPW.clickToComeIn("Войти");
     }
 }

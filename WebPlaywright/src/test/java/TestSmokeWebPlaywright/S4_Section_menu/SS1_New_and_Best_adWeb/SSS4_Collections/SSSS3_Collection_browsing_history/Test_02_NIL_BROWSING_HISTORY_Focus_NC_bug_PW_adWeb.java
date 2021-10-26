@@ -52,13 +52,13 @@ public class Test_02_NIL_BROWSING_HISTORY_Focus_NC_bug_PW_adWeb extends TestBase
 
         // чек тайла новый эпизод:
         nilPagePW.checkTileNewEpisodeInBhCollection();
-
     }
+
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 019 21 44");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();

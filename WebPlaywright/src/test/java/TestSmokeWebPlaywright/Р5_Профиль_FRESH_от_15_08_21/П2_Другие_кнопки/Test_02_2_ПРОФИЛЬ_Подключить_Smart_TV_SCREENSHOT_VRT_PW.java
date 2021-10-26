@@ -21,23 +21,24 @@ public class Test_02_2_ПРОФИЛЬ_Подключить_Smart_TV_SCREENSHOT_V
     @Tag("Suite#3")
     public void ConnectSmartTv() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
-        flowRegistation();
+        flowRegistationMF();
         headerMenuPW.openSubsectionConnect();
         headerMenuPW.checkImagePopUpConnectSmartTv();
         headerMenuPW.deleteAccountMF("79260205027");
     }
 
-    private void flowRegistation() throws InterruptedException {
+    private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 020 50 27");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

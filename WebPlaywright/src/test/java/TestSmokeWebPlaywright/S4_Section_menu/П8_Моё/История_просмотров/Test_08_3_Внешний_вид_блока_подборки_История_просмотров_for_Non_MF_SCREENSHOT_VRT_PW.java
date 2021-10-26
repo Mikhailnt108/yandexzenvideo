@@ -56,13 +56,14 @@ public class Test_08_3_Внешний_вид_блока_подборки_Ист�
     private void flowRegistationNonMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
-        headerMenuPW.checkOpenPopUpInputPhone();
-        headerMenuPW.inputLogin("+7 926 118 49 72");
+        authPagePW.checkOpenPopUpInputPhone();
+        authPagePW.inputLogin("+7 926 118 49 72");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputEmail("+7 926 118 49 72");
         headerMenuPW.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenuPW.clickToNext();
-        headerMenuPW.inputPasswordRegister("111111");
+        authPagePW.inputValidPasswordRegister("111111");
+        authPagePW.inputValidPasswordRegister("111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenuPW.clickToComeIn("Войти");

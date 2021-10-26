@@ -1,6 +1,7 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.ElementState;
@@ -9,6 +10,7 @@ import org.junit.Assert;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -18,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NiLPagePW extends BasePagePlaywright {
     private Page page;
+    private BrowserContext contextNormalModeHeadless;
 
     public NiLPagePW(Page page) {
         this.page = page;
@@ -4120,11 +4123,13 @@ public class NiLPagePW extends BasePagePlaywright {
         tileEditAndShowAll.click();
         Assert.assertTrue("bug: not opened page /my/history", pageHeadfull.url().contains("https://web-preprod6.megafon.tv/my/history"));
     }
+
     public void checkTileFilmInBhCollection() {
-        Assert.assertTrue("bug: not visible tile film in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
+        Assert.assertTrue("bug: not visible tile film in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
     }
+
     public void checkTileFilmAndElementsInBhCollection() {
-        Assert.assertTrue("bug: not visible tile film in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
+        Assert.assertTrue("bug: not visible tile film in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
@@ -4147,11 +4152,13 @@ public class NiLPagePW extends BasePagePlaywright {
         Assert.assertTrue("bug: not opened page collection", page.url().contains("https://web-preprod6.megafon.tv/movies/vods/"));
         Assert.assertEquals("bug: name film do not match", titleFilmBhCollectText, page.querySelector("//h1[text()]").innerText());
     }
+
     public void checkTileSerialInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
     }
+
     public void checkTileSerialAndElementsInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
@@ -4164,11 +4171,13 @@ public class NiLPagePW extends BasePagePlaywright {
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconPlay')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconFavourite')]");
     }
+
     public void checkTileTvProgramInBhCollection() {
-        Assert.assertTrue("bug: not visible tile tv program in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
+        Assert.assertTrue("bug: not visible tile tv program in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
     }
+
     public void checkTileTvProgramAndElementsInBhCollection() {
-        Assert.assertTrue("bug: not visible tile tv program in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
+        Assert.assertTrue("bug: not visible tile tv program in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
@@ -4183,10 +4192,11 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkTileNewEpisodeInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//*[text()='Новый эпизод']").isVisible());
+        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//*[text()='Новый эпизод']").isVisible());
     }
+
     public void checkTileNewEpisodeAndElementsInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection",pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
@@ -4399,21 +4409,22 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void hoverOnListBlockDevicesFooterAndCheckColor() throws InterruptedException {
-       List<ElementHandle> deviceAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_devices')]//a[@href]");
-       for(ElementHandle device : deviceAll){
-           device.hover();
-           Thread.sleep(2000);
-           System.out.println(device.evaluate("e => window.getComputedStyle(e).color"));
-           Assert.assertEquals("bug: the color of the element is not white",device.evaluate("e => window.getComputedStyle(e).color"),"rgb(255, 255, 255)");
-       }
-    }
-    public void hoverOnListBlockSupportFooterAndCheckColor() throws InterruptedException {
-        List<ElementHandle> deviceAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_support')]//a[@href]");
-        for(ElementHandle device : deviceAll){
+        List<ElementHandle> deviceAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_devices')]//a[@href]");
+        for (ElementHandle device : deviceAll) {
             device.hover();
             Thread.sleep(2000);
             System.out.println(device.evaluate("e => window.getComputedStyle(e).color"));
-            Assert.assertEquals("bug: the color of the element is not white",device.evaluate("e => window.getComputedStyle(e).color"),"rgb(255, 255, 255)");
+            Assert.assertEquals("bug: the color of the element is not white", device.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
+        }
+    }
+
+    public void hoverOnListBlockSupportFooterAndCheckColor() throws InterruptedException {
+        List<ElementHandle> deviceAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_support')]//a[@href]");
+        for (ElementHandle device : deviceAll) {
+            device.hover();
+            Thread.sleep(2000);
+            System.out.println(device.evaluate("e => window.getComputedStyle(e).color"));
+            Assert.assertEquals("bug: the color of the element is not white", device.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
         }
     }
 
@@ -4443,7 +4454,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.onDialog(dialog -> dialog.dismiss());
         page.navigate("https://web-preprod6.megafon.tv");
         page.waitForSelector("(//a[@href='/' and text()='Задайте нам вопрос'])[2]").click();
-        Assert.assertTrue("bug: not opened popUp form 'Send a question'", page.querySelectorAll("//div[text()='Отправить вопрос']").size()==1);
+        Assert.assertTrue("bug: not opened popUp form 'Send a question'", page.querySelectorAll("//div[text()='Отправить вопрос']").size() == 1);
         page.navigate("https://web-preprod6.megafon.tv");
         page.waitForSelector("(//a[@href='/help' and text()='Вопросы и ответы'])[2]").click();
         Assert.assertTrue("bug: not opened page device", page.url().contains("https://web-preprod6.megafon.tv/help"));
@@ -4458,10 +4469,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void goToLinkBlockSocialNetworksFooter() {
         page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[1]").click();
-        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size()==1);
+        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size() == 1);
         page.navigate("https://web-preprod6.megafon.tv");
         page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[2]").click();
-        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size()==1);
+        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size() == 1);
         page.navigate("https://web-preprod6.megafon.tv");
     }
 
@@ -4567,11 +4578,11 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void hoverOnListBlockDocsFooterAndCheckColor() throws InterruptedException {
         List<ElementHandle> docLinkAll = page.querySelectorAll("//div[contains(@class,'LayoutFooter_wrapDocumentLinks')]//a[@href]");
-        for(ElementHandle docLink : docLinkAll){
+        for (ElementHandle docLink : docLinkAll) {
             docLink.hover();
             Thread.sleep(2000);
             System.out.println(docLink.evaluate("e => window.getComputedStyle(e).color"));
-            Assert.assertEquals("bug: the color of the element is not white",docLink.evaluate("e => window.getComputedStyle(e).color"),"rgb(255, 255, 255)");
+            Assert.assertEquals("bug: the color of the element is not white", docLink.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
         }
     }
 
@@ -4656,7 +4667,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkCloseSearchFormMediumPage() {
         page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
-        Assert.assertTrue("not hidden element",page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden());
+        Assert.assertTrue("not hidden element", page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden());
     }
 
     public void checkElementsSearchFormForWidePage() {
@@ -4686,7 +4697,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkInputOneSimbolInSearchForm() {
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
-        Assert.assertEquals("not visible element",1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
         page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "р");
         Assert.assertTrue("not visible element", page.waitForSelector("//div[text()='Ничего не найдено']").isVisible());
     }
@@ -4695,11 +4706,11 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
         page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "робот");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__result']").size()==1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Фильмы']").size()==1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Сериалы']").size()==1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']").size()==1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//a[@class='ch-search__all-result-link' and text()='Все результаты']").size()==1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__result']").size() == 1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Фильмы']").size() == 1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Сериалы']").size() == 1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']").size() == 1);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//a[@class='ch-search__all-result-link' and text()='Все результаты']").size() == 1);
     }
 
     public void checkResultSearchNothingFound() {
@@ -4749,6 +4760,17 @@ public class NiLPagePW extends BasePagePlaywright {
         Assert.assertEquals("bug: names films don't match", nameFilmText, page.waitForSelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
         Assert.assertEquals("bug: names serials don't match", nameSerialText, page.waitForSelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
         Assert.assertEquals("bug: names tv programs don't match", nameTvProgramText, page.waitForSelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+    }
+
+    public void clickOnButtonEnterAndCheckOpenPageAuth() {
+        page.waitForSelector("(//span[text()='Вход'])[1]").click();
+        page.waitForSelector("//h1[text()='Введите номер телефона']");
+        Assert.assertTrue("bug: not opened page auth", page.url().contains("/auth"));
+    }
+
+    public void inputValidNumberAndCheckActiveButtonNext(String login) {
+        page.fill("//input[@type='tel']", login);
+        Assert.assertEquals("not active button 'Next'", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
     }
 }
 
