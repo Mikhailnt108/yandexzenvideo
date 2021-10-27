@@ -120,7 +120,6 @@ public class PromoCodePW extends BasePagePlaywright {
         page.querySelector("//h1[text()='Введите промокод']");
         page.fill("//input[@placeholder='Введите промокод']", allowedPromoCod);
 
-
     }
 
     public void clickOnFirstButtonActivatePromoCode() {
@@ -429,6 +428,5 @@ public class PromoCodePW extends BasePagePlaywright {
 
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Активировать']").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[text()='Закрыть']").size());
-
     }
 }

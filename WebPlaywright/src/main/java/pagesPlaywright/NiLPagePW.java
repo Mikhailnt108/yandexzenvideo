@@ -10,7 +10,6 @@ import org.junit.Assert;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -20,10 +19,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NiLPagePW extends BasePagePlaywright {
     private Page page;
-    private BrowserContext contextNormalModeHeadless;
+    private Page pageSmartTv;
+    private BrowserContext contextIncognitoModeHeadless;
+    private BrowserContext contextIncognitoModeHeadfull;
 
-    public NiLPagePW(Page page) {
+    public NiLPagePW(Page page, Page pageSmartTv, BrowserContext contextIncognitoModeHeadless) {
         this.page = page;
+        this.pageSmartTv = pageSmartTv;
+        this.contextIncognitoModeHeadless = contextIncognitoModeHeadless;
 
     }
 
@@ -4777,6 +4780,278 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("(//div[text()='Промокод'])[1]").click();
         page.waitForSelector("//h1[text()='Введите промокод']");
         Assert.assertTrue("bug: not opened page promocodes", page.url().contains("/_promocodes"));
+    }
+
+    public void checkOpenPageConnectionSmartTV() throws InterruptedException {
+        page.waitForSelector("(//span[contains(text(),'+79')])[2]").click();
+        page.waitForSelector("(//span[text()='Подключить SmartTV'])[1]").click();
+        Thread.sleep(3000);
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
+        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/connect_smart_tv"));
+    }
+
+    public void checkElementsPageConnectionSmartTV() {
+        // page:
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/smart-tv-poster.png']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+
+        // form:
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Введите код подключения, указанный на вашем телевизоре в приложении МегаФон ТВ в разделе “Подключить Smart TV”']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//input[@placeholder='Код подключения']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Подключить Smart TV']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size());
+    }
+
+    public void clickOnButtonCloseAndCheckOpenNilPage() {
+        page.waitForSelector("//a[contains(@class,'closeButton') and text()='Закрыть']").click();
+        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//h1[text()='E-mail']").size());
+        page.waitForSelector("//div[contains(@class,'carousel')]");
+    }
+
+    public void checkImagePageConnectionSmartTV() throws IOException, InterruptedException {
+        // делаем скриншот полной страницы "PageConnectionSmartTVFull":
+        Thread.sleep(3000);
+        vrt.track(
+                "PageConnectionSmartTVFull",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkInputInValidCode(String code) throws InterruptedException {
+        page.querySelector("//h1[text()='Подключить ТВ']");
+        page.fill("//input[@placeholder='Код подключения']", code);
+        Thread.sleep(3000);
+        ElementHandle buttonNext = page.waitForSelector("//button[text()='Подключить Smart TV']");
+        String background = (String) buttonNext.evaluate("e => window.getComputedStyle(e).background");
+        System.out.println(background);
+        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
+    }
+
+    public void clickOnButtonConnectionAndCheckElementsValidCode() {
+        page.waitForSelector("//button[text()='Подключить Smart TV']").click();
+        // page:
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+
+        // form:
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Введите код подключения, указанный на вашем телевизоре в приложении МегаФон ТВ в разделе “Подключить Smart TV”']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//input[@placeholder='Код подключения']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Подключить Smart TV']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size());
+
+        ElementHandle errorText = page.waitForSelector("//span[text()='Неверный код']");
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Неверный код']").size());
+        System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
+        Assert.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
+    }
+
+    public void checkInputValidCodeInPageConnectionSmartTV(String login, String password) throws InterruptedException {
+        pageSmartTv = contextIncognitoModeHeadless.newPage();
+        pageSmartTv.navigate("http://staging-smart-nettv.megafon.tv");
+        Thread.sleep(15000);
+        pageSmartTv.waitForSelector("//span[text()='Закрыть']").click();
+        pageSmartTv.waitForSelector("//span[text()='Закрыть']").click();
+        pageSmartTv.waitForSelector("//div[text()='Меню']").click();
+        pageSmartTv.waitForSelector("//div[text()='Настройки']").click();
+        pageSmartTv.waitForSelector("//span[text()='Очистить хранилище']").click();
+        pageSmartTv.waitForSelector("//span[text()='Изменить настройки']").click();
+        pageSmartTv.waitForSelector("//span[text()='Окружение bmp-api']").click();
+        pageSmartTv.waitForSelector("//span[text()='preprod6']").click();
+        if(pageSmartTv.querySelectorAll("(//span[text()='Назад'])[2]").size()>0){
+            pageSmartTv.click("(//span[text()='Назад'])[2]");
+        }
+        if(pageSmartTv.querySelectorAll("//span[text()='Назад']").size()>0){
+            pageSmartTv.click("//span[text()='Назад']");
+        }
+        Thread.sleep(2000);
+//        pageSmartTv.waitForSelector("//span[text()='На главную']").click();
+//        Thread.sleep(5000);
+        pageSmartTv.waitForSelector("(//div[text()='Меню'])[2]").click();
+        pageSmartTv.waitForSelector("//div[text()='Вход']").click();
+        pageSmartTv.waitForSelector("//div[text()='Закрыть']").click();
+
+        String validCode = pageSmartTv.waitForSelector("//div[contains(@class,'code') and text()]").innerText();
+        pageSmartTv.close();
+        page.bringToFront();
+        page.reload();
+
+        page.navigate("https://web-preprod6.megafon.tv/");
+        page.click("//button[contains(@class,'ch-account-controller')]");
+        page.focus("//input[@name='phone']");
+        page.fill("//input[@name='phone']", login);
+        page.click("//button[text()='Далее']");
+        page.querySelector("//div[text()='Введите пароль']");
+        page.fill("//input[@type='password']", password);
+        page.click("//button[text()='Войти']");
+        page.querySelector("(//span[contains(text(),'+792')])[2]");
+        // подключить смарт тв:
+        page.waitForSelector("(//span[contains(text(),'+79')])[2]").click();
+        page.waitForSelector("(//span[text()='Подключить SmartTV'])[1]").click();
+        Thread.sleep(3000);
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
+        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/connect_smart_tv"));
+        page.fill("//input[@placeholder='Код подключения']", validCode);
+        page.click("//button[text()='Подключить Smart TV']");
+
+        page.waitForSelector("//h1[text()='Устройство привязано']");
+        page.waitForSelector("//p[text()='Желаем приятного просмотра!']");
+        page.waitForSelector("//a[contains(@class,'closeButton') and text()='Закрыть']");
+        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//h1[text()='Устройство привязано']").size());
+        page.waitForSelector("//div[contains(@class,'carousel')]");
+    }
+
+    public void checkOpenPageEmail() throws InterruptedException {
+        page.waitForSelector("(//span[contains(text(),'+79')])[2]").click();
+        page.waitForSelector("(//span[text()='Email'])[1]").click();
+        Thread.sleep(3000);
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='E-mail']").size());
+        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/subscribe"));
+    }
+
+    public void checkElementsPageEmail() {
+        // page:
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+
+        // form:
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='E-mail']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Введите вашу электронную почту']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//input[@placeholder='Введите e-mail']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//span[text()='Хочу получать новости и подарки от МегаФон ТВ']").size());
+        Assert.assertTrue("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size());
+    }
+
+    public void checkImagePageEmail() throws IOException, InterruptedException {
+    // делаем скриншот полной страницы "PageConnectionSmartTVFull":
+        Thread.sleep(3000);
+        vrt.track(
+                "PageEmailFull",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+    public void checkInputInvalidEmailInProfileMenu(String email) throws InterruptedException {
+        page.querySelector("//h1[text()='E-mail']");
+        page.fill("//input[@placeholder='Введите e-mail']", email);
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size());
+    }
+    public void checkInputValidEmailInProfileMenu(String email) throws InterruptedException {
+        page.querySelector("//h1[text()='E-mail']");
+        page.fill("//input[@placeholder='Введите e-mail']", email);
+        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size());
+        Thread.sleep(3000);
+        ElementHandle buttonSave = page.waitForSelector("//button[text()='Сохранить']");
+        String background = (String) buttonSave.evaluate("e => window.getComputedStyle(e).background");
+        System.out.println(background);
+        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 185, 86)"));
+    }
+
+    public void clickOnButtonSaveAndCheckOpenPopUpNoNewsAndGifts() {
+        page.click("//button[text()='Сохранить']");
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Не получать новости и подарки']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Вы уверены, что не хотите получать новости и подарки?']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Да']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Отменить']").size());
+    }
+
+    public void checkImagePopUpNoNewsAndGifts() throws IOException, InterruptedException {
+        // делаем скриншот полной страницы "PageEmailPopUpNoNewsAndGiftsFull":
+        Thread.sleep(3000);
+        vrt.track(
+                "PageEmailPopUpNoNewsAndGiftsFull",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void clickOnButtonCancelAndCheckOpenEmail() {
+        page.click("//button[text()='Отменить']");
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='E-mail']").size());
+    }
+
+    public void clickOnButtonYesAndCheckOpenPopUpLinkedEmail() {
+        page.click("//button[text()='Да']");
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Почта привязана!']").size());
+        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//p[text()='Следите за новинками и получайте подарки!']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Закрыть']").size());
+    }
+
+    public void checkImagePopUpLinkedEmail() throws IOException, InterruptedException {
+        // делаем скриншот полной страницы "PageEmailPopUpEmailLinkedFull":
+        Thread.sleep(3000);
+        vrt.track(
+                "PageEmailPopUpEmailLinkedFull",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void unCheckedBoxEmailFormProfile() {
+        Assert.assertTrue("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
+        page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").uncheck();
+        Assert.assertFalse("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
+    }
+
+    public void checkedBoxEmailFormProfile() throws InterruptedException {
+        Thread.sleep(3000);
+        page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").check();
+        Assert.assertTrue("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
+    }
+
+    public void clickOnButtonSaveAndCheckOpenPopUpLinkedEmail() throws InterruptedException {
+        page.click("//button[text()='Сохранить']");
+        Thread.sleep(3000);
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Почта привязана!']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Следите за новинками и получайте подарки!']").size());
+        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Закрыть']").size());
+    }
+
+    public void clickOnButtonCloseAndCheckOpenNilPageAndLinkedEmail() {
+        page.click("//button[text()='Закрыть']");
+        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//h1[text()='Почта привязана!']").size());
+        page.waitForSelector("//div[contains(@class,'carousel')]");
     }
 }
 

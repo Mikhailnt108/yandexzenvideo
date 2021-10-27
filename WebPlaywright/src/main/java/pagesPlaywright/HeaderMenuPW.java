@@ -652,4 +652,30 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void stopFiddlerSlowNetwork() throws ExecutionException, InterruptedException, IOException {
         Process stopSlowNetwork = Runtime.getRuntime().exec("cmd /c \"cd C:/Users/Mikhailnt/AppData/Local/Programs/Fiddler && ExecAction stop\"");
     }
+
+    public void clearCookies() {
+        contextIncognitoModeHeadless.clearCookies();
+    }
+
+    public void openPlatformSmartTv() throws InterruptedException {
+        pageSmartTv = contextIncognitoModeHeadless.newPage();
+        pageSmartTv.navigate("http://staging-smart-nettv.megafon.tv");
+        Thread.sleep(10000);
+        pageSmartTv.waitForSelector("//span[text()='Закрыть']").click();
+        pageSmartTv.waitForSelector("//span[text()='Закрыть']").click();
+        pageSmartTv.waitForSelector("//div[text()='Меню']").click();
+        pageSmartTv.waitForSelector("//div[text()='Настройки']").click();
+//        pageSmartTv.waitForSelector("//span[text()='Очистить хранилище']").click();
+        pageSmartTv.waitForSelector("//span[text()='Изменить настройки']").click();
+        pageSmartTv.waitForSelector("//span[text()='Окружение bmp-api']").click();
+        pageSmartTv.waitForSelector("//span[text()='preprod6']").click();
+        if(pageSmartTv.querySelectorAll("(//span[text()='Назад'])[2]").size()>0){
+            pageSmartTv.click("(//span[text()='Назад'])[2]");
+        }
+        if(pageSmartTv.querySelectorAll("//span[text()='Назад']").size()>0){
+            pageSmartTv.click("//span[text()='Назад']");
+        }
+        pageSmartTv.close();
+        page.bringToFront();
+    }
 }

@@ -85,6 +85,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public BrowserContext contextIncognitoModeHeadfull;
     public Page page;
     public static Page pageCMS;
+    public static Page pageSmartTv;
 
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException, AWTException {
@@ -101,7 +102,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless);
         filmsPagePW = new FilmsPagePW(page);
         serialsPagePW = new SerialsPagePW(page,pageCMS);
-        nilPagePW = new NiLPagePW(page);
+        nilPagePW = new NiLPagePW(page, pageSmartTv, contextIncognitoModeHeadless);
         collectionPagePW = new CollectionsPagePW(page);
         tvPagePW = new TvPagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
