@@ -17,7 +17,7 @@ public class Test_05_NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs_PW_adW
     @DisplayName(value = "5. NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs() throws IOException, InterruptedException, ExecutionException, TimeoutException {
         headerMenuPW.goToNilPage();
         flowRegistation();

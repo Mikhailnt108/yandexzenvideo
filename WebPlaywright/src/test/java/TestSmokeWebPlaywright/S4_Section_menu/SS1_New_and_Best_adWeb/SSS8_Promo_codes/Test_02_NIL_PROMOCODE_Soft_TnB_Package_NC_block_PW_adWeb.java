@@ -15,7 +15,7 @@ public class Test_02_NIL_PROMOCODE_Soft_TnB_Package_NC_block_PW_adWeb extends Te
     @DisplayName(value = "2. NIL_PROMOCODE_Soft_TnB_Package")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_PROMOCODE_Soft_TnB_Package() throws IOException, InterruptedException {
         promoCodePW.createAndPublishedRC();
         promoCodePW.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();

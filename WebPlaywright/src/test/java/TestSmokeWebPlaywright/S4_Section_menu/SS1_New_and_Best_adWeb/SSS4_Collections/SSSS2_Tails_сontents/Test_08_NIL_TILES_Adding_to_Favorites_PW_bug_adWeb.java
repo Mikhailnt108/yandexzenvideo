@@ -15,7 +15,7 @@ public class Test_08_NIL_TILES_Adding_to_Favorites_PW_bug_adWeb extends TestBase
     @DisplayName(value = "8. NIL_TILES_Adding_to_Favorites")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_TILES_Adding_to_Favorites() throws IOException, InterruptedException {
         // Guest
         headerMenuPW.goToNilPage();

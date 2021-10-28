@@ -15,7 +15,7 @@ public class Test_08_NIL_REG_AUTH_Registration_NON_MF_PW_adWeb extends TestBaseP
     @DisplayName(value = "8. NIL_REG_AUTH_Registration_non_MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Registration_non_MF() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
         flowRegistationNonMF();

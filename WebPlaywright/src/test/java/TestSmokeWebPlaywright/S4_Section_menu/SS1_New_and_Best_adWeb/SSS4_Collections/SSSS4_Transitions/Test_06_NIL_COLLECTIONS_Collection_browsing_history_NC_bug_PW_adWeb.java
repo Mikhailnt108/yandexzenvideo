@@ -15,7 +15,7 @@ public class Test_06_NIL_COLLECTIONS_Collection_browsing_history_NC_bug_PW_adWeb
     @DisplayName(value = "6. NIL_COLLECTIONS_Collection_browsing_history")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Collection_browsing_history() throws IOException, InterruptedException {
         // User
         headerMenuPW.goToNilPage();

@@ -15,7 +15,7 @@ public class Test_01_NIL_TILES_Films_in_collection_PW_adWeb extends TestBasePlay
 @DisplayName(value = "1. NIL_TILES_Films_in_collection")
 @Severity(SeverityLevel.BLOCKER)
 @Test
-@Tag("adWebSuitePW#1")
+@Tag("adWebSuitePW#2")
 public void NIL_TILES_Films_in_collection() throws IOException, InterruptedException {
     // Guest
     headerMenuPW.goToNilPage();

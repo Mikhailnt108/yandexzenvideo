@@ -14,7 +14,7 @@ public class Test_02_NIL_REG_AUTH_Create_password_PW_adWeb extends TestBasePlayw
     @DisplayName(value = "2. NIL_REG_AUTH_Create_new_password")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Create_password() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToEnter();

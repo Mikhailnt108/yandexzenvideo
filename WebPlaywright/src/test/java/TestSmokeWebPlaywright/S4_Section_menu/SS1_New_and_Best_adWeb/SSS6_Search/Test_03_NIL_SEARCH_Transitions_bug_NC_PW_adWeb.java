@@ -13,7 +13,7 @@ public class Test_03_NIL_SEARCH_Transitions_bug_NC_PW_adWeb extends TestBasePlay
     @DisplayName(value = "3. SEARCH_Transitions")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void SEARCH_Transitions(){
         headerMenuPW.goToNilPage();
         nilPagePW.checkInputMultipleSimbolsInSearchForm();

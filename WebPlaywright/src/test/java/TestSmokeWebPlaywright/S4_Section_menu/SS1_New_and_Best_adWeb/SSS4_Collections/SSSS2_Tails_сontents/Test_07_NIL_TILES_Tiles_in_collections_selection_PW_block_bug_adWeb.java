@@ -15,7 +15,7 @@ public class Test_07_NIL_TILES_Tiles_in_collections_selection_PW_block_bug_adWeb
     @DisplayName(value = "7. NIL_TILES_Tiles_in_collections_selection")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_TILES_Tiles_in_collections_selection() throws IOException {
         // Guest
         headerMenuPW.goToNilPage();

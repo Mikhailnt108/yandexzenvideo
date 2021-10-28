@@ -15,7 +15,7 @@ public class Test_02_NIL_SMART_TV_Invalid_connection_code_PW_adWeb extends TestB
     @DisplayName(value = "2. NIL_SMART_TV_Invalid_connection_code")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_SMART_TV_Invalid_connection_code() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistationMF();

@@ -15,7 +15,7 @@ public class Test_06_NIL_PROMOCODE_Reusing_promo_code_PW_adWeb extends TestBaseP
     @DisplayName(value = "6. NIL_PROMOCODE_Reusing_promo_code")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_PROMOCODE_Reusing_promo_code() throws IOException, InterruptedException {
         promoCodePW.createAndPublishedRC();
         promoCodePW.createAndPublishedCodeGroupAndPromoCodePackageStartSoftTnB();

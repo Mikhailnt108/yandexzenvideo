@@ -15,7 +15,7 @@ public class Test_04_NIL_REG_AUTH_Enter_password_PW_adWeb extends TestBasePlaywr
     @DisplayName(value = "4. NIL_REG_AUTH_Enter_password")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Input_password() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistation();

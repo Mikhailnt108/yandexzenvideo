@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS10_Adding_email;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -13,29 +13,24 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.io.IOException;
 
 @Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "Suite#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_NIL_Appearance_section_SCREENSHOT_VRT_PW_adWeb extends TestBasePlaywright {
+@ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
+public class Test_04_NIL_There_is_no_picture_on_tile_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "1. Appearance_section_SCREENSHOT")
+    @DisplayName(value = "4. There_is_no_picture_on_tile_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void appearanceSectionNilPage() throws IOException, InterruptedException{
-        // Guest:
-        nilPagePW.checkImageNilPageScrollGuest();
-        nilPagePW.checkImageCherdakAndBannersGuest();
-        nilPagePW.checkImageBlocksCollectionWidePageNilGuest();
-        nilPagePW.checkImageBlocksCollectionWithoutHeader();
-        nilPagePW.checkImageFooterWidePageGuest();
-        // User:
+    public void MessageSelectingContentForYou() throws IOException, InterruptedException {
+        headerMenuPW.deleteImagesFromFilm();
         headerMenuPW.goToNilPage();
+        // Guest:
+        nilPagePW.checkBlockCollectionFilmWithoutImagesGuest();
+        // User:
         flowRegistation();
-        nilPagePW.checkImageNilPageScrollUser();
-        nilPagePW.checkImageCherdakAndBannersUser();
-        nilPagePW.checkImageBlocksCollectionWithHeaderUser();
-        nilPagePW.checkImageFooterWidePageUser();
+        nilPagePW.checkBlockCollectionFilmWithoutImagesUser();
+        headerMenuPW.addImagesFromFilm();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

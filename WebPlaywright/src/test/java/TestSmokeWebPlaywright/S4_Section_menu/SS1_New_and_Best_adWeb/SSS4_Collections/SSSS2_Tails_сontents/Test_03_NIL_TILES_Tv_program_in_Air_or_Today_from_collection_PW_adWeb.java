@@ -15,7 +15,7 @@ public class Test_03_NIL_TILES_Tv_program_in_Air_or_Today_from_collection_PW_adW
     @DisplayName(value = "3.1 NIL_TILES_Tv_program_in_Air_from_collection")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_TILES_Tv_program_in_Air_from_collection() throws IOException, InterruptedException {
         // Guest
         headerMenuPW.goToNilPage();

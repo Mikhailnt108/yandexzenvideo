@@ -14,7 +14,7 @@ public class Test_02_NIL_COLLECTIONS_Focus_PW_adWeb extends TestBasePlaywright {
     @DisplayName(value = "3. NIL_COLLECTIONS_Focus_Guest")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Appearance_User() throws IOException, InterruptedException {
         // Guest:
         headerMenuPW.goToNilPage();

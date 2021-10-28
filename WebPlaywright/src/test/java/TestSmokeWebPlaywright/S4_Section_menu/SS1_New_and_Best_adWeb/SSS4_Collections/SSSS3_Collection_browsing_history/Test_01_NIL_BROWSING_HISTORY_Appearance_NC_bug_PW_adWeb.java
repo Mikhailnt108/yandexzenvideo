@@ -19,7 +19,7 @@ public class Test_01_NIL_BROWSING_HISTORY_Appearance_NC_bug_PW_adWeb extends Tes
     @DisplayName(value = "1. NIL_BROWSING_HISTORY_Appearance")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_BROWSING_HISTORY_Appearance() throws Exception {
         headerMenuPW.goToNilPage();
         flowRegistationMF();

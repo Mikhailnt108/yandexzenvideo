@@ -14,7 +14,7 @@ public class Test_03_NIL_COLLECTIONS_Navigation_PW_adWeb extends TestBasePlaywri
     @DisplayName(value = "4. NIL_COLLECTIONS_Navigation")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Navigation() throws IOException {
         // Guest
         headerMenuPW.goToNilPage();

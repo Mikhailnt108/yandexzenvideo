@@ -15,7 +15,7 @@ public class Test_07_NIL_PROMOCODE_Promo_code_with_expired_activation_period_PW_
     @DisplayName(value = "7. NIL_PROMOCODE_Promo_code_with_expired_activation_period")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_PROMOCODE_Promo_code_expired_activation_period() throws IOException, InterruptedException {
         promoCodePW.createAndPublishedRC();
         promoCodePW.createAndPublishedCodeGroupAndPromoCodeExpiredPackageStartSoftTnB();

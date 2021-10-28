@@ -15,7 +15,7 @@ public class Test_01_NIL_EMAIL_Appearance_page_SCREENSHOT_PW_adWeb extends TestB
     @DisplayName(value = "1. NIL_EMAIL_Appearance_page_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_EMAIL_Appearance_page_SCREENSHOT() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistationMF();

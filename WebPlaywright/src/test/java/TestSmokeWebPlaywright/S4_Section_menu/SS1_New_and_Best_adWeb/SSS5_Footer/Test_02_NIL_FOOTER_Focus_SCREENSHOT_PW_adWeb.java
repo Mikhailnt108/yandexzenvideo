@@ -15,7 +15,7 @@ public class Test_02_NIL_FOOTER_Focus_SCREENSHOT_PW_adWeb extends TestBasePlaywr
     @DisplayName(value = "2. FOOTER_Focus")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void FOOTER_Focus() throws IOException, InterruptedException {
         // Guest:
 //        headerMenuPW.goToNilPage();

@@ -15,7 +15,7 @@ public class Test_01_1_NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT_PW_adWeb exte
     @DisplayName(value = "1. NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Appearance_Guest() throws IOException, InterruptedException {
         // Guest:
         // min:

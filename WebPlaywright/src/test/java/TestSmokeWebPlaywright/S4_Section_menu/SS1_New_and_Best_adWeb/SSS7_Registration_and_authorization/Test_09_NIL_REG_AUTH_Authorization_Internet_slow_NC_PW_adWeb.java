@@ -17,7 +17,7 @@ public class Test_09_NIL_REG_AUTH_Authorization_Internet_slow_NC_PW_adWeb extend
     @DisplayName(value = "9. NIL_REG_AUTH_Authorization_Internet_slow")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Authorization_Internet_slow() throws IOException, InterruptedException, ExecutionException, TimeoutException {
         headerMenuPW.stopFiddlerSlowNetwork();
         headerMenuPW.goToNilPage();

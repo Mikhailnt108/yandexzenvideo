@@ -145,7 +145,7 @@
                     <skipTests>false</skipTests>
                     <testFailureIgnore>true</testFailureIgnore>
                     <parallel>suites</parallel>
-                    <threadCountSuites>3</threadCountSuites>
+                    <threadCountSuites>4</threadCountSuites>
 <!--                    <perCoreThreadCount>true</perCoreThreadCount>-->
 <!--                    <redirectTestOutputToFile>true</redirectTestOutputToFile>-->
 <!--                    <forkCount>2</forkCount>-->
@@ -156,7 +156,7 @@
 <!--                        <include>**/*PW.java</include>-->
 <!--                    </includes>-->
                     <properties>
-                        <groups>SuitePwTest1,SuitePwTest2,SuiteWdTest1</groups>
+                        <groups>adWebSuitePW#1, adWebSuitePW#2, adWebSuitePW#3, adWebSuitePW#4</groups>
 <!--                        <include>SuitePwTest1,SuitePwTest2,SuitePwTest3</include>-->
 <!--                        <include>**/Test*.java</include>-->
 <!--                        <include>**/*RETEST2408.java</include>-->
@@ -173,7 +173,7 @@
                         <allure.results.directory>${project.build.directory}\allure-results</allure.results.directory>
                         <junit.jupiter.execution.parallel.enabled>true</junit.jupiter.execution.parallel.enabled>
                         <junit.jupiter.execution.parallel.config.strategy>fixed</junit.jupiter.execution.parallel.config.strategy>
-                        <junit.jupiter.execution.parallel.config.fixed.parallelism>3</junit.jupiter.execution.parallel.config.fixed.parallelism>
+                        <junit.jupiter.execution.parallel.config.fixed.parallelism>4</junit.jupiter.execution.parallel.config.fixed.parallelism>
                         <junit.jupiter.execution.parallel.mode.default>same_thread</junit.jupiter.execution.parallel.mode.default>
                         <junit.jupiter.execution.parallel.mode.classes.default>concurrent</junit.jupiter.execution.parallel.mode.classes.default>
                     </systemPropertyVariables>

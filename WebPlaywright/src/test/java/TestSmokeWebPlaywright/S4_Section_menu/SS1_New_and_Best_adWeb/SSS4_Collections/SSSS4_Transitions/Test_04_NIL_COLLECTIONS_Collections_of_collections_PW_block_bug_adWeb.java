@@ -15,7 +15,7 @@ public class Test_04_NIL_COLLECTIONS_Collections_of_collections_PW_block_bug_adW
     @DisplayName(value = "4. NIL_COLLECTIONS_Collections_of_collections")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Collections_of_collections() throws IOException {
         // Guest
         headerMenuPW.goToNilPage();

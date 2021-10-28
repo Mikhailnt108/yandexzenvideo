@@ -15,7 +15,7 @@ public class Test_01_NIL_SEARCH_Correct_request_bug_NC_PW_adWeb extends TestBase
     @DisplayName(value = "1. SEARCH_Correct_request")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void SEARCH_Correct_request() throws IOException, InterruptedException {
         // min:
         headerMenuPW.openMinFramePage();

@@ -15,7 +15,7 @@ public class Test_05_NIL_PROMOCODE_Rent_film_through_promo_code_NC_block_PW_adWe
     @DisplayName(value = "5. NIL_PROMOCODE_Rent_film_through_promo_code")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_PROMOCODE_Rent_film_through_promo_code() throws IOException, InterruptedException {
         promoCodePW.createAndPublishedRC();
         promoCodePW.createAndPublishedCodeGroupAndPromoCodeFilmOnRentPromo();

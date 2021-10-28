@@ -15,7 +15,7 @@ public class Test_01_NIL_REG_AUTH_Enter_your_phone_number_PW_adWeb extends TestB
     @DisplayName(value = "1. NIL_REG_AUTH_Enter_your_phone_number")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Enter_your_phone_number() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         nilPagePW.clickOnButtonEnterAndCheckOpenPageAuth();

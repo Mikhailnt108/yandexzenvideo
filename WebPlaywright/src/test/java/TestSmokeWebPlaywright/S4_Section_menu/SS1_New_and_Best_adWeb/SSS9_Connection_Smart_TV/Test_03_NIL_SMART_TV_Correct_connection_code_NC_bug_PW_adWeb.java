@@ -15,7 +15,7 @@ public class Test_03_NIL_SMART_TV_Correct_connection_code_NC_bug_PW_adWeb extend
     @DisplayName(value = "3. NIL_SMART_TV_Correct_connection_code")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_SMART_TV_Correct_connection_code() throws IOException, InterruptedException {
 //        headerMenuPW.openPlatformSmartTv();
         headerMenuPW.goToNilPage();

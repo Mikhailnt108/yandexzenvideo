@@ -15,7 +15,7 @@ public class Test_02_NIL_BROWSING_HISTORY_Focus_NC_bug_PW_adWeb extends TestBase
     @DisplayName(value = "2. NIL_BROWSING_HISTORY_Focus")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_BROWSING_HISTORY_Focus() throws IOException, InterruptedException {
         // User
         headerMenuPW.goToNilPage();

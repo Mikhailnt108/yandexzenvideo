@@ -15,7 +15,7 @@ public class Test_04_NIL_PROMOCODE_Buy_film_through_promo_code_NC_block_PW_adWeb
     @DisplayName(value = "4. NIL_PROMOCODE_Buy_film_through_promo_code")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_PROMOCODE_Buy_film_through_promo_code() throws IOException, InterruptedException {
         promoCodePW.createAndPublishedRC();
         promoCodePW.createAndPublishedCodeGroupAndPromoCodeFilmOnEST();

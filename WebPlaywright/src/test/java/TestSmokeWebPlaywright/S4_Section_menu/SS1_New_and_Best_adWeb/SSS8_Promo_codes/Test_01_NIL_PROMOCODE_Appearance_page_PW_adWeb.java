@@ -15,7 +15,7 @@ public class Test_01_NIL_PROMOCODE_Appearance_page_PW_adWeb extends TestBasePlay
     @DisplayName(value = "1. NIL_PROMOCODE_Appearance_page")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_PROMOCODE_Appearance_page() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistationMF();

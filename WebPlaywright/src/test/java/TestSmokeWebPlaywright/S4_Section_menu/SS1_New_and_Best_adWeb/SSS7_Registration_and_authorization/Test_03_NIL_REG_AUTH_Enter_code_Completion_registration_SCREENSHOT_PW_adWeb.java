@@ -15,7 +15,7 @@ public class Test_03_NIL_REG_AUTH_Enter_code_Completion_registration_SCREENSHOT_
     @DisplayName(value = "3. NIL_REG_AUTH_Enter_code_Completion_registration")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Enter_code_Completion_registration() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToEnter();

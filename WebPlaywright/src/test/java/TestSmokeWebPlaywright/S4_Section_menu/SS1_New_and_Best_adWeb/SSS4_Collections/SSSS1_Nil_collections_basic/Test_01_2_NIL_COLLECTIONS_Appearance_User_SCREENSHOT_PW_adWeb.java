@@ -15,7 +15,7 @@ public class Test_01_2_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb exten
     @DisplayName(value = "2. NIL_COLLECTIONS_Appearance_User_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Appearance_User() throws IOException, InterruptedException {
         // User:
         headerMenuPW.goToNilPage();

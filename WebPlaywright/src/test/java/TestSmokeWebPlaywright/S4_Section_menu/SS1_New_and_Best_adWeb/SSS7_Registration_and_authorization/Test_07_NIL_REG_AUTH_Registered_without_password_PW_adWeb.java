@@ -13,7 +13,7 @@ public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends T
     @DisplayName(value = "7. NIL_REG_AUTH_Registered_without_password")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Registered_without_password() throws InterruptedException {
         // ввести номер прозрачно зарегистрированный в МФТВ на телефоне:
         headerMenuPW.goToNilPage();

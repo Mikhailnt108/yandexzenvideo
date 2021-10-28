@@ -15,7 +15,7 @@ public class Test_04_NIL_TILES_Tv_channels_in_collection_PW_bug_adWeb extends Te
     @DisplayName(value = "4. NIL_TILES_Tv_channels_in_collection")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_TILES_Tv_channels_in_collection() throws IOException, InterruptedException {
         // Guest
         headerMenuPW.goToNilPage();

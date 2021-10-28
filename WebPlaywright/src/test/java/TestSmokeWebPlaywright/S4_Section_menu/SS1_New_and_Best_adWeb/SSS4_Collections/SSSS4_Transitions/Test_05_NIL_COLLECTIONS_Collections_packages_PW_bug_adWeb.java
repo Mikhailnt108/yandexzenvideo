@@ -15,7 +15,7 @@ public class Test_05_NIL_COLLECTIONS_Collections_packages_PW_bug_adWeb extends T
     @DisplayName(value = "5. NIL_COLLECTIONS_Collections_packages")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Collections_packages() throws IOException, InterruptedException {
         // Guest
         headerMenuPW.goToNilPage();

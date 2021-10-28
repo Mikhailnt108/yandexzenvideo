@@ -15,7 +15,7 @@ public class Test_03_NIL_BROWSING_HISTORY_Edit_NC_bug_PW_adWeb extends TestBaseP
     @DisplayName(value = "3. NIL_BROWSING_HISTORY_Edit")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_BROWSING_HISTORY_Edit() {
         // User
         headerMenuPW.goToNilPage();

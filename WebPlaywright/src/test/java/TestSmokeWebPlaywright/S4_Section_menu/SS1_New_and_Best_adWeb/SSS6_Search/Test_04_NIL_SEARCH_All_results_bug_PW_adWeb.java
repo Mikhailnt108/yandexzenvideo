@@ -13,7 +13,7 @@ public class Test_04_NIL_SEARCH_All_results_bug_PW_adWeb extends TestBasePlaywri
     @DisplayName(value = "4. SEARCH_All_results")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void SEARCH_All_results(){
         headerMenuPW.goToNilPage();
         nilPagePW.checkInputMultipleSimbolsInSearchForm();

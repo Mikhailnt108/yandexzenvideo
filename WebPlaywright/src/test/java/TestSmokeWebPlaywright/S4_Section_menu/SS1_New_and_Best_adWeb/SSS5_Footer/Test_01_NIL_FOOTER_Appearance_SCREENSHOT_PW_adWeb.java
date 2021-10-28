@@ -15,7 +15,7 @@ public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBaseP
     @DisplayName(value = "1. FOOTER_Appearance")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void FOOTER_Appearance() throws IOException, InterruptedException {
         // Guest:
         // min:

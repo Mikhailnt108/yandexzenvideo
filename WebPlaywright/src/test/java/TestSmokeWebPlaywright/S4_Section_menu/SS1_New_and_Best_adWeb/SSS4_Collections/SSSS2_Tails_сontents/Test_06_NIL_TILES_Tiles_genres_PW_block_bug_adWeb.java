@@ -15,7 +15,7 @@ public class Test_06_NIL_TILES_Tiles_genres_PW_block_bug_adWeb extends TestBaseP
     @DisplayName(value = "6. NIL_TILES_Tiles_genres")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_TILES_Tiles_genres() throws IOException {
         // Guest
         headerMenuPW.goToNilPage();

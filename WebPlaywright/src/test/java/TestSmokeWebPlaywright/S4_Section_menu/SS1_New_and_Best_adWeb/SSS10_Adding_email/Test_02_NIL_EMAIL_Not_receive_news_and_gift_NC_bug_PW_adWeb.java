@@ -15,7 +15,7 @@ public class Test_02_NIL_EMAIL_Not_receive_news_and_gift_NC_bug_PW_adWeb extends
     @DisplayName(value = "2. NIL_EMAIL_Not_receive_news_and_gift")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_EMAIL_Not_receive_news_and_gift() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistationMF();
@@ -29,6 +29,7 @@ public class Test_02_NIL_EMAIL_Not_receive_news_and_gift_NC_bug_PW_adWeb extends
         nilPagePW.clickOnButtonSaveAndCheckOpenPopUpNoNewsAndGifts();
         nilPagePW.clickOnButtonYesAndCheckOpenPopUpLinkedEmail();
         nilPagePW.checkImagePopUpLinkedEmail();
+        nilPagePW.clickOnButtonCloseAndCheckOpenNilPageAndLinkedEmail();
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();

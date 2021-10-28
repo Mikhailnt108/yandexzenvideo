@@ -13,7 +13,7 @@ public class Test_02_NIL_SEARCH_Nothing_found_PW_adWeb extends TestBasePlaywrigh
     @DisplayName(value = "2. SEARCH_Nothing_found")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#3")
     public void SEARCH_Nothing_found(){
         headerMenuPW.goToNilPage();
         nilPagePW.checkResultSearchNothingFound();

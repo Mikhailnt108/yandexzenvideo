@@ -15,7 +15,7 @@ public class Test_03_NIL_EMAIL_Receive_news_and_gifts_PW_adWeb extends TestBaseP
     @DisplayName(value = "3. NIL_EMAIL_Receive_news_and_gifts")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#4")
     public void NIL_EMAIL_Receive_news_and_gifts() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistationMF();

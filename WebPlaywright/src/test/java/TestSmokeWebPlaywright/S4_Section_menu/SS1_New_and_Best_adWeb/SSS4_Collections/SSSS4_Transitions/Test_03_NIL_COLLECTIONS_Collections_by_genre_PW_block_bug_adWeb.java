@@ -13,7 +13,7 @@ public class Test_03_NIL_COLLECTIONS_Collections_by_genre_PW_block_bug_adWeb ext
     @DisplayName(value = "3. NIL_COLLECTIONS_Collections_by_genre")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Collections_by_genre() {
         // Guest
         headerMenuPW.goToNilPage();
