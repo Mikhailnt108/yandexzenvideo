@@ -964,7 +964,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void openBlockMenuMegaFonAndCheckImageMinPageNil() throws IOException, InterruptedException {
-        page.click("(//div[text()='Все сервисы'])[1]");
+        page.waitForSelector("(//div[text()='Все сервисы'])[1]").click();
         ElementHandle blockMenuMegaFonMinPageNil = page.querySelector("//div[@class='ch-drop-down__popup']");
         vrt.track(
                 "blockMenuMegaFonMinPageNilGuest",
@@ -1230,12 +1230,6 @@ public class NiLPagePW extends BasePagePlaywright {
 //        Assert.assertEquals("https://web-preprod6.megafon.tv/collection", page.url());
 //        page.navigate("https://web-preprod6.megafon.tv/");
 //        page.reload();
-
-        page.click("(//div[text()='Моё'])[1]");
-        page.waitForSelector("//h1[text()='Введите номер телефона']");
-        Assert.assertTrue(page.url().contains("https://web-preprod6.megafon.tv/auth"));
-        page.navigate("https://web-preprod6.megafon.tv/");
-        page.reload();
     }
 
     public void chooseSearchAndCheckImageWibePageGuest() throws IOException, InterruptedException {
