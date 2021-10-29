@@ -1621,8 +1621,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
         sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
@@ -1673,8 +1671,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
         sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
@@ -1732,8 +1728,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
         sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
@@ -1765,10 +1759,12 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageBannerMinPageNilUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         page.navigate("https://web-preprod6.megafon.tv/");
-        ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
-        List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
-        for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
-            posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
+//        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
+//        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
+
+        List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
+        for (ElementHandle age : ages) {
+            age.evaluate("yG => yG.innerText='18+'");
         }
 
         List<ElementHandle> titleBanners = page.querySelectorAll("//h2[contains(@class,'BannerCarouselItem_title')]");
@@ -1780,14 +1776,14 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle yearAndGenre : yearAndGenres) {
             yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
         }
-        List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
-        for (ElementHandle age : ages) {
-            age.evaluate("yG => yG.innerText='18+'");
+        List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
+        for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
+            posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        sleep(2000);
-        // делаем скриншот элемента "bannersPageNilGuest":
+        ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+
+//        sleep(2000);
+        // делаем скриншот элемента "bannersMinPageNilUser":
         vrt.track(
                 "bannersMinPageNilUser",
                 Base64.getEncoder().encodeToString(banners.screenshot()),
@@ -1836,8 +1832,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
         sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
@@ -1895,8 +1889,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
         sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
@@ -1913,6 +1905,10 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkHoverTrailerImageGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         page.navigate("https://web-preprod6.megafon.tv/");
+//        Thread.sleep(5000);
+//        page.keyboard().press("Control+Shift+I");
+//        page.keyboard().press("F8");
+//        Thread.sleep(300000);
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
@@ -1932,9 +1928,10 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
+//        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
+//        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
         ElementHandle buttonWatch = page.querySelector("//a[contains(@class,'buttonWatch') and text()='Трейлер']");
+
         buttonWatch.hover();
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(

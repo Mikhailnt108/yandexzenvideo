@@ -9,14 +9,14 @@ services:
 #    user: app
 #    privileged: true
   ui:
-    image: visualregressiontracker/ui:4.18.0
+    image: visualregressiontracker/ui:4.19.0
     ports:
       - "${PORT}:8080"
     environment:
       REACT_APP_API_URL: ${REACT_APP_API_URL}
     restart: always
   api:
-    image: visualregressiontracker/api:4.18.0
+    image: visualregressiontracker/api:4.19.0
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       JWT_SECRET: ${JWT_SECRET}
@@ -31,7 +31,7 @@ services:
       - postgres
     restart: always
   migration:
-    image: visualregressiontracker/migration:4.18.0
+    image: visualregressiontracker/migration:4.19.0
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     depends_on:
