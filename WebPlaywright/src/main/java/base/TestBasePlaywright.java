@@ -74,7 +74,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     void launchBrowser() {
         playwright = Playwright.create();
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")));
+        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")));
         browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--start-maximized")));
     }
     @AfterAll
@@ -90,11 +90,11 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException, AWTException {
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));
-//                .setViewportSize(1360, 760));
+                .setViewportSize(1900, 920));    // моноблок
+//                .setViewportSize(1360, 760));  // ноутбук
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));
-//                .setViewportSize(1360, 760));
+                .setViewportSize(1900, 920));   // моноблок
+//                .setViewportSize(1360, 760)); // ноутбук
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();

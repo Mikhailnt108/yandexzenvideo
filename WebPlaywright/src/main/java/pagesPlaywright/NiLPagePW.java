@@ -1601,7 +1601,6 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkImageBannerMinPageNilGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
@@ -1621,7 +1620,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "bannersMinPageNilGuest",
@@ -1651,7 +1649,6 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkImageBannerMediumPageNilGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
@@ -1671,7 +1668,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "bannersMediumPageNilGuest",
@@ -1708,7 +1704,6 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkImageBannerWidePageNilGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
@@ -1728,7 +1723,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "bannersWidePageNilGuest",
@@ -1758,31 +1752,23 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkImageBannerMinPageNilUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
-//        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-//        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-
-        List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
-        for (ElementHandle age : ages) {
-            age.evaluate("yG => yG.innerText='18+'");
-        }
-
+        ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> titleBanners = page.querySelectorAll("//h2[contains(@class,'BannerCarouselItem_title')]");
         for (ElementHandle titleBanner : titleBanners) {
             titleBanner.evaluate("t => t.innerText='Название контента'");
         }
-
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_genre')]");
         for (ElementHandle yearAndGenre : yearAndGenres) {
             yearAndGenre.evaluate("yG => yG.innerText='2021, Жанр'");
+        }
+        List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
+        for (ElementHandle age : ages) {
+            age.evaluate("yG => yG.innerText='18+'");
         }
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
         }
-        ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
-
-//        sleep(2000);
         // делаем скриншот элемента "bannersMinPageNilUser":
         vrt.track(
                 "bannersMinPageNilUser",
@@ -1812,17 +1798,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkImageBannerMediumPageNilUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
-        List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
-        for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
-            posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
-        }
-
-        List<ElementHandle> titleBanners = page.querySelectorAll("//h2[contains(@class,'BannerCarouselItem_title')]");
-        for (ElementHandle titleBanner : titleBanners) {
-            titleBanner.evaluate("t => t.innerText='Название контента'");
-        }
 
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_genre')]");
         for (ElementHandle yearAndGenre : yearAndGenres) {
@@ -1832,7 +1808,15 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        sleep(2000);
+        List<ElementHandle> titleBanners = page.querySelectorAll("//h2[contains(@class,'BannerCarouselItem_title')]");
+        for (ElementHandle titleBanner : titleBanners) {
+            titleBanner.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
+        for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
+            posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
+        }
+
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "bannersMediumPageNilUser",
@@ -1869,7 +1853,6 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkImageBannerWidePageNilUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
@@ -1889,7 +1872,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        sleep(2000);
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "bannersWidePageNilUser",
@@ -1967,8 +1949,8 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
+//        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
+//        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
         ElementHandle buttonFavourite = page.querySelector("//button[contains(@class,'buttonFavourite')]");
         buttonFavourite.hover();
         // делаем скриншот элемента "bannersPageNilGuest":

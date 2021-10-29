@@ -1,16 +1,16 @@
 package pagesPlaywright;
 
 import base.BasePagePlaywright;
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.ElementHandle;
-import com.microsoft.playwright.Page;
+import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.MouseButton;
 import io.github.alekseysotnikov.cmd.core.Cmd;
 import io.github.alekseysotnikov.cmd.listeners.WorkDir;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 import org.zeroturnaround.exec.StartedProcess;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
@@ -20,6 +20,7 @@ import java.util.concurrent.TimeoutException;
 
 import static base.TestBasePlaywright.*;
 import static io.restassured.RestAssured.given;
+import static java.lang.Thread.sleep;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -31,11 +32,11 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private BrowserContext contextIncognitoModeHeadfull;
 
 
-
     public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless) {
         this.page = page;
         this.pageCMS = pageCMS;
         this.contextIncognitoModeHeadless = contextIncognitoModeHeadless;
+
     }
 
     public void checkNotLoggedIsCorrect() {
@@ -94,6 +95,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void goToNilPage() {
         page.navigate("https://web-preprod6.megafon.tv/");
     }
+
 
     public void clickToComeIn(String buttons) {
         page.click("//button[text()='Войти']");
@@ -677,5 +679,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
         }
         pageSmartTv.close();
         page.bringToFront();
+    }
+
+    public void stopCarouselBanners() throws InterruptedException, AWTException {
+        page.mouse().click(200,200, new Mouse.ClickOptions().setButton(MouseButton.RIGHT));
+        Robot bot = new Robot();
+        bot.mouseMove(200,200);
+        bot.mousePress(InputEvent.BUTTON1_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_MASK);
+        bot.mouseMove(0,0);
+        sleep(5000);
     }
 }
