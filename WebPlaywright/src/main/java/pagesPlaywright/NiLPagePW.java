@@ -3,11 +3,15 @@ package pagesPlaywright;
 import base.BasePagePlaywright;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.ElementHandle;
+import com.microsoft.playwright.Mouse;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.ElementState;
+import com.microsoft.playwright.options.MouseButton;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
@@ -1886,12 +1890,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverTrailerImageGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
-//        Thread.sleep(5000);
-//        page.keyboard().press("Control+Shift+I");
-//        page.keyboard().press("F8");
-//        Thread.sleep(300000);
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+        ElementHandle buttonWatch = page.querySelector("//a[contains(@class,'buttonWatch') and text()='Трейлер']");
+        buttonWatch.hover();
+
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -1910,11 +1912,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-//        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-//        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle buttonWatch = page.querySelector("//a[contains(@class,'buttonWatch') and text()='Трейлер']");
 
-        buttonWatch.hover();
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverButtonTrailerPageNilGuest",
@@ -1929,8 +1927,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverFavoriteImageGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+        ElementHandle buttonFavourite = page.querySelector("//button[contains(@class,'buttonFavourite')]");
+        buttonFavourite.hover();
+
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -1949,10 +1949,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-//        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-//        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle buttonFavourite = page.querySelector("//button[contains(@class,'buttonFavourite')]");
-        buttonFavourite.hover();
+
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverButtonFavoritePageNilGuest",
@@ -1967,8 +1964,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverBlockArrowNextImageGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+        ElementHandle arrowNext = page.querySelector("//button[@aria-label='next']");
+        arrowNext.hover();
+
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -1987,10 +1986,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle arrowNext = page.querySelector("//button[@aria-label='next']");
-        arrowNext.hover();
+
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverArrowNextPageNilGuest",
@@ -2005,8 +2001,9 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverBlockArrowPreviousImageGuest() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+        ElementHandle arrowPrevious = page.querySelector("//button[@aria-label='previous']");
+        arrowPrevious.hover();
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -2025,10 +2022,6 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle arrowPrevious = page.querySelector("//button[@aria-label='previous']");
-        arrowPrevious.hover();
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverArrowPreviousPageNilGuest",
@@ -2043,7 +2036,8 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverTrailerImageUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
+        ElementHandle buttonWatch = page.querySelector("//a[contains(@class,'buttonWatch') and text()='Трейлер']");
+        buttonWatch.hover();
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
@@ -2063,10 +2057,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle buttonWatch = page.querySelector("//a[contains(@class,'buttonWatch') and text()='Трейлер']");
-        buttonWatch.hover();
+
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverButtonTrailerPageNilUser",
@@ -2081,8 +2072,9 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverFavoriteImageUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+        ElementHandle buttonFavourite = page.querySelector("//button[contains(@class,'buttonFavourite')]");
+        buttonFavourite.hover();
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -2101,10 +2093,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle buttonFavourite = page.querySelector("//button[contains(@class,'buttonFavourite')]");
-        buttonFavourite.hover();
+
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverButtonFavoritePageNilUser",
@@ -2119,8 +2108,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverBlockArrowNextImageUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+        ElementHandle arrowNext = page.querySelector("//button[@aria-label='next']");
+        arrowNext.hover();
+
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -2139,10 +2130,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle arrowNext = page.querySelector("//button[@aria-label='next']");
-        arrowNext.hover();
+
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverArrowNextPageNilUser",
@@ -2157,8 +2145,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkHoverBlockArrowPreviousImageUser() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
-        page.navigate("https://web-preprod6.megafon.tv/");
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
+        ElementHandle arrowPrevious = page.querySelector("//button[@aria-label='previous']");
+        arrowPrevious.hover();
+
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -2177,10 +2167,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
-        ElementHandle changeTransform = page.querySelector("//ul[contains(@class,'sliderAnimation')]");
-        changeTransform.evaluate("ch => ch.setAttribute('style', 'display: flex; align-items: stretch; width: 3800%; transform: translateX(0%) translateX(0px); flex-direction: row;')");
-        ElementHandle arrowPrevious = page.querySelector("//button[@aria-label='previous']");
-        arrowPrevious.hover();
+
         // делаем скриншот элемента "bannersPageNilGuest":
         vrt.track(
                 "hoverArrowPreviousPageNilUser",
@@ -2236,8 +2223,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
 
     public void clickToFavoriteFilmOnBannerGuest() {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/movies/vods/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+        if (page.querySelectorAll("//a[contains(@href,'/vods/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/movies/vods/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
@@ -2245,8 +2234,10 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void clickToFavoriteSerialOnBannerGuest() {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/shows/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+        if (page.querySelectorAll("//a[contains(@href,'/shows/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/shows/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
@@ -2254,8 +2245,10 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkClickToFavoriteTvProgramOnBannerGuest() {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/programs/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+        if (page.querySelectorAll("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/programs/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
@@ -2263,19 +2256,30 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void clickToFavoriteTvChannelOnBannerGuest() {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/tv/channels/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+        if (page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/tv/channels/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
     }
 
-    public void checkAddToFavoriteFilmFromBannerUser() throws IOException, InterruptedException {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/movies/vods/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+    public void checkAddToFavoriteFilmFromBannerUser() throws IOException, InterruptedException, AWTException {
+        if (page.querySelectorAll("//a[contains(@href,'/vods/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/movies/vods/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//a[contains(@href,'/vods/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
+        page.mouse().click(200,200, new Mouse.ClickOptions().setButton(MouseButton.RIGHT));
+        Robot bot = new Robot();
+        bot.mouseMove(200,200);
+        bot.mousePress(InputEvent.BUTTON1_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_MASK);
+        bot.mouseMove(0,0);
+        sleep(5000);
         page.click("//a[contains(@href,'/vods/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         sleep(2000);
         String nameFilmAdd = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
@@ -2316,8 +2320,10 @@ public class NiLPagePW extends BasePagePlaywright {
 
 
     public void checkAddToFavoriteSerialFromBannerUser() throws IOException, InterruptedException {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/shows/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+        if (page.querySelectorAll("//a[contains(@href,'/shows/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/shows/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//a[contains(@href,'/shows/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//a[contains(@href,'/shows/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
@@ -2333,8 +2339,10 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkAddToFavoriteTvProgramFromBannerUser() throws InterruptedException {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/programs/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+        if (page.querySelectorAll("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/programs/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
@@ -2346,8 +2354,10 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkAddToFavoriteTvChannelFromBannerUser() {
-        while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/tv/channels/')]").size() < 1) {
-            page.click("//button[@aria-label='next']");
+        if (page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
+            while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/tv/channels/')]").size() < 1) {
+                page.click("//button[@aria-label='next']");
+            }
         }
         page.waitForSelector("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");

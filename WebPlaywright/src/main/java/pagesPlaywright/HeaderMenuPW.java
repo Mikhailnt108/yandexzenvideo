@@ -682,6 +682,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void stopCarouselBanners() throws InterruptedException, AWTException {
+        sleep(3000);
         page.mouse().click(200,200, new Mouse.ClickOptions().setButton(MouseButton.RIGHT));
         Robot bot = new Robot();
         bot.mouseMove(200,200);

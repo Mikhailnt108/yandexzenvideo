@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
@@ -16,14 +17,14 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void BANNER_ZONE_Adding_to_Favorites() throws IOException, InterruptedException {
+    public void BANNER_ZONE_Adding_to_Favorites() throws IOException, InterruptedException, AWTException {
         // Guest:
         headerMenuPW.goToNilPage();
         nilPagePW.clickToFavoriteFilmOnBannerGuest();
         headerMenuPW.goToNilPage();
         nilPagePW.clickToFavoriteSerialOnBannerGuest();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkClickToFavoriteTvProgramOnBannerGuest();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkClickToFavoriteTvProgramOnBannerGuest();
         headerMenuPW.goToNilPage();
         nilPagePW.clickToFavoriteTvChannelOnBannerGuest();
 
@@ -34,8 +35,8 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
         nilPagePW.checkAddToFavoriteFilmFromBannerUser();
         headerMenuPW.goToNilPage();
         nilPagePW.checkAddToFavoriteSerialFromBannerUser();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkAddToFavoriteTvProgramFromBannerUser();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkAddToFavoriteTvProgramFromBannerUser();
         headerMenuPW.goToNilPage();
         nilPagePW.checkAddToFavoriteTvChannelFromBannerUser();
 
@@ -44,8 +45,8 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
         nilPagePW.checkRemoveToFavoriteFilmFromBannerUser();
         headerMenuPW.goToNilPage();
         nilPagePW.checkRemoveToFavoriteSerialFromBannerUser();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkRemoveToFavoriteTvProgramFromBannerUser();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkRemoveToFavoriteTvProgramFromBannerUser();
         headerMenuPW.goToNilPage();
         nilPagePW.checkRemoveToFavoriteTvChannelFromBannerUser();
     }

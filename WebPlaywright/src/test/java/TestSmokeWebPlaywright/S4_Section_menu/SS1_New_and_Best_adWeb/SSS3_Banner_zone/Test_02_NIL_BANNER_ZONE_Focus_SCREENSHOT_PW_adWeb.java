@@ -5,6 +5,8 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import java.awt.*;
 import java.io.IOException;
 
 public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
@@ -15,8 +17,10 @@ public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBaseP
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void BANNER_ZONE_Focus() throws IOException, InterruptedException {
+    public void BANNER_ZONE_Focus() throws IOException, InterruptedException, AWTException {
         // Guest:
+        headerMenuPW.goToNilPage();
+        headerMenuPW.stopCarouselBanners();
         nilPagePW.checkHoverTrailerImageGuest();
         nilPagePW.checkHoverFavoriteImageGuest();
         nilPagePW.checkHoverBlockArrowNextImageGuest();
@@ -25,6 +29,7 @@ public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBaseP
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
+        headerMenuPW.stopCarouselBanners();
         nilPagePW.checkHoverTrailerImageUser();
         nilPagePW.checkHoverFavoriteImageUser();
         nilPagePW.checkHoverBlockArrowNextImageUser();
