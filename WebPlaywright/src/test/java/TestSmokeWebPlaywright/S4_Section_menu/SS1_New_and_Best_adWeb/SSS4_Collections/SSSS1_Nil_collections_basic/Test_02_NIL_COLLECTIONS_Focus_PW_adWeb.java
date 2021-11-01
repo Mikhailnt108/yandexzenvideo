@@ -23,6 +23,7 @@ public class Test_02_NIL_COLLECTIONS_Focus_PW_adWeb extends TestBasePlaywright {
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
+        nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.checkHoverArrowPreviousCollectionPageNilUser();
         nilPagePW.checkHoverArrowNextCollectionPageNilUser();
     }
@@ -38,5 +39,6 @@ public class Test_02_NIL_COLLECTIONS_Focus_PW_adWeb extends TestBasePlaywright {
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

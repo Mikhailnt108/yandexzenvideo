@@ -27,7 +27,7 @@ public class Test_02_NIL_FOOTER_Focus_SCREENSHOT_PW_adWeb extends TestBasePlaywr
         // User:
         headerMenuPW.goToNilPage();
         flowRegistationMF();
-        nilPagePW.waitHiddenMessageSelectContentForYou();
+        nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.hoverOnListBlockDevicesFooterAndCheckColor();
         nilPagePW.hoverOnListBlockSupportFooterAndCheckColor();
         nilPagePW.checkImageBlockSocialLinkInFooterUser();

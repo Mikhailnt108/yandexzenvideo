@@ -50,7 +50,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void clickToEnter() {
-         page.querySelector("//button[contains(@class,'ch-account-controller')]");
+         page.waitForSelector("//button[contains(@class,'ch-account-controller')]");
          page.click("//button[contains(@class,'ch-account-controller')]");
          page.waitForSelector("//h1[text()='Введите номер телефона']");
     }
@@ -75,7 +75,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.click("//button[text()='Удалить']");
             pageCMS.close();
             page.bringToFront();
-            page.reload();
             page.reload();
             page.querySelector("(//span[text()='Вход'])[1]");
             page.click("(//span[text()='Вход'])[1]");

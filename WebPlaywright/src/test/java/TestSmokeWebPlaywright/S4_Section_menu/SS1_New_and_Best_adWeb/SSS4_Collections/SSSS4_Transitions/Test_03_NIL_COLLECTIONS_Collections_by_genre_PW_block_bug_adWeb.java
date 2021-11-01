@@ -19,6 +19,7 @@ public class Test_03_NIL_COLLECTIONS_Collections_by_genre_PW_block_bug_adWeb ext
         headerMenuPW.goToNilPage();
         nilPagePW.clickOnTitleCinCGenresAndCheckOpenPageCollect();
         // User
+        headerMenuPW.goToNilPage();
         flowRegistationMF();
         headerMenuPW.goToNilPage();
         nilPagePW.clickOnTitleCinCGenresAndCheckOpenPageCollect();

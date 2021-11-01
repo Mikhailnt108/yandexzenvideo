@@ -21,6 +21,7 @@ public class Test_04_NIL_COLLECTIONS_Collections_of_collections_PW_block_bug_adW
         headerMenuPW.goToNilPage();
         nilPagePW.clickOnTitleCinCNonGenresAndCheckOpenPageCollect();
         // User
+        headerMenuPW.goToNilPage();
         flowRegistationMF();
         headerMenuPW.goToNilPage();
         nilPagePW.clickOnTitleCinCNonGenresAndCheckOpenPageCollect();

@@ -24,6 +24,7 @@ public void NIL_TILES_Films_in_collection() throws IOException, InterruptedExcep
     // User
     headerMenuPW.goToNilPage();
     flowRegistation();
+    nilPagePW.waitHiddenMessageContentIsBeingLoaded();
     nilPagePW.checkElementsTileFilmFromCollection();
     nilPagePW.checkImageHoverOnTileFilmFromCollectionUser();
     }
@@ -39,5 +40,6 @@ public void NIL_TILES_Films_in_collection() throws IOException, InterruptedExcep
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

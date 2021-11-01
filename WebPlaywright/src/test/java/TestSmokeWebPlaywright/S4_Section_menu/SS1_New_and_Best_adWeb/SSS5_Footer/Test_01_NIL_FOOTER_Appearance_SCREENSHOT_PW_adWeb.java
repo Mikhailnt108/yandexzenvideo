@@ -41,21 +41,21 @@ public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBaseP
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.waitHiddenMessageSelectContentForYou();
+        nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.checkElementsFooterMinPage();
         nilPagePW.checkImageFooterMinPageUser();
         nilPagePW.checkImageOpenListsFooterMinPageUser();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.waitHiddenMessageSelectContentForYou();
+        nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.checkElementsFooterMediumPage();
         nilPagePW.checkImageFooterMediumPageUser();
         nilPagePW.checkImageOpenListsFooterMediumPageUser();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.waitHiddenMessageSelectContentForYou();
+        nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.checkElementsFooterWidePage();
         nilPagePW.checkImageFooterWidePageUser();
     }

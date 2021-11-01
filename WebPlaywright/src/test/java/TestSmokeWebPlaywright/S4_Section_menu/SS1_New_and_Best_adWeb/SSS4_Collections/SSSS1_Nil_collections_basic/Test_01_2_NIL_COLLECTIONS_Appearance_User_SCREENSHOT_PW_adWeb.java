@@ -23,17 +23,17 @@ public class Test_01_2_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb exten
         // min:
         headerMenuPW.openMinFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
+//        nilPagePW.checkElementsCollection();
         nilPagePW.checkImageBlocksCollectionMinPageNilUser();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
+//        nilPagePW.checkElementsCollection();
         nilPagePW.checkImageBlocksCollectionMediumPageNilUser();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
+//        nilPagePW.checkElementsCollection();
         nilPagePW.checkImageBlocksCollectionWidePageNilUser();
     }
     private void flowRegistation() {
@@ -48,5 +48,6 @@ public class Test_01_2_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb exten
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }
