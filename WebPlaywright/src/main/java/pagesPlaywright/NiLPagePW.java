@@ -4720,9 +4720,9 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkElementsSearchFormForMinPage() {
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[2]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//*[@class='ch-mobile-menu__back']").size());
+        Assert.assertTrue("not found element", page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[2]").size()==1);
+        Assert.assertEquals("not found element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size()==1);
+        Assert.assertEquals("not found element", 1, page.querySelectorAll("//*[@class='ch-mobile-menu__back']").size()==1);
     }
 
     public void checkCloseSearchFormMinPage() {
@@ -4774,7 +4774,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkInputMultipleSimbolsInSearchForm() {
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
+        Assert.assertTrue("not found element", page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size()==1);
         page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "робот");
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__result']").size() == 1);
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Фильмы']").size() == 1);
