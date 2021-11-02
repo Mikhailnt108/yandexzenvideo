@@ -26,6 +26,5 @@ public class Test_01_NIL_REG_AUTH_Enter_your_phone_number_PW_adWeb extends TestB
         authPagePW.inputValidNumberAndCheckActiveButtonNext("+7 926 001 01 01");
         authPagePW.checkImagePageAuthWithValidNumber();
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
-        authPagePW.checkElementsPageAuthFormCreatePassword();
     }
 }
