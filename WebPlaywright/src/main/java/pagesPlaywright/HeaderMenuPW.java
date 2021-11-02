@@ -412,7 +412,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void checkOpenPopUpInputEmail(String login) {
-        page.waitForSelector("//div[text()='Введите E-mail']|//div[text()='Введите пароль']");
+        page.waitForSelector("//h1[text()='Введите E-mail']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
             pageCMS = contextIncognitoModeHeadless.newPage();
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user");

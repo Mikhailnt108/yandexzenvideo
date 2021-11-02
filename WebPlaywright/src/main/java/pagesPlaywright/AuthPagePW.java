@@ -4,6 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.ElementState;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
@@ -417,7 +418,7 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[contains(@class,'buttonClear')]").size());
         System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
         Assert.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
-        Thread.sleep(20000);
+        Thread.sleep(2000);
     }
 
 
@@ -435,11 +436,17 @@ public class AuthPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkInputThreeTimesInvalidPasswordAuth(String login, String password) {
-        for (int i = 0; i < 3; i++) {
+    public void checkInputThreeTimesInvalidPasswordAuth(String login, String password) throws InterruptedException {
+        for (int i = 0; i < 4; i++) {
         page.querySelector("//div[text()='Введите пароль']");
         page.click("//button[contains(@class,'buttonClear')]");
-        page.fill("//input[@type='password']", "123456");
+        Thread.sleep(3000);
+        ElementHandle input = page.waitForSelector("//input[@placeholder='Введите пароль']");
+        input.fill("1");
+        page.keyboard().press("Control+A");
+        page.keyboard().press("Delete");
+        input.fill(password);
+        Thread.sleep(3000);
         page.waitForSelector("//button[text()='Войти']").click();
         page.waitForSelector("//button[contains(@class,'buttonClear')]");
         }
@@ -447,20 +454,17 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[contains(@class,'FormInput_error') and contains(text(),'Повторите ввод пароля через')]").size());
         System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
         Assert.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
-//        LocalTime currentTimer = LocalTime.parse(page.querySelector("//span[contains(@class,'timer')]").innerText());
-//        LocalTime beforeTimer = LocalTime.parse("10:00");
-//        LocalTime afterTimer = LocalTime.parse("09:00");
-//        System.out.println(currentTimer);
-//        System.out.println(beforeTimer);
-//        System.out.println(afterTimer);
-//        System.out.println(currentTimer.isAfter(afterTimer) && currentTimer.isBefore(beforeTimer));
-//        Assert.assertTrue(currentTimer.isAfter(afterTimer) && currentTimer.isBefore(beforeTimer));
-
+        LocalTime currentTimer = LocalTime.parse(page.querySelector("//span[contains(@class,'timer')]").innerText());
+        LocalTime beforeTimer = LocalTime.parse("10:00");
+        LocalTime afterTimer = LocalTime.parse("09:00");
+        System.out.println(currentTimer);
+        System.out.println(beforeTimer);
+        System.out.println(afterTimer);
+        System.out.println(currentTimer.isAfter(afterTimer) && currentTimer.isBefore(beforeTimer));
+        Assert.assertTrue(currentTimer.isAfter(afterTimer) && currentTimer.isBefore(beforeTimer));
     }
 
     public void checkImageInputThreeTimesInvalidPasswordAuth() throws IOException, InterruptedException {
-        page.waitForSelector("//span[contains(@class,'FormInput_error') and contains(text(),'Повторите ввод пароля через')]").evaluate("t => t.innerText='00:60'");
-        Thread.sleep(3000);
         vrt.track(
                 "PageInputThreeTimesInvalidPasswordAuthFull",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
@@ -473,7 +477,8 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void waitReEnterPasswordAndCheckValidPassword(String password) throws InterruptedException {
-        page.wait(60000);
+        ElementHandle messageWait = page.waitForSelector("//span[contains(@class,'FormInput_error') and contains(text(),'Повторите ввод пароля через')]");
+        messageWait.waitForElementState(ElementState.HIDDEN);
         page.fill("//input[@type='password']", password);
         page.click("//button[text()='Войти']");
         page.waitForSelector("(//span[contains(text(),'+792')])[2]");
@@ -516,8 +521,9 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[text()='Желаем приятного просмотра и надеемся, что вы останитесь довольны!']").size());
     }
 
-    public void clickOnButtonChangePassAndCheckFormCreateNewPassword() {
+    public void clickOnButtonChangePassAndCheckFormCreateNewPassword() throws InterruptedException {
         page.click("//button[text()='Сменить пароль']");
+        Thread.sleep(2000);
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Придумайте новый пароль']").size());
     }
 
@@ -538,7 +544,7 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Придумайте новый пароль']").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[text()='Для авторизации в МегаФон ТВ']").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Придумайте пароль']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='От 6 цифр']").size());
+        Assert.assertTrue("not found element", page.querySelectorAll("//span[text()='От 6 цифр']").size()==1);
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
     }
 
@@ -579,7 +585,8 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Я согласен получать новости и подарки от МегаФон ТВ']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@type='checkbox' and @name='accept']").size());
+        Assert.assertTrue("not visible element", page.querySelectorAll("//label[contains(@class,'Checkbox')]").size()>0);
+        Assert.assertTrue("", page.waitForSelector("//label[contains(@class,'Checkbox')]").isChecked());
         // form:
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[contains(@class,'buttonBack')]").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[text()='E-mail будет использоваться для отправки чеков по операциям']").size());
