@@ -18,12 +18,12 @@ public class Test_02_NIL_FOOTER_Focus_SCREENSHOT_PW_adWeb extends TestBasePlaywr
     @Tag("adWebSuitePW#3")
     public void FOOTER_Focus() throws IOException, InterruptedException {
         // Guest:
-//        headerMenuPW.goToNilPage();
-//        nilPagePW.hoverOnListBlockDevicesFooterAndCheckColor();
-//        nilPagePW.hoverOnListBlockSupportFooterAndCheckColor();
-//        nilPagePW.checkImageBlockSocialLinkInFooterGuest();
-//        nilPagePW.checkImageBlockDownloadsInFooterGuest();
-//        nilPagePW.hoverOnListBlockDocsFooterAndCheckColor();
+        headerMenuPW.goToNilPage();
+        nilPagePW.hoverOnListBlockDevicesFooterAndCheckColor();
+        nilPagePW.hoverOnListBlockSupportFooterAndCheckColor();
+        nilPagePW.checkImageBlockSocialLinkInFooterGuest();
+        nilPagePW.checkImageBlockDownloadsInFooterGuest();
+        nilPagePW.hoverOnListBlockDocsFooterAndCheckColor();
         // User:
         headerMenuPW.goToNilPage();
         flowRegistationMF();

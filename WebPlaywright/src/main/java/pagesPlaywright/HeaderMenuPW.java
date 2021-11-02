@@ -36,7 +36,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
         this.page = page;
         this.pageCMS = pageCMS;
         this.contextIncognitoModeHeadless = contextIncognitoModeHeadless;
-
     }
 
     public void checkNotLoggedIsCorrect() {

@@ -19,22 +19,24 @@ public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBaseP
     public void FOOTER_Appearance() throws IOException, InterruptedException {
         // Guest:
         // min:
-        headerMenuPW.openMinFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsFooterMinPage();
-        nilPagePW.checkImageFooterMinPageGuest();
-        nilPagePW.checkImageOpenListsFooterMinPageGuest();
-        // medium:
-        headerMenuPW.openMediumFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsFooterMediumPage();
-        nilPagePW.checkImageFooterMediumPageGuest();
-        nilPagePW.checkImageOpenListsFooterMediumPageGuest();
-        // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsFooterWidePage();
-        nilPagePW.checkImageFooterWidePageGuest();
+//        headerMenuPW.openMinFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkElementsFooterMinPage();
+//        nilPagePW.checkImageFooterMinPageGuest();
+//        nilPagePW.checkImageOpenListsDevicesFooterMinPageGuest();
+//        nilPagePW.checkImageOpenListsSupportFooterMinPageGuest();
+//        // medium:
+//        headerMenuPW.openMediumFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkElementsFooterMediumPage();
+//        nilPagePW.checkImageFooterMediumPageGuest();
+//        nilPagePW.checkImageOpenListsDevicesFooterMediumPageGuest();
+//        nilPagePW.checkImageOpenListsSupportFooterMediumPageGuest();
+//        // wide:
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkElementsFooterWidePage();
+//        nilPagePW.checkImageFooterWidePageGuest();
         // User:
         headerMenuPW.goToNilPage();
         flowRegistationMF();
@@ -44,14 +46,16 @@ public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBaseP
         nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.checkElementsFooterMinPage();
         nilPagePW.checkImageFooterMinPageUser();
-        nilPagePW.checkImageOpenListsFooterMinPageUser();
+        nilPagePW.checkImageOpenListsDevicesFooterMinPageUser();
+        nilPagePW.checkImageOpenListsSupportFooterMinPageUser();
         // medium:
         headerMenuPW.openMediumFramePage();
         headerMenuPW.goToNilPage();
         nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.checkElementsFooterMediumPage();
         nilPagePW.checkImageFooterMediumPageUser();
-        nilPagePW.checkImageOpenListsFooterMediumPageUser();
+        nilPagePW.checkImageOpenListsDevicesFooterMediumPageUser();
+        nilPagePW.checkImageOpenListsSupportFooterMediumPageUser();
         // wide:
         headerMenuPW.openWideFramePage();
         headerMenuPW.goToNilPage();

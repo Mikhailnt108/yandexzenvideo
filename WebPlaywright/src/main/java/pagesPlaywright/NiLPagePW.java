@@ -4220,8 +4220,8 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkElementsFooterMinPage() throws IOException, InterruptedException {
         page.waitForSelector("//footer").scrollIntoViewIfNeeded();
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']");
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']");
+        page.waitForSelector("//span[text()='Устройства']");
+        page.waitForSelector("//span[text()='Поддержка']");
         page.waitForSelector("//div[text()='Скачайте приложение']");
         page.waitForSelector("//img[@alt='app-store']");
         page.waitForSelector("//img[@alt='google-store']");
@@ -4237,8 +4237,8 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkElementsFooterMediumPage() throws IOException, InterruptedException {
         page.waitForSelector("//footer").scrollIntoViewIfNeeded();
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']");
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']");
+        page.waitForSelector("//span[text()='Устройства']");
+        page.waitForSelector("//span[text()='Поддержка']");
         page.waitForSelector("//div[text()='Скачайте приложение']");
         page.waitForSelector("//img[@alt='app-store']");
         page.waitForSelector("//img[@alt='google-store']");
@@ -4263,7 +4263,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("(//a[@href='/devices' and text()='Все устройства'])[2]");
 
         page.waitForSelector("//div[contains(@class,'List_title') and text()='Поддержка']");
-        page.waitForSelector("(//a[@href='tel:+78005509065' and text()='Тел.: 8 800 550–90–65'])[2]");
+        page.waitForSelector("(//a[@href='tel:+78005509065'])[2]");
         page.waitForSelector("(//a[@href='/' and text()='Задайте нам вопрос'])[2]");
         page.waitForSelector("(//a[@href='/help' and text()='Вопросы и ответы'])[2]");
         page.waitForSelector("(//a[@href='/sitemap' and text()='Карта сайта'])[2]");
@@ -4343,14 +4343,28 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
 
-    public void checkImageOpenListsFooterMinPageGuest() throws IOException, InterruptedException {
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+    public void checkImageOpenListsDevicesFooterMinPageGuest() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
-                "footerOpenListsMinPageNilGuest",
+                "footerOpenListsDevicesMinPageNilGuest",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+    public void checkImageOpenListsSupportFooterMinPageGuest() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Поддержка']").click();
+        // скриншот футер min page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsSupportMinPageNilGuest",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -4360,14 +4374,28 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageOpenListsFooterMinPageUser() throws IOException, InterruptedException {
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+    public void checkImageOpenListsDevicesFooterMinPageUser() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
-                "footerOpenListsMinPageNilUser",
+                "footerOpenListsDevicesMinPageNilUser",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+    public void checkImageOpenListsSupportFooterMinPageUser() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Поддержка']").click();
+        // скриншот футер min page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsSupportMinPageNilUser",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -4377,14 +4405,28 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageOpenListsFooterMediumPageGuest() throws IOException, InterruptedException {
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+    public void checkImageOpenListsDevicesFooterMediumPageGuest() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
-                "footerOpenListsMediumPageNilGuest",
+                "footerOpenListsDevicesMediumPageNilGuest",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+    public void checkImageOpenListsSupportFooterMediumPageGuest() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Поддержка']").click();
+        // скриншот футер medium page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsSupportMediumPageNilGuest",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -4394,14 +4436,28 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageOpenListsFooterMediumPageUser() throws IOException, InterruptedException {
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Устройства']").click();
-        page.waitForSelector("//a[contains(@class,'CollapsedItem') and text()='Поддержка']").click();
+    public void checkImageOpenListsDevicesFooterMediumPageUser() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
                 "footerOpenListsMediumPageNilUser",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+    public void checkImageOpenListsSupportFooterMediumPageUser() throws IOException, InterruptedException {
+        page.waitForSelector("//span[text()='Поддержка']").click();
+        // скриншот футер medium page:
+        ElementHandle footer = page.querySelector("//footer");
+        // делаем скриншот элемента "footerPageNil":
+        vrt.track(
+                "footerOpenListsSupportMediumPageNilUser",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -4458,7 +4514,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void goToLinksBlockSupportFooter() {
-        page.waitForSelector("(//a[@href='tel:+78005509065' and text()='Тел.: 8 800 550–90–65'])[2]").click();
+        page.waitForSelector("(//a[@href='tel:+78005509065' and text()='8 800 550–90–65 (Бесплатно)'])[2]").click();
         page.onDialog(dialog -> dialog.dismiss());
         page.navigate("https://web-preprod6.megafon.tv");
         page.waitForSelector("(//a[@href='/' and text()='Задайте нам вопрос'])[2]").click();
@@ -4550,6 +4606,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageBlockDownloadsInFooterGuest() throws IOException, InterruptedException {
         ElementHandle blockDownloadsLink = page.querySelector("//div[contains(@class,'LayoutFooter_downloads')]");
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][1]").hover();
+        sleep(2000);
         // делаем скриншот элемента "blockSocialLink":
         vrt.track(
                 "hoverAppStoreLinkInBlockDownloadsGuest",
@@ -4561,6 +4618,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][2]").hover();
+        sleep(2000);
         // делаем скриншот элемента "blockSocialLink":
         vrt.track(
                 "hoverGooglePlayLinkInBlockDownloadsGuest",
@@ -4572,6 +4630,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][3]").hover();
+        sleep(2000);
         // делаем скриншот элемента "blockDownloadsLink":
         vrt.track(
                 "hoverSmartTVLinkInBlockDownloadsGuest",
@@ -4623,6 +4682,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkImageBlockDownloadsInFooterUser() throws IOException, InterruptedException {
         ElementHandle blockDownloadsLink = page.querySelector("//div[contains(@class,'LayoutFooter_downloads')]");
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][1]").hover();
+        sleep(2000);
         // делаем скриншот элемента "blockSocialLink":
         vrt.track(
                 "hoverAppStoreLinkInBlockDownloadsUser",
@@ -4634,6 +4694,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][2]").hover();
+        sleep(2000);
         // делаем скриншот элемента "blockSocialLink":
         vrt.track(
                 "hoverGooglePlayLinkInBlockDownloadsUser",
@@ -4645,6 +4706,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][3]").hover();
+        sleep(2000);
         // делаем скриншот элемента "blockDownloadsLink":
         vrt.track(
                 "hoverSmartTVLinkInBlockDownloadsUser",
