@@ -4904,14 +4904,14 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle buttonNext = page.waitForSelector("//button[text()='Подключить Smart TV']");
         String background = (String) buttonNext.evaluate("e => window.getComputedStyle(e).background");
         System.out.println(background);
-        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
+        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 185, 86)"));
     }
 
-    public void clickOnButtonConnectionAndCheckElementsValidCode() {
+    public void clickOnButtonConnectionAndCheckElementsInValidCode() {
         page.waitForSelector("//button[text()='Подключить Smart TV']").click();
         // page:
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/smart-tv-poster.png']").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
@@ -4938,7 +4938,9 @@ public class NiLPagePW extends BasePagePlaywright {
         pageSmartTv.navigate("http://staging-smart-nettv.megafon.tv");
         sleep(15000);
         pageSmartTv.waitForSelector("//span[text()='Закрыть']").click();
-        pageSmartTv.waitForSelector("//span[text()='Закрыть']").click();
+        if(pageSmartTv.querySelectorAll("//span[text()='Закрыть']").size()>0){
+            pageSmartTv.click("//span[text()='Закрыть']");
+        }
         pageSmartTv.waitForSelector("//div[text()='Меню']").click();
         pageSmartTv.waitForSelector("//div[text()='Настройки']").click();
         pageSmartTv.waitForSelector("//span[text()='Очистить хранилище']").click();

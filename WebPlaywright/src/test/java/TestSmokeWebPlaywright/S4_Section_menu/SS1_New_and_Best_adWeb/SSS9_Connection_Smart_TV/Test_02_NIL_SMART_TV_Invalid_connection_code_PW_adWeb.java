@@ -21,7 +21,7 @@ public class Test_02_NIL_SMART_TV_Invalid_connection_code_PW_adWeb extends TestB
         flowRegistationMF();
         nilPagePW.checkOpenPageConnectionSmartTV();
         nilPagePW.checkInputInValidCode("1234");
-        nilPagePW.clickOnButtonConnectionAndCheckElementsValidCode();
+        nilPagePW.clickOnButtonConnectionAndCheckElementsInValidCode();
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
