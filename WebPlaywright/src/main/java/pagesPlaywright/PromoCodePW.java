@@ -252,11 +252,12 @@ public class PromoCodePW extends BasePagePlaywright {
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/json").
                 body("{\"id\":\"СG_autotest_Film_EST\",\"ad_campaign_id\":\"RC_autotest\",\"name\":\"Код-группа для автотестов Фильм по EST\", " +
-                        "\"published\":true,\"valid_from\":\"2021-03-30T00:00:00Z\",\"valid_to\":\"2022-12-01T00:00:00Z\",\"description_popup\":\"текст для описания\"," +
+                        "\"published\":true,\"valid_from\":\"2021-03-30T00:00:00Z\",\"valid_to\":\"2021-12-30T00:00:00Z\",\"description_popup\":\"текст для описания\"," +
                         "\"description_promotion\":\"опс\",\"user_type\":{\"type\": \"megafon\"},\"mechanics\":{\"type\": \"films\", " +
                         "\"films\": {\"ids\": [\"Dovod_2020\"], \"only_new\": false, \"ownership_type\":\"est\"}}}").
                 when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/RC_autotest/add_code_group").
                 then().statusCode(anyOf(is(200),is(500)));
+
         //Создание промокода:
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
@@ -307,9 +308,9 @@ public class PromoCodePW extends BasePagePlaywright {
                 basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/json").
                 body("{\"id\":\"СG_autotest_Film_RentPromo\",\"ad_campaign_id\":\"RC_autotest\",\"name\":\"Код-группа для автотестов Фильм по RentPromo\", " +
-                        "\"published\":true,\"valid_from\":\"2021-03-30T00:00:00Z\",\"valid_to\":\"2022-12-01T00:00:00Z\",\"description_popup\":\"текст для описания\"," +
+                        "\"published\":true,\"valid_from\":\"2021-03-30T00:00:00Z\",\"valid_to\":\"2021-12-15T00:00:00Z\",\"description_popup\":\"текст для описания\"," +
                         "\"description_promotion\":\"опс\",\"user_type\":{\"type\": \"megafon\"},\"mechanics\":{\"type\": \"films\", " +
-                        "\"films\": {\"ids\": [\"Dovod_2020\"], \"only_new\": false, \"ownership_type\":\"rentpromo_date\",\"date\":\"2022-12-30T00:00:00Z\",\"days\":null}}}").
+                        "\"films\": {\"ids\": [\"Dovod_2020\"], \"only_new\": false, \"ownership_type\":\"rentpromo_date\",\"date\":\"2021-12-30T00:00:00Z\",\"days\":null}}}").
                 when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/RC_autotest/add_code_group").
                 then().statusCode(anyOf(is(200),is(500)));
         //Создание промокода:
@@ -421,12 +422,12 @@ public class PromoCodePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Введите промокод']").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Введите промокод']").size());
 
-        ElementHandle errorText = page.waitForSelector("//span[text()='Срок действия промокода истек']");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Срок действия промокода истек']").size());
+        ElementHandle errorText = page.waitForSelector("//span[text()='Срок действия промокода истек.']");
+        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Срок действия промокода истек.']").size());
         System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
         Assert.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
 
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Активировать']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[text()='Закрыть']").size());
+        Assert.assertTrue("not visible element", page.querySelectorAll("//button[@disabled and text()='Активировать']").size()==1);
+        Assert.assertTrue("not visible element", page.querySelectorAll("//button[text()='Закрыть']").size()==1);
     }
 }
