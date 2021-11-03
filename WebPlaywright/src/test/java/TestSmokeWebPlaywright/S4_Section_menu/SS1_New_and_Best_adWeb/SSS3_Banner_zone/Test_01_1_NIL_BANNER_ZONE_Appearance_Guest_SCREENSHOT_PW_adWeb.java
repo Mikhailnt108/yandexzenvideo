@@ -16,7 +16,7 @@ public class Test_01_1_NIL_BANNER_ZONE_Appearance_Guest_SCREENSHOT_PW_adWeb exte
     @DisplayName(value = "1.1 NIL_BANNER_ZONE_Appearance_Guest_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#1Robot")
     public void NIL_BANNER_ZONE_Appearance_Guest_SCREENSHOT() throws IOException, InterruptedException, AWTException {
         // Guest:
         // min:

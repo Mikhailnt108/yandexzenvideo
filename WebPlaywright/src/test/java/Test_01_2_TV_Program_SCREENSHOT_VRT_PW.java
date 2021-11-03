@@ -13,7 +13,7 @@ public class Test_01_2_TV_Program_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @DisplayName(value = "Программа передач (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePwTest1")
+    @Tag("CheckWithoutRobot")
     public void historyViewing() throws Exception {
         tvPagePW.checkImageTvPageTabProgramTvForGuest();
     }

@@ -875,8 +875,8 @@ public class NiLPagePW extends BasePagePlaywright {
         page.reload();
         sleep(3000);
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
-        // подготовка элемента 'blockCollectionWithHeaderPageNil' к скриншот-тесту:
 
+        // подготовка элемента 'blockCollectionWithHeaderPageNil' к скриншот-тесту:
         ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("(//h2[contains(@class,'MediaScroller_title')])[1]");
         page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
 

@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_Basic;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_1_NIL_Appearance_section_Guest_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+public class Test_01_1_NIL_BASIC_Appearance_section_Guest_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")

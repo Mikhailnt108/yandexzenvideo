@@ -1,4 +1,4 @@
-package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_basic;
+package TestSmokeWebPlaywright.S4_Section_menu.SS1_New_and_Best_adWeb.SSS1_Nil_Basic;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -14,23 +14,19 @@ import java.io.IOException;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_NIL_Page_navigation_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
+public class Test_03_NIL_BASIC_Message_Content_is_being_loaded_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "1. New_and_Best_adWeb")
-    @DisplayName(value = "2. Appearance_section_SCREENSHOT")
+    @DisplayName(value = "3. Message_Content_is_being_loaded_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void PageNavigation() throws InterruptedException, IOException {
-        // Guest:
+    public void MessageContentIsBeingLoaded() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
-        nilPagePW.checkScrollPageDownGuest();
-        nilPagePW.checkScrollPageUpGuest();
-        // User:
         flowRegistation();
-        nilPagePW.checkScrollPageDownUser();
-        nilPagePW.checkScrollPageUpUser();
+        nilPagePW.checkMessageContentIsBeingLoaded();
+        nilPagePW.checkChangeContentOnColdPopular();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
@@ -44,6 +40,6 @@ public class Test_02_NIL_Page_navigation_SCREENSHOT_PW_adWeb extends TestBasePla
         headerMenuPW.copyPasteCodMsisdn("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
-        headerMenuPW.chooseBucket110InCmsHh("79260192144");
+        headerMenuPW.chooseBucket103InCmsHh("79260192144");
     }
 }

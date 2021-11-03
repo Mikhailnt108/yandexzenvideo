@@ -16,12 +16,6 @@ RUN npm install -g npm@7
 # Install stable chrome
 RUN npx playwright install chrome
 
-#RUN apt update
-#RUN apt install nodejs -y
-#RUN apt install npm -y
-#RUN npm install package.json
-#RUN npm i playwright
-#RUN npx playwright install chrome
 CMD mvn -pl WebPlaywright clean test
 
 
