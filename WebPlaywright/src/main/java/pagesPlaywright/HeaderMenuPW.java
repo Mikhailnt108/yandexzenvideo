@@ -413,7 +413,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void checkOpenPopUpInputEmail(String login) {
         page.waitForSelector("//h1[text()='Введите E-mail']|//h1[text()='Введите пароль']");
-        if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
+        if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
             pageCMS = contextIncognitoModeHeadless.newPage();
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user");
             pageCMS.click("//form[@method='GET']//input[1]");
@@ -430,17 +430,17 @@ public class HeaderMenuPW extends BasePagePlaywright {
             page.reload();
             page.waitForSelector("(//span[text()='Вход'])[1]");
             page.click("(//span[text()='Вход'])[1]");
-            page.waitForSelector("//div[text()='Введите номер телефона']");
-            page.focus("//input[@name='login']");
-            page.fill("//input[@name='login']", login);
+            page.waitForSelector("//h1[text()='Введите номер телефона']");
+            page.focus("//input[@name='phone']");
+            page.fill("//input[@name='phone']", login);
             page.click("//button[text()='Далее']");
-            page.waitForSelector("//div[text()='Введите E-mail']");
+            page.waitForSelector("//h1[text()='Введите E-mail']");
         }
     }
 
     public void checkInputValidEmailInPopUpInputEmail(String email) throws InterruptedException {
-        page.querySelector("//div[text()='Введите E-mail']");
-        page.fill("//input[@placeholder='E-mail']", email);
+        page.querySelector("//h1[text()='Введите E-mail']");
+        page.fill("//input[@placeholder='Введите e-mail']", email);
         Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
         ElementHandle buttonComeIn = page.waitForSelector("//button[text()='Далее']");
         Thread.sleep(3000);
@@ -457,8 +457,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
         pageCMS.click("//button[text()='Поиск']");
         String codMsisdn = pageCMS.waitForSelector("(//td[text()='79261184972']/following-sibling::td)[4]").innerText();
         pageCMS.close();
-        page.waitForSelector("//input[@placeholder='Код подтверждения']");
-        page.fill("//input[@placeholder='Код подтверждения']",codMsisdn);
+        page.waitForSelector("//input[@placeholder='Введите код из sms']");
+        page.fill("//input[@placeholder='Введите код из sms']",codMsisdn);
     }
 
     public void deleteAccountNonMF(String login) {
@@ -645,8 +645,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
     public void startFiddlerSlowNetwork() throws IOException, InterruptedException, TimeoutException, ExecutionException {
         Process startSlowNetwork = Runtime.getRuntime().exec("cmd /c \"cd C:/Users/Mikhailnt/AppData/Local/Programs/Fiddler && ExecAction start\"");
-        page.setDefaultTimeout(120000);
-
     }
 
     public void stopFiddlerSlowNetwork() throws ExecutionException, InterruptedException, IOException {

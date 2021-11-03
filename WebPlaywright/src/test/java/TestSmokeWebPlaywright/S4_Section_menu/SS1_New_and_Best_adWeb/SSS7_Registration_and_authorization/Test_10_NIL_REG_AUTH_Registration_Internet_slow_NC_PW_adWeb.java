@@ -36,6 +36,5 @@ public class Test_10_NIL_REG_AUTH_Registration_Internet_slow_NC_PW_adWeb extends
         headerMenuPW.startFiddlerSlowNetwork();
         headerMenuPW.clickToComeIn("Войти");
         authPagePW.checkElementsPageAuthFormSuccessfullyRegist();
-
-    }
+   }
 }

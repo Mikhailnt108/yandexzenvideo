@@ -118,7 +118,6 @@ public class AuthPagePW extends BasePagePlaywright {
     public void clickOnButtonBackAndCheckOpenFormInputPhone() throws InterruptedException {
         Thread.sleep(3000);
         page.click("//button[contains(@class,'buttonBack')]");
-        page.click("//button[contains(@class,'buttonBack')]");
         Thread.sleep(15000);
         Assert.assertTrue("not visible element", page.waitForSelector("//h1[text()='Введите номер телефона']").isVisible());
     }
@@ -498,9 +497,9 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
 
         // form:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[contains(@class,'buttonBack')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Вы успешно авторизовались']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[text()='Желаем приятного просмотра и надеемся, что вы останитесь довольны!']").size());
+        Assert.assertTrue("not visible element", page.querySelectorAll("//button[contains(@class,'buttonBack')]").size()==1);
+        Assert.assertTrue("not visible element", page.querySelectorAll("//h1[text()='Вы успешно авторизовались']").size()==1);
+        Assert.assertTrue("not visible element", page.querySelectorAll("//p[text()='Желаем приятного просмотра и надеемся, что вы останитесь довольны!']").size()==1);
     }
 
     public void checkElementsPageAuthFormSuccessfullyRegist() {
@@ -610,8 +609,8 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkInputInvalidEmailInFormInputEmail(String email) {
-        page.querySelector("//div[text()='Введите E-mail']");
-        page.fill("//input[@placeholder='E-mail']", email);
+        page.querySelector("//h1[text()='Введите E-mail']");
+        page.fill("//input[@placeholder='Введите e-mail']", email);
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
     }
 

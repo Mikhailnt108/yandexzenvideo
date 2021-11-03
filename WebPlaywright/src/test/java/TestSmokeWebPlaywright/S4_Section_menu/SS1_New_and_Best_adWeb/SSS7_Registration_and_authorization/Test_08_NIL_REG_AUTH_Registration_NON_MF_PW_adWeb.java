@@ -35,7 +35,7 @@ public class Test_08_NIL_REG_AUTH_Registration_NON_MF_PW_adWeb extends TestBaseP
         headerMenuPW.checkInputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenuPW.clickToNext();
         authPagePW.inputValidPasswordRegister("111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.clickToNext();
         headerMenuPW.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
