@@ -103,8 +103,9 @@ public class TestBaseWebDriver {
         personalOffer = PageFactory.initElements(webDriver, PersonalOffer.class);
         ratingPage = PageFactory.initElements(webDriver, RatingPage.class);
         paymentContent = PageFactory.initElements(webDriver, PaymentContent.class);
-//        Robot bot = new Robot();
-//        bot.mouseMove(0, 0);
+        System.setProperty("java.awt.headless", "false");
+        Robot bot = new Robot();
+        bot.mouseMove(0, 0);
     }
 
     @AfterEach

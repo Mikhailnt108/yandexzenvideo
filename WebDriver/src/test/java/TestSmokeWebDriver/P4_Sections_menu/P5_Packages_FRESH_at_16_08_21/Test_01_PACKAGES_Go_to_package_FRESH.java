@@ -14,7 +14,7 @@ public class Test_01_PACKAGES_Go_to_package_FRESH extends TestBaseWebDriver {
     @DisplayName(value ="Переход в пакет")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWdTest1")
+    @Tag("CheckWithRobot")
     public void goToPackage() throws InterruptedException {
         headerMenu.goToPackagesPage();
         packagesPage.clickToFirstTailCardPackage();

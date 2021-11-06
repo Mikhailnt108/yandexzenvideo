@@ -15,7 +15,7 @@ public class Test_08_2_TV_Efir_SCREENSHOT_VRT_PW extends TestBasePlaywright {
     @DisplayName(value ="Передачи в эфире (скриншоты)")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePwTest2")
+    @Tag("CheckWithoutRobot")
     public void tvProgramInAir() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         tvPagePW.checkImageTabTvProgramInAirForGuest();
