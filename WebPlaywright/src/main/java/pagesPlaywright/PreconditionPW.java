@@ -51,7 +51,7 @@ public class PreconditionPW extends BasePagePlaywright {
                 multiPart("ownership_types", "rent2").
                 multiPart("ownership_types", "est").
                 multiPart("valid_since", "2021-08-01 09:09:24").
-                multiPart("valid_until", "2021-09-30 09:09:24").
+                multiPart("valid_until", "2022-09-30 09:09:24").
                 multiPart("sticker_text", "AutoTest -30%").
                 when().post("https://bmp-preprod6.megafon.tv/cms/discounts/1/edit").
                 then().statusCode(anyOf(is(200), is(302)));

@@ -12,27 +12,29 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_06_Аренда_фильма_за_бандл_RETEST19 extends TestBaseWebDriver {
+public class Test_01_2_FILMS_Внешний_вид_раздела_User extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="6. Аренда фильма за бандл")
+    @DisplayName(value ="Внешний_вид_раздела_User")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void PaymentFilmForRent2Promo() throws Exception {
+    public void appearanceSectionFilmsPage() throws Exception {
+        // пользоваеть авторизован:
         headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
-        filmsPage.clickOnFilterPayment();
-        filmsPage.chooseTabPromo();
-        filmsPage.clickToTailCardFilmFromAvailable();
-        cardFilm.paymentFilmAtRent2Promo();
-        cardFilm.startVideoPleer();
-        cardFilm.checkСounterAvailableFilms();
-        pageCMS.chooseBundleNotSelected("79260192144");
+        filmsPage.checkElementsFilmsPage();
+        headerMenu.goToFilmsPage();
+        filmsPage.checkElementsFilmsPage();
+        filmsPage.checkElementsBannersCarousel();
+        filmsPage.autoScrollBanners();
+        filmsPage.scrollBannersToLeft();
+        filmsPage.scrollBannersToRight();
+        filmsPage.scrollСollectionToRightAndLeft();
         pageCMS.deleteAccountMF("79260192144");
     }
+
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

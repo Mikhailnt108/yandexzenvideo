@@ -9,6 +9,10 @@ import pagesPlaywright.*;
 
 import java.awt.*;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
@@ -49,28 +53,28 @@ class TestBasePlaywright extends BasePagePlaywright{
             .enableSoftAssert(false)
             .httpTimeoutInSeconds(60)
             .build());
-//    public static final String USER_NAME = "bmp";
-//    public static final String PASSWORD = "bmp";
-//    public static final String URL = "jdbc:postgresql://10.236.24.178:5432/bmp";
-//    public Statement statement;
-//    public Connection connection;
-//
-//    {
-//        try {
-//            connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//            throw new RuntimeException();
-//        }
-//    }
-//    {
-//        try{
-//            statement = connection.createStatement();
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//            throw new RuntimeException();
-//        }
-//    }
+    public static final String USER_NAME = "bmp";
+    public static final String PASSWORD = "bmp";
+    public static final String URL = "jdbc:postgresql://10.236.24.196:5432/bmp";
+    public Statement statement;
+    public Connection connection;
+
+    {
+        try {
+            connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    {
+        try{
+            statement = connection.createStatement();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
     @BeforeAll
     void launchBrowser() {
         playwright = Playwright.create();
@@ -117,7 +121,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         packagesPagePW = new PackagesPagePW(page);
         cardPackagePW = new CardPackagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
-        //        preconditionPW = new PreconditionPW(page, statement);
+        preconditionPW = new PreconditionPW(page, statement);
         sportPagePW = new SportPagePW(page);
         authPagePW = new AuthPagePW(page);
         promoCodePW = new PromoCodePW(page);

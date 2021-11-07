@@ -310,7 +310,7 @@ public class PageCMS extends BasePageWebDriver {
         webDriver.switchTo().window((String) tabs2.get(1));
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
         click(By.xpath("//label[text()='Показать только активные']"));
-        click(By.linkText("Скидка автотест"));
+        click(By.linkText("Sale AutoTest"));
         isElementDisplayed(By.xpath("//h4[text()='Пакеты']"));
         isElementDisplayed(By.cssSelector(".selectize-input"));
         Actions actions = new Actions(webDriver);

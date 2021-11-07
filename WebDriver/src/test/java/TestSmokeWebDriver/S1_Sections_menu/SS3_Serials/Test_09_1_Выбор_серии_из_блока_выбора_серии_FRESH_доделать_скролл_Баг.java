@@ -5,9 +5,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_09_1_Выбор_серии_из_блока_выбора_серии_FRESH_доделать_скролл_Баг extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")

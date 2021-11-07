@@ -12,22 +12,40 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_05_Аренда_фильма_за_деньги_FRESH extends TestBaseWebDriver {
+public class Test_03_1_FILMS_Внешний_вид_карточки extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Аренда фильма за деньги")
+    @DisplayName(value ="Внешний вид карточки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void PaymentFilmForRent2() throws Exception {
+    public void appearanceSectionCardFilm() throws Exception {
+        // неавторизованный пользователь:
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.checkAutoStartVideoPlayer();
+        cardFilm.checkElementsCardFilm();
+
+        // авторизованный пользователь:
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToHeaderRent2Collection();
-        collectionsPage.checkOpenCollectionRent2Page();
-        collectionsPage.clickToTailFilmRent2();
-        cardFilm.paymentButtonRent2InCardFilm();
-        cardFilm.startVideoPleer();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.checkAutoStartVideoPlayer();
+        cardFilm.checkElementsCardFilm();
+        cardFilm.clickButtonFavorites();
+        myPage.checkAddingFilmToFavorites();
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.clickToButtonReadDescription();
+        cardFilm.checkOpenDescriptionAll();
+        cardFilm.clickToButtonRollUp();
+        cardFilm.checkRollUpDescription();
+        cardFilm.clickToLikeButton();
+        cardFilm.clickToDisLikeButton();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {
@@ -44,3 +62,4 @@ public class Test_05_Аренда_фильма_за_деньги_FRESH extends T
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }
+

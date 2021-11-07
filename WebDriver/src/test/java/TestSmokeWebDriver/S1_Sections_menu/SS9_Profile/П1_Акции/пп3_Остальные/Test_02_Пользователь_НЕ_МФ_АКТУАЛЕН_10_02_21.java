@@ -8,9 +8,12 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_21 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")

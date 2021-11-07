@@ -41,14 +41,14 @@ public class MyPage extends BasePageWebDriver {
         Assert.assertEquals(0, webDriver.findElements(By.xpath("//span[text()='Куплено']")).size());
     }
 
-    public void checkAddingFilmToFavorites() {
+    public void checkAddingFilmToFavorites() throws InterruptedException {
         webDriver.get("https://web-preprod6.megafon.tv/movies/vods");
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
+        Thread.sleep(3000);
+        String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
         System.out.println(nameFilm);
         webDriver.get(My_favorites_PP6);
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
+        Assert.assertEquals(nameFilm, webDriver.findElement(By.xpath("//h3[@data-test='PackageDescriptionTitle']")).getText());
     }
 
     public void checkAddingSerialsInPurchases() throws InterruptedException {

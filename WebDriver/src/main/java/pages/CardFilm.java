@@ -22,19 +22,19 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void paymentFilmAtEst() {
-        if(webDriver.findElements(By.xpath("//span[contains(text(), 'Навсегда за')]")).size()!=0){
-            click(By.xpath("//span[contains(text(), 'Навсегда за')]"));
+        if(webDriver.findElements(By.xpath("//span[contains(text(), 'Навсегда')]")).size()!=0){
+            click(By.xpath("//span[contains(text(), 'Навсегда')]"));
         }
         else {
             click(By.xpath("//span[text()='Другие варианты']"));
-            click(By.xpath("//span[contains(text(), 'Навсегда за')]"));
+            click(By.xpath("//span[contains(text(), 'Навсегда')]"));
         }
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
         click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
-        isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
+        Assert.assertTrue("not found element", webDriver.findElements(By.xpath("//span[text()='Смотреть']")).size()==1);
     }
 
     public void paymentFilmAtEstFromPopUpNotif() {

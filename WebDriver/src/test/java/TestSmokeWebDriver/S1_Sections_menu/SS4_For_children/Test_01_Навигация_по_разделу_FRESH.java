@@ -5,10 +5,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-//@Execution(ExecutionMode.SAME_THREAD)
+@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_Навигация_по_разделу_FRESH extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
