@@ -10,8 +10,8 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "Suite#1", mode = ResourceAccessMode.READ_WRITE)
+//@Execution(ExecutionMode.SAME_THREAD)
+@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_2_FILMS_Appearance_section_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -19,7 +19,7 @@ public class Test_01_2_FILMS_Appearance_section_SCREENSHOT_PW extends TestBasePl
     @DisplayName(value ="FILMS_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#4")
+    @Tag("SuitePW#4")
     public void FILMS_Appearance_section_SCREENSHOT() throws Exception {
         // пользователь НЕ авторизован:
         filmsPagePW.checkImageFilmsPageScrollForGuest();

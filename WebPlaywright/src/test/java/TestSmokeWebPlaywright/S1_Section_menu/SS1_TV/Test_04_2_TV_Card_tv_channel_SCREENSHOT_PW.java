@@ -12,8 +12,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
-@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
+//@Execution(ExecutionMode.SAME_THREAD)
+@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_2_TV_Card_tv_channel_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -21,7 +21,7 @@ public class Test_04_2_TV_Card_tv_channel_SCREENSHOT_PW extends TestBasePlaywrig
     @DisplayName(value = "TV_Card_tv_channel_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#4")
+    @Tag("SuitePW#4")
     public void tv_Card_tv_channel_SCREENSHOT() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         cardTvChannelPW.checkImageCardTvChannelForGuest();

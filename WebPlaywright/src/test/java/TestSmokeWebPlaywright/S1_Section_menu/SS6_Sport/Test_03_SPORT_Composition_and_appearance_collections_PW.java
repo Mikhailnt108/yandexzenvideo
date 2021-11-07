@@ -5,7 +5,10 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
+@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_SPORT_Composition_and_appearance_collections_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -13,7 +16,7 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
     @DisplayName(value = "03_SPORT_Composition_and_appearance_collections")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#4")
+    @Tag("SuitePW#4")
     public void SPORT_Composition_and_appearance_collections() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkImageBlockCollectionSportChannelsFofUser(); // добавить скриншот тесты

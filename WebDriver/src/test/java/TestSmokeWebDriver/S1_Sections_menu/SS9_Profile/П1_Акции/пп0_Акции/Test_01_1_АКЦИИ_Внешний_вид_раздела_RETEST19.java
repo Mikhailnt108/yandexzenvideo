@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.awt.*;
 import java.io.IOException;
 
-@ResourceLock(value = "Suite#3", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_1_АКЦИИ_Внешний_вид_раздела_RETEST19 extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")

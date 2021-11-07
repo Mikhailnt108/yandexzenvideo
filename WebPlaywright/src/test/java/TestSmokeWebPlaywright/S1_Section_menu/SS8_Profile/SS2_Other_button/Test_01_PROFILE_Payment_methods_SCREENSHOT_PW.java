@@ -10,7 +10,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
-@ResourceLock(value = "Suite#3", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_PROFILE_Payment_methods_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
@@ -18,7 +18,7 @@ public class Test_01_PROFILE_Payment_methods_SCREENSHOT_PW extends TestBasePlayw
     @DisplayName(value ="01_PROFILE_Payment_methods_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#4")
+    @Tag("SuitePW#4")
     public void PROFILE_Payment_methods_SCREENSHOT() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         flowRegistationMF();

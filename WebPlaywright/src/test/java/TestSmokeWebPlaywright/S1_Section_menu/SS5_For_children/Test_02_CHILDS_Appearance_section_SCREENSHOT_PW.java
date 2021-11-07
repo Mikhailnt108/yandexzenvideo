@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_CHILDS_Appearance_section_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -17,7 +17,7 @@ public class Test_02_CHILDS_Appearance_section_SCREENSHOT_PW extends TestBasePla
     @DisplayName(value ="02_CHILDS_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#4")
+    @Tag("SuitePW#4")
     public void CHILDS_Appearance_section_SCREENSHOT() throws Exception {
         // пользователь НЕ авторизован:
         kidsPagePW.checkImageKidsPageScrollForGuest();

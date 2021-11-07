@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_2_SERIALS_Appearance_card_serial_SCREENSHOT_TRAILER_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -16,7 +16,7 @@ public class Test_03_2_SERIALS_Appearance_card_serial_SCREENSHOT_TRAILER_PW exte
     @DisplayName(value = "03_2_SERIALS_Appearance_card_serial_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#4")
+    @Tag("SuitePW#4")
     public void SERIALS_Appearance_card_serial_SCREENSHOT_TRAILER() throws Exception {
         headerMenuPW.goToSerialsPage();
         serialsPagePW.clickToTailCardSerial();
