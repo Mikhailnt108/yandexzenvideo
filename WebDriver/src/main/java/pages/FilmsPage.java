@@ -186,7 +186,7 @@ public class FilmsPage extends BasePageWebDriver {
     }
 
     public void clickToTailCardFilm() {
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        click(By.xpath("(//a[@data-test='PackageLink'])[3]"));
     }
 
     public void checkElementsFilmsPage() {

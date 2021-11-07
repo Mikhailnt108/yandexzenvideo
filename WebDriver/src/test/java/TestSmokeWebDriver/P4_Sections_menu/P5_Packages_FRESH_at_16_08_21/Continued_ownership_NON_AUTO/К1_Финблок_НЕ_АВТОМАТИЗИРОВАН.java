@@ -1,4 +1,0 @@
-package TestSmokeWebDriver.P4_Sections_menu.P5_Packages_FRESH_at_16_08_21.Continued_ownership_NON_AUTO;
-
-public class К1_Финблок_НЕ_АВТОМАТИЗИРОВАН {
-}

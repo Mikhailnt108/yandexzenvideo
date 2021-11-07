@@ -137,8 +137,13 @@ public class HeaderMenu extends BasePageWebDriver {
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));
             isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
-            element.sendKeys(login);
+            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
+            element.click();
+            for (int i = 0; i < login.length(); i++){
+                char c = login.charAt(i);
+                String s = new StringBuilder().append(c).toString();
+                element.sendKeys(s);
+            }
             click(By.xpath("//button[text()='Далее']"));
             isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']"));
             WebElement element1 = webDriver.findElement(By.xpath("//input[@type='password']"));
@@ -400,7 +405,7 @@ public class HeaderMenu extends BasePageWebDriver {
 
 
     public void checkOpenPageInputPhone() {
-        isElementDisplayed(By.xpath("//h1[text()='Введите номер телефона']"));
+        isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
     }
 
     public void checkElementsPopUpInputPhone() {
@@ -410,11 +415,15 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@disabled and text()='Далее']"));
     }
 
-    public void inputLogin(String login) {
-//        WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
-
-        $(By.xpath("//input[@value='+7']")).setValue(login);
-        //input[@name='login']
+    public void inputLogin(String login) throws InterruptedException {
+        WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
+        element.click();
+        for (int i = 0; i < login.length(); i++){
+            char c = login.charAt(i);
+            String s = new StringBuilder().append(c).toString();
+            element.sendKeys(s);
+        }
+          //input[@name='login']
 //        writeText(By.xpath("//input[@value='+7']"), login);
         //input[@name='login']
 //        writeText(By.xpath("//input[@name='login']"), login);

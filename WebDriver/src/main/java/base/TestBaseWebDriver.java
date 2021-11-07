@@ -11,7 +11,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
 
-import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Map;
@@ -51,11 +50,11 @@ public class TestBaseWebDriver {
     public PaymentContent paymentContent;
 
     @BeforeEach
-    public void start() throws AWTException, MalformedURLException {
+    public void start() throws MalformedURLException {
         // start remote browser:
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "93.0");
+        capabilities.setCapability("browserVersion", "95.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", false
@@ -103,9 +102,6 @@ public class TestBaseWebDriver {
         personalOffer = PageFactory.initElements(webDriver, PersonalOffer.class);
         ratingPage = PageFactory.initElements(webDriver, RatingPage.class);
         paymentContent = PageFactory.initElements(webDriver, PaymentContent.class);
-        System.setProperty("java.awt.headless", "false");
-        Robot bot = new Robot();
-        bot.mouseMove(0, 0);
     }
 
     @AfterEach

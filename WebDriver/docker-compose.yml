@@ -23,7 +23,7 @@ services:
         - 8082:8080
     command: ["--selenoid-uri", "http://selenoid:4444"]
   vnc:
-    image: selenoid/vnc:chrome_93.0
+    image: selenoid/vnc:chrome_95.0
     network_mode: bridge
   test_runner:
     build:

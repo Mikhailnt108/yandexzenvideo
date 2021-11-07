@@ -1,0 +1,4 @@
+package TestSmokeWebDriver.S1_Sections_menu.SS5_Packages.Continued_ownership_NON_AUTO;
+
+public class К4_Повторное_списание_не_прошло_НЕ_АВТОМАТИЗИРОВАН {
+}
