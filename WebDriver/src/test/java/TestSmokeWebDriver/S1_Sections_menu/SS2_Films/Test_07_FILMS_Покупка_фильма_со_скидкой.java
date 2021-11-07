@@ -12,24 +12,29 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_10_Пауза_фильма_RETEST extends TestBaseWebDriver {
+public class Test_07_FILMS_Покупка_фильма_со_скидкой extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Пауза фильма")
+    @DisplayName(value ="Покупка фильма со скидкой")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void testPauseVideoPleer() throws Exception {
+    public void paymentFilmWithDiscount() throws Exception {
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        pageCMS.createPriseEstOrRent2WithDiscount();
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-        cardFilm.paymentButtonRent2InCardFilm();
-        cardFilm.clickToPauseVideoPlayer();
-        cardFilm.clickToPlayVideoPlayer();
-        cardFilm.clickToSpaceToVideoPlayer();
-        cardFilm.clickToLeftButtonMouseToVideoPlayer();
+        cardFilm.checkStikerDiscount();
+        cardFilm.checkPriseEstDiscount();
+        cardFilm.paymentFilmAtEstDiscount();
+        cardFilm.checkUnavailabilityStikerDiscount();
+        cardFilm.startVideoPleer();
+        pageCMS.deleteDiscount();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {

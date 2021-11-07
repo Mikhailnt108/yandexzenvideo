@@ -185,7 +185,8 @@ public class FilmsPage extends BasePageWebDriver {
         }
     }
 
-    public void clickToTailCardFilm() {
+    public void clickToTailCardFilm() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[1]")));
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 

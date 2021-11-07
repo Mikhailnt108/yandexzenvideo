@@ -20,7 +20,7 @@ public class Test_02_FILMS_Переход_в_карточку_фильма exten
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void goToCardFilm() {
+    public void goToCardFilm() throws InterruptedException {
         headerMenu.goToFilmsPage();
         filmsPage.switchingFromBannerToCardFilm();
         cardFilm.checkOpenCardFilm();

@@ -165,9 +165,9 @@ public class CardFilm extends BasePageWebDriver {
         Assert.assertEquals("Не тот цвет","rgba(38, 38, 38, 1)",colorMoveToCountDisLike);
     }
 
-    public void checkStikerDiscount() {
+    public void checkStikerDiscount() throws InterruptedException {
         webDriver.navigate().refresh();
-        isElementDisplayed(By.xpath("//div[text()='Автотест -30%']"));
+        isElementDisplayed(By.xpath("//div[text()='AutoTest -30%']"));
     }
 
     public void checkPriseEstDiscount() {

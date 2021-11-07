@@ -112,7 +112,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         tvPagePW = new TvPagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
         cardTvProgramPW = new CardTvProgramPW(page);
-        cardFilmPW = new CardFilmPW(page);
+        cardFilmPW = new CardFilmPW(page, statement);
         cardSerialPW = new CardSerialPW(page);
         kidsPagePW = new KidsPagePW(page);
         allCollectionsPagePW = new AllCollectionsPagePW(page);

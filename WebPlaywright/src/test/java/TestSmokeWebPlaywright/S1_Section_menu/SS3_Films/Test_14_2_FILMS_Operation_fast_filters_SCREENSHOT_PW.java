@@ -24,5 +24,6 @@ public class Test_14_2_FILMS_Operation_fast_filters_SCREENSHOT_PW extends TestBa
         headerMenuPW.goToFilmsPage();
         filmsPagePW.checkImageBlocksFiltersForUnauthorized();
         filmsPagePW.checkImageScrollQuickFiltersForUnauthorized();
+
     }
 }
