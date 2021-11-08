@@ -245,7 +245,8 @@ public class PackagesPage extends BasePageWebDriver {
         click(By.xpath("(//div[text()='Все сервисы'])[3]"));
     }
 
-    public void clickToTailCardPackageKinoPoPodpiske() {
+    public void clickToTailCardPackageKinoPoPodpiske() throws InterruptedException {
         click(By.xpath("//h3[text()='Кино по подписке']"));
+        Thread.sleep(3000);
     }
 }

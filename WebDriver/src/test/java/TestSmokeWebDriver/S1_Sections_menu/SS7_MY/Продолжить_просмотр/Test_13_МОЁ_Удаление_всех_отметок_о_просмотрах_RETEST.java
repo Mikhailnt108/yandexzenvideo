@@ -1,26 +1,24 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS7_MY.История_просмотров;
+package TestSmokeWebDriver.S1_Sections_menu.SS7_MY.Продолжить_просмотр;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_15_МОЁ_Включение_каталогов_RETEST extends TestBaseWebDriver {
+public class Test_13_МОЁ_Удаление_всех_отметок_о_просмотрах_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "15. Включение каталогов")
+    @DisplayName(value = "Удаление всех отметок о просмотрах")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void enablingCatalogViewSerialsPage() throws Exception {
+    public void sortingContent() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
@@ -45,9 +43,13 @@ public class Test_15_МОЁ_Включение_каталогов_RETEST extends
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        //чек отсутствия подборки 'Продолжить просмотр' в режиме 'каталог':
+        //удаление истории просмотра:
         headerMenu.goToSerialsPage();
-        serialsPage.clickOnFastFilterGenre();
+        serialsPage.checkElementsBlockCollectHistoryWatch();
+        serialsPage.scrollToTailWatchAndEdit();
+        serialsPage.clickToTailWatchAndEdit();
+        myPage.clickToButtonClearAllHistory();
+        headerMenu.goToSerialsPage();
         serialsPage.checkAbsentBlockCollectHistoryWatch();
         pageCMS.deleteAccountMF("79260172279");
     }

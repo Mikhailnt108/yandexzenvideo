@@ -1,18 +1,16 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS7_MY.История_просмотров;
+package TestSmokeWebDriver.S1_Sections_menu.SS7_MY.Продолжить_просмотр;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_10_МОЁ_Нажатие_в_разные_зоны_тайлов_RETEST extends TestBaseWebDriver {
+public class Test_10_MY_Нажатие_в_разные_зоны_тайлов extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
@@ -23,9 +21,8 @@ public class Test_10_МОЁ_Нажатие_в_разные_зоны_тайлов
     public void clickingInDifferentAreasTails() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
-        headerMenu.goToNilPage();
-        flowRegistation();
         headerMenu.goToPackagesPage();
+        flowRegistation();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();

@@ -1,26 +1,25 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS7_MY.История_просмотров;
+package TestSmokeWebDriver.S1_Sections_menu.SS7_MY.Продолжить_просмотр;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_14_МОЁ_Продолжить_просмотр_RETEST extends TestBaseWebDriver {
+public class Test_12_МОЁ_Сортировка_контента_RETEST extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "14. Продолжить просмотр")
+    @DisplayName(value = "12. Сортировка контента")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void continueWatching() throws Exception {
+    public void sortingContent() throws Exception {
+        // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToNilPage();
         flowRegistation();
@@ -44,12 +43,28 @@ public class Test_14_МОЁ_Продолжить_просмотр_RETEST extends
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        // чек автозапуска плеера с места остановки:
+        //проверка отображения сериала в подборке:
+        //проверка последнего тайла:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickToTabSerials();
+        cardPackage.clickToFirstTailCardSerial();
+        serialsPage.checkToMoveTailToLastPlace();
+
+        //проверка первого тайла:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickToThirdTailCardSerial();
+        serialsPage.checkToMoveTailToFirstPlace();
+
+        //проверка перемещения тайла на первое место после просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkTimeStopPlayer();
-        cardSerial.checkButtonContinueWatching();
+        serialsPage.clickToLastTailBlockCollectHistoryWatch();
+        cardSerial.continueWatching();
+        serialsPage.checkToMoveTailToFirstPlace();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() throws InterruptedException {

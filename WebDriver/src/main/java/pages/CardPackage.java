@@ -308,8 +308,9 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//div[text()='Фильмы'])[3]"));
     }
 
-    public void clickToTabSerials() {
+    public void clickToTabSerials() throws InterruptedException {
         click(By.xpath("(//div[text()='Сериалы'])[3]"));
+        Thread.sleep(3000);
     }
 
     public void scrollCardPackage() {

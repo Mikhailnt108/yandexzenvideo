@@ -445,6 +445,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkOpenPopUpInputPassword() {
+
         isElementDisplayed(By.xpath("//div[text()='Введите пароль']"));
     }
 
