@@ -12,23 +12,24 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_13_СЕРИАЛЫ_Работа_стандартных_фильтров_RETEST extends TestBaseWebDriver {
+public class Test_02_SERIALS_Переход_в_карточку_сериала extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value = "13. Работа стандартных фильтров")
+    @DisplayName(value ="Переход в карточку сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void standardFilters() throws Exception {
+    public void GoToCardSerial() {
         headerMenu.goToSerialsPage();
-        serialsPage.checkElementsSerialsPage();
-        serialsPage.chooseOneGenre();
-        serialsPage.checkCatalogViewSerialsPage();
-        serialsPage.checkRequestResultOneGenre();
-        serialsPage.chooseTwoGenre();
-        serialsPage.checkRequestResultTwoGenre();
-        serialsPage.chooseOneCountry();
-        serialsPage.checkRequestResultOneCountryAndTwoGenre();
+        serialsPage.switchingFromBannerToCardSerial();
+        cardSerial.checkOpenCardSerial();
+        headerMenu.goToSerialsPage();
+        serialsPage.clickToFirstTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        headerMenu.goToSerialsPage();
+        serialsPage.clickToLinkAllOnCollectionBlock();
+        serialsPage.clickToFirstTailCardSerial();
+        cardSerial.checkOpenCardSerial();
     }
 }

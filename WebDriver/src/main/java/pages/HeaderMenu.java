@@ -125,7 +125,7 @@ public class HeaderMenu extends BasePageWebDriver {
             click(By.xpath("//form[@method='GET']//input[1]"));
             writeText(By.xpath("//form[@method='GET']//input[1]"), login);
             click(By.xpath("//button[text()='Поиск']"));
-            isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']|//td[text()='79267644248']"));
+            isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']|//td[text()='79267644248']"));
             click(By.xpath("//a[contains(@href, '/cms/households/')]"));
             isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
             click(By.xpath("//button[text()='Удалить']"));

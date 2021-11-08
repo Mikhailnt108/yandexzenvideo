@@ -12,15 +12,15 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_07_FILMS_Покупка_фильма_со_скидкой extends TestBaseWebDriver {
+public class Test_08_FILMS_Аренда_фильма_со_скидкой_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Покупка фильма со скидкой")
+    @DisplayName(value ="Аренда фильма со скидкой")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void paymentFilmWithDiscount() throws Exception {
+    public void rentFilmWithDiscount() throws Exception {
         cardFilm.editPriceOn70FirstFilmForSale();
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();
@@ -31,8 +31,8 @@ public class Test_07_FILMS_Покупка_фильма_со_скидкой exten
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.checkStikerDiscount();
-        cardFilm.checkPriseEstDiscount();
-        cardFilm.paymentFilmAtEstDiscount();
+        cardFilm.checkPriseRent2Discount();
+        cardFilm.paymentFilmAtRent2Discount();
         cardFilm.checkUnavailabilityStikerDiscount();
         cardFilm.startVideoPleer();
         pageCMS.deleteDiscount();

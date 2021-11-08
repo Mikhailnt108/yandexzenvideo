@@ -12,25 +12,23 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_FILMS_Покупка_фильма extends TestBaseWebDriver {
+public class Test_11_FILMS_Перемотка_фильма_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Покупка фильма")
+    @DisplayName(value ="Перемотка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void paymentFilm() throws Exception {
+    public void rewindFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
-        cardFilm.paymentFilmAtEst();
-        cardFilm.startVideoPleer();
-        myPage.checkAddingFilmInPurchases();
+        cardFilm.paymentButtonRent2InCardFilm();
+        cardFilm.moveSliderRewindToVideoPlayer();
         pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

@@ -12,21 +12,22 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_08_Перемотка_серии_FRESH_от_01_06_21 extends TestBaseWebDriver {
+public class Test_06_SERIALS_Просмотр_серии extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Перемотка серии")
+    @DisplayName(value ="Просмотр серии")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void rewindSeries() throws Exception {
+    public void watchEpisode() throws Exception {
         headerMenu.goToSerialsPage();
+        headerMenu.checkNotLoggedIsCorrect();
         flowRegistation();
         serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
         cardSerial.paymentSerialAtSubs();
-        cardSerial.episodeSliderRewindToVideoPlayer();
+        cardSerial.clickTailEpisodeForStartVideoPleer();
         pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {

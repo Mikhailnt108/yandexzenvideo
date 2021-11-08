@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS2_Films;
+package TestSmokeWebDriver.S1_Sections_menu.SS3_Serials;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -11,34 +11,37 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_11_FILMS_Перемотка_фильма extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
+public class Test_04_SERIALS_Переключение_сезонов_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
-    @DisplayName(value ="Перемотка фильма")
+    @Story(value = "4. Сериалы")
+    @DisplayName(value ="Переключение сезонов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#1")
-    public void rewindFilm() throws Exception {
-        headerMenu.goToFilmsPage();
+    @Tag("SuiteWD#2")
+    public void switchingSeasons() throws Exception {
+        headerMenu.goToSerialsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.paymentButtonRent2InCardFilm();
-        cardFilm.moveSliderRewindToVideoPlayer();
-        pageCMS.deleteAccountMF("79260192144");
+        serialsPage.chooseSeasonsMoreOneSeason();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.chooseOtherSeasonAndCheckPoster();
+        cardSerial.checkAutoStartVideoPlayer();
+        cardSerial.paymentSerialAtSubs();
+        cardSerial.moveSliderRewindToVideoPlayer();
+        cardSerial.checkSeasonAndEpisode();
+        pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79250110166");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

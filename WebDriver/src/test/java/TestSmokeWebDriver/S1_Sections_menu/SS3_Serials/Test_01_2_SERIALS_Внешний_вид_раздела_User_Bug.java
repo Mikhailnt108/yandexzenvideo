@@ -5,27 +5,29 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_05_Подписка_на_пакет_сериалов_FRESH extends TestBaseWebDriver {
+public class Test_01_2_SERIALS_Внешний_вид_раздела_User_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Подписка на пакет сериалов")
+    @DisplayName(value ="1.2 Внешний вид раздела User")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void SubscribeToSeriesPackage() throws Exception {
+    public void appearanceSectionSerialsPage() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();
-        myPage.goToMyPagePurchases();
-        myPage.checkAddingSerialsInPurchases();
-        pageCMS.deleteAccountMF("79250110166");
+        serialsPage.checkElementsSerialsPage();
+        serialsPage.checkElementsBannersCarousel();
+        serialsPage.autoScrollBanners();
+        serialsPage.scrollBannersToLeft();
+        serialsPage.scrollBannersToRight();
+        serialsPage.scrollСollectionToRightAndLeft();
+        pageCMS.deleteAccountMF("9250110166");
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();

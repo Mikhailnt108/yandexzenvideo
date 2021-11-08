@@ -380,6 +380,7 @@ public class CardSerial extends BasePageWebDriver {
         webDriver.get("https://web-preprod6.megafon.tv/shows");
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
         webDriver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
+        Thread.sleep(2000);
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
         System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText());
         String seasonAndEpisode2 = webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText();
@@ -390,7 +391,7 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.className("_1hdhJYYoLFCYFGUtF3teH1")); // сам блок эпизодов
         isElementDisplayed(By.xpath("//div[@class='_3RenlHWpqv2tjN53MfarzN']//div[contains(text(), 'Сезон')]")); // табы сезонов
         isElementDisplayed(By.xpath("(//a[@data-test='PackageLink'])[1]")); // тайлы эпизодов
-        isElementDisplayed(By.xpath("(//button[contains(@class,'_1wQ5bvvwLY0Ds4jeZwcuiM _2mHCS2K0ddR3OTV1_79IIz')])[1]")); // кнопка скролла
+//        isElementDisplayed(By.xpath("(//button[contains(@class,'_1wQ5bvvwLY0Ds4jeZwcuiM _2mHCS2K0ddR3OTV1_79IIz')])[1]")); // кнопка скролла
 
         isElementDisplayed(By.xpath("(//a[@data-test='PackageLink']//div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]")); // постеры эпизодов
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")); // названия эпизодов

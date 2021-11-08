@@ -12,29 +12,33 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_07_Пауза_серии_FRESH_от_01_06_21 extends TestBaseWebDriver {
+public class Test_09_1_SERIALS_Выбор_серии_из_блока_выбора_серии extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Пауза серии")
+    @DisplayName(value ="Выбор серии из блока выбора серии")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void pauseSeries() throws Exception {
+    public void chooseEpisodeFromBlockEpisodes() throws Exception {
         headerMenu.goToSerialsPage();
-        flowRegistation();
-        serialsPage.clickToFirstTailCardSerial();
+        serialsPage.chooseSeasonsMoreOneSeason();
         cardSerial.checkOpenCardSerial();
-        cardSerial.paymentSerialAtSubs();
-        cardSerial.clickToPauseVideoPleer();
-        cardSerial.clickToPlayVideoPleer();
-        cardSerial.clickToSpaceToVideoPleer();
-        cardSerial.clickToLeftButtonMouseToVideoPleer();
+        cardSerial.checkElementsBlockEpisodes();
+        cardSerial.clickTailEpisode();
+        flowRegistation();
+        headerMenu.refreshPage();
+        cardSerial.clickTailEpisode();
+        cardSerial.checkOpenPopUpPayment();
+        cardSerial.paymentSerialAtSubsInPoUp();
+        cardSerial.clickTailEpisodeForStartVideoPleer();
+        cardSerial.chooseOtherSeasonAndCheckPoster();
+//        cardSerial.scrollBlockEpisode();
         pageCMS.deleteAccountMF("79250110166");
+
+
     }
     private void flowRegistation() throws InterruptedException {
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");

@@ -46,7 +46,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        String codMsisdn = webDriver.findElement(By.xpath("(//td[text()='79260192144']/following-sibling::td)[4]|(//td[text()='79260172279']/following-sibling::td)[4]|(//td[text()='79260205027']/following-sibling::td)[4]")).getText();
+        String codMsisdn = webDriver.findElement(By.xpath("(//td[text()='79250110166']/following-sibling::td)[4]|(//td[text()='79260192144']/following-sibling::td)[4]|(//td[text()='79260172279']/following-sibling::td)[4]|(//td[text()='79260205027']/following-sibling::td)[4]")).getText();
         //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
@@ -59,7 +59,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -87,7 +87,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -115,7 +115,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -143,7 +143,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -171,7 +171,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -199,7 +199,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -226,7 +226,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -254,7 +254,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Удалить']"));
@@ -348,7 +348,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -360,7 +360,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
         click(By.linkText("Пакеты/Бандлы"));
         isElementDisplayed(By.linkText("Ошибка определения Тарифного плана/Тарифных опций"));
-        //здесь переключаемся опять на вкладку с мегафонТВ
+        // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
     }
@@ -373,7 +373,7 @@ public class PageCMS extends BasePageWebDriver {
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
         String codMsisdn = webDriver.findElement(By.xpath("(//td[text()='79261184972']/following-sibling::td)[4]")).getText();
-        //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
+        // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
 
@@ -387,7 +387,7 @@ public class PageCMS extends BasePageWebDriver {
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
         String codMsisdn = webDriver.findElement(By.xpath("(//td[text()='79267644248']/following-sibling::td)[4]")).getText();
-        //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
+        // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
         webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
@@ -399,7 +399,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -410,7 +410,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
         isElementDisplayed(By.xpath("//td[text()='vip']"));
-        //здесь переключаемся опять на вкладку с мегафонТВ
+        // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
         webDriver.navigate().refresh();
@@ -426,7 +426,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -438,7 +438,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
         click(By.linkText("Пакеты/Бандлы"));
         isElementDisplayed(By.linkText("Основной"));
-        //здесь переключаемся опять на вкладку с мегафонТВ
+        // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
         webDriver.navigate().refresh();
@@ -454,7 +454,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -479,7 +479,7 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
-        isElementDisplayed(By.xpath("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
         click(By.xpath("//a[contains(@href, '/cms/households/')]"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("(//a[@role='button'])[2]"));
@@ -490,7 +490,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
         isElementDisplayed(By.xpath("//td[text()='user']"));
-        //здесь переключаемся опять на вкладку с мегафонТВ
+        // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
         webDriver.navigate().refresh();

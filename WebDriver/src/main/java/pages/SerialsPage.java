@@ -165,6 +165,7 @@ public class SerialsPage extends BasePageWebDriver {
     }
 
     public void checkResetAllFilters() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']")));
         List<WebElement> Filters = webDriver.findElements(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']"));
         Assert.assertEquals(6, Filters.size());
     }
@@ -209,12 +210,13 @@ public class SerialsPage extends BasePageWebDriver {
         List<WebElement> BannerForSerials2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForSerials2.size());
         for (int i = 0; i < BannerForSerials2.size(); i++) {
+            Thread.sleep(3000);
             BannerForSerials2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForSerials2.get(i).click();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size());
-            Thread.sleep(2000);
+            Thread.sleep(3000);
+            Assert.assertTrue("not opened card serial", webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size()==1);
             webDriver.get("https://web-preprod6.megafon.tv/shows");
         }
     }
@@ -362,10 +364,10 @@ public class SerialsPage extends BasePageWebDriver {
         for (int i = 0; i <= 5; i++) {
             CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_2pRJ20SCSLVGSVaxy5FNBi']//a[@class='_8m5mByCjTuND14zuGKagi']"));
             CollectionOneCountry.get(i).click();
-            WebElement button = webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            Thread.sleep(3000);
+            wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"))));
             webDriver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
-            wait.until(ExpectedConditions.visibilityOf(button));
-            button.click();
+            webDriver.findElement(By.xpath("//button[text()='Прочитать описание']")).click();
             webDriver.findElement(By.xpath("//div[contains(text(),'США')]"));
             webDriver.navigate().back();
             Thread.sleep(5000);

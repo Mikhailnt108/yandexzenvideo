@@ -12,22 +12,22 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_06_Просмотр_серии_FRESH extends TestBaseWebDriver {
+public class Test_11_SERIALS_Добавление_в_избранное_сериала extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="Просмотр серии")
+    @DisplayName(value ="Добавление в избранное сериала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void watchEpisode() throws Exception {
+    public void AddingSeriesToFavorites() throws InterruptedException {
         headerMenu.goToSerialsPage();
-        headerMenu.checkNotLoggedIsCorrect();
         flowRegistation();
         serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
-        cardSerial.paymentSerialAtSubs();
-        cardSerial.clickTailEpisodeForStartVideoPleer();
+        cardSerial.checkButtonFavoriteNotAdded();
+        cardSerial.clickButtonFavorites();
+        myPage.checkAddingSerialToFavorites();
         pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {

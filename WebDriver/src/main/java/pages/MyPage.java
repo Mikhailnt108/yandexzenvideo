@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -53,8 +54,10 @@ public class MyPage extends BasePageWebDriver {
 
     public void checkAddingSerialsInPurchases() throws InterruptedException {
         click(By.xpath("//a[@href='/my/purchases/series']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@data-test='PackageLink']")));
         List<WebElement> count1 = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i1 = count1.size();
+        System.out.println("кол-во сериалов до подключения пакета: "+i1);
         webDriver.get("https://web-preprod6.megafon.tv/shows");
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
@@ -64,18 +67,18 @@ public class MyPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
         click(By.xpath("//button[text()='Закрыть']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
-
         webDriver.get("https://web-preprod6.megafon.tv/my/purchases");
         click(By.xpath("//div[text()='Пакеты и сервисы']"));
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ie5X02ZFMoZJ1Ued-w7x_")));
         String countSerialsInPackage = webDriver.findElement(By.className("ie5X02ZFMoZJ1Ued-w7x_")).getText();
         String count2 = countSerialsInPackage.substring(0,3);
         System.out.println(count2);
         int i2 = Integer.parseInt(count2);
-
+        System.out.println("кол-во сериалов в пакете должно быть: "+i2);
         webDriver.get("https://web-preprod6.megafon.tv/my/purchases");
         click(By.xpath("//a[@href='/my/purchases/series']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@data-test='PackageLink']")));
         for (int a=0; a<=8; a++) {
             List<WebElement> count3 = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
             JavascriptExecutor jsDown = (JavascriptExecutor) webDriver;
@@ -87,6 +90,7 @@ public class MyPage extends BasePageWebDriver {
         }
         List<WebElement> countSerials = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i3 = countSerials.size();
+        System.out.println("кол-во сериалов всего во владении: "+i3);
         Assert.assertEquals("не равно количество сериалов", i3, i1+i2 );
     }
 

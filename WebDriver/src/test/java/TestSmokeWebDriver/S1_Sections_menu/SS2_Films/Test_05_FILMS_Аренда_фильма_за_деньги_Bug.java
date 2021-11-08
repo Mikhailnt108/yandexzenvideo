@@ -12,31 +12,22 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_08_FILMS_Аренда_фильма_со_скидкой extends TestBaseWebDriver {
+public class Test_05_FILMS_Аренда_фильма_за_деньги_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Аренда фильма со скидкой")
+    @DisplayName(value ="Аренда фильма за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void rentFilmWithDiscount() throws Exception {
-        cardFilm.editPriceOn70FirstFilmForSale();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        pageCMS.createPriseEstOrRent2WithDiscount();
+    public void PaymentFilmForRent2() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.checkStikerDiscount();
-        cardFilm.checkPriseRent2Discount();
-        cardFilm.paymentFilmAtRent2Discount();
-        cardFilm.checkUnavailabilityStikerDiscount();
+        filmsPage.clickToHeaderRent2Collection();
+        collectionsPage.checkOpenCollectionRent2Page();
+        collectionsPage.clickToTailFilmRent2();
+        cardFilm.paymentButtonRent2InCardFilm();
         cardFilm.startVideoPleer();
-        pageCMS.deleteDiscount();
-        cardFilm.editPriceOn1FirstFilmForSale();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {

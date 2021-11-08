@@ -12,30 +12,42 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_1_СЕРИАЛЫ_Внешний_вид_раздела_Баг extends TestBaseWebDriver {
+public class Test_03_1_SERIALS_Внешний_вид_карточки extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "4. Сериалы")
-    @DisplayName(value ="1.1 Внешний вид раздела")
+    @DisplayName(value ="3.1 Внешний вид карточки")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void appearanceSectionSerialsPage() throws Exception {
+    public void appearanceSectionCardSerial() throws Exception {
+        // неавторизованный пользователь:
         headerMenu.goToSerialsPage();
-        serialsPage.checkElementsSerialsPage();
-        serialsPage.checkElementsBannersCarousel();
-        serialsPage.autoScrollBanners();
-        serialsPage.scrollBannersToLeft();
-        serialsPage.scrollBannersToRight();
-        serialsPage.scrollСollectionToRightAndLeft();
+        serialsPage.clickToFirstTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.checkAutoStartVideoPlayer();
+        cardSerial.checkElementsCardSerial();
+
+        // авторизованный пользователь:
+        headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.checkElementsSerialsPage();
-        serialsPage.checkElementsBannersCarousel();
-        serialsPage.autoScrollBanners();
-        serialsPage.scrollBannersToLeft();
-        serialsPage.scrollBannersToRight();
-        serialsPage.scrollСollectionToRightAndLeft();
-        pageCMS.deleteAccountMF("9250110166");
+        serialsPage.clickToFirstTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.checkAutoStartVideoPlayer();
+        cardSerial.checkElementsCardSerial();
+        cardSerial.checkButtonFavoriteNotAdded();
+        cardSerial.clickButtonFavorites();
+        myPage.checkAddingSerialToFavorites();
+        headerMenu.goToSerialsPage();
+        serialsPage.clickToFirstTailCardSerial();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.clickToButtonReadDescription();
+        cardSerial.checkOpenDescriptionAll();
+        cardSerial.clickToButtonRollUp();
+        cardSerial.checkRollUpDescription();
+        cardSerial.clickToLikeButton();
+        cardSerial.clickToDisLikeButton();
+        pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
