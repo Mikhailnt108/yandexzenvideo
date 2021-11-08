@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -20,15 +21,17 @@ public class KidsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']")); // кнопка прокрутки баннера вправо
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']")); // кнопка прокрутки баннера влево
         click(By.xpath("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]"));
+
         List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
             BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
-            isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
+            Thread.sleep(2000);
+            webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
             System.out.println(webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText());
-            isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
-            isElementDisplayed(By.xpath("(//div[@data-test='SlideDescription' and contains(text(),'Для детей')])[3]"));
+            webDriver.findElement(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
+            webDriver.findElement(By.xpath("(//div[@data-test='SlideDescription' and text()])[3]"));
         }
 
         List<WebElement> BannerForKids2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
@@ -38,8 +41,9 @@ public class KidsPage extends BasePageWebDriver {
             BannerForKids2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]")).size());
-            Thread.sleep(2000);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")));
+            Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")).size());
+            Thread.sleep(3000);
             webDriver.get("https://web-preprod6.megafon.tv/kids");
         }
     }
@@ -49,7 +53,7 @@ public class KidsPage extends BasePageWebDriver {
     }
 
     public void clickToTailCardFilm() {
-        click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/vods')][2]"));
+        click(By.xpath("(//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')])[2]"));
     }
 
     public void clickToTailCardSerial() {
@@ -381,13 +385,12 @@ public class KidsPage extends BasePageWebDriver {
         List<WebElement> TailCollectForKids1 = webDriver.findElements(By.xpath("(//div[@data-test='PackageListWrapper'])[1]//a[@data-test='PackageLink']"));
         System.out.println(TailCollectForKids1.size());
         for (int a = 0; a < TailCollectForKids1.size(); a++) {
+            Thread.sleep(2000);
             TailCollectForKids1 = webDriver.findElements(By.xpath("(//div[@data-test='PackageListWrapper'])[1]//a[@data-test='PackageLink']"));
             TailCollectForKids1.get(a).click();
-            isElementDisplayed(By.xpath("//div[contains(text(),'Для детей')]"));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Для детей')]")));
             System.out.println(webDriver.findElement(By.xpath("//h1[text()]")).getText());
-            click(By.xpath("(//div[text()='Детям'])[1]"));
-//            driver.get("https://web-preprod6.megafon.tv/kids");
-            Thread.sleep(2000);
+            webDriver.get("https://web-preprod6.megafon.tv/kids");
         }
     }
 
@@ -405,6 +408,7 @@ public class KidsPage extends BasePageWebDriver {
         for (int a = 0; a < 2; a++) {
             TailCollectForKids2 = webDriver.findElements(By.xpath("//div[@class='_3tqh94XTCpOzUTwtkUwF7L']//div[@data-test='CollectionBlock']"));
             TailCollectForKids2.get(a).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@data-test='PackageLink']")));
             List<WebElement> countAllTail = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
             countAllTail.size();
             List<WebElement> countForKids = webDriver.findElements(By.xpath("//span[contains(text(),'Для детей')]"));

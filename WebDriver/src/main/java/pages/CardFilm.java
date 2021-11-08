@@ -55,7 +55,7 @@ public class CardFilm extends BasePageWebDriver {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'На 48 часов за')]")));
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
+        click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'Смотреть до')]")));
@@ -186,7 +186,7 @@ public class CardFilm extends BasePageWebDriver {
     public void paymentFilmAtEstDiscount() {
         click(By.xpath("//span[contains(text(), 'Навсегда за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
+        click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
@@ -204,7 +204,7 @@ public class CardFilm extends BasePageWebDriver {
     public void paymentFilmAtRent2Discount() {
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
+        click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Смотреть до')]"));

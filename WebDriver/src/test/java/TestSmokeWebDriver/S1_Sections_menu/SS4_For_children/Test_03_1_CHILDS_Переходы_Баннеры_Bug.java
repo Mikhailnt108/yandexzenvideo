@@ -12,19 +12,21 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_Навигация_по_разделу_FRESH extends TestBaseWebDriver {
+public class Test_03_1_CHILDS_Переходы_Баннеры_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "5. Детям")
-    @DisplayName(value ="Навигация по разделу")
+    @DisplayName(value ="3.1 Переходы.Баннеры")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void navigatingSection() throws Exception {
+    public void goToBanner() throws Exception {
         headerMenu.goToKidsPage();
-        kidsPage.checkAutoScrollBanners();
-        kidsPage.checkScrollBannersToLeft();
-        kidsPage.checkScrollBannersToRight();
-        kidsPage.scrollСollectionToRightAndLeft();
+        kidsPage.checkElementsBannersCarousel();
+        kidsPage.switchingFromBannerToCardFilm();
+        headerMenu.goToKidsPage();
+        kidsPage.switchingFromBannerToCardSerial();
+        headerMenu.goToKidsPage();
+        kidsPage.switchingFromBannerToCardTvChannel();
     }
 }
