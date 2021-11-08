@@ -158,7 +158,8 @@ public class FilmsPage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Сбросить']"));
     }
 
-    public void checkResetAllFilters() {
+    public void checkResetAllFilters() throws InterruptedException {
+        Thread.sleep(3000);
         List<WebElement> Filters = webDriver.findElements(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']"));
         Assert.assertEquals(6, Filters.size());
     }
@@ -377,22 +378,23 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals("не отключен быстрый фильтр", 0, webDriver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
     }
 
-    public void checkRequestResultOneCountryAndTwoGenre() {
+    public void checkRequestResultOneCountryAndTwoGenre() throws InterruptedException {
         List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
         for (int i = 0; i <= 5; i++) {
+            Thread.sleep(3000);
             CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionOneCountry.get(i).click();
-            WebElement button = webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"));
+            Thread.sleep(3000);
+            wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"))));
             webDriver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
-            wait.until(ExpectedConditions.visibilityOf(button));
-            button.click();
+            webDriver.findElement(By.xpath("//button[text()='Прочитать описание']")).click();
             webDriver.findElement(By.xpath("//div[contains(text(),'Россия')]"));
             webDriver.navigate().back();
         }
     }
 
     public void checkCollectionsViewFilmsPage() {
-        Assert.assertNotEquals("вид страницы не каталог", 0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+        Assert.assertNotEquals("вид страницы не каталог", 1, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']")).size());
     }
 }
 

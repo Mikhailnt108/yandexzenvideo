@@ -14,11 +14,11 @@ import java.sql.Statement;
 import java.util.List;
 
 public class CardFilm extends BasePageWebDriver {
-
     private Statement statement;
 
-    public CardFilm(WebDriver driver) {
-        super(driver);
+    public CardFilm(WebDriver webDriver, Statement statement) {
+        super(webDriver);
+        this.statement = statement;
     }
     //String Films_Page = "https://web-preprod6.megafon.tv/movies/vods?only_bundle_prices=1&display_mode=catalog";
 
@@ -171,7 +171,7 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void checkStikerDiscount() throws InterruptedException {
-        Thread.sleep(60000);
+        Thread.sleep(30000);
         webDriver.get("https://web-preprod6.megafon.tv/movies/vods");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[1]")));
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));

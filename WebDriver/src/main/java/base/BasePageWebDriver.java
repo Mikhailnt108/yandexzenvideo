@@ -9,8 +9,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.Statement;
+
 
 public class BasePageWebDriver {
+
     public WebDriver webDriver;
     public WebDriverWait wait;
 
@@ -19,6 +22,7 @@ public class BasePageWebDriver {
         this.webDriver = webDriver;
         wait = new WebDriverWait(webDriver,40);
     }
+
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }

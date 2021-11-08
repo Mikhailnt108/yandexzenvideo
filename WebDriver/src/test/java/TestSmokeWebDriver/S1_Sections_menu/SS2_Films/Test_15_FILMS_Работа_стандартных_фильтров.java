@@ -10,24 +10,25 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@Execution(ExecutionMode.SAME_THREAD)
+//@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_16_Сброс_фильтров_FRESH extends TestBaseWebDriver {
+public class Test_15_FILMS_Работа_стандартных_фильтров extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
-    @DisplayName(value ="Сброс фильтров")
+    @DisplayName(value ="15. Работа стандартных фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void resetAllFilters() throws InterruptedException {
+    public void standardFilters() throws Exception {
         headerMenu.goToFilmsPage();
-        filmsPage.chooseOneQuickFilter();
-        filmsPage.chooseOneCountry();
-        filmsPage.choosePeriodOfYears();
+        filmsPage.checkElementsFilmsPage();
+        filmsPage.chooseOneGenre();
         filmsPage.checkCatalogViewFilmsPage();
-        filmsPage.clickOnResetFiltersButton();
-        filmsPage.checkResetAllFilters();
-        filmsPage.checkCollectionsViewFilmsPage();
+        filmsPage.checkRequestResultOneGenre();
+        filmsPage.chooseTwoGenre();
+        filmsPage.checkRequestResultTwoGenre();
+        filmsPage.chooseOneCountry();
+        filmsPage.checkRequestResultOneCountryAndTwoGenre();
     }
 }

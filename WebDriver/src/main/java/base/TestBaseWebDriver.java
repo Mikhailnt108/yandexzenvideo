@@ -22,8 +22,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Execution(CONCURRENT)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 //@ExtendWith(TestRailReportExtension.class)
 public class TestBaseWebDriver {
     public WebDriver webDriver;
@@ -114,7 +114,7 @@ public class TestBaseWebDriver {
         pageCMS = PageFactory.initElements(webDriver, PageCMS.class);
         resultsSearchPage = PageFactory.initElements(webDriver, ResultsSearchPage.class);
         collectionsPage = PageFactory.initElements(webDriver, CollectionPage.class);
-        cardFilm = PageFactory.initElements(webDriver, CardFilm.class);
+        cardFilm = new CardFilm(webDriver, statement);
         footer = PageFactory.initElements(webDriver, Footer.class);
         tvPage = PageFactory.initElements(webDriver, TvPage.class);
         myPage = PageFactory.initElements(webDriver, MyPage.class);
