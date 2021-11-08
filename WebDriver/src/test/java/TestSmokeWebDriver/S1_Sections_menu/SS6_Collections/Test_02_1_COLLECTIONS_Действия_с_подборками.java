@@ -12,7 +12,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_1_Действия_с_подборками_FRESH_Баг_нет_детского_фона_страницы_детской_коллекции extends TestBaseWebDriver {
+public class Test_02_1_COLLECTIONS_Действия_с_подборками extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "8. Подборки")

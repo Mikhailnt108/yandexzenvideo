@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class AllCollectionsPage extends BasePageWebDriver {
                 System.out.println("название подборки на стр коллекций: " + nameString);
                 if (nameString.equals(nameForKidsBlockCollect)) {
                     collectNames.get(i).click();
+                    wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
                     Assert.assertEquals(webDriver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
 //                    Assert.assertEquals("нет детского фона", 1, driver.findElements(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO') and contains(@style,'background')]")).size());
                     return;

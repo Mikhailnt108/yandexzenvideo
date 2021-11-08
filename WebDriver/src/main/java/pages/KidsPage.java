@@ -452,6 +452,7 @@ public class KidsPage extends BasePageWebDriver {
     }
 
     public void checkBackgroundPageCollectionForKids() {
+        Assert.assertTrue("not found kids background", webDriver.findElements(By.xpath("//div[@class='_3c9FjHVIHIuT3fX6yTP3IO zK5BWWTConuPWpB-NgSkJ']")).size()==1);
         String Background = webDriver.findElement(By.xpath("//div[@class='_3c9FjHVIHIuT3fX6yTP3IO zK5BWWTConuPWpB-NgSkJ']")).getCssValue("background-image");
         System.out.println(webDriver.findElement(By.xpath("//div[@class='_3c9FjHVIHIuT3fX6yTP3IO zK5BWWTConuPWpB-NgSkJ']")).getCssValue("background-image"));
         System.out.println(Background.substring(0,3));
