@@ -13,6 +13,10 @@ import pages.*;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Map;
 import java.util.Optional;
 
@@ -49,6 +53,28 @@ public class TestBaseWebDriver {
     public RatingPage ratingPage;
     public PaymentContent paymentContent;
 
+    public static final String USER_NAME = "bmp";
+    public static final String PASSWORD = "bmp";
+    public static final String URL = "jdbc:postgresql://10.236.24.196:5432/bmp";
+    public Statement statement;
+    public Connection connection;
+
+    {
+        try {
+            connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    {
+        try{
+            statement = connection.createStatement();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
     @BeforeEach
     public void start() throws MalformedURLException {
         // start remote browser:

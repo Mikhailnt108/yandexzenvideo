@@ -21,6 +21,7 @@ public class Test_07_FILMS_Покупка_фильма_со_скидкой exten
     @Test
     @Tag("SuiteWD#1")
     public void paymentFilmWithDiscount() throws Exception {
+        cardFilm.editPriceOn70FirstFilmForSale();
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm();
         cardFilm.checkOpenCardFilm();
@@ -35,6 +36,7 @@ public class Test_07_FILMS_Покупка_фильма_со_скидкой exten
         cardFilm.checkUnavailabilityStikerDiscount();
         cardFilm.startVideoPleer();
         pageCMS.deleteDiscount();
+        cardFilm.editPriceOn1FirstFilmForSale();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {

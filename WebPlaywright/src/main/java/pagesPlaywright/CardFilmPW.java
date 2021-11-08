@@ -295,7 +295,7 @@ public class CardFilmPW extends BasePagePlaywright {
         String urlFilm = page.waitForSelector("//a[@data-test='PackageLink' and @href]").getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(13));
-        String sql = "update package_prices set price ='9000' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        String sql = "update package_prices set price ='7000' where package_id ='".concat(urlFilm.substring(13)).concat("'");
         System.out.println(sql);
         Class.forName("org.postgresql.Driver");
         statement.executeUpdate(sql);

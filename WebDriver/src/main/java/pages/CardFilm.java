@@ -8,9 +8,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class CardFilm extends BasePageWebDriver {
+
+    private Statement statement;
 
     public CardFilm(WebDriver driver) {
         super(driver);
@@ -166,7 +171,11 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void checkStikerDiscount() throws InterruptedException {
-        webDriver.navigate().refresh();
+        Thread.sleep(60000);
+        webDriver.get("https://web-preprod6.megafon.tv/movies/vods");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[1]")));
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
         isElementDisplayed(By.xpath("//div[text()='AutoTest -30%']"));
     }
 
@@ -465,6 +474,28 @@ public class CardFilm extends BasePageWebDriver {
             System.out.println(time2);
             Assert.assertNotEquals(time1, time2);
         }
+    }
+
+    public void editPriceOn70FirstFilmForSale() throws ClassNotFoundException, SQLException {
+        webDriver.get("https://web-preprod6.megafon.tv/movies/vods");
+        String urlFilm = webDriver.findElement(By.xpath("//a[@data-test='PackageLink' and @href]")).getAttribute("href");
+        System.out.println(urlFilm);
+        System.out.println(urlFilm.substring(13));
+        String sql = "update package_prices set price ='7000' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        System.out.println(sql);
+        Class.forName("org.postgresql.Driver");
+        statement.executeUpdate(sql);
+    }
+
+    public void editPriceOn1FirstFilmForSale() throws SQLException, ClassNotFoundException {
+        webDriver.get("https://web-preprod6.megafon.tv/movies/vods");
+        String urlFilm = webDriver.findElement(By.xpath("//a[@data-test='PackageLink' and @href]")).getAttribute("href");
+        System.out.println(urlFilm);
+        System.out.println(urlFilm.substring(13));
+        String sql = "update package_prices set price ='100' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        System.out.println(sql);
+        Class.forName("org.postgresql.Driver");
+        statement.executeUpdate(sql);
     }
 }
 
