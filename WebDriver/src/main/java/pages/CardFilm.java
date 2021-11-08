@@ -200,7 +200,6 @@ public class CardFilm extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//span[contains(text(), 'На 48 часов за')]/i"));
     }
 
-
     public void paymentFilmAtRent2Discount() {
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
@@ -224,7 +223,6 @@ public class CardFilm extends BasePageWebDriver {
         System.out.println(time2);
         Assert.assertNotEquals(time1, time2);
     }
-
 
     public void testFullScreenVideoPleer() throws Exception {
         click(By.xpath("//span[contains(text(), 'Смотреть')]|//span[text()='Продолжить просмотр']"));
@@ -442,8 +440,8 @@ public class CardFilm extends BasePageWebDriver {
     public void acceptOfferInPopUp() throws InterruptedException {
             if(webDriver.findElements(By.xpath("//div[@aria-label='Popup']")).size()!=0){
                 click(By.xpath("//input[@type='checkbox']/following-sibling::div[1]"));
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Смотреть']")));
-                click(By.xpath("//button[text()='Смотреть']"));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
+                click(By.xpath("//span[text()='Смотреть']"));
                 Thread.sleep(5000);
                 Actions actions = new Actions(webDriver);
                 actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
@@ -460,8 +458,8 @@ public class CardFilm extends BasePageWebDriver {
 
     public void ifAbsentOfferInPopUp() throws InterruptedException {
         if(webDriver.findElements(By.xpath("//div[@aria-label='Popup']")).size()<1){
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Смотреть']")));
-            click(By.xpath("//button[text()='Смотреть']"));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
+            click(By.xpath("//span[text()='Смотреть']"));
             Thread.sleep(5000);
             Actions actions = new Actions(webDriver);
             actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();

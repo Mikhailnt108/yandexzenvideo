@@ -182,6 +182,7 @@ public class PackagesPage extends BasePageWebDriver {
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
             CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Подключить')]")));
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
             Assert.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Фильмы'])[3]")).size());
             Assert.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Сериалы'])[3]")).size());

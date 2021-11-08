@@ -138,7 +138,7 @@ public class HeaderMenu extends BasePageWebDriver {
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));
             isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
+            WebElement element = webDriver.findElement(By.xpath("//input[@placeholder='Номер телефона']"));
             element.click();
             for (int i = 0; i < login.length(); i++){
                 char c = login.charAt(i);
@@ -177,8 +177,13 @@ public class HeaderMenu extends BasePageWebDriver {
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));
             isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
-            element.sendKeys(login);
+            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
+            element.click();
+            for (int i = 0; i < login.length(); i++){
+                char c = login.charAt(i);
+                String s = new StringBuilder().append(c).toString();
+                element.sendKeys(s);
+            }
             click(By.xpath("//button[text()='Далее']"));
             isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']"));
             WebElement element1 = webDriver.findElement(By.xpath("//input[@type='password']"));
@@ -219,7 +224,7 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("(//span[text()='Выйти'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
         click(By.xpath("(//span[text()='Вход'])[1]"));
-        WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
+        WebElement element = webDriver.findElement(By.xpath("//input[@placeholder='Номер телефона']"));
         element.sendKeys("9260205027");
         click(By.xpath("//button[text()='Далее']"));
         WebElement element2 = webDriver.findElement(By.xpath("//input[@type='password']"));
@@ -428,12 +433,6 @@ public class HeaderMenu extends BasePageWebDriver {
             String s = new StringBuilder().append(c).toString();
             element.sendKeys(s);
         }
-          //input[@name='login']
-//        writeText(By.xpath("//input[@value='+7']"), login);
-        //input[@name='login']
-//        writeText(By.xpath("//input[@name='login']"), login);
-//        element.sendKeys(login);
-
     }
 
     public void checkActiveButtonNext() {
@@ -631,8 +630,13 @@ public class HeaderMenu extends BasePageWebDriver {
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));
             isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
-            element.sendKeys(login);
+            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
+            element.click();
+            for (int i = 0; i < login.length(); i++){
+                char c = login.charAt(i);
+                String s = new StringBuilder().append(c).toString();
+                element.sendKeys(s);
+            }
             click(By.xpath("//button[text()='Далее']"));
             isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']"));
         }
@@ -659,9 +663,14 @@ public class HeaderMenu extends BasePageWebDriver {
             webDriver.navigate().refresh();
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));
-            isElementDisplayed(By.xpath("//div[text()='Введите номер телефона']"));
-            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7 ']"));
-            element.sendKeys(login);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Введите номер телефона']")));
+            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
+            element.click();
+            for (int i = 0; i < login.length(); i++){
+                char c = login.charAt(i);
+                String s = new StringBuilder().append(c).toString();
+                element.sendKeys(s);
+            }
             click(By.xpath("//button[text()='Далее']"));
             isElementDisplayed(By.xpath("//div[text()='Введите E-mail']"));
         }

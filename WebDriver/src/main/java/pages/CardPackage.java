@@ -38,7 +38,7 @@ public class CardPackage extends BasePageWebDriver {
     }
 
     public void checkOpenCardPackage() {
-        isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
+        Assert.assertTrue("bug: not opened card package", webDriver.getCurrentUrl().contains("/mixed_groups/"));
     }
 
     public void paymentPackageTnB() {
@@ -51,7 +51,7 @@ public class CardPackage extends BasePageWebDriver {
 
     public void disablePackageTnB() {
         String nameConnectedPackage = webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
-        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[contains(text(),'+792')])[2]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
         Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
