@@ -83,15 +83,6 @@ public class PopUpNotification extends BasePageWebDriver {
                 then().statusCode(anyOf(is(200),is(204),is(404)));
     }
 
-    public void checkElementsPopUpBundleUserMF() {
-        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
-        isElementDisplayed(By.xpath("(//div[@role='dialog']//button)[2]"));
-        isElementDisplayed(By.xpath("(//div[@role='dialog']//div)[4]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(),'Вам доступно')]"));
-        isElementDisplayed(By.xpath("//button[text()='Смотреть']"));
-        isElementDisplayed(By.xpath("//button[text()='Закрыть']"));
-   }
-
     public void clickButtonWatchInPopUpBundle() {
         click(By.xpath("//button[text()='Смотреть']"));
     }

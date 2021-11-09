@@ -10,20 +10,19 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_12_МОЁ_Сортировка_контента_RETEST extends TestBaseWebDriver {
+public class Test_13_MY_Удаление_всех_отметок_о_просмотрах extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "12. Сортировка контента")
+    @DisplayName(value = "Удаление всех отметок о просмотрах")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
     public void sortingContent() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
-        headerMenu.goToNilPage();
-        flowRegistation();
         headerMenu.goToPackagesPage();
+        flowRegistation();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
@@ -43,28 +42,14 @@ public class Test_12_МОЁ_Сортировка_контента_RETEST extends
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        //проверка отображения сериала в подборке:
-        //проверка последнего тайла:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.clickToTabSerials();
-        cardPackage.clickToFirstTailCardSerial();
-        serialsPage.checkToMoveTailToLastPlace();
-
-        //проверка первого тайла:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.clickToThirdTailCardSerial();
-        serialsPage.checkToMoveTailToFirstPlace();
-
-        //проверка перемещения тайла на первое место после просмотра:
+        //удаление истории просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToLastTailBlockCollectHistoryWatch();
-        cardSerial.continueWatching();
-        serialsPage.checkToMoveTailToFirstPlace();
+        serialsPage.scrollToTailWatchAndEdit();
+        serialsPage.clickToTailWatchAndEdit();
+        myPage.clickToButtonClearAllHistory();
+        headerMenu.goToSerialsPage();
+        serialsPage.checkAbsentBlockCollectHistoryWatch();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() throws InterruptedException {

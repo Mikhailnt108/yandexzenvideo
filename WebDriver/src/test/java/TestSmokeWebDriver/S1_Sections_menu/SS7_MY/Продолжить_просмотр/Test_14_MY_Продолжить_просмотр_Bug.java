@@ -10,16 +10,15 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_11_МОЁ_Контент_cоответствует_разделу_RETEST2408 extends TestBaseWebDriver {
+public class Test_14_MY_Продолжить_просмотр_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "11. Контент cоответствует разделу")
+    @DisplayName(value = "14. Продолжить просмотр")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void contentСorrespondsToSection() throws Exception {
-        // пользователь МФ:
+    public void continueWatching() throws Exception {
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToPackagesPage();
         flowRegistation();
@@ -42,25 +41,12 @@ public class Test_11_МОЁ_Контент_cоответствует_разде�
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        // просмотр фильма из подключенного пакета:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
-        packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.clickOnTailFirstCardFilm();
-        cardFilm.moveSliderRewindToVideoPlayer();
-
-        // просмотр сериала 18+:
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTailCardPackage18Plus();
-        cardPackage.paymentPackageTnB();
-        cardPackage.clickToTabSerials();
-        cardPackage.clickToFirstTailCardSerial();
-        cardSerial.moveSliderRewindToVideoPleer18Plus();
-
-        // чек контент - только сериалы без 18+ в подборке продолжить просмтор:
+        // чек автозапуска плеера с места остановки:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.checkContentOnlySerialsWithout18Plus();
+        serialsPage.clickToFirstTailBlockCollectHistoryWatch();
+        cardSerial.checkTimeStopPlayer();
+        cardSerial.checkButtonContinueWatching();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() throws InterruptedException {

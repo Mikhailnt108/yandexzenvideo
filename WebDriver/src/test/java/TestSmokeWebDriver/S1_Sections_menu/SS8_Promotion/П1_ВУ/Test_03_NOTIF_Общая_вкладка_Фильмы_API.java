@@ -12,29 +12,27 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_Фильм_по_покупке_за_деньги_API_RETEST19 extends TestBaseWebDriver {
+public class Test_03_NOTIF_Общая_вкладка_Фильмы_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
-    @DisplayName(value = "Фильм по покупке за деньги")
+    @DisplayName(value = "Общая вкладка Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void payFilmFromPopUpNotification() throws InterruptedException {
+    public void popUpNotificationFilterPageFilms() throws InterruptedException {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
-        popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
-        popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
-        headerMenu.goToNilPage();
+        popUpNotification.createAndPublishedPopUpNotifScreenFilms();
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
-        popUpNotification.clickToButtonPayToPopUpNotif();
-        paymentContent.checkOpenPopUpChoosePaymentMethodEst();
-        cardFilm.paymentFilmAtEstFromPopUpNotif();
-        myPage.checkAddingFilmInPurchasesForNotif();
-        popUpNotification.deletePopUpNotifScreenNilPayFilm();
+        headerMenu.goToNilPage();
+        headerMenu.checkAbsencePopUpNotifToNilPage();
+        headerMenu.goToFilmsPage();
+        popUpNotification.checkElementsPopUpNotifScreenFilms();
+        popUpNotification.deletePopUpNotifScreenFilms();
         pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() throws InterruptedException {

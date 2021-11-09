@@ -5,14 +5,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_ТО_с_бандлом extends TestBaseWebDriver {
+public class Test_04_NOTIF_ТО_с_бандлом_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
@@ -25,10 +23,11 @@ public class Test_04_ТО_с_бандлом extends TestBaseWebDriver {
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
-        headerMenu.goToNilPage();
+        popUpNotification.deletePopUpNotifScreenFilms();
+        popUpNotification.deletePopUpNotifScreenNilPayFilm();
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        headerMenu.checkLoginUserIsCorrect();
-        popUpNotification.checkElementsPopUpBundleUserMF();
+        headerMenu.checkElementsPopUpBundleUserMF();
         popUpNotification.clickButtonWatchInPopUpBundle();
         promoPage.checkOpenPromoPage();
         pageCMS.deleteAccountMF("79260205027");

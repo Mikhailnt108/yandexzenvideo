@@ -10,45 +10,45 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_08_1_MY_Внешний_вид_блока_подборки_История_просмотров_MF extends TestBaseWebDriver {
+public class Test_15_MY_Включение_каталогов extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="8.1 Внешний вид блока подборки История просмотров Моё for MF")
+    @DisplayName(value = "15. Включение каталогов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void appearanceBlockCollectViewingHistory() throws Exception {
+    public void enablingCatalogViewSerialsPage() throws Exception {
         // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToPackagesPage();
-        flowRegistationMF();
+        flowRegistation();
+        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
         cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
-
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
-
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        // чек подборки "продолжить просмотр":
+        //чек отсутствия подборки 'Продолжить просмотр' в режиме 'каталог':
         headerMenu.goToSerialsPage();
-        serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.scrollToTailWatchAndEdit();
+        serialsPage.clickOnFastFilterGenre();
+        serialsPage.checkAbsentBlockCollectHistoryWatch();
         pageCMS.deleteAccountMF("79260172279");
     }
-
-    private void flowRegistationMF() throws InterruptedException {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();

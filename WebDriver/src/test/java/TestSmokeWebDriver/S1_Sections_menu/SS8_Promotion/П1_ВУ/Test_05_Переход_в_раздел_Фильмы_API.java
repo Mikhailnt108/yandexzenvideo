@@ -27,7 +27,7 @@ public class Test_05_Переход_в_раздел_Фильмы_API extends Tes
         personalOffer.archivePersonalOfferSubscription();
         popUpNotification.deletePopUpNotifScreenNilPayFilm();
         popUpNotification.createAndPublishedPopUpNotifScreenNilDeepLinkFilms();
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         flowRegistation();
         popUpNotification.checkElementsPopUpNotifScreenNilDeepLinkFilms();
         popUpNotification.clickButtonWatchInPopUpNotifScreenNilDeepLinkFilms();

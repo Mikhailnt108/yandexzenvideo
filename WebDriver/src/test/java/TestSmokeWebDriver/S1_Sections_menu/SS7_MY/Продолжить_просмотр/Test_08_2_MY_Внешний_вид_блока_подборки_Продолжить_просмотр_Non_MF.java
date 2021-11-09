@@ -10,59 +10,57 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_13_МОЁ_Удаление_всех_отметок_о_просмотрах_RETEST extends TestBaseWebDriver {
+public class Test_08_2_MY_Внешний_вид_блока_подборки_Продолжить_просмотр_Non_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "Удаление всех отметок о просмотрах")
+    @DisplayName(value ="8.1 Внешний вид блока подборки История просмотров Моё Non MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void sortingContent() throws Exception {
-        // пользователь МФ:
+    public void appearanceBlockCollectViewingHistory() throws Exception {
+        // пользователь НЕ МФ:
         // подключение пакет и просмотр первого сериала:
-        headerMenu.goToNilPage();
-        flowRegistation();
         headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
+        flowRegistationNonMF();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.paymentPackageTnB();
+        cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
         cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
+
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
+
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
-        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        //удаление истории просмотра:
+        // чек подборки "продолжить просмотр":
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
         serialsPage.scrollToTailWatchAndEdit();
-        serialsPage.clickToTailWatchAndEdit();
-        myPage.clickToButtonClearAllHistory();
-        headerMenu.goToSerialsPage();
-        serialsPage.checkAbsentBlockCollectHistoryWatch();
-        pageCMS.deleteAccountMF("79260172279");
+        pageCMS.deleteAccountNonMF("79261184972");
     }
-    private void flowRegistation() throws InterruptedException {
+
+    private void flowRegistationNonMF() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpInputEmail("9261184972");
+        headerMenu.checkElementsPopUpInputEmail();
+        headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
+        headerMenu.clickToNext("Далее");
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

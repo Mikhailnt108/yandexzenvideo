@@ -133,10 +133,11 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void clickToFirstTailCardSerial() {
+    public void clickToFirstTailCardSerial() throws InterruptedException {
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
                 , webDriver.findElement(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]")));
         click(By.xpath("(//a[@class='_8m5mByCjTuND14zuGKagi'])[1]"));
+        Thread.sleep(3000);
     }
 
     public void clickOnTailCardChannel() throws InterruptedException {
@@ -294,14 +295,16 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void clickToSecondTailCardSerial() {
+    public void clickToSecondTailCardSerial() throws InterruptedException {
         click(By.xpath("(//div[text()='Сериалы'])[3]"));
         click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[2]"));
+        Thread.sleep(3000);
     }
 
-    public void clickToThirdTailCardSerial() {
+    public void clickToThirdTailCardSerial() throws InterruptedException {
         click(By.xpath("(//div[text()='Сериалы'])[3]"));
         click(By.xpath("(//div[@class='_1gajUi7CqFhf_qFGRX_c0_'])[3]"));
+        Thread.sleep(3000);
     }
 
     public void chooseToTabFilms() {

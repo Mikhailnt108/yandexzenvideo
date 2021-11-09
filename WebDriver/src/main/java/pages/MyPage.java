@@ -115,16 +115,16 @@ public class MyPage extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Фильмы"));
     }
 
-    public void checkSubscriptionsPackages() {
+    public void checkSubscriptionsPackages() throws InterruptedException {
         List<WebElement> CollectionPackages = webDriver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
         for (int i=0; i<CollectionPackages.size(); i++)
         {
             CollectionPackages = webDriver.findElements(By.xpath("//div[@class='_2_Ri6nlJFXGDuvpZHi8zlB']//a[@data-test='PackageLink']"));
             CollectionPackages.get(i).click();
+            Thread.sleep(3000);
             webDriver.findElement(By.xpath("//div[text()='Бесплатно']|//div[text()='Навсегда']|//div[text()='Доступно']|//div[text()='Входит']"));
-            webDriver.navigate().back();
+            webDriver.get("https://web-preprod6.megafon.tv/my/subscriptions");
         }
-
     }
 
     public void clickToTailCardFilmFromFavorites() {

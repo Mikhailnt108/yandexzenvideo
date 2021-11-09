@@ -225,9 +225,13 @@ public class CardSerial extends BasePageWebDriver {
                 System.out.println("numberTimeBefore:" + numberTimeBefore);
             }
         webDriver.get("https://web-preprod6.megafon.tv/");
+        Thread.sleep(10000);
         //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
-        click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
-        Thread.sleep(5000);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
+                , webDriver.findElement(By.xpath("(//h2[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]")));
+
+        click(By.xpath("(//h2[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
+        Thread.sleep(3000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         //нажал на стоп:
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']")));

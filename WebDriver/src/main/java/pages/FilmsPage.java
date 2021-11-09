@@ -192,6 +192,7 @@ public class FilmsPage extends BasePageWebDriver {
         }
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[1]")));
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        Thread.sleep(3000);
     }
 
     public void checkElementsFilmsPage() {

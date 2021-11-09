@@ -12,7 +12,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_Внешний_вид_всплывающего_уведомления_API extends TestBaseWebDriver {
+public class Test_01_NOTIF_Внешний_вид_всплывающего_уведомления_API_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
@@ -27,8 +27,9 @@ public class Test_01_Внешний_вид_всплывающего_уведом
         personalOffer.archivePersonalOfferSubscription();
         popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
         popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         flowRegistation();
+        headerMenu.goToNilPage();
         popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
         popUpNotification.deletePopUpNotifScreenNilPayFilm();
         pageCMS.deleteAccountMF("79260205027");

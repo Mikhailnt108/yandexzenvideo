@@ -12,21 +12,21 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_05_Переход_в_карточку_контента_из_раздела_Моё_Избранное_FRESH_от_14_06_21 extends TestBaseWebDriver {
+public class Test_06_MY_Переход_в_карточку_контента_из_раздела_Моё_Оплаченное_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Переход в карточку контента из раздела Моё_Избранное")
+    @DisplayName(value ="6. Переход в карточку контента из раздела Моё_Оплаченное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void goToContentCardFromFavorites() throws InterruptedException {
+    public void goToContentCardFromMyMyPagePurchases() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
-        cardFilm.clickButtonFavorites();
-        myPage.goToMyPageFavorites();
-        myPage.clickToTailCardFilmFromFavorites();
+        cardFilm.paymentFilmAtEst();
+        myPage.goToMyPagePurchases();
+        myPage.clickToTailCardFilmFromPurchases();
         cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccountMF("79260172279");
     }

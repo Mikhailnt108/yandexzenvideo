@@ -751,13 +751,16 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
 
-    public void checkLoginUserIsCorrect() {
+    public void checkElementsPopUpBundleUserMF() {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
-        if (webDriver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']")).size() != 0) {
-            click(By.xpath("//button[text()='Закрыть']"));
-            webDriver.navigate().refresh();
-        }
+        webDriver.findElement(By.xpath("//h3[contains(text(),'Вам доступно')]"));
+        isElementDisplayed(By.xpath("//div[@aria-label='Notification']"));
+        isElementDisplayed(By.xpath("(//div[@role='dialog']//button)[2]"));
+        isElementDisplayed(By.xpath("(//div[@role='dialog']//div)[4]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(),'Вам доступно')]"));
+        isElementDisplayed(By.xpath("//button[text()='Смотреть']"));
+        isElementDisplayed(By.xpath("//button[text()='Закрыть']"));
     }
 
     public void checkElementsPopUpPromoCode() {

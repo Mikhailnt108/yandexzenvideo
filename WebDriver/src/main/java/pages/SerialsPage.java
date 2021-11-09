@@ -429,6 +429,7 @@ public class SerialsPage extends BasePageWebDriver {
         for(int i=0;i<tailsBlockCollectHistoryWatch.size();i++){
             tailsBlockCollectHistoryWatch = webDriver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
             tailsBlockCollectHistoryWatch.get(i).click();
+            Thread.sleep(3000);
             Assert.assertEquals("есть контент 18+",0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
             Assert.assertEquals("есть контент не сериал",1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size());
             webDriver.get("https://web-preprod6.megafon.tv/shows");
@@ -452,12 +453,14 @@ public class SerialsPage extends BasePageWebDriver {
         Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
     }
 
-    public void clickToLastTailBlockCollectHistoryWatch() {
+    public void clickToLastTailBlockCollectHistoryWatch() throws InterruptedException {
         click(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink'])[last()]"));
+        Thread.sleep(3000);
     }
 
-    public void clickToFirstTailBlockCollectHistoryWatch() {
+    public void clickToFirstTailBlockCollectHistoryWatch() throws InterruptedException {
         click(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink'])[1]"));
+        Thread.sleep(3000);
     }
 
     public void checkAbsentBlockCollectHistoryWatch() {

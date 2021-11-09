@@ -10,57 +10,72 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_08_2_MY_Внешний_вид_блока_подборки_История_просмотров_Non_MF extends TestBaseWebDriver {
+public class Test_12_MY_Сортировка_контента extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="8.1 Внешний вид блока подборки История просмотров Моё Non MF")
+    @DisplayName(value = "12. Сортировка контента")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void appearanceBlockCollectViewingHistory() throws Exception {
-        // пользователь НЕ МФ:
+    public void sortingContent() throws Exception {
+        // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
         headerMenu.goToPackagesPage();
-        flowRegistationNonMF();
+        flowRegistation();
+        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
-        cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
+        cardPackage.paymentPackageTnB();
         cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
-
         // просмотр второго сериала:
         headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToSecondTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
-
         // просмотр третьего сериала:
         headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        // чек подборки "продолжить просмотр":
+        // проверка отображения сериала в подборке:
+        // проверка последнего тайла:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickToTabSerials();
+        cardPackage.clickToFirstTailCardSerial();
+        serialsPage.checkToMoveTailToLastPlace();
+
+        // проверка первого тайла:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickToThirdTailCardSerial();
+        serialsPage.checkToMoveTailToFirstPlace();
+
+        // проверка перемещения тайла на первое место после просмотра:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.scrollToTailWatchAndEdit();
-        pageCMS.deleteAccountNonMF("79261184972");
+        serialsPage.clickToLastTailBlockCollectHistoryWatch();
+        cardSerial.continueWatching();
+        serialsPage.checkToMoveTailToFirstPlace();
+        pageCMS.deleteAccountMF("79260172279");
     }
-
-    private void flowRegistationNonMF() throws InterruptedException {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9261184972");
+        headerMenu.inputLogin("9260172279");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpInputEmail("9261184972");
-        headerMenu.checkElementsPopUpInputEmail();
-        headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
-        headerMenu.clickToNext("Далее");
-        headerMenu.inputPassword("111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
         headerMenu.clickToComeIn("Войти");
-        pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
+        headerMenu.checkOpenPopUpInputCode();
+        pageCMS.copyPasteCodMsisdn("79260172279");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

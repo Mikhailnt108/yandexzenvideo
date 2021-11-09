@@ -12,21 +12,21 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_Переход_в_подраздел_из_Пакетов_FRESH_от_14_06_21 extends TestBaseWebDriver {
+public class Test_03_MY_Переход_на_страницу_Моё_Оплаченное extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Переход в подраздел из Пакетов")
+    @DisplayName(value ="Переход на страницу Моё_Оплаченное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void goToPackagesPage() throws InterruptedException {
+    public void goToMyPagePurchases() throws InterruptedException {
         headerMenu.goToPackagesPage();
         flowRegistation();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.paymentPackageTnB();
-        myPage.goToMyPageSubscriptions();
-        myPage.checkSubscriptionsPackages();
+        myPage.goToMyPagePurchases();
+        myPage.goToCollectionPurchasesPage();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() throws InterruptedException {

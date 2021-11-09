@@ -10,19 +10,19 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_14_МОЁ_Продолжить_просмотр_RETEST extends TestBaseWebDriver {
+public class Test_11_MY_Контент_cоответствует_разделу extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value = "14. Продолжить просмотр")
+    @DisplayName(value = "11. Контент cоответствует разделу")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void continueWatching() throws Exception {
+    public void contentСorrespondsToSection() throws Exception {
+        // пользователь МФ:
         // подключение пакет и просмотр первого сериала:
-        headerMenu.goToNilPage();
-        flowRegistation();
         headerMenu.goToPackagesPage();
+        flowRegistation();
         packagesPage.clickToTabSerialsInMenuShopPage();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
         cardPackage.paymentPackageTnB();
@@ -42,12 +42,25 @@ public class Test_14_МОЁ_Продолжить_просмотр_RETEST extends
         cardPackage.clickToThirdTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();
 
-        // чек автозапуска плеера с места остановки:
+        // просмотр фильма из подключенного пакета:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTabSerialsInMenuShopPage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickOnTailFirstCardFilm();
+        cardFilm.moveSliderRewindToVideoPlayer();
+
+        // просмотр сериала 18+:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTailCardPackage18Plus();
+        cardPackage.paymentPackageTnB();
+        cardPackage.clickToTabSerials();
+        cardPackage.clickToFirstTailCardSerial();
+        cardSerial.moveSliderRewindToVideoPleer18Plus();
+
+        // чек контент - только сериалы без 18+ в подборке продолжить просмтор:
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsBlockCollectHistoryWatch();
-        serialsPage.clickToFirstTailBlockCollectHistoryWatch();
-        cardSerial.checkTimeStopPlayer();
-        cardSerial.checkButtonContinueWatching();
+        serialsPage.checkContentOnlySerialsWithout18Plus();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() throws InterruptedException {

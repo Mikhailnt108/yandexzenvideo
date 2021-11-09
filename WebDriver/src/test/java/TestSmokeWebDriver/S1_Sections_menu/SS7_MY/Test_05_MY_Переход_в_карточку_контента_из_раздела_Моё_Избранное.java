@@ -12,31 +12,22 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_Переход_на_страницу_Моё_Избранное_FRESH_от_13_06_21 extends TestBaseWebDriver {
+public class Test_05_MY_Переход_в_карточку_контента_из_раздела_Моё_Избранное extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
-    @DisplayName(value ="Переход на страницу Моё_Избранное")
+    @DisplayName(value ="Переход в карточку контента из раздела Моё_Избранное")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void goToFavoritesPage() throws InterruptedException {
+    public void goToContentCardFromFavorites() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
         filmsPage.clickToTailCardFilm();
-        cardFilm.checkOpenCardFilm();
-        cardFilm.clickButtonFavorites();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm2FromAll();
-        cardFilm.clickButtonFavorites();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm3FromAll();
-        cardFilm.clickButtonFavorites();
-        headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm4FromAll();
         cardFilm.clickButtonFavorites();
         myPage.goToMyPageFavorites();
-        myPage.goToCollectionFavoritesPage();
+        myPage.clickToTailCardFilmFromFavorites();
+        cardFilm.checkOpenCardFilm();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() throws InterruptedException {

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_07_Переход_в_карточку_контента_из_раздела_Моё_Пакеты_FRESH_от_14_06_21 extends TestBaseWebDriver {
+public class Test_07_MY_Переход_в_карточку_контента_из_раздела_Моё_Пакеты extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "9. Моё")
