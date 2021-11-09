@@ -176,11 +176,13 @@ public class FilmsPage extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink'])[5]"));
     }
 
-    public void checkFilmsPromo() {
+    public void checkFilmsPromo() throws InterruptedException {
         List<WebElement> CollectionPackages = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
         for (int i = 0; i < 5; i++) {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']")));
             CollectionPackages = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionPackages.get(i).click();
+            Thread.sleep(3000);
             Assert.assertEquals("Нет кнопки 'По акции на 48 часов за 0 ₽' на странице", "По акции на 48 часов за 0 ₽", webDriver.findElement(By.xpath("//span[text()='По акции на 48 часов за 0 ₽']")).getText());
             webDriver.navigate().back();
         }

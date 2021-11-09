@@ -383,7 +383,8 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void openSubsectionPromo() throws InterruptedException {
-        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        Thread.sleep(3000);
+        click(By.xpath("(//span[contains(text(),'+79')])[2]"));
         click(By.xpath("(//span[text()='Акции'])[1]"));
         Thread.sleep(3000);
     }

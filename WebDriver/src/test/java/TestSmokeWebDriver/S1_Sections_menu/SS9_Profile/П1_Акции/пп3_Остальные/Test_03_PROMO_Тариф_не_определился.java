@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп0_Акции;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп3_Остальные;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -12,23 +12,22 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_АКЦИИ_Переход_в_раздел_Фильмы_FRESH extends TestBaseWebDriver {
+public class Test_03_PROMO_Тариф_не_определился extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="2. Переход в раздел Фильмы")
+    @DisplayName(value ="Тариф не определился")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void goToMoviesPromoSection() throws InterruptedException {
-        headerMenu.goToNilPage();
+    public void tariffNotDefined() throws InterruptedException {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleInternetMFromMsisdn("79260205027");
-        headerMenu.closePopUpNotif();
+        pageCMS.chooseNotDefinedTariff("79260205027");
+        headerMenu.closePopUpNotDefinedTariff();
         headerMenu.openSubsectionPromo();
-        promoPage.clickButtonGoToFilms();
-        filmsPage.checkFilmsPromo();
-        pageCMS.chooseBundleNotSelected("79260205027");
+        promoPage.checkNotDefinedTariff();
+        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260205027");
         pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() throws InterruptedException {

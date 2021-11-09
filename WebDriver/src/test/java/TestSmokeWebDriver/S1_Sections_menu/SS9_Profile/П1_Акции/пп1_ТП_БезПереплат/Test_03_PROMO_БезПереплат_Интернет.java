@@ -1,32 +1,30 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп2_ТП_VIP_or_Премиум;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп1_ТП_БезПереплат;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_Премиум_FRESH extends TestBaseWebDriver {
+public class Test_03_PROMO_БезПереплат_Интернет extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Премиум")
+    @DisplayName(value ="БезПереплат.Интернет")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void bundlPremium() throws InterruptedException {
-        headerMenu.goToNilPage();
+    public void bundlBezPereplatMax() throws InterruptedException {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundlePremiumFromMsisdn("79260205027");
+        pageCMS.chooseBundleBezPereplatInternetFromMsisdn("79260205027");
         headerMenu.closePopUpNotif();
         headerMenu.openSubsectionPromo();
-        promoPage.checkBundlePremium();
+        promoPage.checkBundleBezPereplatInternet();
         pageCMS.chooseBundleNotSelected("79260205027");
         pageCMS.deleteAccountMF("79260205027");
     }

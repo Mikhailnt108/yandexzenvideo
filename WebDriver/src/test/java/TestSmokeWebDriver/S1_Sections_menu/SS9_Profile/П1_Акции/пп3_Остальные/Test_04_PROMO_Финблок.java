@@ -12,35 +12,34 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_Тариф_не_определился_добавить_ASHOT_RETEST19 extends TestBaseWebDriver {
+public class Test_04_PROMO_Финблок extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="Тариф не определился")
+    @DisplayName(value ="4. Финблок юзер МФ")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void tariffNotDefined() throws InterruptedException {
-        headerMenu.goToNilPage();
-        flowRegistation();
-        pageCMS.chooseNotDefinedTariff("79260205027");
-        headerMenu.closePopUpNotDefinedTariff();
+    public void financialBlockingMegafon() throws InterruptedException {
+        headerMenu.goToFilmsPage();
+        flowRegistration();
         headerMenu.openSubsectionPromo();
-        promoPage.checkNotDefinedTariff();
-        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260205027");
-        pageCMS.deleteAccountMF("79260205027");
+        promoPage.checkBlockingMegafon();
+        promoPage.clickToButtonTopUpPhoneBalance();
+        pageCMS.deleteAccountForBlockingMf("79267644248");
     }
-    private void flowRegistation() throws InterruptedException {
+
+    private void flowRegistration() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260205027");
+        headerMenu.inputLogin("9267644248");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("79267644248", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260205027");
+        pageCMS.copyPasteCodMsisdnBlockingMf("79267644248");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlowForMF();
+        headerMenu.checkLoginUserIsCorrectForBlockingMf();
     }
 }

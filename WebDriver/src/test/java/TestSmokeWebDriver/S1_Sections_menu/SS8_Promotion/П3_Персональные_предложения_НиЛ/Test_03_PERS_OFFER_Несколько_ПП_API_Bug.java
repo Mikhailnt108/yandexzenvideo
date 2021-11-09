@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп3_Остальные;
+package TestSmokeWebDriver.S1_Sections_menu.SS8_Promotion.П3_Персональные_предложения_НиЛ;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -12,21 +12,25 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_Корпоративный_безлимит_АКТУАЛЕН_10_02_21 extends TestBaseWebDriver {
+public class Test_03_PERS_OFFER_Несколько_ПП_API_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Профиль")
-    @Story(value = "2. Акции")
-    @DisplayName(value ="Корпоративный безлимит")
+    @Feature(value = "4. Продвижение")
+    @Story(value = "3. Персональное предложение")
+    @DisplayName(value = "Несколько ПП")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void bundleCorpBezlimit() throws InterruptedException {
-        headerMenu.goToNilPage();
+    public void fewPersonalOffers() throws InterruptedException {
+        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
+        personalOffer.createPersonalOfferTypeSubscription();
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleCorpBezlimitFromMsisdn("79260205027");
-        headerMenu.openSubsectionPromo();
-        promoPage.checkBundleCorpBezlimit();
-        pageCMS.chooseBundleNotSelected("79260205027");
+        headerMenu.goToNilPage();
+        personalOffer.checkElementsFewPersonalOffers();
+        personalOffer.clickToElementPersonalOffer();
+        promoPage.checkOpenPromoPage();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
+        personalOffer.archivePersonalOfferSubscription();
         pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() throws InterruptedException {

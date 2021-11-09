@@ -15,7 +15,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_21 extends TestBaseWebDriver {
+public class Test_02_PROMO_Пользователь_НЕ_МФ extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @DisplayName(value ="Пользователь НЕ_МФ")
@@ -23,7 +23,7 @@ public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_2
     @Test
     @Tag("SuiteWD#4")
     public void userNonMegafon() throws InterruptedException {
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         flowRegistationNonMF();
         headerMenu.openSubsectionPromo();
         promoPage.checkNotMegafon();
@@ -38,7 +38,6 @@ public class Test_02_Пользователь_НЕ_МФ_АКТУАЛЕН_10_02_2
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");
-        headerMenu.checkElementsPopUpInputEmail();
         headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenu.clickToNext("Далее");
         headerMenu.inputPassword("111111");

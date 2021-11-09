@@ -12,7 +12,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWebDriver {
+public class Test_04_PERS_OFFER_Разные_типы_ПП_API_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")
@@ -25,8 +25,9 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         flowRegistationMF();
+        headerMenu.goToNilPage();
         personalOffer.checkElementsOnePersonalOffer();
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
@@ -34,15 +35,18 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
         pageCMS.deleteAccountMF("79260205027");
 
         //проверка недоступности перс предложения тип - пакет за ноль рублей для НЕ МФ
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         flowRegistationNonMF();
+        headerMenu.goToNilPage();
         personalOffer.checkAbsentElementPersonalOffer();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         headerMenu.logOut();
 
         //проверка доступности перс предложения тип - подписка для МФ
         personalOffer.createPersonalOfferTypeSubscription();
+        headerMenu.goToFilmsPage();
         flowRegistationMF();
+        headerMenu.goToNilPage();
         personalOffer.checkElementsOnePersonalOffer();
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferSubscription();
@@ -50,8 +54,9 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
         pageCMS.deleteAccountMF("79260205027");
 
         //проверка доступности перс предложения тип - подписка для НЕ МФ
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         flowAuthorizationNonMF();
+        headerMenu.goToNilPage();
         personalOffer.checkElementsOnePersonalOffer();
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferSubscription();
@@ -59,7 +64,7 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
 
         //проверка доступности партнерсокго предложения для НЕ МФ
         personalOffer.createPersonalOfferTypePartnerOfferForNonMF();
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         headerMenu.logOut();
         flowAuthorizationNonMF();
         personalOffer.checkElementsOnePersonalOffer();
@@ -69,9 +74,10 @@ public class Test_04_Разные_типы_ПП_API_RETEST19 extends TestBaseWeb
         personalOffer.checkOpenPageURLPartner();
         pageCMS.deleteAccountNonMF("79261184972");
 
-        //проверка недоступности партнерсокго предложения для МФ
-        headerMenu.goToNilPage();
+        //проверка недоступности партнерского предложения для МФ
+        headerMenu.goToFilmsPage();
         flowRegistationMF();
+        headerMenu.goToNilPage();
         personalOffer.checkAbsentElementPersonalOffer();
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         pageCMS.deleteAccountMF("79260205027");

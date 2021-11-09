@@ -58,9 +58,9 @@ public class PersonalOffer extends BasePageWebDriver {
                 then().statusCode(anyOf(is(200),is(302)));
     }
 
-    public void checkElementsOnePersonalOffer() {
+    public void checkElementsOnePersonalOffer() throws InterruptedException {
         webDriver.navigate().refresh();
-        isElementDisplayed(By.xpath("//div[text()='Мы подготовили для Вас персональное предложение']|//div[text()='Мы подготовили для вас персональные предложения']"));
+        Thread.sleep(3000);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
                 , webDriver.findElement(By.xpath("//div[text()='Мы подготовили для Вас персональное предложение']|//div[text()='Мы подготовили для вас персональные предложения']")));
         isElementDisplayed(By.className("_2EES6eXVXSN1-aglhcBq0D"));
@@ -115,8 +115,8 @@ public class PersonalOffer extends BasePageWebDriver {
                 then().statusCode(anyOf(is(200),is(302)));
     }
 
-    public void checkElementsFewPersonalOffers() {
-        isElementDisplayed(By.xpath("//div[text()='Мы подготовили для вас персональные предложения']"));
+    public void checkElementsFewPersonalOffers() throws InterruptedException {
+        Thread.sleep(3000);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
                 , webDriver.findElement(By.xpath("//div[text()='Мы подготовили для вас персональные предложения']")));
         isElementDisplayed(By.className("_2EES6eXVXSN1-aglhcBq0D"));
@@ -225,7 +225,7 @@ public class PersonalOffer extends BasePageWebDriver {
                 then().statusCode(anyOf(is(200),is(302)));
         webDriver.navigate().refresh();
     }
-    public void checkElementsWhiteColorSandPersonalOffer() {
+    public void checkElementsWhiteColorSandPersonalOffer() throws InterruptedException {
         //начало перс предложения
         LocalDateTime startOffer = LocalDateTime.now().minusDays(1);
         //конец перс предложения
@@ -258,7 +258,7 @@ public class PersonalOffer extends BasePageWebDriver {
                 when().post("https://bmp-preprod6.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200),is(302)));
         webDriver.navigate().refresh();
-        isElementDisplayed(By.xpath("//div[text()='Мы подготовили для Вас персональное предложение']"));
+        Thread.sleep(3000);
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
                 , webDriver.findElement(By.xpath("//div[text()='Мы подготовили для Вас персональное предложение']")));
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#FFFFFF']"));

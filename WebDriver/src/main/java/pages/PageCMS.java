@@ -65,7 +65,8 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("(//a[@role='button'])[2]"));
         isElementDisplayed(By.xpath("//h3[text()=' Редактирование хаусхолда ']"));
         webDriver.findElement(By.id("bundle")).click();
-        webDriver.findElement(By.xpath("//option[. = 'Интернет M']")).click();
+        webDriver.findElement(By.xpath("//option[. = 'Интернет M']"));
+        click(By.xpath("//option[. = 'Интернет M']"));
         click(By.xpath("//input[@value='Сохранить']"));
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));

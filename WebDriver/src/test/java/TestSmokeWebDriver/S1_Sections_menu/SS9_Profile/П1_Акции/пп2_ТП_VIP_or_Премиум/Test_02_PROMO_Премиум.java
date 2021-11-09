@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп3_Остальные;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп2_ТП_VIP_or_Премиум;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -12,34 +12,35 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_Финблок_добавить_ASHOT_RETEST19 extends TestBaseWebDriver {
+public class Test_02_PROMO_Премиум extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="4. Финблок юзер МФ")
+    @DisplayName(value ="Премиум")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void financialBlockingMegafon() throws InterruptedException {
-        headerMenu.goToNilPage();
-        flowRegistration();
+    public void bundlPremium() throws InterruptedException {
+        headerMenu.goToFilmsPage();
+        flowRegistation();
+        pageCMS.chooseBundlePremiumFromMsisdn("79260205027");
+        headerMenu.closePopUpNotif();
         headerMenu.openSubsectionPromo();
-        promoPage.checkBlockingMegafon();
-        promoPage.clickToButtonTopUpPhoneBalance();
-        pageCMS.deleteAccountForBlockingMf("79267644248");
+        promoPage.checkBundlePremium();
+        pageCMS.chooseBundleNotSelected("79260205027");
+        pageCMS.deleteAccountMF("79260205027");
     }
-
-    private void flowRegistration() throws InterruptedException {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9267644248");
+        headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("79267644248", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdnBlockingMf("79267644248");
+        pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectForBlockingMf();
+        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

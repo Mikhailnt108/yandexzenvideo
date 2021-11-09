@@ -5,14 +5,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_1_АКЦИИ_Персональные_предложения_FRESH extends TestBaseWebDriver {
+public class Test_04_1_PROMO_Персональные_предложения_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
@@ -25,8 +23,9 @@ public class Test_04_1_АКЦИИ_Персональные_предложени�
         personalOffer.createPersonalOfferTypeSubscription();
         personalOffer.createPersonalOfferTypePartnerOfferKinoPoiskForMF();
         personalOffer.createPersonalOfferTypePartnerOfferOkkoTvForMF();
-        headerMenu.goToNilPage();
+        headerMenu.goToFilmsPage();
         flowRegistation();
+        headerMenu.goToNilPage();
         headerMenu.openSubsectionPromo();
         promoPage.checkElementsBlockPersonalOffers();
 //        promoPage.scrollPersonalOffers();

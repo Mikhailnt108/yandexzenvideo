@@ -1,7 +1,10 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп1_ТП_БезПереплат_FRESH;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп2_ТП_VIP_or_Премиум;
 
 import base.TestBaseWebDriver;
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -12,25 +15,25 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_БезПереплат_Интернет extends TestBaseWebDriver {
+public class Test_01_PROMO_Пользователь_VIP extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @Story(value = "2. Акции")
-    @DisplayName(value ="БезПереплат.Интернет")
+    @DisplayName(value ="Пользователь VIP")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void bundlBezPereplatMax() throws InterruptedException {
-        headerMenu.goToNilPage();
-        flowRegistation();
-        pageCMS.chooseBundleBezPereplatInternetFromMsisdn("79260205027");
+    public void userVip() throws InterruptedException {
+        headerMenu.goToFilmsPage();
+        flowRegistration();
+        pageCMS.chooseRoleVip("79260205027");
         headerMenu.closePopUpNotif();
         headerMenu.openSubsectionPromo();
-        promoPage.checkBundleBezPereplatInternet();
-        pageCMS.chooseBundleNotSelected("79260205027");
+        promoPage.checkVipUser();
+        pageCMS.chooseRoleUser("79260205027");
         pageCMS.deleteAccountMF("79260205027");
     }
-    private void flowRegistation() throws InterruptedException {
+
+    private void flowRegistration() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();

@@ -12,22 +12,22 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_АКЦИИ_Переход_на_страницу_Пакета_FRESH extends TestBaseWebDriver {
+public class Test_02_PROMO_Переход_в_раздел_Фильмы extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
     @Story(value = "2. Акции")
-    @DisplayName(value ="3. Переход на страницу Пакета")
+    @DisplayName(value ="2. Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void goToPackagePage() throws InterruptedException {
-        headerMenu.goToNilPage();
+    public void goToMoviesPromoSection() throws InterruptedException {
+        headerMenu.goToFilmsPage();
         flowRegistation();
         pageCMS.chooseBundleInternetMFromMsisdn("79260205027");
         headerMenu.closePopUpNotif();
         headerMenu.openSubsectionPromo();
-        promoPage.clickButtonGoToPackage();
-        promoPage.goToBackInSectionProfile();
+        promoPage.clickButtonGoToFilms();
+        filmsPage.checkFilmsPromo();
         pageCMS.chooseBundleNotSelected("79260205027");
         pageCMS.deleteAccountMF("79260205027");
     }

@@ -1,39 +1,34 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп2_ТП_VIP_or_Премиум;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп1_ТП_БезПереплат;
 
 import base.TestBaseWebDriver;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_Пользователь_VIP_FRESH extends TestBaseWebDriver {
+public class Test_02_PROMO_БезПереплат_Всё extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Профиль")
-    @DisplayName(value ="Пользователь VIP")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="БезПереплат.Всё")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void userVip() throws InterruptedException {
-        headerMenu.goToNilPage();
-        flowRegistration();
-        pageCMS.chooseRoleVip("79260205027");
+    public void bundlBezPereplatMax() throws InterruptedException {
+        headerMenu.goToFilmsPage();
+        flowRegistation();
+        pageCMS.chooseBundleBezPereplatVseFromMsisdn("79260205027");
         headerMenu.closePopUpNotif();
         headerMenu.openSubsectionPromo();
-        promoPage.checkVipUser();
-        pageCMS.chooseRoleUser("79260205027");
+        promoPage.checkBundleBezPereplatVse();
+        pageCMS.chooseBundleNotSelected("79260205027");
         pageCMS.deleteAccountMF("79260205027");
     }
-
-    private void flowRegistration() throws InterruptedException {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();

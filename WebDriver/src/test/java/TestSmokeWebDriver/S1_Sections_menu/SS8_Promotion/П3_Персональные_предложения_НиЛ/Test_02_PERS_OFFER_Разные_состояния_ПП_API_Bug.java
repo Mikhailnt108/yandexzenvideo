@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп0_Акции;
+package TestSmokeWebDriver.S1_Sections_menu.SS8_Promotion.П3_Персональные_предложения_НиЛ;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -10,29 +10,34 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-import java.awt.*;
-import java.io.IOException;
-
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_1_АКЦИИ_Внешний_вид_раздела_RETEST19 extends TestBaseWebDriver {
+public class Test_02_PERS_OFFER_Разные_состояния_ПП_API_Bug extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Профиль")
-    @Story(value = "2. Акции")
-    @DisplayName(value ="1.1 Внешний вид раздела")
+    @Feature(value = "4. Продвижение")
+    @Story(value = "3. Персональное предложение")
+    @DisplayName(value = "ПП разные состояния")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void appearancePagePromo() throws InterruptedException, IOException, AWTException {
-        headerMenu.goToNilPage();
+    public void POdifferentState() throws InterruptedException {
+        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
+        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
+        personalOffer.archivePersonalOfferSubscription();
+        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        pageCMS.chooseBundleNotSelected("79260205027");
-        headerMenu.openSubsectionPromo();
-        promoPage.checkElementsWithoutBlockPersonalOffer();
-        promoPage.checkExpandDiscriptionPromo();
-        promoPage.checkHideDiscriptionPromo();
+        headerMenu.goToNilPage();
+        personalOffer.checkElementsWhiteColorSandPersonalOffer();
+        personalOffer.checkElementsYellowColorSandPersonalOffer();
+        personalOffer.checkElementsRedColorSandPersonalOffer();
+        personalOffer.clickToElementPersonalOffer();
+        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         pageCMS.deleteAccountMF("79260205027");
     }
+
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -47,3 +52,4 @@ public class Test_01_1_АКЦИИ_Внешний_вид_раздела_RETEST19 
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }
+

@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS8_Promotion.П3_Персональные_предложения_НиЛ;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.П1_Акции.пп0_Акции;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -12,31 +12,25 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_ПП_разные_состояния_API extends TestBaseWebDriver {
+public class Test_03_PROMO_Переход_на_страницу_Пакета extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "4. Продвижение")
-    @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "ПП разные состояния")
+    @Feature(value = "3. Профиль")
+    @Story(value = "2. Акции")
+    @DisplayName(value ="3. Переход на страницу Пакета")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void POdifferentState() throws InterruptedException {
-        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
-        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
-        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
-        personalOffer.archivePersonalOfferSubscription();
-        personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
-        headerMenu.goToNilPage();
+    public void goToPackagePage() throws InterruptedException {
+        headerMenu.goToFilmsPage();
         flowRegistation();
-        personalOffer.checkElementsWhiteColorSandPersonalOffer();
-        personalOffer.checkElementsYellowColorSandPersonalOffer();
-        personalOffer.checkElementsRedColorSandPersonalOffer();
-        personalOffer.clickToElementPersonalOffer();
-        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
-        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
+        pageCMS.chooseBundleInternetMFromMsisdn("79260205027");
+        headerMenu.closePopUpNotif();
+        headerMenu.openSubsectionPromo();
+        promoPage.clickButtonGoToPackage();
+        promoPage.goToBackInSectionProfile();
+        pageCMS.chooseBundleNotSelected("79260205027");
         pageCMS.deleteAccountMF("79260205027");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -51,4 +45,3 @@ public class Test_02_ПП_разные_состояния_API extends TestBaseWe
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }
-
