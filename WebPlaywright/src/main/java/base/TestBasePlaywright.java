@@ -94,11 +94,11 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException{
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-//                .setViewportSize(1900, 920));    // моноблок
-                .setViewportSize(1360, 760));  // ноутбук
+                .setViewportSize(1900, 920));    // моноблок
+//                .setViewportSize(1360, 760));  // ноутбук
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
-//                .setViewportSize(1900, 920));   // моноблок
-                .setViewportSize(1360, 760)); // ноутбук
+                .setViewportSize(1900, 920));   // моноблок
+//                .setViewportSize(1360, 760)); // ноутбук
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();

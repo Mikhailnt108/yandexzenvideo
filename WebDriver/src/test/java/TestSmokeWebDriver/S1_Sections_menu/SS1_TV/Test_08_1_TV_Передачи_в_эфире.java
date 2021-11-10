@@ -10,31 +10,22 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.io.IOException;
+
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_09_Жанры_передач_в_эфире_RETEST19 extends TestBaseWebDriver {
+public class Test_08_1_TV_Передачи_в_эфире extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="9. Жанры передач в эфире")
+    @DisplayName(value ="Передачи в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void genresTvProgramInAir() throws Exception {
+    public void tvProgramInAir() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabTvProgramInAir();
-        tvPage.clickOnTabHD();
-        tvPage.checkColorButtonChooseGenre();
-        tvPage.checkGenreHDTvProgramInAir();
-        tvPage.clickOnTabForKids();
-        tvPage.checkColorButtonChooseGenre();
-        tvPage.checkGenreForKidsTvProgramInAir();
-        tvPage.clickOnTabInRecording();
-        tvPage.checkColorButtonChooseGenre();
-        tvPage.checkGenreInRecordingTvProgramInAir();
-        tvPage.clickOnTabKino();
-        tvPage.checkColorButtonChooseGenre();
-        tvPage.checkGenreKinoTvProgramInAir();
+        tvPage.checkElementsTailsTvProgramInAir();
     }
 }

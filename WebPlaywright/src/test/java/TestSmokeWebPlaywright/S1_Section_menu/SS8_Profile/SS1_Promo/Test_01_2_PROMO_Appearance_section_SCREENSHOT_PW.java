@@ -10,7 +10,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_2_PROMO_Appearance_section_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -18,10 +18,11 @@ public class Test_01_2_PROMO_Appearance_section_SCREENSHOT_PW extends TestBasePl
     @DisplayName(value ="01_2_PROMO_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#4")
     public void PROMO_Appearance_section_SCREENSHOT() throws InterruptedException, IOException {
-        headerMenuPW.goToNilPage();;
+        headerMenuPW.goToFilmsPage();
         flowRegistationMF();
+        headerMenuPW.goToFilmsPage();
         headerMenuPW.openSubsectionPromo();
         personalOfferPW.archivePersonalOfferPackageForZeroRublesForMF();
         personalOfferPW.archivePersonalOfferSubscription();
@@ -33,7 +34,7 @@ public class Test_01_2_PROMO_Appearance_section_SCREENSHOT_PW extends TestBasePl
         personalOfferPW.createPersonalOfferTypeSubscription();
         personalOfferPW.createPersonalOfferTypePartnerOfferKinoPoiskForMF();
         personalOfferPW.createPersonalOfferTypePartnerOfferOkkoTvForMF();
-        headerMenuPW.goToNilPage();
+        headerMenuPW.goToFilmsPage();
         headerMenuPW.logOut();
         flowAuthorization();
         headerMenuPW.openSubsectionPromo();
@@ -48,12 +49,12 @@ public class Test_01_2_PROMO_Appearance_section_SCREENSHOT_PW extends TestBasePl
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 020 50 27");
+        authPagePW.inputLoginNonAdWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
+        headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");
@@ -62,7 +63,7 @@ public class Test_01_2_PROMO_Appearance_section_SCREENSHOT_PW extends TestBasePl
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 020 50 27");
+        authPagePW.inputLoginAdWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
         authPagePW.inputValidPasswordRegister("111111");
         headerMenuPW.clickToComeIn("Войти");

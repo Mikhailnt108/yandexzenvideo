@@ -107,19 +107,23 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkOpenPopUpInputPhone() {
-        page.waitForSelector("//h1[text()='Введите номер телефона']");
+        page.waitForSelector("//h1[text()='Введите номер телефона']|//div[text()='Введите номер телефона']");
     }
 
-    public void inputLogin(String login) {
+    public void inputLoginAdWeb(String login) {
         page.focus("//input[@name='phone']");
         page.fill("//input[@name='phone']", login);
+    }
+    public void inputLoginNonAdWeb(String login) {
+        page.focus("//input[@name='login']");
+        page.fill("//input[@name='login']", login);
     }
 
     public void clickOnButtonBackAndCheckOpenFormInputPhone() throws InterruptedException {
         Thread.sleep(3000);
         page.click("//button[contains(@class,'buttonBack')]");
         Thread.sleep(15000);
-        Assert.assertTrue("not visible element", page.waitForSelector("//h1[text()='Введите номер телефона']").isVisible());
+        Assert.assertTrue("not visible element", page.waitForSelector("//h1[text()='Введите номер телефона']|//div[text()='Введите номер телефона']").isVisible());
     }
 
     public void clickOnOffertaAndCheckOpenDoc() {

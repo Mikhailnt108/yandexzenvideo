@@ -31,7 +31,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private BrowserContext contextIncognitoModeHeadless;
     private BrowserContext contextIncognitoModeHeadfull;
 
-
     public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless) {
         this.page = page;
         this.pageCMS = pageCMS;
@@ -39,8 +38,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void checkNotLoggedIsCorrect() {
-        if(page.querySelectorAll("(//span[contains(text(),'+792')])[2]").size()>0){
-            page.click("(//span[contains(text(),'+792')])[2]");
+        if(page.querySelectorAll("(//span[contains(text(),'+79')])[2]").size()>0){
+            page.click("(//span[contains(text(),'+79')])[2]");
             page.click("(//span[text()='Выйти'])[1]");
         }
         if (page.querySelectorAll("//div[@aria-label='Notification']").size() != 0) {
@@ -49,16 +48,16 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void clickToEnter() {
-         page.waitForSelector("//button[contains(@class,'ch-account-controller')]");
-         page.click("//button[contains(@class,'ch-account-controller')]");
-         page.waitForSelector("//h1[text()='Введите номер телефона']");
+         page.waitForSelector("(//span[text()='Вход'])[1]");
+         page.click("(//span[text()='Вход'])[1]");
+         page.waitForSelector("//h1[text()='Введите номер телефона']|//div[text()='Введите номер телефона']");
     }
 
     public void clickToNext() {
         page.click("//button[text()='Далее']");
     }
 
-    public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
+    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
             pageCMS = contextIncognitoModeHeadless.newPage();
@@ -87,6 +86,37 @@ public class HeaderMenuPW extends BasePagePlaywright {
             page.waitForSelector("//h1[text()='Придумайте пароль']");
             page.fill("//input[@type='password']",password);
         }
+    }
+
+    public void checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF(String login, String password) {
+        page.waitForSelector("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']");
+        if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
+            pageCMS = contextIncognitoModeHeadless.newPage();
+            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user");
+            pageCMS.click("//form[@method='GET']//input[1]");
+            pageCMS.fill("//form[@method='GET']//input[1]", login);
+            pageCMS.click("//button[text()='Поиск']");
+            pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']");
+            pageCMS.click("//a[contains(@href, '/cms/households/')]");
+            pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+            pageCMS.click("//button[text()='Удалить']");
+            pageCMS.onDialog(dialog -> dialog.accept());
+            pageCMS.click("//button[text()='Удалить']");
+            pageCMS.close();
+            page.bringToFront();
+            page.reload();
+            page.querySelector("(//span[text()='Вход'])[1]");
+            page.click("(//span[text()='Вход'])[1]");
+            page.waitForSelector("//div[text()='Введите номер телефона']");
+            page.focus("//input[@name='login']");
+            page.fill("//input[@name='login']", login);
+            page.click("//button[text()='Далее']");
+            page.waitForSelector("//div[text()='Придумайте пароль']");
+            page.fill("//input[@type='password']",password);
+        } else {
+            page.waitForSelector("//div[text()='Придумайте пароль']");
+            page.fill("//input[@type='password']",password);
+        }
 
     }
 
@@ -94,16 +124,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.navigate("https://web-preprod6.megafon.tv/");
     }
 
-
     public void clickToComeIn(String buttons) {
         page.click("//button[text()='Войти']");
     }
 
     public void checkOpenPopUpInputCode() {
-        page.waitForSelector("//h1[text()='Введите код']");
+        page.waitForSelector("//h1[text()='Введите код']|//div[text()='Введите код']");
     }
 
-    public void copyPasteCodMsisdn(String login) {
+    public void copyPasteCodMsisdnForAdWeb(String login) {
         pageCMS = contextIncognitoModeHeadless.newPage();
         pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/msisdn_confirmations");
         pageCMS.click("//form[@method='GET']//input[1]");
@@ -113,6 +142,18 @@ public class HeaderMenuPW extends BasePagePlaywright {
         pageCMS.close();
         page.waitForSelector("//input[@placeholder='Введите код из sms']");
         page.fill("//input[@placeholder='Введите код из sms']",codMsisdn);
+    }
+
+    public void copyPasteCodMsisdnForNonAdWeb(String login) {
+        pageCMS = contextIncognitoModeHeadless.newPage();
+        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/msisdn_confirmations");
+        pageCMS.click("//form[@method='GET']//input[1]");
+        pageCMS.fill("//form[@method='GET']//input[1]", login);
+        pageCMS.click("//button[text()='Поиск']");
+        String codMsisdn = pageCMS.waitForSelector("(//td[text()='79260192144']/following-sibling::td)[4]|(//td[text()='79260172279']/following-sibling::td)[4]|(//td[text()='79260205027']/following-sibling::td)[4]").innerText();
+        pageCMS.close();
+        page.waitForSelector("//input[@placeholder='Код подтверждения']");
+        page.fill("//input[@placeholder='Код подтверждения']",codMsisdn);
     }
 
     public void checkLoginUserIsCorrectFlowForMfOrNonMf() {
@@ -290,15 +331,16 @@ public class HeaderMenuPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openSubsectionPromo() {
-        page.click("(//div[@class='ch-trigger__container'])[4]");
+    public void openSubsectionPromo() throws InterruptedException {
+        Thread.sleep(3000);
+        page.click("(//span[contains(text(),'+79')])[2]");
         page.waitForSelector("//div[@class='ch-account-item__icon']");
         page.click("//div[@class='ch-account-item__icon']");
         page.waitForTimeout(3000);
     }
 
     public void openSubsectionPaymentMethod() {
-        page.click("(//div[@class='ch-trigger__container'])[4]");
+        page.click("(//span[contains(text(),'+79')])[2]");
         page.waitForSelector("(//span[text()='Способы оплаты'])[1]");
         page.click("(//span[text()='Способы оплаты'])[1]");
         page.waitForSelector("//h1//span[text()='Способы оплаты']");
@@ -326,7 +368,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void openSubsectionConnect() {
-        page.click("(//div[@class='ch-trigger__container'])[4]");
+        page.click("(//span[contains(text(),'+79')])[2]");
         page.click("(//span[text()='Подключить SmartTV'])[1]");
         page.waitForSelector("//div[text()='Подключение Smart TV']");
     }
@@ -346,7 +388,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void openSubsectionEmail() {
-        page.click("(//div[@class='ch-trigger__container'])[4]");
+        page.click("(//span[contains(text(),'+79')])[2]");
         page.click("(//span[text()='Email'])[1]");
         page.waitForSelector("//div[text()='Ваш email']");
     }
@@ -513,7 +555,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void logOut() {
-        page.click("(//div[@class='ch-trigger__container'])[4]");
+        page.click("(//span[contains(text(),'+79')])[2]");
         page.click("(//span[text()='Выйти'])[1]");
     }
     public void chooseBundleNotSelected(String login) {

@@ -96,7 +96,8 @@ public class CardTvChannel extends BasePageWebDriver {
         click(By.xpath("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]"));
     }
 
-    public void checkElementsInCardTvChannel() {
+    public void checkElementsInCardTvChannel() throws InterruptedException {
+        Thread.sleep(3000);
         isElementDisplayed(By.className("_1rev14Qo58_GNSeeC-Rh2V"));
         isElementDisplayed(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
         isElementDisplayed(By.xpath("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]"));

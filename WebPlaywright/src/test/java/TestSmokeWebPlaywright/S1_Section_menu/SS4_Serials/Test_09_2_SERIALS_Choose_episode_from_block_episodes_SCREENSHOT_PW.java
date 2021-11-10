@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -16,7 +16,7 @@ public class Test_09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT_PW 
     @DisplayName(value ="09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#4")
     public void SERIALS_Choose_episode_from_block_episodes_SCREENSHOT() throws Exception {
         // пользователь НЕ авторизован:
         headerMenuPW.goToSerialsPage();
@@ -26,6 +26,7 @@ public class Test_09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT_PW 
         // пользователь авторизован:
         headerMenuPW.goToSerialsPage();
         flowRegistationMF();
+        headerMenuPW.goToSerialsPage();
         serialsPagePW.clickToTailCardSerial();
         cardSerialPW.checkOpenCardSerial();
         cardSerialPW.checkImagePopUpSubscription();
@@ -34,12 +35,12 @@ public class Test_09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT_PW 
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 020 50 27");
+        authPagePW.inputLoginNonAdWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
+        headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");

@@ -12,32 +12,38 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_11_1_Незаписываемая_передача_FRESH extends TestBaseWebDriver {
+public class Test_05_1_TV_Карточка_передачи extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="Незаписываемая ТВ передача")
+    @DisplayName(value ="5.1 Карточка передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void unrecordedTvProgram() throws Exception {
+    public void cardTvProgram() throws Exception {
+        //неавторизованный пользователь:
         headerMenu.goToTvPage();
-        flowRegistation();
         tvPage.clickOnTabTvProgramInAir();
+        tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
-        cardTvProgram.checkPaymentComplete();
-        headerMenu.refreshPage();
+        cardTvProgram.checkElementsInCardTvProgram();
+        //авторизованный пользователь:
+        headerMenu.goToTvPage();
+        flowRegistation();
+        tvPage.clickOnTabInRecording();
+        tvPage.clickToTailTvChannel();
+        cardTvChannel.checkOpenCardTvChannel();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        cardTvChannel.checkPaymentComplete();
+        cardTvChannel.clickOnTvProgramInCardChannel();
+        cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.checkAutoStartVideoPlayer();
-        headerMenu.refreshPage();
-        cardTvProgram.checkElementsPlayerUnrecordedTvProgram();
-        cardTvProgram.testFullScreenPlayer();
-        cardTvProgram.testOnAndOffAudioInPlayer();
-        cardTvProgram.clickOnScheduleInPlayerUnrecordedAndCheckeElements();
-        headerMenu.refreshPage();
-        cardTvProgram.swithOtherTvChannelInsidePlayerForUnrecorded();
-        cardTvProgram.checkAutoStartVideoPlayer();
+        cardTvProgram.checkButtonFavoriteNotAdded();
+        cardTvProgram.clickButtonFavorite();
+        cardTvProgram.checkButtonFavoriteAdded();
+        cardTvProgram.clickOnTvChannelInCardProgram();
+        cardTvChannel.checkOpenCardTvChannel();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {

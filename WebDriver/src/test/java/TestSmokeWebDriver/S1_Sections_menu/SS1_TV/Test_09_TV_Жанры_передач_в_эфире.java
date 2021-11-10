@@ -12,25 +12,29 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_07_Переход_в_карточку_передачи_и_канала_FRESH_от_28_06_21 extends TestBaseWebDriver {
+public class Test_09_TV_Жанры_передач_в_эфире extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="Переход в карточку передачи и канала")
+    @DisplayName(value ="9. Жанры передач в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void tvProgramInAir() throws InterruptedException {
+    public void genresTvProgramInAir() throws Exception {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();
-        tvPage.clickToLinkTvProgram();
-        cardTvProgram.checkOpenCardTvProgram();
-        headerMenu.goToBack();
-        tvPage.clickToTailTvChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        headerMenu.goToBack();
         tvPage.clickOnTabTvProgramInAir();
-        tvPage.clickToTailTvProgram();
-        cardTvProgram.checkOpenCardTvProgram();
+        tvPage.clickOnTabHD();
+        tvPage.checkColorButtonChooseGenre();
+        tvPage.checkGenreHDTvProgramInAir();
+        tvPage.clickOnTabForKids();
+        tvPage.checkColorButtonChooseGenre();
+        tvPage.checkGenreForKidsTvProgramInAir();
+        tvPage.clickOnTabInRecording();
+        tvPage.checkColorButtonChooseGenre();
+        tvPage.checkGenreInRecordingTvProgramInAir();
+        tvPage.clickOnTabKino();
+        tvPage.checkColorButtonChooseGenre();
+        tvPage.checkGenreKinoTvProgramInAir();
     }
 }

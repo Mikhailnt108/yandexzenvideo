@@ -259,13 +259,13 @@ public class SerialsPagePW extends BasePagePlaywright {
 
         // подготовка баннеров:
         List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
-        if (dotBefore.size() > 25) {
+        if (dotBefore.size() > 22) {
             while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 25) {
                 page.evaluate("dU => dU.remove();", page.querySelector("(//button[@data-test='CarouselDotButton'])[last()]"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
             }
         }
-        if (dotBefore.size() < 25) {
+        if (dotBefore.size() < 22) {
             while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 25) {
                 page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[2].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
                 System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
@@ -299,7 +299,7 @@ public class SerialsPagePW extends BasePagePlaywright {
         }
         System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
         page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
-        page.waitForTimeout(4000);
+        page.waitForTimeout(3000);
         // делаем скриншот полной страницы "SerialsPageScrollForGuest":
         vrt.track(
                 "SerialsPageScrollForGuest",
@@ -605,7 +605,8 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void clickToTailCardSerial() {
-        page.click("(//a[@data-test='PackageLink'])[7]");
+        page.waitForSelector("(//a[@data-test='PackageLink'])[9]");
+        page.click("(//a[@data-test='PackageLink'])[9]");
     }
 
     public void chooseSeasonsMoreOneSeason() {

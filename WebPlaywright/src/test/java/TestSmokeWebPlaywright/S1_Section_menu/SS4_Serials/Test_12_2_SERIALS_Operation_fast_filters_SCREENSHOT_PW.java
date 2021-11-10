@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_12_2_SERIALS_Operation_fast_filters_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -16,7 +16,7 @@ public class Test_12_2_SERIALS_Operation_fast_filters_SCREENSHOT_PW extends Test
     @DisplayName(value = "12_2_SERIALS_Operation_fast_filters_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#4")
     public void SERIALS_Operation_fast_filters_SCREENSHOT() throws Exception {
         headerMenuPW.goToSerialsPage();
         serialsPagePW.checkImageBlocksFiltersForGuest();

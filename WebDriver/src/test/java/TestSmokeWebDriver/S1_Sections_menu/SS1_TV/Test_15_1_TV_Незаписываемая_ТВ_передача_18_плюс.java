@@ -10,43 +10,44 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-import java.io.IOException;
-
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_1_Карточка_канала_RETEST19 extends TestBaseWebDriver {
+public class Test_15_1_TV_Незаписываемая_ТВ_передача_18_плюс extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="Карточка канала")
+    @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void cardTvChannel() throws IOException, InterruptedException {
-        // неавторизованный пользователь:
-        headerMenu.goToTvPage();
-        tvPage.checkOpenTvPageTabScheduleTv();
-        tvPage.clickOnTabInRecording();
-        tvPage.clickToTailTvChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.checkElementsInCardTvChannel();
-        // авторизованный пользователь:
+    public void unrecordedTvProgram18Plus() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.clickOnTabInRecording();
-        tvPage.clickToTailTvChannel();
-        cardTvChannel.checkOpenCardTvChannel();
+        headerMenu.goToPackagesPage();
+        packagesPage.checkOpenShopPage();
+        packagesPage.checkTabAllPackagesInMenuShopPage();
+        packagesPage.clickToTailCardPackage18Plus();
+        cardPackage.checkOpenCardPackage18Plus();
+        cardPackage.chooseUnrecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
+        cardTvChannel.goToTvProgram18Plus();
+        cardTvProgram.clickYesInPopUp18Plus();
         headerMenu.refreshPage();
-        cardTvChannel.checkAutoStartVideoPlayer();
-        cardTvChannel.checkButtonFavoriteNotAdded();
-        cardTvChannel.clickOnButtonFavorite();
-        cardTvChannel.checkButtonFavoriteAdded();
-        cardTvChannel.clickOnTvProgramInCardChannel();
-        cardTvProgram.checkOpenCardTvProgram();
+        cardTvProgram.checkOpenPopUp18plus();
+        cardTvProgram.clickNoInPopUp18Plus();
+        cardTvProgram.clickOnPlayInPlayer();
+        cardTvProgram.checkOpenPopUp18plus();
+        //запуск плеера передачи 18+:
+        cardTvProgram.clickYesInPopUp18Plus();
+        //переключение на соседнюю передачу 18+ внутри плеера:
+//        cardTvProgram.swithOtherTvChannelInsidePlayerForUnrecorded();
+//        cardTvProgram.checkAbsentPopUp18plus();
+//        //переключение c передачи 18+ на передачу НЕ 18+ внутри плеера:
+//        cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
+//        //переключение c передачи НЕ 18+ на передачу 18+ внутри плеера:
+//        cardTvProgram.swithOnUnrecordedTvChannel18PlusInsidePlayer();
         pageCMS.deleteAccountMF("79260192144");
-
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
@@ -61,4 +62,5 @@ public class Test_04_1_Карточка_канала_RETEST19 extends TestBaseWe
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
+    
 }

@@ -157,7 +157,7 @@
 <!--                        <include>**/*PW.java</include>-->
 <!--                    </includes>-->
                     <properties>
-                        <groups>Test</groups>
+                        <groups>SuitePwNonAdWeb#4</groups>
 <!--                        <include>SuitePwTest1,SuitePwTest2,SuitePwTest3</include>-->
 <!--                        <include>**/Test*.java</include>-->
 <!--                        <include>**/*RETEST2408.java</include>-->

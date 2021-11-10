@@ -14,29 +14,39 @@ import java.io.IOException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_14_1_Фильтр_платности_FRESH extends TestBaseWebDriver {
+public class Test_04_1_TV_Карточка_канала extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="Фильтр платности")
+    @DisplayName(value ="Карточка канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void checkFilterPayment() throws InterruptedException, IOException {
+    public void cardTvChannel() throws IOException, InterruptedException {
+        // неавторизованный пользователь:
+        headerMenu.goToTvPage();
+        tvPage.checkOpenTvPageTabScheduleTv();
+        tvPage.clickOnTabInRecording();
+        tvPage.clickToTailTvChannel();
+        cardTvChannel.checkOpenCardTvChannel();
+        cardTvChannel.checkElementsInCardTvChannel();
+        // авторизованный пользователь:
         headerMenu.goToTvPage();
         flowRegistation();
         tvPage.clickOnTabInRecording();
-        tvPage.navigateMouseToToglPaymentOn();
-        tvPage.checkTvChannelsAll();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
-        headerMenu.goToTvPage();
-        tvPage.clickToglePaymentForOff();
-        tvPage.navigateMouseToToglePaymentOff();
-        tvPage.checkTvChannelsOnlyPlugged();
+        headerMenu.refreshPage();
+        cardTvChannel.checkAutoStartVideoPlayer();
+        cardTvChannel.checkButtonFavoriteNotAdded();
+        cardTvChannel.clickOnButtonFavorite();
+        cardTvChannel.checkButtonFavoriteAdded();
+        cardTvChannel.clickOnTvProgramInCardChannel();
+        cardTvProgram.checkOpenCardTvProgram();
         pageCMS.deleteAccountMF("79260192144");
+
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();

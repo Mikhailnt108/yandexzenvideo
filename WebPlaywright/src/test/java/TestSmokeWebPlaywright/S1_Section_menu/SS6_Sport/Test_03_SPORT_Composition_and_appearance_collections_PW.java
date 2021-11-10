@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_SPORT_Composition_and_appearance_collections_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -16,7 +16,7 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
     @DisplayName(value = "03_SPORT_Composition_and_appearance_collections")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#4")
     public void SPORT_Composition_and_appearance_collections() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkImageBlockCollectionSportChannelsFofUser(); // добавить скриншот тесты
@@ -24,6 +24,7 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
         sportPagePW.checkImageBlockCollectionLiveBroadcastForUser(); // добавить скриншот тесты
         // пользователь авторизован:
         flowRegistationMF();
+        headerMenuPW.goToSportPage();
         sportPagePW.checkImageBlockCollectionSportChannelsFofUser(); // добавить скриншот тесты
         sportPagePW.checkElementsBlockCollectionLiveBroadcastForUser();
         sportPagePW.checkImageBlockCollectionLiveBroadcastForUser(); // добавить скриншот тесты
@@ -32,12 +33,12 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 020 50 27");
+        authPagePW.inputLoginNonAdWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
+        headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");

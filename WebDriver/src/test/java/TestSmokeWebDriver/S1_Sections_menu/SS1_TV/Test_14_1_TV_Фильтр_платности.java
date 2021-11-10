@@ -10,40 +10,32 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.io.IOException;
+
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_05_1_Карточка_передачи_RETEST2408 extends TestBaseWebDriver {
+public class Test_14_1_TV_Фильтр_платности extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="5.1 Карточка передачи")
+    @DisplayName(value ="Фильтр платности")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")
-    public void cardTvProgram() throws Exception {
-        //неавторизованный пользователь:
-        headerMenu.goToTvPage();
-        tvPage.clickOnTabTvProgramInAir();
-        tvPage.clickOnTabInRecording();
-        tvPage.clickToTailTvProgram();
-        cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.checkElementsInCardTvProgram();
-        //авторизованный пользователь:
+    public void checkFilterPayment() throws InterruptedException, IOException {
         headerMenu.goToTvPage();
         flowRegistation();
         tvPage.clickOnTabInRecording();
+        tvPage.navigateMouseToToglPaymentOn();
+        tvPage.checkTvChannelsAll();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
-        cardTvChannel.clickOnTvProgramInCardChannel();
-        cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.checkAutoStartVideoPlayer();
-        cardTvProgram.checkButtonFavoriteNotAdded();
-        cardTvProgram.clickButtonFavorite();
-        cardTvProgram.checkButtonFavoriteAdded();
-        cardTvProgram.clickOnTvChannelInCardProgram();
-        cardTvChannel.checkOpenCardTvChannel();
+        headerMenu.goToTvPage();
+        tvPage.clickToglePaymentForOff();
+        tvPage.navigateMouseToToglePaymentOff();
+        tvPage.checkTvChannelsOnlyPlugged();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {

@@ -16,19 +16,21 @@ public class CardTvProgram extends BasePageWebDriver {
     String NIL_Page_PP4 = "https://web-preprod4.megafon.tv/";
     String NIL_Page_PP6 = "https://web-preprod6.megafon.tv/";
 
-    public void checkOpenCardTvProgram() {
-
+    public void checkOpenCardTvProgram() throws InterruptedException {
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
     }
     public void clickPaymentButtonInCardTvProgram() {
+        if(webDriver.findElements(By.xpath("(//button[@type='button']//span)[1]")).size()>0){
         click(By.xpath("(//button[@type='button']//span)[1]"));
+        }
     }
 
     public void checkPaymentComplete() {
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет')]|//h3[contains(text(),'Подключение услуги')]"));
+        if(webDriver.findElements(By.xpath("//h3[contains(text(), 'Подписка на пакет')]|//h3[contains(text(),'Подключение услуги')]")).size()==1){
         click(By.xpath("//button[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
-        click(By.xpath("//button[text()='Закрыть']"));
+        click(By.xpath("//button[text()='Закрыть']"));}
     }
 
     public void checkAutoStartVideoPlayer() throws Exception {

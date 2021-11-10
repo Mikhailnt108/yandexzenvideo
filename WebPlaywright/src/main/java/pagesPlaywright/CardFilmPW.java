@@ -40,7 +40,8 @@ public class CardFilmPW extends BasePagePlaywright {
             page.waitForSelector("//span[text()='Смотреть']");
         }
     }
-    public void paymentRent2ForFilm() {
+    public void paymentRent2ForFilm() throws InterruptedException {
+        Thread.sleep(5000);
         page.waitForSelector("//span[contains(text(), 'На 48 часов за')]");
         page.click("//span[contains(text(), 'На 48 часов за')]");
         page.waitForSelector("//h2[text()='Аренда фильма на 48 часов']");

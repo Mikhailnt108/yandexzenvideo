@@ -30,7 +30,7 @@ public class Test_06_NIL_REG_AUTH_Password_change_PW_adWeb extends TestBasePlayw
         authPagePW.checkImagePageAuthFormCreateNewPassword();
         authPagePW.checkInputNewValidPasswordAuth("111111");
         authPagePW.clickOnButtonNextAndCheckOpenFormInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
@@ -38,12 +38,12 @@ public class Test_06_NIL_REG_AUTH_Password_change_PW_adWeb extends TestBasePlayw
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 019 21 44");
+        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260192144");

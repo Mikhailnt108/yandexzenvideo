@@ -21,13 +21,13 @@ public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends T
         // ввести номер прозрачно зарегистрированный в МФТВ на телефоне:
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToEnter();
-        authPagePW.inputLogin("+7 926 019 21 44");
+        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
         authPagePW.checkElementsPageAuthFormCreatePassword();
         authPagePW.checkInputValidPasswordRegist("111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

@@ -14,7 +14,7 @@ import java.io.IOException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_Расписание_канала_FRESH_от_29_06_21 extends TestBaseWebDriver {
+public class Test_03_TV_Расписание_канала extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")

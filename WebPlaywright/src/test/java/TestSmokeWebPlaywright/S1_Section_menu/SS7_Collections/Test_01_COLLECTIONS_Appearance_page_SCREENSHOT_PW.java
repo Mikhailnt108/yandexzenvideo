@@ -10,7 +10,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_COLLECTIONS_Appearance_page_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -18,7 +18,7 @@ public class Test_01_COLLECTIONS_Appearance_page_SCREENSHOT_PW extends TestBaseP
     @DisplayName(value ="01_COLLECTIONS_Appearance_page_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#4")
     public void COLLECTIONS_Appearance_page_SCREENSHOT() throws IOException, InterruptedException {
         headerMenuPW.goToAllCollectionsPage();
         allCollectionsPagePW.checkElementsPageAllCollections();

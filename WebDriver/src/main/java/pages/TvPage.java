@@ -92,11 +92,13 @@ public class TvPage extends BasePageWebDriver {
         click(By.xpath("//div[text()='₽']"));
     }
 
-    public void checkTvChannelsOnlyPlugged() {
+    public void checkTvChannelsOnlyPlugged() throws InterruptedException {
         List<WebElement> CollectionAvailable = webDriver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
         for (int i = 0; i <= 5; i++) {
+            Thread.sleep(3000);
             CollectionAvailable = webDriver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
             CollectionAvailable.get(i).click();
+            Thread.sleep(3000);
             Assert.assertEquals(0, webDriver.findElements(By.xpath("(//button[@type='button']//span)[1]")).size());
             webDriver.navigate().back();
         }
@@ -147,17 +149,17 @@ public class TvPage extends BasePageWebDriver {
     }
 
     public void clickOnTabNews() throws Exception {
-        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+        Thread.sleep(5000);
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Новости']"));
     }
 
-    public void clickOnTabForKids() {
-        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+    public void clickOnTabForKids() throws InterruptedException {
+        Thread.sleep(5000);
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Для детей']"));
     }
 
-    public void clickOnTabKino() {
-        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+    public void clickOnTabKino() throws InterruptedException {
+        Thread.sleep(5000);
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Кино']"));
     }
 
@@ -166,8 +168,8 @@ public class TvPage extends BasePageWebDriver {
         //isElementDisplayed(By.xpath("//div[contains(text(),'Новости')]"));
     }
 
-    public void clickOnTabHD() {
-        waitVisibility(By.xpath("//div[@class='_3H6SpMZcck2BFXiKBB5gtC']"));
+    public void clickOnTabHD() throws InterruptedException {
+        Thread.sleep(5000);
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='HD']"));
     }
 
@@ -175,11 +177,13 @@ public class TvPage extends BasePageWebDriver {
         click(By.xpath("//div[text()='₽']"));
     }
 
-    public void checkTvChannelsAll() {
+    public void checkTvChannelsAll() throws InterruptedException {
         List<WebElement> CollectionAvailable = webDriver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
         for (int i = 0; i <= 5; i++) {
+            Thread.sleep(3000);
             CollectionAvailable = webDriver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//a[@class='PEjJzf6sWszN-NzQn1eqH']"));
             CollectionAvailable.get(i).click();
+            Thread.sleep(3000);
             Assert.assertNotEquals(0, webDriver.findElements(By.xpath("(//span[contains(text(),'Смотреть бесплатно')])[1]|(//span[contains(text(),'Подключить бесплатно')])[1]|//span[contains(text(),'Смотреть за')]")).size());
             webDriver.navigate().back();
         }
@@ -230,47 +234,55 @@ public class TvPage extends BasePageWebDriver {
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
         for (int i = 0; i <= 5; i++) {
+            Thread.sleep(3000);
             CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTvProgram.get(i).click();
+            Thread.sleep(3000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'В записи')]")).size());
             webDriver.navigate().back();
         }
     }
 
-    public void checkGenreHDTvProgramInAir() {
+    public void checkGenreHDTvProgramInAir() throws InterruptedException {
         webDriver.navigate().refresh();
         waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
         for (int i = 0; i <= 5; i++) {
+            Thread.sleep(3000);
             CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTvProgram.get(i).click();
+            Thread.sleep(3000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'HD')]")).size());
             webDriver.navigate().back();
         }
     }
 
-    public void checkGenreForKidsTvProgramInAir() {
+    public void checkGenreForKidsTvProgramInAir() throws InterruptedException {
         webDriver.navigate().refresh();
         waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
         for (int i = 0; i <= 5; i++) {
+            Thread.sleep(3000);
             CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTvProgram.get(i).click();
+            Thread.sleep(3000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'Для детей')]")).size());
             webDriver.navigate().back();
         }
     }
 
-    public void checkGenreKinoTvProgramInAir() {
+    public void checkGenreKinoTvProgramInAir() throws InterruptedException {
         webDriver.navigate().refresh();
         waitVisibility(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         List<WebElement> CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         Assert.assertEquals(CollectionTvProgram.size(), webDriver.findElements(By.xpath("//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
         for (int i = 0; i <= 5; i++) {
+            Thread.sleep(3000);
             CollectionTvProgram = webDriver.findElements(By.xpath("//div[@class='_6wQglJGVD-_mrTQLT_Ul7']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTvProgram.get(i).click();
+            Thread.sleep(3000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[@class='_364E2xRe8IGMOTfCluwbl2' and contains(text(),'Кино')]")).size());
             webDriver.navigate().back();
         }

@@ -649,7 +649,8 @@ public class FilmsPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void clickToTailCardFilm() {
+    public void clickToTailCardFilm() throws InterruptedException {
+        page.waitForSelector("(//a[@data-test='PackageLink'])[1]");
         page.click("(//a[@data-test='PackageLink'])[1]");
     }
 

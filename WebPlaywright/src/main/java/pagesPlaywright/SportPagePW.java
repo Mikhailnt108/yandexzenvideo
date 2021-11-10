@@ -197,7 +197,8 @@ public class SportPagePW extends BasePagePlaywright {
     public void checkImageBlockCollectionSportChannelsFofUser() {
     }
 
-    public void checkElementsBlockCollectionLiveBroadcastForUser() {
+    public void checkElementsBlockCollectionLiveBroadcastForUser() throws InterruptedException {
+        Thread.sleep(5000);
         page.waitForSelector("//h3//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
         page.waitForSelector("//h3[@class='B5LYgjhfyG3wLcjaaFyLM']//div[text()='Прямой эфир']");
         // tail1

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_2_PROMO_Personal_offer_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -18,14 +18,15 @@ public class Test_04_2_PROMO_Personal_offer_SCREENSHOT_PW extends TestBasePlaywr
     @DisplayName(value ="04_2_PROMO_Personal_offer_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#4")
     public void PROMO_Personal_offer_SCREENSHOT() throws InterruptedException, IOException {
         personalOfferPW.createPersonalOfferTypePackageForZeroRublesForMF();
         personalOfferPW.createPersonalOfferTypeSubscription();
         personalOfferPW.createPersonalOfferTypePartnerOfferKinoPoiskForMF();
         personalOfferPW.createPersonalOfferTypePartnerOfferOkkoTvForMF();
-        headerMenuPW.goToNilPage();
+        headerMenuPW.goToFilmsPage();
         flowRegistation();
+        headerMenuPW.goToFilmsPage();
         headerMenuPW.openSubsectionPromo();
         promoPagePW.checkImageBlockPersonalOffers();
         promoPagePW.clickToBlockPersonalOfferTypeSubscription();
@@ -40,12 +41,12 @@ public class Test_04_2_PROMO_Personal_offer_SCREENSHOT_PW extends TestBasePlaywr
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 020 50 27");
+        authPagePW.inputLoginNonAdWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 020 50 27", "111111");
+        headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdn("79260205027");
+        headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

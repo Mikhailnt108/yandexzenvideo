@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_2_CHILDS_Transitions_collections_SCREENHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -17,7 +17,7 @@ public class Test_04_2_CHILDS_Transitions_collections_SCREENHOT_PW extends TestB
     @DisplayName(value ="04_2_CHILDS_Transitions_collections_SCREENHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#4")
     public void CHILDS_Transitions_collections_SCREENHOT() throws Exception {
         headerMenuPW.goToKidsPage();
         kidsPagePW.clickToLinkAllOnCollectionBlock();

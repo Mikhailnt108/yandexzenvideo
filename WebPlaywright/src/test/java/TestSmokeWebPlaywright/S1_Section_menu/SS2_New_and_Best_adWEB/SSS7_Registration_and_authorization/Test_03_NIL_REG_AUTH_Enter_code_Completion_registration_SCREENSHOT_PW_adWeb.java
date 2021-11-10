@@ -22,7 +22,7 @@ public class Test_03_NIL_REG_AUTH_Enter_code_Completion_registration_SCREENSHOT_
     public void NIL_REG_AUTH_Enter_code_Completion_registration() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToEnter();
-        authPagePW.inputLogin("+7 926 001 01 01");
+        authPagePW.inputLoginAdWeb("+7 926 001 01 01");
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
         authPagePW.inputValidPasswordRegister("111111");
         authPagePW.clickOnButtonNextAndCheckOpenFormInputCode();
@@ -34,12 +34,12 @@ public class Test_03_NIL_REG_AUTH_Enter_code_Completion_registration_SCREENSHOT_
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 019 21 44");
+        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpCreatePasswordForFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         authPagePW.checkFinishTimerFormInputCode("+7 926 019 21 44", "111111");
         authPagePW.clickResendCodeAndCheckСompletionAuth();
-        headerMenuPW.copyPasteCodMsisdn("79260192144");
+        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
