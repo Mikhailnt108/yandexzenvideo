@@ -250,7 +250,7 @@ public class NilPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod6.megafon.tv/");
+                webDriver.get("https://web-preprod3.megafon.tv/");
             }
         }
     }
@@ -266,7 +266,7 @@ public class NilPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod6.megafon.tv/");
+                webDriver.get("https://web-preprod3.megafon.tv/");
             }
         }
     }
@@ -375,7 +375,7 @@ public class NilPage extends BasePageWebDriver {
 
     public void checkToMoveTileToFirstPlace() {
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.get("https://web-preprod6.megafon.tv/");
+        webDriver.get("https://web-preprod3.megafon.tv/");
         Assert.assertEquals("элементы не совпадают",nameFilm, webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 

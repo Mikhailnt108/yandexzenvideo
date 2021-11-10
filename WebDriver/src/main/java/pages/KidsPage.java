@@ -44,7 +44,7 @@ public class KidsPage extends BasePageWebDriver {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")));
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")).size());
             Thread.sleep(3000);
-            webDriver.get("https://web-preprod6.megafon.tv/kids");
+            webDriver.get("https://web-preprod3.megafon.tv/kids");
         }
     }
 
@@ -87,7 +87,7 @@ public class KidsPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod6.megafon.tv/kids");
+                webDriver.get("https://web-preprod3.megafon.tv/kids");
             }
         }
     }
@@ -103,7 +103,7 @@ public class KidsPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod6.megafon.tv/kids");
+                webDriver.get("https://web-preprod3.megafon.tv/kids");
             }
         }
     }
@@ -120,7 +120,7 @@ public class KidsPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='ТВ']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod6.megafon.tv/kids");
+                webDriver.get("https://web-preprod3.megafon.tv/kids");
             }
         }
     }
@@ -390,7 +390,7 @@ public class KidsPage extends BasePageWebDriver {
             TailCollectForKids1.get(a).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Для детей')]")));
             System.out.println(webDriver.findElement(By.xpath("//h1[text()]")).getText());
-            webDriver.get("https://web-preprod6.megafon.tv/kids");
+            webDriver.get("https://web-preprod3.megafon.tv/kids");
         }
     }
 

@@ -13,9 +13,9 @@ public class CardTvProgram extends BasePageWebDriver {
     public CardTvProgram(WebDriver driver) {
         super(driver);
     }
+    String NIL_Page_PP3 = "https://web-preprod3.megafon.tv/";
     String NIL_Page_PP4 = "https://web-preprod4.megafon.tv/";
     String NIL_Page_PP6 = "https://web-preprod6.megafon.tv/";
-
     public void checkOpenCardTvProgram() throws InterruptedException {
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
@@ -189,7 +189,7 @@ public class CardTvProgram extends BasePageWebDriver {
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        webDriver.get(NIL_Page_PP6);
+        webDriver.get(NIL_Page_PP3);
         //Кликнуть на тайл этого фильма в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]")));
@@ -241,7 +241,7 @@ public class CardTvProgram extends BasePageWebDriver {
     }
 
     public void checkElementsPlayerUnrecordedTvProgram() {
-//        driver.get("https://web-preprod6.megafon.tv/tv/channels/Channel_Rossia24/");
+//        driver.get("https://web-preprod3.megafon.tv/tv/channels/Channel_Rossia24/");
 //        click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
         Actions actions = new Actions(webDriver);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();

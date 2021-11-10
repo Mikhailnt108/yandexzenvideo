@@ -10,7 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class FilmsPage extends BasePageWebDriver {
-    String SITE_URL = "https://web-preprod6.megafon.tv/";
+    String SITE_URL_PP3 = "https://web-preprod3.megafon.tv/";
+    String SITE_URL_PP6 = "https://web-preprod6.megafon.tv/";
 
     public FilmsPage(WebDriver driver) {
         super(driver);
@@ -232,7 +233,7 @@ public class FilmsPage extends BasePageWebDriver {
             Thread.sleep(2000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/movies/vods']//span[text()='Фильмы']")).size());
             Thread.sleep(2000);
-            webDriver.get("https://web-preprod6.megafon.tv/movies/vods");
+            webDriver.get(SITE_URL_PP3);
         }
 
     }

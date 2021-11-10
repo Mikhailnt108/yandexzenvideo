@@ -217,7 +217,7 @@ public class SerialsPage extends BasePageWebDriver {
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Thread.sleep(3000);
             Assert.assertTrue("not opened card serial", webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size()==1);
-            webDriver.get("https://web-preprod6.megafon.tv/shows");
+            webDriver.get("https://web-preprod3.megafon.tv/shows");
         }
     }
 
@@ -432,14 +432,14 @@ public class SerialsPage extends BasePageWebDriver {
             Thread.sleep(3000);
             Assert.assertEquals("есть контент 18+",0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
             Assert.assertEquals("есть контент не сериал",1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size());
-            webDriver.get("https://web-preprod6.megafon.tv/shows");
+            webDriver.get("https://web-preprod3.megafon.tv/shows");
             Thread.sleep(5000);
         }
     }
 
     public void checkToMoveTailToFirstPlace() {
         String nameSerial = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.get("https://web-preprod6.megafon.tv/shows");
+        webDriver.get("https://web-preprod3.megafon.tv/shows");
         System.out.println(nameSerial);
         System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
         Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
@@ -447,7 +447,7 @@ public class SerialsPage extends BasePageWebDriver {
 
     public void checkToMoveTailToLastPlace() {
         String nameSerial = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.get("https://web-preprod6.megafon.tv/shows");
+        webDriver.get("https://web-preprod3.megafon.tv/shows");
         System.out.println(nameSerial);
         System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
         Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
