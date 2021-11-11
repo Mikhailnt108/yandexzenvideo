@@ -6,7 +6,10 @@ COPY . .
 
 RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
 RUN mkdir target
-RUN mkdir /site/allure-maven-plugin
+RUN cd target
+RUN mkdir site
+RUN cd site
+RUN mkdir allure-maven-plugin
 #RUN mkdir site
 #RUN cd site
 #RUN mkdir allure-maven-plugin
