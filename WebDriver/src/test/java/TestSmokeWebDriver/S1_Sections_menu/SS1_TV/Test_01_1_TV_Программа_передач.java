@@ -13,7 +13,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#X", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_1_TV_Программа_передач extends TestBaseWebDriver {
-    @Epic(value = "Smoke MFTV Desktop Web")
+    @Epic(value = "smoke-mftv-desktop-web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
     @DisplayName(value = "Программа передач")

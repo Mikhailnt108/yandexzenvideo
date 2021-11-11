@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Fri Oct 08 19:42:54 UTC 2021","Fri Oct 08 19:43:13 UTC 2021","18855","","Test_01_2_TV_Program_SCREENSHOT_VRT_PW","","Test_01_2_TV_Program_SCREENSHOT_VRT_PW","historyViewing","Программа передач (скриншоты)",""
+"broken","Fri Oct 08 19:42:16 UTC 2021","Fri Oct 08 19:42:21 UTC 2021","5027","","TestSmokeWebDriver.P4_Sections_menu.P5_Packages_FRESH_at_16_08_21.Test_01_PACKAGES_Go_to_package_FRESH","","TestSmokeWebDriver.P4_Sections_menu.P5_Packages_FRESH_at_16_08_21.Test_01_PACKAGES_Go_to_package_FRESH","goToPackage","Переход в пакет",""
+"broken","Fri Oct 08 19:42:54 UTC 2021","Fri Oct 08 19:43:13 UTC 2021","18818","","Test_08_2_TV_Efir_SCREENSHOT_VRT_PW","","Test_08_2_TV_Efir_SCREENSHOT_VRT_PW","tvProgramInAir","Передачи в эфире (скриншоты)",""
+"passed","Fri Oct 08 19:42:37 UTC 2021","Fri Oct 08 19:42:37 UTC 2021","557","","TestPw1","","TestPw1","shouldClickButton","shouldClickButton()",""
