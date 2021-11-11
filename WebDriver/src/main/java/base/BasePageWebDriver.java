@@ -26,9 +26,10 @@ public class BasePageWebDriver {
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }
-    public void click (By elementBy){
+    public void click (By elementBy) throws InterruptedException {
         waitVisibility(elementBy);
         webDriver.findElement(elementBy).click();
+        Thread.sleep(3000);
     }
     public boolean isElementDisplayed (By elementBy) {
         waitVisibility(elementBy);

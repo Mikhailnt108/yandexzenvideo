@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
@@ -23,7 +21,7 @@ public class Test_13_FILMS_Выставление_оценки extends TestBaseW
     public void ratingFilm() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.moveToLikeButton();
         cardFilm.moveToDisLikeButton();

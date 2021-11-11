@@ -55,7 +55,7 @@ class TestBasePlaywright extends BasePagePlaywright{
             .build());
     public static final String USER_NAME = "bmp";
     public static final String PASSWORD = "bmp";
-    public static final String URL = "jdbc:postgresql://10.236.24.196:5432/bmp";
+    public static final String URL = "jdbc:postgresql://10.236.24.176:5432/bmp";
     public Statement statement;
     public Connection connection;
 

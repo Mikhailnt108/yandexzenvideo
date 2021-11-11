@@ -12,23 +12,28 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_PERS_OFFER_Внешний_вид_и_навигация_API_Bug extends TestBaseWebDriver {
+public class Test_02_PERS_OFFER_Разные_состояния_ПП_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "Внешний вид и навигация")
+    @DisplayName(value = "ПП разные состояния")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void appearanceAndNavigation() throws InterruptedException {
+    public void POdifferentState() throws InterruptedException {
+        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
+        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
+        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
+        personalOffer.archivePersonalOfferSubscription();
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
         headerMenu.goToFilmsPage();
         flowRegistation();
         headerMenu.goToNilPage();
-        personalOffer.checkElementsOnePersonalOffer();
-        headerMenu.goToKidsPage();
-        headerMenu.goToNilPage();
-        personalOffer.checkElementsOnePersonalOffer();
+        personalOffer.checkElementsWhiteColorSandPersonalOffer();
+        personalOffer.checkElementsYellowColorSandPersonalOffer();
+        personalOffer.checkElementsRedColorSandPersonalOffer();
+        personalOffer.clickToElementPersonalOffer();
+        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         pageCMS.deleteAccountMF("79260205027");
     }
@@ -46,5 +51,5 @@ public class Test_01_PERS_OFFER_Внешний_вид_и_навигация_API_
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
-
 }
+

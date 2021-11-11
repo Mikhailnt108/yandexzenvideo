@@ -20,13 +20,13 @@ public class CardTvProgram extends BasePageWebDriver {
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
     }
-    public void clickPaymentButtonInCardTvProgram() {
+    public void clickPaymentButtonInCardTvProgram() throws InterruptedException {
         if(webDriver.findElements(By.xpath("(//button[@type='button']//span)[1]")).size()>0){
         click(By.xpath("(//button[@type='button']//span)[1]"));
         }
     }
 
-    public void checkPaymentComplete() {
+    public void checkPaymentComplete() throws InterruptedException {
         if(webDriver.findElements(By.xpath("//h3[contains(text(), 'Подписка на пакет')]|//h3[contains(text(),'Подключение услуги')]")).size()==1){
         click(By.xpath("//button[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
@@ -44,11 +44,11 @@ public class CardTvProgram extends BasePageWebDriver {
         Assert.assertNotEquals(time1, time2);
     }
 
-    public void clickButtonFavorite() {
+    public void clickButtonFavorite() throws InterruptedException {
         isElementDisplayed(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
         click(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
     }
-    public void clickToLinkCardPackage() {click(By.linkText("Максимальный")); }
+    public void clickToLinkCardPackage() throws InterruptedException {click(By.linkText("Максимальный")); }
 
     public void clickToPauseVideoPleer() throws Exception {
         Thread.sleep(7000);
@@ -116,7 +116,7 @@ public class CardTvProgram extends BasePageWebDriver {
         Assert.assertNotEquals(time10, time11);
     }
 
-    public void clickOnLinkTvProgramInRecording() {
+    public void clickOnLinkTvProgramInRecording() throws InterruptedException {
         click(By.xpath("(//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF'])[1]"));
     }
 
@@ -168,17 +168,17 @@ public class CardTvProgram extends BasePageWebDriver {
         Assert.assertNotEquals(time1, time2);
     }
 
-    public void clickNoInPopUp18Plus() {
+    public void clickNoInPopUp18Plus() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
         click(By.xpath("//button[text()='Нет']"));
         isElementDisplayed(By.xpath("(//button[@type='button'])[1]"));
     }
 
-    public void goToCardTvProgram18Plus() {
+    public void goToCardTvProgram18Plus() throws InterruptedException {
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
     }
 
-    public void clickToButtonPlay() {
+    public void clickToButtonPlay() throws InterruptedException {
         click(By.className("_2fPMOlJJX5DRkSEypQ3sLc"));
     }
 
@@ -236,7 +236,7 @@ public class CardTvProgram extends BasePageWebDriver {
         Assert.assertEquals("Не тот цвет","rgb(255, 255, 255)",colorIconFavoriteAdded);
     }
 
-    public void clickOnTvChannelInCardProgram() {
+    public void clickOnTvChannelInCardProgram() throws InterruptedException {
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
     }
 
@@ -361,7 +361,7 @@ public class CardTvProgram extends BasePageWebDriver {
         Thread.sleep(3000);
     }
 
-    public void clickOnLinkNextTvProgramInRecording() {
+    public void clickOnLinkNextTvProgramInRecording() throws InterruptedException {
         String nameTvProgram = webDriver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText();
         click(By.xpath("(//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF'])[1]"));
         Assert.assertNotEquals("передача не переключена", nameTvProgram, webDriver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
@@ -371,7 +371,7 @@ public class CardTvProgram extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
     }
 
-    public void clickOnPlayInPlayer() {
+    public void clickOnPlayInPlayer() throws InterruptedException {
         isElementDisplayed(By.xpath("(//button[@type='button'])[1]"));
         click(By.xpath("(//button[@type='button'])[1]"));
     }
@@ -445,7 +445,6 @@ public class CardTvProgram extends BasePageWebDriver {
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         Thread.sleep(3000);
         click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[3]"));
-        Thread.sleep(3000);
         System.out.println(webDriver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
         Assert.assertNotEquals("канал не переключен", nameTvChannel, webDriver.findElement(By.className("_1nAXLMkHN0PXnwvulfBvK0")).getText());
     }

@@ -11,7 +11,9 @@ public class ExecutePreconditions extends TestBasePlaywright {
         preconditionPW.editSaleInCMS();
         preconditionPW.deletePackageFromSaleCMS();
 // Изменить на минимальную цену (1р) EST megafon/card и (1р) Rent2 megafon/card первого фильма в разделе "Фильмы"
-        preconditionPW.changePriceEstAndRent2FirstFilm();
+        preconditionPW.changePriceEstAndRent2FirstFilmSectionFilms();
+// Изменить на минимальную цену (1р) EST megafon/card и (1р) Rent2 megafon/card первого фильма в разделе "Детям"
+        preconditionPW.changePriceEstAndRent2FirstFilmSectionKids();
 // Изменить на минимальную цену (1р) EST и (1р) Rent2 фильма "Довод"
         preconditionPW.changePriceFilmDovodEstAndRent2();
 // Изменить на минимальную цену (35р) SubsN megafon и SubsN card пакета "Все и сразу"

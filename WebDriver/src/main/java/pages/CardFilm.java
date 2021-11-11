@@ -26,8 +26,9 @@ public class CardFilm extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
     }
 
-    public void paymentFilmAtEst() {
-        if(webDriver.findElements(By.xpath("//span[contains(text(), 'Навсегда')]")).size()!=0){
+    public void paymentFilmAtEst() throws InterruptedException {
+        Thread.sleep(3000);
+        if(webDriver.findElements(By.xpath("//span[contains(text(), 'Навсегда')]")).size()==1){
             click(By.xpath("//span[contains(text(), 'Навсегда')]"));
         }
         else {
@@ -35,23 +36,23 @@ public class CardFilm extends BasePageWebDriver {
             click(By.xpath("//span[contains(text(), 'Навсегда')]"));
         }
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
+        click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
         Assert.assertTrue("not found element", webDriver.findElements(By.xpath("//span[text()='Смотреть']")).size()==1);
     }
 
-    public void paymentFilmAtEstFromPopUpNotif() {
+    public void paymentFilmAtEstFromPopUpNotif() throws InterruptedException {
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
-        click(By.xpath("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
+        click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
         click(By.xpath("//span[text()='Подтвердить']"));
         //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//span[text()='Смотреть']")));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
     }
 
-    public void paymentButtonRent2InCardFilm() {
+    public void paymentButtonRent2InCardFilm() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'На 48 часов за')]")));
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
@@ -63,7 +64,7 @@ public class CardFilm extends BasePageWebDriver {
     }
 
 
-    public void paymentFilmAtRent2Promo() {
+    public void paymentFilmAtRent2Promo() throws InterruptedException {
         isElementDisplayed(By.xpath("//span[contains(text(),'по акции доступно фильмов: 2')]"));
         click(By.xpath("//span[text()='По акции на 48 часов за 0 ₽']"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'доступен Вам без дополнительной платы')]"));
@@ -71,14 +72,14 @@ public class CardFilm extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//span[contains(text(), 'Смотреть до')]"));
     }
 
-    public void checkСounterAvailableFilms() {
+    public void checkСounterAvailableFilms() throws InterruptedException {
         webDriver.navigate().back();
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         webDriver.navigate().refresh();
         Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'по акции доступно фильмов: 1')]")).size());
     }
 
-    public void clickButtonFavorites() {
+    public void clickButtonFavorites() throws InterruptedException {
         click(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]"));
         isElementDisplayed(By.xpath("//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB']"));
     }
@@ -173,8 +174,8 @@ public class CardFilm extends BasePageWebDriver {
     public void checkStikerDiscount() throws InterruptedException {
         Thread.sleep(30000);
         webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[1]")));
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
+        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
         isElementDisplayed(By.xpath("//div[text()='AutoTest -30%']"));
     }
@@ -183,7 +184,7 @@ public class CardFilm extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//span[contains(text(), 'Навсегда за')]/i"));
     }
 
-    public void paymentFilmAtEstDiscount() {
+    public void paymentFilmAtEstDiscount() throws InterruptedException {
         click(By.xpath("//span[contains(text(), 'Навсегда за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
         click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
@@ -200,7 +201,7 @@ public class CardFilm extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//span[contains(text(), 'На 48 часов за')]/i"));
     }
 
-    public void paymentFilmAtRent2Discount() {
+    public void paymentFilmAtRent2Discount() throws InterruptedException {
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
         click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
@@ -336,7 +337,7 @@ public class CardFilm extends BasePageWebDriver {
         Thread.sleep(5000);
     }
 
-    public void clickPaymentButtonInCardFilm() {
+    public void clickPaymentButtonInCardFilm() throws InterruptedException {
         click(By.xpath("(//button[@type='button']//span)[4]"));
     }
 
@@ -419,7 +420,7 @@ public class CardFilm extends BasePageWebDriver {
         isElementDisplayed(By.className("_3ENPoHW7mBDX2n9ySpuZTE")); // блок кнопко покупки
     }
 
-    public void clickToButtonReadDescription() {
+    public void clickToButtonReadDescription() throws InterruptedException {
       click(By.xpath("//button[text()='Прочитать описание']"));
     }
 
@@ -428,7 +429,7 @@ public class CardFilm extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//dt[text()='Возрастное ограничение']"));
     }
 
-    public void clickToButtonRollUp() {
+    public void clickToButtonRollUp() throws InterruptedException {
         click(By.xpath("//button[text()='Свернуть']"));
     }
 
@@ -474,12 +475,12 @@ public class CardFilm extends BasePageWebDriver {
         }
     }
 
-    public void editPriceOn70FirstFilmForSale() throws ClassNotFoundException, SQLException {
+    public void editPriceOn60FirstFilmForSale() throws ClassNotFoundException, SQLException {
         webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
-        String urlFilm = webDriver.findElement(By.xpath("//a[@data-test='PackageLink' and @href]")).getAttribute("href");
+        String urlFilm = webDriver.findElement(By.xpath("(//a[@data-test='PackageLink' and @href])[2]")).getAttribute("href");
         System.out.println(urlFilm);
-        System.out.println(urlFilm.substring(13));
-        String sql = "update package_prices set price ='7000' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        System.out.println(urlFilm.substring(44));
+        String sql = "update package_prices set price ='6000' where package_id ='".concat(urlFilm.substring(44)).concat("'");
         System.out.println(sql);
         Class.forName("org.postgresql.Driver");
         statement.executeUpdate(sql);
@@ -487,10 +488,10 @@ public class CardFilm extends BasePageWebDriver {
 
     public void editPriceOn1FirstFilmForSale() throws SQLException, ClassNotFoundException {
         webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
-        String urlFilm = webDriver.findElement(By.xpath("//a[@data-test='PackageLink' and @href]")).getAttribute("href");
+        String urlFilm = webDriver.findElement(By.xpath("(//a[@data-test='PackageLink' and @href])[2]")).getAttribute("href");
         System.out.println(urlFilm);
-        System.out.println(urlFilm.substring(13));
-        String sql = "update package_prices set price ='100' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        System.out.println(urlFilm.substring(44));
+        String sql = "update package_prices set price ='100' where package_id ='".concat(urlFilm.substring(44)).concat("'");
         System.out.println(sql);
         Class.forName("org.postgresql.Driver");
         statement.executeUpdate(sql);

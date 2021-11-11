@@ -10,8 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class FilmsPage extends BasePageWebDriver {
-    String SITE_URL_PP3 = "https://web-preprod3.megafon.tv/";
-    String SITE_URL_PP6 = "https://web-preprod6.megafon.tv/";
+    String VODS_URL_PP3 = "https://web-preprod3.megafon.tv/movies/vods";
+    String VODS_URL_PP6 = "https://web-preprod3.megafon.tv/movies/vods";
 
     public FilmsPage(WebDriver driver) {
         super(driver);
@@ -21,15 +21,15 @@ public class FilmsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
     }
 
-    public void clickToTailCardFilmFromAvailable() {
+    public void clickToTailCardFilmFromAvailable() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void clickToHeaderRent2Collection() {
+    public void clickToHeaderRent2Collection() throws InterruptedException {
         click(By.partialLinkText("аренд"));
     }
 
-    public void clickOnFilterPayment() {
+    public void clickOnFilterPayment() throws InterruptedException {
         click(By.xpath("//button[text()='Оплачено']"));
     }
 
@@ -39,7 +39,7 @@ public class FilmsPage extends BasePageWebDriver {
         Thread.sleep(3000);
     }
 
-    public void clickOnYearInput() {
+    public void clickOnYearInput() throws InterruptedException {
         click(By.xpath("//div[text()='Год']"));
     }
 
@@ -48,7 +48,7 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(15, radioButtons.size());
     }
 
-    public void chooseOneYearOnly() {
+    public void chooseOneYearOnly() throws InterruptedException {
         click(By.xpath("//span[text()='2019 год']"));
         click(By.xpath("//div[text()='Год']"));
     }
@@ -58,7 +58,7 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(36, Only2019years.size());
     }
 
-    public void choosePeriodOfYears() {
+    public void choosePeriodOfYears() throws InterruptedException {
         click(By.xpath("//div[text()='Год с']"));
         click(By.xpath("(//span[text()='2010'])[1]"));
 
@@ -71,7 +71,7 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(36, Period.size());
     }
 
-    public void clickOnGenreInput() {
+    public void clickOnGenreInput() throws InterruptedException {
         click(By.xpath("//div[text()='Жанр']"));
 
     }
@@ -81,29 +81,31 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(28, checkboxes.size());
     }
 
-    public void chooseOneGenre() {
+    public void chooseOneGenre() throws InterruptedException {
         click(By.xpath("//div[text()='Жанр']"));
         click(By.xpath("//span[text()='Документальный']"));
         click(By.xpath("//div[text()='Жанр']"));
     }
 
-    public void checkRequestResultOneGenre() {
+    public void checkRequestResultOneGenre() throws InterruptedException {
+        Thread.sleep(3000);
         List<WebElement> CollectionOneGenre = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Документальный')]"));
         Assert.assertEquals(36, CollectionOneGenre.size());
     }
 
-    public void chooseTwoGenre() {
+    public void chooseTwoGenre() throws InterruptedException {
         click(By.xpath("//div[text()='Документальный']"));
         click(By.xpath("//span[text()='Аниме']"));
         click(By.xpath("//div[text()='Жанр']"));
     }
 
-    public void checkRequestResultTwoGenre() {
+    public void checkRequestResultTwoGenre() throws InterruptedException {
+        Thread.sleep(3000);
         List<WebElement> CollectionTwoGenre = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Документальный')]|//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//span[contains(text(),'Аниме')]"));
         Assert.assertEquals(36, CollectionTwoGenre.size());
     }
 
-    public void clickOnCountryInput() {
+    public void clickOnCountryInput() throws InterruptedException {
         click(By.xpath("//div[text()='Страна']"));
     }
 
@@ -133,7 +135,7 @@ public class FilmsPage extends BasePageWebDriver {
     }
 
 
-    public void chooseTwoCountry() {
+    public void chooseTwoCountry() throws InterruptedException {
         click(By.xpath("//div[text()='Россия']"));
         click(By.xpath("//span[text()='Канада']"));
         click(By.xpath("//span[text()='Россия']"));
@@ -155,7 +157,7 @@ public class FilmsPage extends BasePageWebDriver {
         }
     }
 
-    public void clickOnResetFiltersButton() {
+    public void clickOnResetFiltersButton() throws InterruptedException {
         click(By.xpath("//button[text()='Сбросить']"));
     }
 
@@ -165,15 +167,15 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(6, Filters.size());
     }
 
-    public void clickToTailCardFilm2FromAll() {
+    public void clickToTailCardFilm2FromAll() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
 
-    public void clickToTailCardFilm3FromAll() {
+    public void clickToTailCardFilm3FromAll() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[3]"));
     }
 
-    public void clickToTailCardFilm4FromAll() {
+    public void clickToTailCardFilm4FromAll() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[5]"));
     }
 
@@ -189,12 +191,12 @@ public class FilmsPage extends BasePageWebDriver {
         }
     }
 
-    public void clickToTailCardFilm() throws InterruptedException {
+    public void clickToSecondTailCardFilm() throws InterruptedException {
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[1]")));
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
+        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         Thread.sleep(3000);
     }
 
@@ -226,14 +228,14 @@ public class FilmsPage extends BasePageWebDriver {
         List<WebElement> BannerForFilms2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForFilms2.size());
         for (int i = 0; i < BannerForFilms2.size(); i++) {
+            Thread.sleep(3000);
             BannerForFilms2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForFilms2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/movies/vods']//span[text()='Фильмы']")).size());
-            Thread.sleep(2000);
-            webDriver.get(SITE_URL_PP3);
+            webDriver.get(VODS_URL_PP3);
         }
 
     }
@@ -347,15 +349,15 @@ public class FilmsPage extends BasePageWebDriver {
         }
     }
 
-    public void switchingFromBannerToCardFilm() {
+    public void switchingFromBannerToCardFilm() throws InterruptedException {
         click(By.xpath("//div[@data-test='BannerCarousel']"));
     }
 
-    public void clickToLinkAllOnCollectionBlock() {
+    public void clickToLinkAllOnCollectionBlock() throws InterruptedException {
         click(By.partialLinkText("Все"));
     }
 
-    public void chooseOneQuickFilter() {
+    public void chooseOneQuickFilter() throws InterruptedException {
         click(By.xpath("//button[text()='Приключения']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Приключения']"));
     }
@@ -369,7 +371,7 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(36, CollectionQuickFilter.size());
     }
 
-    public void chooseTwoQuickFilter() {
+    public void chooseTwoQuickFilter() throws InterruptedException {
         click(By.xpath("//button[text()='Боевик']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Приключения']"));
@@ -380,7 +382,7 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(36, CollectionQuickFilter.size());
     }
 
-    public void checkUnplugQuickFilter() {
+    public void checkUnplugQuickFilter() throws InterruptedException {
         click(By.xpath("//button[text()='Боевик']"));
         Assert.assertEquals("не отключен быстрый фильтр", 0, webDriver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
     }

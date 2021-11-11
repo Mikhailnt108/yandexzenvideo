@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_13_TV_Добавление_в_избранное_передачи extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_13_TV_Добавление_в_избранное_переда�
     @DisplayName(value ="Добавление в избранное передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#1")
+    @Tag("SuiteWD#0")
     public void addingTvProgramToFavorites() throws InterruptedException {
         headerMenu.goToTvPage();
         flowRegistation();
@@ -30,18 +30,18 @@ public class Test_13_TV_Добавление_в_избранное_переда�
         cardTvProgram.checkButtonFavoriteAdded();
         myPage.goToMyPageFavorites();
         myPage.checkAddingTvProgramToFavorites();
-        pageCMS.deleteAccountMF("79260192144");
+        pageCMS.deleteAccountMF("79250110212");
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260192144");
+        headerMenu.inputLogin("9250110212");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110212", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260192144");
+        pageCMS.copyPasteCodMsisdn("79250110212");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
@@ -23,14 +21,14 @@ public class Test_06_CHILDS_Подборка_Избранное extends TestBase
     public void collectionOfFavorites() throws InterruptedException {
         headerMenu.goToKidsPage();
         flowRegistation();
-        kidsPage.clickToTailCardFilm();
+        kidsPage.clickToFirstTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.clickButtonFavorites();
         headerMenu.goToKidsPage();
         kidsPage.clickToTailCardSerial();
         cardSerial.clickButtonFavorites();
         headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.clickButtonFavorites();
         headerMenu.goToKidsPage();
         kidsPage.clickToHeaderCollectionOfFavorites();

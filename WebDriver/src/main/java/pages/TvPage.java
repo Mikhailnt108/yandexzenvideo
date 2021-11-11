@@ -26,7 +26,7 @@ public class TvPage extends BasePageWebDriver {
 
     }
 
-    public void checkСhannelsСorrespondGenres() {
+    public void checkСhannelsСorrespondGenres() throws InterruptedException {
         isElementDisplayed(By.xpath("//span[text()='В записи']"));
         WebElement element = webDriver.findElement(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7'])[1]"));
         Actions actions = new Actions(webDriver);
@@ -35,11 +35,11 @@ public class TvPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[contains(text(),'В записи')]"));
     }
 
-    public void clickToTailCardTvProgram() {
+    public void clickToTailCardTvProgram() throws InterruptedException {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/tv/channels/')][4]"));
     }
 
-    public void clickShowAllToTailTvChannelAndCheckOpenCardTvChannel() {
+    public void clickShowAllToTailTvChannelAndCheckOpenCardTvChannel() throws InterruptedException {
         String nameTvChannel = webDriver.findElement(By.xpath("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]")).getText();
         System.out.println(nameTvChannel);
         WebElement element = webDriver.findElement(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7'])[1]"));
@@ -50,7 +50,7 @@ public class TvPage extends BasePageWebDriver {
         Assert.assertEquals("открыта карточка другого тв канала", nameTvChannel, webDriver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
     }
 
-    public void clickOnTabTvProgramInAir() {
+    public void clickOnTabTvProgramInAir() throws InterruptedException {
         click(By.xpath("//div[text()='Передачи в эфире']"));
     }
 
@@ -87,7 +87,7 @@ public class TvPage extends BasePageWebDriver {
         click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[6]"));
     }
 
-    public void clickToglePaymentForOff() {
+    public void clickToglePaymentForOff() throws InterruptedException {
         isElementDisplayed(By.xpath("//button[@class='XUA0mURCPEQ3aaut8nLLA QwZF5ZAhb56XWdU_Hta3z']//div[1]"));
         click(By.xpath("//div[text()='₽']"));
     }
@@ -122,7 +122,7 @@ public class TvPage extends BasePageWebDriver {
         Assert.assertEquals("Кнопка не зелёного цвета", "rgb(0, 185, 86)", colorButtonGenre);
     }
 
-    public void checkUnrecordedСhannelsСorrespondGenres18Plus() {
+    public void checkUnrecordedСhannelsСorrespondGenres18Plus() throws InterruptedException {
         isElementDisplayed(By.xpath("//span[text()='Эротика']"));
         WebElement element = webDriver.findElement(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7'])[1]"));
         Actions actions = new Actions(webDriver);
@@ -139,7 +139,7 @@ public class TvPage extends BasePageWebDriver {
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Эротика']"));
     }
 
-    public void checkRecordedСhannelsСorrespondGenres18Plus() {
+    public void checkRecordedСhannelsСorrespondGenres18Plus() throws InterruptedException {
         isElementDisplayed(By.xpath("//span[text()='Эротика']"));
         WebElement element = webDriver.findElement(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7'])[3]"));
         Actions actions = new Actions(webDriver);
@@ -163,7 +163,7 @@ public class TvPage extends BasePageWebDriver {
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='Кино']"));
     }
 
-    public void checkСhannelsСorrespondGenresNews() {
+    public void checkСhannelsСorrespondGenresNews() throws InterruptedException {
         click(By.xpath("//div[text()='Телеканал 360° Новости']"));
         //isElementDisplayed(By.xpath("//div[contains(text(),'Новости')]"));
     }
@@ -173,7 +173,7 @@ public class TvPage extends BasePageWebDriver {
         click(By.xpath("//a[@class='_3gAIIPQjtWSKeQ00BZcMjA' and text()='HD']"));
     }
 
-    public void clickToglePaymentForOn() {
+    public void clickToglePaymentForOn() throws InterruptedException {
         click(By.xpath("//div[text()='₽']"));
     }
 
@@ -203,7 +203,7 @@ public class TvPage extends BasePageWebDriver {
         Assert.assertNotNull(webDriver.findElement(By.xpath("(//button[@title='Отображаются только подключенные телеканалы']//div)[2]")));
     }
 
-    public void checkElementsTvPage() {
+    public void checkElementsTvPage() throws InterruptedException {
         List<WebElement> tailsTvChannel = webDriver.findElements(By.xpath("//div[@class='_38V9gchkmq2z8GLojNjL_D']//div[@class='_49iS4BqS64BCC4wpE8GQ7']"));
         System.out.println("количество тайлов " + tailsTvChannel.size());
         System.out.println(webDriver.findElements(By.xpath("//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt]")).size());
@@ -224,7 +224,7 @@ public class TvPage extends BasePageWebDriver {
         Assert.assertEquals("значение не равно", nameTvProgram, webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText());
     }
 
-    public void clickToLinkTvProgram() {
+    public void clickToLinkTvProgram() throws InterruptedException {
         click(By.xpath("(//a[@class='_19SojadR5Q0BvNZTu4HCi1'])[1]"));
     }
 

@@ -48,31 +48,35 @@ public class KidsPage extends BasePageWebDriver {
         }
     }
 
-    public void clickToAllButton() {
+    public void clickToAllButton() throws InterruptedException {
         click(By.partialLinkText("Все"));
     }
 
-    public void clickToTailCardFilm() {
+    public void clickToFirstTailCardFilm() throws InterruptedException {
+        click(By.xpath("(//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')])[1]"));
+    }
+
+    public void clickToSecondTailCardFilm() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')])[2]"));
     }
 
-    public void clickToTailCardSerial() {
+    public void clickToTailCardSerial() throws InterruptedException {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/shows')][1]"));
     }
 
-    public void clickToTailCardTvProgram() {
+    public void clickToTailCardTvProgram() throws InterruptedException {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/tv/channels/')][1]"));
     }
 
-    public void clickToHeaderCollectionOfMy() {
+    public void clickToHeaderCollectionOfMy() throws InterruptedException {
         click(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Мое' or text()='Моё']"));
     }
 
-    public void clickToHeaderCollectionOfFavorites() {
+    public void clickToHeaderCollectionOfFavorites() throws InterruptedException {
         click(By.linkText("Избранное"));
     }
 
-    public void clickToHeaderCollectionForKids() {
+    public void clickToHeaderCollectionForKids() throws InterruptedException {
         click(By.linkText("Детские фильмы"));
     }
 
@@ -141,7 +145,7 @@ public class KidsPage extends BasePageWebDriver {
         }
     }
 
-    public void switchingFromBannerToCardPackage() {
+    public void switchingFromBannerToCardPackage() throws InterruptedException {
         List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
@@ -352,7 +356,7 @@ public class KidsPage extends BasePageWebDriver {
         }
     }
 
-    public void scrollСollectionToLeft() {
+    public void scrollСollectionToLeft() throws InterruptedException {
         String tail8 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[8]")).getText();
         String tail9 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[9]")).getText();
         String tail10 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[10]")).getText();
@@ -423,23 +427,23 @@ public class KidsPage extends BasePageWebDriver {
 
     }
 
-    public void clickToTailCardPackage() {
+    public void clickToTailCardPackage() throws InterruptedException {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/mixed_groups/')][1]"));
     }
 
-    public void clickToLinkAllOnCollectionBlock() {
+    public void clickToLinkAllOnCollectionBlock() throws InterruptedException {
         click(By.partialLinkText("Все"));
     }
 
-    public void clickToLinkAllWithCollectionFilms() {
+    public void clickToLinkAllWithCollectionFilms() throws InterruptedException {
         click(By.xpath("(//a[contains(@href, '/vods')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void clickToLinkAllWithCollectionSerial() {
+    public void clickToLinkAllWithCollectionSerial() throws InterruptedException {
         click(By.xpath("(//a[contains(@href, '/shows/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void clickToLinkAllWithCollectionTvProgram() {
+    public void clickToLinkAllWithCollectionTvProgram() throws InterruptedException {
         click(By.xpath("(//a[contains(@href, '/tv/channels/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 

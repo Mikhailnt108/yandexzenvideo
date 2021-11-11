@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
@@ -24,10 +22,10 @@ public class Test_02_FILMS_Переход_в_карточку_фильма exten
         headerMenu.goToFilmsPage();
         filmsPage.switchingFromBannerToCardFilm();
         cardFilm.checkOpenCardFilm();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         filmsPage.clickToLinkAllOnCollectionBlock();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
     }
 }

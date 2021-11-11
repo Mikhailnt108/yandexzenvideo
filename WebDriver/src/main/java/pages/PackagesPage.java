@@ -18,52 +18,52 @@ public class PackagesPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
     }
 
-    public void clickToTabSerialsInMenuShopPage() {
+    public void clickToTabSerialsInMenuShopPage() throws InterruptedException {
         click(By.xpath("(//div[text()='Сериалы'])[3]"));
     }
 
-    public void clickToTailCardPackageSerials() {
+    public void clickToTailCardPackageSerials() throws InterruptedException {
         click(By.xpath("//h3[text()='START']"));
     }
 
-    public void clickToTabTvСhannelInMenuShopPage() {
+    public void clickToTabTvСhannelInMenuShopPage() throws InterruptedException {
         click(By.xpath("//div[text()='Телеканалы']"));
     }
 
-    public void clickToTailCardPackageTvChannel() {
+    public void clickToTailCardPackageTvChannel() throws InterruptedException {
         click(By.xpath("//h3[text()='Базовый']"));
     }
 
-    public void clickToTabKinoInMenuShopPage() {
+    public void clickToTabKinoInMenuShopPage() throws InterruptedException {
         click(By.xpath("//div[text()='Кино']"));
     }
 
-    public void clickToTabMixedInMenuShopPage() {
+    public void clickToTabMixedInMenuShopPage() throws InterruptedException {
         click(By.xpath("//div[text()='Микс']"));
     }
 
-    public void clickToTabConnectedInMenuShopPage() {
+    public void clickToTabConnectedInMenuShopPage() throws InterruptedException {
         click(By.xpath("//div[text()='Подключенные']"));
     }
 
-    public void clickButtonOnTailCardPackage(String buttonСonnect) {
+    public void clickButtonOnTailCardPackage(String buttonСonnect) throws InterruptedException {
         click(By.xpath("(//button[text()='Подключить'])[1]"));
     }
 
-    public void clickToFirstTailCardPackage() {
+    public void clickToFirstTailCardPackage() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]")));
         click(By.xpath("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC'])[1]"));
     }
 
-    public void clickToTailCardPackageTnB() {
+    public void clickToTailCardPackageTnB() throws InterruptedException {
         click(By.xpath("(//span[text()='Бесплатно по акции'])[1]"));
     }
 
-    public void clickToTailCardPackageSubsN() {
+    public void clickToTailCardPackageSubsN() throws InterruptedException {
         click(By.xpath("(//span[contains(text(), 'за 30 дней')])[1]"));
     }
 
-    public void clickToTailCardPackage18Plus() {
+    public void clickToTailCardPackage18Plus() throws InterruptedException {
         click(By.xpath("//h3[text()='18+']"));
     }
 
@@ -125,7 +125,7 @@ public class PackagesPage extends BasePageWebDriver {
         Assert.assertEquals(2, CollectionTailAllPackages.size());
     }
 
-    public void checkTypePackagesInTabTvChannel() {
+    public void checkTypePackagesInTabTvChannel() throws InterruptedException {
         List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
@@ -138,7 +138,7 @@ public class PackagesPage extends BasePageWebDriver {
         }
     }
 
-    public void checkTypePackagesInTabSerials() {
+    public void checkTypePackagesInTabSerials() throws InterruptedException {
         List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
@@ -157,7 +157,7 @@ public class PackagesPage extends BasePageWebDriver {
         }
     }
 
-    public void checkTypePackagesInTabKino() {
+    public void checkTypePackagesInTabKino() throws InterruptedException {
         List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
@@ -176,7 +176,7 @@ public class PackagesPage extends BasePageWebDriver {
         }
     }
 
-    public void checkTypePackagesInTabMixed() {
+    public void checkTypePackagesInTabMixed() throws InterruptedException {
         List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
@@ -216,13 +216,13 @@ public class PackagesPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
     }
 
-    public void goToCardPackageTnBFlow() {
+    public void goToCardPackageTnBFlow() throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
         click(By.xpath("(//span[text()='Бесплатно по акции'])[1]"));
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
     }
 
-    public void goToCardPackage18PlusFlow() {
+    public void goToCardPackage18PlusFlow() throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Все пакеты']"));
         click(By.xpath("//h3[text()='18+']"));
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
@@ -237,16 +237,16 @@ public class PackagesPage extends BasePageWebDriver {
         Assert.assertEquals(countTails.size(),services.size());
     }
 
-    public void clickToTailCardPackageSubs1() {
+    public void clickToTailCardPackageSubs1() throws InterruptedException {
+        Thread.sleep(3000);
         click(By.xpath("(//span[contains(text(),'в сутки')])[1]"));
     }
 
-    public void clickToTabAllServices() {
+    public void clickToTabAllServices() throws InterruptedException {
         click(By.xpath("(//div[text()='Все сервисы'])[3]"));
     }
 
     public void clickToTailCardPackageKinoPoPodpiske() throws InterruptedException {
         click(By.xpath("//h3[text()='Кино по подписке']"));
-        Thread.sleep(3000);
     }
 }

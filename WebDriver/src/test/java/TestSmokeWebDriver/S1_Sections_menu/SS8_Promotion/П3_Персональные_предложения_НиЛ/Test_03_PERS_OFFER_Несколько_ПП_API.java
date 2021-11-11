@@ -12,32 +12,27 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_PERS_OFFER_Разные_состояния_ПП_API_Bug extends TestBaseWebDriver {
+public class Test_03_PERS_OFFER_Несколько_ПП_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "3. Персональное предложение")
-    @DisplayName(value = "ПП разные состояния")
+    @DisplayName(value = "Несколько ПП")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void POdifferentState() throws InterruptedException {
-        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
-        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
-        personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
-        personalOffer.archivePersonalOfferSubscription();
+    public void fewPersonalOffers() throws InterruptedException {
         personalOffer.createPersonalOfferTypePackageForZeroRublesForMF();
+        personalOffer.createPersonalOfferTypeSubscription();
         headerMenu.goToFilmsPage();
         flowRegistation();
         headerMenu.goToNilPage();
-        personalOffer.checkElementsWhiteColorSandPersonalOffer();
-        personalOffer.checkElementsYellowColorSandPersonalOffer();
-        personalOffer.checkElementsRedColorSandPersonalOffer();
+        personalOffer.checkElementsFewPersonalOffers();
         personalOffer.clickToElementPersonalOffer();
-        personalOffer.checkOpenPagePersonalOfferPackageForZeroRubles();
+        promoPage.checkOpenPromoPage();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
+        personalOffer.archivePersonalOfferSubscription();
         pageCMS.deleteAccountMF("79260205027");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -52,4 +47,3 @@ public class Test_02_PERS_OFFER_Разные_состояния_ПП_API_Bug ext
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }
-

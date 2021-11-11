@@ -17,15 +17,15 @@ public class CardTvChannel extends BasePageWebDriver {
         urlCardTvProgram.equals("/programs/");
     }
 
-    public void clickOnTvProgramInCardChannel() {
+    public void clickOnTvProgramInCardChannel() throws InterruptedException {
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
     }
 
-    public void clickPaymentButtonInCardTvChannel() {
+    public void clickPaymentButtonInCardTvChannel() throws InterruptedException {
         click(By.xpath("(//button[@type='button']//span)[1]"));
     }
 
-    public void clickToLinkCardPackage() {click(By.linkText("Максимальный")); }
+    public void clickToLinkCardPackage() throws InterruptedException {click(By.linkText("Максимальный")); }
 
     public void checkOpenScheduleOnCardTvChannel() { isElementDisplayed(By.xpath("//div[text()='Сегодня']")); }
 
@@ -61,7 +61,7 @@ public class CardTvChannel extends BasePageWebDriver {
 
     }
 
-    public void clickNoInPopUp18Plus() {
+    public void clickNoInPopUp18Plus() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
         click(By.xpath("//button[text()='Нет']"));
         isElementDisplayed(By.xpath("//div[text()='Новости']"));
@@ -79,7 +79,7 @@ public class CardTvChannel extends BasePageWebDriver {
         click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[2]"));
     }
 
-    public void checkPaymentComplete() {
+    public void checkPaymentComplete() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет')]"));
         click(By.xpath("//button[text()='Подтвердить']"));
         isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
@@ -134,7 +134,7 @@ public class CardTvChannel extends BasePageWebDriver {
         Assert.assertEquals("Не тот цвет","rgb(153, 153, 153)",colorIconFavoriteNotAdded);
     }
 
-    public void clickOnButtonFavorite() {
+    public void clickOnButtonFavorite() throws InterruptedException {
         isElementDisplayed(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
         click(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
     }
@@ -149,7 +149,7 @@ public class CardTvChannel extends BasePageWebDriver {
         Assert.assertEquals("Не тот цвет","rgb(255, 255, 255)",colorIconFavoriteAdded);
     }
 
-    public void goToTvProgram18Plus() {
+    public void goToTvProgram18Plus() throws InterruptedException {
         click(By.className("_1nAXLMkHN0PXnwvulfBvK0"));
         isElementDisplayed(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']"));
         }

@@ -13,12 +13,12 @@ public class SportPage extends BasePageWebDriver {
         super(driver);
     }
 
-    public void clickToTailTvChannel() {
+    public void clickToTailTvChannel() throws InterruptedException {
         click(By.xpath("(//div[@class='lJKP8B9lCUmBeUxpmi06D'])[1]"));
         isElementDisplayed(By.xpath("//a[@href='/tv']//span[1]"));
     }
 
-    public void clickToTailTvProgram() {
+    public void clickToTailTvProgram() throws InterruptedException {
         click(By.xpath("(//div[@class='X6AUS0SWkRBAkOSrXkHMg _2yqndJWOuX36UWc1F5T19w'])[1]"));
         isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
     }
@@ -33,7 +33,7 @@ public class SportPage extends BasePageWebDriver {
 
     }
 
-    public void scrollCollectionSportChannelsToRight()  {
+    public void scrollCollectionSportChannelsToRight() throws InterruptedException {
         String tail1 = webDriver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[1]")).getText();
         String tail2 = webDriver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[2]")).getText();
         String tail3 = webDriver.findElement(By.xpath("(//div[@class='voBSETKBvzwGQenpoI2Vt'])[3]")).getText();
@@ -68,7 +68,7 @@ public class SportPage extends BasePageWebDriver {
         }
 
 
-    public void scrollCollectionSportChannelsToLeft() {
+    public void scrollCollectionSportChannelsToLeft() throws InterruptedException {
         while (webDriver.findElements(By.cssSelector("._3rqfV1yVNWseL50GG3hr8z:nth-child(2) ._2KOIeQVzqQqBKuxqSCaF8p>svg>g[fill='#CCC']")).size()>0) {
             click(By.xpath("(//button[@class='_2KOIeQVzqQqBKuxqSCaF8p'])[2]"));}
     }
@@ -136,7 +136,7 @@ public class SportPage extends BasePageWebDriver {
         Assert.assertNotEquals(bannerFirst, bannerSecond);
     }
 
-    public void clickToBanner() {
+    public void clickToBanner() throws InterruptedException {
         click(By.xpath("//div[@data-test='BannerCarousel']"));
         isElementDisplayed(By.xpath("(//a[@href='/tv']//span[1])"));
     }

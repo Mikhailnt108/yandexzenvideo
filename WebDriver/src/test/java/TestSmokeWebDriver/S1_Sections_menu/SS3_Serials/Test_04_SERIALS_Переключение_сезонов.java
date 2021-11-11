@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS7_MY;
+package TestSmokeWebDriver.S1_Sections_menu.SS3_Serials;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -11,35 +11,37 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_06_MY_Переход_в_карточку_контента_из_раздела_Моё_Оплаченное_Bug extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
+public class Test_04_SERIALS_Переключение_сезонов extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
-    @DisplayName(value ="6. Переход в карточку контента из раздела Моё_Оплаченное")
+    @Story(value = "4. Сериалы")
+    @DisplayName(value ="Переключение сезонов")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#3")
-    public void goToContentCardFromMyMyPagePurchases() throws InterruptedException {
-        headerMenu.goToFilmsPage();
+    @Tag("SuiteWD#2")
+    public void switchingSeasons() throws Exception {
+        headerMenu.goToSerialsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.paymentFilmAtEst();
-        myPage.goToMyPagePurchases();
-        myPage.clickToTailCardFilmFromPurchases();
-        cardFilm.checkOpenCardFilm();
-        pageCMS.deleteAccountMF("79260172279");
+        serialsPage.chooseSeasonsMoreOneSeason();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.chooseOtherSeasonAndCheckPoster();
+        cardSerial.checkAutoStartVideoPlayer();
+        cardSerial.paymentSerialAtSubs();
+        cardSerial.moveSliderRewindToVideoPlayer();
+        cardSerial.checkSeasonAndEpisode();
+        pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79250110166");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

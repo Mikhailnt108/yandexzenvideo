@@ -31,7 +31,8 @@ public class Test_04_2_PACKAGES_Subscription_to_package_by_SubsPromo_Non_MF exte
         cardPackage.checkClosePopUpSubsPromoService();
         cardPackage.clickOnPaymentButtonInCardPackageForUser();
         cardPackage.clickOnButtonAcceptAndConfirm();
-        cardPackage.inputDataBankCard("4847 0000 6602 5312", "12 / 25", "258"); // тестовая банк карта
+//        cardPackage.inputDataTestBankCard("4847 0000 6602 5312", "12 / 25", "258"); // тестовая банк карта
+        cardPackage.inputDataRealBankCard("5106 2110 1024 3900", "08 / 22", "573"); // боевая банк карта
         cardPackage.checkElementsPopUpСonnectionСompleted();
         cardPackage.clickOnButtonClosePoUpСonnectionСompleted();
         cardPackage.clickToFirstTailCardSerial();

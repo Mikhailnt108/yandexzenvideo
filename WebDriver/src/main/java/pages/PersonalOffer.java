@@ -20,7 +20,7 @@ public class PersonalOffer extends BasePageWebDriver {
         super(driver);
     }
 
-    public void clickTolinkViewAllPromotions() {
+    public void clickTolinkViewAllPromotions() throws InterruptedException {
         click(By.linkText("Смотреть все акции"));
     }
 
@@ -71,7 +71,7 @@ public class PersonalOffer extends BasePageWebDriver {
         Assert.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorElementPO);
     }
 
-    public void clickToElementPersonalOffer() {
+    public void clickToElementPersonalOffer() throws InterruptedException {
         click(By.className("_3oPCKMu7Sfm9IMsxuhwuXy"));
     }
 
@@ -377,7 +377,7 @@ public class PersonalOffer extends BasePageWebDriver {
         webDriver.navigate().refresh();
     }
 
-    public void activatePersonalOfferPackageForZeroRubles() {
+    public void activatePersonalOfferPackageForZeroRubles() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Активировать']")));
         click(By.xpath("//button[text()='Активировать']"));
         click(By.xpath("//button[text()='Принять и подключить']|//button[text()='Подтвердить']"));
@@ -389,7 +389,7 @@ public class PersonalOffer extends BasePageWebDriver {
         Assert.assertEquals("Отображается плашка ПП", 0, webDriver.findElements(By.className("_2EES6eXVXSN1-aglhcBq0D")).size());
     }
 
-    public void activatePersonalOfferSubscription() {
+    public void activatePersonalOfferSubscription() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Активировать']")));
         click(By.xpath("//button[text()='Активировать']"));
         click(By.xpath("//button[text()='Принять и подключить']|//button[text()='Подтвердить']"));
@@ -397,7 +397,7 @@ public class PersonalOffer extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='АКТИВИРОВАНО']"));
     }
 
-    public void clickButtonPartner() {
+    public void clickButtonPartner() throws InterruptedException {
         click(By.xpath("//button[text()='KinoPoiskHD']"));
     }
 
@@ -425,12 +425,12 @@ public class PersonalOffer extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//a[@data-test='PackageLink']"));
     }
 
-    public void clickToTailPackageInPO() {
+    public void clickToTailPackageInPO() throws InterruptedException {
 
         click(By.xpath("//a[@data-test='PackageLink']"));
     }
 
-    public void clickToButtonNotInterested() {
+    public void clickToButtonNotInterested() throws InterruptedException {
         click(By.xpath("//button[text()='Не интересно']"));
     }
 }

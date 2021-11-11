@@ -5,37 +5,31 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_NOTIF_Фильм_по_покупке_за_деньги_API_Bug extends TestBaseWebDriver {
+public class Test_04_NOTIF_ТО_с_бандлом extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
-    @DisplayName(value = "Фильм по покупке за деньги")
+    @DisplayName(value = "ТО с бандлом")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void payFilmFromPopUpNotification() throws InterruptedException {
+    public void popUpNotificationMyTarifBundle() throws InterruptedException {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
-        popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
-        popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
+        popUpNotification.deletePopUpNotifScreenFilms();
+        popUpNotification.deletePopUpNotifScreenNilPayFilm();
         headerMenu.goToFilmsPage();
         flowRegistation();
-        headerMenu.goToNilPage();
-        popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
-        popUpNotification.clickToButtonPayToPopUpNotif();
-        paymentContent.checkOpenPopUpChoosePaymentMethodEst();
-        cardFilm.paymentFilmAtEstFromPopUpNotif();
-        myPage.checkAddingFilmInPurchasesForNotif();
-        popUpNotification.deletePopUpNotifScreenNilPayFilm();
+        headerMenu.checkElementsPopUpBundleUserMF();
+        popUpNotification.clickButtonWatchInPopUpBundle();
+        promoPage.checkOpenPromoPage();
         pageCMS.deleteAccountMF("79260205027");
     }
     private void flowRegistation() throws InterruptedException {
@@ -49,6 +43,5 @@ public class Test_02_NOTIF_Фильм_по_покупке_за_деньги_API_
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlowForAPINotif();
     }
 }

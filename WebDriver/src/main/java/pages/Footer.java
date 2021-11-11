@@ -11,7 +11,7 @@ public class Footer extends BasePageWebDriver {
     public Footer(WebDriver driver) {
         super(driver);
     }
-    public void clickToLinkFromDevices() {
+    public void clickToLinkFromDevices() throws InterruptedException {
         click(By.linkText("Компьютер"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
@@ -50,7 +50,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.switchTo().window((String) tabs6.get(0));
     }
 
-    public void clickToLinkFromSupport() {
+    public void clickToLinkFromSupport() throws InterruptedException {
         isElementDisplayed(By.xpath("//a[@href='tel:+78005509065']"));
         click(By.xpath("//span[text()='Задайте нам вопрос']"));
         isElementDisplayed(By.xpath("//div[text()='Отправить вопрос']"));
@@ -71,7 +71,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.close();
         webDriver.switchTo().window((String) tabs2.get(0));
         }
-    public void clickToLinkFromSocialNetworks() {
+    public void clickToLinkFromSocialNetworks() throws InterruptedException {
         click(By.xpath("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[2]"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
@@ -86,7 +86,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.switchTo().window((String) tabs2.get(0));
     }
 
-    public void clickToLinkFromDownloadApp() {
+    public void clickToLinkFromDownloadApp() throws InterruptedException {
         click(By.xpath("//img[@alt='mftv-app-store']"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
@@ -113,7 +113,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.switchTo().window((String) tabs4.get(0));
     }
 
-    public void clickToLinkDocsAndRules() {
+    public void clickToLinkDocsAndRules() throws InterruptedException {
         String url1 = "https://web-preprod3.megafon.tv/docs/rules-provide-telematic-services.pdf";
         click(By.linkText("Правила оказания телематических услуг связи"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());

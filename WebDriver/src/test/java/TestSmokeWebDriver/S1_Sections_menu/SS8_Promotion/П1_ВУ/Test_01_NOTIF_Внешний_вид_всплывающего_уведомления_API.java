@@ -5,33 +5,36 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_NOTIF_ТО_с_бандлом_Bug extends TestBaseWebDriver {
+public class Test_01_NOTIF_Внешний_вид_всплывающего_уведомления_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
     @Story(value = "1. ВУ")
-    @DisplayName(value = "ТО с бандлом")
+    @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
-    public void popUpNotificationMyTarifBundle() throws InterruptedException {
+    public void appearanceOfPopUpNotification() throws InterruptedException {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
         personalOffer.archivePersonalOfferPackageForZeroRublesForMF();
         personalOffer.archivePersonalOfferSubscription();
-        popUpNotification.deletePopUpNotifScreenFilms();
-        popUpNotification.deletePopUpNotifScreenNilPayFilm();
+        popUpNotification.deletePopUpNotifScreenNilDeepLinkFilms();
+        popUpNotification.createAndPublishedPopUpNotifScreenNilPayFilm();
         headerMenu.goToFilmsPage();
         flowRegistation();
-        headerMenu.checkElementsPopUpBundleUserMF();
-        popUpNotification.clickButtonWatchInPopUpBundle();
-        promoPage.checkOpenPromoPage();
+        headerMenu.goToNilPage();
+        popUpNotification.checkElementsPopUpNotifScreenNilPayFilm();
+        popUpNotification.deletePopUpNotifScreenNilPayFilm();
         pageCMS.deleteAccountMF("79260205027");
     }
+
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -43,5 +46,7 @@ public class Test_04_NOTIF_ТО_с_бандлом_Bug extends TestBaseWebDriver 
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");
+        headerMenu.checkLoginUserIsCorrectFlowForAPINotif();
     }
 }
+

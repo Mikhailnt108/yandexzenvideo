@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
@@ -23,7 +21,7 @@ public class Test_12_FILMS_Добавление_в_избранное_фильм
     public void AddingFilmToFavorites() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.checkButtonFavoriteNotAdded();
         cardFilm.clickButtonFavorites();

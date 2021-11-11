@@ -13,7 +13,8 @@ public class CardSerial extends BasePageWebDriver {
         super(driver);
     }
 
-    public void checkOpenCardSerial() {
+    public void checkOpenCardSerial() throws InterruptedException {
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
     }
     public void checkButtonFavoriteNotAdded() {
@@ -23,15 +24,15 @@ public class CardSerial extends BasePageWebDriver {
         Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorButtonFavoriteNotAdded);
     }
 
-    public void clickPaymentButtonInCardSerial() {
+    public void clickPaymentButtonInCardSerial() throws InterruptedException {
         click(By.xpath("(//button[@type='button']//span)[4]"));
     }
 
-    public void clickNamePackage() {
+    public void clickNamePackage() throws InterruptedException {
         click(By.xpath("(//a[@class='-p8N6S_CgeVJCFj5VLmD0'])[1]"));
     }
 
-    public void clickButtonFavorites() {
+    public void clickButtonFavorites() throws InterruptedException {
         click(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]"));
         isElementDisplayed(By.xpath("//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB']"));
     }
@@ -58,7 +59,7 @@ public class CardSerial extends BasePageWebDriver {
         Assert.assertNotEquals(time1, time2);
     }
 
-    public void clickToButtonSubscribePackage() {
+    public void clickToButtonSubscribePackage() throws InterruptedException {
         click(By.xpath("(//button[@type='button']//span)[4]"));
     }
 
@@ -77,11 +78,11 @@ public class CardSerial extends BasePageWebDriver {
         Assert.assertNotEquals("нет переключения на другой сезон", seasonFirst, seasonSecond);
     }
 
-    public void clickToButtonSubscribeInPopUp() {
+    public void clickToButtonSubscribeInPopUp() throws InterruptedException {
         click(By.xpath("//button[@type='button_free']"));
     }
 
-    public void checkPopUpSubscribeComplete() {
+    public void checkPopUpSubscribeComplete() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[text()='Пакет подключен']"));
         click(By.xpath("//button[text()='Закрыть']"));
     }
@@ -228,9 +229,9 @@ public class CardSerial extends BasePageWebDriver {
         Thread.sleep(10000);
         //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
-                , webDriver.findElement(By.xpath("(//h2[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]")));
+                , webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]")));
 
-        click(By.xpath("(//h2[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
+        click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         Thread.sleep(3000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         //нажал на стоп:
@@ -303,7 +304,7 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.className("_1hdhJYYoLFCYFGUtF3teH1")); // блок тайлов серий сезона
     }
 
-    public void clickToButtonReadDescription() {
+    public void clickToButtonReadDescription() throws InterruptedException {
         click(By.xpath("//button[text()='Прочитать описание']"));
     }
 
@@ -312,7 +313,7 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//dt[text()='Возрастное ограничение']"));
     }
 
-    public void clickToButtonRollUp() {
+    public void clickToButtonRollUp() throws InterruptedException {
         click(By.xpath("//button[text()='Свернуть']"));
     }
 
@@ -369,7 +370,7 @@ public class CardSerial extends BasePageWebDriver {
         Assert.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToCountDisLike);
     }
 
-    public void paymentSerialAtSubs() {
+    public void paymentSerialAtSubs() throws InterruptedException {
         click(By.xpath("(//button[@type='button']//span)[4]"));
         isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка')]"));
         click(By.xpath("//button[text()='Принять и подключить']|//button[text()='Подтвердить']"));
@@ -402,7 +403,7 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//span[@class='_3mvyhNdQM-dhsR11QU-BY9']//span[text()])[1]")); // номер серий
     }
 
-    public void clickTailEpisode() {
+    public void clickTailEpisode() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
@@ -410,13 +411,19 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()='Выберите один из вариантов']"));
     }
 
-    public void paymentSerialAtSubsInPoUp() {
+    public void paymentSerialAtSubsInPoUp() throws InterruptedException {
         click(By.xpath("//div[@aria-label='Popup']//span[contains(text(),'Подключить бесплатно') or contains(text(),'Смотреть бесплатно')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(),'Подписка')]"));
-        click(By.xpath("//button[text()='Принять и подключить']"));
-        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
-        click(By.xpath("//button[text()='Закрыть']"));
-        isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
+        if(webDriver.findElements(By.xpath("//button[text()='Принять и подключить']")).size()==1){
+            click(By.xpath("//button[text()='Принять и подключить']"));
+            isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+            click(By.xpath("//button[text()='Закрыть']"));
+            isElementDisplayed(By.xpath("//span[text()='Смотреть']"));}
+        if(webDriver.findElements(By.xpath("//button[text()='Подтвердить']")).size()==1){
+            click(By.xpath("//button[text()='Подтвердить']"));
+            isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+            click(By.xpath("//button[text()='Закрыть']"));
+            isElementDisplayed(By.xpath("//span[text()='Смотреть']"));}
     }
 
     public void scrollBlockEpisode() throws InterruptedException {

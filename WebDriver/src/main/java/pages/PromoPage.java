@@ -28,7 +28,7 @@ public class PromoPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Услуга без абонентской платы']"));
     }
 
-    public void clickToButtonGoOver() {
+    public void clickToButtonGoOver() throws InterruptedException {
         click(By.xpath("//button[text()='Перейти']"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
@@ -37,7 +37,7 @@ public class PromoPage extends BasePageWebDriver {
         webDriver.switchTo().window((String) tabs1.get(0));
     }
 
-    public void checkBlockingMegafon() {
+    public void checkBlockingMegafon() throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Вы абонент МегаФон']"));
         isElementDisplayed(By.xpath("//div[text()='Ваш номер МегаФон заблокирован']"));
         isElementDisplayed(By.xpath("//div[text()='Для просмотра пополните баланс']"));
@@ -49,7 +49,7 @@ public class PromoPage extends BasePageWebDriver {
         Assert.assertEquals(0, webDriver.findElements(By.xpath("(//div[text()='VIP'])[2]")).size());
     }
 
-    public void clickToButtonTopUpPhoneBalance() {
+    public void clickToButtonTopUpPhoneBalance() throws InterruptedException {
         click(By.xpath("//button[text()='Пополнить баланс телефона']"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
@@ -83,7 +83,7 @@ public class PromoPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[contains(text(), 'Входит')]"));
     }
 
-    public void checkListOfTariff() {
+    public void checkListOfTariff() throws InterruptedException {
         click(By.linkText("Ваш МегаФон ТВ может больше! Хочу больше!"));
         isElementDisplayed(By.xpath("(//div[text()='VIP'])[2]"));
         isElementDisplayed(By.xpath("//a[@href='https://megafon.ru/go/vip_tariff']"));
@@ -219,13 +219,13 @@ public class PromoPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h1//span[text()='Акции']"));
     }
 
-    public void checkExpandDiscriptionPromo() {
+    public void checkExpandDiscriptionPromo() throws InterruptedException {
         click(By.xpath("(//a[@class='aeD2NhkcvTTw9nWXBCWBE' and text()='Подробнее'])[1]"));
         Assert.assertEquals("Текст не расскрыт" ,0, webDriver.findElements(By.xpath("(//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role and text()='Подробнее'])[1]")).size());
         Assert.assertEquals("Текст не расскрыт" ,1, webDriver.findElements(By.xpath("(//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role and text()='Скрыть'])[1]")).size());
     }
 
-    public void checkHideDiscriptionPromo() {
+    public void checkHideDiscriptionPromo() throws InterruptedException {
         click(By.linkText("Скрыть"));
         Assert.assertEquals("Текст не скрыт" ,1, webDriver.findElements(By.xpath("(//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role and text()='Подробнее'])[1]")).size());
         Assert.assertEquals("Текст не скрыт" ,0, webDriver.findElements(By.xpath("(//div[@class='_10O7cpAXDpA_ApTVdk3tJq']//a[@role and text()='Скрыть'])[1]")).size());
@@ -248,7 +248,7 @@ public class PromoPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[contains(@class,'_32FrwmXzMbl_kYjSgmRpQV undefined')]"));
     }
 
-    public void scrollPersonalOffers() {
+    public void scrollPersonalOffers() throws InterruptedException {
         WebElement positionBlockPO = webDriver.findElement(By.xpath("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']"));
 //        System.out.println(positionBlockPO.getCssValue("transform"));
 //        Assert.assertEquals("значение не равно","translateX(0px)",positionBlockPO.getCssValue("transform"));
@@ -262,11 +262,11 @@ public class PromoPage extends BasePageWebDriver {
         Assert.assertEquals("стрелка вправо не пропала", 0, webDriver.findElements(By.xpath("//button[@class='_1oKGCqFlMvVD-dJjsZcmEk _32FrwmXzMbl_kYjSgmRpQV']")).size());
     }
 
-    public void clickToBlockPersonalOfferTypeSubscription() {
+    public void clickToBlockPersonalOfferTypeSubscription() throws InterruptedException {
         click(By.xpath("//div[text()='POSubscription']"));
     }
 
-    public void clickToBlockPersonalOfferTypePartner() {
+    public void clickToBlockPersonalOfferTypePartner() throws InterruptedException {
         click(By.xpath("//div[text()='POPartner1']"));
     }
 
@@ -274,7 +274,7 @@ public class PromoPage extends BasePageWebDriver {
         Assert.assertEquals("отображается неинтересный блок ПП", 0, webDriver.findElements(By.xpath("//div[text()='POPartner1']")).size());
     }
 
-    public void clickToBlockPersonalOfferTypePackageForZeroRublesForMF() {
+    public void clickToBlockPersonalOfferTypePackageForZeroRublesForMF() throws InterruptedException {
         click(By.xpath("//div[text()='POPackageForZeroRubles']"));
     }
 }

@@ -37,11 +37,12 @@ public class CardPackage extends BasePageWebDriver {
         urlCardTvPackage.equals("megafon.tv/tv1/packages/");
     }
 
-    public void checkOpenCardPackage() {
+    public void checkOpenCardPackage() throws InterruptedException {
+        Thread.sleep(3000);
         Assert.assertTrue("bug: not opened card package", webDriver.getCurrentUrl().contains("/mixed_groups/"));
     }
 
-    public void paymentPackageTnB() {
+    public void paymentPackageTnB() throws InterruptedException {
         click(By.xpath("//span[contains(text(), 'Подключить бесплатно')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
         click(By.xpath("//button[text()='Подтвердить' or text()='Принять и подключить']"));
@@ -49,7 +50,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void disablePackageTnB() {
+    public void disablePackageTnB() throws InterruptedException {
         String nameConnectedPackage = webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
         click(By.xpath("(//span[contains(text(),'+792')])[2]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
@@ -67,7 +68,7 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//span[contains(text(),'Отключен')])[last()]"));
     }
 
-    public void paymentPackageSubs1() {
+    public void paymentPackageSubs1() throws InterruptedException {
         click(By.xpath("(//span[contains(text(), 'Подключить за')])[1]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
         click(By.xpath("//button[text()='Подтвердить' or text()='Принять и подключить']"));
@@ -77,7 +78,7 @@ public class CardPackage extends BasePageWebDriver {
 
     public void disablePackageSubs1() throws InterruptedException {
         String nameConnectedPackage = webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
-        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[contains(text(),'+792')])[2]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
         Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
@@ -92,7 +93,7 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//span[contains(text(),'Отключен')])[last()]"));
     }
 
-    public void paymentPackageSubsN() {
+    public void paymentPackageSubsN() throws InterruptedException {
         click(By.xpath("//span[contains(text(), 'Подключить за')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
         click(By.xpath("//button[text()='Подтвердить' or text()='Принять и подключить']"));
@@ -100,9 +101,9 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void disablePackageSubsN() {
+    public void disablePackageSubsN() throws InterruptedException {
         String nameConnectedPackage = webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText();
-        click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
+        click(By.xpath("(//span[contains(text(),'+792')])[2]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
         Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
@@ -121,15 +122,15 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='18+']"));
     }
 
-    public void chooseUnrecordedTvChannel18Plus() {
+    public void chooseUnrecordedTvChannel18Plus() throws InterruptedException {
         click(By.xpath("(//div[@class='_3htFDYhBDJd36aHUvW3Sfh']//div)[1]"));
     }
 
-    public void chooseRecordedTvChannel18Plus() {
+    public void chooseRecordedTvChannel18Plus() throws InterruptedException {
         click(By.xpath("(//div[@class='_3htFDYhBDJd36aHUvW3Sfh'])[3]"));
     }
 
-    public void clickOnTailFirstCardFilm() {
+    public void clickOnTailFirstCardFilm() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
@@ -145,7 +146,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//a[@class='_2SBFkKqCGAQ96AZk-0n_uA'])[1]"));
     }
 
-    public void clickOnTailSecondCardFilm() {
+    public void clickOnTailSecondCardFilm() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
 
@@ -154,12 +155,12 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Да']"));
     }
 
-    public void clickOnTailFirstCardFilm18Plus() {
+    public void clickOnTailFirstCardFilm18Plus() throws InterruptedException {
         click(By.xpath("(//div[text()='Фильмы'])[3]"));
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void paymentPackageTnBForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
+    public void paymentPackageTnBForNonMfTestBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
         click(By.xpath("//span[contains(text(),'Подключить бесплатно на')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
         click(By.xpath("//button[text()='Добавить и подключить']"));
@@ -173,7 +174,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void paymentPackageSubsNForNonMFBankCardLinked() {
+    public void paymentPackageSubsNForNonMFBankCardLinked() throws InterruptedException {
         click(By.xpath("//span[contains(text(), 'Подключить за')]"));
         isElementDisplayed(By.xpath("//h1[text()='Выберите способ оплаты']"));
         click(By.className("_143gEPPDQeFDE8SQpNRUlN"));
@@ -196,8 +197,7 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[text()='Отменить']"));
     }
 
-    public void clickOnButtonCancel() {
-
+    public void clickOnButtonCancel() throws InterruptedException {
         click(By.xpath("//button[text()='Отменить']"));
     }
 
@@ -205,7 +205,7 @@ public class CardPackage extends BasePageWebDriver {
         Assert.assertEquals("не закрыт поп-ап",0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на сервис')]")).size());
     }
 
-    public void clickOnButtonAcceptAndConfirm() {
+    public void clickOnButtonAcceptAndConfirm() throws InterruptedException {
         click(By.xpath("//button[text()='Принять и подключить']"));
     }
 
@@ -229,7 +229,7 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[text()='Отменить']"));
     }
 
-    public void inputDataBankCard(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
+    public void inputDataTestBankCard(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
         writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
         writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
@@ -253,8 +253,7 @@ public class CardPackage extends BasePageWebDriver {
         Assert.assertEquals("не закрыт поп-ап",0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на пакет')]")).size());
     }
 
-    public void clickOnButtonСonfirm() {
-
+    public void clickOnButtonСonfirm() throws InterruptedException {
         click(By.xpath("//button[text()='Подтвердить']"));
     }
 
@@ -271,11 +270,11 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[text()='Отменить']"));
     }
 
-    public void clickOnButtonConnect() {
+    public void clickOnButtonConnect() throws InterruptedException {
         click(By.xpath("//button[text()='Подключить']"));
     }
 
-    public void clickOnButtonClosePoUpСonnectionСompleted() {
+    public void clickOnButtonClosePoUpСonnectionСompleted() throws InterruptedException {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
@@ -307,7 +306,7 @@ public class CardPackage extends BasePageWebDriver {
         Thread.sleep(3000);
     }
 
-    public void chooseToTabFilms() {
+    public void chooseToTabFilms() throws InterruptedException {
         click(By.xpath("(//div[text()='Фильмы'])[3]"));
     }
 
@@ -322,4 +321,26 @@ public class CardPackage extends BasePageWebDriver {
     }
 
 
+    public void paymentPackageTnBForNonMfRealBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
+        click(By.xpath("//span[contains(text(),'Подключить бесплатно на')]"));
+        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
+        click(By.xpath("//button[text()='Добавить и подключить']"));
+        isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
+        writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
+        writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
+        writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
+        click(By.xpath("//span[text()='Подключить сервис']|//span[text()='Подключить пакет']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Подключение выполнено успешно']")));
+        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
+        click(By.xpath("//button[text()='Закрыть']"));
+    }
+
+    public void inputDataRealBankCard(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
+        isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
+        writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
+        writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
+        writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Подключить сервис']")));
+        click(By.xpath("//span[text()='Подключить сервис']"));
+    }
 }

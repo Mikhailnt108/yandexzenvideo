@@ -39,11 +39,11 @@ public class NilPage extends BasePageWebDriver {
         }
     }
 
-    public void clickToTailCardFilm() {
+    public void clickToTailCardFilm() throws InterruptedException {
         click(By.xpath("(//div[@data-test='PackageListWrapper']//a[contains(@href, '/vods')])[1]"));
     }
 
-    public void clickToTailCardSerial() {
+    public void clickToTailCardSerial() throws InterruptedException {
         //click(By.xpath("(//a[contains(@href,'/shows/')]/following-sibling::a)[1]"));
         click(By.xpath("(//div[@data-test='PackageListWrapper']//a[contains(@href, '/shows/')])[1]"));
     }
@@ -196,31 +196,31 @@ public class NilPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 
-    public void clickToTailCardTvProgram() {
+    public void clickToTailCardTvProgram() throws InterruptedException {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/tv/channels/')][1]"));
     }
 
-    public void clickToTailCardPackage() {
+    public void clickToTailCardPackage() throws InterruptedException {
         click(By.xpath("//div[@data-test='PackageListWrapper']//a[contains(@href, '/mixed_groups/')][1]"));
     }
 
-    public void clickToLinkAllOnCollectionBlock() {
+    public void clickToLinkAllOnCollectionBlock() throws InterruptedException {
         click(By.partialLinkText("Все"));
     }
 
-    public void clickToLinkAllWithCollectionFilms() {
+    public void clickToLinkAllWithCollectionFilms() throws InterruptedException {
         click(By.xpath("(//a[contains(@href, '/vods')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void clickToLinkAllWithCollectionSerial() {
+    public void clickToLinkAllWithCollectionSerial() throws InterruptedException {
         click(By.xpath("(//a[contains(@href, '/shows/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void clickToLinkAllWithCollectionTvProgram() {
+    public void clickToLinkAllWithCollectionTvProgram() throws InterruptedException {
         click(By.xpath("(//a[contains(@href, '/tv/channels/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void clickToLinkAllWithCollectionPackage() {
+    public void clickToLinkAllWithCollectionPackage() throws InterruptedException {
         click(By.xpath("(//a[contains(@href, '/mixed_groups/')]/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
@@ -291,16 +291,16 @@ public class NilPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 
-    public void clickToTailContentCollectionSpecialForYou() {
+    public void clickToTailContentCollectionSpecialForYou() throws InterruptedException {
         click(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1byOct53kb4KlmAs0JuRSX']"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]|//a[@href='/shows']//span[1]"));
     }
 
-    public void clickToLinkAllWithCollectionSpecialForYou() {
+    public void clickToLinkAllWithCollectionSpecialForYou() throws InterruptedException {
         click(By.xpath("//a[text()='Подобрали специально для вас']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[@data-test='PackageListWrapperMoreText']"));
     }
 
-    public void scrollСollectionToRightInBlockCollectionSpecialForYou() {
+    public void scrollСollectionToRightInBlockCollectionSpecialForYou() throws InterruptedException {
         while (webDriver.findElements(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
 //            click(By.xpath("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
             for (int i = 0; i <= 10; i++) {
@@ -324,7 +324,7 @@ public class NilPage extends BasePageWebDriver {
 //        isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 
-    public void checkAndClickOnTailCardFilmInCollectHistoryWatch() {
+    public void checkAndClickOnTailCardFilmInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
@@ -334,7 +334,7 @@ public class NilPage extends BasePageWebDriver {
         click(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/vods')]"));
     }
 
-    public void checkAndClickOnTailCardSerialInCollectHistoryWatch() {
+    public void checkAndClickOnTailCardSerialInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/shows/')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
@@ -345,7 +345,7 @@ public class NilPage extends BasePageWebDriver {
 
     }
 
-    public void checkAndClickOnTailCardTvProgramInCollectHistoryWatch() {
+    public void checkAndClickOnTailCardTvProgramInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/tv/channels/')]//div[@class='_7LRTnrwDy15pRyA2wKc1m']"));
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/tv/channels/')]//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
@@ -360,13 +360,13 @@ public class NilPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::div[@class='_7LRTnrwDy15pRyA2wKc1m']/following-sibling::div[@class='_7FaeeXBmoJY-W9FbvAtmF']/div)[1]"));
     }
 
-    public void scrollСollectionToRightInCollectHistoryWatch() {
+    public void scrollСollectionToRightInCollectHistoryWatch() throws InterruptedException {
         while (webDriver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
             click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
         }
     }
 
-    public void checkAndClickOnTailWatchAndEdit() {
+    public void checkAndClickOnTailWatchAndEdit() throws InterruptedException {
 //        click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Смотреть и редактировать")));
         isElementDisplayed(By.partialLinkText("Смотреть и редактировать"));
@@ -379,30 +379,30 @@ public class NilPage extends BasePageWebDriver {
         Assert.assertEquals("элементы не совпадают",nameFilm, webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 
-    public void checkAbsentTvProgram18PlusInCollectHistoryWatch() {
+    public void checkAbsentTvProgram18PlusInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
         Assert.assertEquals("отображается элемент", 0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
     }
 
-    public void checkAbsentFilm18PlusInCollectHistoryWatch() {
+    public void checkAbsentFilm18PlusInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
         Assert.assertEquals("отображается элемент", 0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
     }
 
-    public void checkAbsentSerial18PlusInCollectHistoryWatch() {
+    public void checkAbsentSerial18PlusInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         Assert.assertEquals("отображается элемент", 0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
     }
 
-    public void clickToAllOnBlockCollectHistoryWatch() {
+    public void clickToAllOnBlockCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
         click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void clickToTailWatchAndEdit() {
+    public void clickToTailWatchAndEdit() throws InterruptedException {
         click(By.partialLinkText("Смотреть и редактировать"));
     }
 
@@ -414,7 +414,7 @@ public class NilPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Повысить точность персональных рекомендаций']"));
     }
 
-    public void clickToLastTailInCollectionSpecialForYou() {
+    public void clickToLastTailInCollectionSpecialForYou() throws InterruptedException {
         click(By.xpath("//div[text()='Повысить точность персональных рекомендаций']"));
     }
 }

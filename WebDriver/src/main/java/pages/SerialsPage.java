@@ -19,7 +19,7 @@ public class SerialsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
     }
 
-    public void clickToFirstTailCardSerial() {
+    public void clickToFirstTailCardSerial() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
@@ -27,7 +27,7 @@ public class SerialsPage extends BasePageWebDriver {
         webDriver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
     }
 
-    public void clickOnYearInput() {
+    public void clickOnYearInput() throws InterruptedException {
         click(By.xpath("//div[text()='Год']"));
     }
 
@@ -36,7 +36,7 @@ public class SerialsPage extends BasePageWebDriver {
         Assert.assertEquals(15, radioButtons.size());
     }
 
-    public void chooseOneYearOnly() {
+    public void chooseOneYearOnly() throws InterruptedException {
         click(By.xpath("//span[text()='2019 год']"));
         click(By.xpath("//div[text()='Год']"));
     }
@@ -55,7 +55,7 @@ public class SerialsPage extends BasePageWebDriver {
         }
     }
 
-    public void choosePeriodOfYears() {
+    public void choosePeriodOfYears() throws InterruptedException {
         click(By.xpath("//div[text()='Год с']"));
         click(By.xpath("(//span[text()='2010'])[1]"));
 
@@ -77,7 +77,7 @@ public class SerialsPage extends BasePageWebDriver {
         }
     }
 
-    public void clickOnGenreInput() {
+    public void clickOnGenreInput() throws InterruptedException {
         click(By.xpath("//div[text()='Жанр']"));
     }
 
@@ -86,29 +86,31 @@ public class SerialsPage extends BasePageWebDriver {
         Assert.assertEquals(28, checkboxes.size());
     }
 
-    public void chooseOneGenre() {
+    public void chooseOneGenre() throws InterruptedException {
         click(By.xpath("//div[text()='Жанр']"));
         click(By.xpath("//span[text()='Документальный']"));
         click(By.xpath("//div[text()='Жанр']"));
     }
 
-    public void checkRequestResultOneGenre() {
+    public void checkRequestResultOneGenre() throws InterruptedException {
+        Thread.sleep(3000);
         List<WebElement> CollectionOneGenre = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]"));
         Assert.assertEquals(36, CollectionOneGenre.size());
     }
 
-    public void chooseTwoGenre() {
+    public void chooseTwoGenre() throws InterruptedException {
         click(By.xpath("//div[text()='Документальный']"));
         click(By.xpath("//span[text()='Аниме']"));
         click(By.xpath("//div[text()='Жанр']"));
     }
 
-    public void checkRequestResultTwoGenre() {
+    public void checkRequestResultTwoGenre() throws InterruptedException {
+        Thread.sleep(3000);
         List<WebElement> CollectionTwoGenre = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]|//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Аниме')]"));
         Assert.assertEquals(36, CollectionTwoGenre.size());
     }
 
-    public void clickOnCountryInput() {
+    public void clickOnCountryInput() throws InterruptedException {
         click(By.xpath("//div[text()='Страна']"));
     }
 
@@ -137,7 +139,7 @@ public class SerialsPage extends BasePageWebDriver {
         }
     }
 
-    public void chooseTwoCountry() {
+    public void chooseTwoCountry() throws InterruptedException {
         click(By.xpath("//div[text()='Россия']"));
         click(By.xpath("//span[text()='США']"));
         click(By.xpath("//div[text()='Страна']"));
@@ -160,7 +162,7 @@ public class SerialsPage extends BasePageWebDriver {
 
     }
 
-    public void clickOnResetFiltersButton() {
+    public void clickOnResetFiltersButton() throws InterruptedException {
         click(By.xpath("//button[text()='Сбросить']"));
     }
 
@@ -183,11 +185,11 @@ public class SerialsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//div[@data-test='PackageListWrapper'])[1]"));
     }
 
-    public void switchingFromBannerToCardSerial() {
+    public void switchingFromBannerToCardSerial() throws InterruptedException {
         click(By.xpath("//div[@data-test='BannerCarousel']"));
     }
 
-    public void clickToLinkAllOnCollectionBlock() {
+    public void clickToLinkAllOnCollectionBlock() throws InterruptedException {
         click(By.partialLinkText("Все"));
     }
 
@@ -213,7 +215,7 @@ public class SerialsPage extends BasePageWebDriver {
             Thread.sleep(3000);
             BannerForSerials2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
             BannerForSerials2.get(i).click();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Thread.sleep(3000);
             Assert.assertTrue("not opened card serial", webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size()==1);
@@ -279,21 +281,21 @@ public class SerialsPage extends BasePageWebDriver {
 
     public void scrollСollectionToRightAndLeft() throws InterruptedException {
         // разовый скролл подборки вправо:
-        String tail1Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
-        String tail2Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
-        String tail3Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        String tail1Right = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Right = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Right = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
         System.out.println(tail1Right);
         System.out.println(tail2Right);
         System.out.println(tail3Right);
 
-        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[3]//button[@data-test='ArrowButtonNext']"));
 
-        String tail4Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
-        String tail5Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
-        String tail6Right = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]"));
-        isElementDisplayed(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]"));
+        String tail4Right = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Right = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Right = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        isElementDisplayed(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[4]"));
+        isElementDisplayed(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[5]"));
+        isElementDisplayed(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[6]"));
         System.out.println(tail4Right);
         System.out.println(tail5Right);
         System.out.println(tail6Right);
@@ -303,33 +305,33 @@ public class SerialsPage extends BasePageWebDriver {
         Assert.assertNotEquals(tail3Right, tail6Right);
 
         // разовый скролл подборки влево:
-        String tail4Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
-        String tail5Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
-        String tail6Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
-        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
-        String tail1Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
-        String tail2Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
-        String tail3Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
+        String tail4Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
+        String tail5Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
+        String tail6Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
+        click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[3]//button[@data-test='ArrowButtonPrev']"));
+        String tail1Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[1]")).getText();
+        String tail2Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
+        String tail3Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
         Thread.sleep(5000);
         Assert.assertNotEquals(tail1Left, tail4Left);
         Assert.assertNotEquals(tail2Left, tail5Left);
         Assert.assertNotEquals(tail3Left, tail6Left);
 
         // скоролл подборки вправо до упора:
-        while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
+        while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[3]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
             for (int i = 0; i <= 10; i++) {
-                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[3]//button[@data-test='ArrowButtonNext']"));
             }
         }
         // скоролл подборки вдлево до упора:
-        while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
+        while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[3]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
             for (int i = 0; i <= 10; i++) {
-                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev']"));
+                click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[3]//button[@data-test='ArrowButtonPrev']"));
             }
         }
     }
 
-    public void chooseOneQuickFilter() {
+    public void chooseOneQuickFilter() throws InterruptedException {
         click(By.xpath("//button[text()='Приключения']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Приключения']"));
     }
@@ -343,7 +345,7 @@ public class SerialsPage extends BasePageWebDriver {
         Assert.assertEquals(36, CollectionQuickFilter.size());
     }
 
-    public void chooseTwoQuickFilter() {
+    public void chooseTwoQuickFilter() throws InterruptedException {
         click(By.xpath("//button[text()='Боевик']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']"));
         isElementDisplayed(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Приключения']"));
@@ -354,7 +356,7 @@ public class SerialsPage extends BasePageWebDriver {
         Assert.assertEquals(36, CollectionQuickFilter.size());
     }
 
-    public void checkUnplugQuickFilter() {
+    public void checkUnplugQuickFilter() throws InterruptedException {
         click(By.xpath("//button[text()='Боевик']"));
         Assert.assertEquals("не отключен быстрый фильтр", 0, webDriver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
     }
@@ -390,12 +392,11 @@ public class SerialsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonPrev' and @disabled]"));
     }
 
-    public void clickToSecondTailCardSerial() {
-
+    public void clickToSecondTailCardSerial() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
 
-    public void scrollToTailWatchAndEdit() {
+    public void scrollToTailWatchAndEdit() throws InterruptedException {
         click(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//button[@data-test='ArrowButtonNext']"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Смотреть и редактировать")));
         isElementDisplayed(By.partialLinkText("Смотреть и редактировать"));
@@ -407,20 +408,20 @@ public class SerialsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//p[text()='всю историю просмотров']"));
     }
 
-    public void clickToAllOnBlockCollectHistoryWatch() {
+    public void clickToAllOnBlockCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
         click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']/following::a[@data-test='PackageListWrapperMoreText'])[1]"));
     }
 
-    public void clickToTailWatchAndEdit() {
+    public void clickToTailWatchAndEdit() throws InterruptedException {
         click(By.partialLinkText("Смотреть и редактировать"));
     }
 
-    public void clickToPosterFirstTailBlockCollectHistoryWatch() {
+    public void clickToPosterFirstTailBlockCollectHistoryWatch() throws InterruptedException {
         click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_7LRTnrwDy15pRyA2wKc1m'])[1]"));
     }
 
-    public void clickToTextFirstTailBlockCollectHistoryWatch() {
+    public void clickToTextFirstTailBlockCollectHistoryWatch() throws InterruptedException {
         click(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::div[@class='_1IVk0Zab-UdqbOslYR6SnJ'])[1]"));
     }
 
@@ -467,7 +468,7 @@ public class SerialsPage extends BasePageWebDriver {
         Assert.assertEquals("есть подборка 'Продолжить просмотр'", 0, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size());
     }
 
-    public void clickOnFastFilterGenre() {
+    public void clickOnFastFilterGenre() throws InterruptedException {
         click(By.xpath("//button[text()='Боевик']"));
     }
 }

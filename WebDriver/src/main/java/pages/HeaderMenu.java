@@ -127,7 +127,7 @@ public class HeaderMenu extends BasePageWebDriver {
 
     }
 
-    public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) {
+    public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
             ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
@@ -166,7 +166,7 @@ public class HeaderMenu extends BasePageWebDriver {
         }
     }
 
-    public void checkOpenPopUpCreatePasswordForFlowRegistrationNonMF(String login, String password) {
+    public void checkOpenPopUpCreatePasswordForFlowRegistrationNonMF(String login, String password) throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
             ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
@@ -205,7 +205,7 @@ public class HeaderMenu extends BasePageWebDriver {
         }
     }
 
-    public void noConnectSmartTv() {
+    public void noConnectSmartTv() throws InterruptedException {
         String invalidСodSmartTv = "12345";
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Подключить SmartTV'])[1]"));
@@ -255,18 +255,18 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void checkNotLoggedIsCorrect() {
+    public void checkNotLoggedIsCorrect() throws InterruptedException {
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));}
         webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
     }
 
-    public void clickToEnter(String buttonEnter) {
+    public void clickToEnter(String buttonEnter) throws InterruptedException {
         click(By.xpath("(//span[text()='Вход'])[1]"));
     }
 
-    public void checkLoginUserIsCorrectFlowForMF() {
+    public void checkLoginUserIsCorrectFlowForMF() throws InterruptedException {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
@@ -291,7 +291,7 @@ public class HeaderMenu extends BasePageWebDriver {
         webDriver.navigate().refresh();
     }
 
-    public void checkLoginUserIsCorrectFlowForMFFast() {
+    public void checkLoginUserIsCorrectFlowForMFFast() throws InterruptedException {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
@@ -299,7 +299,7 @@ public class HeaderMenu extends BasePageWebDriver {
         }
     }
 
-    public void checkLoginUserIsCorrectFlowForAPINotif() {
+    public void checkLoginUserIsCorrectFlowForAPINotif() throws InterruptedException {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//h3[text()='Специальное предложение для Вас!']|//h3[text()='Специально для Вас!']|//h3[contains(text(),'Вам доступно')]|//div[text()='Акция недоступна']")).size() != 0) {
@@ -309,7 +309,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
 
-    public void checkLoginUserIsCorrectForBlockingMf() {
+    public void checkLoginUserIsCorrectForBlockingMf() throws InterruptedException {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
@@ -327,23 +327,23 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
 
-    public void clickToButtonPromo() {
+    public void clickToButtonPromo() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[2]"));
     }
 
-    public void clickToTabFilms() {
+    public void clickToTabFilms() throws InterruptedException {
         click(By.xpath("(//div[text()='Фильмы'])[1]"));
     }
 
-    public void clickToTabSerials() {
+    public void clickToTabSerials() throws InterruptedException {
         click(By.xpath("(//div[text()='Сериалы'])[1]"));
     }
 
-    public void clickToTabShop() {
+    public void clickToTabShop() throws InterruptedException {
         click(By.xpath("(//div[text()='Магазин'])[1]"));
     }
 
-    public void clickToSearchButton() {
+    public void clickToSearchButton() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[1]"));
     }
 
@@ -371,11 +371,11 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Все результаты"));
     }
 
-    public void clickToLinkShowAll() {
+    public void clickToLinkShowAll() throws InterruptedException {
         click(By.linkText("Все результаты"));
     }
 
-    public void clickToLinkAll() {
+    public void clickToLinkAll() throws InterruptedException {
         click(By.partialLinkText("Все"));
     }
 
@@ -383,13 +383,13 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()='Введите промокод']"));
     }
 
-    public void checkPopUpPromotionNotAvailable() {
+    public void checkPopUpPromotionNotAvailable() throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Акция недоступна']"));
         click(By.xpath("//button[text()='Закрыть']"));
 
     }
 
-    public void clickToPhoneNumber() {
+    public void clickToPhoneNumber() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
     }
 
@@ -400,7 +400,7 @@ public class HeaderMenu extends BasePageWebDriver {
         Thread.sleep(3000);
     }
 
-    public void checkLoginUserIsCorrectFlowForNonMF() {
+    public void checkLoginUserIsCorrectFlowForNonMF() throws InterruptedException {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
@@ -417,7 +417,7 @@ public class HeaderMenu extends BasePageWebDriver {
         webDriver.navigate().refresh();
     }
 
-    public void openSubsectionPaymentMethod() {
+    public void openSubsectionPaymentMethod() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Способы оплаты'])[1]"));
         Assert.assertEquals("Нет заголовока 'Способы оплаты'", "Способы оплаты", webDriver.findElement(By.tagName("h1")).getText());
@@ -452,7 +452,7 @@ public class HeaderMenu extends BasePageWebDriver {
         Assert.assertEquals("Кнопка 'Далее' НЕ активна", 0, webDriver.findElements(By.xpath("//button[@disabled and text()='Далее']")).size());
     }
 
-    public void clickToNext(String button) {
+    public void clickToNext(String button) throws InterruptedException {
         click(By.xpath("//button[text()='Далее']"));
     }
 
@@ -494,7 +494,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@disabled and text()='Войти']"));
     }
 
-    public void clickToLinkOffer() {
+    public void clickToLinkOffer() throws InterruptedException {
         click(By.xpath("//a[@href='//www.megafon.ru/ad/offer_mediaportal']"));
     }
 
@@ -516,11 +516,11 @@ public class HeaderMenu extends BasePageWebDriver {
         Assert.assertEquals("Кнопка 'Войти' НЕ активна", 0, webDriver.findElements(By.xpath("//button[@disabled and text()='Войти']")).size());
     }
 
-    public void clickToComeIn(String button) {
+    public void clickToComeIn(String button) throws InterruptedException {
         click(By.xpath("//button[text()='Войти']"));
     }
 
-    public void inputEmail() {
+    public void inputEmail() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Email'])[1]"));
         isElementDisplayed(By.xpath("//div[text()='Email']"));
@@ -540,7 +540,7 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("(//div[@role='dialog']//button)[2]"));
     }
 
-    public void logOut() {
+    public void logOut() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[3]"));
         click(By.xpath("(//span[text()='Выйти'])[1]"));
     }
@@ -587,7 +587,7 @@ public class HeaderMenu extends BasePageWebDriver {
         Assert.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
     }
 
-    public void inputInvalidCodeMoreThanThreeTimes() {
+    public void inputInvalidCodeMoreThanThreeTimes() throws InterruptedException {
         for (int i = 0; i <= 2; i++) {
             click(By.xpath("//button[text()='Войти']"));
         }
@@ -601,13 +601,13 @@ public class HeaderMenu extends BasePageWebDriver {
         Assert.assertEquals("Кнопка 'Получить новый код' НЕ активна", 0, webDriver.findElements(By.xpath("//button[@disabled and text()='Получить новый код']")).size());
     }
 
-    public void clickToButtonGetNewCode() {
+    public void clickToButtonGetNewCode() throws InterruptedException {
         click(By.xpath("//button[text()='Получить новый код']"));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[text()='Получить новый код']")));
         click(By.xpath("//button[text()='Получить новый код']"));
     }
 
-    public void clickToButtonForgetPassword() {
+    public void clickToButtonForgetPassword() throws InterruptedException {
         click(By.xpath("//button[text()='Я не помню пароль']"));
     }
 
@@ -615,13 +615,13 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
     }
 
-    public void closePopUpNotDefinedTariff() {
+    public void closePopUpNotDefinedTariff() throws InterruptedException {
         webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[text()='Акция недоступна']"));
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void checkOpenPopUpCreatePasswordForCaseRegistrationMF(String login) {
+    public void checkOpenPopUpCreatePasswordForCaseRegistrationMF(String login) throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
             ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
@@ -655,7 +655,7 @@ public class HeaderMenu extends BasePageWebDriver {
         }
     }
 
-    public void checkOpenPopUpInputEmail(String login) {
+    public void checkOpenPopUpInputEmail(String login) throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Введите E-mail']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
             ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
@@ -717,7 +717,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@disabled and text()='Далее']"));
     }
 
-    public void clickToCheckBoxInPopUpEmail() {
+    public void clickToCheckBoxInPopUpEmail() throws InterruptedException {
         click(By.xpath("//input[@type='checkbox']/following-sibling::div[1]"));
     }
 
@@ -733,7 +733,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
 
-    public void closePopUpInputPassword() {
+    public void closePopUpInputPassword() throws InterruptedException {
         click(By.xpath("(//div[@role='dialog']//button)[3]"));
     }
 
@@ -748,12 +748,12 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@disabled and text()='Войти']"));
     }
 
-    public void clickUncheckCheckBox() {
+    public void clickUncheckCheckBox() throws InterruptedException {
         click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
         Assert.assertEquals("Не отжат чекбокс", 0, webDriver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size());
     }
 
-    public void clickCheckCheckBox() {
+    public void clickCheckCheckBox() throws InterruptedException {
         click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
         Assert.assertEquals("Не прожат чекбокс", 1, webDriver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size());
     }
@@ -801,7 +801,7 @@ public class HeaderMenu extends BasePageWebDriver {
 
     }
 
-    public void clickToButtonActivatePromoCode() {
+    public void clickToButtonActivatePromoCode() throws InterruptedException {
         click(By.xpath("//button[text()='Активировать']"));
     }
 
@@ -853,7 +853,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Подробнее"));
     }
 
-    public void clickToButtonCancel() {
+    public void clickToButtonCancel() throws InterruptedException {
         click(By.xpath("//button[text()='Отменить']"));
     }
 
@@ -862,7 +862,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()='Введите промокод']"));
     }
 
-    public void clickToButtonMoreDetailedAndCheckOpenCardPackageStart() {
+    public void clickToButtonMoreDetailedAndCheckOpenCardPackageStart() throws InterruptedException {
         String name = webDriver.findElement(By.className("uCaVLp73F3t8zT0sYCoBh")).getText();
         String namePackage = name.replace("\"", "");
         System.out.println(namePackage);
@@ -893,7 +893,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Подробнее"));
     }
 
-    public void clickToButtonCloseInPopUpAfterActivation() {
+    public void clickToButtonCloseInPopUpAfterActivation() throws InterruptedException {
         click(By.className("_2VizWvlDNzA0Ud_F09jJco"));
     }
 
@@ -919,7 +919,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Подробнее"));
     }
 
-    public void clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent() {
+    public void clickToButtonMoreDetailedAndCheckOpenCardFilmOnRent() throws InterruptedException {
         String name = webDriver.findElement(By.className("_1Euevex6MnqG-kMnzDFzTx")).getText();
         String namePackage = name.replace("\"", "");
         System.out.println(namePackage);
@@ -947,7 +947,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Подробнее"));
     }
 
-    public void clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST() {
+    public void clickToButtonMoreDetailedAndCheckOpenCardFilmOnEST() throws InterruptedException {
         String name = webDriver.findElement(By.className("_1Euevex6MnqG-kMnzDFzTx")).getText();
         String namePackage = name.replace("\"", "");
         System.out.println(namePackage);
@@ -981,8 +981,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[@class='_3SqVO95D45Gj6EpowjScAG']"));
     }
 
-    public void goToManageSubscriptions() {
-
+    public void goToManageSubscriptions() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
@@ -1004,7 +1003,7 @@ public class HeaderMenu extends BasePageWebDriver {
         jsDown.executeScript("window.scrollTo(0, 1500);");
     }
 
-    public void closePopUpNotif() {
+    public void closePopUpNotif() throws InterruptedException {
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));

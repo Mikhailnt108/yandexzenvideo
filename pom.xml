@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>WebDriver</module>
-        <module>Example</module>
         <module>WebPlaywright</module>
         <module>WebPlaywrightPlayer</module>
     </modules>
@@ -157,7 +156,7 @@
 <!--                        <include>**/*PW.java</include>-->
 <!--                    </includes>-->
                     <properties>
-                        <groups>SuitePwNonAdWeb#4</groups>
+                        <groups>SuiteWD#1,SuiteWD#2,SuiteWD#3,SuiteWD#4</groups>
 <!--                        <include>SuitePwTest1,SuitePwTest2,SuitePwTest3</include>-->
 <!--                        <include>**/Test*.java</include>-->
 <!--                        <include>**/*RETEST2408.java</include>-->

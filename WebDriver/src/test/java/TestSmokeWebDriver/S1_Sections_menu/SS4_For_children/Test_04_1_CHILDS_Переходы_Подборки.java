@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
@@ -24,7 +22,7 @@ public class Test_04_1_CHILDS_Переходы_Подборки extends TestBase
         headerMenu.goToKidsPage();
         kidsPage.checkElementsBlockCollectionWithHeader();
         kidsPage.checkElementsBlockCollectionWithoutHeader();
-        kidsPage.clickToTailCardFilm();
+        kidsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         kidsPage.checkBackgroundCardContentForKids();
         headerMenu.goToKidsPage();

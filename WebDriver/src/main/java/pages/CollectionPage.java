@@ -21,7 +21,7 @@ public class CollectionPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h1[contains(text(), 'аренд')]"));
     }
 
-    public void clickToTailFilmRent2() {
+    public void clickToTailFilmRent2() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
@@ -58,24 +58,24 @@ public class CollectionPage extends BasePageWebDriver {
     }
 
 
-    public void clickToTailFilm() {
+    public void clickToTailFilm() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/vods')])[1]"));
     }
 
-    public void clickToTailContentOnPageCollect() {
+    public void clickToTailContentOnPageCollect() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]|//a[@href='/shows']//span[1]|//a[@href='/tv']//span[1]"));
     }
 
-    public void clickToTailSerial() {
+    public void clickToTailSerial() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/shows/')])[1]"));
     }
 
-    public void clickToTailTvProgram() {
+    public void clickToTailTvProgram() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/tv/channels/')])[1]"));
     }
 
-    public void clickToTailPackage() {
+    public void clickToTailPackage() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink' and contains(@href, '/mixed_groups/')])[1]"));
     }
 

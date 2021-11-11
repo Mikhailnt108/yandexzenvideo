@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
@@ -23,7 +21,7 @@ public class Test_03_1_FILMS_Внешний_вид_карточки extends Test
     public void appearanceSectionCardFilm() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.checkAutoStartVideoPlayer();
         cardFilm.checkElementsCardFilm();
@@ -31,14 +29,14 @@ public class Test_03_1_FILMS_Внешний_вид_карточки extends Test
         // авторизованный пользователь:
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.checkAutoStartVideoPlayer();
         cardFilm.checkElementsCardFilm();
         cardFilm.clickButtonFavorites();
         myPage.checkAddingFilmToFavorites();
         headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.clickToButtonReadDescription();
         cardFilm.checkOpenDescriptionAll();

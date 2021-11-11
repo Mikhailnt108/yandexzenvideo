@@ -39,13 +39,15 @@ public class MyPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()='ТВ-каналы']"));
     }
 
-    public void checkAddingFilmInPurchases() {
+    public void checkAddingFilmInPurchases() throws InterruptedException {
         webDriver.get(Page_films_PP3);
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
+        Thread.sleep(3000);
         String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
         webDriver.get(My_purchases_PP3);
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        Thread.sleep(3000);
         Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
 
@@ -55,7 +57,7 @@ public class MyPage extends BasePageWebDriver {
 
     public void checkAddingFilmToFavorites() throws InterruptedException {
         webDriver.get(Page_films_PP3);
-        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         Thread.sleep(3000);
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
         System.out.println(nameFilm);
@@ -105,7 +107,7 @@ public class MyPage extends BasePageWebDriver {
         Assert.assertEquals("не равно количество сериалов", i3, i1+i2 );
     }
 
-    public void checkAddingSerialToFavorites() {
+    public void checkAddingSerialToFavorites() throws InterruptedException {
         String nameSerial = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameSerial);
         webDriver.get(My_favorites_PP3);
@@ -116,12 +118,12 @@ public class MyPage extends BasePageWebDriver {
         Assert.assertEquals(nameSerial, webDriver.findElement(By.tagName("h1")).getText());
     }
 
-    public void goToCollectionFavoritesPage() {
+    public void goToCollectionFavoritesPage() throws InterruptedException {
         click(By.xpath("//a[@href='/my/favorites/films']"));
         isElementDisplayed(By.xpath("//a[@href='/my/favorites']"));
     }
 
-    public void goToCollectionPurchasesPage() {
+    public void goToCollectionPurchasesPage() throws InterruptedException {
         click(By.xpath("//a[@href='/my/purchases/films']"));
         isElementDisplayed(By.linkText("Фильмы"));
     }
@@ -138,23 +140,24 @@ public class MyPage extends BasePageWebDriver {
         }
     }
 
-    public void clickToTailCardFilmFromFavorites() {
+    public void clickToTailCardFilmFromFavorites() throws InterruptedException {
         click(By.xpath("//a[@data-test='PackageLink']"));
     }
 
-    public void clickToTailCardFilmFromPurchases() {
+    public void clickToTailCardFilmFromPurchases() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void clickToTailCardPackageFromSubscriptions() {
+    public void clickToTailCardPackageFromSubscriptions() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void checkAddingFilmInHistory() {
+    public void checkAddingFilmInHistory() throws InterruptedException {
         String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
         webDriver.get(My_history_PP3);
         click(By.xpath("//a[@data-test='PackageLink']"));
+        Thread.sleep(3000);
         Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
     public void goToMyPageFavorites() { webDriver.get(My_favorites_PP3);
@@ -177,12 +180,12 @@ public class MyPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//span[contains(text(),'Эротика')]"));
     }
 
-    public void clickToButtonClearAllHistory() {
+    public void clickToButtonClearAllHistory() throws InterruptedException {
         click(By.xpath("//div[text()='Стереть всю историю']"));
        click(By.xpath("//button[text()='Стереть']"));
     }
 
-    public void checkCountSerialsInPurchases() {
+    public void checkCountSerialsInPurchases() throws InterruptedException {
         List<WebElement> count = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i = count.size();
         webDriver.get(Page_serials_PP3);
@@ -195,11 +198,12 @@ public class MyPage extends BasePageWebDriver {
 
     }
 
-    public void checkAddingFilmInPurchasesForNotif() {
+    public void checkAddingFilmInPurchasesForNotif() throws InterruptedException {
         String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
         webDriver.get(My_purchases_PP3);
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
+        Thread.sleep(3000);
         Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
 }

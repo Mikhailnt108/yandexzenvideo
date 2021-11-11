@@ -10,7 +10,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_2_PACKAGES_Disabling_packages_with_different_types_subscriptions_Non_MF_Bug extends TestBaseWebDriver {
+public class Test_03_2_PACKAGES_Disabling_packages_with_different_types_subscriptions_Non_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "7. Пакеты")
@@ -24,12 +24,13 @@ public class Test_03_2_PACKAGES_Disabling_packages_with_different_types_subscrip
         flowRegistationNonMF();
         packagesPage.clickToTailCardPackageTnB();
         cardPackage.checkOpenCardPackage();
-        cardPackage.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258"); // тестовая банк карта
+//        cardPackage.paymentPackageTnBForNonMfTestBankCardNotLinked("4847 0000 6602 5312", "12 / 25", "258"); // тестовая банк карта
+        cardPackage.paymentPackageTnBForNonMfRealBankCardNotLinked("5106 2110 1024 3900","08 / 22","573"); // боевая банк карта
         cardPackage.disablePackageTnB();
         headerMenu.goToPackagesPage();
-        packagesPage.clickToTailCardPackageSubsN();
-        cardPackage.paymentPackageSubsNForNonMFBankCardLinked();
-        cardPackage.disablePackageSubsN();
+//        packagesPage.clickToTailCardPackageSubsN(); // для ПП1, ПП3 нет боевой карты для покупки SubsN
+//        cardPackage.paymentPackageSubsNForNonMFBankCardLinked();
+//        cardPackage.disablePackageSubsN();
         pageCMS.deleteAccountNonMF("79261184972");
     }
 

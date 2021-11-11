@@ -21,32 +21,32 @@ public class Test_05_PACKAGES_Subscription_package_by_SubsN extends TestBaseWebD
     @Test
     @Tag("SuiteWD#3")
     public void subscribeToPackageBySubsN() throws Exception {
-        // пользователь НЕ МФ, пакет по SubsPromo:
-        headerMenu.goToPackagesPage();
-        flowRegistationNonMF();
-        packagesPage.clickToTailCardPackageSubsN();
-        cardPackage.checkOpenCardPackage();
-        cardPackage.paymentPackageSubsNForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258"); // тестовая банк карта
-        cardPackage.chooseToTabFilms();
-        cardPackage.clickOnTailFirstCardFilm();
-        cardFilm.ifAbsentOfferInPopUp();
-        cardFilm.acceptOfferInPopUp();
-        pageCMS.deleteAccountNonMF("79261184972");
-    }
-    private void flowRegistationNonMF() throws InterruptedException {
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
-        headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9261184972");
-        headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpInputEmail("9261184972");
-        headerMenu.checkElementsPopUpInputEmail();
-        headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
-        headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationNonMF("9261184972", "111111");
-        headerMenu.clickToComeIn("Войти");
-        pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
-        headerMenu.clickToComeIn("Войти");
-        headerMenu.checkLoginUserIsCorrectFlowForMF();
+//        // пользователь НЕ МФ, пакет по SubsPromo:
+//        headerMenu.goToPackagesPage();
+//        flowRegistationNonMF();
+//        packagesPage.clickToTailCardPackageSubsN();
+//        cardPackage.checkOpenCardPackage();
+//        cardPackage.paymentPackageSubsNForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258"); // тестовая банк карта
+//        cardPackage.chooseToTabFilms();
+//        cardPackage.clickOnTailFirstCardFilm();
+//        cardFilm.ifAbsentOfferInPopUp();
+//        cardFilm.acceptOfferInPopUp();
+//        pageCMS.deleteAccountNonMF("79261184972");
+//    }
+//    private void flowRegistationNonMF() throws InterruptedException {
+//        headerMenu.checkNotLoggedIsCorrect();
+//        headerMenu.clickToEnter("Вход");
+//        headerMenu.checkOpenPageInputPhone();
+//        headerMenu.inputLogin("9261184972");
+//        headerMenu.clickToNext("Далее");
+//        headerMenu.checkOpenPopUpInputEmail("9261184972");
+//        headerMenu.checkElementsPopUpInputEmail();
+//        headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
+//        headerMenu.clickToNext("Далее");
+//        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationNonMF("9261184972", "111111");
+//        headerMenu.clickToComeIn("Войти");
+//        pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
+//        headerMenu.clickToComeIn("Войти");
+//        headerMenu.checkLoginUserIsCorrectFlowForMF();
     }
 }

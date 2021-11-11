@@ -1,49 +1,44 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS7_MY;
+package TestSmokeWebDriver.S1_Sections_menu.SS2_Films;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_MY_Переход_по_вкладкам_Bug extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
+public class Test_04_FILMS_Покупка_фильма extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
-    @DisplayName(value ="1. Переход по вкладкам Моё")
+    @Story(value = "3. Фильмы")
+    @DisplayName(value ="Покупка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#3")
-    public void clickOnTheMyTabs() throws Exception {
+    @Tag("SuiteWD#1")
+    public void paymentFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToTailCardFilm();
-        cardFilm.paymentButtonRent2InCardFilm();
-        cardFilm.clickButtonFavorites();
+        filmsPage.clickToSecondTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.paymentFilmAtEst();
         cardFilm.startVideoPleer();
-        myPage.checkAddingFilmInHistory();
-        myPage.goToMyPagePurchases();
         myPage.checkAddingFilmInPurchases();
-        myPage.goToMyPageFavorites();
-        myPage.checkAddingFilmToFavorites();
-        pageCMS.deleteAccountMF("79260172279");
+        pageCMS.deleteAccountMF("79260192144");
     }
+
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260172279");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260172279");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

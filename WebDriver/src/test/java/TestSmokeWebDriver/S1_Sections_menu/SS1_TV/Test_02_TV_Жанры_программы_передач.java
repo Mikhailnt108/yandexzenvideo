@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_TV_Жанры_программы_передач extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_02_TV_Жанры_программы_передач extends Tes
     @DisplayName(value ="Жанры программы передач")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#1")
+    @Tag("SuiteWD#0")
     public void genresTvProgram() throws InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

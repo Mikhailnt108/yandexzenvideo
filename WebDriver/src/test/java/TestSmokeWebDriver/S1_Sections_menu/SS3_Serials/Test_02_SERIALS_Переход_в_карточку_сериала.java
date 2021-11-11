@@ -20,7 +20,7 @@ public class Test_02_SERIALS_Переход_в_карточку_сериала e
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void GoToCardSerial() {
+    public void GoToCardSerial() throws InterruptedException {
         headerMenu.goToSerialsPage();
         serialsPage.switchingFromBannerToCardSerial();
         cardSerial.checkOpenCardSerial();

@@ -13,7 +13,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.io.IOException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_08_1_TV_Передачи_в_эфире extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
@@ -21,7 +21,7 @@ public class Test_08_1_TV_Передачи_в_эфире extends TestBaseWebDriv
     @DisplayName(value ="Передачи в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#1")
+    @Tag("SuiteWD#0")
     public void tvProgramInAir() throws IOException, InterruptedException {
         headerMenu.goToTvPage();
         tvPage.checkOpenTvPageTabScheduleTv();

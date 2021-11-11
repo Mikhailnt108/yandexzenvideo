@@ -45,7 +45,7 @@ public class PopUpNotification extends BasePageWebDriver {
                 then().statusCode(anyOf(is(200),is(204),is(404)));
     }
 
-    public void clickToButtonPayToPopUpNotif() {
+    public void clickToButtonPayToPopUpNotif() throws InterruptedException {
         click(By.xpath("//div[@aria-label='Notification']//button[text()='Купить']"));
     }
 
@@ -83,7 +83,7 @@ public class PopUpNotification extends BasePageWebDriver {
                 then().statusCode(anyOf(is(200),is(204),is(404)));
     }
 
-    public void clickButtonWatchInPopUpBundle() {
+    public void clickButtonWatchInPopUpBundle() throws InterruptedException {
         click(By.xpath("//button[text()='Смотреть']"));
     }
 
@@ -113,7 +113,7 @@ public class PopUpNotification extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[@aria-label='Notification']//button[text()='Закрыть']"));
     }
 
-    public void clickButtonWatchInPopUpNotifScreenNilDeepLinkFilms() {
+    public void clickButtonWatchInPopUpNotifScreenNilDeepLinkFilms() throws InterruptedException {
         click(By.xpath("//div[@aria-label='Notification']//button[text()='Смотреть']"));
     }
 
