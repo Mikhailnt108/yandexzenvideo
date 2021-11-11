@@ -296,6 +296,8 @@ public class PersonalOffer extends BasePageWebDriver {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod3.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200),is(302)));
+        webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod3.megafon.tv/");
         webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[contains(text(),'Успейте активировать персональное предложение до')]"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
@@ -335,6 +337,8 @@ public class PersonalOffer extends BasePageWebDriver {
                 multiPart("valid_until", endOffer.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"))).
                 when().post("https://bmp-preprod3.megafon.tv/cms/personal_offers/1/edit").
                 then().statusCode(anyOf(is(200),is(302)));
+        webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
+        webDriver.get("https://web-preprod3.megafon.tv/");
         webDriver.navigate().refresh();
         isElementDisplayed(By.xpath("//div[text()='Последний шанс активировать Ваше персональное предложение.']"));
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"

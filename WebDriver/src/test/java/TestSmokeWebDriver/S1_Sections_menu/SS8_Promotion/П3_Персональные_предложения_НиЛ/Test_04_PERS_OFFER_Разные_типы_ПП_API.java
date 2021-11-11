@@ -67,6 +67,7 @@ public class Test_04_PERS_OFFER_Разные_типы_ПП_API extends TestBaseW
         headerMenu.goToFilmsPage();
         headerMenu.logOut();
         flowAuthorizationNonMF();
+        headerMenu.goToNilPage();
         personalOffer.checkElementsOnePersonalOffer();
         personalOffer.clickToElementPersonalOffer();
         personalOffer.checkOpenPagePersonalOfferPartnerOffer();
@@ -104,9 +105,7 @@ public class Test_04_PERS_OFFER_Разные_типы_ПП_API extends TestBaseW
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");
-        headerMenu.checkElementsPopUpInputEmail();
         headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
-        headerMenu.clickToCheckBoxInPopUpEmail();
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForNonMF();
         headerMenu.inputSixSimbolPassword("111111");

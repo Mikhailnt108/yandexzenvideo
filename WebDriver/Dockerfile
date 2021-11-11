@@ -7,4 +7,5 @@ COPY . .
 RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
 
 CMD mvn -pl WebDriver clean test
+CMD mvn io.qameta.allure:allure-maven:report
 
