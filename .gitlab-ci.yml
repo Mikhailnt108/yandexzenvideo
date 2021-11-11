@@ -43,7 +43,6 @@ testWD-job:
   - docker build -t tests_run_webdriver /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
   - docker run --network host tests_run_webdriver
 
-
 # tags:
 #  - qa
 # allow_failure: true
