@@ -1,5 +1,22 @@
 version: "2.1"
 services:
+  allure:
+    image: "frankescobar/allure-docker-service"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 1
+      KEEP_HISTORY: 1
+    ports:
+      - "5050:5050"
+    volumes:
+      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/allure-results:/app/allure-results"
+      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/allure-reports:/app/default-reports"
+  allure-ui:
+    image: "frankescobar/allure-docker-service-ui"
+    environment:
+      ALLURE_DOCKER_PUBLIC_API_URL: "http://192.168.1.139:5050"
+      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+    ports:
+      - "5252:5252"
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
