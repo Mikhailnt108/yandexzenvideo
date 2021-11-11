@@ -4,8 +4,8 @@ WORKDIR /MFTV_Web_Desktop_Smoke_JUnit5_only
 
 COPY . .
 
-RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/target
-#RUN mkdir allure-results
+RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
+RUN mkdir target
 #RUN mkdir site
 #RUN cd site
 #RUN mkdir allure-maven-plugin
