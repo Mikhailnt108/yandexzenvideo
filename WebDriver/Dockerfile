@@ -11,5 +11,5 @@ RUN cd /MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/target
 #RUN mkdir allure-maven-plugin
 
 CMD mvn -pl WebDriver clean test
-#CMD mvn -pl WebDriver io.qameta.allure:allure-maven:report
+CMD mvn -pl WebDriver io.qameta.allure:allure-maven:report
 
