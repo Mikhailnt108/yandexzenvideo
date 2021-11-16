@@ -1,0 +1,61 @@
+{
+  "uid" : "cfd3404766d11a60",
+  "name" : "shouldClickButton()",
+  "fullName" : "TestPw1.shouldClickButton",
+  "historyId" : "fca01358e52768fc0c89060042bd4e8d",
+  "time" : {
+    "start" : 1633721507804,
+    "stop" : 1633721508399,
+    "duration" : 595
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "SuitePwTest1"
+  }, {
+    "name" : "junit.platform.uniqueid",
+    "value" : "[engine:junit-jupiter]/[class:TestPw1]/[method:shouldClickButton()]"
+  }, {
+    "name" : "host",
+    "value" : "WIN-95R27CPAAG1"
+  }, {
+    "name" : "thread",
+    "value" : "15244@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "TestPw1"
+  }, {
+    "name" : "testClass",
+    "value" : "TestPw1"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldClickButton"
+  }, {
+    "name" : "suite",
+    "value" : "TestPw1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "SuitePwTest1" ]
+  },
+  "source" : "cfd3404766d11a60.json",
+  "parameterValues" : [ ]
+}

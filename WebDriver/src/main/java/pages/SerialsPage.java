@@ -217,7 +217,6 @@ public class SerialsPage extends BasePageWebDriver {
             BannerForSerials2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            Thread.sleep(3000);
             Assert.assertTrue("not opened card serial", webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size()==1);
             webDriver.get("https://web-preprod3.megafon.tv/shows");
         }
@@ -250,30 +249,26 @@ public class SerialsPage extends BasePageWebDriver {
     }
 
     public void scrollBannersToLeft() throws InterruptedException {
-        List<WebElement> BannerForSerials = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForSerials = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForSerials.size());
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        Thread.sleep(2000);
+        click(By.xpath("//button[@data-test='CarouselDotButton'][1]"));
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerFirst);
         click(By.xpath("//button[@data-test='leftCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
-        Thread.sleep(2000);
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         Assert.assertNotEquals(bannerFirst, bannerLast);
     }
 
     public void scrollBannersToRight() throws InterruptedException {
-        List<WebElement> BannerForSerials = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForSerials = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForSerials.size());
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][last()]"));
+        click(By.xpath("//button[@data-test='CarouselDotButton'][last()]"));
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         click(By.xpath("//button[@data-test='rightCarouselButton']"));
-        //isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
-        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][1]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
-        Thread.sleep(2000);
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton']//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(bannerFirst);
         Assert.assertNotEquals(bannerLast, bannerFirst);

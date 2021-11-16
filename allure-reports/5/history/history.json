@@ -1,0 +1,276 @@
+{
+  "2e9f65d415bf577bdc32f0070c62b419" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 6,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 6
+    },
+    "items" : [ {
+      "uid" : "89c097246c3e2056",
+      "reportUrl" : "../5/index.html#testresult/89c097246c3e2056",
+      "status" : "broken",
+      "statusDetails" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "time" : {
+        "start" : 1633722136053,
+        "stop" : 1633722141080,
+        "duration" : 5027
+      }
+    }, {
+      "uid" : "232310aa594ac324",
+      "reportUrl" : "../4/index.html#testresult/232310aa594ac324",
+      "status" : "broken",
+      "statusDetails" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "time" : {
+        "start" : 1633722136053,
+        "stop" : 1633722141080,
+        "duration" : 5027
+      }
+    }, {
+      "uid" : "402f38051274e92d",
+      "reportUrl" : "../3/index.html#testresult/402f38051274e92d",
+      "status" : "broken",
+      "statusDetails" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "time" : {
+        "start" : 1633722136053,
+        "stop" : 1633722141080,
+        "duration" : 5027
+      }
+    }, {
+      "uid" : "72eb10b0638e3ff4",
+      "reportUrl" : "../2/index.html#testresult/72eb10b0638e3ff4",
+      "status" : "broken",
+      "statusDetails" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "time" : {
+        "start" : 1633722136053,
+        "stop" : 1633722141080,
+        "duration" : 5027
+      }
+    }, {
+      "uid" : "185212ba605a3967",
+      "reportUrl" : "../1/index.html#testresult/185212ba605a3967",
+      "status" : "broken",
+      "statusDetails" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "time" : {
+        "start" : 1633722136053,
+        "stop" : 1633722141080,
+        "duration" : 5027
+      }
+    }, {
+      "uid" : "46aee58f53d590d9",
+      "status" : "broken",
+      "statusDetails" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "time" : {
+        "start" : 1633722136053,
+        "stop" : 1633722141080,
+        "duration" : 5027
+      }
+    } ]
+  },
+  "548a19fdc1ff60ceb2d96901257d1d99" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 6,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 6
+    },
+    "items" : [ {
+      "uid" : "c4848ea7c04c437e",
+      "reportUrl" : "../5/index.html#testresult/c4848ea7c04c437e",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+      "time" : {
+        "start" : 1633722174397,
+        "stop" : 1633722193252,
+        "duration" : 18855
+      }
+    }, {
+      "uid" : "b9cfe6889159920b",
+      "reportUrl" : "../4/index.html#testresult/b9cfe6889159920b",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+      "time" : {
+        "start" : 1633722174397,
+        "stop" : 1633722193252,
+        "duration" : 18855
+      }
+    }, {
+      "uid" : "d4c65b3af11b4805",
+      "reportUrl" : "../3/index.html#testresult/d4c65b3af11b4805",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+      "time" : {
+        "start" : 1633722174397,
+        "stop" : 1633722193252,
+        "duration" : 18855
+      }
+    }, {
+      "uid" : "194238528810ed36",
+      "reportUrl" : "../2/index.html#testresult/194238528810ed36",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+      "time" : {
+        "start" : 1633722174397,
+        "stop" : 1633722193252,
+        "duration" : 18855
+      }
+    }, {
+      "uid" : "fda24a2dda899c06",
+      "reportUrl" : "../1/index.html#testresult/fda24a2dda899c06",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+      "time" : {
+        "start" : 1633722174397,
+        "stop" : 1633722193252,
+        "duration" : 18855
+      }
+    }, {
+      "uid" : "277fe503a8dab76d",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+      "time" : {
+        "start" : 1633722174397,
+        "stop" : 1633722193252,
+        "duration" : 18855
+      }
+    } ]
+  },
+  "fca01358e52768fc0c89060042bd4e8d" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 6,
+      "unknown" : 0,
+      "total" : 6
+    },
+    "items" : [ {
+      "uid" : "3be6e8b7866cb0fa",
+      "reportUrl" : "../5/index.html#testresult/3be6e8b7866cb0fa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1633722157174,
+        "stop" : 1633722157731,
+        "duration" : 557
+      }
+    }, {
+      "uid" : "3483869848649f4d",
+      "reportUrl" : "../4/index.html#testresult/3483869848649f4d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1633722157174,
+        "stop" : 1633722157731,
+        "duration" : 557
+      }
+    }, {
+      "uid" : "5d5548a7d565567c",
+      "reportUrl" : "../3/index.html#testresult/5d5548a7d565567c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1633722157174,
+        "stop" : 1633722157731,
+        "duration" : 557
+      }
+    }, {
+      "uid" : "96940f873b9e43b2",
+      "reportUrl" : "../2/index.html#testresult/96940f873b9e43b2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1633722157174,
+        "stop" : 1633722157731,
+        "duration" : 557
+      }
+    }, {
+      "uid" : "80f634427697e0f8",
+      "reportUrl" : "../1/index.html#testresult/80f634427697e0f8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1633722157174,
+        "stop" : 1633722157731,
+        "duration" : 557
+      }
+    }, {
+      "uid" : "69bc8027b3f44ba3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1633722157174,
+        "stop" : 1633722157731,
+        "duration" : 557
+      }
+    } ]
+  },
+  "5aefeca9ac67062d3ec5a10040e49475" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 6,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 6
+    },
+    "items" : [ {
+      "uid" : "7e419b1f7d81643d",
+      "reportUrl" : "../5/index.html#testresult/7e419b1f7d81643d",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
+      "time" : {
+        "start" : 1633722174549,
+        "stop" : 1633722193367,
+        "duration" : 18818
+      }
+    }, {
+      "uid" : "fc8caa5f69aee38",
+      "reportUrl" : "../4/index.html#testresult/fc8caa5f69aee38",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
+      "time" : {
+        "start" : 1633722174549,
+        "stop" : 1633722193367,
+        "duration" : 18818
+      }
+    }, {
+      "uid" : "5de5f8ebd6f9b0b3",
+      "reportUrl" : "../3/index.html#testresult/5de5f8ebd6f9b0b3",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
+      "time" : {
+        "start" : 1633722174549,
+        "stop" : 1633722193367,
+        "duration" : 18818
+      }
+    }, {
+      "uid" : "bb9d3b5a13ac0d18",
+      "reportUrl" : "../2/index.html#testresult/bb9d3b5a13ac0d18",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
+      "time" : {
+        "start" : 1633722174549,
+        "stop" : 1633722193367,
+        "duration" : 18818
+      }
+    }, {
+      "uid" : "f03c20d640adac1d",
+      "reportUrl" : "../1/index.html#testresult/f03c20d640adac1d",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
+      "time" : {
+        "start" : 1633722174549,
+        "stop" : 1633722193367,
+        "duration" : 18818
+      }
+    }, {
+      "uid" : "b367cab63a653612",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
+      "time" : {
+        "start" : 1633722174549,
+        "stop" : 1633722193367,
+        "duration" : 18818
+      }
+    } ]
+  }
+}

@@ -12,10 +12,10 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
 
-//@Execution(ExecutionMode.SAME_THREAD)
+@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_TV_Расписание_канала extends TestBaseWebDriver {
-    @Epic(value = "smoke-mftv-desktop-web")
+    @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
     @DisplayName(value ="Расписание_канала")

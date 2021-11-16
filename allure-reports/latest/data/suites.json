@@ -5,7 +5,7 @@
     "name" : "TestSmokeWebDriver.P4_Sections_menu.P5_Packages_FRESH_at_16_08_21.Test_01_PACKAGES_Go_to_package_FRESH",
     "children" : [ {
       "name" : "Переход в пакет",
-      "uid" : "185212ba605a3967",
+      "uid" : "4987c810df7dd50d",
       "parentUid" : "8de08fb73ef62d6294b11bb248fef5bd",
       "status" : "broken",
       "time" : {
@@ -22,7 +22,7 @@
     "name" : "TestPw1",
     "children" : [ {
       "name" : "shouldClickButton()",
-      "uid" : "80f634427697e0f8",
+      "uid" : "b60418b321f0db6",
       "parentUid" : "3be1a6698c3c2ee4c3689559294c33bd",
       "status" : "passed",
       "time" : {
@@ -39,7 +39,7 @@
     "name" : "Test_01_2_TV_Program_SCREENSHOT_VRT_PW",
     "children" : [ {
       "name" : "Программа передач (скриншоты)",
-      "uid" : "fda24a2dda899c06",
+      "uid" : "8c15dd97c638ab68",
       "parentUid" : "784e8dc218b4959b461b25d847a3e0ae",
       "status" : "broken",
       "time" : {
@@ -56,7 +56,7 @@
     "name" : "Test_08_2_TV_Efir_SCREENSHOT_VRT_PW",
     "children" : [ {
       "name" : "Передачи в эфире (скриншоты)",
-      "uid" : "f03c20d640adac1d",
+      "uid" : "96c5732e95e56cf4",
       "parentUid" : "1badac38d48361d60ab9c474b1e1888b",
       "status" : "broken",
       "time" : {

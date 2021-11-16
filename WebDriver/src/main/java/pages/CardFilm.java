@@ -185,6 +185,7 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void paymentFilmAtEstDiscount() throws InterruptedException {
+        Assert.assertTrue("not found element 'Навсегда за'", webDriver.findElements(By.xpath("//span[contains(text(), 'Навсегда за')]/i")).size()==1);
         click(By.xpath("//span[contains(text(), 'Навсегда за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Покупка фильма']"));
         click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
@@ -202,6 +203,7 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void paymentFilmAtRent2Discount() throws InterruptedException {
+        Assert.assertTrue("not found element 'На 48 часов за'", webDriver.findElements(By.xpath("//span[contains(text(), 'На 48 часов за')]/i")).size()==1);
         click(By.xpath("//span[contains(text(), 'На 48 часов за')]/i"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
         click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
@@ -475,7 +477,7 @@ public class CardFilm extends BasePageWebDriver {
         }
     }
 
-    public void editPriceOn60FirstFilmForSale() throws ClassNotFoundException, SQLException {
+    public void editPriceOn60FirstFilmForSale() throws ClassNotFoundException, SQLException, InterruptedException {
         webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
         String urlFilm = webDriver.findElement(By.xpath("(//a[@data-test='PackageLink' and @href])[2]")).getAttribute("href");
         System.out.println(urlFilm);
@@ -484,6 +486,10 @@ public class CardFilm extends BasePageWebDriver {
         System.out.println(sql);
         Class.forName("org.postgresql.Driver");
         statement.executeUpdate(sql);
+        for (int i = 0; i < 10; i++) {
+           Thread.sleep(30000);
+            webDriver.findElement(By.xpath("(//a[@data-test='PackageLink' and @href])[2]"));
+        }
     }
 
     public void editPriceOn1FirstFilmForSale() throws SQLException, ClassNotFoundException {

@@ -10,10 +10,10 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-//@Execution(ExecutionMode.SAME_THREAD)
+@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_09_TV_Жанры_передач_в_эфире extends TestBaseWebDriver {
-    @Epic(value = "smoke-mftv-desktop-web")
+    @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
     @DisplayName(value ="9. Жанры передач в эфире")

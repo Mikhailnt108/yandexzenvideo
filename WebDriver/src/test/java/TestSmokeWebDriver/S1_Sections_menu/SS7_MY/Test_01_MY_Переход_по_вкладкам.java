@@ -29,7 +29,7 @@ public class Test_01_MY_Переход_по_вкладкам extends TestBaseWeb
         myPage.goToMyPagePurchases();
         myPage.checkAddingFilmInPurchases();
         myPage.goToMyPageFavorites();
-        myPage.checkAddingFilmToFavorites();
+        myPage.checkAddingSecondFilmToFavorites();
         pageCMS.deleteAccountMF("79260172279");
     }
     private void flowRegistation() throws InterruptedException {

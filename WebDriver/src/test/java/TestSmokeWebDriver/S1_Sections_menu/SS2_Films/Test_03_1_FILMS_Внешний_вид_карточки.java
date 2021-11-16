@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_1_FILMS_Внешний_вид_карточки extends TestBaseWebDriver {
-    @Epic(value = "smoke-mftv-desktop-web")
+    @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
     @Story(value = "3. Фильмы")
     @DisplayName(value ="Внешний вид карточки")
@@ -21,7 +21,7 @@ public class Test_03_1_FILMS_Внешний_вид_карточки extends Test
     public void appearanceSectionCardFilm() throws Exception {
         // неавторизованный пользователь:
         headerMenu.goToFilmsPage();
-        filmsPage.clickToSecondTailCardFilm();
+        filmsPage.clickToFirstTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.checkAutoStartVideoPlayer();
         cardFilm.checkElementsCardFilm();
@@ -29,14 +29,14 @@ public class Test_03_1_FILMS_Внешний_вид_карточки extends Test
         // авторизованный пользователь:
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToSecondTailCardFilm();
+        filmsPage.clickToFirstTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.checkAutoStartVideoPlayer();
         cardFilm.checkElementsCardFilm();
         cardFilm.clickButtonFavorites();
-        myPage.checkAddingFilmToFavorites();
+        myPage.checkAddingFirstFilmToFavorites();
         headerMenu.goToFilmsPage();
-        filmsPage.clickToSecondTailCardFilm();
+        filmsPage.clickToFirstTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.clickToButtonReadDescription();
         cardFilm.checkOpenDescriptionAll();

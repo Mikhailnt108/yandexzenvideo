@@ -75,7 +75,7 @@ public class CardSerial extends BasePageWebDriver {
         WebElement seasonSecond = webDriver.findElement(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         System.out.println(seasonSecond.getAttribute("href"));
         Assert.assertEquals("видео не одинаковы", trailerSeasonFirst, trailerSeasonSecond);
-        Assert.assertNotEquals("нет переключения на другой сезон", seasonFirst, seasonSecond);
+        Assert.assertNotEquals("bug:no switching to another season", seasonFirst, seasonSecond);
     }
 
     public void clickToButtonSubscribeInPopUp() throws InterruptedException {
@@ -254,7 +254,7 @@ public class CardSerial extends BasePageWebDriver {
         for (int e = 0; e < time4AllNumber.length; e++){
             Assert.assertTrue("время меньше отметки стопа видео",time4AllNumber[e] >= time3AllNumber[e]);
         }
-        Thread.sleep(3000);
+
     }
 
     public void moveSliderRewindToVideoPleer18Plus() throws InterruptedException {
@@ -479,7 +479,7 @@ public class CardSerial extends BasePageWebDriver {
     }
 
     public void checkButtonContinueWatching() throws InterruptedException {
-        isElementDisplayed(By.xpath("//span[text()='Продолжить просмотр']"));
+        Assert.assertTrue("not found ButtonContinueWatching", webDriver.findElements(By.xpath("//span[text()='Продолжить просмотр']")).size()==1);
         Actions actions = new Actions(webDriver);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         Thread.sleep(7000);

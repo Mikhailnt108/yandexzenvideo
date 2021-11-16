@@ -7,7 +7,7 @@
       "name" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
       "children" : [ {
         "name" : "Переход в пакет",
-        "uid" : "185212ba605a3967",
+        "uid" : "4987c810df7dd50d",
         "parentUid" : "a121ce43082b6befea8ca76cc20164b7",
         "status" : "broken",
         "time" : {
@@ -24,7 +24,7 @@
       "name" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
       "children" : [ {
         "name" : "Программа передач (скриншоты)",
-        "uid" : "fda24a2dda899c06",
+        "uid" : "8c15dd97c638ab68",
         "parentUid" : "64ef7e09d5c015781b7251aab49421fe",
         "status" : "broken",
         "time" : {
@@ -41,7 +41,7 @@
       "name" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
       "children" : [ {
         "name" : "Передачи в эфире (скриншоты)",
-        "uid" : "f03c20d640adac1d",
+        "uid" : "96c5732e95e56cf4",
         "parentUid" : "9fed88357995b60cc385e643867f8167",
         "status" : "broken",
         "time" : {

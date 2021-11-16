@@ -21,11 +21,11 @@ public class Test_02_MY_Переход_на_страницу_Моё_Избран
     public void goToFavoritesPage() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.clickToSecondTailCardFilm();
+        filmsPage.clickToFirstTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.clickButtonFavorites();
         headerMenu.goToFilmsPage();
-        filmsPage.clickToTailCardFilm2FromAll();
+        filmsPage.clickToSecondTailCardFilm();
         cardFilm.clickButtonFavorites();
         headerMenu.goToFilmsPage();
         filmsPage.clickToTailCardFilm3FromAll();

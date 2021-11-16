@@ -55,9 +55,19 @@ public class MyPage extends BasePageWebDriver {
         Assert.assertEquals(0, webDriver.findElements(By.xpath("//span[text()='Куплено']")).size());
     }
 
-    public void checkAddingFilmToFavorites() throws InterruptedException {
+    public void checkAddingSecondFilmToFavorites() throws InterruptedException {
         webDriver.get(Page_films_PP3);
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
+        Thread.sleep(3000);
+        String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
+        System.out.println(nameFilm);
+        webDriver.get(My_favorites_PP3);
+        Assert.assertEquals(nameFilm, webDriver.findElement(By.xpath("//h3[@data-test='PackageDescriptionTitle']")).getText());
+    }
+
+    public void checkAddingFirstFilmToFavorites() throws InterruptedException {
+        webDriver.get(Page_films_PP3);
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         Thread.sleep(3000);
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
         System.out.println(nameFilm);

@@ -17,15 +17,15 @@ public class KidsPage extends BasePageWebDriver {
 
     public void checkElementsBannersCarousel() throws Exception {
         isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']")); // банерная зона
-        isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']")); // точки пагинации
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton']")); // точки пагинации
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']")); // кнопка прокрутки баннера вправо
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']")); // кнопка прокрутки баннера влево
         click(By.xpath("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]"));
 
-        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("/button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         for (int i = 0; i < BannerForKids.size(); i++) {
-            BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForKids = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
             BannerForKids.get(i).click();
             Thread.sleep(2000);
             webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
@@ -34,16 +34,14 @@ public class KidsPage extends BasePageWebDriver {
             webDriver.findElement(By.xpath("(//div[@data-test='SlideDescription' and text()])[3]"));
         }
 
-        List<WebElement> BannerForKids2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForKids2 = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids2.size());
         for (int i = 0; i < BannerForKids2.size(); i++) {
-            BannerForKids2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForKids2 = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
             BannerForKids2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")));
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")).size());
-            Thread.sleep(3000);
+            Assert.assertEquals("bug: not found 'Для детей'/'Детский'/'Семейный'", 1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")).size());
             webDriver.get("https://web-preprod3.megafon.tv/kids");
         }
     }
@@ -162,30 +160,26 @@ public class KidsPage extends BasePageWebDriver {
     }
 
     public void checkScrollBannersToLeft() throws Exception {
-        java.util.List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        java.util.List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        Thread.sleep(2000);
+        click(By.xpath("//button[@data-test='CarouselDotButton'][1]"));
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerFirst);
         click(By.xpath("//button[@data-test='leftCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
-        Thread.sleep(2000);
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         Assert.assertNotEquals(bannerFirst, bannerLast);
     }
 
     public void checkScrollBannersToRight() throws Exception {
-        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][last()]"));
+        click(By.xpath("//button[@data-test='CarouselDotButton'][last()]"));
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         click(By.xpath("//button[@data-test='rightCarouselButton']"));
-        //isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
-        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][1]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
-        Thread.sleep(2000);
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton']//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(bannerFirst);
         Assert.assertNotEquals(bannerLast, bannerFirst);

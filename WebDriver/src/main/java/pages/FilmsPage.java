@@ -167,10 +167,6 @@ public class FilmsPage extends BasePageWebDriver {
         Assert.assertEquals(6, Filters.size());
     }
 
-    public void clickToTailCardFilm2FromAll() throws InterruptedException {
-        click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
-    }
-
     public void clickToTailCardFilm3FromAll() throws InterruptedException {
         click(By.xpath("(//a[@data-test='PackageLink'])[3]"));
     }
@@ -197,7 +193,6 @@ public class FilmsPage extends BasePageWebDriver {
         }
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
-        Thread.sleep(3000);
     }
 
     public void checkElementsFilmsPage() {
@@ -233,7 +228,6 @@ public class FilmsPage extends BasePageWebDriver {
             BannerForFilms2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            Thread.sleep(3000);
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/movies/vods']//span[text()='Фильмы']")).size());
             webDriver.get(VODS_URL_PP3);
         }
@@ -267,30 +261,26 @@ public class FilmsPage extends BasePageWebDriver {
     }
 
     public void scrollBannersToLeft() throws Exception {
-        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
-        Thread.sleep(2000);
+        click(By.xpath("//button[@data-test='CarouselDotButton'][1]"));
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerFirst);
         click(By.xpath("//button[@data-test='leftCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
-        Thread.sleep(2000);
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         Assert.assertNotEquals(bannerFirst, bannerLast);
     }
 
     public void scrollBannersToRight() throws Exception {
-        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
-        click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][last()]"));
+        click(By.xpath("//button[@data-test='CarouselDotButton'][last()]"));
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
         click(By.xpath("//button[@data-test='rightCarouselButton']"));
-        //isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
-        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][1]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
-        Thread.sleep(2000);
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton']//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(bannerFirst);
         Assert.assertNotEquals(bannerLast, bannerFirst);
@@ -404,6 +394,14 @@ public class FilmsPage extends BasePageWebDriver {
 
     public void checkCollectionsViewFilmsPage() {
         Assert.assertNotEquals("вид страницы не каталог", 1, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']")).size());
+    }
+
+    public void clickToFirstTailCardFilm() throws InterruptedException {
+        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            click(By.xpath("//button[text()='Закрыть']"));
+        }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[1]")));
+        click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 }
 

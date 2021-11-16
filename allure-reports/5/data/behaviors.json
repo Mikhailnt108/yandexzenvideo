@@ -1,0 +1,77 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "Smoke MFTV Desktop Web",
+    "children" : [ {
+      "name" : "2. Разделы меню",
+      "children" : [ {
+        "name" : "7. Пакеты",
+        "children" : [ {
+          "name" : "Переход в пакет",
+          "uid" : "89c097246c3e2056",
+          "parentUid" : "90a211bf018c70a3e2b8bd98f37a2aba",
+          "status" : "broken",
+          "time" : {
+            "start" : 1633722136053,
+            "stop" : 1633722141080,
+            "duration" : 5027
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "90a211bf018c70a3e2b8bd98f37a2aba"
+      } ],
+      "uid" : "8eeb1ab984143950a97c8590e0ca5a81"
+    }, {
+      "name" : "0. Разделы меню",
+      "children" : [ {
+        "name" : "1. ТВ",
+        "children" : [ {
+          "name" : "Программа передач (скриншоты)",
+          "uid" : "c4848ea7c04c437e",
+          "parentUid" : "28edb99a7c3e38b0ae42ca7a1ea83927",
+          "status" : "broken",
+          "time" : {
+            "start" : 1633722174397,
+            "stop" : 1633722193252,
+            "duration" : 18855
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "Передачи в эфире (скриншоты)",
+          "uid" : "7e419b1f7d81643d",
+          "parentUid" : "28edb99a7c3e38b0ae42ca7a1ea83927",
+          "status" : "broken",
+          "time" : {
+            "start" : 1633722174549,
+            "stop" : 1633722193367,
+            "duration" : 18818
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "28edb99a7c3e38b0ae42ca7a1ea83927"
+      } ],
+      "uid" : "8e3fe9e8ffe360fbdc81cc9f77935e33"
+    } ],
+    "uid" : "586b61100d6ecd1f0c287efb38ff2ddb"
+  }, {
+    "name" : "shouldClickButton()",
+    "uid" : "3be6e8b7866cb0fa",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1633722157174,
+      "stop" : 1633722157731,
+      "duration" : 557
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  } ]
+}
