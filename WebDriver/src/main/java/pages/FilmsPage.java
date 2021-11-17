@@ -195,7 +195,8 @@ public class FilmsPage extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
 
-    public void checkElementsFilmsPage() {
+    public void checkElementsFilmsPage() throws InterruptedException {
+        Thread.sleep(3000);
         isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
         isElementDisplayed(By.xpath("//ol[@class='_1-ZY27a7Isb9dohjRr0mXq']"));
         isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
@@ -210,21 +211,21 @@ public class FilmsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
 
-        List<WebElement> BannerForFilms = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForFilms = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForFilms.size());
         for (int i = 0; i < BannerForFilms.size(); i++) {
-            BannerForFilms = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForFilms = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
             BannerForFilms.get(i).click();
             isElementDisplayed(By.xpath("(//div[@data-test='SlideTitle'])[3]"));
             isElementDisplayed(By.xpath("(//div[@class='XYh-kiX21fyak70PYmHLU poster'])[3]"));
             System.out.println(webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText());
         }
 
-        List<WebElement> BannerForFilms2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForFilms2 = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForFilms2.size());
         for (int i = 0; i < BannerForFilms2.size(); i++) {
             Thread.sleep(3000);
-            BannerForFilms2 = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+            BannerForFilms2 = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
             BannerForFilms2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
@@ -236,7 +237,7 @@ public class FilmsPage extends BasePageWebDriver {
 
     public void autoScrollBanners() throws Exception {
         isElementDisplayed(By.xpath("//div[@data-test='BannerCarousel']"));
-        isElementDisplayed(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='rightCarouselButton']"));
         isElementDisplayed(By.xpath("//button[@data-test='leftCarouselButton']"));
 
@@ -383,7 +384,7 @@ public class FilmsPage extends BasePageWebDriver {
             Thread.sleep(3000);
             CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionOneCountry.get(i).click();
-            Thread.sleep(3000);
+            Thread.sleep(4000);
             wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"))));
             webDriver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
             webDriver.findElement(By.xpath("//button[text()='Прочитать описание']")).click();

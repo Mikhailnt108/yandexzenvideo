@@ -1,0 +1,41 @@
+[ {
+  "uid" : "4987c810df7dd50d",
+  "name" : "Переход в пакет",
+  "time" : {
+    "start" : 1633722136053,
+    "stop" : 1633722141080,
+    "duration" : 5027
+  },
+  "status" : "broken",
+  "severity" : "blocker"
+}, {
+  "uid" : "8c15dd97c638ab68",
+  "name" : "Программа передач (скриншоты)",
+  "time" : {
+    "start" : 1633722174397,
+    "stop" : 1633722193252,
+    "duration" : 18855
+  },
+  "status" : "broken",
+  "severity" : "blocker"
+}, {
+  "uid" : "96c5732e95e56cf4",
+  "name" : "Передачи в эфире (скриншоты)",
+  "time" : {
+    "start" : 1633722174549,
+    "stop" : 1633722193367,
+    "duration" : 18818
+  },
+  "status" : "broken",
+  "severity" : "blocker"
+}, {
+  "uid" : "b60418b321f0db6",
+  "name" : "shouldClickButton()",
+  "time" : {
+    "start" : 1633722157174,
+    "stop" : 1633722157731,
+    "duration" : 557
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

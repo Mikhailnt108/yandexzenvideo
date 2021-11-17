@@ -1,0 +1,281 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "WIN-95R27CPAAG1",
+    "children" : [ {
+      "name" : "16344@WIN-95R27CPAAG1.ForkJoinPool-1-worker-7(16)",
+      "children" : [ {
+        "name" : "Программа передач (скриншоты)",
+        "uid" : "8c15dd97c638ab68",
+        "parentUid" : "3f5c553ad8ffaabcedd876076406baf1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "3f5c553ad8ffaabcedd876076406baf1"
+    }, {
+      "name" : "7264@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Переход в пакет",
+        "uid" : "4987c810df7dd50d",
+        "parentUid" : "985028aa772367befdad4a8003c65bd5",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633722136053,
+          "stop" : 1633722141080,
+          "duration" : 5027
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "985028aa772367befdad4a8003c65bd5"
+    }, {
+      "name" : "16344@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Передачи в эфире (скриншоты)",
+        "uid" : "96c5732e95e56cf4",
+        "parentUid" : "ccb24333fb8f52d80a3d614d0cd011ca",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633722174549,
+          "stop" : 1633722193367,
+          "duration" : 18818
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "ccb24333fb8f52d80a3d614d0cd011ca"
+    }, {
+      "name" : "13476@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "shouldClickButton()",
+        "uid" : "b60418b321f0db6",
+        "parentUid" : "d7e1277d7a603df164d5f9a601e7c81f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1633722157174,
+          "stop" : 1633722157731,
+          "duration" : 557
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d7e1277d7a603df164d5f9a601e7c81f"
+    }, {
+      "name" : "6904@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "shouldClickButton()",
+        "uid" : "4ff5f3714c1f12db",
+        "parentUid" : "21d7bb1dc6150115feb385c8a47f045f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1633719919053,
+          "stop" : 1633719919726,
+          "duration" : 673
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "21d7bb1dc6150115feb385c8a47f045f"
+    }, {
+      "name" : "8816@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Передачи в эфире (скриншоты)",
+        "uid" : "f81eb53a8da076a7",
+        "parentUid" : "d2878c9b34941925d6a2d089ae4a59db",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633721524663,
+          "stop" : 1633721543382,
+          "duration" : 18719
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d2878c9b34941925d6a2d089ae4a59db"
+    }, {
+      "name" : "9884@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "shouldClickButton()",
+        "uid" : "1aeff5946ae077e2",
+        "parentUid" : "f80cdaa94e8ad14345bec0fa412342be",
+        "status" : "passed",
+        "time" : {
+          "start" : 1633721196086,
+          "stop" : 1633721196686,
+          "duration" : 600
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "f80cdaa94e8ad14345bec0fa412342be"
+    }, {
+      "name" : "12860@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Передачи в эфире (скриншоты)",
+        "uid" : "f3afa2c3f393367a",
+        "parentUid" : "a3112c283a561ef604f411091f6df55d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633719938033,
+          "stop" : 1633719956513,
+          "duration" : 18480
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a3112c283a561ef604f411091f6df55d"
+    }, {
+      "name" : "15364@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Передачи в эфире (скриншоты)",
+        "uid" : "5e26bb5e3301c19a",
+        "parentUid" : "eedc0a0e0fabfcdedc66db529904213c",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633721213089,
+          "stop" : 1633721232378,
+          "duration" : 19289
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "eedc0a0e0fabfcdedc66db529904213c"
+    }, {
+      "name" : "15244@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "shouldClickButton()",
+        "uid" : "8eee8f76662e296f",
+        "parentUid" : "b6f4575cfb1c1f08020d78f56e18c4ee",
+        "status" : "passed",
+        "time" : {
+          "start" : 1633721507804,
+          "stop" : 1633721508399,
+          "duration" : 595
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b6f4575cfb1c1f08020d78f56e18c4ee"
+    }, {
+      "name" : "8816@WIN-95R27CPAAG1.ForkJoinPool-1-worker-5(15)",
+      "children" : [ {
+        "name" : "Программа передач (скриншоты)",
+        "uid" : "6900a96188f3c59",
+        "parentUid" : "d6d83a7f1f8359c8b9d73522a7ec0fc4",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633721524676,
+          "stop" : 1633721542858,
+          "duration" : 18182
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d6d83a7f1f8359c8b9d73522a7ec0fc4"
+    }, {
+      "name" : "16236@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Переход в пакет",
+        "uid" : "2e06986910665f1d",
+        "parentUid" : "98525f58c24ae2dffb9474d7db24b42a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633721490190,
+          "stop" : 1633721494585,
+          "duration" : 4395
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "98525f58c24ae2dffb9474d7db24b42a"
+    }, {
+      "name" : "12860@WIN-95R27CPAAG1.ForkJoinPool-1-worker-7(16)",
+      "children" : [ {
+        "name" : "Программа передач (скриншоты)",
+        "uid" : "bfd56df0150a51eb",
+        "parentUid" : "845cbff66763ca7b78dcae849b9a451d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633719936356,
+          "stop" : 1633719955774,
+          "duration" : 19418
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "845cbff66763ca7b78dcae849b9a451d"
+    }, {
+      "name" : "15044@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Переход в пакет",
+        "uid" : "3b2349c09295021b",
+        "parentUid" : "9a19217e8c070ffe9a7a7721eeac9e85",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633721178323,
+          "stop" : 1633721182773,
+          "duration" : 4450
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "9a19217e8c070ffe9a7a7721eeac9e85"
+    }, {
+      "name" : "14736@WIN-95R27CPAAG1.ForkJoinPool-1-worker-3(14)",
+      "children" : [ {
+        "name" : "Переход в пакет",
+        "uid" : "2de292a29aab98fa",
+        "parentUid" : "739c4c22f5712b57bd5fffc2cae621c6",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633719900515,
+          "stop" : 1633719904969,
+          "duration" : 4454
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "739c4c22f5712b57bd5fffc2cae621c6"
+    }, {
+      "name" : "15364@WIN-95R27CPAAG1.ForkJoinPool-1-worker-7(16)",
+      "children" : [ {
+        "name" : "Программа передач (скриншоты)",
+        "uid" : "81480aee4b165d8c",
+        "parentUid" : "bcda7e3f1a32d3958bec44fd100554e1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633721213038,
+          "stop" : 1633721231174,
+          "duration" : 18136
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "bcda7e3f1a32d3958bec44fd100554e1"
+    } ],
+    "uid" : "99a7c83fe8c525bf28b1f420e1617080"
+  } ]
+}
