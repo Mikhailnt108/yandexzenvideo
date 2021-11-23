@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#4F", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_NOTIF_Переход_в_раздел_Фильмы_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
@@ -19,7 +19,7 @@ public class Test_05_NOTIF_Переход_в_раздел_Фильмы_API exten
     @DisplayName(value = "Переход_в_раздел_Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#4")
+    @Tag("SuiteWD#4F")
     public void goToPageFimlsFromPopUpNotif() throws InterruptedException {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();

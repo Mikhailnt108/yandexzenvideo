@@ -82,9 +82,9 @@ public class TestBaseWebDriver {
         // start remote browser:
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "93.0");
+        capabilities.setCapability("browserVersion", "96.0");
 //        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
-        Configuration.pageLoadTimeout = 60000;
+//        Configuration.pageLoadTimeout = 60000;
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", false
