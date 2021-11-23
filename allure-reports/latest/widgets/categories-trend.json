@@ -1,4 +1,25 @@
 [ {
+  "buildOrder" : 13,
+  "reportUrl" : "../13/index.html",
+  "reportName" : "default",
+  "data" : {
+    "Test defects" : 3
+  }
+}, {
+  "buildOrder" : 12,
+  "reportUrl" : "../12/index.html",
+  "reportName" : "default",
+  "data" : {
+    "Test defects" : 3
+  }
+}, {
+  "buildOrder" : 11,
+  "reportUrl" : "../11/index.html",
+  "reportName" : "default",
+  "data" : {
+    "Test defects" : 3
+  }
+}, {
   "buildOrder" : 10,
   "reportUrl" : "../10/index.html",
   "reportName" : "default",

@@ -47,12 +47,12 @@ public class PreconditionPW extends BasePagePlaywright {
                 multiPart("description", "Sale AutoTest").
                 multiPart("type", "percent").
                 multiPart("mechanic_type", "common").
-                multiPart("amount", "30").
+                multiPart("amount", "10").
                 multiPart("ownership_types", "rent2").
                 multiPart("ownership_types", "est").
                 multiPart("valid_since", "2021-08-01 09:09:24").
                 multiPart("valid_until", "2022-09-30 09:09:24").
-                multiPart("sticker_text", "AutoTest -30%").
+                multiPart("sticker_text", "AutoTest -10%").
                 when().post("https://bmp-preprod3.megafon.tv/cms/discounts/1/edit").
                 then().statusCode(anyOf(is(200), is(302)));
     }
@@ -114,10 +114,11 @@ public class PreconditionPW extends BasePagePlaywright {
 
     public void changePriceEstAndRent2FirstFilmSectionFilms() throws SQLException, ClassNotFoundException {
         page.navigate("https://web-preprod3.megafon.tv/movies/vods");
+        page.reload();
         String urlFilm = page.waitForSelector("(//a[@data-test='PackageLink' and @href])[2]").getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(13));
-        String sql = "update package_prices set price ='100' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        String sql = "update package_prices set price ='4500' where package_id ='".concat(urlFilm.substring(13)).concat("'");
         System.out.println(sql);
         Class.forName("org.postgresql.Driver");
         statement.executeUpdate(sql);
@@ -171,6 +172,7 @@ public class PreconditionPW extends BasePagePlaywright {
 
     public void changePriceEstAndRent2FirstFilmSectionKids() throws ClassNotFoundException, SQLException {
         page.navigate("https://web-preprod3.megafon.tv/kids");
+        page.reload();
         String urlFilm = page.waitForSelector("(//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')])[1]").getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(13));

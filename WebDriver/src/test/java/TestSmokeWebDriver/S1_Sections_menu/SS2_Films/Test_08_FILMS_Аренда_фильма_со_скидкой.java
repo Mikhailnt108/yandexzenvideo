@@ -19,7 +19,6 @@ public class Test_08_FILMS_Аренда_фильма_со_скидкой extends
     @Test
     @Tag("SuiteWD#1")
     public void rentFilmWithDiscount() throws Exception {
-        cardFilm.editPriceOn60FirstFilmForSale();
         headerMenu.goToFilmsPage();
         filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
@@ -34,7 +33,6 @@ public class Test_08_FILMS_Аренда_фильма_со_скидкой extends
         cardFilm.checkUnavailabilityStikerDiscount();
         cardFilm.startVideoPleer();
         pageCMS.deleteDiscount();
-        cardFilm.editPriceOn1FirstFilmForSale();
         pageCMS.deleteAccountMF("79260192144");
     }
     private void flowRegistation() throws InterruptedException {

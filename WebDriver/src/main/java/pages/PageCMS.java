@@ -249,6 +249,30 @@ public class PageCMS extends BasePageWebDriver {
         }
     }
 
+    public void chooseBundleCorpBezlimitFromMsisdnNonCloseNotif(String login) throws InterruptedException {
+        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
+        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
+        webDriver.switchTo().window((String) tabs2.get(1));
+        click(By.xpath("//form[@method='GET']//input[1]"));
+        writeText(By.xpath("//form[@method='GET']//input[1]"), login);
+        click(By.xpath("//button[text()='Поиск']"));
+        isElementDisplayed(By.xpath("//td[text()='79250110212']|//td[text()='79250110166']|//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']"));
+        click(By.xpath("//a[contains(@href, '/cms/households/')]"));
+        isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+        click(By.xpath("(//a[@role='button'])[2]"));
+        isElementDisplayed(By.xpath("//h3[text()=' Редактирование хаусхолда ']"));
+        webDriver.findElement(By.id("bundle")).click();
+        webDriver.findElement(By.xpath("//option[. = 'Корпоративный безлимит']")).click();
+        click(By.xpath("//input[@value='Сохранить']"));
+        isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
+        click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
+        click(By.linkText("Пакеты/Бандлы"));
+        isElementDisplayed(By.linkText("Корпоративный безлимит"));
+        //здесь переключаемся опять на вкладку с мегафонТВ
+        webDriver.close();
+        webDriver.switchTo().window((String) tabs2.get(0));
+    }
+
     public void deleteAccountMF(String login) throws InterruptedException {
         ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());

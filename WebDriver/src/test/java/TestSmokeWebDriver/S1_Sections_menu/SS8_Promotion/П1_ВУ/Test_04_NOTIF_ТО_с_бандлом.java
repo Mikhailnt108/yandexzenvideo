@@ -25,8 +25,9 @@ public class Test_04_NOTIF_ТО_с_бандлом extends TestBaseWebDriver {
         personalOffer.archivePersonalOfferSubscription();
         popUpNotification.deletePopUpNotifScreenFilms();
         popUpNotification.deletePopUpNotifScreenNilPayFilm();
-        headerMenu.goToFilmsPage();
+        headerMenu.goToNilPage();
         flowRegistation();
+        pageCMS.chooseBundleCorpBezlimitFromMsisdnNonCloseNotif("79260205027");
         headerMenu.checkElementsPopUpBundleUserMF();
         popUpNotification.clickButtonWatchInPopUpBundle();
         promoPage.checkOpenPromoPage();

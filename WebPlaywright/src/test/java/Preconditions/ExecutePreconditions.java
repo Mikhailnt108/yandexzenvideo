@@ -10,7 +10,7 @@ public class ExecutePreconditions extends TestBasePlaywright {
 // Создать скидку для цены EST и Rent2 на фильм в CMS: Описание - "Sale AutoTest", механика - стандарт скидка, величина - 30%, стикер - "AutoTest -30%"
         preconditionPW.editSaleInCMS();
         preconditionPW.deletePackageFromSaleCMS();
-// Изменить на минимальную цену (1р) EST megafon/card и (1р) Rent2 megafon/card первого фильма в разделе "Фильмы"
+// Изменить на минимальную цену (45р) EST megafon/card и (1р) Rent2 megafon/card первого фильма в разделе "Фильмы"
         preconditionPW.changePriceEstAndRent2FirstFilmSectionFilms();
 // Изменить на минимальную цену (1р) EST megafon/card и (1р) Rent2 megafon/card первого фильма в разделе "Детям"
         preconditionPW.changePriceEstAndRent2FirstFilmSectionKids();

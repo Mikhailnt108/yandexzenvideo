@@ -763,7 +763,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
 
-    public void checkElementsPopUpBundleUserMF() {
+    public void checkElementsPopUpBundleUserMF() throws InterruptedException {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         webDriver.findElement(By.xpath("//h3[contains(text(),'Вам доступно')]"));

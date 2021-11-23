@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_1_SERIALS_Внешний_вид_раздела_Guest extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_01_1_SERIALS_Внешний_вид_раздела_Guest extend
     @DisplayName(value ="1.1 Внешний вид раздела Guest")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#2")
+    @Tag("SuiteWD#3")
     public void appearanceSectionSerialsPage() throws Exception {
         headerMenu.goToSerialsPage();
         serialsPage.checkElementsSerialsPage();

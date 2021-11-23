@@ -371,7 +371,16 @@ public class PersonalOffer extends BasePageWebDriver {
                 get("https://bmp-preprod3.megafon.tv/cms/personal_offers/4/archive").
                 then().statusCode(anyOf(is(200), is(302), is(500)));
     }
-    public void checkOpenPagePersonalOfferSubscription() {
+    public void archivePersonalOfferTypePartnerOfferForNonMF() {
+        given().auth().
+                basic("mc2soft", "wkqKy2sWwBGFDR").when().
+                get("https://bmp-preprod3.megafon.tv/cms/personal_offers/3/archive").
+                then().statusCode(anyOf(is(200), is(302), is(500)));
+    }
+    public void checkOpenPagePersonalOfferSubscription() throws InterruptedException {
+        if(webDriver.findElements(By.xpath("//div[text()='Персональные предложения']")).size()==1){
+            click(By.xpath("//div[text()='POSubscription']"));
+        }
         isElementDisplayed(By.xpath("//div[text()='POSubscription']"));
         webDriver.navigate().refresh();
     }

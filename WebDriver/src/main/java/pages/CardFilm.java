@@ -53,8 +53,8 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void paymentButtonRent2InCardFilm() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'На 48 часов за')]")));
-        click(By.xpath("//span[contains(text(), 'На 48 часов за')]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'На 48 часов')]")));
+        click(By.xpath("//span[contains(text(), 'На 48 часов')]"));
         isElementDisplayed(By.xpath("//h2[text()='Аренда фильма на 48 часов']"));
         click(By.xpath("//span[text()='+7 925 011 01 66']|//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']|//span[text()='+7 926 017 22 79']"));
         isElementDisplayed(By.xpath("//h1[contains(text(), 'Подтверждение оплаты фильма')]"));
@@ -74,8 +74,10 @@ public class CardFilm extends BasePageWebDriver {
 
     public void checkСounterAvailableFilms() throws InterruptedException {
         webDriver.navigate().back();
+        Thread.sleep(5000);
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         webDriver.navigate().refresh();
+        Thread.sleep(3000);
         Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'по акции доступно фильмов: 1')]")).size());
     }
 
@@ -177,7 +179,7 @@ public class CardFilm extends BasePageWebDriver {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
-        isElementDisplayed(By.xpath("//div[text()='AutoTest -30%']"));
+        isElementDisplayed(By.xpath("//div[text()='AutoTest -10%']"));
     }
 
     public void checkPriseEstDiscount() {

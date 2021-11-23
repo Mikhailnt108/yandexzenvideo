@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_14_1_FILMS_Работа_быстрых_фильтров extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_14_1_FILMS_Работа_быстрых_фильтров extend
     @DisplayName(value ="Работа быстрых фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#2")
+    @Tag("SuiteWD#1")
     public void quickFilters() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.checkElementsFilmsPage();

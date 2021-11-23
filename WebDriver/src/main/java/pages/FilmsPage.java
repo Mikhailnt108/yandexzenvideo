@@ -36,7 +36,7 @@ public class FilmsPage extends BasePageWebDriver {
     public void chooseTabPromo() throws InterruptedException {
         webDriver.navigate().refresh();
         click(By.xpath("//div[text()='По акции']"));
-        Thread.sleep(3000);
+        Thread.sleep(4000);
     }
 
     public void clickOnYearInput() throws InterruptedException {
@@ -191,6 +191,7 @@ public class FilmsPage extends BasePageWebDriver {
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
+        Thread.sleep(3000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
@@ -224,7 +225,7 @@ public class FilmsPage extends BasePageWebDriver {
         List<WebElement> BannerForFilms2 = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForFilms2.size());
         for (int i = 0; i < BannerForFilms2.size(); i++) {
-            Thread.sleep(3000);
+            Thread.sleep(4000);
             BannerForFilms2 = webDriver.findElements(By.xpath("//button[@data-test='CarouselDotButton']"));
             BannerForFilms2.get(i).click();
             Thread.sleep(2000);
@@ -381,10 +382,10 @@ public class FilmsPage extends BasePageWebDriver {
     public void checkRequestResultOneCountryAndTwoGenre() throws InterruptedException {
         List<WebElement> CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
         for (int i = 0; i <= 5; i++) {
-            Thread.sleep(3000);
+            Thread.sleep(4000);
             CollectionOneCountry = webDriver.findElements(By.xpath("//div[@class='_3cuXOHr5t7k7pVgE5bsgEF']//a[@data-test='PackageLink']"));
             CollectionOneCountry.get(i).click();
-            Thread.sleep(4000);
+            Thread.sleep(5000);
             wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//button[text()='Прочитать описание']"))));
             webDriver.findElement(By.xpath("//div[contains(text(),'Документальный') or contains(text(),'Аниме')]"));
             webDriver.findElement(By.xpath("//button[text()='Прочитать описание']")).click();
