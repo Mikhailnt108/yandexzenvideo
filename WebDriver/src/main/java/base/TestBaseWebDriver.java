@@ -82,7 +82,7 @@ public class TestBaseWebDriver {
         // start remote browser:
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "96.0");
+        capabilities.setCapability("browserVersion", "93.0");
 //        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
 //        Configuration.pageLoadTimeout = 60000;
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -132,6 +132,11 @@ public class TestBaseWebDriver {
         personalOffer = PageFactory.initElements(webDriver, PersonalOffer.class);
         ratingPage = PageFactory.initElements(webDriver, RatingPage.class);
         paymentContent = PageFactory.initElements(webDriver, PaymentContent.class);
+        personalOffer.archivePersonalOfferTypePartnerOfferForNonMF();
+        personalOffer.archivePersonalOfferSubscription();
+        personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
+        personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();
+        popUpNotification.deletePopUpNotifScreenNilPayFilm();
     }
 
     @AfterEach

@@ -269,26 +269,35 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkLoginUserIsCorrectFlowForMF() throws InterruptedException {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
+        Thread.sleep(5000);
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            System.out.println("найден notif");
             click(By.xpath("//button[text()='Закрыть']"));
         }
         webDriver.navigate().refresh();
+        Thread.sleep(2000);
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            System.out.println("найден notif");
             click(By.xpath("//button[text()='Закрыть']"));
         }
         webDriver.navigate().refresh();
+        Thread.sleep(2000);
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            System.out.println("найден notif");
             click(By.xpath("//button[text()='Закрыть']"));
         }
         webDriver.navigate().refresh();
+        Thread.sleep(2000);
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            System.out.println("найден notif");
             click(By.xpath("//button[text()='Закрыть']"));
         }
         webDriver.navigate().refresh();
+        Thread.sleep(2000);
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+            System.out.println("найден notif");
             click(By.xpath("//button[text()='Закрыть']"));
         }
-        webDriver.navigate().refresh();
     }
 
     public void checkLoginUserIsCorrectFlowForMFFast() throws InterruptedException {

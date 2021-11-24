@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.IOException;
 import java.util.List;
@@ -112,7 +113,8 @@ public class TvPage extends BasePageWebDriver {
 
     public void clickOnTabInRecording() throws InterruptedException {
         Thread.sleep(3000);
-//        waitVisibility(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt])[1]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt])[1]")));
+        Thread.sleep(3000);
         click(By.xpath("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']"));
     }
 

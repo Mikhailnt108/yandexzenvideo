@@ -10,6 +10,7 @@ services:
     volumes:
       - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/allure-results:/app/allure-results"
       - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/allure-reports:/app/default-reports"
+    network_mode: bridge
   allure-ui:
     image: "frankescobar/allure-docker-service-ui"
     environment:
@@ -17,6 +18,7 @@ services:
       ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
     ports:
       - "5252:5252"
+    network_mode: bridge
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
@@ -40,7 +42,7 @@ services:
         - 8082:8080
     command: ["--selenoid-uri", "http://selenoid:4444"]
   vnc:
-    image: selenoid/vnc:chrome_96.0
+    image: selenoid/vnc:chrome_93.0
     network_mode: bridge
   test_runner:
     build:

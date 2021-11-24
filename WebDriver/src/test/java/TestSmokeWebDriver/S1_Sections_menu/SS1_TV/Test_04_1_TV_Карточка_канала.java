@@ -29,7 +29,7 @@ public class Test_04_1_TV_Карточка_канала extends TestBaseWebDrive
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvChannel();
         cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.checkElementsInCardTvChannel();
+        cardTvChannel.  checkElementsInCardTvChannel();
         // авторизованный пользователь:
         headerMenu.goToTvPage();
         flowRegistation();
