@@ -1,0 +1,60 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'WIN-95R27CPAAG1', ip: '172.21.17.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'\nDriver info: driver.version: TestBaseWebDriver",
+      "children" : [ {
+        "name" : "Переход в пакет",
+        "uid" : "26de67a74c81f6cc",
+        "parentUid" : "a121ce43082b6befea8ca76cc20164b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633722136053,
+          "stop" : 1633722141080,
+          "duration" : 5027
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a121ce43082b6befea8ca76cc20164b7"
+    }, {
+      "name" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+      "children" : [ {
+        "name" : "Программа передач (скриншоты)",
+        "uid" : "db97f1a7a2092913",
+        "parentUid" : "64ef7e09d5c015781b7251aab49421fe",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "64ef7e09d5c015781b7251aab49421fe"
+    }, {
+      "name" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=9101df69-8437-4222-9053-d165a88b4afe",
+      "children" : [ {
+        "name" : "Передачи в эфире (скриншоты)",
+        "uid" : "538a1bb5f3a4afd9",
+        "parentUid" : "9fed88357995b60cc385e643867f8167",
+        "status" : "broken",
+        "time" : {
+          "start" : 1633722174549,
+          "stop" : 1633722193367,
+          "duration" : 18818
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "9fed88357995b60cc385e643867f8167"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

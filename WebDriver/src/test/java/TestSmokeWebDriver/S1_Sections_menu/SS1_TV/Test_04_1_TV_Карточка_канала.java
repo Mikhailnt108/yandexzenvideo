@@ -13,7 +13,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.io.IOException;
 
 @Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#0F", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_1_TV_Карточка_канала extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
@@ -21,7 +21,7 @@ public class Test_04_1_TV_Карточка_канала extends TestBaseWebDrive
     @DisplayName(value ="Карточка канала")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#0F")
+    @Tag("SuiteWD#0")
     public void cardTvChannel() throws IOException, InterruptedException {
         // неавторизованный пользователь:
         headerMenu.goToTvPage();

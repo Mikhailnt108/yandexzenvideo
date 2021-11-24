@@ -55,9 +55,9 @@ public class TestBaseWebDriver {
     public RatingPage ratingPage;
     public PaymentContent paymentContent;
 
-    public static final String USER_NAME = "bmp";
-    public static final String PASSWORD = "bmp";
-    public static final String URL = "jdbc:postgresql://10.236.24.176:5432/bmp";
+    public final String USER_NAME = "bmp";
+    public final String PASSWORD = "bmp";
+    public final String URL = "jdbc:postgresql://10.236.24.176:5432/bmp";
     public Statement statement;
     public Connection connection;
 
@@ -82,7 +82,7 @@ public class TestBaseWebDriver {
         // start remote browser:
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "93.0");
+        capabilities.setCapability("browserVersion", "96.0");
 //        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
 //        Configuration.pageLoadTimeout = 60000;
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

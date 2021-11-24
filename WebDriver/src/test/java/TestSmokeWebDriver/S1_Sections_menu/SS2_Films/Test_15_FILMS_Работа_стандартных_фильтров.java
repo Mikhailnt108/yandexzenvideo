@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#1F", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_15_FILMS_Работа_стандартных_фильтров extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_15_FILMS_Работа_стандартных_фильтров 
     @DisplayName(value ="15. Работа стандартных фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#1F")
+    @Tag("SuiteWD#1")
     public void standardFilters() throws Exception {
         headerMenu.goToFilmsPage();
         filmsPage.checkElementsFilmsPage();

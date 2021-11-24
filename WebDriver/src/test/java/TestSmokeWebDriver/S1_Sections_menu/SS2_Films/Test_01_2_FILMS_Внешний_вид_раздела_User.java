@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#2F", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_2_FILMS_Внешний_вид_раздела_User extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_01_2_FILMS_Внешний_вид_раздела_User extends T
     @DisplayName(value ="Внешний_вид_раздела_User")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#2F")
+    @Tag("SuiteWD#2")
     public void appearanceSectionFilmsPage() throws Exception {
         // пользоваеть авторизован:
         headerMenu.goToFilmsPage();

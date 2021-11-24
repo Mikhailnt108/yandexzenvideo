@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#4F", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_NOTIF_ТО_с_бандлом extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "4. Продвижение")
@@ -17,7 +17,7 @@ public class Test_04_NOTIF_ТО_с_бандлом extends TestBaseWebDriver {
     @DisplayName(value = "ТО с бандлом")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#4F")
+    @Tag("SuiteWD#4")
     public void popUpNotificationMyTarifBundle() throws InterruptedException {
         personalOffer.archivePersonalOfferPartnerOfferKinoPoiskForMF();
         personalOffer.archivePersonalOfferPartnerOfferOkkoTvForMF();

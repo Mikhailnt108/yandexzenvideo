@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#0F", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_12_1_TV_Записываемая_передача extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_12_1_TV_Записываемая_передача extends Test
     @DisplayName(value ="Записываемая ТВ передача")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#0F")
+    @Tag("SuiteWD#0")
     public void recordedTvProgram() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
