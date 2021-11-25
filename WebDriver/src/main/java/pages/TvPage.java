@@ -113,8 +113,6 @@ public class TvPage extends BasePageWebDriver {
 
     public void clickOnTabInRecording() throws InterruptedException {
         Thread.sleep(3000);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='_49iS4BqS64BCC4wpE8GQ7']//img[@alt])[1]")));
-        Thread.sleep(3000);
         click(By.xpath("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']"));
     }
 
