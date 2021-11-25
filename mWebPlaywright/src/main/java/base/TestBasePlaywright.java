@@ -78,8 +78,15 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     void launchBrowser() {
         playwright = Playwright.create();
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--start-maximized")));
+        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions()
+                .setChannel("chrome")
+                .setHeadless(false)
+                .setArgs(Arrays.asList("--disable-dev-shm-usage"))
+                .setArgs(Arrays.asList("--whitelisted-ips")));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions()
+                .setChannel("chrome")
+                .setHeadless(true)
+                .setArgs(Arrays.asList("--start-maximized")));
     }
     @AfterAll
     void closeBrowser() {
@@ -94,16 +101,22 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException{
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));    // моноблок
+//                .setUserAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1")
+                .setUserAgent("Mozilla/5.0 (Linux; Android 10; HRY-LX1T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36")
+                .setViewportSize(360, 640)
+                .setIsMobile(true)
+                .setHasTouch(true));
 //                .setViewportSize(1360, 760));  // ноутбук
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));   // моноблок
-//                .setViewportSize(1360, 760)); // ноутбук
+//               .setUserAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1")
+                .setUserAgent("Mozilla/5.0 (Linux; Android 10; HRY-LX1T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36")
+                .setViewportSize(360, 640)
+                .setIsMobile(true)
+                .setHasTouch(true));
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
         page.setDefaultTimeout(160000);
-
         headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless);
         filmsPagePW = new FilmsPagePW(page);
         serialsPagePW = new SerialsPagePW(page,pageCMS);

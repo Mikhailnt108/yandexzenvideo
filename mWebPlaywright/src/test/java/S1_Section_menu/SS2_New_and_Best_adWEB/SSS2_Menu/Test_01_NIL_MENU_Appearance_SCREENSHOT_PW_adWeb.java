@@ -22,50 +22,47 @@ public class Test_01_NIL_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePla
     @Tag("adWebSuitePW#1")
     public void MENU_Appearance() throws IOException, InterruptedException {
         // Guest:
-        // Min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsMenuMinPageNilGuest();
-        nilPagePW.checkImageMenuMinPageNilGuest();
-        nilPagePW.openBlockMenuMegaFonAndCheckImageMinPageNil();
-        nilPagePW.openBlockMenuMftvAndCheckImageMinPageNilGuest();
-        // Medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.checkElementsMenuAphonePageNilGuest();
+        nilPagePW.checkImageMenuAphonePageNilGuestMWEB();
+        nilPagePW.openBlockMenuMegaFonAndCheckImagePageNilMWEB();
+        nilPagePW.openBlockMenuMftvAndCheckImageAphonePageNilGuestMWEB();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsMenuMediumPageNilGuest();
-        nilPagePW.checkImageMenuMediumPageNilGuest();
-        nilPagePW.openBlockMenuMegaFonAndCheckImageMediumPageNilGuest();
-        nilPagePW.openBlockMenuMftvAndCheckImageMediumPageNilGuest();
-        // Wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkImageMenuWidePageNilGuest();
+        nilPagePW.checkElementsMenuApadPageNilGuest();
+        nilPagePW.checkImageMenuApadPageNilGuestMWEB();
+        nilPagePW.openBlockMenuMegaFonAndCheckImageApadPageNilGuestMWEB();
+        nilPagePW.openBlockMenuMftvAndCheckImageApadPageNilGuestMWEB();
+//        // Wide:
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkImageMenuWidePageNilGuest();
         // User:
-        // Min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
         flowRegistation();
-//        flowAutorization();
         Thread.sleep(5000);
-        nilPagePW.checkElementsMenuMinPageNilUser();
-        nilPagePW.checkImageMenuMinPageNilUser();
-        nilPagePW.openBlockMenuMegaFonMinPageNilUser();
-        nilPagePW.openBlockMenuMftvMinPageNilUser();
-        nilPagePW.openBlockMenuProfileMinPageNil();
-        // Medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.checkElementsMenuAphonePageNilUser();
+        nilPagePW.checkImageMenuAphonePageNilUserMWEB();
+        nilPagePW.openBlockMenuMegaFonAphonePageNilUser();
+        nilPagePW.openBlockMenuMftvAphonePageNilUser();
+        nilPagePW.openBlockMenuProfileAphonePageNil();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsMenuMediumPageNilUser();
-//        flowAutorization();// пропадает логин
-        nilPagePW.checkImageMenuMediumPageNilUser();
-        nilPagePW.openBlockMenuMegaFonMediumPageNilUser();
-        nilPagePW.openBlockMenuMftvMediumPageNilUser();
-        nilPagePW.openBlockMenuProfileMediumPageNil();
-        // Wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-//        flowAutorization();// пропадает логин
-        nilPagePW.checkImageMenuWidePageNilUser();
+        nilPagePW.checkElementsMenuApadPageNilUser();
+        nilPagePW.checkImageMenuApadPageNilUserMWEB();
+        nilPagePW.openBlockMenuMegaFonApadPageNilUserMWEB();
+        nilPagePW.openBlockMenuMftvApadPageNilUserMWEB();
+        nilPagePW.openBlockMenuProfileApadPageNilMWEB();
+//        // Wide:
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkImageMenuWidePageNilUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

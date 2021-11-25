@@ -24,8 +24,8 @@ public class Test_02_NIL_FOOTER_Focus_SCREENSHOT_PW_adWeb extends TestBasePlaywr
         headerMenuPW.goToNilPage();
         nilPagePW.hoverOnListBlockDevicesFooterAndCheckColor();
         nilPagePW.hoverOnListBlockSupportFooterAndCheckColor();
-        nilPagePW.checkImageBlockSocialLinkInFooterGuest();
-        nilPagePW.checkImageBlockDownloadsInFooterGuest();
+        nilPagePW.checkImageBlockSocialLinkInFooterGuestMWEB();
+        nilPagePW.checkImageBlockDownloadsInFooterGuestMWEB();
         nilPagePW.hoverOnListBlockDocsFooterAndCheckColor();
         // User:
         headerMenuPW.goToNilPage();
@@ -33,8 +33,8 @@ public class Test_02_NIL_FOOTER_Focus_SCREENSHOT_PW_adWeb extends TestBasePlaywr
         nilPagePW.waitHiddenMessageContentIsBeingLoaded();
         nilPagePW.hoverOnListBlockDevicesFooterAndCheckColor();
         nilPagePW.hoverOnListBlockSupportFooterAndCheckColor();
-        nilPagePW.checkImageBlockSocialLinkInFooterUser();
-        nilPagePW.checkImageBlockDownloadsInFooterUser();
+        nilPagePW.checkImageBlockSocialLinkInFooterUserMWEB();
+        nilPagePW.checkImageBlockDownloadsInFooterUserMWEB();
         nilPagePW.hoverOnListBlockDocsFooterAndCheckColor();
     }
     private void flowRegistationMF() {

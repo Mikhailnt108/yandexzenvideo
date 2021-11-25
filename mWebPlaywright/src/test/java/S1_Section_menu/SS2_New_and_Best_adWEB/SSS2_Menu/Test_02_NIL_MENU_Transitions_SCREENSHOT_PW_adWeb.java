@@ -25,64 +25,63 @@ public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePl
         headerMenuPW.goToNilPage();
         nilPagePW.goToTabsHeaderMenuMftvGuest();
         // promocode:
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.choosePromoCodeAndCheckImageMinPageNilGuest();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.choosePromoCodeAndCheckImageAphonePageNilGuestMWEB();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.choosePromoCodeAndCheckImageMediumPageNilGuest();
+        nilPagePW.choosePromoCodeAndCheckImageApadPageNilGuestMWEB();
         // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.choosePromoCodeAndCheckImageWidePageNilGuest();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.choosePromoCodeAndCheckImageWidePageNilGuest();
         // search:
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageMinPageGuest();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.chooseSearchAndCheckImageAphonePageGuestMWEB();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageMediumPageGuest();
+        nilPagePW.chooseSearchAndCheckImageApadPageGuestMWEB();
         // wibe:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageWibePageGuest();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.chooseSearchAndCheckImageWibePageGuest();
 
-        nilPagePW.clickOnEnterButtonAndCheckImage();
+        nilPagePW.clickOnEnterButtonAndCheckImageMWEB();
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
-//        flowAutorization();// пропадает логин
         nilPagePW.goToTabsHeaderMenuMftvUser();
         // promocode:
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.choosePromoCodeAndCheckImageMinPageNilUser();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.choosePromoCodeAndCheckImageAphonePageNilUserMWEB();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.choosePromoCodeAndCheckImageMediumPageNilUser();
+        nilPagePW.choosePromoCodeAndCheckImageApadPageNilUserMWEB();
         // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.choosePromoCodeAndCheckImageWidePageNilUser();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.choosePromoCodeAndCheckImageWidePageNilUser();
         // search:
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageMinPageUser();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.chooseSearchAndCheckImageAphonePageUserMWEB();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageMediumPageUser();
+        nilPagePW.chooseSearchAndCheckImageApadPageUserMWEB();
         // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageWidePageUser();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.chooseSearchAndCheckImageWidePageUser();
         // profile:
         nilPagePW.goToSectionsProfileMenu();
     }

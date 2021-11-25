@@ -35,7 +35,7 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
         // добавление в избранное:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        nilPagePW.checkAddToFavoriteFilmFromBannerUser();
+        nilPagePW.checkImageAddToFavoriteFilmFromBannerUserMWEB();
         headerMenuPW.goToNilPage();
         nilPagePW.checkAddToFavoriteSerialFromBannerUser();
         headerMenuPW.goToNilPage();

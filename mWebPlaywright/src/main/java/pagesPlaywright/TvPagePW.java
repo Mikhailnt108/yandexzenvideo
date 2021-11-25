@@ -17,30 +17,29 @@ public class TvPagePW extends BasePagePlaywright {
 
     public TvPagePW(Page page) {
         this.page = page;
-
     }
 
-    public void checkImageTvPageTabProgramTvForGuest() throws IOException, InterruptedException {
+    public void checkImageTvPageTabProgramTvForGuestMWEB() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        page.navigate("https://web-preprod5.megafon.tv/tv");
+        page.navigate("https://web-preprod6.megafon.tv/tv");
         // подготовка полной страницы "TvPageTabProgramTvForGuest" к скриншот-тесту:
-        List<ElementHandle> imgTvAll = page.querySelectorAll("//div[@class='_3xplzuhwSABoqCYH8ffVtJ']//img[@src]");
+        List<ElementHandle> imgTvAll = page.querySelectorAll("//div[@class='_23E9FFV9LhyYMGP2R_4Hjv']");
         for(ElementHandle imgTv : imgTvAll){
-            imgTv.evaluate("iT => iT.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/27/3d/b7235e2c57e71de7283e923dec5feedfb69b/logo_tv_guide__web-wp.png')");
+            imgTv.evaluate("iT => iT.setAttribute('style', 'background-image: url(http://static.cdn.megafon.tv/images/Channel/27/3d/b7235e2c57e71de7283e923dec5feedfb69b/logo_on_air__iphone-x.png);')");
         }
-        List<ElementHandle> nameTvChannelAll = page.querySelectorAll("//div[@class='_16fO5taSmblh91J9Prw7TV']");
+        List<ElementHandle> nameTvChannelAll = page.querySelectorAll("//div[@class='_3alQqB-Yd285L1GTPwG2ko']");
         for(ElementHandle nameTvChannel : nameTvChannelAll){
             nameTvChannel.evaluate("n => n.innerText='Название канала'");
         }
-        List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//a[@class='_19SojadR5Q0BvNZTu4HCi1']");
+        List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//a[contains(@class,'_2kFyYGffe-aoW_cqXclDoD')]");
         for(ElementHandle nameTvProgram : nameTvProgramAll){
             nameTvProgram.evaluate("d => d.textContent='Название передачи'");
         }
-        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ')]");
         for(ElementHandle age : ageAll){
             age.evaluate("a => a.innerText='18+'");
         }
-        List<ElementHandle> timeAll = page.querySelectorAll("//div[@class='y-1kJx0MnmrSqtKC7fdK0']");
+        List<ElementHandle> timeAll = page.querySelectorAll("//a[@class='_3S1RJTAMPdfXwKpE8keuSk _2vXRFPIn0aB5dHsDcWV_MP']");
         for(ElementHandle time : timeAll){
             time.evaluate("t => t.innerText='00:00'");
         }
@@ -48,7 +47,7 @@ public class TvPagePW extends BasePagePlaywright {
 
         // делаем скриншот видимой части страницы "TvPageTabProgramTvForGuest":
         vrt.track(
-                "TvPageTabProgramTvForGuest",
+                "TvPageTabProgramTvForGuestAndroidMWEB",
                 Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -58,8 +57,8 @@ public class TvPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageTabTvProgramInAirForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod5.megafon.tv/tv/tv_catalog");
+    public void checkImageTabTvProgramInAirForGuestMWEB() throws IOException, InterruptedException {
+        page.navigate("https://web-preprod6.megafon.tv/tv/tv_catalog");
         // подготовка полной страницы "TvPageTabTvProgramInAirForGuest" к скриншот-тесту:
         List<ElementHandle> tailAll = page.querySelectorAll("(//a[contains(@href,'/tv/channels/')])[position()>18]");
         for (ElementHandle tailRemove : tailAll) {
@@ -106,7 +105,7 @@ public class TvPagePW extends BasePagePlaywright {
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
     }
 
-    public void checkImageTvPageTabProgramTvForAuthorized() throws IOException, InterruptedException {
+    public void checkImageTvPageTabProgramTvForAuthorizedMWEB() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
         page.navigate("https://web-preprod6.megafon.tv/tv");
         // подготовка полной страницы "TvPageTabProgramTv" к скриншот-тесту:

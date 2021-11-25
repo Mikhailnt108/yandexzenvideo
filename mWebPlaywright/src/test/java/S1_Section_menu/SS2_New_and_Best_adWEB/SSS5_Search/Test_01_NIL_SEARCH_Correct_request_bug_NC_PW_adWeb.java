@@ -20,26 +20,26 @@ public class Test_01_NIL_SEARCH_Correct_request_bug_NC_PW_adWeb extends TestBase
     @Test
     @Tag("adWebSuitePW#1")
     public void SEARCH_Correct_request() throws IOException, InterruptedException {
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageMinPageGuest();
-        nilPagePW.checkElementsSearchFormForMinPage();
-        nilPagePW.checkCloseSearchFormMinPage();
+        nilPagePW.chooseSearchAndCheckImageAphonePageGuestMWEB();
+        nilPagePW.checkElementsSearchFormForAphonePage();
+        nilPagePW.checkCloseSearchFormAphonePage();
 
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageMediumPageGuest();
-        nilPagePW.checkElementsSearchFormForMediumPage();
-        nilPagePW.checkCloseSearchFormMediumPage();
+        nilPagePW.chooseSearchAndCheckImageApadPageGuestMWEB();
+        nilPagePW.checkElementsSearchFormForApadPage();
+        nilPagePW.checkCloseSearchFormApadPage();
 
         // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.chooseSearchAndCheckImageWidePageGuest();
-        nilPagePW.checkElementsSearchFormForWidePage();
-        nilPagePW.checkCloseSearchFormWidePage();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.chooseSearchAndCheckImageWidePageGuest();
+//        nilPagePW.checkElementsSearchFormForWidePage();
+//        nilPagePW.checkCloseSearchFormWidePage();
 
         // checkSearch:
         nilPagePW.checkInputOneSimbolInSearchForm();

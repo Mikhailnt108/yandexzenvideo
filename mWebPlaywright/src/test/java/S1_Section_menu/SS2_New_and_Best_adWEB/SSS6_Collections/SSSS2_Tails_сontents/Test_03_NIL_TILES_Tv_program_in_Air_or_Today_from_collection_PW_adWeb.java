@@ -23,12 +23,12 @@ public class Test_03_NIL_TILES_Tv_program_in_Air_or_Today_from_collection_PW_adW
         // Guest
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsTileTvProgramInAirFromCollection();
-        nilPagePW.checkImageHoverOnTileTvProgramInAirFromCollectionGust();
+        nilPagePW.checkImageHoverOnTileTvProgramInAirFromCollectionGustMWEB();
         // User
         headerMenuPW.goToNilPage();
         flowRegistation();
         nilPagePW.checkElementsTileTvProgramInAirFromCollection();
-        nilPagePW.checkImageHoverOnTileTvProgramInAirFromCollectionUser();
+        nilPagePW.checkImageHoverOnTileTvProgramInAirFromCollectionUserMWEB();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

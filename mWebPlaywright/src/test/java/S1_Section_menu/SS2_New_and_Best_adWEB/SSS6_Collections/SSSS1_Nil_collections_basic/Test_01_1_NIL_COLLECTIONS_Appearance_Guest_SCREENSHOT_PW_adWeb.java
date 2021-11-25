@@ -21,20 +21,20 @@ public class Test_01_1_NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT_PW_adWeb exte
     @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Appearance_Guest() throws IOException, InterruptedException {
         // Guest:
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionMinPageNilGuest();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.checkImageBlocksCollectionAphonePageNilGuest();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionMediumPageNilGuest();
+        nilPagePW.checkImageBlocksCollectionApadPageNilGuest();
         // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionWidePageNilGuest();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkElementsCollection();
+//        nilPagePW.checkImageBlocksCollectionWidePageNilGuestMWEB();
     }
 }

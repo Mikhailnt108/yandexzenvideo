@@ -22,25 +22,25 @@ public class Test_01_2_NIL_BANNER_ZONE_Appearance_User_SCREENSHOT_PW_adWeb exten
     @Tag("adWebSuitePW#1")
     public void NIL_BANNER_ZONE_Appearance_User_SCREENSHOT() throws IOException, InterruptedException, AWTException {
     // User:
-    // min:
+    // aphone:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        headerMenuPW.openMinFramePage();
+        headerMenuPW.openAphoneFramePage();
         nilPagePW.checkElementsBannerMinPageNilUser();
         headerMenuPW.stopCarouselBanners();
         nilPagePW.checkImageBannerMinPageNilUser();
-    // medium:
-        headerMenuPW.openMediumFramePage();
+    // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsBannerMediumPageNilUser();
         headerMenuPW.stopCarouselBanners();
         nilPagePW.checkImageBannerMediumPageNilUser();
     // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsBannerWidePageNilUser();
-        headerMenuPW.stopCarouselBanners();
-        nilPagePW.checkImageBannerWidePageNilUser();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkElementsBannerWidePageNilUser();
+//        headerMenuPW.stopCarouselBanners();
+//        nilPagePW.checkImageBannerWidePageNilUser();
 }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

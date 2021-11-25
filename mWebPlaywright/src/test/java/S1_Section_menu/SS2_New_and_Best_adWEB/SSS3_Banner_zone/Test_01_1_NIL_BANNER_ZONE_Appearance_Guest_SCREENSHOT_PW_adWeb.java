@@ -22,23 +22,23 @@ public class Test_01_1_NIL_BANNER_ZONE_Appearance_Guest_SCREENSHOT_PW_adWeb exte
     @Tag("adWebSuitePW#1")
     public void NIL_BANNER_ZONE_Appearance_Guest_SCREENSHOT() throws IOException, InterruptedException, AWTException {
         // Guest:
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsBannerMinPageNilGuest();
+        nilPagePW.checkElementsBannerAphonePageNilGuest();
         headerMenuPW.stopCarouselBanners();
-        nilPagePW.checkImageBannerMinPageNilGuest();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.checkImageBannerAphonePageNilGuestMWEB();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsBannerMediumPageNilGuest();
+        nilPagePW.checkElementsBannerApadPageNilGuestMWEB();
         headerMenuPW.stopCarouselBanners();
-        nilPagePW.checkImageBannerMediumPageNilGuest();
-        // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsBannerWidePageNilGuest();
-        headerMenuPW.stopCarouselBanners();
-        nilPagePW.checkImageBannerWidePageNilGuest();
+        nilPagePW.checkImageBannerApadPageNilGuestMWEB();
+//        // wide:
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkElementsBannerWidePageNilGuest();
+//        headerMenuPW.stopCarouselBanners();
+//        nilPagePW.checkImageBannerWidePageNilGuest();
     }
 }

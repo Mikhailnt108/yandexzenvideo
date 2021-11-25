@@ -13,7 +13,7 @@ import java.io.IOException;
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_NIL_BASIC_Message_Content_is_being_loaded_PW_adWeb extends TestBasePlaywright {
-    @Epic(value = "Smoke MFTV Desktop Web")
+    @Epic(value = "Smoke MFTV Mobile Android Web")
     @Feature(value = "2. Section_menu")
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. Message_Content_is_being_loaded_SCREENSHOT")

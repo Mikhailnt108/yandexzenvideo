@@ -24,19 +24,19 @@ public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBaseP
         // Guest:
         headerMenuPW.goToNilPage();
         headerMenuPW.stopCarouselBanners();
-        nilPagePW.checkHoverTrailerImageGuest();
-        nilPagePW.checkHoverFavoriteImageGuest();
-        nilPagePW.checkHoverBlockArrowNextImageGuest();
-        nilPagePW.checkHoverBlockArrowPreviousImageGuest();
+        nilPagePW.checkHoverTrailerImageGuestMWEB();
+        nilPagePW.checkHoverFavoriteImageGuestMWEB();
+        nilPagePW.checkHoverBlockArrowNextImageGuestMWEB();
+        nilPagePW.checkHoverBlockArrowPreviousImageGuestMWEB();
 
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
         headerMenuPW.stopCarouselBanners();
-        nilPagePW.checkHoverTrailerImageUser();
-        nilPagePW.checkHoverFavoriteImageUser();
-        nilPagePW.checkHoverBlockArrowNextImageUser();
-        nilPagePW.checkHoverBlockArrowPreviousImageUser();
+        nilPagePW.checkHoverTrailerImageUserMWEB();
+        nilPagePW.checkHoverFavoriteImageUserMWEB();
+        nilPagePW.checkHoverBlockArrowNextImageUserMWEB();
+        nilPagePW.checkHoverBlockArrowPreviousImageUserMWEB();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

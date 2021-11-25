@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.io.IOException;
 
 @ResourceLock(value = "adWebSuitePW#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_NIL_TILES_Films_in_collection_PW_adWeb extends TestBasePlaywright {
+public class Test_01_NIL_TILES_Films_in_collection_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
 @Epic(value = "Smoke MFTV Desktop Web")
 @Feature(value = "2. Section_menu")
 @Story(value = "2. New_and_Best_adWeb")
@@ -23,13 +23,13 @@ public void NIL_TILES_Films_in_collection() throws IOException, InterruptedExcep
     // Guest
     headerMenuPW.goToNilPage();
     nilPagePW.checkElementsTileFilmFromCollection();
-    nilPagePW.checkImageHoverOnTileFilmFromCollectionGust();
+    nilPagePW.checkImageHoverOnTileFilmFromCollectionGustMWEB();
     // User
     headerMenuPW.goToNilPage();
     flowRegistation();
     nilPagePW.waitHiddenMessageContentIsBeingLoaded();
     nilPagePW.checkElementsTileFilmFromCollection();
-    nilPagePW.checkImageHoverOnTileFilmFromCollectionUser();
+    nilPagePW.checkImageHoverOnTileFilmFromCollectionUserMWEB();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

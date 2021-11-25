@@ -19,7 +19,7 @@ public class CardTvChannelPW extends BasePagePlaywright {
         this.page = page;
     }
 
-    public void checkImageCardTvChannelForGuest() throws IOException, InterruptedException {
+    public void checkImageCardTvChannelForGuestMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
@@ -108,7 +108,7 @@ public class CardTvChannelPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCardTvChannelForUser() throws IOException, InterruptedException {
+    public void checkImageCardTvChannelForUserMWEB() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
         page.navigate("https://web-preprod6.megafon.tv/tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");

@@ -1,4 +1,4 @@
-version: "2"
+version: "2.1"
 services:
 #  chrome:
 #    image: local/chrome:0.0.1
@@ -78,10 +78,10 @@ services:
       retries: 10
   test_runner:
     build:
-#      context: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only
-      context: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only
-#      dockerfile: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright/Dockerfile
-      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\WebPlaywright\Dockerfile
+#      context: /builds/qa/AutoSmoke_MFTV
+      context: C:\QA_AUTOMATION\AutoSmoke_MFTV
+#      dockerfile: /builds/qa/AutoSmoke_MFTV/WebPlaywright/Dockerfile
+      dockerfile: C:\QA_AUTOMATION\AutoSmoke_MFTV\WebPlaywright\Dockerfile
     image: tests_playwright
     container_name: tests_run_playwright
     network_mode: "host"

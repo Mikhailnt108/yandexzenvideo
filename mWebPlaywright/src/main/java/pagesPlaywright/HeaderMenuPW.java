@@ -615,11 +615,11 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
 
-    public void openMinFramePage() {
+    public void openAphoneFramePage() {
      page.setViewportSize(540, 1334);
     }
 
-    public void openMediumFramePage() {
+    public void openApadFramePage() {
      page.setViewportSize(799, 1674);
     }
 

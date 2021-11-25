@@ -57,7 +57,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCherdakAndBannersGuest() throws IOException, InterruptedException {
+    public void checkImageCherdakAndBannersGuestMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
@@ -110,7 +110,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionWidePageNilGuest() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionWidePageNilGuestMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         sleep(3000);
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
@@ -181,7 +181,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionWithoutHeader() throws IOException, InterruptedException {
+    public void checkImageBlocksCincMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         page.focus("(//a[contains(@class,'TileTriple')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//a[contains(@class,'TileTriple')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
@@ -208,7 +208,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterWidePageGuest() throws IOException, InterruptedException {
+    public void checkImageFooterWidePageGuestMWEB() throws IOException, InterruptedException {
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
@@ -222,7 +222,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageNilPageScrollGuest() throws IOException, InterruptedException {
+    public void checkImageNilPageScrollGuestMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подготовка страницы "NilPage" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
@@ -400,7 +400,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageNilPageScrollUser() throws InterruptedException, IOException {
+    public void checkImageNilPageScrollUserMWEB() throws InterruptedException, IOException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подготовка страницы "NilPage" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
@@ -542,7 +542,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCherdakAndBannersUser() throws IOException, InterruptedException {
+    public void checkImageCherdakAndBannersUserMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
@@ -609,7 +609,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionWithHeaderUser() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionUserMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         sleep(3000);
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
@@ -655,7 +655,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterWidePageUser() throws IOException, InterruptedException {
+    public void checkImageFooterPageUserMWEB() throws IOException, InterruptedException {
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNilUser":
         vrt.track(
@@ -947,7 +947,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageMenuMinPageNilGuest() throws IOException, InterruptedException {
+    public void checkImageMenuAphonePageNilGuestMWEB() throws IOException, InterruptedException {
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
         // делаем скриншот элемента "cherdakPageNilGuest":
 //        vrt.track(
@@ -961,14 +961,14 @@ public class NiLPagePW extends BasePagePlaywright {
 //                        .build());
     }
 
-    public void checkElementsMenuMinPageNilGuest() {
+    public void checkElementsMenuAphonePageNilGuest() {
         page.querySelector("//img[@alt='Мегафон ТВ']");
 //        assertTrue(page.querySelector("(//div[text()='Все сервисы'])[1]").isVisible());
         page.querySelector("(//button[@class='ch-trigger ch-trigger_view_lk ch-account-controller'])[1]");
         page.querySelector("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
     }
 
-    public void checkElementsMenuMediumPageNilGuest() throws InterruptedException {
+    public void checkElementsMenuApadPageNilGuest() throws InterruptedException {
         sleep(5000);
         page.querySelector("//img[@alt='Мегафон ТВ']");
 //        assertTrue(page.querySelector("(//div[text()='Все сервисы'])[1]").isVisible());
@@ -977,7 +977,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.querySelector("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
     }
 
-    public void checkImageMenuMediumPageNilGuest() throws IOException, InterruptedException {
+    public void checkImageMenuApadPageNilGuestMWEB() throws IOException, InterruptedException {
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
         // делаем скриншот элемента "cherdakPageNilGuest":
         vrt.track(
@@ -991,7 +991,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openBlockMenuMegaFonAndCheckImageMinPageNil() throws IOException, InterruptedException {
+    public void openBlockMenuMegaFonAndCheckImagePageNilMWEB() throws IOException, InterruptedException {
         page.waitForSelector("(//div[text()='Все сервисы'])[1]").click();
         ElementHandle blockMenuMegaFonMinPageNil = page.querySelector("//div[@class='ch-drop-down__popup']");
         vrt.track(
@@ -1005,7 +1005,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openBlockMenuMegaFonAndCheckImageMediumPageNilGuest() throws IOException, InterruptedException {
+    public void openBlockMenuMegaFonAndCheckImageApadPageNilGuestMWEB() throws IOException, InterruptedException {
         page.querySelector("(//div[text()='Все сервисы'])[1]").hover();
         ElementHandle blockMenuMegaFonMediumPageNil = page.querySelector("(//div[@class='ch-drop-down__popup']//ul)[2]");
         vrt.track(
@@ -1019,7 +1019,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openBlockMenuMftvAndCheckImageMinPageNilGuest() throws IOException, InterruptedException {
+    public void openBlockMenuMftvAndCheckImageAphonePageNilGuestMWEB() throws IOException, InterruptedException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
         ElementHandle blockMenuMftvMinPageNil = page.querySelector("//div[@class='ch-mobile-menu__container']");
         vrt.track(
@@ -1033,7 +1033,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openBlockMenuMftvAndCheckImageMediumPageNilGuest() throws IOException, InterruptedException {
+    public void openBlockMenuMftvAndCheckImageApadPageNilGuestMWEB() throws IOException, InterruptedException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
         ElementHandle blockMenuMftvMediumPageNil = page.querySelector("//div[@class='ch-mobile-menu__container']");
         vrt.track(
@@ -1070,14 +1070,14 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkElementsMenuMinPageNilUser() {
+    public void checkElementsMenuAphonePageNilUser() {
         page.querySelector("//img[@alt='Мегафон ТВ']");
 //        assertTrue(page.querySelector("(//div[text()='Все сервисы'])[1]").isVisible());
         page.querySelector("//button[@class='ch-trigger ch-trigger_view_lk ch-account-controller__trigger']");
         page.querySelector("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
     }
 
-    public void checkImageMenuMinPageNilUser() throws IOException, InterruptedException {
+    public void checkImageMenuAphonePageNilUserMWEB() throws IOException, InterruptedException {
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
         // делаем скриншот элемента "cherdakPageNilUser":
         vrt.track(
@@ -1091,7 +1091,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openBlockMenuMftvMinPageNilUser() throws IOException, InterruptedException {
+    public void openBlockMenuMftvAphonePageNilUser() throws IOException, InterruptedException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
         ElementHandle blockMenuMftvMinPageNil = page.querySelector("//div[@class='ch-mobile-menu__container']");
         vrt.track(
@@ -1106,16 +1106,16 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("//div[@class='ch-mobile-menu__container']//*[@id='close-mobilemenu']");
     }
 
-    public void checkElementsMenuMediumPageNilUser() throws InterruptedException {
+    public void checkElementsMenuApadPageNilUser() throws InterruptedException {
         sleep(5000);
         page.querySelector("//img[@alt='Мегафон ТВ']");
-        assertTrue(page.querySelector("(//div[text()='Все сервисы'])[1]").isVisible());
+        Assert.assertTrue(page.querySelector("(//div[text()='Все сервисы'])[1]").isVisible());
         page.querySelector("//button[@class='ch-trigger ch-trigger_view_ ch-header__trigger ch-header__trigger_type_search']");
         page.querySelector("//button[@class='ch-trigger ch-trigger_view_lk ch-account-controller__trigger']");
         page.querySelector("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
     }
 
-    public void checkImageMenuMediumPageNilUser() throws IOException, InterruptedException {
+    public void checkImageMenuApadPageNilUserMWEB() throws IOException, InterruptedException {
         sleep(5000);
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
         // делаем скриншот элемента "cherdakPageNilUser":
@@ -1130,7 +1130,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openBlockMenuMegaFonMediumPageNilUser() throws IOException, InterruptedException {
+    public void openBlockMenuMegaFonApadPageNilUserMWEB() throws IOException, InterruptedException {
         page.click("(//div[text()='Все сервисы'])[1]");
         ElementHandle blockMenuMegaFonMediumPageNil = page.querySelector("(//div[@class='ch-drop-down__popup']//ul)[2]");
         vrt.track(
@@ -1144,7 +1144,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void openBlockMenuMftvMediumPageNilUser() throws IOException, InterruptedException {
+    public void openBlockMenuMftvApadPageNilUserMWEB() throws IOException, InterruptedException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
         ElementHandle blockMenuMftvMediumPageNil = page.querySelector("//div[@class='ch-mobile-menu__container']");
         vrt.track(
@@ -1159,7 +1159,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("//div[@class='ch-mobile-menu__container']//*[@id='close-mobilemenu']");
     }
 
-    public void openBlockMenuProfileMinPageNil() throws IOException, InterruptedException {
+    public void openBlockMenuProfileAphonePageNil() throws IOException, InterruptedException {
         page.click("//button[@class='ch-trigger ch-trigger_view_lk ch-account-controller__trigger']");
         ElementHandle blockMenuProfileMinPageNil = page.querySelector("//div[@class='ch-mobile-menu__container']");
         ElementHandle userLogin = page.querySelector("//div[@class='ch-mobile-menu__container']//div[@class='ch-account__title']");
@@ -1176,7 +1176,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("//div[@class='ch-mobile-menu__container']//*[@id='close-mobilemenu']");
     }
 
-    public void openBlockMenuProfileMediumPageNil() throws IOException, InterruptedException {
+    public void openBlockMenuProfileApadPageNilMWEB() throws IOException, InterruptedException {
         page.click("//button[@class='ch-trigger ch-trigger_view_lk ch-account-controller__trigger']");
         ElementHandle blockMenuProfileMediumPageNil = page.querySelector("//div[@class='ch-mobile-menu__container']");
         ElementHandle userLogin = page.querySelector("//div[@class='ch-mobile-menu__container']//div[@class='ch-account__title']");
@@ -1276,7 +1276,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
     }
 
-    public void clickOnEnterButtonAndCheckImage() throws IOException, InterruptedException {
+    public void clickOnEnterButtonAndCheckImageMWEB() throws IOException, InterruptedException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_lk ch-account-controller'])[1]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
         sleep(5000);
@@ -1307,7 +1307,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void choosePromoCodeAndCheckImageMinPageNilGuest() throws InterruptedException, IOException {
+    public void choosePromoCodeAndCheckImageAphonePageNilGuestMWEB() throws InterruptedException, IOException {
         page.click("(//button[contains(@class,'ch-trigger_view_burger')])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         page.click("(//div[text()='Промокод'])[2]");
@@ -1323,7 +1323,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void choosePromoCodeAndCheckImageMediumPageNilGuest() throws InterruptedException, IOException {
+    public void choosePromoCodeAndCheckImageApadPageNilGuestMWEB() throws InterruptedException, IOException {
         page.click("(//button[contains(@class,'ch-trigger_view_burger')])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         page.click("(//div[text()='Промокод'])[2]");
@@ -1339,7 +1339,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void chooseSearchAndCheckImageMinPageGuest() throws InterruptedException, IOException {
+    public void chooseSearchAndCheckImageAphonePageGuestMWEB() throws InterruptedException, IOException {
         page.click("(//button[contains(@class,'ch-trigger_view_burger')])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         ElementHandle searchForm = page.querySelector("//div[@class='ch-mobile-menu__container']");
@@ -1356,7 +1356,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void chooseSearchAndCheckImageMediumPageGuest() throws InterruptedException, IOException {
+    public void chooseSearchAndCheckImageApadPageGuestMWEB() throws InterruptedException, IOException {
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
         sleep(5000);
         ElementHandle searchForm = page.waitForSelector("//div[@class='ch-cherdak']");
@@ -1448,7 +1448,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.reload();
     }
 
-    public void choosePromoCodeAndCheckImageMinPageNilUser() throws InterruptedException, IOException {
+    public void choosePromoCodeAndCheckImageAphonePageNilUserMWEB() throws InterruptedException, IOException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         page.click("(//div[text()='Промокод'])[2]");
@@ -1465,7 +1465,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void choosePromoCodeAndCheckImageMediumPageNilUser() throws InterruptedException, IOException {
+    public void choosePromoCodeAndCheckImageApadPageNilUserMWEB() throws InterruptedException, IOException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         page.click("(//div[text()='Промокод'])[2]");
@@ -1499,7 +1499,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void chooseSearchAndCheckImageMinPageUser() throws InterruptedException, IOException {
+    public void chooseSearchAndCheckImageAphonePageUserMWEB() throws InterruptedException, IOException {
         page.click("(//button[@class='ch-trigger ch-trigger_view_burger ch-header__trigger ch-header__trigger_type_burger'])[1]");
         page.waitForSelector("//div[@class='ch-mobile-menu__container']");
         ElementHandle searchForm = page.querySelector("//div[@class='ch-mobile-menu__container']");
@@ -1516,7 +1516,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void chooseSearchAndCheckImageMediumPageUser() throws IOException, InterruptedException {
+    public void chooseSearchAndCheckImageApadPageUserMWEB() throws IOException, InterruptedException {
         page.click("//button[@class='ch-trigger ch-trigger_view_ ch-header__trigger ch-header__trigger_type_search']");
         sleep(5000);
         ElementHandle searchForm = page.waitForSelector("//div[@class='ch-cherdak']");
@@ -1612,7 +1612,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//button[contains(@class,'ch-account-controller')]");
     }
 
-    public void checkElementsBannerMediumPageNilGuest() {
+    public void checkElementsBannerApadPageNilGuestMWEB() {
         page.waitForSelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> banners = page.querySelectorAll("//div[contains(@class,'BannerCarouselItem_bannerWrap')]");
 
@@ -1627,7 +1627,7 @@ public class NiLPagePW extends BasePagePlaywright {
         Assert.assertEquals(ages.size(), banners.size());
     }
 
-    public void checkImageBannerMinPageNilGuest() throws IOException, InterruptedException {
+    public void checkImageBannerAphonePageNilGuestMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
@@ -1660,7 +1660,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkElementsBannerMinPageNilGuest() {
+    public void checkElementsBannerAphonePageNilGuest() {
         page.waitForSelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> banners = page.querySelectorAll("//div[contains(@class,'BannerCarouselItem_bannerWrap')]");
 
@@ -1675,7 +1675,7 @@ public class NiLPagePW extends BasePagePlaywright {
         Assert.assertEquals(ages.size(), banners.size());
     }
 
-    public void checkImageBannerMediumPageNilGuest() throws IOException, InterruptedException {
+    public void checkImageBannerApadPageNilGuestMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
@@ -1912,7 +1912,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverTrailerImageGuest() throws IOException, InterruptedException {
+    public void checkHoverTrailerImageGuestMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         ElementHandle buttonWatch = page.querySelector("//a[contains(@class,'buttonWatch') and text()='Трейлер']");
@@ -1949,7 +1949,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverFavoriteImageGuest() throws IOException, InterruptedException {
+    public void checkHoverFavoriteImageGuestMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         ElementHandle buttonFavourite = page.querySelector("//button[contains(@class,'buttonFavourite')]");
@@ -1986,7 +1986,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverBlockArrowNextImageGuest() throws IOException, InterruptedException {
+    public void checkHoverBlockArrowNextImageGuestMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         ElementHandle arrowNext = page.querySelector("//button[@aria-label='next']");
@@ -2023,7 +2023,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverBlockArrowPreviousImageGuest() throws IOException, InterruptedException {
+    public void checkHoverBlockArrowPreviousImageGuestMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         ElementHandle arrowPrevious = page.querySelector("//button[@aria-label='previous']");
@@ -2058,7 +2058,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverTrailerImageUser() throws IOException, InterruptedException {
+    public void checkHoverTrailerImageUserMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle buttonWatch = page.querySelector("//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         buttonWatch.hover();
@@ -2094,7 +2094,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverFavoriteImageUser() throws IOException, InterruptedException {
+    public void checkHoverFavoriteImageUserMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         ElementHandle buttonFavourite = page.querySelector("//button[contains(@class,'buttonFavourite')]");
@@ -2130,7 +2130,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverBlockArrowNextImageUser() throws IOException, InterruptedException {
+    public void checkHoverBlockArrowNextImageUserMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         ElementHandle arrowNext = page.querySelector("//button[@aria-label='next']");
@@ -2167,7 +2167,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkHoverBlockArrowPreviousImageUser() throws IOException, InterruptedException {
+    public void checkHoverBlockArrowPreviousImageUserMWEB() throws IOException, InterruptedException {
         // подготовка элемента "bannersPageNil" к скриншот-тесту:
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         ElementHandle arrowPrevious = page.querySelector("//button[@aria-label='previous']");
@@ -2290,7 +2290,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//h1[text()='Введите номер телефона']");
     }
 
-    public void checkAddToFavoriteFilmFromBannerUser() throws IOException, InterruptedException, AWTException {
+    public void checkImageAddToFavoriteFilmFromBannerUserMWEB() throws IOException, InterruptedException, AWTException {
         if (page.querySelectorAll("//a[contains(@href,'/vods/')]/ancestor::li[contains(@class,'carousel__slide')]//*[contains(@class,'iconFavourite')]").size() != 0) {
             while (page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//a[contains(@href,'/movies/vods/')]").size() < 1) {
                 page.click("//button[@aria-label='next']");
@@ -2551,7 +2551,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//div[contains(@style,'background-image: url')]");
     }
 
-    public void openBlockMenuMegaFonMinPageNilUser() {
+    public void openBlockMenuMegaFonAphonePageNilUser() {
     }
 
     public void checkElementsCollection() throws InterruptedException {
@@ -2577,7 +2577,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
     }
 
-    public void checkImageBlocksCollectionMinPageNilGuest() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionAphonePageNilGuest() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -2639,7 +2639,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionMediumPageNilGuest() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionApadPageNilGuest() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -2711,7 +2711,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionMinPageNilUser() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionAphonePageNilUserMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -2771,7 +2771,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionMediumPageNilUser() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionApadPageNilUserMWEB() throws IOException, InterruptedException {
         page.navigate("https://web-preprod6.megafon.tv/");
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -3073,7 +3073,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
     }
 
-    public void checkImageHoverOnTileFilmFromCollectionGust() throws IOException, InterruptedException {
+    public void checkImageHoverOnTileFilmFromCollectionGustMWEB() throws IOException, InterruptedException {
         ElementHandle tileFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]");
         tileFilm.scrollIntoViewIfNeeded();
         ElementHandle collectionHoverFilm = page.querySelector("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -3119,7 +3119,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageHoverOnTileFilmFromCollectionUser() throws IOException, InterruptedException {
+    public void checkImageHoverOnTileFilmFromCollectionUserMWEB() throws IOException, InterruptedException {
         ElementHandle tileFilm = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]");
         tileFilm.scrollIntoViewIfNeeded();
         ElementHandle collectionHoverFilm = page.querySelector("//a[contains(@href, '/vods/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -3174,7 +3174,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_parentalRating')]");
     }
 
-    public void checkImageHoverOnTileSerialFromCollectionGust() throws InterruptedException, IOException {
+    public void checkImageHoverOnTileSerialFromCollectionGustMWEB() throws InterruptedException, IOException {
         ElementHandle tileSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]");
         tileSerial.scrollIntoViewIfNeeded();
         ElementHandle collectionHoverSerial = page.querySelector("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -3220,7 +3220,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageHoverOnTileSerialFromCollectionUser() throws InterruptedException, IOException {
+    public void checkImageHoverOnTileSerialFromCollectionUserMWEB() throws InterruptedException, IOException {
         ElementHandle tileSerial = page.querySelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]");
         tileSerial.scrollIntoViewIfNeeded();
         ElementHandle collectionHoverSerial = page.querySelector("//a[contains(@href, '/shows/') and contains(@class,'TilePackageCommon')][1]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -3283,7 +3283,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
     }
 
-    public void checkImageHoverOnTileTvProgramInAirFromCollectionGust() throws IOException, InterruptedException {
+    public void checkImageHoverOnTileTvProgramInAirFromCollectionGustMWEB() throws IOException, InterruptedException {
         if (page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").size() != 0) {
             ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
             tileTvProgram.scrollIntoViewIfNeeded();
@@ -3378,7 +3378,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
     }
 
-    public void checkImageHoverOnTileTvProgramInAirFromCollectionUser() throws IOException, InterruptedException {
+    public void checkImageHoverOnTileTvProgramInAirFromCollectionUserMWEB() throws IOException, InterruptedException {
         if (page.querySelectorAll("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]").size() != 0) {
             ElementHandle tileTvProgram = page.querySelector("//span[contains(@class,'TilePackageCommon_desc') and text()='В эфире']/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/') and contains(@class,'TilePackageCommon')][1]");
             tileTvProgram.scrollIntoViewIfNeeded();
@@ -3556,7 +3556,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
     }
 
-    public void checkImageHoverTileTVChannelCollectionGust() throws InterruptedException, IOException {
+    public void checkImageHoverTileTVChannelCollectionGustMWEB() throws InterruptedException, IOException {
         ElementHandle tileTvChannel = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img)[1]");
         tileTvChannel.scrollIntoViewIfNeeded();
         ElementHandle collectionHoverTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -3585,7 +3585,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageHoverTileTVChannelCollectionUser() throws IOException, InterruptedException {
+    public void checkImageHoverTileTVChannelCollectionUserMWEB() throws IOException, InterruptedException {
         ElementHandle tileTvChannel = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//img)[1]");
         tileTvChannel.scrollIntoViewIfNeeded();
         ElementHandle collectionHoverTvChannel = page.querySelector("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -4217,7 +4217,7 @@ public class NiLPagePW extends BasePagePlaywright {
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//div[contains(@class,'TileOverlay')]//*[contains(@class,'iconFavourite')]");
     }
 
-    public void checkElementsFooterMinPage() throws IOException, InterruptedException {
+    public void checkElementsFooterAphonePage() throws IOException, InterruptedException {
         page.waitForSelector("//footer").scrollIntoViewIfNeeded();
         page.waitForSelector("//span[text()='Устройства']");
         page.waitForSelector("//span[text()='Поддержка']");
@@ -4234,7 +4234,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//a[@href and text()='Правила оказания услуг телевизионного вещания']");
     }
 
-    public void checkElementsFooterMediumPage() throws IOException, InterruptedException {
+    public void checkElementsFooterApadPage() throws IOException, InterruptedException {
         page.waitForSelector("//footer").scrollIntoViewIfNeeded();
         page.waitForSelector("//span[text()='Устройства']");
         page.waitForSelector("//span[text()='Поддержка']");
@@ -4281,7 +4281,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//a[@href and text()='Правила оказания услуг телевизионного вещания']");
     }
 
-    public void checkImageFooterMinPageGuest() throws IOException, InterruptedException {
+    public void checkImageFooterAphonePageGuestMWEB() throws IOException, InterruptedException {
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
@@ -4296,7 +4296,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterMediumPageGuest() throws IOException, InterruptedException {
+    public void checkImageFooterApadPageGuestMWEB() throws IOException, InterruptedException {
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
@@ -4311,7 +4311,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterMinPageUser() throws IOException, InterruptedException {
+    public void checkImageFooterAphonePageUserMWEB() throws IOException, InterruptedException {
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
@@ -4326,7 +4326,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterMediumPageUser() throws IOException, InterruptedException {
+    public void checkImageFooterApadPageUserMWEB() throws IOException, InterruptedException {
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
@@ -4342,7 +4342,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
 
-    public void checkImageOpenListsDevicesFooterMinPageGuest() throws IOException, InterruptedException {
+    public void checkImageOpenListsDevicesFooterAphonePageGuestMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4357,7 +4357,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
     }
-    public void checkImageOpenListsSupportFooterMinPageGuest() throws IOException, InterruptedException {
+    public void checkImageOpenListsSupportFooterAphonePageGuestMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Поддержка']").click();
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4373,7 +4373,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageOpenListsDevicesFooterMinPageUser() throws IOException, InterruptedException {
+    public void checkImageOpenListsDevicesFooterAphonePageUserMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4388,7 +4388,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
     }
-    public void checkImageOpenListsSupportFooterMinPageUser() throws IOException, InterruptedException {
+    public void checkImageOpenListsSupportFooterAphonePageUserMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Поддержка']").click();
         // скриншот футер min page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4404,7 +4404,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageOpenListsDevicesFooterMediumPageGuest() throws IOException, InterruptedException {
+    public void checkImageOpenListsDevicesFooterApadPageGuestMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4419,7 +4419,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
     }
-    public void checkImageOpenListsSupportFooterMediumPageGuest() throws IOException, InterruptedException {
+    public void checkImageOpenListsSupportFooterApadPageGuestMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Поддержка']").click();
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4435,7 +4435,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageOpenListsDevicesFooterMediumPageUser() throws IOException, InterruptedException {
+    public void checkImageOpenListsDevicesFooterApadPageUserMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Устройства']").click();
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4450,7 +4450,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
     }
-    public void checkImageOpenListsSupportFooterMediumPageUser() throws IOException, InterruptedException {
+    public void checkImageOpenListsSupportFooterApadPageUserMWEB() throws IOException, InterruptedException {
         page.waitForSelector("//span[text()='Поддержка']").click();
         // скриншот футер medium page:
         ElementHandle footer = page.querySelector("//footer");
@@ -4576,7 +4576,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.navigate("https://web-preprod6.megafon.tv");
     }
 
-    public void checkImageBlockSocialLinkInFooterGuest() throws IOException, InterruptedException {
+    public void checkImageBlockSocialLinkInFooterGuestMWEB() throws IOException, InterruptedException {
         ElementHandle blockSocialLink = page.querySelector("//div[contains(@class,'LayoutFooter_socials')]");
         page.waitForSelector("//div[contains(@class,'LayoutFooter_socials')]//a[@href][1]").hover();
         // делаем скриншот элемента "blockSocialLink":
@@ -4602,7 +4602,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlockDownloadsInFooterGuest() throws IOException, InterruptedException {
+    public void checkImageBlockDownloadsInFooterGuestMWEB() throws IOException, InterruptedException {
         ElementHandle blockDownloadsLink = page.querySelector("//div[contains(@class,'LayoutFooter_downloads')]");
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][1]").hover();
         sleep(2000);
@@ -4652,7 +4652,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
     }
 
-    public void checkImageBlockSocialLinkInFooterUser() throws IOException, InterruptedException {
+    public void checkImageBlockSocialLinkInFooterUserMWEB() throws IOException, InterruptedException {
         ElementHandle blockSocialLink = page.querySelector("//div[contains(@class,'LayoutFooter_socials')]");
         page.waitForSelector("//div[contains(@class,'LayoutFooter_socials')]//a[@href][1]").hover();
         // делаем скриншот элемента "blockSocialLink":
@@ -4678,7 +4678,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlockDownloadsInFooterUser() throws IOException, InterruptedException {
+    public void checkImageBlockDownloadsInFooterUserMWEB() throws IOException, InterruptedException {
         ElementHandle blockDownloadsLink = page.querySelector("//div[contains(@class,'LayoutFooter_downloads')]");
         page.waitForSelector("//div[contains(@class,'LayoutFooter_downloads')]//a[@href][1]").hover();
         sleep(2000);
@@ -4718,23 +4718,23 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkElementsSearchFormForMinPage() {
+    public void checkElementsSearchFormForAphonePage() {
         Assert.assertTrue("not found element", page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[2]").size()==1);
         Assert.assertEquals("not found element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size()==1);
         Assert.assertEquals("not found element", 1, page.querySelectorAll("//*[@class='ch-mobile-menu__back']").size()==1);
     }
 
-    public void checkCloseSearchFormMinPage() {
+    public void checkCloseSearchFormAphonePage() {
         page.click("//*[@id='close-mobilemenu']");
         Assert.assertEquals("not hidden element", 0, page.querySelectorAll("//div[contains(@class,'ch-search_open')]").size());
     }
 
-    public void checkElementsSearchFormForMediumPage() {
+    public void checkElementsSearchFormForApadPage() {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size());
     }
 
-    public void checkCloseSearchFormMediumPage() {
+    public void checkCloseSearchFormApadPage() {
         page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
         Assert.assertTrue("not hidden element", page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden());
     }
@@ -5122,7 +5122,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//div[contains(@class,'carousel')]");
     }
 
-    public void checkImageBlockCollectionTvChannelWidePageNilGuest() throws IOException, InterruptedException {
+    public void checkImageBlockCollectionTvChannelWidePageNilGuestMWEB() throws IOException, InterruptedException {
         // подборки тв каналов:
         sleep(3000);
         ElementHandle collectionTvChannel = page.waitForSelector("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -5149,7 +5149,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlockCollectionTvChannelWidePageNilUser() throws IOException, InterruptedException {
+    public void checkImageBlockCollectionTvChannelPageNilUserMWEB() throws IOException, InterruptedException {
         // подборки тв каналов:
         sleep(3000);
         ElementHandle collectionTvChannel = page.waitForSelector("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -5174,6 +5174,9 @@ public class NiLPagePW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
+    }
+
+    public void checkImageBlocksCincUserMWEB() {
     }
 }
 

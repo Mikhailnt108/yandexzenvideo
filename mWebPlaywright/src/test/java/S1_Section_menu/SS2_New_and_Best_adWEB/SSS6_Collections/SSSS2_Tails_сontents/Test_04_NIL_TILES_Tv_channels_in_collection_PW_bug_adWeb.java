@@ -23,12 +23,12 @@ public class Test_04_NIL_TILES_Tv_channels_in_collection_PW_bug_adWeb extends Te
         // Guest
         headerMenuPW.goToNilPage();
         nilPagePW.checkLastTilePackageTvChannel();
-        nilPagePW.checkImageHoverTileTVChannelCollectionGust();
+        nilPagePW.checkImageHoverTileTVChannelCollectionGustMWEB();
         // User
         headerMenuPW.goToNilPage();
         flowRegistation();
         nilPagePW.checkLastTilePackageTvChannel();
-        nilPagePW.checkImageHoverTileTVChannelCollectionUser();
+        nilPagePW.checkImageHoverTileTVChannelCollectionUserMWEB();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

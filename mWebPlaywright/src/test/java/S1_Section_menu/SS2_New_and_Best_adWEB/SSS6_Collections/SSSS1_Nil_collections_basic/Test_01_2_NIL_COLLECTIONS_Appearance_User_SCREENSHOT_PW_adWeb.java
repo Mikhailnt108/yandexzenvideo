@@ -23,21 +23,21 @@ public class Test_01_2_NIL_COLLECTIONS_Appearance_User_SCREENSHOT_PW_adWeb exten
         // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
-        // min:
-        headerMenuPW.openMinFramePage();
+        // aphone:
+        headerMenuPW.openAphoneFramePage();
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionMinPageNilUser();
-        // medium:
-        headerMenuPW.openMediumFramePage();
+        nilPagePW.checkImageBlocksCollectionAphonePageNilUserMWEB();
+        // apad:
+        headerMenuPW.openApadFramePage();
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionMediumPageNilUser();
+        nilPagePW.checkImageBlocksCollectionApadPageNilUserMWEB();
         // wide:
-        headerMenuPW.openWideFramePage();
-        headerMenuPW.goToNilPage();
-        nilPagePW.checkElementsCollection();
-        nilPagePW.checkImageBlocksCollectionWidePageNilUser();
+//        headerMenuPW.openWideFramePage();
+//        headerMenuPW.goToNilPage();
+//        nilPagePW.checkElementsCollection();
+//        nilPagePW.checkImageBlocksCollectionWidePageNilUser();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

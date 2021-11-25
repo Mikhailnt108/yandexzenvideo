@@ -23,12 +23,12 @@ public class Test_02_NIL_TILES_Serials_in_collection_PW_adWeb extends TestBasePl
         // Guest
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsTileSerialFromCollection();
-        nilPagePW.checkImageHoverOnTileSerialFromCollectionGust();
+        nilPagePW.checkImageHoverOnTileSerialFromCollectionGustMWEB();
         // User
         headerMenuPW.goToNilPage();
         flowRegistation();
         nilPagePW.checkElementsTileSerialFromCollection();
-        nilPagePW.checkImageHoverOnTileSerialFromCollectionUser();
+        nilPagePW.checkImageHoverOnTileSerialFromCollectionUserMWEB();
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

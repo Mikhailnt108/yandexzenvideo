@@ -11,22 +11,22 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.io.IOException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "AndroidWebPW#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_2_TV_Card_tv_channel_SCREENSHOT_PW extends TestBasePlaywright {
-    @Epic(value = "Smoke MFTV Desktop Web")
+    @Epic(value = "Smoke MFTV Mobile Android Web")
     @Feature(value = "1. Sections_menu")
     @Story(value = "1. TV")
     @DisplayName(value = "TV_Card_tv_channel_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("AndroidWebPW#0")
     public void tv_Card_tv_channel_SCREENSHOT() throws IOException, InterruptedException {
         // неавторизованный пользователь:
-        cardTvChannelPW.checkImageCardTvChannelForGuest();
+        cardTvChannelPW.checkImageCardTvChannelForGuestMWEB();
         // авторизованный пользователь:
         headerMenuPW.goToNilPage();
         flowRegistationMF();
-        cardTvChannelPW.checkImageCardTvChannelForUser();
+        cardTvChannelPW.checkImageCardTvChannelForUserMWEB();
         headerMenuPW.deleteAccountMF("79260192144");
     }
     private void flowRegistationMF() {
