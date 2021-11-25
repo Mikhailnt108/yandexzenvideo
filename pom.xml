@@ -11,6 +11,8 @@
         <module>WebDriver</module>
         <module>WebPlaywright</module>
         <module>WebPlaywrightPlayer</module>
+        <module>mWebPlaywright</module>
+        <module>mWebPlaywrightPlayer</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
