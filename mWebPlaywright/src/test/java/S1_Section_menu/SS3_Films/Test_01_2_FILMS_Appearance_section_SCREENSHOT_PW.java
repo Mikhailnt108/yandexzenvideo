@@ -35,7 +35,7 @@ public class Test_01_2_FILMS_Appearance_section_SCREENSHOT_PW extends TestBasePl
         filmsPagePW.checkImageCherdakAndBannersForUser();
         filmsPagePW.checkImageBlocksFiltersForUser();
         filmsPagePW.checkImageBlocksCollectionWithHeaderForUser();
-        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForUser();
+        filmsPagePW.checkImageBlocksCollectionWithoutHeaderForUser(;
         filmsPagePW.checkImageFooterForUser();
         headerMenuPW.deleteAccountMF("79260205027");
     }

@@ -1,0 +1,319 @@
+{
+  "uid" : "3fc25f663d14dfea",
+  "name" : "Программа передач (скриншоты)",
+  "fullName" : "Test_01_2_TV_Program_SCREENSHOT_VRT_PW.historyViewing",
+  "historyId" : "548a19fdc1ff60ceb2d96901257d1d99",
+  "time" : {
+    "start" : 1633722174397,
+    "stop" : 1633722193252,
+    "duration" : 18855
+  },
+  "description" : "",
+  "status" : "broken",
+  "statusMessage" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+  "statusTrace" : "io.visual_regression_tracker.sdk_java.TestRunException: Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a\r\n\tat io.visual_regression_tracker.sdk_java.VisualRegressionTracker.track(VisualRegressionTracker.java:100)\r\n\tat pagesPlaywright.TvPagePW.checkImageTvPageTabProgramTvForGuest(TvPagePW.java:50)\r\n\tat Test_01_2_TV_Program_SCREENSHOT_VRT_PW.historyViewing(Test_01_2_TV_Program_SCREENSHOT_VRT_PW.java:18)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\r\n\tat org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)\r\n\tat org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)\r\n\tat org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)\r\n\tat org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)\r\n\tat org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)\r\n\tat org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)\r\n\tat org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)\r\n\tat org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)\r\n\tat org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)\r\n\tat org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)\r\n\tat org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)\r\n\tat org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)\r\n\tat org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)\r\n\tat org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)\r\n\tat org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)\r\n\tat org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)\r\n\tat org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)\r\n\tat org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)\r\n\tat org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)\r\n\tat org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)\r\n\tat org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)\r\n\tat org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)\r\n\tat org.junit.platform.engine.support.hierarchical.ForkJoinPoolHierarchicalTestExecutorService$ExclusiveTask.compute(ForkJoinPoolHierarchicalTestExecutorService.java:185)\r\n\tat org.junit.platform.engine.support.hierarchical.ForkJoinPoolHierarchicalTestExecutorService.invokeAll(ForkJoinPoolHierarchicalTestExecutorService.java:129)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)\r\n\tat org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)\r\n\tat org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)\r\n\tat org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)\r\n\tat org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)\r\n\tat org.junit.platform.engine.support.hierarchical.ForkJoinPoolHierarchicalTestExecutorService$ExclusiveTask.compute(ForkJoinPoolHierarchicalTestExecutorService.java:185)\r\n\tat java.base/java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)\r\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)\r\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)\r\n\tat java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)\r\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)\r\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)\r\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "SuitePwTest1"
+  }, {
+    "name" : "junit.platform.uniqueid",
+    "value" : "[engine:junit-jupiter]/[class:Test_01_2_TV_Program_SCREENSHOT_VRT_PW]/[method:historyViewing()]"
+  }, {
+    "name" : "feature",
+    "value" : "0. Разделы меню"
+  }, {
+    "name" : "story",
+    "value" : "1. ТВ"
+  }, {
+    "name" : "epic",
+    "value" : "Smoke MFTV Desktop Web"
+  }, {
+    "name" : "host",
+    "value" : "WIN-95R27CPAAG1"
+  }, {
+    "name" : "thread",
+    "value" : "16344@WIN-95R27CPAAG1.ForkJoinPool-1-worker-7(16)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "Test_01_2_TV_Program_SCREENSHOT_VRT_PW"
+  }, {
+    "name" : "testClass",
+    "value" : "Test_01_2_TV_Program_SCREENSHOT_VRT_PW"
+  }, {
+    "name" : "testMethod",
+    "value" : "historyViewing"
+  }, {
+    "name" : "suite",
+    "value" : "Test_01_2_TV_Program_SCREENSHOT_VRT_PW"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "blocker",
+    "retries" : [ {
+      "uid" : "6c6672b8a6479507",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=a0488760-2d9a-4674-9253-7ba6b5e94704&testId=96bd78db-004b-4552-8dff-e3b39222f00a",
+      "time" : {
+        "start" : 1633721524676,
+        "stop" : 1633721542858,
+        "duration" : 18182
+      }
+    }, {
+      "uid" : "e87c7cc9f6e65559",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=80b6a95e-a4ed-47a6-954a-f8ddca90b0e2&testId=5e584df7-5afc-488f-8a7d-b165c4122c95",
+      "time" : {
+        "start" : 1633721213038,
+        "stop" : 1633721231174,
+        "duration" : 18136
+      }
+    }, {
+      "uid" : "4517571a4c38bd06",
+      "status" : "broken",
+      "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=0bb1f378-f013-46e1-80f2-94880631aae1&testId=6a35a1d9-daaf-4b8c-8de5-a34bfe68042e",
+      "time" : {
+        "start" : 1633719936356,
+        "stop" : 1633719955774,
+        "duration" : 19418
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 26,
+        "skipped" : 0,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 26
+      },
+      "items" : [ {
+        "uid" : "4f9e2d6566176239",
+        "reportUrl" : "../24/index.html#testresult/4f9e2d6566176239",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "9a15c408447e8f08",
+        "reportUrl" : "../23/index.html#testresult/9a15c408447e8f08",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "db97f1a7a2092913",
+        "reportUrl" : "../22/index.html#testresult/db97f1a7a2092913",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "4a4db6b4dad028a3",
+        "reportUrl" : "../21/index.html#testresult/4a4db6b4dad028a3",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "33b774b0e1c3a8c1",
+        "reportUrl" : "../20/index.html#testresult/33b774b0e1c3a8c1",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "428a0d7eabbc808a",
+        "reportUrl" : "../19/index.html#testresult/428a0d7eabbc808a",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "1615889d73dbada0",
+        "reportUrl" : "../18/index.html#testresult/1615889d73dbada0",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "abc8895a6030cac",
+        "reportUrl" : "../17/index.html#testresult/abc8895a6030cac",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "62722e12ae25f158",
+        "reportUrl" : "../16/index.html#testresult/62722e12ae25f158",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "eaeb67b2c5812805",
+        "reportUrl" : "../15/index.html#testresult/eaeb67b2c5812805",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "f834fc76ff112e32",
+        "reportUrl" : "../14/index.html#testresult/f834fc76ff112e32",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "f5bfe3119c1a7cdc",
+        "reportUrl" : "../13/index.html#testresult/f5bfe3119c1a7cdc",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "ce7fa07209b8ef07",
+        "reportUrl" : "../12/index.html#testresult/ce7fa07209b8ef07",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "55c0d9cf06771aee",
+        "reportUrl" : "../11/index.html#testresult/55c0d9cf06771aee",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "2902c3905cb37b5d",
+        "reportUrl" : "../10/index.html#testresult/2902c3905cb37b5d",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "2a7bda0d08bba989",
+        "reportUrl" : "../9/index.html#testresult/2a7bda0d08bba989",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "111b3193535aa157",
+        "reportUrl" : "../8/index.html#testresult/111b3193535aa157",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "2c8ea195376c96f8",
+        "reportUrl" : "../7/index.html#testresult/2c8ea195376c96f8",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "8c15dd97c638ab68",
+        "reportUrl" : "../6/index.html#testresult/8c15dd97c638ab68",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      }, {
+        "uid" : "c4848ea7c04c437e",
+        "reportUrl" : "../5/index.html#testresult/c4848ea7c04c437e",
+        "status" : "broken",
+        "statusDetails" : "Difference found: http://192.168.1.139:8080/717848ac-77c1-4805-9a4f-97f179e53740?buildId=ed1ddb3c-ae81-47f4-bb45-65eb565e4fbc&testId=d61cdd29-c933-44b7-9487-de366ee8a97a",
+        "time" : {
+          "start" : 1633722174397,
+          "stop" : 1633722193252,
+          "duration" : 18855
+        }
+      } ]
+    },
+    "tags" : [ "SuitePwTest1" ]
+  },
+  "source" : "3fc25f663d14dfea.json",
+  "parameterValues" : [ ]
+}

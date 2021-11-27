@@ -26,24 +26,25 @@ public class NiLPagePW extends BasePagePlaywright {
     private Page pageSmartTv;
     private BrowserContext contextIncognitoModeHeadless;
     private BrowserContext contextIncognitoModeHeadfull;
+    private String preprod;
 
-    public NiLPagePW(Page page, Page pageSmartTv, BrowserContext contextIncognitoModeHeadless) {
+    public NiLPagePW(Page page, Page pageSmartTv, BrowserContext contextIncognitoModeHeadless, String preprod) {
         this.page = page;
         this.pageSmartTv = pageSmartTv;
         this.contextIncognitoModeHeadless = contextIncognitoModeHeadless;
-
+        this.preprod = preprod;
     }
 
     public void screenshotNiLPagePW() {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot-" + ".png")));
         page.click("text=Премьеры");
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         page.click("text=Русские фильмы");
     }
 
     public void screenshotsNiLPagePwUsingVRT() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         vrt.track("NiL Page", Base64.getEncoder().encodeToString(page.screenshot()));
         page.click("text=Премьеры");
         vrt.track(
@@ -58,7 +59,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageCherdakAndBannersGuestMWEB() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -111,7 +112,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWidePageNilGuestMWEB() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         sleep(3000);
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -182,7 +183,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCincMWEB() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         page.focus("(//a[contains(@class,'TileTriple')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//a[contains(@class,'TileTriple')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
 //        Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
@@ -223,7 +224,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageNilPageScrollGuestMWEB() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         // подготовка страницы "NilPage" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         // подборки пакетов и коллекций MixedEST:
@@ -368,7 +369,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlockCollectionSpecialForYou() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         page.waitForSelector("//a[text()='Подобрали специально для вас']/ancestor::div[@data-test='PackageListWrapper']");
         // подготовка элемента "blockCollectionSpecialForYou" к скриншот-тесту:
         List<ElementHandle> posterPackageAllSFU;
@@ -401,7 +402,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageNilPageScrollUserMWEB() throws InterruptedException, IOException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         // подготовка страницы "NilPage" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         // подборки пакетов и коллекций MixedEST:
@@ -543,7 +544,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageCherdakAndBannersUserMWEB() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         // подготовка элемента "cherdakPageNil" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -610,7 +611,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionUserMWEB() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         sleep(3000);
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
@@ -1214,49 +1215,49 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("(//div[text()='ТВ'])[1]");
         page.waitForSelector("//div[text()='Передачи в эфире']");
         page.waitForSelector("//div[text()='Программа передач']");
-        Assert.assertTrue(page.url().contains("https://web-preprod6.megafon.tv/tv/tv_catalog"));
+        Assert.assertTrue(page.url().contains(preprod+"tv/tv_catalog"));
 
         page.click("(//div[text()='Новое и Лучшее'])[1]");
         page.reload();
         page.waitForSelector("//div[contains(@class,'BannerCarouselItem')]");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/", page.url());
+        Assert.assertEquals(preprod, page.url());
 
         page.click("(//div[text()='Фильмы'])[1]");
         page.waitForSelector("//h1[text()='Фильмы']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/movies/vods", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"movies/vods", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Сериалы'])[1]");
         page.waitForSelector("//h1[text()='Сериалы']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/shows", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"shows", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Детям'])[1]");
         page.waitForSelector("//span[text()='Детям']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/kids", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"kids", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Спорт'])[1]");
         page.waitForSelector("//h1[text()='Спорт']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/sport", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"sport", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Магазин'])[1]");
         page.waitForSelector("//span[text()='Магазин']");
         page.waitForSelector("//div[text()='Все пакеты']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/packages", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"packages", page.url());
+        page.navigate(preprod);
         page.reload();
 
 //        page.click("(//div[text()='Подборки'])[1]");
 //        page.waitForSelector("//h1[text()='Популярные подборки фильмов и сериалов']");
 //        page.waitForSelector("//span[text()='Подборки']");
-//        Assert.assertEquals("https://web-preprod6.megafon.tv/collection", page.url());
-//        page.navigate("https://web-preprod6.megafon.tv/");
+//        Assert.assertEquals(preprod+"collection", page.url());
+//        page.navigate(preprod);
 //        page.reload();
     }
 
@@ -1294,7 +1295,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void choosePromoCodeAndCheckImageWidePageNilGuest() throws IOException, InterruptedException {
         page.click("(//div[text()='Промокод'])[1]");
         page.waitForSelector("//h1[text()='Введите промокод']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/promocodes", page.url());
+        Assert.assertEquals(preprod+"promocodes", page.url());
         sleep(5000);
         vrt.track(
                 "widePagePromoCodeGuest",
@@ -1396,55 +1397,55 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.waitForSelector("//div[text()='Передачи в эфире']");
         page.waitForSelector("//div[text()='Программа передач']");
-        Assert.assertTrue(page.url().contains("https://web-preprod6.megafon.tv/tv/tv_catalog"));
+        Assert.assertTrue(page.url().contains(preprod+"tv/tv_catalog"));
 
         page.click("(//div[text()='Новое и Лучшее'])[1]");
         page.reload();
         page.waitForSelector("//div[contains(@class,'BannerCarouselItem')]");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/", page.url());
+        Assert.assertEquals(preprod, page.url());
 
         page.click("(//div[text()='Фильмы'])[1]");
         page.waitForSelector("//h1[text()='Фильмы']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/movies/vods", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"movies/vods", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Сериалы'])[1]");
         page.waitForSelector("//h1[text()='Сериалы']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/shows", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"shows", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Детям'])[1]");
         page.waitForSelector("//span[text()='Детям']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/kids", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"kids", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Спорт'])[1]");
         page.waitForSelector("//h1[text()='Спорт']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/sport", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"sport", page.url());
+        page.navigate(preprod);
         page.reload();
 
         page.click("(//div[text()='Магазин'])[1]");
         page.waitForSelector("//span[text()='Магазин']");
         page.waitForSelector("//div[text()='Все пакеты']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/packages", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"packages", page.url());
+        page.navigate(preprod);
         page.reload();
 
 //        page.click("(//div[text()='Подборки'])[1]");
 //        page.waitForSelector("//h1[text()='Популярные подборки фильмов и сериалов']");
 //        page.waitForSelector("//span[text()='Подборки']");
-//        Assert.assertEquals("https://web-preprod6.megafon.tv/collection", page.url());
-//        page.navigate("https://web-preprod6.megafon.tv/");
+//        Assert.assertEquals(preprod+"collection", page.url());
+//        page.navigate(preprod);
 //        page.reload();
 
         page.click("(//div[text()='Моё'])[1]");
         page.waitForSelector("//div[text()='Избранное']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/my/favorites", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"my/favorites", page.url());
+        page.navigate(preprod);
         page.reload();
     }
 
@@ -1484,7 +1485,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void choosePromoCodeAndCheckImageWidePageNilUser() throws InterruptedException, IOException {
         page.click("(//div[text()='Промокод'])[1]");
         page.waitForSelector("//h1[text()='Введите промокод']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/promocodes", page.url());
+        Assert.assertEquals(preprod+"promocodes", page.url());
         sleep(5000);
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
@@ -1575,36 +1576,36 @@ public class NiLPagePW extends BasePagePlaywright {
             page.click("//button[text()='Закрыть']");
         }
         page.waitForSelector("//h1//span[text()='Акции']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/profile/promotions", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"profile/promotions", page.url());
+        page.navigate(preprod);
 
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
         page.click("(//span[text()='Способы оплаты'])[1]");
         page.waitForSelector("//h1//span[text()='Способы оплаты']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/profile/payment_methods", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"profile/payment_methods", page.url());
+        page.navigate(preprod);
         sleep(3000);
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
         page.click("(//span[text()='Подключить SmartTV'])[1]");
         page.waitForSelector("//h1[text()='Подключить ТВ']");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/connect_smart_tv", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"connect_smart_tv", page.url());
+        page.navigate(preprod);
         sleep(3000);
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
         page.click("(//span[text()='Управление пакетами и сервисами'])[1]");
         page.waitForSelector("(//span[text()='Управление пакетами и сервисами'])[3]");
-        Assert.assertEquals("https://web-preprod6.megafon.tv/profile/subscription_management", page.url());
-        page.navigate("https://web-preprod6.megafon.tv/");
+        Assert.assertEquals(preprod+"profile/subscription_management", page.url());
+        page.navigate(preprod);
         sleep(3000);
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
         page.click("(//span[text()='Email'])[1]");
         page.waitForSelector("//div[text()='Email']");
         page.waitForSelector("//div[@aria-label='Notification']");
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         sleep(3000);
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
@@ -2227,7 +2228,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkScrollLastBannerToRight() {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         String nameContentFirst = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
         page.click("//button[@aria-label='previous']");
         String nameContentLast = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();

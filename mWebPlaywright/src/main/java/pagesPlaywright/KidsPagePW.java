@@ -14,13 +14,15 @@ import static base.TestBasePlaywright.vrt;
 
 public class KidsPagePW extends BasePagePlaywright {
     private Page page;
+    private String preprod;
 
-    public KidsPagePW (Page page) {
+    public KidsPagePW (Page page, String preprod) {
         this.page = page;
+        this.preprod = preprod;
     }
 
     public void checkImageCherdakAndBannersForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/kids");
+        page.navigate(preprod+"kids");
         // подготовка элемента "cherdakPageKidsForGuest" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -97,7 +99,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithHeaderFofGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/kids");
+        page.navigate(preprod+"kids");
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithHeader = page.querySelector("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         // подготовка элемента 'blockCollectionWithHeaderPageKidsForUnauthorized' к скриншот-тесту:
@@ -139,7 +141,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithoutHeaderForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/kids");
+        page.navigate(preprod+"kids");
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
@@ -166,7 +168,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFooterForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/kids");
+        page.navigate(preprod+"kids");
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
         // делаем скриншот элемента "footerPageKidsForGuest":
         vrt.track(
@@ -181,7 +183,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageKidsPageScrollForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/kids");
+        page.navigate(preprod+"kids");
         // подготовка страницы "PageKidsScrollForGuest" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         List<ElementHandle> titleCollectionAll = page.querySelectorAll("//h3[@data-test='PackageListWrapperName']//a");
@@ -289,7 +291,7 @@ public class KidsPagePW extends BasePagePlaywright {
     }
 
     public void checkBackgroundKidsPage() {
-        page.navigate("https://web-preprod6.megafon.tv/kids");
+        page.navigate(preprod+"kids");
         // необходимо добавить код - взять значение CSS 'background-image' у элемента:
         String Background = page.querySelector("//div[@class='_35YQGs7aas93eRD-8vTLT- _26VUc9ouKb9F8gVK9Zokon']").getAttribute("background-image");
         System.out.println(page.querySelector("//div[@class='_35YQGs7aas93eRD-8vTLT- _26VUc9ouKb9F8gVK9Zokon']").getAttribute("background-image"));

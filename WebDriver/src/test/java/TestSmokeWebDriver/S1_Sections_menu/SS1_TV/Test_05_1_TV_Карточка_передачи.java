@@ -16,7 +16,7 @@ public class Test_05_1_TV_Карточка_передачи extends TestBaseWebD
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="5.1 Карточка передачи")
+    @DisplayName(value ="Карточка передачи")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#0")

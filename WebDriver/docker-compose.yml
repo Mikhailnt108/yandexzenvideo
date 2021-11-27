@@ -8,8 +8,8 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/allure-results:/app/allure-results"
-      - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/allure-reports:/app/default-reports"
+      - "C:/QA_AUTOMATION/AutoSmoke_MFTV/allure-results:/app/allure-results"
+      - "C:/QA_AUTOMATION/AutoSmoke_MFTV/allure-reports:/app/default-reports"
 #    network_mode: bridge
   allure-ui:
     image: "frankescobar/allure-docker-service-ui"
@@ -22,9 +22,9 @@ services:
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
-        - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/init/selenoid:/etc/selenoid"
-        - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/working/selenoid/video:/opt/selenoid/video"
-        - "C:/QA_AUTOMATION/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/working/selenoid/logs:/opt/selenoid/logs"
+        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/init/selenoid:/etc/selenoid"
+        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/working/selenoid/video:/opt/selenoid/video"
+        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/working/selenoid/logs:/opt/selenoid/logs"
         - "/var/run/docker.sock:/var/run/docker.sock"
 
     environment:
@@ -46,10 +46,10 @@ services:
     network_mode: bridge
   test_runner:
     build:
-#     context: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only
-      context: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only
-#     dockerfile: /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver/Dockerfile
-      dockerfile: C:\QA_AUTOMATION\MFTV_Web_Desktop_Smoke_JUnit5_only\WebDriver\Dockerfile
+#     context: /builds/qa/AutoSmoke_MFTV
+      context: C:\QA_AUTOMATION\AutoSmoke_MFTV
+#     dockerfile: /builds/qa/AutoSmoke_MFTV/WebDriver/Dockerfile
+      dockerfile: C:\QA_AUTOMATION\AutoSmoke_MFTV\WebDriver\Dockerfile
     image: tests_webdriver
     container_name: tests_run_webdriver
     network_mode: "host"

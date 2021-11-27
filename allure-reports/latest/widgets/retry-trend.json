@@ -1,4 +1,12 @@
 [ {
+  "buildOrder" : 25,
+  "reportUrl" : "../25/index.html",
+  "reportName" : "default",
+  "data" : {
+    "run" : 4,
+    "retry" : 12
+  }
+}, {
   "buildOrder" : 24,
   "reportUrl" : "../24/index.html",
   "reportName" : "default",
@@ -145,14 +153,6 @@
 }, {
   "buildOrder" : 6,
   "reportUrl" : "../6/index.html",
-  "reportName" : "default",
-  "data" : {
-    "run" : 4,
-    "retry" : 12
-  }
-}, {
-  "buildOrder" : 5,
-  "reportUrl" : "../5/index.html",
   "reportName" : "default",
   "data" : {
     "run" : 4,

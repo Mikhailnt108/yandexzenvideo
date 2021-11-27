@@ -44,6 +44,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
+    public String preprod = "https://web-preprod3.megafon.tv/";
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://192.168.1.139:4200")
@@ -116,19 +117,19 @@ class TestBasePlaywright extends BasePagePlaywright{
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
-        page.setDefaultTimeout(160000);
-        headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless);
-        filmsPagePW = new FilmsPagePW(page);
+        page.setDefaultTimeout(60000);
+        headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless, preprod);
+        filmsPagePW = new FilmsPagePW(page, preprod);
         serialsPagePW = new SerialsPagePW(page,pageCMS);
         nilPagePW = new NiLPagePW(page, pageSmartTv, contextIncognitoModeHeadless);
         collectionPagePW = new CollectionsPagePW(page);
         tvPagePW = new TvPagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
-        cardTvProgramPW = new CardTvProgramPW(page);
-        cardFilmPW = new CardFilmPW(page, statement);
-        cardSerialPW = new CardSerialPW(page);
-        kidsPagePW = new KidsPagePW(page);
-        allCollectionsPagePW = new AllCollectionsPagePW(page);
+        cardTvProgramPW = new CardTvProgramPW(page, preprod);
+        cardFilmPW = new CardFilmPW(page, statement, preprod);
+        cardSerialPW = new CardSerialPW(page, preprod);
+        kidsPagePW = new KidsPagePW(page, preprod);
+        allCollectionsPagePW = new AllCollectionsPagePW(page, preprod);
         promoPagePW = new PromoPagePW(page);
         personalOfferPW = new PersonalOfferPW(page);
         packagesPagePW = new PackagesPagePW(page);
@@ -136,7 +137,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         cardTvChannelPW = new CardTvChannelPW(page);
         preconditionPW = new PreconditionPW(page, statement);
         sportPagePW = new SportPagePW(page);
-        authPagePW = new AuthPagePW(page);
+        authPagePW = new AuthPagePW(page, preprod);
         promoCodePW = new PromoCodePW(page);
         vrt.start();
 //        Robot bot = new Robot();

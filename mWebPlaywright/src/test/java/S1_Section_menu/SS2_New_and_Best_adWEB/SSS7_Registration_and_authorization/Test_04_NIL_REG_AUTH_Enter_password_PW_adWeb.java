@@ -33,7 +33,6 @@ public class Test_04_NIL_REG_AUTH_Enter_password_PW_adWeb extends TestBasePlaywr
         authPagePW.clickOnButtonNoAndCheckOpenFormInputPassword();
         authPagePW.checkInputValidPasswordAuth("111111");
         authPagePW.checkImageInputValidPasswordAuth();
-
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();

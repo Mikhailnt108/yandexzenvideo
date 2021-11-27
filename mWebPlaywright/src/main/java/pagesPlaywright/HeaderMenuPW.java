@@ -16,6 +16,7 @@ import java.util.concurrent.TimeoutException;
 
 import static base.TestBasePlaywright.*;
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.preemptive;
 import static java.lang.Thread.sleep;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.Is.is;
@@ -25,12 +26,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private Page pageCMS;
     private BrowserContext contextIncognitoModeHeadless;
     private BrowserContext contextIncognitoModeHeadfull;
+    private String preprod;
 
-    public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless) {
+    public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless, String preprod) {
         this.page = page;
         this.pageCMS = pageCMS;
         this.contextIncognitoModeHeadless = contextIncognitoModeHeadless;
+        this.preprod = preprod;
     }
+
 
     public void checkNotLoggedIsCorrect() {
         if(page.querySelectorAll("(//span[contains(text(),'+79')])[2]").size()>0){
@@ -197,24 +201,23 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void goToTvTabProgramTv() {
-
-        page.navigate("https://web-preprod6.megafon.tv/tv");
+        page.navigate(preprod+"tv");
     }
 
     public void goToFilmsPage() {
-        page.navigate("https://web-preprod6.megafon.tv/movies/vods");
+        page.navigate(preprod+"movies/vods");
     }
 
     public void goToSerialsPage() {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(preprod+"shows");
     }
 
     public void goToAllCollectionsPage() {
-        page.navigate("https://web-preprod6.megafon.tv/collection");
+        page.navigate(preprod+"collection");
     }
 
     public void goToKidsPage() {
-        page.navigate("https://web-preprod6.megafon.tv/kids");
+        page.navigate(preprod+"kids");
     }
 
     public void clickToSearchButton() {

@@ -4,6 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -19,7 +20,7 @@ public class TvPagePW extends BasePagePlaywright {
         this.page = page;
     }
 
-    public void checkImageTvPageTabProgramTvForGuestMWEB() throws IOException, InterruptedException {
+    public void checkImageTvPageForGuestMWEB() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
         page.navigate("https://web-preprod6.megafon.tv/tv");
         // подготовка полной страницы "TvPageTabProgramTvForGuest" к скриншот-тесту:
@@ -139,6 +140,22 @@ public class TvPagePW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
+    }
+
+    public void checkElementsTvPage() {
+        page.waitForSelector("//div[contains(@class,'smartbanner-android')]");
+        page.waitForSelector("//div[@class='YZBWFgwJ_YIq52D_M0HUz']");
+        page.waitForSelector("//a[@class='_2lyBKIjmUqLXlMuC-NbqUe _3h6ZZnjTUm-EUZUfiI5SOR']//span[text()='ТВ']");
+        page.waitForSelector("//div[@class='zcd66G8sCa_vpFpPNWBNz']");
+        page.waitForSelector("//a[@class='_39I3V1X9nHf1r_IzNeqphS _1Ue0f9dD5er3cByaAe2IwI']//div[text()='Все']");
+        page.waitForSelector("//a[@class='PaDvSJkfKmpUlUemAC5ex' and @href]//div[text()]");
+        page.waitForSelector("//div[contains(@class,'programs')]");
+        page.waitForSelector("//div[@class='_2H8yToCwb1zXChwX6l7ZNT']");
+        page.waitForSelector("//a[contains(@class,'LayoutBottomMenu_linkActive')]//span[text()='Главная']");
+        // чек проверки коллекции элементов в блоках расписания:
+        Assert.assertEquals(page.querySelectorAll("._3_ze5yHEf0jULbEILiu0Dy").size(), page.querySelectorAll("._23E9FFV9LhyYMGP2R_4Hjv").size());
+        Assert.assertEquals(page.querySelectorAll("._3_ze5yHEf0jULbEILiu0Dy").size(), page.querySelectorAll("//div[@class='_3alQqB-Yd285L1GTPwG2ko' and text()]").size());
+//        Assert.assertEquals(page.querySelectorAll());
     }
 }
 

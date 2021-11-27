@@ -16,7 +16,7 @@ public class Test_09_TV_Жанры_передач_в_эфире extends TestBase
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "0. Разделы меню")
     @Story(value = "1. ТВ")
-    @DisplayName(value ="9. Жанры передач в эфире")
+    @DisplayName(value ="Жанры передач в эфире")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#0")

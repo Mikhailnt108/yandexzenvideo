@@ -19,10 +19,12 @@ import static base.TestBasePlaywright.vrt;
 public class CardFilmPW extends BasePagePlaywright {
     private Page page;
     private Statement statement;
+    private String preprod;
 
-    public CardFilmPW(Page page, Statement statement) {
+    public CardFilmPW(Page page, Statement statement, String preprod) {
         this.page = page;
         this.statement = statement;
+        this.preprod = preprod;
     }
 
     public void checkOpenCardFilm() {
@@ -292,7 +294,7 @@ public class CardFilmPW extends BasePagePlaywright {
         pageHeadfull.click("(//a[@data-test='PackageLink'])[1]");
     }
     public void editPriceFirstFilmForSale() throws ClassNotFoundException, SQLException {
-        page.navigate("https://web-preprod6.megafon.tv/movies/vods");
+        page.navigate(preprod+"movies/vods");
         String urlFilm = page.waitForSelector("//a[@data-test='PackageLink' and @href]").getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(13));

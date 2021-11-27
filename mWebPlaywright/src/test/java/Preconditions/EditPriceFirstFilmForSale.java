@@ -9,6 +9,6 @@ import java.sql.SQLException;
 public class EditPriceFirstFilmForSale extends TestBasePlaywright {
     @Test
     public void executePreconditions() throws IOException, SQLException, ClassNotFoundException {
-        cardFilmPW.editPriceFirstFilmForSale();
+        cardFilmPW.editPriceFirstFilmForSale(preprod);
     }
 }

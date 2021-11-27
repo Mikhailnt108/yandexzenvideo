@@ -17,9 +17,11 @@ import static base.TestBasePlaywright.vrt;
 public class AuthPagePW extends BasePagePlaywright {
     private Page page;
     private BrowserContext contextIncognitoModeHeadless;
+    private String preprod;
 
-    public AuthPagePW(Page page) {
+    public AuthPagePW(Page page, String preprod) {
         this.page = page;
+        this.preprod = preprod;
     }
 
     public void checkElementsPageAuthFormInputPhone() {
@@ -225,7 +227,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkInputInvalidCodeInFormInputCode(String login, String password, String code) {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
@@ -262,7 +264,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkFinishTimerFormInputCode(String login, String password) throws InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
@@ -296,7 +298,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkOpenPageAuthFormInputPassword(String login) {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(preprod);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");

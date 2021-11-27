@@ -20,7 +20,7 @@ public class Test_14_2_FILMS_Operation_fast_filters_SCREENSHOT_PW extends TestBa
     @Tag("SuitePwNonAdWeb#4")
     public void FILMS_Operation_fast_filters_SCREENSHOT_PW() throws Exception {
         headerMenuPW.goToFilmsPage();
-        filmsPagePW.checkImageBlocksFiltersForUnauthorized();
+        filmsPagePW.checkImageBlocksFiltersForUnauthorized(preprod);
         filmsPagePW.checkImageScrollQuickFiltersForUnauthorized();
     }
 }
