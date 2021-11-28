@@ -10,15 +10,20 @@ import java.io.IOException;
 import java.util.Base64;
 
 import static base.TestBasePlaywright.vrt;
+import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.Is.is;
 
 public class PromoCodePW extends BasePagePlaywright {
     private Page page;
+    private String frontend;
+    private String backend;
 
-    public PromoCodePW (Page page) {
+    public PromoCodePW (Page page, String frontend, String backend) {
         this.page = page;
+        this.frontend = frontend;
+        this.backend = backend;
     }
     public void checkElementsPagePromocode() {
         // page:
@@ -56,7 +61,7 @@ public class PromoCodePW extends BasePagePlaywright {
     public void clickOnButtonCloseAndCheckOpenNil() {
         page.waitForSelector("//button[text()='Закрыть']").click();
         page.waitForSelector("//div[contains(@class,'carousel')]");
-        Assert.assertEquals("bug: not opened page nil", "https://web-preprod6.megafon.tv/", page.url());
+        Assert.assertEquals("bug: not opened page nil", frontend, page.url());
     }
 
     public void checkInputUnknownCodeInFormPromocode(String unknownPromocode) throws InterruptedException {
@@ -87,7 +92,7 @@ public class PromoCodePW extends BasePagePlaywright {
                 multiPart("id", "RC_autotest").
                 multiPart("name", "RC_autotest").
                 multiPart("partner","megafon_tv").
-                when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/create").
+                when().post(backend+"cms/ad_campaigns/create").
                 then().statusCode(anyOf(is(200),is(302),is(500)));
 
     }
@@ -102,7 +107,7 @@ public class PromoCodePW extends BasePagePlaywright {
                         "\"description_promotion\":\"текст для описания\",\"user_type\":{\"type\": \"megafon\"},\"mechanics\":{\"type\": \"tnb\", " +
                         "\"group_package\": {\"id\": \"Mixed_start\", \"date\": \"2022-12-01T00:00:00Z\", \"only_new\": false, \"tnb_type\": \"soft\", " +
                         "\"ownership_type\": \"date\"}}}").
-                when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/RC_autotest/add_code_group").
+                when().post(backend+"cms/ad_campaigns/RC_autotest/add_code_group").
                 then().statusCode(anyOf(is(200),is(500)));
         //Создание промокода:
         given().auth().
@@ -111,7 +116,7 @@ public class PromoCodePW extends BasePagePlaywright {
                 multiPart("promocode", "promoCodeSoftTnB").
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
-                when().post("https://bmp-preprod6.megafon.tv/cms/code_groups/CG_autotest_SotTnb/add_promocode").
+                when().post(backend+"cms/code_groups/CG_autotest_SotTnb/add_promocode").
                 then().statusCode(anyOf(is(200),is(302),is(409)));
 
     }
@@ -181,7 +186,7 @@ public class PromoCodePW extends BasePagePlaywright {
     public void archiveCodeGroupPackageStartSoftTnB() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
-                when().get("https://bmp-preprod6.megafon.tv/cms/code_groups/CG_autotest_SotTnb/toggle_publish").
+                when().get(backend+"cms/code_groups/CG_autotest_SotTnb/toggle_publish").
                 then().statusCode(200);
     }
 
@@ -195,7 +200,7 @@ public class PromoCodePW extends BasePagePlaywright {
                         "\"description_promotion\":\"текст для описания\",\"user_type\":{\"type\": \"megafon\"},\"mechanics\":{\"type\": \"tnb\", " +
                         "\"group_package\": {\"id\": \"Mixed_more_tv\", \"date\": \"2022-12-01T00:00:00Z\", \"only_new\": false, \"tnb_type\": \"hard\", " +
                         "\"ownership_type\": \"date\"}}}").
-                when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/RC_autotest/add_code_group").
+                when().post(backend+"cms/ad_campaigns/RC_autotest/add_code_group").
                 then().statusCode(anyOf(is(200),is(500)));
         //Создание промокода:
         given().auth().
@@ -204,7 +209,7 @@ public class PromoCodePW extends BasePagePlaywright {
                 multiPart("promocode", "promoCodeHardTnB").
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
-                when().post("https://bmp-preprod6.megafon.tv/cms/code_groups/CG_autotest_HardTnB/add_promocode").
+                when().post(backend+"cms/code_groups/CG_autotest_HardTnB/add_promocode").
                 then().statusCode(anyOf(is(200),is(302),is(409)));
 
     }
@@ -242,7 +247,7 @@ public class PromoCodePW extends BasePagePlaywright {
     public void archiveCodeGroupPackageMoreTvHardTnB() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
-                when().get("https://bmp-preprod6.megafon.tv/cms/code_groups/CG_autotest_HardTnB/toggle_publish").
+                when().get(backend+"cms/code_groups/CG_autotest_HardTnB/toggle_publish").
                 then().statusCode(200);
     }
 
@@ -255,7 +260,7 @@ public class PromoCodePW extends BasePagePlaywright {
                         "\"published\":true,\"valid_from\":\"2021-03-30T00:00:00Z\",\"valid_to\":\"2021-12-30T00:00:00Z\",\"description_popup\":\"текст для описания\"," +
                         "\"description_promotion\":\"опс\",\"user_type\":{\"type\": \"megafon\"},\"mechanics\":{\"type\": \"films\", " +
                         "\"films\": {\"ids\": [\"Dovod_2020\"], \"only_new\": false, \"ownership_type\":\"est\"}}}").
-                when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/RC_autotest/add_code_group").
+                when().post(backend+"cms/ad_campaigns/RC_autotest/add_code_group").
                 then().statusCode(anyOf(is(200),is(500)));
 
         //Создание промокода:
@@ -265,7 +270,7 @@ public class PromoCodePW extends BasePagePlaywright {
                 multiPart("promocode", "promoCodeFilmOnEST").
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
-                when().post("https://bmp-preprod6.megafon.tv/cms/code_groups/СG_autotest_Film_EST/add_promocode").
+                when().post(backend+"cms/code_groups/СG_autotest_Film_EST/add_promocode").
                 then().statusCode(anyOf(is(200),is(302),is(409)));
     }
 
@@ -298,7 +303,7 @@ public class PromoCodePW extends BasePagePlaywright {
     public void archiveCodeGroupFilmOnEST() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
-                when().get("https://bmp-preprod6.megafon.tv/cms/code_groups/СG_autotest_Film_EST/toggle_publish").
+                when().get(backend+"cms/code_groups/СG_autotest_Film_EST/toggle_publish").
                 then().statusCode(200);
     }
 
@@ -311,7 +316,7 @@ public class PromoCodePW extends BasePagePlaywright {
                         "\"published\":true,\"valid_from\":\"2021-03-30T00:00:00Z\",\"valid_to\":\"2021-12-15T00:00:00Z\",\"description_popup\":\"текст для описания\"," +
                         "\"description_promotion\":\"опс\",\"user_type\":{\"type\": \"megafon\"},\"mechanics\":{\"type\": \"films\", " +
                         "\"films\": {\"ids\": [\"Dovod_2020\"], \"only_new\": false, \"ownership_type\":\"rentpromo_date\",\"date\":\"2021-12-30T00:00:00Z\",\"days\":null}}}").
-                when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/RC_autotest/add_code_group").
+                when().post(backend+"cms/ad_campaigns/RC_autotest/add_code_group").
                 then().statusCode(anyOf(is(200),is(500)));
         //Создание промокода:
         given().auth().
@@ -320,7 +325,7 @@ public class PromoCodePW extends BasePagePlaywright {
                 multiPart("promocode", "promoCodeFilmOnRent").
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
-                when().post("https://bmp-preprod6.megafon.tv/cms/code_groups/СG_autotest_Film_RentPromo/add_promocode").
+                when().post(backend+"cms/code_groups/СG_autotest_Film_RentPromo/add_promocode").
                 then().statusCode(anyOf(is(200),is(302),is(409)));
     }
 
@@ -354,7 +359,7 @@ public class PromoCodePW extends BasePagePlaywright {
     public void archiveCodeGroupFilmOnRentPromo() {
         given().auth().
                 basic("mc2soft", "wkqKy2sWwBGFDR").
-                when().get("https://bmp-preprod6.megafon.tv/cms/code_groups/СG_autotest_Film_RentPromo/toggle_publish").
+                when().get(backend+"cms/code_groups/СG_autotest_Film_RentPromo/toggle_publish").
                 then().statusCode(200);
     }
 
@@ -393,7 +398,7 @@ public class PromoCodePW extends BasePagePlaywright {
                         "\"description_promotion\":\"текст для описания\",\"user_type\":{\"type\": \"megafon\"},\"mechanics\":{\"type\": \"tnb\", " +
                         "\"group_package\": {\"id\": \"Mixed_start\", \"date\": \"2021-10-01T00:00:00Z\", \"only_new\": false, \"tnb_type\": \"soft\", " +
                         "\"ownership_type\": \"date\"}}}").
-                when().post("https://bmp-preprod6.megafon.tv/cms/ad_campaigns/RC_autotest/add_code_group").
+                when().post(backend+"cms/ad_campaigns/RC_autotest/add_code_group").
                 then().statusCode(anyOf(is(200),is(500)));
         //Создание промокода:
         given().auth().
@@ -402,7 +407,7 @@ public class PromoCodePW extends BasePagePlaywright {
                 multiPart("promocode", "promoCodeSoftTnB").
                 multiPart("partner", "default").
                 multiPart("dispatch_channel", "default").
-                when().post("https://bmp-preprod6.megafon.tv/cms/code_groups/CG_autotest_SotTnb/add_promocode").
+                when().post(backend+"cms/code_groups/CG_autotest_SotTnb/add_promocode").
                 then().statusCode(anyOf(is(200),is(302),is(409)));
     }
 

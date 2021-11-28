@@ -15,11 +15,11 @@ import static base.TestBasePlaywright.vrt;
 
 public class CardSerialPW extends BasePagePlaywright {
     private Page page;
-    private String preprod;
+    private String frontend;
 
-    public CardSerialPW(Page page, String preprod) {
+    public CardSerialPW(Page page, String frontend) {
         this.page = page;
-        this.preprod = preprod;
+        this.frontend = frontend;
     }
 
     public void checkOpenCardSerial() {
@@ -469,7 +469,7 @@ public class CardSerialPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate(preprod+"packages");
+        pageHeadfull.navigate(frontend +"packages");
     }
 
     public void openFirstCardSerialFromPackageKinoPoPodpiskeHeadfull() {

@@ -14,15 +14,15 @@ import static base.TestBasePlaywright.vrt;
 
 public class FilmsPagePW extends BasePagePlaywright {
     private Page page;
-    private String preprod;
+    private String frontend;
 
-    public FilmsPagePW (Page page, String preprod){
+    public FilmsPagePW (Page page, String frontend){
         this.page = page;
-        this.preprod = preprod;
+        this.frontend = frontend;
     }
 
     public void checkImageCherdakAndBannersForUnauthorized() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         // подготовка элемента "cherdakPageFilmsForUnauthorized" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -105,7 +105,7 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksFiltersForUnauthorized() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         ElementHandle blockQuickFilters = page.querySelector("//div[@class='_10lCh4uWCss6HRDZrOjSEk']");
 
         // делаем скриншот элемента "blockQuickFiltersPageFilmsForUnauthorized":
@@ -133,7 +133,7 @@ public class FilmsPagePW extends BasePagePlaywright {
                         .build());
     }
     public void checkImageBlocksCollectionWithHeaderForUnauthorized() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithHeader = page.querySelector("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         // подготовка элемента 'blockCollectionWithHeaderPageFilmsForUnauthorized' к скриншот-тесту:
@@ -177,7 +177,7 @@ public class FilmsPagePW extends BasePagePlaywright {
                         .build());
     }
     public void checkImageBlocksCollectionWithoutHeaderForUnauthorized() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         // подготовка блоков подборок без заголовка:
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
@@ -207,7 +207,7 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFilmsPageScrollForGuest() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         // подготовка страницы "FilmsPageScrollForGuest" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         List<ElementHandle> titleCollectionAll = page.querySelectorAll("//h3[@data-test='PackageListWrapperName']//a");
@@ -317,7 +317,7 @@ public class FilmsPagePW extends BasePagePlaywright {
 
 
     public void checkImageFooterForUnauthorized() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
         // делаем скриншот элемента "footerPageFilmsForUnauthorized":
         vrt.track(
@@ -332,7 +332,7 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageCherdakAndBannersForUser() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         // подготовка элемента "cherdakPageFilmsForAuthorized" к скриншот-тесту:
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
@@ -414,7 +414,7 @@ public class FilmsPagePW extends BasePagePlaywright {
 
 
     public void checkImageBlocksFiltersForUser() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         //div[@class='_10lCh4uWCss6HRDZrOjSEk'] - block quick filters
         //div[@class='_3vWFiYltc8dtOgsuRbqAyX'] - block bases filters
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
@@ -447,7 +447,7 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithHeaderForUser() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
@@ -494,7 +494,7 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithoutHeaderForUser() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
@@ -523,7 +523,7 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFooterForUser() throws IOException, InterruptedException {
-        page.navigate(preprod+"movies/vods");
+        page.navigate(frontend +"movies/vods");
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
@@ -540,7 +540,7 @@ public class FilmsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFilmsPageScrollForUser() throws IOException, InterruptedException {
-        page.navigate(preprod +"movies/vods");
+        page.navigate(frontend +"movies/vods");
         // подготовка страницы "FilmsPageScrollForUser" к скриншот-тесту:
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);

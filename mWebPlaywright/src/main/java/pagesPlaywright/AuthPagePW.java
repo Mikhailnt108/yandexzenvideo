@@ -17,11 +17,11 @@ import static base.TestBasePlaywright.vrt;
 public class AuthPagePW extends BasePagePlaywright {
     private Page page;
     private BrowserContext contextIncognitoModeHeadless;
-    private String preprod;
+    private String frontend;
 
-    public AuthPagePW(Page page, String preprod) {
+    public AuthPagePW(Page page, String frontend) {
         this.page = page;
-        this.preprod = preprod;
+        this.frontend = frontend;
     }
 
     public void checkElementsPageAuthFormInputPhone() {
@@ -227,7 +227,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkInputInvalidCodeInFormInputCode(String login, String password, String code) {
-        page.navigate(preprod);
+        page.navigate(frontend);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
@@ -264,7 +264,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkFinishTimerFormInputCode(String login, String password) throws InterruptedException {
-        page.navigate(preprod);
+        page.navigate(frontend);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
@@ -298,7 +298,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkOpenPageAuthFormInputPassword(String login) {
-        page.navigate(preprod);
+        page.navigate(frontend);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");

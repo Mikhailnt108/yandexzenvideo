@@ -16,14 +16,17 @@ import static base.TestBasePlaywright.vrt;
 public class SerialsPagePW extends BasePagePlaywright {
     private Page page;
     private Page pageCMS;
+    private String frontend;
 
-    public SerialsPagePW(Page page, Page pageCMS) {
+    public SerialsPagePW(Page page, Page pageCMS, String frontend) {
         this.page = page;
         this.pageCMS = pageCMS;
+        this.frontend = frontend;
+
     }
 
     public void checkImageCherdakAndBannersForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         // подготовка элемента "cherdakPageSerialsForGuest" к скриншот-тесту:
         page.focus("//div[@class='ch-cherdak']");
         ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
@@ -99,7 +102,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksFiltersForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         ElementHandle blockQuickFilters = page.querySelector("//div[@class='_10lCh4uWCss6HRDZrOjSEk']");
 
         // делаем скриншот элемента "blockQuickFiltersPageSerialsForUnauthorized":
@@ -128,7 +131,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithHeaderForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithHeader = page.querySelector("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         // подготовка элемента 'blockCollectionWithHeaderPageSerialsForUnauthorized' к скриншот-тесту:
@@ -170,7 +173,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithoutHeaderForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
@@ -198,7 +201,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFooterForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
         // делаем скриншот элемента "footerPageSerialsForUnauthorized":
         vrt.track(
@@ -213,7 +216,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageSerialsPageScrollForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         // подготовка страницы "SerialsPageScrollForGuest" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         List<ElementHandle> titleCollectionAll = page.querySelectorAll("//h3[@data-test='PackageListWrapperName']//a");;
@@ -313,7 +316,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageCherdakAndBannersForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         // подготовка элемента "cherdakPageSerialsForAuthorized" к скриншот-тесту:
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
@@ -387,7 +390,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksFiltersForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         ElementHandle blockQuickFilters = page.querySelector("//div[@class='_10lCh4uWCss6HRDZrOjSEk']");
 
         // делаем скриншот элемента "blockQuickFiltersPageSerialsForAuthorized":
@@ -416,7 +419,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithHeaderForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         page.focus("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithHeader = page.querySelector("(//div[@class='FFsZUeKiSMK9khw9tZrW1']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         // подготовка элемента 'blockCollectionWithHeaderPageSerialsForUser' к скриншот-тесту:
@@ -458,7 +461,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlocksCollectionWithoutHeaderForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
@@ -485,7 +488,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageFooterForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
         // делаем скриншот элемента "footerPageSerialsForAuthorized":
         vrt.track(
@@ -500,7 +503,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageSerialsPageScrollForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/shows");
+        page.navigate(frontend+"shows");
         // подготовка страницы "serialsPageScrollForUser" к скриншот-тесту:
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         userLogin.evaluate("uL => uL.innerText='+79260010101'");
@@ -644,7 +647,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlockCollectHistoryWatchForMfHeadfull() throws IOException, InterruptedException {
-        pageHeadfull.navigate("https://web-preprod6.megafon.tv/shows");
+        pageHeadfull.navigate(frontend+"shows");
         List<ElementHandle> posterPackageAll;
         List<ElementHandle> titlePackageAll;
         List<ElementHandle> descriptionTextPackageAll;
@@ -691,7 +694,7 @@ public class SerialsPagePW extends BasePagePlaywright {
     }
 
     public void checkImageBlockCollectHistoryWatchForNonMFfHeadfull() throws IOException, InterruptedException {
-        pageHeadfull.navigate("https://web-preprod6.megafon.tv/shows");
+        pageHeadfull.navigate(frontend+"shows");
         List<ElementHandle> posterPackageAll;
         List<ElementHandle> titlePackageAll;
         List<ElementHandle> descriptionTextPackageAll;

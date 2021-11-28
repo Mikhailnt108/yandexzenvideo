@@ -44,7 +44,8 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
-    public String preprod = "https://web-preprod3.megafon.tv/";
+    public String frontend = "https://web-preprod6.megafon.tv/";
+    public String backend = "https://bmp-preprod6.megafon.tv/";
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://192.168.1.139:4200")
@@ -118,27 +119,27 @@ class TestBasePlaywright extends BasePagePlaywright{
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
         page.setDefaultTimeout(60000);
-        headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless, preprod);
-        filmsPagePW = new FilmsPagePW(page, preprod);
-        serialsPagePW = new SerialsPagePW(page,pageCMS);
-        nilPagePW = new NiLPagePW(page, pageSmartTv, contextIncognitoModeHeadless);
+        headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless, frontend, backend);
+        filmsPagePW = new FilmsPagePW(page, frontend);
+        serialsPagePW = new SerialsPagePW(page,pageCMS, frontend);
+        nilPagePW = new NiLPagePW(page, pageSmartTv, contextIncognitoModeHeadless, frontend);
         collectionPagePW = new CollectionsPagePW(page);
-        tvPagePW = new TvPagePW(page);
+        tvPagePW = new TvPagePW(page, frontend);
         cardTvChannelPW = new CardTvChannelPW(page);
-        cardTvProgramPW = new CardTvProgramPW(page, preprod);
-        cardFilmPW = new CardFilmPW(page, statement, preprod);
-        cardSerialPW = new CardSerialPW(page, preprod);
-        kidsPagePW = new KidsPagePW(page, preprod);
-        allCollectionsPagePW = new AllCollectionsPagePW(page, preprod);
-        promoPagePW = new PromoPagePW(page);
-        personalOfferPW = new PersonalOfferPW(page);
+        cardTvProgramPW = new CardTvProgramPW(page, frontend);
+        cardFilmPW = new CardFilmPW(page, statement, frontend);
+        cardSerialPW = new CardSerialPW(page, frontend);
+        kidsPagePW = new KidsPagePW(page, frontend);
+        allCollectionsPagePW = new AllCollectionsPagePW(page, frontend);
+        promoPagePW = new PromoPagePW(page, frontend, backend);
+        personalOfferPW = new PersonalOfferPW(page, backend);
         packagesPagePW = new PackagesPagePW(page);
         cardPackagePW = new CardPackagePW(page);
         cardTvChannelPW = new CardTvChannelPW(page);
-        preconditionPW = new PreconditionPW(page, statement);
-        sportPagePW = new SportPagePW(page);
-        authPagePW = new AuthPagePW(page, preprod);
-        promoCodePW = new PromoCodePW(page);
+        preconditionPW = new PreconditionPW(page, statement, frontend, backend);
+        sportPagePW = new SportPagePW(page, backend);
+        authPagePW = new AuthPagePW(page, frontend);
+        promoCodePW = new PromoCodePW(page, frontend, backend);
         vrt.start();
 //        Robot bot = new Robot();
 //        bot.mouseMove(0, 0);

@@ -15,9 +15,11 @@ import static base.TestBasePlaywright.vrt;
 
 public class CardSerialPW extends BasePagePlaywright {
     private Page page;
+    private String frontend;
 
-    public CardSerialPW(Page page) {
+    public CardSerialPW(Page page, String frontend) {
         this.page = page;
+        this.frontend = frontend;
     }
 
     public void checkOpenCardSerial() {
@@ -467,7 +469,7 @@ public class CardSerialPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate("https://web-preprod6.megafon.tv/packages");
+        pageHeadfull.navigate(frontend+"packages");
     }
 
     public void openFirstCardSerialFromPackageKinoPoPodpiskeHeadfull() {

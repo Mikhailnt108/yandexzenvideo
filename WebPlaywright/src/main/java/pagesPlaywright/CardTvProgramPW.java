@@ -15,15 +15,17 @@ import static base.TestBasePlaywright.vrt;
 
 public class CardTvProgramPW extends BasePagePlaywright {
     private Page page;
+    private String frontend;
 
 
-    public CardTvProgramPW(Page page) {
+    public CardTvProgramPW(Page page, String frontend) {
         this.page = page;
+        this.frontend = frontend;
 
     }
 
     public void checkImageCardTvProgramForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/tv");
+        page.navigate(frontend+"tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -112,7 +114,7 @@ public class CardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageCardTvProgramForUser() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/tv");
+        page.navigate(frontend+"tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
@@ -679,7 +681,7 @@ public class CardTvProgramPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate("https://web-preprod6.megafon.tv/packages");
+        pageHeadfull.navigate(frontend+"packages");
     }
 
     public void openCardTvProgramInRecordFromPackageKinoPoPodpiskeHeadfull() {
@@ -693,7 +695,7 @@ public class CardTvProgramPW extends BasePagePlaywright {
     }
 
     public void checkImageBlockCollectHistoryWatchOnNilPage() throws IOException, InterruptedException {
-        pageHeadfull.navigate("https://web-preprod6.megafon.tv/");
+        pageHeadfull.navigate(frontend);
         List<ElementHandle> posterPackageAll;
         List<ElementHandle> titlePackageAll;
         List<ElementHandle> descriptionTextPackageAll;
