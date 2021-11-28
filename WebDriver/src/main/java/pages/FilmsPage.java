@@ -10,11 +10,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class FilmsPage extends BasePageWebDriver {
-    String VODS_URL_PP3 = "https://web-preprod3.megafon.tv/movies/vods";
-    String VODS_URL_PP6 = "https://web-preprod3.megafon.tv/movies/vods";
-
-    public FilmsPage(WebDriver driver) {
-        super(driver);
+    private String frontend;
+    private String backend;
+    public FilmsPage(WebDriver webDriver, String frontend, String backend) {
+        super(webDriver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
 
     public void checkOpenFilmsPage() {
@@ -231,7 +232,7 @@ public class FilmsPage extends BasePageWebDriver {
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Assert.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/movies/vods']//span[text()='Фильмы']")).size());
-            webDriver.get(VODS_URL_PP3);
+            webDriver.get(frontend+"movies/vods");
         }
 
     }
@@ -333,6 +334,7 @@ public class FilmsPage extends BasePageWebDriver {
                 click(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext']"));
             }
         }
+
         // скоролл подборки вдлево до упора:
         while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonPrev' and @disabled]")).size() < 1) {
             for (int i = 0; i <= 10; i++) {

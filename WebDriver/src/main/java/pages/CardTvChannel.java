@@ -8,8 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CardTvChannel extends BasePageWebDriver {
-    public CardTvChannel(WebDriver driver) {
-        super(driver);
+    public CardTvChannel(WebDriver webDriver) {
+        super(webDriver);
     }
 
     public void checkOpenCardTvProgram() {

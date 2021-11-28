@@ -10,8 +10,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class AllCollectionsPage extends BasePageWebDriver {
-    public AllCollectionsPage(WebDriver driver) {
-        super(driver);
+    private String frontend;
+    private String backend;
+    public AllCollectionsPage(WebDriver webDriver, String frontend, String backend) {
+        super(webDriver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
 
     public void clickToTailCollection() throws InterruptedException {
@@ -29,10 +33,10 @@ public class AllCollectionsPage extends BasePageWebDriver {
     }
 
     public void selectCollectionForKids() throws InterruptedException {
-        webDriver.get("https://web-preprod3.megafon.tv/kids");
+        webDriver.get(frontend+"kids");
         String nameForKidsBlockCollect = webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName'])[5]")).getText();
         System.out.println(nameForKidsBlockCollect);
-        webDriver.get("https://web-preprod3.megafon.tv/collection");
+        webDriver.get(frontend+"collection");
         List<WebElement> collectNames = webDriver.findElements(By.xpath("//h3[@class='_3vH5TQCwbJxGYqr32QUtld']"));
         List<WebElement> paginations = webDriver.findElements(By.xpath("//a[@class='_321YEvw8w6G20aKg-N8nNe']"));
         for (int a = 0; a < paginations.size(); a++) {

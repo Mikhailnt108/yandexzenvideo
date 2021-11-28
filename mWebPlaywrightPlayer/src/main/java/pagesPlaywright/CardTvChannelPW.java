@@ -13,14 +13,15 @@ import static base.TestBasePlaywright.vrt;
 
 public class CardTvChannelPW extends BasePagePlaywright {
     private Page page;
-
+    private String frontend;
 
     public CardTvChannelPW(Page page) {
         this.page = page;
+        this.frontend = frontend;
     }
 
-    public void checkImageCardTvChannelForGuest() throws IOException, InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/tv");
+    public void checkImageCardTvChannelForGuestMWEB() throws IOException, InterruptedException {
+        page.navigate(frontend +"tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");
@@ -108,9 +109,9 @@ public class CardTvChannelPW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCardTvChannelForUser() throws IOException, InterruptedException {
+    public void checkImageCardTvChannelForUserMWEB() throws IOException, InterruptedException {
         // Сделать тестовый скриншот таба программы передач:
-        page.navigate("https://web-preprod6.megafon.tv/tv");
+        page.navigate(frontend +"tv");
         page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
         page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[3]");

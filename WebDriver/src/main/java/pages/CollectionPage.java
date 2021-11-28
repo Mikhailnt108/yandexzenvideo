@@ -9,8 +9,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class CollectionPage extends BasePageWebDriver {
-    public CollectionPage(WebDriver driver) {
-        super(driver);
+    public CollectionPage(WebDriver webDriver) {
+        super(webDriver);
     }
 
     public void checkOpenCollectionPageForKids() {

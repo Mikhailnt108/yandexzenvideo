@@ -8,8 +8,12 @@ import org.openqa.selenium.WebDriver;
 import java.util.ArrayList;
 
 public class Footer extends BasePageWebDriver {
-    public Footer(WebDriver driver) {
+    private String frontend;
+    private String backend;
+    public Footer(WebDriver driver, String frontend, String backend) {
         super(driver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
     public void clickToLinkFromDevices() throws InterruptedException {
         click(By.linkText("Компьютер"));
@@ -114,7 +118,7 @@ public class Footer extends BasePageWebDriver {
     }
 
     public void clickToLinkDocsAndRules() throws InterruptedException {
-        String url1 = "https://web-preprod3.megafon.tv/docs/rules-provide-telematic-services.pdf";
+        String url1 = frontend+"docs/rules-provide-telematic-services.pdf";
         click(By.linkText("Правила оказания телематических услуг связи"));
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
@@ -123,7 +127,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
 
-        String url3 = "https://web-preprod3.megafon.tv/docs/rules-ktv.pdf";
+        String url3 = frontend+"docs/rules-ktv.pdf";
         click(By.linkText("Правила оказания услуг телевизионного вещания"));
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs2.get(1));
@@ -141,7 +145,7 @@ public class Footer extends BasePageWebDriver {
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
 
-        String url7 = "https://web-preprod3.megafon.tv/static/privacy.pdf";
+        String url7 = frontend+"static/privacy.pdf";
         click(By.linkText("Политика конфидециальности"));
         ArrayList tabs4 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs4.get(1));

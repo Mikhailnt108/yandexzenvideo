@@ -11,30 +11,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class HeaderMenu extends BasePageWebDriver {
-    //ПП1
-    String NIL_Page_PP1 = "https://web-preprod1.megafon.tv/";
-    String TV_Page_PP1 = "https://web-preprod1.megafon.tv/tv/";
-    String Films_Page_PP1 = "https://web-preprod1.megafon.tv/movies/vods";
-    String Serials_Page_PP1 = "https://web-preprod1.megafon.tv/shows";
-    String Kids_Page_PP1 = "https://web-preprod1.megafon.tv/kids";
-    String Sport_Page_PP1 = "https://web-preprod1.megafon.tv/sport";
-    String Packages_Page_PP1 = "https://web-preprod1.megafon.tv/packages";
-    String Collections_Page_PP1 = "https://web-preprod1.megafon.tv/collection";
-    String CMS_PP1_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user";
-    String Promo_Page_PP1 = "https://web-preprod1.megafon.tv/profile/promotions";
-
-    //ПП2
-    String NIL_Page_PP2 = "https://web-preprod2.megafon.tv/";
-    String TV_Page_PP2 = "https://web-preprod2.megafon.tv/tv/";
-    String Films_Page_PP2 = "https://web-preprod2.megafon.tv/movies/vods";
-    String Serials_Page_PP2 = "https://web-preprod2.megafon.tv/shows";
-    String Kids_Page_PP2 = "https://web-preprod2.megafon.tv/kids";
-    String Sport_Page_PP2 = "https://web-preprod2.megafon.tv/sport";
-    String Packages_Page_PP2 = "https://web-preprod2.megafon.tv/packages";
-    String Collections_Page_PP2 = "https://web-preprod2.megafon.tv/collection";
-    String CMS_PP2_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user";
-    String Promo_Page_PP2 = "https://web-preprod2.megafon.tv/profile/promotions";
-
+    private String frontend;
+    private String backend;
     //ПП3
     String NIL_Page_PP3 = "https://web-preprod3.megafon.tv/";
     String TV_Page_PP3 = "https://web-preprod3.megafon.tv/tv/";
@@ -47,84 +25,48 @@ public class HeaderMenu extends BasePageWebDriver {
     String CMS_PP3_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user";
     String Promo_Page_PP3 = "https://web-preprod3.megafon.tv/profile/promotions";
 
-    //ПП4
-    String NIL_Page_PP4 = "https://web-preprod4.megafon.tv/";
-    String TV_Page_PP4 = "https://web-preprod4.megafon.tv/tv/";
-    String Films_Page_PP4 = "https://web-preprod4.megafon.tv/movies/vods";
-    String Serials_Page_PP4 = "https://web-preprod4.megafon.tv/shows";
-    String Kids_Page_PP4 = "https://web-preprod4.megafon.tv/kids";
-    String Sport_Page_PP4 = "https://web-preprod4.megafon.tv/sport";
-    String Packages_Page_PP4 = "https://web-preprod4.megafon.tv/packages";
-    String Collections_Page_PP4 = "https://web-preprod4.megafon.tv/collection";
-    String CMS_PP4_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user";
-    String Promo_Page_PP4 = "https://web-preprod4.megafon.tv/profile/promotions";
-
-
-    //ПП5
-    String NIL_Page_PP5 = "https://web-preprod5.megafon.tv/";
-    String TV_Page_PP5 = "https://web-preprod5.megafon.tv/tv/";
-    String Films_Page_PP5 = "https://web-preprod5.megafon.tv/movies/vods";
-    String Serials_Page_PP5 = "https://web-preprod5.megafon.tv/shows";
-    String Kids_Page_PP5 = "https://web-preprod5.megafon.tv/kids";
-    String Sport_Page_PP5 = "https://web-preprod5.megafon.tv/sport";
-    String Packages_Page_PP5 = "https://web-preprod5.megafon.tv/packages";
-    String Collections_Page_PP5 = "https://web-preprod5.megafon.tv/collection";
-    String CMS_PP5_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user";
-    String Promo_Page_PP5 = "https://web-preprod5.megafon.tv/profile/promotions";
-
-    //ПП6
-    String NIL_Page_PP6 = "https://web-preprod6.megafon.tv/";
-    String TV_Page_PP6 = "https://web-preprod6.megafon.tv/tv/";
-    String Films_Page_PP6 = "https://web-preprod6.megafon.tv/movies/vods";
-    String Serials_Page_PP6 = "https://web-preprod6.megafon.tv/shows";
-    String Kids_Page_PP6 = "https://web-preprod6.megafon.tv/kids";
-    String Sport_Page_PP6 = "https://web-preprod6.megafon.tv/sport";
-    String Packages_Page_PP6 = "https://web-preprod6.megafon.tv/packages";
-    String Collections_Page_PP6 = "https://web-preprod6.megafon.tv/collection";
-    String CMS_PP6_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user";
-    String Promo_Page_PP6 = "https://web-preprod6.megafon.tv/profile/promotions";
-
-    public HeaderMenu(WebDriver driver) {
-        super(driver);
+    public HeaderMenu(WebDriver webDriver, String frontend, String backend) {
+        super(webDriver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
 
     public void goToNilPage() {
-        open(NIL_Page_PP3);
+        open(frontend);
     }
 
     public void goToTvPage() {
-        webDriver.get(TV_Page_PP3);
+        webDriver.get(frontend);
     }
 
 
     public void goToFilmsPage() {
-        webDriver.get(Films_Page_PP3);
+        webDriver.get(frontend+"movies/vods");
         isElementDisplayed(By.xpath("//h1[text()='Фильмы']"));
     }
 
     public void goToSerialsPage() {
-        webDriver.get(Serials_Page_PP3);
+        webDriver.get(frontend+"shows");
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
     }
 
     public void goToKidsPage() {
-        webDriver.get(Kids_Page_PP3);
+        webDriver.get(frontend+"kids");
         isElementDisplayed(By.xpath("//span[text()='Детям']"));
     }
 
     public void goToSportPage() {
-        webDriver.get(Sport_Page_PP3);
+        webDriver.get(frontend+"sport");
         isElementDisplayed(By.xpath("//h1[text()='Спорт']"));
     }
 
     public void goToPackagesPage() {
-        webDriver.get(Packages_Page_PP3);
+        webDriver.get(frontend+"packages");
         isElementDisplayed(By.xpath("//span[text()='Магазин']"));
     }
 
     public void goToAllCollectionsPage() {
-        webDriver.get(Collections_Page_PP3);
-
+        webDriver.get(frontend+"collection");
     }
 
     public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) throws InterruptedException {

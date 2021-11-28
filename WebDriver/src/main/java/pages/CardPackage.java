@@ -8,9 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CardPackage extends BasePageWebDriver {
-
-    public CardPackage(WebDriver driver) {
-        super(driver);
+    private String frontend;
+    private String backend;
+    public CardPackage(WebDriver webDriver, String frontend, String backend) {
+        super(webDriver);
     }
 
     public void checkOpenCardPackageSerials() {

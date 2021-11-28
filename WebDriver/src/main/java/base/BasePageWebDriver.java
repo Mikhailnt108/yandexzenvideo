@@ -17,7 +17,6 @@ public class BasePageWebDriver {
     public WebDriver webDriver;
     public WebDriverWait wait;
 
-
     public BasePageWebDriver(WebDriver webDriver) {
         this.webDriver = webDriver;
         wait = new WebDriverWait(webDriver,40);

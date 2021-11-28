@@ -17,9 +17,11 @@ import static base.TestBasePlaywright.vrt;
 public class AuthPagePW extends BasePagePlaywright {
     private Page page;
     private BrowserContext contextIncognitoModeHeadless;
+    private String frontend;
 
-    public AuthPagePW(Page page) {
+    public AuthPagePW(Page page, String frontend) {
         this.page = page;
+        this.frontend = frontend;
     }
 
     public void checkElementsPageAuthFormInputPhone() {
@@ -107,19 +109,23 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkOpenPopUpInputPhone() {
-        page.waitForSelector("//h1[text()='Введите номер телефона']");
+        page.waitForSelector("//h1[text()='Введите номер телефона']|//div[text()='Введите номер телефона']");
     }
 
-    public void inputLogin(String login) {
+    public void inputLoginAdWeb(String login) {
         page.focus("//input[@name='phone']");
         page.fill("//input[@name='phone']", login);
+    }
+    public void inputLoginNonAdWeb(String login) {
+        page.focus("//input[@name='login']");
+        page.fill("//input[@name='login']", login);
     }
 
     public void clickOnButtonBackAndCheckOpenFormInputPhone() throws InterruptedException {
         Thread.sleep(3000);
         page.click("//button[contains(@class,'buttonBack')]");
         Thread.sleep(15000);
-        Assert.assertTrue("not visible element", page.waitForSelector("//h1[text()='Введите номер телефона']").isVisible());
+        Assert.assertTrue("not visible element", page.waitForSelector("//h1[text()='Введите номер телефона']|//div[text()='Введите номер телефона']").isVisible());
     }
 
     public void clickOnOffertaAndCheckOpenDoc() {
@@ -221,7 +227,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkInputInvalidCodeInFormInputCode(String login, String password, String code) {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(frontend);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
@@ -258,7 +264,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkFinishTimerFormInputCode(String login, String password) throws InterruptedException {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(frontend);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
@@ -292,7 +298,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkOpenPageAuthFormInputPassword(String login) {
-        page.navigate("https://web-preprod6.megafon.tv/");
+        page.navigate(frontend);
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");

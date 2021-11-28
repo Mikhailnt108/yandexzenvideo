@@ -15,9 +15,11 @@ import static base.TestBasePlaywright.vrt;
 
 public class CardSerialPW extends BasePagePlaywright {
     private Page page;
+    private String frontend;
 
-    public CardSerialPW(Page page) {
+    public CardSerialPW(Page page, String frontend) {
         this.page = page;
+        this.frontend = frontend;
     }
 
     public void checkOpenCardSerial() {
@@ -298,9 +300,13 @@ public class CardSerialPW extends BasePagePlaywright {
 
     public void subscribeToPackageSerials() {
             page.waitForSelector("//span[contains(text(),'Смотреть за')]|//span[contains(text(),'Подключить за')]|//span[contains(text(),'Смотреть бесплатно')]");
-            page.click("//span[contains(text(),'Смотреть за')]|//span[contains(text(),'Подключить за')]|//span[contains(text(),'Смотреть бесплатно')]");
-            page.waitForSelector("//button[text()='Подтвердить']|//button[text()='Принять и подключить']");
-            page.click("//button[text()='Подтвердить']|//button[text()='Принять и подключить']");
+            page.click("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V')]");
+            if(page.querySelectorAll("//button[text()='Подтвердить']").size()==1){
+                page.click("//button[text()='Подтвердить']");
+            }
+            if(page.querySelectorAll("//button[text()='Принять и подключить']").size()==1){
+                page.click("//button[text()='Принять и подключить']");
+        }
             page.waitForSelector("//button[text()='Закрыть']");
             page.click("//button[text()='Закрыть']");
             page.reload();
@@ -463,7 +469,7 @@ public class CardSerialPW extends BasePagePlaywright {
     }
 
     public void goToPackagesPageHeadfull() {
-        pageHeadfull.navigate("https://web-preprod6.megafon.tv/packages");
+        pageHeadfull.navigate(frontend +"packages");
     }
 
     public void openFirstCardSerialFromPackageKinoPoPodpiskeHeadfull() {

@@ -8,9 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class CardSerial extends BasePageWebDriver {
-
-    public CardSerial(WebDriver driver) {
-        super(driver);
+    private String frontend;
+    private String backend;
+    public CardSerial(WebDriver webDriver, String frontend, String backend) {
+        super(webDriver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
 
     public void checkOpenCardSerial() throws InterruptedException {
@@ -225,7 +228,7 @@ public class CardSerial extends BasePageWebDriver {
                 b++;
                 System.out.println("numberTimeBefore:" + numberTimeBefore);
             }
-        webDriver.get("https://web-preprod3.megafon.tv/");
+        webDriver.get(frontend);
         Thread.sleep(10000);
         //Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();"
@@ -382,7 +385,7 @@ public class CardSerial extends BasePageWebDriver {
     public void checkSeasonAndEpisode() throws InterruptedException {
         String seasonAndEpisode1 = webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText();
         System.out.println(seasonAndEpisode1);
-        webDriver.get("https://web-preprod3.megafon.tv/shows");
+        webDriver.get(frontend+"shows");
         isElementDisplayed(By.xpath("//h1[text()='Сериалы']"));
         webDriver.findElement(By.xpath("//div[@class='_3i1jxy4zPnL4htxPozakKI']//span[contains(text(),'3 сезона') or contains(text(), '5 сезонов') or contains(text(), '7 сезонов')]")).click();
         Thread.sleep(2000);

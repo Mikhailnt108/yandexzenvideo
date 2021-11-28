@@ -15,12 +15,16 @@ import java.util.List;
 
 public class CardFilm extends BasePageWebDriver {
     private Statement statement;
+    private String frontend;
+    private String backend;
 
-    public CardFilm(WebDriver webDriver, Statement statement) {
+    public CardFilm(WebDriver webDriver, Statement statement, String frontend, String backend) {
         super(webDriver);
         this.statement = statement;
+        this.frontend = frontend;
+        this.backend = backend;
     }
-    //String Films_Page = "https://web-preprod3.megafon.tv/movies/vods?only_bundle_prices=1&display_mode=catalog";
+    //String Films_Page = frontend+"movies/vods?only_bundle_prices=1&display_mode=catalog";
 
     public void checkOpenCardFilm() {
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
@@ -175,7 +179,7 @@ public class CardFilm extends BasePageWebDriver {
 
     public void checkStikerDiscount() throws InterruptedException {
         Thread.sleep(30000);
-        webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
+        webDriver.get(frontend+"movies/vods");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
@@ -353,7 +357,7 @@ public class CardFilm extends BasePageWebDriver {
         // нажал на стоп:
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
 
-        webDriver.get("https://web-preprod3.megafon.tv/");
+        webDriver.get(frontend);
         // Кликнуть на тайл этого эпизода в подборке "Продолжить просмотр"
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
         Thread.sleep(15000);
@@ -480,7 +484,7 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void editPriceOn60FirstFilmForSale() throws ClassNotFoundException, SQLException, InterruptedException {
-        webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
+        webDriver.get(frontend+"movies/vods");
         String urlFilm = webDriver.findElement(By.xpath("(//a[@data-test='PackageLink' and @href])[2]")).getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(44));
@@ -495,7 +499,7 @@ public class CardFilm extends BasePageWebDriver {
     }
 
     public void editPriceOn1FirstFilmForSale() throws SQLException, ClassNotFoundException {
-        webDriver.get("https://web-preprod3.megafon.tv/movies/vods");
+        webDriver.get(frontend+"movies/vods");
         String urlFilm = webDriver.findElement(By.xpath("(//a[@data-test='PackageLink' and @href])[2]")).getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(44));
