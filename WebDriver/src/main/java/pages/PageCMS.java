@@ -1,62 +1,40 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.ArrayList;
 
 public class PageCMS extends BasePageWebDriver {
-    //ПП1
-    String CMS_PP1_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/msisdn_confirmations";
-    String CMS_PP1_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/households?role=user";
-    String CMS_PP1_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod1.megafon.tv/cms/discounts";
-    //ПП2
-    String CMS_PP2_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/msisdn_confirmations";
-    String CMS_PP2_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/households?role=user";
-    String CMS_PP2_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod2.megafon.tv/cms/discounts";
-    //ПП3
-    String CMS_PP3_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/msisdn_confirmations";
-    String CMS_PP3_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user";
-    String CMS_PP3_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/discounts";
-    //ПП4
-    String CMS_PP4_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/msisdn_confirmations";
-    String CMS_PP4_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/households?role=user";
-    String CMS_PP4_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod4.megafon.tv/cms/discounts";
-    //ПП5
-    String CMS_PP5_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/msisdn_confirmations";
-    String CMS_PP5_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/households?role=user";
-    String CMS_PP5_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod5.megafon.tv/cms/discounts";
-    //ПП6
-    String CMS_PP6_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/msisdn_confirmations";
-    String CMS_PP6_URL2 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/households?role=user";
-    String CMS_PP6_URL3 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod6.megafon.tv/cms/discounts";
+    private String frontend;
+    private String backend;
 
-    public PageCMS(WebDriver driver) {
+    public PageCMS(WebDriver driver, String frontend, String backend) {
         super(driver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
 
     public void copyPasteCodMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/msisdn_confirmations')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/msisdn_confirmations");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
         String codMsisdn = webDriver.findElement(By.xpath("(//td[text()='79250110212']/following-sibling::td)[4]|(//td[text()='79250110166']/following-sibling::td)[4]|(//td[text()='79260192144']/following-sibling::td)[4]|(//td[text()='79260172279']/following-sibling::td)[4]|(//td[text()='79260205027']/following-sibling::td)[4]")).getText();
-        //здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
+        // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void chooseBundleInternetMFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -75,7 +53,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Интернет M"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -83,9 +61,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundleBezPereplatMaxFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -103,7 +82,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Без переплат. Максимум"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -111,9 +90,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundleBezPereplatVseFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -131,7 +111,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Без переплат. Всё"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -139,9 +119,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundleBezPereplatInternetFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -159,7 +140,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Без переплат. Интернет"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -167,9 +148,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundleBezPereplatZvonkiFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -187,7 +169,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Без переплат. Звонки"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -195,9 +177,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundlePremiumFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -215,16 +198,17 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Премиум"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
     }
     public void chooseBundleCorpBezlimitFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -242,7 +226,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Корпоративный безлимит"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -250,9 +234,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundleCorpBezlimitFromMsisdnNonCloseNotif(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -270,13 +255,14 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Корпоративный безлимит"));
         //здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
     }
 
     public void deleteAccountMF(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -288,13 +274,14 @@ public class PageCMS extends BasePageWebDriver {
         webDriver.navigate().refresh();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
     }
 
     public void deleteAccountNonMF(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -306,13 +293,14 @@ public class PageCMS extends BasePageWebDriver {
         webDriver.navigate().refresh();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
     }
 
     public void deleteAccountForBlockingMf(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -329,11 +317,10 @@ public class PageCMS extends BasePageWebDriver {
         String urlFilm = webDriver.getCurrentUrl();
         String idFilm = urlFilm.substring(44);
         System.out.println(idFilm);
-//        String nameFilm = driver.findElement(By.tagName("h1")).getText();
-//        System.out.println(nameFilm);
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/discounts')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/discounts");
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
         click(By.xpath("//label[text()='Показать только активные']"));
         click(By.linkText("Sale AutoTest"));
@@ -346,15 +333,16 @@ public class PageCMS extends BasePageWebDriver {
         click(By.xpath("//div[@class='selectize-dropdown-content']"));
         click(By.xpath("//input[@value='Добавить']"));
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
     }
 
     public void deleteDiscount() throws InterruptedException {
         String nameFilm = webDriver.findElement(By.tagName("h1")).getText();
         System.out.println(nameFilm);
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/discounts')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/discounts");
         isElementDisplayed(By.xpath("//h3[text()='Скидки']"));
         click(By.xpath("//label[text()='Показать только активные']"));
         click(By.linkText("Sale AutoTest"));
@@ -364,13 +352,14 @@ public class PageCMS extends BasePageWebDriver {
         webDriver.navigate().refresh();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Скидка']")));
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
     }
 
     public void chooseNotDefinedTariff(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -388,40 +377,42 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Ошибка определения Тарифного плана/Тарифных опций"));
         // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
     }
 
     public void copyPasteCodMsisdnForNonMF(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/msisdn_confirmations')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/msisdn_confirmations");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
         String codMsisdn = webDriver.findElement(By.xpath("(//td[text()='79261184972']/following-sibling::td)[4]")).getText();
         // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
-
+        webDriver.switchTo().window(oldTab);
         webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void copyPasteCodMsisdnBlockingMf(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/msisdn_confirmations')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/msisdn_confirmations");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
         String codMsisdn = webDriver.findElement(By.xpath("(//td[text()='79267644248']/following-sibling::td)[4]")).getText();
         // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
 
     public void chooseRoleVip(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -438,7 +429,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//td[text()='vip']"));
         // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -446,9 +437,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundleOsnovnoyFromMsisdn(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -466,7 +458,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.linkText("Основной"));
         // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -474,9 +466,10 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseBundleNotSelected(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -491,7 +484,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h3[text()=' Информация о хаусхолде ']"));
         click(By.xpath("//button[text()='Обновить ТП/ТО и бандлы']"));
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
@@ -499,9 +492,11 @@ public class PageCMS extends BasePageWebDriver {
     }
 
     public void chooseRoleUser(String login) throws InterruptedException {
-        ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-        ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-        webDriver.switchTo().window((String) tabs2.get(1));
+        String oldTab = webDriver.getWindowHandle();
+        webDriver.switchTo().newWindow(WindowType.TAB);
+        String onlyPreprod = backend.substring(8);
+        webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+
         click(By.xpath("//form[@method='GET']//input[1]"));
         writeText(By.xpath("//form[@method='GET']//input[1]"), login);
         click(By.xpath("//button[text()='Поиск']"));
@@ -518,7 +513,7 @@ public class PageCMS extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//td[text()='user']"));
         // здесь переключаемся опять на вкладку с мегафонТВ
         webDriver.close();
-        webDriver.switchTo().window((String) tabs2.get(0));
+        webDriver.switchTo().window(oldTab);
         webDriver.navigate().refresh();
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));

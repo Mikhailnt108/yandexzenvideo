@@ -72,9 +72,15 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkOpenPopUpCreatePasswordForFlowRegistrationMF(String login, String password) throws InterruptedException {
         isElementDisplayed(By.xpath("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']"));
         if (webDriver.findElements(By.xpath("//div[text()='Введите пароль']")).size() != 0) {
-            ((JavascriptExecutor) webDriver).executeScript("window.open('https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user')");
-            ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-            webDriver.switchTo().window((String) tabs2.get(1));
+            // Opens a new tab and switches to new tab
+            String oldTab = webDriver.getWindowHandle();
+            webDriver.switchTo().newWindow(WindowType.TAB);
+            // Opens a new window and switches to new window
+            String onlyPreprod = backend.substring(8);
+            webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//            ((JavascriptExecutor) webDriver).executeScript("window.open('url')");
+//            ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
+//            webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
             writeText(By.xpath("//form[@method='GET']//input[1]"), login);
             click(By.xpath("//button[text()='Поиск']"));
@@ -86,7 +92,8 @@ public class HeaderMenu extends BasePageWebDriver {
             webDriver.navigate().refresh();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
             webDriver.close();
-            webDriver.switchTo().window((String) tabs2.get(0));
+            webDriver.switchTo().window(oldTab);
+//            webDriver.switchTo().window((String) tabs2.get(0));
             webDriver.navigate().refresh();
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));

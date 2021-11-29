@@ -11,8 +11,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class KidsPage extends BasePageWebDriver {
-    public KidsPage(WebDriver driver) {
+    private String frontend;
+    private String backend;
+    public KidsPage(WebDriver driver, String frontend, String backend) {
         super(driver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
 
     public void checkElementsBannersCarousel() throws Exception {
@@ -42,7 +46,7 @@ public class KidsPage extends BasePageWebDriver {
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
             Assert.assertEquals("bug: not found 'Для детей'/'Детский'/'Семейный'", 1, webDriver.findElements(By.xpath("//div[contains(text(),'Для детей')]|//span[contains(text(),'Детский')]|//div[contains(text(),'Семейный')]")).size());
-            webDriver.get("https://web-preprod3.megafon.tv/kids");
+            webDriver.get(frontend+"kids");
         }
     }
 
@@ -89,7 +93,7 @@ public class KidsPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod3.megafon.tv/kids");
+                webDriver.get(frontend+"kids");
             }
         }
     }
@@ -105,7 +109,7 @@ public class KidsPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod3.megafon.tv/kids");
+                webDriver.get(frontend+"kids");
             }
         }
     }
@@ -122,7 +126,7 @@ public class KidsPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='ТВ']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod3.megafon.tv/kids");
+                webDriver.get(frontend+"kids");
             }
         }
     }
@@ -388,7 +392,7 @@ public class KidsPage extends BasePageWebDriver {
             TailCollectForKids1.get(a).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Для детей')]")));
             System.out.println(webDriver.findElement(By.xpath("//h1[text()]")).getText());
-            webDriver.get("https://web-preprod3.megafon.tv/kids");
+            webDriver.get(frontend+"kids");
         }
     }
 

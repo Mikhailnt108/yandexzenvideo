@@ -12,10 +12,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class NilPage extends BasePageWebDriver {
+    private String frontend;
+    private String backend;
+
     private WebElement ToRight;
 
-    public NilPage(WebDriver driver) {
+    public NilPage(WebDriver driver, String frontend, String backend) {
         super(driver);
+        this.frontend = frontend;
+        this.backend = backend;
     }
 
     public void scrollСollectionToRight() throws Exception {
@@ -250,7 +255,7 @@ public class NilPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Фильмы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod3.megafon.tv/");
+                webDriver.get(frontend);
             }
         }
     }
@@ -266,7 +271,7 @@ public class NilPage extends BasePageWebDriver {
             if (webDriver.findElements(By.xpath("//span[text()='Сериалы']")).size() > 0) {
                 break;
             } else {
-                webDriver.get("https://web-preprod3.megafon.tv/");
+                webDriver.get(frontend);
             }
         }
     }
@@ -375,7 +380,7 @@ public class NilPage extends BasePageWebDriver {
 
     public void checkToMoveTileToFirstPlace() {
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
-        webDriver.get("https://web-preprod3.megafon.tv/");
+        webDriver.get(frontend);
         Assert.assertEquals("элементы не совпадают",nameFilm, webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 
