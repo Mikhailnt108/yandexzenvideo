@@ -64,9 +64,9 @@ public class Test_06_NIL_COLLECTIONS_Collection_browsing_history_NC_bug_PW_adWeb
 
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginAdmWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();

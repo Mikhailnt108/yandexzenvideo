@@ -30,9 +30,9 @@ public class Test_03_NIL_EMAIL_Receive_news_and_gifts_PW_adWeb extends TestBaseP
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginAdmWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();

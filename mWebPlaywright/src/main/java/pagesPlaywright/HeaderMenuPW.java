@@ -45,10 +45,11 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.querySelector("(//span[text()='Вход'])[1]");
     }
 
-    public void clickToEnter() {
-         page.waitForSelector("(//span[text()='Вход'])[1]");
-         page.click("(//span[text()='Вход'])[1]");
-         page.waitForSelector("//h1[text()='Введите номер телефона']|//div[text()='Введите номер телефона']");
+    public void clickToProfile() {
+         page.waitForSelector("//div[text()='Профиль']");
+         page.click("//div[text()='Профиль']");
+         page.waitForSelector("//div[text()='Вход или регистрация']");
+         page.click("//div[text()='Вход или регистрация']");
     }
 
     public void clickToNext() {

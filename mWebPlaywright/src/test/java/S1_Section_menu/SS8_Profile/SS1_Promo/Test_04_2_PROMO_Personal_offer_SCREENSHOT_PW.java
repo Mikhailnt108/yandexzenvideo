@@ -39,9 +39,9 @@ public class Test_04_2_PROMO_Personal_offer_SCREENSHOT_PW extends TestBasePlaywr
     }
     private void flowRegistation() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginNonAdWeb("+7 926 020 50 27");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToComeIn("Войти");

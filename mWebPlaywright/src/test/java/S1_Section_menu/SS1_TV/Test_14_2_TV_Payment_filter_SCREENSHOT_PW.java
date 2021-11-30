@@ -29,9 +29,9 @@ public class Test_14_2_TV_Payment_filter_SCREENSHOT_PW extends TestBasePlaywrigh
 
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginAdWeb("+7 926 020 50 27");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginAdmWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToNext();

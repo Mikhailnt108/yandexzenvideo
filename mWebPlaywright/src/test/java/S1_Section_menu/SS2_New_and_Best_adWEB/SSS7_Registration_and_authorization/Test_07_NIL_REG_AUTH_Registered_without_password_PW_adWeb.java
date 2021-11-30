@@ -20,8 +20,8 @@ public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends T
     public void NIL_REG_AUTH_Registered_without_password() throws InterruptedException {
         // ввести номер прозрачно зарегистрированный в МФТВ на телефоне:
         headerMenuPW.goToNilPage();
-        headerMenuPW.clickToEnter();
-        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
+        headerMenuPW.clickToProfile();
+        authPagePW.inputLoginAdmWeb("+7 926 019 21 44");
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
         authPagePW.checkElementsPageAuthFormCreatePassword();
         authPagePW.checkInputValidPasswordRegist("111111");

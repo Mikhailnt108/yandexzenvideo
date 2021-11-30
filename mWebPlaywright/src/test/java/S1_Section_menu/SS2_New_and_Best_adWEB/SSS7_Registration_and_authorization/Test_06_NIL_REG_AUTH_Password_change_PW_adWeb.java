@@ -36,9 +36,9 @@ public class Test_06_NIL_REG_AUTH_Password_change_PW_adWeb extends TestBasePlayw
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginAdmWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();

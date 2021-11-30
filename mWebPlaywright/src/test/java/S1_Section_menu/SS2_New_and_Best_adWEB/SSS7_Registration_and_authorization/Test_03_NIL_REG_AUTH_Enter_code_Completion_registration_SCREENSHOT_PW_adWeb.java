@@ -21,8 +21,8 @@ public class Test_03_NIL_REG_AUTH_Enter_code_Completion_registration_SCREENSHOT_
     @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Enter_code_Completion_registration() throws IOException, InterruptedException {
         headerMenuPW.goToNilPage();
-        headerMenuPW.clickToEnter();
-        authPagePW.inputLoginAdWeb("+7 926 001 01 01");
+        headerMenuPW.clickToProfile();
+        authPagePW.inputLoginAdmWeb("+7 926 001 01 01");
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
         authPagePW.inputValidPasswordRegister("111111");
         authPagePW.clickOnButtonNextAndCheckOpenFormInputCode();
@@ -32,9 +32,9 @@ public class Test_03_NIL_REG_AUTH_Enter_code_Completion_registration_SCREENSHOT_
         authPagePW.checkInputInvalidCodeInFormInputCode("+7 926 001 01 01", "111111", "1234");
         authPagePW.checkImageFormInputCodeForInvalidCode();
         headerMenuPW.goToNilPage();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginAdmWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         authPagePW.checkFinishTimerFormInputCode("+7 926 019 21 44", "111111");

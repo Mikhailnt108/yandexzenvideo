@@ -108,15 +108,15 @@ public class AuthPagePW extends BasePagePlaywright {
         Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@type='checkbox' and @name='accept']").size());
     }
 
-    public void checkOpenPopUpInputPhone() {
-        page.waitForSelector("//h1[text()='Введите номер телефона']|//div[text()='Введите номер телефона']");
+    public void checkOpenScreenInputPhone() {
+        page.waitForSelector("//input[@name='login']");
     }
 
-    public void inputLoginAdWeb(String login) {
-        page.focus("//input[@name='phone']");
-        page.fill("//input[@name='phone']", login);
+    public void inputLoginAdmWeb(String login) {
+        page.focus("//input[@name='login']");
+        page.fill("//input[@name='login']", login);
     }
-    public void inputLoginNonAdWeb(String login) {
+    public void inputLoginNonAdmWeb(String login) {
         page.focus("//input[@name='login']");
         page.fill("//input[@name='login']", login);
     }

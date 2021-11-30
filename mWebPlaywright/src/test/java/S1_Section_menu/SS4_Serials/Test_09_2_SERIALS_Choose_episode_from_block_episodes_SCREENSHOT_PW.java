@@ -33,9 +33,9 @@ public class Test_09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT_PW 
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginNonAdWeb("+7 926 020 50 27");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToComeIn("Войти");

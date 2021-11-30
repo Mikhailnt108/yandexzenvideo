@@ -144,7 +144,37 @@ public class TvPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkElementsTvPage() {
+    public void checkElementsTvPageGuest() {
+        page.waitForSelector("//div[contains(@class,'smartbanner-android')]");
+        page.waitForSelector("//div[@class='YZBWFgwJ_YIq52D_M0HUz']");
+        page.waitForSelector("//a[@class='_2lyBKIjmUqLXlMuC-NbqUe _3h6ZZnjTUm-EUZUfiI5SOR']//span[text()='ТВ']");
+        page.waitForSelector("//div[@class='zcd66G8sCa_vpFpPNWBNz']");
+        page.waitForSelector("//a[@class='_39I3V1X9nHf1r_IzNeqphS _1Ue0f9dD5er3cByaAe2IwI']//div[text()='Все']");
+        page.waitForSelector("//a[@class='PaDvSJkfKmpUlUemAC5ex' and @href]//div[text()]");
+        page.waitForSelector("//div[contains(@class,'programs')]");
+        page.waitForSelector("//div[@class='_2H8yToCwb1zXChwX6l7ZNT']");
+//        page.waitForSelector("//a[contains(@class,'LayoutBottomMenu_linkActive')]//span[text()='Главная']");
+        // чек проверки коллекции элементов в блоках расписания:
+        Assert.assertEquals(page.querySelectorAll("._3_ze5yHEf0jULbEILiu0Dy").size(), page.querySelectorAll("._23E9FFV9LhyYMGP2R_4Hjv").size());
+        Assert.assertEquals(page.querySelectorAll("._3_ze5yHEf0jULbEILiu0Dy").size(), page.querySelectorAll("//div[@class='_3alQqB-Yd285L1GTPwG2ko' and text()]").size());
+        Assert.assertEquals(page.querySelectorAll("._2t7rDZjUkG3P1KbzR9IaaB").size(), page.querySelectorAll("//a[contains(@class,'3S1RJTAMPdfXwKpE8keuSk') and text()]").size());
+        Assert.assertEquals(page.querySelectorAll("._2t7rDZjUkG3P1KbzR9IaaB").size(), page.querySelectorAll("//a[contains(@class,'_2kFyYGffe-aoW_cqXclDoD') and text() and @href]").size());
+        Assert.assertEquals(page.querySelectorAll("._2t7rDZjUkG3P1KbzR9IaaB").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size());
+        Assert.assertEquals(page.querySelectorAll("//div[contains(@class,'programs')]").size(), page.querySelectorAll("//a[contains(@class,'showAll') and text()='Показать все']").size());
+        Assert.assertEquals(page.querySelectorAll("//div[contains(@class,'programs')]").size(), page.querySelectorAll("._2mLz14ja1zCBwrRv-RM7lg").size());
+
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
+        page.waitForSelector("//footer");
+        page.waitForSelector("//a[@href and text()='Условия оказания услуги']");
+        page.waitForSelector("//a[@href and text()='Политика конфидециальности']");
+        page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']");
+        page.evaluate("window.scrollTo(0, -document.body.scrollHeight);");
+        page.waitForSelector("//div[contains(@class,'smartbanner-android')]");
+
+
+    }
+
+    public void checkElementsTvPageUser() {
         page.waitForSelector("//div[contains(@class,'smartbanner-android')]");
         page.waitForSelector("//div[@class='YZBWFgwJ_YIq52D_M0HUz']");
         page.waitForSelector("//a[@class='_2lyBKIjmUqLXlMuC-NbqUe _3h6ZZnjTUm-EUZUfiI5SOR']//span[text()='ТВ']");
@@ -157,7 +187,20 @@ public class TvPagePW extends BasePagePlaywright {
         // чек проверки коллекции элементов в блоках расписания:
         Assert.assertEquals(page.querySelectorAll("._3_ze5yHEf0jULbEILiu0Dy").size(), page.querySelectorAll("._23E9FFV9LhyYMGP2R_4Hjv").size());
         Assert.assertEquals(page.querySelectorAll("._3_ze5yHEf0jULbEILiu0Dy").size(), page.querySelectorAll("//div[@class='_3alQqB-Yd285L1GTPwG2ko' and text()]").size());
-//        Assert.assertEquals(page.querySelectorAll());
+        Assert.assertEquals(page.querySelectorAll("._2t7rDZjUkG3P1KbzR9Iaa").size(), page.querySelectorAll("//a[contains(@class,'3S1RJTAMPdfXwKpE8keuSk') and text()]"));
+        Assert.assertEquals(page.querySelectorAll("._2t7rDZjUkG3P1KbzR9Iaa").size(), page.querySelectorAll("//a[contains(@class,'_2kFyYGffe-aoW_cqXclDoD') and text() and @href]"));
+        Assert.assertEquals(page.querySelectorAll("._2t7rDZjUkG3P1KbzR9Iaa").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]"));
+        Assert.assertEquals(page.querySelectorAll("//div[contains(@class,'programs')]").size(), page.querySelectorAll("//a[contains(@class,'showAll') and text()='Показать все']").size());
+        Assert.assertEquals(page.querySelectorAll("//div[contains(@class,'programs')]").size(), page.querySelectorAll("._2mLz14ja1zCBwrRv-RM7lg").size());
+
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
+        page.waitForSelector("//footer");
+        page.waitForSelector("//a[@href and text()='Условия оказания услуги']");
+        page.waitForSelector("//a[@href and text()='Политика конфидециальности']");
+        page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']");
+        page.evaluate("window.scrollTo(0, -document.body.scrollHeight);");
+        page.waitForSelector("//div[contains(@class,'smartbanner-android')]");
+
     }
 }
 

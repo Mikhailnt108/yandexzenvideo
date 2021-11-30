@@ -25,9 +25,9 @@ public class Test_08_NIL_REG_AUTH_Registration_NON_MF_PW_adWeb extends TestBaseP
     }
     private void flowRegistationNonMF() throws InterruptedException, IOException {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginAdWeb("+7 926 118 49 72");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginAdmWeb("+7 926 118 49 72");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputEmail("+7 926 118 49 72");
         authPagePW.checkElementsPageAuthFormInputEmail();

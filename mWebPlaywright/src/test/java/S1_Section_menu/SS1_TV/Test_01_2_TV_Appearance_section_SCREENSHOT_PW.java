@@ -20,7 +20,22 @@ public class Test_01_2_TV_Appearance_section_SCREENSHOT_PW extends TestBasePlayw
     @Tag("AndroidWebPW#0")
     public void tab_tv_program_SCREENSHOT() throws Exception {
         headerMenuPW.goToTvTabProgramTv();
-        tvPagePW.checkElementsTvPage();
-        tvPagePW.checkImageTvPageForGuestMWEB();
+        tvPagePW.checkElementsTvPageGuest();
+//        tvPagePW.checkImageTvPageForGuestMWEB();
+        flowRegistationMF();
+//        tvPagePW.checkElementsTvPageUser();
+    }
+    private void flowRegistationMF() {
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginAdmWeb("+7 926 020 50 27");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
+        headerMenuPW.clickToNext();
+        headerMenuPW.checkOpenPopUpInputCode();
+        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260205027");
+        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260205027");
     }
 }

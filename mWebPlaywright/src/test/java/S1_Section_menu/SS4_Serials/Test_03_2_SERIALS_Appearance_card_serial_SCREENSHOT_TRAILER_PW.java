@@ -33,9 +33,9 @@ public class Test_03_2_SERIALS_Appearance_card_serial_SCREENSHOT_TRAILER_PW exte
 
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToEnter();
-        authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLoginNonAdWeb("+7 926 020 50 27");
+        headerMenuPW.clickToProfile();
+        authPagePW.checkOpenScreenInputPhone();
+        authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToComeIn("Войти");
