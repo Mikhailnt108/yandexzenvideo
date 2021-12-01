@@ -32,7 +32,7 @@ public class Test_03_2_FILMS_Appearance_card_SCREENSHOT_TRAILER_PW extends TestB
         cardFilmPW.checkImageCardFilmForUser();
         headerMenuPW.deleteAccountMF("79260205027");
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();

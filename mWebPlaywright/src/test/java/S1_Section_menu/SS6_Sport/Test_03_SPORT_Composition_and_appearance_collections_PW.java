@@ -29,7 +29,7 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
         sportPagePW.checkElementsBlockCollectionLiveBroadcastForUser();
         sportPagePW.checkImageBlockCollectionLiveBroadcastForUser(); // добавить скриншот тесты
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();

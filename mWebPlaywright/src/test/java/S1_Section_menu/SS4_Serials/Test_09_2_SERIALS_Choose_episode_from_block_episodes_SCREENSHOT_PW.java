@@ -31,7 +31,7 @@ public class Test_09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT_PW 
         cardSerialPW.checkOpenCardSerial();
         cardSerialPW.checkImagePopUpSubscription();
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();

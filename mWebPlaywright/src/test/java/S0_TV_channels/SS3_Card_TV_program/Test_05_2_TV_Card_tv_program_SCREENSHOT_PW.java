@@ -1,4 +1,4 @@
-package S1_Section_menu.SS1_TV;
+package S0_TV_channels.SS3_Card_TV_program;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;

@@ -118,7 +118,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
-        page.setDefaultTimeout(60000);
+        page.setDefaultTimeout(15000);
         headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless, frontend, backend);
         filmsPagePW = new FilmsPagePW(page, frontend);
         serialsPagePW = new SerialsPagePW(page,pageCMS, frontend);

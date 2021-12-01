@@ -40,7 +40,7 @@ public class Test_01_2_FILMS_Appearance_section_SCREENSHOT_PW extends TestBasePl
         headerMenuPW.deleteAccountMF("79260205027");
     }
 
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();

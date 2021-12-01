@@ -31,7 +31,7 @@ public class Test_03_2_SERIALS_Appearance_card_serial_SCREENSHOT_TRAILER_PW exte
         headerMenuPW.deleteAccountMF("79260205027");
     }
 
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();

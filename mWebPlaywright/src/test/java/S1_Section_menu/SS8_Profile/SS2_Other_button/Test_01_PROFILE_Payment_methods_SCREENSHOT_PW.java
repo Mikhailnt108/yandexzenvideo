@@ -28,7 +28,7 @@ public class Test_01_PROFILE_Payment_methods_SCREENSHOT_PW extends TestBasePlayw
         headerMenuPW.deleteAccountMF("79260205027");
     }
 
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();

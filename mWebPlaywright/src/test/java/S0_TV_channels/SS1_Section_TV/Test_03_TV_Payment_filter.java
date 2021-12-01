@@ -1,4 +1,4 @@
-package S1_Section_menu.SS1_TV;
+package S0_TV_channels.SS1_Section_TV;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,32 +8,31 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-//@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "AndroidWebPW#0", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_2_TV_Appearance_section_SCREENSHOT_PW extends TestBasePlaywright {
+public class Test_03_TV_Payment_filter extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Mobile Android Web")
-    @Feature(value = "1. Sections_menu")
-    @Story(value = "1. TV")
-    @DisplayName(value = "Tab_tv_program_SCREENSHOT")
+    @Feature(value = "0. TV_channels")
+    @Story(value = "1. Section_TV")
+    @DisplayName(value = "TV_Payment_filter")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("AndroidWebPW#0")
-    public void tab_tv_program_SCREENSHOT() throws Exception {
-        headerMenuPW.goToTvTabProgramTv();
-        tvPagePW.checkElementsTvPageGuest();
-//        tvPagePW.checkImageTvPageForGuestMWEB();
+    public void TV_Payment_filter() throws InterruptedException {
+        headerMenuPW.goToTabTv();
         flowRegistationMF();
-//        tvPagePW.checkElementsTvPageUser();
+        headerMenuPW.goToTabTv();
+        tvPagePW.clickOnPaymentFilter();
+        tvPagePW.chooseAvailableTvChannels();
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();
-        authPagePW.inputLoginAdmWeb("+7 926 020 50 27");
+        authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
+        headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260205027");
+        headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");

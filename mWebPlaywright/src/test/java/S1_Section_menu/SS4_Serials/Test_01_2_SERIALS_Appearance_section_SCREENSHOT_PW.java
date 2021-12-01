@@ -36,7 +36,7 @@ public class Test_01_2_SERIALS_Appearance_section_SCREENSHOT_PW extends TestBase
         serialsPagePW.checkImageFooterForUser();
         headerMenuPW.deleteAccountMF("79260205027");
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();

@@ -37,7 +37,7 @@ public class Test_04_2_PROMO_Personal_offer_SCREENSHOT_PW extends TestBasePlaywr
         personalOfferPW.archivePersonalOfferPartnerOfferOkkoTvForMF();
         headerMenuPW.deleteAccountMF("79260205027");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToProfile();
         authPagePW.checkOpenScreenInputPhone();
