@@ -17,7 +17,7 @@ public class Test_01_TV_Appearance_section_SCREENSHOT_PW_DONE extends TestBasePl
     @DisplayName(value = "TV_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("AndroidWebPW#0")
+    @Tag("AndroidWebPW#1")
     public void TV_Appearance_section_SCREENSHOT() throws Exception {
         headerMenuPW.goToTabTv();
         tvPagePW.checkElementsTvPageGuest();

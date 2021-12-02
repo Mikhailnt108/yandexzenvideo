@@ -16,7 +16,7 @@ public class Test_03_TV_Payment_filter_DONE extends TestBasePlaywright {
     @DisplayName(value = "TV_Payment_filter")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("AndroidWebPW#0")
+    @Tag("AndroidWebPW#1")
     public void TV_Payment_filter() throws InterruptedException {
         headerMenuPW.goToTabTv();
         flowRegistationMF();

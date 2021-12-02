@@ -16,7 +16,7 @@ public class Test_02_TV_Section_navigation_DONE extends TestBasePlaywright {
     @DisplayName(value = "TV_Section_navigation")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("AndroidWebPW#0")
+    @Tag("AndroidWebPW#1")
     public void TV_Section_navigation() throws InterruptedException {
         headerMenuPW.goToTabTv();
         flowRegistationMF();
