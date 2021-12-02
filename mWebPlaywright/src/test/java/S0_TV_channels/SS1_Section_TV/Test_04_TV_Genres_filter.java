@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.sql.SQLException;
+
 @ResourceLock(value = "AndroidWebPW#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_TV_Genres_filter extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Mobile Android Web")
@@ -17,7 +19,9 @@ public class Test_04_TV_Genres_filter extends TestBasePlaywright {
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("AndroidWebPW#0")
-    public void TV_Genres_filter(){
-
+    public void TV_Genres_filter() throws InterruptedException, SQLException, ClassNotFoundException {
+        headerMenuPW.goToTabTv();
+        tvPagePW.scrollTabsFiltersTvGenres();
+//        tvPagePW.chooseTabFiltersTvGenres();
     }
 }
