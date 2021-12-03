@@ -21,11 +21,11 @@ public class Test_01_TV_Appearance_section_SCREENSHOT_PW_DONE extends TestBasePl
     public void TV_Appearance_section_SCREENSHOT() throws Exception {
         headerMenuPW.goToTabTv();
         tvPagePW.checkElementsTvPageGuest();
-        tvPagePW.checkImageTvPageForGuestMWEB();
+//        tvPagePW.checkImageTvPageForGuestMWEB();
         flowRegistationMF();
         headerMenuPW.goToTabTv();
         tvPagePW.checkElementsTvPageUser();
-        tvPagePW.checkImageTvPageForUserMWEB();
+//        tvPagePW.checkImageTvPageForUserMWEB();
     }
     private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.clickToProfile();

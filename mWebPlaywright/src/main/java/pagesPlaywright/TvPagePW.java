@@ -10,6 +10,7 @@ import org.junit.Assert;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
@@ -21,11 +22,12 @@ import static java.lang.Thread.sleep;
 public class TvPagePW extends BasePagePlaywright {
     private Page page;
     private String frontend;
+    private Statement statement;
 
-
-    public TvPagePW(Page page, String frontend) {
+    public TvPagePW(Page page, String frontend, Statement statement) {
         this.page = page;
         this.frontend = frontend;
+        this.statement = statement;
     }
 
     public void checkImageTvPageForGuestMWEB() throws IOException, InterruptedException {
@@ -333,49 +335,39 @@ public class TvPagePW extends BasePagePlaywright {
         tabFilters.get(2).tap();
         Assert.assertTrue("bug: size elements more 1", page.querySelectorAll("//a[@class='_39I3V1X9nHf1r_IzNeqphS _1Ue0f9dD5er3cByaAe2IwI']").size() == 1);
 
-        List listNameTvChannelForKids = new ArrayList();
-        listNameTvChannelForKids.add("Карусель");
-        listNameTvChannelForKids.add("Канал Disney");
-        listNameTvChannelForKids.add("Уникум");
-        listNameTvChannelForKids.add("Капитан Фантастика");
-        listNameTvChannelForKids.add("Nick Jr.");
-        listNameTvChannelForKids.add("Мульт HD");
-        listNameTvChannelForKids.add("Cartoon Network");
-        listNameTvChannelForKids.add("Boomerang");
-        listNameTvChannelForKids.add("Nickelodeon");
-        listNameTvChannelForKids.add("Nickelodeon HD");
-        listNameTvChannelForKids.add("NickToons");
-        listNameTvChannelForKids.add("Мультиландия");
-        listNameTvChannelForKids.add("Ani");
-        listNameTvChannelForKids.add("Рыжий");
-        listNameTvChannelForKids.add("СТС Kids");
-        listNameTvChannelForKids.add("Gulli Girl");
-        listNameTvChannelForKids.add("В гостях у сказки");
-        listNameTvChannelForKids.add("Радость моя");
-        listNameTvChannelForKids.add("Мультимузыка");
-        listNameTvChannelForKids.add("Мульт");
-        listNameTvChannelForKids.add("О!");
-        listNameTvChannelForKids.add("Tiji");
-        listNameTvChannelForKids.add("JimJam");
-        listNameTvChannelForKids.add("Детский мир");
-        listNameTvChannelForKids.add("Малыш");
-        listNameTvChannelForKids.add("BabyTV");
+//        List listNameTvChannelForKids = new ArrayList(Arrays.asList("Карусель", "Канал Disney", "Уникум", "Капитан Фантастика", "Nick Jr.", "Мульт HD", "Cartoon Network", "Boomerang", "Nickelodeon", "Nickelodeon HD", "NickToons", "Мультиландия", "Ani", "Рыжий", "СТС Kids", "Gulli Girl", "В гостях у сказки", "Радость моя", "Мультимузыка", "Мульт", "О!", "Tiji", "JimJam", "Детский мир", "Малыш", "BabyTV"));
 
+        Class.forName("org.postgresql.Driver");
+        ResultSet onlyKidsTvChannel = statement.executeQuery("select * from packages p where kind = 'Channel' and 47=any(genres)");
+        onlyKidsTvChannel.next();
+        System.out.println(onlyKidsTvChannel.getString(1));
+        List<String> listNameTvKids = new ArrayList<>();
+        while (onlyKidsTvChannel.next()) {
+            String data = onlyKidsTvChannel.getString(1);
+            listNameTvKids.add(data);
+        }
 
-//        Class.forName("org.postgresql.Driver");
-//        ResultSet countCG = statement.executeQuery("SELECT COUNT(*) FROM personal_offers");
-//        countCG.next();
-////            int count = countCG.getInt(1);
-//        System.out.println(countCG.getInt(1));
-//        while (rs.next()) {
-//            m = (ArrayList<String>) rs.getArray(0x1);
-//            System.out.println(m);
-//            List<String> list = new ArrayList<>();
-//            while (rs.next()) {
-//                String data = rs.getString(1);
-//                list.add(data);
-//            }
-//        }
+        List<ElementHandle> nameTvChannel = page.querySelectorAll("//div[@class='_3alQqB-Yd285L1GTPwG2ko']");
+        for (int i = 0; i < nameTvChannel.size(); i++) {
+            listNameTvKids.contains(nameTvChannel.get(i).innerText());
+        }
+    }
+
+    public void openCardTvChannelInRecord() {
+        page.waitForSelector("//a[contains(@class,'_39I3V1X9nHf1r_IzNeqphS')]//div[text()='В записи']").tap();
+        page.waitForSelector("//div[@class='_3alQqB-Yd285L1GTPwG2ko' and text()]");
+        page.tap("//div[@class='_3alQqB-Yd285L1GTPwG2ko' and text()]");
+
+        // проверка элементов расписания:
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("._2nbsgDk-YRyquxiD5jEpKO").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("._2mLz14ja1zCBwrRv-RM7lg").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]").size());
+// добавить метод сравнивающий текущее время с верменем начала передачи
+// добавить проверку текущей передачи относительно текущего времени
+        Assert.assertEquals("bug: diff size elements", 8, page.querySelectorAll("//div[@class='_3JIMZ3_-3sPOGT1g7YUGmq']//div[text()]").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='_3JIMZ3_-3sPOGT1g7YUGmq']//div[text()]").size());
     }
 }
 

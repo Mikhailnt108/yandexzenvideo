@@ -18,6 +18,7 @@ public class Test_01_TV_Appearance_schedule extends TestBasePlaywright {
     @Test
     @Tag("AndroidWebPW#0")
     public void TV_Appearance_schedule(){
-
+        headerMenuPW.goToTabTv();
+        tvPagePW.openCardTvChannelInRecord();
     }
 }
