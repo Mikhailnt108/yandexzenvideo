@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @ResourceLock(value = "AndroidWebPW#0", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_TV_Genres_filter_DONE extends TestBasePlaywright {
+public class Test_04_TV_Genres_filter_SCREENSHOT_PW_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Mobile Android Web")
     @Feature(value = "0. TV_channels")
     @Story(value = "1. Section_TV")
@@ -27,6 +27,7 @@ public class Test_04_TV_Genres_filter_DONE extends TestBasePlaywright {
         tvPagePW.openCardTvChannelNoRecord();
         tvPagePW.checkElementsScheduleNonRecordedTv();
         tvPagePW.scrollDownPageAndCheckFooter();
+        tvPagePW.checkImageFooterMWEB();
         tvPagePW.checkImageCardTvChannelNonRecorded();
         headerMenuPW.goToTabTv();
         tvPagePW.openCardTvChannelInRecord();
