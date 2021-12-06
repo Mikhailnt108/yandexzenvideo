@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 @ResourceLock(value = "AndroidWebPW#0", mode = ResourceAccessMode.READ_WRITE)
@@ -19,9 +20,19 @@ public class Test_04_TV_Genres_filter_DONE extends TestBasePlaywright {
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("AndroidWebPW#0")
-    public void TV_Genres_filter() throws InterruptedException, SQLException, ClassNotFoundException {
+    public void TV_Genres_filter() throws InterruptedException, SQLException, ClassNotFoundException, IOException {
         headerMenuPW.goToTabTv();
         tvPagePW.scrollTabsFiltersTvGenres();
         tvPagePW.chooseTabFiltersTvGenres();
+        tvPagePW.openCardTvChannelNoRecord();
+        tvPagePW.checkElementsScheduleNonRecordedTv();
+        tvPagePW.scrollDownPageAndCheckFooter();
+        tvPagePW.checkImageCardTvChannelNonRecorded();
+        headerMenuPW.goToTabTv();
+        tvPagePW.openCardTvChannelInRecord();
+        tvPagePW.checkElementsScheduleRecordedTv();
+        tvPagePW.scrollDownPageAndCheckFooter();
+        tvPagePW.checkImageFooterMWEB();
+        tvPagePW.checkImageCardTvChannelRecorded();
     }
 }
