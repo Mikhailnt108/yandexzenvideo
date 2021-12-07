@@ -140,7 +140,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         sportPagePW = new SportPagePW(page, backend);
         authPagePW = new AuthPagePW(page, frontend);
         promoCodePW = new PromoCodePW(page, frontend, backend);
-//        vrt.start();
+        vrt.start();
 //        Robot bot = new Robot();
 //        bot.mouseMove(0, 0);
     }
@@ -148,6 +148,6 @@ class TestBasePlaywright extends BasePagePlaywright{
     @AfterEach
     void closeContext() throws IOException, InterruptedException {
         contextIncognitoModeHeadless.close();
-//        vrt.stop();
+        vrt.stop();
     }
 }

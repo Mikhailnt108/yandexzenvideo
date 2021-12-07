@@ -22,12 +22,14 @@ public class Test_01_TV_Appearance_section_SCREENSHOT_PW_DONE extends TestBasePl
         headerMenuPW.goToTabTv();
         tvPagePW.checkElementsTvPageGuest();
         tvPagePW.scrollDownPageAndCheckFooter();
-//        tvPagePW.checkImageTvPageForGuestMWEB();
+        tvPagePW.checkImageTvPageForGuestMWEB();
+        tvPagePW.checkImageFooterMWEB();
         flowRegistationMF();
         headerMenuPW.goToTabTv();
         tvPagePW.checkElementsTvPageUser();
         tvPagePW.scrollDownPageAndCheckFooter();
-//        tvPagePW.checkImageTvPageForUserMWEB();
+        tvPagePW.checkImageTvPageForUserMWEB();
+        tvPagePW.checkImageFooterMWEB();
     }
     private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.clickToProfile();

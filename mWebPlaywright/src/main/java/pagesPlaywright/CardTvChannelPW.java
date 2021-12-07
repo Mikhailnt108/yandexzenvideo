@@ -4,9 +4,15 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
+import org.junit.Assert;
 
 import java.io.IOException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 
 import static base.TestBasePlaywright.vrt;
@@ -205,6 +211,224 @@ public class CardTvChannelPW extends BasePagePlaywright {
         page.waitForSelector("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]");
         page.waitForTimeout(5000);
         page.click("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]");
+    }
+    public void checkElementsScheduleNonRecordedTv() {
+        // Getting the current date and time
+        Date currentDate = new Date();
+
+
+        // Creating simple date formatter to 24 hours
+        SimpleDateFormat formatter = new SimpleDateFormat("kk:mm");
+
+        // getting the time in 24 hours format
+        String timeIn24Hours = formatter.format(currentDate);
+
+        LocalTime currentTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+        System.out.println(currentTime);
+//        page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]/following::a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')][1]").scrollIntoViewIfNeeded();
+        LocalTime afterTime = LocalTime.parse(page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]/following::a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')][1]").innerText());
+        LocalTime afterTimeFormat24 = LocalTime.parse(formatter.format(afterTime));
+
+        System.out.println(afterTimeFormat24);
+        LocalTime timeProgram = LocalTime.parse(page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").innerText());
+        LocalTime timeProgFormat24 = LocalTime.parse(formatter.format(timeProgram));
+        System.out.println(timeProgFormat24);
+        page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]");
+        System.out.println(currentTime.isAfter(timeProgFormat24) && currentTime.isBefore(afterTimeFormat24));
+        Assert.assertTrue(currentTime.isAfter(timeProgFormat24) && currentTime.isBefore(afterTimeFormat24));
+
+        // чек элементов расписания:
+        Assert.assertEquals("diff size elements", page.querySelectorAll("//div[contains(@class,'_1kXtsoTZpkqxm3UN7jrPUb')]").size(), page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]").size());
+        Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U' and text()]").size());
+        Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U']/following-sibling::div[text()]").size());
+        Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']").size());
+
+
+        // чек элементов текущей передачи:
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_30m0cUyqnN7hnERn4tZUhK')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]").size()==1);
+    }
+
+    public void checkElementsScheduleRecordedTv() {
+        LocalTime currentTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+        System.out.println(currentTime);
+        LocalTime afterTime = LocalTime.parse(page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]/following::a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')][1]").innerText());
+        System.out.println(afterTime.format(DateTimeFormatter.ofPattern("HH:mm")));
+        LocalTime timeProgram = LocalTime.parse(page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").innerText());
+        page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]");
+        System.out.println(currentTime.isAfter(timeProgram) && currentTime.isBefore(afterTime));
+//        Assert.assertTrue(currentTime.isAfter(timeProgram) && currentTime.isBefore(afterTime));
+
+        // чек элементов расписания:
+        Assert.assertEquals("diff size elements", page.querySelectorAll("//div[contains(@class,'_1kXtsoTZpkqxm3UN7jrPUb')]").size(), page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]").size());
+        //  Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("._2mLz14ja1zCBwrRv-RM7lg").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U' and text()]").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U']/following-sibling::div[text()]").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']").size());
+
+        // чек элементов текущей передачи:
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_30m0cUyqnN7hnERn4tZUhK')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]").size()==1);
+
+    }
+
+
+    public void checkImageCardTvChannelNonRecorded() throws IOException, InterruptedException {
+        // Сделать тестовый скриншот карточки тв канала записываемого:
+        // чек элементов расписания:
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("//div[contains(@class,'_1kXtsoTZpkqxm3UN7jrPUb')]").size(), page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]").size());
+        Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U' and text()]").size());
+        Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U']/following-sibling::div[text()]").size());
+        Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']").size());
+
+        List<ElementHandle> programBlock1All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[1]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>3]");
+        for (ElementHandle programBlock1 : programBlock1All) {
+            programBlock1.evaluate("s => s.remove();");
+        }
+        List<ElementHandle> programBlock2All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[2]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>3]");
+        for (ElementHandle programBlock2 : programBlock2All) {
+            programBlock2.evaluate("s => s.remove();");
+        }
+        List<ElementHandle> programBlock3All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[3]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>3]");
+        for (ElementHandle programBlock3 : programBlock3All) {
+            programBlock3.evaluate("s => s.remove();");
+        }
+//        List<ElementHandle> programBlock4All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[4]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>3]");
+//        for (ElementHandle programBlock4 : programBlock4All) {
+//            programBlock4.evaluate("s => s.remove();");
+//        }
+//        List<ElementHandle> programAll = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[5]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>5]");
+//        for (ElementHandle program : programAll) {
+//            program.evaluate("s => s.remove();");
+//        }
+
+        List<ElementHandle> dateAll = page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']");
+        for (ElementHandle date : dateAll) {
+            date.evaluate("a => a.innerText='день, 1 января'");
+        }
+        List<ElementHandle> numberAll = page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U' and text()]");
+        for (ElementHandle number : numberAll) {
+            number.evaluate("a => a.innerText='1'");
+        }
+
+        List<ElementHandle> dayAll = page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U']/following-sibling::div[text()]");
+        for (ElementHandle day : dayAll) {
+            day.evaluate("a => a.innerText='день'");
+        }
+
+        List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']");
+        for (ElementHandle nameTvProgram : nameTvProgramAll) {
+            nameTvProgram.evaluate("d => d.textContent='Название передачи'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> timeAll = page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]");
+        for (ElementHandle time : timeAll) {
+            time.evaluate("t => t.innerText='00:00'");
+        }
+        page.evaluate("bar => bar.setAttribute('style', 'width: 50%; height: 3px; background-color: var(--color-base);')", page.waitForSelector("//span[@class='L3rzdT7KYzyE1ClBQKxNL']"));
+        ElementHandle imgTv = page.waitForSelector("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]");
+        imgTv.evaluate("iT => iT.setAttribute('style', 'background-image: url(http://static.cdn.megafon.tv/images/img/8e/fb/b0ce8dd748a7ccba9a7d4b3c7045d4647590/poster__aphone-xxhdpi.webp);')");
+        Thread.sleep(3000);
+        // делаем скриншот видимой части страницы "CardTvChannelNonRecAndroidMWEB":
+        vrt.track(
+                "CardTvChannelNonRecAndroidMWEB",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkImageCardTvChannelRecorded() throws IOException, InterruptedException {
+        // Сделать тестовый скриншот карточки тв канала записываемого:
+        // чек элементов расписания:
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("//div[contains(@class,'_1kXtsoTZpkqxm3UN7jrPUb')]").size(), page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']").size());
+        Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U' and text()]").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U']/following-sibling::div[text()]").size());
+        Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']").size());
+
+        List<ElementHandle> programBlock1All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[1]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>4]");
+        for (ElementHandle programBlock1 : programBlock1All) {
+            programBlock1.evaluate("s => s.remove();");
+        }
+        List<ElementHandle> programBlock2All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[2]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>4]");
+        for (ElementHandle programBlock2 : programBlock2All) {
+            programBlock2.evaluate("s => s.remove();");
+        }
+        List<ElementHandle> programBlock3All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[3]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>4]");
+        for (ElementHandle programBlock3 : programBlock3All) {
+            programBlock3.evaluate("s => s.remove();");
+        }
+        List<ElementHandle> programBlock4All = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[4]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>4]");
+        for (ElementHandle programBlock4 : programBlock4All) {
+            programBlock4.evaluate("s => s.remove();");
+        }
+        List<ElementHandle> programAll = page.querySelectorAll("(//div[@class='Cl6_9tQmsP2zIDeWDecmQ'])[5]/following-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'][position()>4]");
+        for (ElementHandle program : programAll) {
+            program.evaluate("s => s.remove();");
+        }
+
+        List<ElementHandle> dateAll = page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']");
+        for (ElementHandle date : dateAll) {
+            date.evaluate("a => a.innerText='день, 1 января'");
+        }
+
+        List<ElementHandle> numberAll = page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U' and text()]");
+        for (ElementHandle number : numberAll) {
+            number.evaluate("a => a.innerText='1'");
+        }
+
+        List<ElementHandle> dayAll = page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U']/following-sibling::div[text()]");
+        for (ElementHandle day : dayAll) {
+            day.evaluate("a => a.innerText='день'");
+        }
+
+        List<ElementHandle> nameTvProgramAll = page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']");
+        for (ElementHandle nameTvProgram : nameTvProgramAll) {
+            nameTvProgram.evaluate("d => d.textContent='Название передачи'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]");
+        for (ElementHandle age : ageAll) {
+            age.evaluate("a => a.innerText='18+'");
+        }
+        List<ElementHandle> timeAll = page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]");
+        for (ElementHandle time : timeAll) {
+            time.evaluate("t => t.innerText='00:00'");
+        }
+        page.evaluate("bar => bar.setAttribute('style', 'width: 50%; height: 3px; background-color: var(--color-base);')", page.waitForSelector("//span[@class='L3rzdT7KYzyE1ClBQKxNL']"));
+
+        ElementHandle imgTv = page.waitForSelector("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]");
+        imgTv.evaluate("iT => iT.setAttribute('style', 'background-image: url(http://static.cdn.megafon.tv/images/img/8e/fb/b0ce8dd748a7ccba9a7d4b3c7045d4647590/poster__aphone-xxhdpi.webp);')");
+        Thread.sleep(3000);
+        // делаем скриншот видимой части страницы "CardTvChannelRecAndroidMWEB":
+        vrt.track(
+                "CardTvChannelRecAndroidMWEB",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
     }
 }
 
