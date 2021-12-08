@@ -256,11 +256,11 @@ public class CardTvChannelPW extends BasePagePlaywright {
         LocalTime timeProgram = LocalTime.parse(page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").innerText());
         page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]");
         System.out.println(currentTime.isAfter(timeProgram) && currentTime.isBefore(afterTime));
-//        Assert.assertTrue(currentTime.isAfter(timeProgram) && currentTime.isBefore(afterTime));
+        Assert.assertTrue(currentTime.isAfter(timeProgram) && currentTime.isBefore(afterTime));
 
         // чек элементов расписания:
         Assert.assertEquals("diff size elements", page.querySelectorAll("//div[contains(@class,'_1kXtsoTZpkqxm3UN7jrPUb')]").size(), page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]").size());
-        //  Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("._2mLz14ja1zCBwrRv-RM7lg").size());
+//      Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("._2mLz14ja1zCBwrRv-RM7lg").size());
         Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//a[@class='_3PEf1_q_VA09pRAKJq-lNW ApSqJlNSgQ0N0HzFbdLNL']").size());
         Assert.assertEquals("bug: diff size elements", page.querySelectorAll("._1kXtsoTZpkqxm3UN7jrPUb").size(), page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _2i8vQnMC7E5ESPMlsA')]").size());
         Assert.assertEquals("bug: diff size elements", 5, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U' and text()]").size());
@@ -273,7 +273,6 @@ public class CardTvChannelPW extends BasePagePlaywright {
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]").size()==1);
-
     }
 
 

@@ -175,7 +175,8 @@ public class TvPagePW extends BasePagePlaywright {
     }
 
     public void checkElementsTvPageUser() {
-        page.waitForSelector("//div[contains(@class,'smartbanner-android')]");
+        if(page.querySelectorAll("//div[contains(@class,'smartbanner-android')]").size()==1){
+            page.querySelector("//div[contains(@class,'smartbanner-android')]");}
         page.waitForSelector(".Ml_oz1fhp-oa2a75_b9Tp");
         page.waitForSelector("//div[@class='YZBWFgwJ_YIq52D_M0HUz']");
         page.waitForSelector("//a[@class='_2lyBKIjmUqLXlMuC-NbqUe _3h6ZZnjTUm-EUZUfiI5SOR']//span[text()='ТВ']");
@@ -364,14 +365,14 @@ public class TvPagePW extends BasePagePlaywright {
         page.waitForSelector("//a[@href and text()='Политика конфидециальности']");
         page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']");
         page.evaluate("window.scrollTo(0, -document.body.scrollHeight);");
-        page.waitForSelector("//div[contains(@class,'smartbanner-android')]");
+        if(page.querySelectorAll("//div[contains(@class,'smartbanner-android')]").size()==1){
+            page.querySelector("//div[contains(@class,'smartbanner-android')]");}
     }
 
     public void checkImageFooterMWEB() throws IOException, InterruptedException {
-        if(page.querySelectorAll("//button[@class='smartbanner-close']").size()>0){
-            page.querySelector("//button[@class='smartbanner-close']").tap();
-        }
-//        page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
+//        if(page.querySelectorAll("//button[@class='smartbanner-close']").size()>0){
+//            page.querySelector("//button[@class='smartbanner-close']").tap();
+//        }
         page.evaluate("s => s.remove();", page.querySelector("//div[@id='stickyHeaderPortal']"));
         ElementHandle footer = page.waitForSelector("//footer");
         vrt.track(
