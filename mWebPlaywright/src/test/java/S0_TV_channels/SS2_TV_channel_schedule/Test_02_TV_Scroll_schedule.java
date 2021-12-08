@@ -20,5 +20,7 @@ public class Test_02_TV_Scroll_schedule extends TestBasePlaywright {
     public void TV_Scroll_schedule() throws InterruptedException {
         headerMenuPW.goToTabTv();
         tvPagePW.openCardTvChannelInRecord();
+        cardTvChannelPW.scrollScheduleRecUp();
+        cardTvChannelPW.scrollScheduleRecDown();// доделать
     }
 }

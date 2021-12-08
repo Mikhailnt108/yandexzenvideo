@@ -423,5 +423,30 @@ public class CardTvChannelPW extends BasePagePlaywright {
                         .diffTollerancePercent(0.3f)
                         .build());
     }
+
+    public void scrollScheduleRecUp() throws InterruptedException {
+        while (page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]//div[text()='сегодня']").size()==1){
+            page.evaluate("window.scrollBy(0, -1);");
+        }
+        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][1]//div[text()='сегодня']").size()==1);
+
+        while (page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][1]//div[text()='сегодня']").size()==1){
+            page.evaluate("window.scrollBy(0, -1);");
+        }
+        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][2]//div[text()='сегодня']").size()==1);
+    }
+
+    public void scrollScheduleRecDown() {
+        while (page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]//div[text()='сегодня']").size()==1){
+            page.evaluate("window.scrollBy(0, 1);");
+        }
+        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][1]//div[text()='сегодня']").size()==1);
+
+        while (page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][1]//div[text()='сегодня']").size()==1){
+            page.evaluate("window.scrollBy(0, 1);");
+        }
+        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][2]//div[text()='сегодня']").size()==1);
+
+    }
 }
 

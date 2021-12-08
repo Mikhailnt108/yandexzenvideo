@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.io.IOException;
 
 @ResourceLock(value = "AndroidWebPW#0", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_TV_Appearance_schedule_SCREENSHOT_PW extends TestBasePlaywright {
+public class Test_01_TV_Appearance_schedule_SCREENSHOT_PW_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Mobile Android Web")
     @Feature(value = "0. TV_channels")
     @Story(value = "1. Section_TV")
