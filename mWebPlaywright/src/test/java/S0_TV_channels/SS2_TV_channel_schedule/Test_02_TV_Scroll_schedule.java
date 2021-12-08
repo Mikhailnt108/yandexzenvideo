@@ -17,7 +17,8 @@ public class Test_02_TV_Scroll_schedule extends TestBasePlaywright {
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("AndroidWebPW#0")
-    public void TV_Scroll_schedule() {
-
+    public void TV_Scroll_schedule() throws InterruptedException {
+        headerMenuPW.goToTabTv();
+        tvPagePW.openCardTvChannelInRecord();
     }
 }

@@ -23,12 +23,12 @@ public class Test_01_TV_Appearance_schedule_SCREENSHOT_PW extends TestBasePlaywr
         headerMenuPW.goToTabTv();
         tvPagePW.openCardTvChannelNonRecordHd();
         cardTvChannelPW.checkElementsScheduleNonRecordedTv();
-        cardTvChannelPW.checkImageCardTvChannelNonRecorded();
-        tvPagePW.checkImageFooterMWEB();
+//        cardTvChannelPW.checkImageCardTvChannelNonRecorded();
+//        tvPagePW.checkImageFooterMWEB();
         headerMenuPW.goToTabTv();
         tvPagePW.openCardTvChannelInRecord();
         cardTvChannelPW.checkElementsScheduleRecordedTv();
-        cardTvChannelPW.checkImageCardTvChannelRecorded();
-        tvPagePW.checkImageFooterMWEB();
+//        cardTvChannelPW.checkImageCardTvChannelRecorded();
+//        tvPagePW.checkImageFooterMWEB();
     }
 }

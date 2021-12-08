@@ -213,29 +213,23 @@ public class CardTvChannelPW extends BasePagePlaywright {
         page.click("(//div[contains(@class,'QZwrBDUP5ZmIJsZL6bopi')])[1]");
     }
     public void checkElementsScheduleNonRecordedTv() {
-        // Getting the current date and time
-        Date currentDate = new Date();
+//        // Getting the current date and time
+//        Date currentDate = new Date();
 
-
-        // Creating simple date formatter to 24 hours
-        SimpleDateFormat formatter = new SimpleDateFormat("kk:mm");
-
-        // getting the time in 24 hours format
-        String timeIn24Hours = formatter.format(currentDate);
+//        // Creating simple date formatter to 24 hours
+//        SimpleDateFormat formatter = new SimpleDateFormat("kk:mm");
+//
+//        // getting the time in 24 hours format
+//        String timeIn24Hours = formatter.format(currentDate);
 
         LocalTime currentTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
         System.out.println(currentTime);
-//        page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]/following::a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')][1]").scrollIntoViewIfNeeded();
         LocalTime afterTime = LocalTime.parse(page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]/following::a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')][1]").innerText());
-        LocalTime afterTimeFormat24 = LocalTime.parse(formatter.format(afterTime));
-
-        System.out.println(afterTimeFormat24);
+        System.out.println(afterTime.format(DateTimeFormatter.ofPattern("HH:mm")));
         LocalTime timeProgram = LocalTime.parse(page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").innerText());
-        LocalTime timeProgFormat24 = LocalTime.parse(formatter.format(timeProgram));
-        System.out.println(timeProgFormat24);
         page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]");
-        System.out.println(currentTime.isAfter(timeProgFormat24) && currentTime.isBefore(afterTimeFormat24));
-        Assert.assertTrue(currentTime.isAfter(timeProgFormat24) && currentTime.isBefore(afterTimeFormat24));
+        System.out.println(currentTime.isAfter(timeProgram) && currentTime.isBefore(afterTime));
+        Assert.assertTrue(currentTime.isAfter(timeProgram) && currentTime.isBefore(afterTime));
 
         // чек элементов расписания:
         Assert.assertEquals("diff size elements", page.querySelectorAll("//div[contains(@class,'_1kXtsoTZpkqxm3UN7jrPUb')]").size(), page.querySelectorAll("//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO') and text()]").size());
@@ -245,13 +239,13 @@ public class CardTvChannelPW extends BasePagePlaywright {
         Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='_1ah0vGf3vcwuK1q9sxCb7U']/following-sibling::div[text()]").size());
         Assert.assertEquals("bug: diff size elements", 3, page.querySelectorAll("//div[@class='Cl6_9tQmsP2zIDeWDecmQ']").size());
 
-
         // чек элементов текущей передачи:
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_30m0cUyqnN7hnERn4tZUhK')]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//span[@class='L3rzdT7KYzyE1ClBQKxNL']").size()==1);
     }
 
     public void checkElementsScheduleRecordedTv() {
