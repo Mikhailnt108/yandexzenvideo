@@ -50,7 +50,7 @@ class TestBasePlaywright extends BasePagePlaywright{
             .builder()
             .apiUrl("http://192.168.1.139:4200")
             .apiKey("FHJV0S16FTMW50GT7GZR8RDJJSY0")
-            .project("MFTV_Web")
+            .project("MFTV_Web_Chrome")
             .branchName("master")
             .enableSoftAssert(false)
             .httpTimeoutInSeconds(60)
@@ -81,7 +81,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     void launchBrowser() {
         playwright = Playwright.create();
         browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--start-maximized")));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
     }
     @AfterAll
     void closeBrowser() {
@@ -126,7 +126,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         sportPagePW = new SportPagePW(page, backend);
         authPagePW = new AuthPagePW(page, frontend);
         promoCodePW = new PromoCodePW(page, frontend, backend);
-//        vrt.start();
+        vrt.start();
 //        Robot bot = new Robot();
 //        bot.mouseMove(0, 0);
     }
@@ -134,6 +134,6 @@ class TestBasePlaywright extends BasePagePlaywright{
     @AfterEach
     void closeContext() throws IOException, InterruptedException {
         contextIncognitoModeHeadless.close();
-//        vrt.stop();
+        vrt.stop();
     }
 }

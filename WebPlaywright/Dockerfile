@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright/java:v1.17.0-focal
+FROM mcr.microsoft.com/playwright/java:v1.17.2-focal
 
 WORKDIR /AutoSmoke_MFTV/WebPlaywright
 
