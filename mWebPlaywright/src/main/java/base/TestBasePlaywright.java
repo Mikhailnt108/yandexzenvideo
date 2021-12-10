@@ -18,8 +18,8 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public //@ExtendWith(TestRailReportExtension.class)
-class TestBasePlaywright extends BasePagePlaywright{
+//@ExtendWith(TestRailReportExtension.class)
+public class TestBasePlaywright extends BasePagePlaywright{
     public Playwright playwright;
     public Browser browserIncognitoModeHeadless;
     public static Browser browserIncognitoModeHeadfull;
@@ -49,8 +49,8 @@ class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://192.168.1.139:4200")
-            .apiKey("FHJV0S16FTMW50GT7GZR8RDJJSY0")
-            .project("MFTV_Web")
+            .apiKey("237DS2GDAZ4F8CPMFHDFACFZEA36")
+            .project("MFTV_mWeb_Android_Chrome")
             .branchName("master")
             .enableSoftAssert(false)
             .httpTimeoutInSeconds(60)
@@ -82,13 +82,14 @@ class TestBasePlaywright extends BasePagePlaywright{
         playwright = Playwright.create();
         browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setChannel("chrome")
-                .setHeadless(false)
+                .setHeadless(true)
                 .setArgs(Arrays.asList("--disable-dev-shm-usage"))
                 .setArgs(Arrays.asList("--whitelisted-ips")));
         browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setChannel("chrome")
                 .setHeadless(true)
-                .setArgs(Arrays.asList("--start-maximized")));
+                .setArgs(Arrays.asList("--disable-dev-shm-usage"))
+                .setArgs(Arrays.asList("--whitelisted-ips")));
     }
     @AfterAll
     void closeBrowser() {
@@ -105,14 +106,14 @@ class TestBasePlaywright extends BasePagePlaywright{
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
 //                .setUserAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1")
                 .setUserAgent("Mozilla/5.0 (Linux; Android 10; HRY-LX1T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36")
-                .setViewportSize(360, 640)
+                .setViewportSize(360, 640) // смартфорн
                 .setIsMobile(true)
                 .setHasTouch(true));
 //                .setViewportSize(1360, 760));  // ноутбук
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
 //               .setUserAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1")
                 .setUserAgent("Mozilla/5.0 (Linux; Android 10; HRY-LX1T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36")
-                .setViewportSize(360, 640)
+                .setViewportSize(360, 640) // смартфон
                 .setIsMobile(true)
                 .setHasTouch(true));
         contextIncognitoModeHeadless.clearCookies();
@@ -140,7 +141,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         sportPagePW = new SportPagePW(page, backend);
         authPagePW = new AuthPagePW(page, frontend);
         promoCodePW = new PromoCodePW(page, frontend, backend);
-//        vrt.start();
+        vrt.start();
 //        Robot bot = new Robot();
 //        bot.mouseMove(0, 0);
     }
@@ -148,6 +149,6 @@ class TestBasePlaywright extends BasePagePlaywright{
     @AfterEach
     void closeContext() throws IOException, InterruptedException {
         contextIncognitoModeHeadless.close();
-//        vrt.stop();
+        vrt.stop();
     }
 }

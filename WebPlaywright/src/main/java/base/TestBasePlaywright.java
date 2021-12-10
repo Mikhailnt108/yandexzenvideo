@@ -49,7 +49,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://192.168.1.139:4200")
-            .apiKey("FHJV0S16FTMW50GT7GZR8RDJJSY0")
+            .apiKey("237DS2GDAZ4F8CPMFHDFACFZEA36")
             .project("MFTV_Web_Chrome")
             .branchName("master")
             .enableSoftAssert(false)
@@ -80,7 +80,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeAll
     void launchBrowser() {
         playwright = Playwright.create();
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
+        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
         browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
     }
     @AfterAll

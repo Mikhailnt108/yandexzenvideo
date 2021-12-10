@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "AndroidWebPW#0", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "AndroidWebPW#1Test", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_TV_Payment_filter_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Mobile Android Web")
     @Feature(value = "0. TV_channels")
@@ -16,7 +16,7 @@ public class Test_03_TV_Payment_filter_DONE extends TestBasePlaywright {
     @DisplayName(value = "TV_Payment_filter")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("AndroidWebPW#1")
+    @Tag("AndroidWebPW#1Test")
     public void TV_Payment_filter() throws InterruptedException {
         headerMenuPW.goToTabTv();
         flowRegistationMF();

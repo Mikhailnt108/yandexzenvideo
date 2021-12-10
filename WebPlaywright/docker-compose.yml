@@ -82,6 +82,6 @@ services:
       context: C:\QA_AUTOMATION\AutoSmoke_MFTV
 #      dockerfile: /builds/qa/AutoSmoke_MFTV/WebPlaywright/Dockerfile
       dockerfile: C:\QA_AUTOMATION\AutoSmoke_MFTV\WebPlaywright\Dockerfile
-    image: tests_playwright
-    container_name: tests_run_playwright
+    image: web_tests_playwright
+    container_name: web_tests_run_playwright
     network_mode: "host"
