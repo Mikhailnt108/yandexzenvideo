@@ -51,17 +51,24 @@ public class TestBaseWebDriver {
     public PersonalOffer personalOffer;
     public RatingPage ratingPage;
     public PaymentContent paymentContent;
-    public String frontend = "https://web-preprod6.megafon.tv/";
-    public String backend = "https://bmp-preprod6.megafon.tv/";
+    public String frontend = "https://web-preprod7.megafon.tv/";
+    public String backend = "https://bmp-preprod7.megafon.tv/";
+
+    public String numberBankCard = "4847 0000 6602 5312";
+    public String dataValidity = "12 / 25";
+    public String codeCVV = "258";
+
     public final String USER_NAME = "bmp";
     public final String PASSWORD = "bmp";
-    public final String URL = "jdbc:postgresql://10.236.24.176:5432/bmp";
+    public static final String PP3 = "jdbc:postgresql://10.236.24.176:5432/bmp";
+    public static final String PP6 = "jdbc:postgresql://10.236.24.196:5432/bmp";
+    public static final String PP7 = "jdbc:postgresql://10.236.24.197:5432/bmp";
     public Statement statement;
     public Connection connection;
 
     {
         try {
-            connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
+            connection = DriverManager.getConnection(PP7,USER_NAME,PASSWORD);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new RuntimeException();
@@ -110,7 +117,7 @@ public class TestBaseWebDriver {
         cardSerial = new CardSerial(webDriver, frontend, backend);
         serialsPage = new SerialsPage(webDriver, frontend, backend);
         packagesPage = new PackagesPage(webDriver);
-        cardPackage = new CardPackage(webDriver, frontend, backend);
+        cardPackage = new CardPackage(webDriver, frontend, backend, numberBankCard, dataValidity, codeCVV);
         cardTvChannel = new CardTvChannel(webDriver);
         cardTvProgram = new CardTvProgram(webDriver, frontend, backend);
         pageCMS = new PageCMS(webDriver, frontend, backend);

@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/playwright/java:v1.17.2-focal
 
-WORKDIR /AutoSmoke_MFTV/mWebPlaywright
+WORKDIR /autosmoke_mftv_web_and_mobile_web/mWebPlaywright
 
 COPY . .
 
-RUN cd /AutoSmoke_MFTV/mWebPlaywright
+RUN cd /autosmoke_mftv_web_and_mobile_web/mWebPlaywright
 # Install node14
 
 RUN apt-get update && apt-get install -y curl && \

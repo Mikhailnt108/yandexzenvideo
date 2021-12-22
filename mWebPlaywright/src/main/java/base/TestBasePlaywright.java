@@ -18,8 +18,10 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+
 //@ExtendWith(TestRailReportExtension.class)
 public class TestBasePlaywright extends BasePagePlaywright{
+
     public Playwright playwright;
     public Browser browserIncognitoModeHeadless;
     public static Browser browserIncognitoModeHeadfull;
@@ -44,12 +46,12 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
-    public String frontend = "https://web-preprod6.megafon.tv/";
-    public String backend = "https://bmp-preprod6.megafon.tv/";
+    public String frontend = "https://web-preprod7.megafon.tv/";
+    public String backend = "https://bmp-preprod7.megafon.tv/";
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://192.168.1.139:4200")
-            .apiKey("237DS2GDAZ4F8CPMFHDFACFZEA36")
+            .apiKey("GVDZMJKMBM4D5BNMZN57AEBVBKM0")
             .project("MFTV_mWeb_Android_Chrome")
             .branchName("master")
             .enableSoftAssert(false)
@@ -57,13 +59,15 @@ public class TestBasePlaywright extends BasePagePlaywright{
             .build());
     public static final String USER_NAME = "bmp";
     public static final String PASSWORD = "bmp";
-    public static final String URL = "jdbc:postgresql://10.236.24.176:5432/bmp";
+
+    public static final String PP3 = "jdbc:postgresql://10.236.24.176:5432/bmp";
+    public static final String PP6 = "jdbc:postgresql://10.236.24.196:5432/bmp";
+    public static final String PP7 = "jdbc:postgresql://10.236.24.197:5432/bmp";
     public Statement statement;
     public Connection connection;
-
     {
         try {
-            connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
+            connection = DriverManager.getConnection(PP7,USER_NAME,PASSWORD);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new RuntimeException();

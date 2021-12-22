@@ -1,4 +1,4 @@
-package S0_TV_channels.SS1_Section_TV;
+package S0_TV_channels.SS1_Section_TV_DONE;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;

@@ -79,9 +79,9 @@ services:
   test_runner:
     build:
 #      context: /builds/qa/AutoSmoke_MFTV
-      context: C:\QA_AUTOMATION\AutoSmoke_MFTV
+      context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
 #      dockerfile: /builds/qa/AutoSmoke_MFTV/WebPlaywright/Dockerfile
-      dockerfile: C:\QA_AUTOMATION\AutoSmoke_MFTV\mWebPlaywright\Dockerfile
+      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\mWebPlaywright\Dockerfile
     image: mweb_tests_playwright
     container_name: mweb_tests_run_playwright
     network_mode: "host"

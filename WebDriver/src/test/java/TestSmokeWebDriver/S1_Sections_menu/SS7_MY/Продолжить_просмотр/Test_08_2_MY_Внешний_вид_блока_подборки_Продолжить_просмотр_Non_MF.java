@@ -24,8 +24,7 @@ public class Test_08_2_MY_Внешний_вид_блока_подборки_Пр
         headerMenu.goToPackagesPage();
         flowRegistationNonMF();
         packagesPage.clickToTailCardPackageKinoPoPodpiske();
-//        cardPackage.paymentPackageTnBForNonMfTestBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
-        cardPackage.paymentPackageTnBForNonMfRealBankCardNotLinked("5106 2110 1024 3900","08 / 22","573"); // боевая банк карта);
+        cardPackage.paymentPackageTnBForNonMfBankCardNotLinked();
         cardPackage.clickToTabSerials();
         cardPackage.clickToFirstTailCardSerial();
         cardSerial.moveSliderRewindToVideoPlayer();

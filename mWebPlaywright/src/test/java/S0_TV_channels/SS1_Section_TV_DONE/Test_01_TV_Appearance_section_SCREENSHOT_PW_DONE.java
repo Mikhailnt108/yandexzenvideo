@@ -1,4 +1,4 @@
-package S0_TV_channels.SS1_Section_TV;
+package S0_TV_channels.SS1_Section_TV_DONE;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -8,22 +8,29 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+//@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "AndroidWebPW#1Test", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_TV_Payment_filter_DONE extends TestBasePlaywright {
+public class Test_01_TV_Appearance_section_SCREENSHOT_PW_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Mobile Android Web")
     @Feature(value = "0. TV_channels")
     @Story(value = "1. Section_TV")
-    @DisplayName(value = "TV_Payment_filter")
+    @DisplayName(value = "TV_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("AndroidWebPW#1Test")
-    public void TV_Payment_filter() throws InterruptedException {
+    public void TV_Appearance_section_SCREENSHOT() throws Exception {
+        headerMenuPW.checkNotLoggedIsCorrectMWEB();
         headerMenuPW.goToTabTv();
+        tvPagePW.checkElementsTvPageGuest();
+        tvPagePW.scrollDownPageAndCheckFooter();
+        tvPagePW.checkImageTvPageForGuestMWEB();
+        tvPagePW.checkImageFooterMWEB();
         flowRegistationMF();
         headerMenuPW.goToTabTv();
-        tvPagePW.clickOnPaymentFilter();
-        tvPagePW.chooseFilterAvailableTvChannels();
-        tvPagePW.chooseFilterAllTvChannels();
+        tvPagePW.checkElementsTvPageUser();
+        tvPagePW.scrollDownPageAndCheckFooter();
+        tvPagePW.checkImageTvPageForUserMWEB();
+        tvPagePW.checkImageFooterMWEB();
     }
     private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.clickToProfile();

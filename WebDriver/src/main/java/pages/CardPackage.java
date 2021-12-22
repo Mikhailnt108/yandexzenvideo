@@ -10,7 +10,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CardPackage extends BasePageWebDriver {
     private String frontend;
     private String backend;
-    public CardPackage(WebDriver webDriver, String frontend, String backend) {
+    private String numberBankCard;
+    private String dataValidity;
+    private String codeCVV;
+
+    public CardPackage(WebDriver webDriver, String frontend, String backend, String numberBankCard, String dataValidity, String codeCVV) {
         super(webDriver);
     }
 
@@ -161,20 +165,6 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
     }
 
-    public void paymentPackageTnBForNonMfTestBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
-        click(By.xpath("//span[contains(text(),'Подключить бесплатно на')]"));
-        isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
-        click(By.xpath("//button[text()='Добавить и подключить']"));
-        isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
-        writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
-        writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
-        writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
-        click(By.xpath("//span[text()='Подключить сервис']|//span[text()='Подключить пакет']"));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Подключение выполнено успешно']")));
-        isElementDisplayed(By.xpath("//h3[text()='Подключение выполнено успешно']"));
-        click(By.xpath("//button[text()='Закрыть']"));
-    }
-
     public void paymentPackageSubsNForNonMFBankCardLinked() throws InterruptedException {
         click(By.xpath("//span[contains(text(), 'Подключить за')]"));
         isElementDisplayed(By.xpath("//h1[text()='Выберите способ оплаты']"));
@@ -230,15 +220,6 @@ public class CardPackage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[text()='Отменить']"));
     }
 
-    public void inputDataTestBankCard(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
-        isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
-        writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
-        writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
-        writeText(By.xpath("//input[@placeholder='Код безопасности']"), codeCVV);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Подключить сервис']")));
-        click(By.xpath("//span[text()='Подключить сервис']"));
-    }
-
     public void checkElementsPopUpSubsPromoPackageForMF() {
         isElementDisplayed(By.className("-VvyK7e3vEyvzulLP4eYQ"));
         isElementDisplayed(By.className("_1bciqjt58pgm0il2tiJTtp"));
@@ -279,7 +260,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void paymentPackageSubsNForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
+    public void paymentPackageSubsNForNonMFBankCardNotLinked() throws InterruptedException {
         click(By.xpath("//span[contains(text(), 'Подключить за')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
         click(By.xpath("//button[text()='Подтвердить' or text()='Добавить и подключить']"));
@@ -321,8 +302,7 @@ public class CardPackage extends BasePageWebDriver {
         jsDown.executeScript("window.scrollTo(0, 200);");
     }
 
-
-    public void paymentPackageTnBForNonMfRealBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
+    public void paymentPackageTnBForNonMfBankCardNotLinked() throws InterruptedException {
         click(By.xpath("//span[contains(text(),'Подключить бесплатно на')]"));
         isElementDisplayed(By.xpath("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]"));
         click(By.xpath("//button[text()='Добавить и подключить']"));
@@ -336,7 +316,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("//button[text()='Закрыть']"));
     }
 
-    public void inputDataRealBankCard(String numberBankCard, String dataValidity, String codeCVV) throws InterruptedException {
+    public void inputDataBankCard() throws InterruptedException {
         isElementDisplayed(By.xpath("//h3[text()=' Привязать банковскую карту']"));
         writeText(By.xpath("//input[@placeholder='Номер карты']"), numberBankCard);
         writeText(By.xpath("//input[@placeholder='Срок действия']"), dataValidity);
@@ -344,4 +324,5 @@ public class CardPackage extends BasePageWebDriver {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Подключить сервис']")));
         click(By.xpath("//span[text()='Подключить сервис']"));
     }
+
 }

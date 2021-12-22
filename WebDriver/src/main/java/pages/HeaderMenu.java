@@ -7,23 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class HeaderMenu extends BasePageWebDriver {
     private String frontend;
     private String backend;
-    //ПП3
-    String NIL_Page_PP3 = "https://web-preprod3.megafon.tv/";
-    String TV_Page_PP3 = "https://web-preprod3.megafon.tv/tv/";
-    String Films_Page_PP3 = "https://web-preprod3.megafon.tv/movies/vods";
-    String Serials_Page_PP3 = "https://web-preprod3.megafon.tv/shows";
-    String Kids_Page_PP3 = "https://web-preprod3.megafon.tv/kids";
-    String Sport_Page_PP3 = "https://web-preprod3.megafon.tv/sport";
-    String Packages_Page_PP3 = "https://web-preprod3.megafon.tv/packages";
-    String Collections_Page_PP3 = "https://web-preprod3.megafon.tv/collection";
-    String CMS_PP3_URL1 = "https://mc2soft:wkqKy2sWwBGFDR@bmp-preprod3.megafon.tv/cms/households?role=user";
-    String Promo_Page_PP3 = "https://web-preprod3.megafon.tv/profile/promotions";
 
     public HeaderMenu(WebDriver webDriver, String frontend, String backend) {
         super(webDriver);
@@ -78,9 +66,6 @@ public class HeaderMenu extends BasePageWebDriver {
             // Opens a new window and switches to new window
             String onlyPreprod = backend.substring(8);
             webDriver.get("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-//            ((JavascriptExecutor) webDriver).executeScript("window.open('url')");
-//            ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
-//            webDriver.switchTo().window((String) tabs2.get(1));
             click(By.xpath("//form[@method='GET']//input[1]"));
             writeText(By.xpath("//form[@method='GET']//input[1]"), login);
             click(By.xpath("//button[text()='Поиск']"));
@@ -93,7 +78,6 @@ public class HeaderMenu extends BasePageWebDriver {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Список хаусхолдов']")));
             webDriver.close();
             webDriver.switchTo().window(oldTab);
-//            webDriver.switchTo().window((String) tabs2.get(0));
             webDriver.navigate().refresh();
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));
@@ -946,7 +930,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void goToPromoPage() {
-        webDriver.get(Promo_Page_PP3);
+        webDriver.get(frontend+"profile/promotions");
     }
 
     public void inputPassword(String password) {

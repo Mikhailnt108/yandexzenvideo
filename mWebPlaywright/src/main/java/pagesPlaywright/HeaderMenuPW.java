@@ -742,4 +742,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
 //        page.keyboard().press("Escape");
         sleep(5000);
     }
+
+    public void checkNotLoggedIsCorrectMWEB() {
+        page.waitForSelector("//div[text()='Профиль']");
+        page.click("//div[text()='Профиль']");
+        page.waitForSelector("//div[text()='Вход или регистрация']");
+    }
 }
