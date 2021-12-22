@@ -5,9 +5,15 @@ import com.microsoft.playwright.Page;
 
 public class CardPackagePW extends BasePagePlaywright {
     private Page page;
+    private String numberBankCard;
+    public String dataValidity;
+    public String codeCVV;
 
-    public CardPackagePW(Page page) {
+    public CardPackagePW(Page page, String numberBankCard, String dataValidity, String codeCVV) {
         this.page = page;
+        this.numberBankCard = numberBankCard;
+        this.dataValidity = dataValidity;
+        this.codeCVV = codeCVV;
     }
 
     public void checkOpenCardPackage() {
@@ -46,7 +52,7 @@ public class CardPackagePW extends BasePagePlaywright {
         page.click("(//a[@class='_8m5mByCjTuND14zuGKagi'])[3]");
     }
 
-    public void paymentPackageTnBForNonMFBankCardNotLinked(String numberBankCard, String dataValidity, String codeCVV) {
+    public void paymentPackageTnBForNonMFBankCardNotLinked() {
         page.click("//span[contains(text(), 'Подключить бесплатно')]");
         page.waitForSelector("//h3[contains(text(), 'Подписка на пакет') or contains(text(), 'Подписка на сервис')]");
         page.click("//button[text()='Подтвердить' or text()='Добавить и подключить']");

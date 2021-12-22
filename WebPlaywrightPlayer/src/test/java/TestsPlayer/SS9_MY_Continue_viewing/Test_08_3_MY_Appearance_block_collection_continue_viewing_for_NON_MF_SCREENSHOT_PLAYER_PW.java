@@ -57,16 +57,14 @@ public class Test_08_3_MY_Appearance_block_collection_continue_viewing_for_NON_M
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 118 49 72");
+        authPagePW.inputLoginAdWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPopUpInputEmail("+7 926 118 49 72");
-        headerMenuPW.checkInputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
+        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
-        authPagePW.inputValidPasswordRegister("111111");
-        authPagePW.inputValidPasswordRegister("111111");
-        headerMenuPW.clickToComeIn("Войти");
-        headerMenuPW.copyPasteCodMsisdnForNonMF("79261184972");
+        headerMenuPW.checkOpenPopUpInputCode();
+        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
+        headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }
 }

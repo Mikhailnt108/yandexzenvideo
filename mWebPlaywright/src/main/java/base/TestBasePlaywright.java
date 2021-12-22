@@ -48,6 +48,9 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public PromoCodePW promoCodePW;
     public String frontend = "https://web-preprod7.megafon.tv/";
     public String backend = "https://bmp-preprod7.megafon.tv/";
+    public String numberBankCard = "4847 0000 6602 5312";
+    public String dataValidity = "12 / 25";
+    public String codeCVV = "258";
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://192.168.1.139:4200")
@@ -139,7 +142,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
         promoPagePW = new PromoPagePW(page, frontend, backend);
         personalOfferPW = new PersonalOfferPW(page, backend);
         packagesPagePW = new PackagesPagePW(page);
-        cardPackagePW = new CardPackagePW(page);
+        cardPackagePW = new CardPackagePW(page, numberBankCard, dataValidity, codeCVV);
         cardTvChannelPW = new CardTvChannelPW(page);
         preconditionPW = new PreconditionPW(page, statement, frontend, backend);
         sportPagePW = new SportPagePW(page, backend);
