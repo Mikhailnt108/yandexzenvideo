@@ -39,15 +39,15 @@ public class Test_04_2_PROMO_Personal_offer_SCREENSHOT_PW extends TestBasePlaywr
     }
     private void flowRegistation() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
         authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

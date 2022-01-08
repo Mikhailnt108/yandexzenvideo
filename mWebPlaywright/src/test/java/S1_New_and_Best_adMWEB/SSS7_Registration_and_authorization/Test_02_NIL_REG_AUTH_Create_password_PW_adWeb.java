@@ -21,18 +21,18 @@ public class Test_02_NIL_REG_AUTH_Create_password_PW_adWeb extends TestBasePlayw
     @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Create_password() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
-        authPagePW.inputLoginAdmWeb("+7 926 001 01 01");
+        authPagePW.inputLoginAdMWeb("+7 926 001 01 01");
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
         authPagePW.checkElementsPageAuthFormCreatePassword();
         authPagePW.clickOnButtonBackAndCheckOpenFormInputPhone();
-        authPagePW.inputLoginAdmWeb("+7 926 001 01 01");
+        authPagePW.inputLoginAdMWeb("+7 926 001 01 01");
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
         authPagePW.clickOnOffertaAndCheckOpenDoc();
         headerMenuPW.goToNilPage();
-        headerMenuPW.clickToProfile();
-        authPagePW.inputLoginAdmWeb("+7 926 001 01 01");
+        headerMenuPW.tapOnProfileNonAdWeb();
+        authPagePW.inputLoginAdMWeb("+7 926 001 01 01");
         authPagePW.clickOnButtonNextAndCheckOpenFormCreatePassword();
         authPagePW.inputPasswordRegisterLessThanSixSimbol("111");
         authPagePW.unCheckBoxAndInputPasswordSixSimbols("111111");

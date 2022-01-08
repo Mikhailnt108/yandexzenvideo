@@ -48,15 +48,15 @@ public class Test_01_NIL_COLLECTIONS_Editorial_collections_PW_adWeb extends Test
 
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
-        authPagePW.inputLoginAdmWeb("+7 926 019 21 44");
-        headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
-        headerMenuPW.clickToNext();
+        authPagePW.inputLoginAdMWeb("+7 926 019 21 44");
+        headerMenuPW.tapToNextNonAdWeb();
+        headerMenuPW.checkOpenPageCreatePasswordAdMWebFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.copyPasteCodMsisdnForAdMWeb("79260192144");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260192144");
     }

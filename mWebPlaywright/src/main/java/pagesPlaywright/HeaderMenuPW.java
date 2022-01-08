@@ -5,7 +5,7 @@ import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.MouseButton;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
-import java.awt.*;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
@@ -45,18 +45,18 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.querySelector("(//span[text()='Вход'])[1]");
     }
 
-    public void clickToProfile() {
+    public void tapOnProfileNonAdWeb() {
          page.waitForSelector("//div[text()='Профиль']");
-         page.click("//div[text()='Профиль']");
+         page.tap("//div[text()='Профиль']");
          page.waitForSelector("//div[text()='Вход или регистрация']");
-         page.click("//div[text()='Вход или регистрация']");
+         page.tap("//div[text()='Вход или регистрация']");
     }
 
-    public void clickToNext() {
+    public void tapToNextNonAdWeb() {
         page.click("//div[text()='Далее']");
     }
 
-    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
+    public void checkOpenPageCreatePasswordAdMWebFlowRegistrationMF(String login, String password) {
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
             pageCMS = contextIncognitoModeHeadless.newPage();
@@ -74,8 +74,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.close();
             page.bringToFront();
             page.reload();
-            page.querySelector("(//span[text()='Вход'])[1]");
-            page.click("(//span[text()='Вход'])[1]");
+            page.waitForSelector("//div[text()='Вход или регистрация']");
+            page.click("//a[text()='Вход или регистрация']");
             page.waitForSelector("//h1[text()='Введите номер телефона']");
             page.focus("//input[@name='phone']");
             page.fill("//input[@name='phone']", login);
@@ -88,13 +88,14 @@ public class HeaderMenuPW extends BasePagePlaywright {
         }
     }
 
-    public void checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF(String login, String password) {
+    public void checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF(String login, String password) throws InterruptedException {
         page.waitForSelector("//div[text()='Придумайте пароль']|//div[text()='Введите пароль']");
         if (page.querySelectorAll("//div[text()='Введите пароль']").size() != 0) {
             pageCMS = contextIncognitoModeHeadless.newPage();
             pageCMS.setViewportSize(1900, 920);
             String onlyPreprod = backend.substring(8);
-            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");pageCMS.click("//form[@method='GET']//input[1]");
+            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+            pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
             pageCMS.click("//button[text()='Поиск']");
             pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']");
@@ -103,6 +104,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.click("//button[text()='Удалить']");
             pageCMS.onDialog(dialog -> dialog.accept());
             pageCMS.click("//button[text()='Удалить']");
+            Thread.sleep(3000);
             pageCMS.close();
             page.bringToFront();
             page.reload();
@@ -124,15 +126,17 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.navigate(frontend);
     }
 
-    public void clickToComeIn(String buttons) {
+    public void tapToComeInNonAdMWeb(String buttons) {
         page.click("//div[text()='Войти']");
     }
-
+    public void tapToComeInAdMWeb(String buttons) {
+        page.click("//button[text()='Войти']");
+    }
     public void checkOpenPopUpInputCode() {
         page.waitForSelector("//h1[text()='Введите код']|//div[text()='Введите код']");
     }
 
-    public void copyPasteCodMsisdnForAdWeb(String login) {
+    public void copyPasteCodMsisdnForAdMWeb(String login) {
         pageCMS = contextIncognitoModeHeadless.newPage();
         pageCMS.setViewportSize(1900, 920);
         String onlyPreprod = backend.substring(8);
@@ -562,8 +566,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void logOut() {
-        page.click("(//span[contains(text(),'+79')])[2]");
-        page.click("(//span[text()='Выйти'])[1]");
+        page.waitForSelector("//div[text()='Профиль']");
+        page.tap("//div[text()='Профиль']");
+        page.tap("//span[text()='Выход']");
+        page.waitForSelector("//button//div[text()='Вход или регистрация']");
     }
     public void chooseBundleNotSelected(String login) {
         pageCMS = contextIncognitoModeHeadless.newPage();
@@ -730,22 +736,25 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.bringToFront();
     }
 
-    public void stopCarouselBanners() throws InterruptedException, AWTException {
-        sleep(3000);
+    public void stopCarouselBanners() {
+        page.waitForTimeout(5000);
         page.mouse().click(200,200, new Mouse.ClickOptions().setButton(MouseButton.RIGHT));
-//        System.setProperty("java.awt.headless", "true");
-//        Robot bot = new Robot();
-//        bot.mouseMove(200,200);
-//        bot.mousePress(InputEvent.BUTTON1_MASK);
-//        bot.mouseRelease(InputEvent.BUTTON1_MASK);
-//        bot.mouseMove(0,0);
-//        page.keyboard().press("Escape");
-        sleep(5000);
+        page.waitForTimeout(5000);
     }
 
     public void checkNotLoggedIsCorrectMWEB() {
         page.waitForSelector("//div[text()='Профиль']");
         page.click("//div[text()='Профиль']");
         page.waitForSelector("//div[text()='Вход или регистрация']");
+    }
+
+    public void tapOnProfileAdMWeb() {
+        page.tap("//span[text()='Профиль']");
+        page.waitForSelector("//a[text()='Вход или регистрация']");
+        page.tap("//a[text()='Вход или регистрация']");
+    }
+
+    public void tapToNextAdMWeb() {
+        page.tap("//button[text()='Далее']");
     }
 }

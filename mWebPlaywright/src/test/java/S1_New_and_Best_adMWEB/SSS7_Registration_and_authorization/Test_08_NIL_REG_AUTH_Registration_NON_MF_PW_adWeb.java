@@ -25,22 +25,22 @@ public class Test_08_NIL_REG_AUTH_Registration_NON_MF_PW_adWeb extends TestBaseP
     }
     private void flowRegistationNonMF() throws InterruptedException, IOException {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
-        authPagePW.inputLoginAdmWeb("+7 926 118 49 72");
-        headerMenuPW.clickToNext();
+        authPagePW.inputLoginAdMWeb("+7 926 118 49 72");
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPopUpInputEmail("+7 926 118 49 72");
         authPagePW.checkElementsPageAuthFormInputEmail();
         authPagePW.checkImagePageAuthFormInputEmail();
         authPagePW.clickOnButtonBackAndCheckOpenFormInputPhone();
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         authPagePW.checkInputInvalidEmailInFormInputEmail("mail.ru");
         headerMenuPW.checkInputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         authPagePW.inputValidPasswordRegister("111111");
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.copyPasteCodMsisdnForNonMF("79261184972");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

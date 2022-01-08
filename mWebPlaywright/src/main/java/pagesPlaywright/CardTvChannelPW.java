@@ -7,12 +7,9 @@ import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
 import java.io.IOException;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
-import java.util.Date;
 import java.util.List;
 
 import static base.TestBasePlaywright.vrt;
@@ -273,6 +270,8 @@ public class CardTvChannelPW extends BasePagePlaywright {
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size()==1);
         Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//span[@class='L3rzdT7KYzyE1ClBQKxNL']").size()==1);
+
     }
 
 
@@ -437,16 +436,85 @@ public class CardTvChannelPW extends BasePagePlaywright {
     }
 
     public void scrollScheduleRecDown() {
-        while (page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]//div[text()='сегодня']").size()==1){
+        while (page.querySelectorAll("//div[contains(@class,'_3JIMZ3_-3sPOGT1g7YUGmq')][4]/self::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq zFq1_lqy3Y9oiMPABIdTx']").size()!=1){
             page.evaluate("window.scrollBy(0, 1);");
         }
-        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][1]//div[text()='сегодня']").size()==1);
+        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'_3JIMZ3_-3sPOGT1g7YUGmq')][4]/self::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq zFq1_lqy3Y9oiMPABIdTx']").size()==1);
 
-        while (page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][1]//div[text()='сегодня']").size()==1){
+        while (page.querySelectorAll("//div[contains(@class,'_3JIMZ3_-3sPOGT1g7YUGmq')][5]/self::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq zFq1_lqy3Y9oiMPABIdTx']").size()!=1){
             page.evaluate("window.scrollBy(0, 1);");
         }
-        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'zFq1_lqy3Y9oiMPABIdTx')]/following::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq'][2]//div[text()='сегодня']").size()==1);
+        Assert.assertTrue(page.querySelectorAll("//div[contains(@class,'_3JIMZ3_-3sPOGT1g7YUGmq')][5]/self::div[@class='_3JIMZ3_-3sPOGT1g7YUGmq zFq1_lqy3Y9oiMPABIdTx']").size()==1);
 
     }
+
+    public void checkElementsPosterCurrentTvProgramSubscribeOrGuest() {
+        // чек элементов текущей передачи:
+        page.waitForSelector("//div[contains(@class,'secondaryPoster')]");
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_30m0cUyqnN7hnERn4tZUhK')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//a[@class='_30m0cUyqnN7hnERn4tZUhK']//*[@fill='#fff']").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//span[@class='L3rzdT7KYzyE1ClBQKxNL']").size()==1);
+    }
+
+    public void tapOnCurrentTvProgramRecord() {
+        page.tap("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]");
+        Assert.assertTrue("bug: not opened page /programs/", page.url().contains("/programs/"));
+    }
+
+    public void checkElementsPosterCurrentTvProgramNonSubscribe() throws InterruptedException {
+        // чек элементов текущей передачи:
+        page.waitForSelector("//div[contains(@class,'secondaryPoster')]");
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_2nbsgDk-YRyquxiD5jEpKO')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_30m0cUyqnN7hnERn4tZUhK')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//div[contains(@style,'background-image: url')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[contains(@class,'secondaryPoster')]//span[@class='L3rzdT7KYzyE1ClBQKxNL']").size()==1);
+//        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//a[@class='_1nNLUKHkEqjSZVxbjx3w8z']//*[@fill='#9B9B9B']").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//a[@class='_30m0cUyqnN7hnERn4tZUhK']//*[@fill='#fff']").size()==1);
+    }
+
+    public void checkSwitchCurrentTvProgram() throws InterruptedException {
+        page.waitForSelector("//a[@class='PaDvSJkfKmpUlUemAC5ex']");
+        for (int i = 0; i < page.querySelectorAll("//a[@class='PaDvSJkfKmpUlUemAC5ex']").size(); i++) {
+            page.waitForSelector("//a[@class='PaDvSJkfKmpUlUemAC5ex']");
+            List<ElementHandle> tv = page.querySelectorAll("//a[@class='PaDvSJkfKmpUlUemAC5ex']");
+            tv.get(i).tap();
+            Assert.assertTrue("bug: not opened page /channels/", page.url().contains("/channels/"));
+            System.out.println(page.waitForSelector("//span[@class='L3rzdT7KYzyE1ClBQKxNL']").getAttribute("style"));
+            String style = page.waitForSelector("//span[@class='L3rzdT7KYzyE1ClBQKxNL']").getAttribute("style");
+            String widthBarText = style.substring(7,style.indexOf("%"));
+            System.out.println("текст: "+widthBarText);
+            int widthBarInt = Integer.parseInt(widthBarText);
+            System.out.println("число: "+widthBarInt);
+            if(widthBarInt>=90){
+                String nextProgram = page.waitForSelector("//div[contains(@class,'secondaryPoster')]/following::a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW')][1]").innerText();
+                Thread.sleep(300000);
+                Assert.assertEquals("not diff name current program", nextProgram, page.waitForSelector("//div[contains(@class,'secondaryPoster')]//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW')]").innerText());
+                break;
+            }
+            page.goBack();
+            Thread.sleep(3000);
+        }
+    }
+
+    public void tapOnLastProgram() {
+        page.waitForSelector("(//div[contains(@class,'secondaryPoster')]/preceding-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'])[last()]");
+        String nameLastProgram = page.waitForSelector("(//div[contains(@class,'secondaryPoster')]/preceding-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb']//a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW')])[last()]").innerText();
+        page.tap("(//div[contains(@class,'secondaryPoster')]/preceding-sibling::div[@class='_1kXtsoTZpkqxm3UN7jrPUb'])[last()]");
+        Assert.assertEquals("diff name program", page.waitForSelector("//h1").innerText(), nameLastProgram);
+    }
+
+    public void tapOnNextProgram() {
+        page.waitForSelector("//div[contains(@class,'secondaryPoster')]/following::a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW')][1]");
+        String nameNextProgram = page.waitForSelector("//div[contains(@class,'secondaryPoster')]/following::a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW')][1]").innerText();
+        page.tap("//div[contains(@class,'secondaryPoster')]/following::a[contains(@class,'_3PEf1_q_VA09pRAKJq-lNW')][1]");
+        Assert.assertEquals("diff name program", page.waitForSelector("//h1").innerText(), nameNextProgram);
+
+        }
 }
 

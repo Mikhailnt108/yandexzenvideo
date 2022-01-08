@@ -7,6 +7,7 @@ import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.Base64;
 import java.util.List;
 
@@ -22,90 +23,62 @@ public class CardTvProgramPW extends BasePagePlaywright {
         this.frontend = frontend;
     }
 
-    public void checkImageCardTvProgramForGuestMWEB() throws IOException, InterruptedException {
-        page.navigate(frontend +"tv");
-        page.waitForSelector("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
-        page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
-        page.waitForSelector("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
-        page.click("(//div[@class='_16fO5taSmblh91J9Prw7TV'])[1]");
-        page.waitForSelector("._1nAXLMkHN0PXnwvulfBvK0");
-        page.click("._1nAXLMkHN0PXnwvulfBvK0");
+    public void checkImageCardCurrentTvProgramForGuest() throws IOException, InterruptedException {
         // подготовка видимой части страницы "CardTvProgram" к скриншот-тесту:
-        page.waitForSelector("(//span[@itemprop='name'])[4]");
-        ElementHandle nameTvChannelCrumbs = page.querySelector("(//span[@itemprop='name'])[3]");
-        page.evaluate("n => n.innerText='Название канала'", nameTvChannelCrumbs);
-        ElementHandle nameTvProgramCrumbs = page.querySelector("(//span[@itemprop='name'])[4]");
-        page.evaluate("n => n.innerText='Название передачи'", nameTvProgramCrumbs);
+        page.waitForSelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _17D0GCdbbIdXkUxy-YT76O' and contains(@style,'url')]");
+        ElementHandle imgTvProgram = page.querySelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _17D0GCdbbIdXkUxy-YT76O' and contains(@style,'url')]");
+        page.evaluate("i => i.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/e7/fa/90062b0e28545455fb4c14768bb78c86318c/poster__aphone-xxhdpi.webp)')", imgTvProgram);
 
-        ElementHandle imgTvChannel = page.querySelector("._3lvyrUkaGN_QANJMIvjX5c");
-        page.evaluate("i => i.setAttribute('src', 'https://static-sesure.cdn.megafon.tv/images/Channel/7f/4e/62d9c9b6d708dcaf23d41a28c8b9b4b699a1/logo_tv_guide__web-wp.png')", imgTvChannel);
+        ElementHandle nameTvProgram = page.querySelector("//h1[text()]");
+        page.evaluate("nP => nP.innerText='Название передачи'", nameTvProgram);
 
-        ElementHandle nameTvChannel = page.querySelector("//h1[@class='_1v_D6wOANknQeJMBPo_rKK']");
-        page.evaluate("nC => nC.innerText='Название передачи'", nameTvChannel);
-
-        ElementHandle genres = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[1]");
-        page.evaluate("d => d.innerText='Сегодня, 00:00, 18+'", genres);
-
-        ElementHandle dateTimeAge = page.querySelector("(//div[@class='_364E2xRe8IGMOTfCluwbl2'])[2]");
-        page.evaluate("g => g.innerText='Познавательные, HD, В записи'", dateTimeAge);
-
-        ElementHandle nameTvProgram = page.querySelector("//a[@class='_1nAXLMkHN0PXnwvulfBvK0']");
-        page.evaluate("nP => nP.innerText='Название канала'", nameTvProgram);
-
-        ElementHandle agePoster = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN'])[2]");
+        ElementHandle agePoster = page.querySelector("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN' and text()])[2]");
         page.evaluate("aP => aP.innerText='18+'", agePoster);
 
-        ElementHandle posterTvProgram = page.querySelector("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2FslsQhbQ8YUGzqjYdejYu']");
-        page.evaluate("pP => pP.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/c8/f9/65467a9cb1db598036537f85514828af0b0d/secondary_poster__web-wp.webp);')", posterTvProgram);
+        ElementHandle progressBar = page.querySelector("//span[@class='L3rzdT7KYzyE1ClBQKxNL' and contains(@style,'background-color')]");
+        page.evaluate("i => i.setAttribute('style', 'width: 50%; height: 3px; background-color: var(--color-base);')", progressBar);
 
-        ElementHandle descriptionTvProgram = page.querySelector("//div[@class='_3DKCWpmCv7Gf2hQA0mQQ2g']");
-        page.evaluate("dP => dP.innerText='Канал находится на острие научного и технологического поиска, рассказывает об изобретениях, показывая, как наука воздействует на нашу жизнь. Охватывается весь спектр научных интересов – от изучения нашей Вселенной до практической науки вокруг нас.'", descriptionTvProgram);
-        ElementHandle descriptionTvChannel = page.querySelector("//div[contains(@class,'_3DKCWpmCv7Gf2hQA0mQQ2g _2Ky-vuB268MfKpaMD8X9K6')]");
-        page.evaluate("dP => dP.innerText='С помощью последних научных данных и потрясающей трёхмерной компьютерной графики вы проникнете внутрь звёзд, планет и галактик и исследуете тайны происхождения и будущего Вселенной.'", descriptionTvChannel);
+        ElementHandle dayTimeNameChannel = page.querySelector("//div[@class='_2xMMkjxj45XkX1x1g8ZxMm']//div[contains(text(),'Сегодня') or contains(text(),'Вчера')]");
+        page.evaluate("d => d.innerText='Сегодня, 00:00, Название канала'", dayTimeNameChannel);
 
-        ElementHandle text1SubscribeButton = page.waitForSelector("(//button//span[@class='_1Kps2hNPLZGQ3H2Sf5NYID']//span)[1]");
-        page.evaluate("t1B => t1B.innerText='Подключить бесплатно на 21 день'", text1SubscribeButton);
+        ElementHandle description = page.querySelector("//span[contains(@class,'_3mmoBhU2y-bKK_rbQlrtvM') and text()]");
+        page.evaluate("g => g.innerText='Фильм посвящен первым шагам человечества на пути освоения космоса и непосредственно " +
+                "судьбе первого космонавта Ю. А. Гагарина. Основной лейтмотив - борьба за право быть первым: соревнование в первом отряде космонавтов; " +
+                "конкуренция технологий в ракетостроении; противостояние сверхдержав - СССР и США. В первый отряд космонавтов отбирали из трёх тысяч " +
+                "летчиков-истребителей по всей стране. В легендарную двадцатку попали лучшие из лучших. Кто из них полетит первым, не знал никто. " +
+                "На этом пути пришлось бороться не только с земным притяжением...'", description);
 
-        ElementHandle text2SubscribeButton = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]//div[text()]");
-        page.evaluate("t2B => t2B.innerText='В пакете «Основной+»'", text2SubscribeButton);
-
-        ElementHandle text1SubscribeButtonSecond = page.querySelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _3f0wpWSLNwEn9_twVy01wx')]");
-        text1SubscribeButtonSecond.evaluate("tBS => tBS.innerText='Другие варианты'");
-
-        ElementHandle dayAgo = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[1]");
-        page.evaluate("dA => dA.innerText='Вс, 1'", dayAgo);
-
-        ElementHandle afterTomorrow = page.querySelector("(//div[@class='_29P6Zrf7K1Dx_N1l0bKL45'])[last()]");
-        page.evaluate("aT => aT.innerText='Чт, 4'", afterTomorrow);
-
-        page.waitForSelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
-        List<ElementHandle> listTvProgramInSchedule = page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']");
-        if (listTvProgramInSchedule.size() > 4) {
-            while (page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size() != 4) {
-                page.evaluate("dU => dU.remove();", page.querySelector("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']"));
-                System.out.println(page.querySelectorAll("//div[@class='QZwrBDUP5ZmIJsZL6bopi _1J7Bd53tGM88cshwxVlWNF']").size());
-            }
-        }
-        List<ElementHandle> timeInScheduleAll= page.querySelectorAll("//div[@class='_2F06JEFCaBoh-jQ-JAfmAN']");
+        List<ElementHandle> timeInScheduleAll= page.querySelectorAll("//a[@class='_3S1RJTAMPdfXwKpE8keuSk _2vXRFPIn0aB5dHsDcWV_MP']");
         for(ElementHandle timeInSchedule : timeInScheduleAll){
             timeInSchedule.evaluate("t => t.innerText='00:00'");
         }
-        List<ElementHandle> nameTvProgramInScheduleAll = page.querySelectorAll("//div[@class='DSoUWlplI4m8T5WSf-XxC']");
+
+        List<ElementHandle> nameTvProgramInScheduleAll = page.querySelectorAll("//a[@class='_2kFyYGffe-aoW_cqXclDoD _2vXRFPIn0aB5dHsDcWV_MP']");
         for(ElementHandle nameTvProgramInSchedule : nameTvProgramInScheduleAll){
             nameTvProgramInSchedule.evaluate("nP => nP.textContent='Название передачи'");
         }
+
         List<ElementHandle> ageInScheduleAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
         for(ElementHandle ageInSchedule : ageInScheduleAll){
             ageInSchedule.evaluate("a => a.innerText='18+'");
         }
-        page.querySelector("._3lvyrUkaGN_QANJMIvjX5c").hover();
+
+        List<ElementHandle> text1SubscribeButtonAll = page.querySelectorAll("//button[contains(@class,'YIGqY8KbmzH5WB_hWI-Tp')]//span");
+        for(ElementHandle text1SubscribeButton : text1SubscribeButtonAll){
+            text1SubscribeButton.evaluate("a => a.innerText='Подключить бесплатно на 7 дней'");
+        }
+        List<ElementHandle> text2SubscribeButtonAll = page.querySelectorAll("//div[contains(@class,'_2PYJbU0RSIrOhl6lHhAs-O')]");
+        for(ElementHandle text2SubscribeButton : text2SubscribeButtonAll){
+            text2SubscribeButton.evaluate("a => a.innerText='В пакете «Основной+»'");
+        }
+
         // делаем скриншот видимой части страницы "cardTvProgramForGuest":
         vrt.track(
-                "cardTvProgramForGuest",
-                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions())),
+                "cardCurrentTvProgramForGuest",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                 TestRunOptions.builder()
-                        .device("Acer")
-                        .os("Win10 Pro")
+                        .device("Honor")
+                        .os("Android")
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
@@ -660,13 +633,11 @@ public class CardTvProgramPW extends BasePagePlaywright {
     }
 
     public void subscribeToPackageTvProgram() {
-//        if (page.querySelectorAll("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]").size() != 0) {
-        pageHeadfull.waitForSelector("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]");
-        pageHeadfull.click("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma')]");
-        pageHeadfull.waitForSelector("//button[text()='Подтвердить']|//button[text()='Принять и подключить']");
-        pageHeadfull.click("//button[text()='Подтвердить']|//button[text()='Принять и подключить']");
-        pageHeadfull.waitForSelector("//button[text()='Закрыть']");
-        pageHeadfull.click("//button[text()='Закрыть']");
+        page.waitForSelector("//span[contains(text(),'Подключить')]");
+        page.tap("//span[contains(text(),'Подключить')]");
+        page.waitForSelector("//button//div[text()='Подтвердить']");
+        page.tap("//button//div[text()='Подтвердить']");
+        page.waitForSelector("//span[text()='Смотреть']");
     }
 
     public void chooseTailTvProgramTabInRecorder() {
@@ -732,6 +703,63 @@ public class CardTvProgramPW extends BasePagePlaywright {
                         .browser("Chrome")
                         .diffTollerancePercent(0.3f)
                         .build());
+    }
+
+    public void checkElementsCardTvProgram() {
+        // чек элементов страницы текущей передачи:
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _17D0GCdbbIdXkUxy-YT76O' and contains(@style,'url')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//h1[text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("(//div[@class='_3vBdLAs_q6zHDlAspM6kFN' and text()])[2]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//span[@class='L3rzdT7KYzyE1ClBQKxNL' and contains(@style,'background-color')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[@class='_2xMMkjxj45XkX1x1g8ZxMm']//div[contains(text(),'Сегодня') or contains(text(),'Вчера')]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//span[contains(@class,'_3mmoBhU2y-bKK_rbQlrtvM') and text()]").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//button[text()='Прочитать описание']").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[@class='_30aTB-cIGKUf7rNZoi9JUA' and text()='Далее в эфире']").size()==1);
+        Assert.assertTrue("bug: not found elements", page.querySelectorAll("//div[@class='_2H8yToCwb1zXChwX6l7ZNT']//div[text()='Главная']").size()==1);
+        Assert.assertTrue("bug: diff size", page.querySelectorAll("//div[@class='_2t7rDZjUkG3P1KbzR9IaaB']").size()==3);
+        Assert.assertTrue("bug: diff size", page.querySelectorAll("//a[@href and text()='Открыть расписание']").size()==1);
+        Assert.assertTrue("bug: diff size", page.querySelectorAll("//footer").size()==1);
+    }
+
+    public void openFullDiscription() {
+        page.waitForSelector("//button[text()='Прочитать описание']");
+        page.tap("//button[text()='Прочитать описание']");
+        page.waitForSelector("//span[contains(@class,'_3mmoBhU2y-bKK_rbQlrtvM') and text()]");
+        page.waitForSelector("//button[text()='Свернуть']");
+    }
+
+    public void closeFullDiscription() {
+        page.tap("//span[contains(@class,'_3mmoBhU2y-bKK_rbQlrtvM') and text()]");
+        page.waitForSelector("//button[text()='Прочитать описание']");
+    }
+
+    public void openFullSchedule() {
+        page.waitForSelector("//a[@href and text()='Открыть расписание']");
+        page.tap("//a[@href and text()='Открыть расписание']");
+        Assert.assertFalse("bug: not opened page /programs/", page.url().contains("/programs/"));
+        Assert.assertTrue("bug: not opened page /channels/", page.url().contains("/channels/"));
+    }
+
+    public void tapWatch() {
+        page.waitForSelector("//button//span[text()='Смотреть']");
+        page.tap("//button//span[text()='Смотреть']");
+        page.waitForTimeout(3000);
+    }
+
+    public void checkStartPlayer() {
+        //время до
+        page.waitForSelector("//span[@class='VjAWZi0qU4-zNzFJGxuq1 _2D2Qz2yDUj11pGyjzicrYZ' and text()]");
+        ElementHandle timeBeforeString = page.querySelector("//span[@class='VjAWZi0qU4-zNzFJGxuq1 _2D2Qz2yDUj11pGyjzicrYZ' and text()]");
+        LocalTime timeBefore = LocalTime.parse(timeBeforeString.innerText());
+        System.out.println(timeBefore);
+        page.waitForTimeout(7000);
+        page.tap("._6mYGF-1LO-lpUY7yeOnck");
+        //время после
+        page.waitForSelector("//span[@class='VjAWZi0qU4-zNzFJGxuq1 _2D2Qz2yDUj11pGyjzicrYZ' and text()]");
+        ElementHandle timeAfterString = page.querySelector("//span[@class='VjAWZi0qU4-zNzFJGxuq1 _2D2Qz2yDUj11pGyjzicrYZ' and text()]");
+        LocalTime timeAfter = LocalTime.parse(timeAfterString.innerText());
+        System.out.println(timeAfter);
+        Assert.assertTrue("time After NO more time Before", timeBefore.isBefore(timeAfter));
     }
 }
 

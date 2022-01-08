@@ -31,15 +31,15 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
     }
     private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
         authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");
     }

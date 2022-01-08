@@ -1,4 +1,4 @@
-package S0_TV_channels.SS1_Section_TV_DONE;
+package S0_TV_channels_DONE.SS1_Section_TV_DONE;
 
 import base.TestBasePlaywright;
 import io.qameta.allure.*;
@@ -25,15 +25,15 @@ public class Test_02_TV_Section_navigation_DONE extends TestBasePlaywright {
         tvPagePW.goToCardTvProgram();
     }
     private void flowRegistationMF() throws InterruptedException {
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
         authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");
     }

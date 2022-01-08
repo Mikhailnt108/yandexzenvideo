@@ -114,8 +114,8 @@ public class TvPagePW extends BasePagePlaywright {
         page.click("(//a[@class='_3qpWWwbv1F2VcSRTSjiIgS'])[3]");
     }
 
-    public void clickOnTabInRecording() {
-        page.click("//a[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA') and text()='В записи']");
+    public void tapOnTabInRecording() {
+        page.waitForSelector("//a[contains(@class,'_39I3V1X9nHf1r_IzNeqphS')]//div[text()='В записи']").tap();
     }
 
     public void checkImageTvPageTabProgramTvForAuthorizedMWEB() throws IOException, InterruptedException {

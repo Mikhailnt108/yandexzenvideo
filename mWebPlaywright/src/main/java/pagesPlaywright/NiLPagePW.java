@@ -58,28 +58,9 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCherdakAndBannersGuestMWEB() throws IOException, InterruptedException {
-        page.navigate(frontend);
-        // подготовка элемента "cherdakPageNil" к скриншот-тесту:
-        page.focus("//div[@class='ch-cherdak']");
-        ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
-        // делаем скриншот элемента "cherdakPageNilGuest":
-        vrt.track(
-                "cherdakPageNilGuest",
-                Base64.getEncoder().encodeToString(cherdak.screenshot()),
-                TestRunOptions.builder()
-                        .device("Acer")
-                        .os("Win10 Pro")
-                        .browser("Chrome")
-                        .diffTollerancePercent(0.3f)
-                        .build());
-
+    public void checkImageBannersNilPageAphoneGuest() throws IOException, InterruptedException {
         page.focus("//div[contains(@class,'carousel')]");
-        // подготовка элемента "bannersPageNil" к скриншот-тесту:        }
-//        крутилка:
-//        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
-//        changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
-        page.click("//button[@aria-label='previous']");
+        // подготовка элемента "bannersPageNil" к скриншот-тесту:
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
@@ -97,11 +78,15 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
+        if(page.querySelectorAll("//li[@aria-selected='true']//div[contains(@class,'BannerCarouselItem_sticker')]").size()==1){
+            ElementHandle sticker = page.querySelector("//li[@aria-selected='true']//div[contains(@class,'BannerCarouselItem_sticker')]");
+            sticker.evaluate("sB => sB.remove()");
+        }
 
-        // делаем скриншот элемента "bannersPageNilGuest":
+        // делаем скриншот элемента "bannersPageNilAphoneGuest":
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         vrt.track(
-                "bannersPageNilGuest",
+                "bannersPageNilAphoneGuest",
                 Base64.getEncoder().encodeToString(banners.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -111,18 +96,9 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionWidePageNilGuestMWEB() throws IOException, InterruptedException {
-        page.navigate(frontend);
-        sleep(3000);
+    public void checkImageBlocksCollectionNilPageAphoneGuest() throws IOException, InterruptedException {
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
         page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
-
-
-//        page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]").scrollIntoViewIfNeeded();
-//        List<ElementHandle> posterPackage1All = page.querySelectorAll("(//section[contains(@class,'HomePage_collection')])[1]//picture[contains(@class,'TilePackageCommon_image')]");
-//        for (ElementHandle posterPackage1 : posterPackage1All) {
-//            posterPackage1.evaluate("p1 => p1.remove()");
-//        }
 
         ElementHandle titleBlockCollectionFilmsOrSerial = page.querySelector("//h2[contains(@class,'MediaScroller_title')]");
         page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionFilmsOrSerial);
@@ -144,10 +120,9 @@ public class NiLPagePW extends BasePagePlaywright {
             posterPackage.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/c0/12/68f976743175856b512dbe2f8d0412ab4dd6/tile__atablet-xhdpi.webp')");
         }
         ElementHandle blockCollectionExceptTv = page.querySelector("(//section[contains(@class,'HomePage_collection')])[1]");
-        sleep(3000);
         // делаем скриншот элемента "blockCollectionNonTvPageNil":
         vrt.track(
-                "blockCollectionExceptTvWidePageNilGuest",
+                "blockCollectionExceptTvNilPageAphoneGuest",
                 Base64.getEncoder().encodeToString(blockCollectionExceptTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -160,15 +135,14 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle blockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
         ElementHandle titleBlockCollectionTv = page.querySelector("(//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')])[1]");
         page.evaluate("t => t.innerText='Название подборки'", titleBlockCollectionTv);
-        List<ElementHandle> collectionTvChannelAll = page.querySelectorAll("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
+        List<ElementHandle> collectionTvChannelAll = page.querySelectorAll("//a[contains(@href,'tv/channels/')]//source");
         for (int i = 0; i < collectionTvChannelAll.size(); i++) {
             collectionTvChannelAll.get(i).scrollIntoViewIfNeeded();
-            List<ElementHandle> posterTvChannelAll = page.querySelectorAll("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//source");
+            List<ElementHandle> posterTvChannelAll = page.querySelectorAll("//a[contains(@href,'tv/channels/')]//source");
             for (ElementHandle posterTvChannel : posterTvChannelAll) {
-                posterTvChannel.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
+                posterTvChannel.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Channel/21/51/8fd5be36debd93864d7352c3de97e247206c/logo_tile__aphone-mdpi.png')");
             }
         }
-
 
         // делаем скриншот элемента "blockCollectionTvPageNil":
         vrt.track(
@@ -182,7 +156,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCincMWEB() throws IOException, InterruptedException {
+    public void checkImageBlocksCincAphoneGuest() throws IOException, InterruptedException {
         page.navigate(frontend);
         page.focus("(//a[contains(@class,'TileTriple')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//a[contains(@class,'TileTriple')]/ancestor::section[contains(@class,'HomePage_collection')])[1]");
@@ -209,7 +183,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterWidePageGuestMWEB() throws IOException, InterruptedException {
+    public void checkImageFooterAphoneGuest() throws IOException, InterruptedException {
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNil":
         vrt.track(
@@ -223,10 +197,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageNilPageScrollGuestMWEB() throws IOException, InterruptedException {
-        page.navigate(frontend);
-
-
+    public void checkImageNilPageScrollAphoneGuest() throws IOException, InterruptedException {
         // подготовка страницы "NilPage" к скриншот-тесту:
         // подготовка блоков подборок с заголовком:
         // подборки пакетов и коллекций MixedEST:
@@ -257,6 +228,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle titleFilmsOrSerials : titleFilmsOrSerialsAll) {
             titleFilmsOrSerials.evaluate("t => t.innerText='Название контента'");
         }
+
         List<ElementHandle> descriptionTextFilmsOrSerialsAll = page.querySelectorAll("//a[contains(@href, '/movies/vods/') or contains(@href, '/shows/')]//span[contains(@class,'TilePackageCommon_desc')]");
         for (ElementHandle descriptionTextFilmsOrSerials : descriptionTextFilmsOrSerialsAll) {
             descriptionTextFilmsOrSerials.evaluate("d => d.textContent='Текст описания'");
@@ -265,11 +237,11 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ageFilmsOrSerialsAll) {
             age.evaluate("a => a.innerText='18+'");
         }
+
         List<ElementHandle> titleCollectionPackageOrMixedEstAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//a//h2[contains(@class,'MediaScroller_title')]");
         for (ElementHandle titleCollectionPackageOrMixedEst : titleCollectionPackageOrMixedEstAll) {
             titleCollectionPackageOrMixedEst.evaluate("t => t.innerText='Название подборки'");
         }
-
 
         for (int i = 0; i < titleCollectionPackageOrMixedEstAll.size(); i++) {
             titleCollectionPackageOrMixedEstAll.get(i).scrollIntoViewIfNeeded();
@@ -278,6 +250,7 @@ public class NiLPagePW extends BasePagePlaywright {
                 posterPackageOrMixedEst.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/MixedEst/ac/06/de807ef0bbe1f5dfd169144f19085474f890/tile__atablet-xhdpi.webp')");
             }
         }
+
         List<ElementHandle> titlePackageOrMixedEstAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]//span[contains(@class,'TilePackageCommon_title')]");
         for (ElementHandle titlePackageOrMixedEst : titlePackageOrMixedEstAll) {
             titlePackageOrMixedEst.evaluate("t => t.innerText='Название контента'");
@@ -325,7 +298,6 @@ public class NiLPagePW extends BasePagePlaywright {
 //                titleCollection2All = page.querySelectorAll("//h3[@data-test='CollectionName']");
 //                page.evaluate("t => t.innerText='Название подборки (18+)'", titleCollection2All.get(i));
 //            }
-
 
         // подготовка баннеров:
         page.querySelector("//button[@aria-label='previous']");
@@ -545,50 +517,17 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageCherdakAndBannersUserMWEB() throws IOException, InterruptedException {
-        page.navigate(frontend);
-        // подготовка элемента "cherdakPageNil" к скриншот-тесту:
-        page.focus("//div[@class='ch-cherdak']");
-        ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
-        ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
-        page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
-        // делаем скриншот элемента "cherdakPageNilUser":
-        vrt.track(
-                "cherdakPageNilUser",
-                Base64.getEncoder().encodeToString(cherdak.screenshot()),
-                TestRunOptions.builder()
-                        .device("Acer")
-                        .os("Win10 Pro")
-                        .browser("Chrome")
-                        .diffTollerancePercent(0.3f)
-                        .build());
-
+    public void checkImageBannersAphoneUser() throws IOException, InterruptedException {
         page.focus("//div[contains(@class,'carousel')]");
-        // подготовка элемента "bannersPageNil" к скриншот-тесту:        }
-//        крутилка:
-//        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
-//        changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
-        page.click("//button[@aria-label='previous']");
+        // подготовка элемента "bannersPageNil" к скриншот-тесту:
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media]");
         for (ElementHandle posterSourceWEBP : postersSourceWEBP) {
             posterSourceWEBP.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
         }
-
-//        ElementHandle poster1 = page.querySelector("(//picture[contains(@class,'BannerCarousel')])[1]//source[@media='(min-width: 1440px)' and @type='image/webp']");
-//        poster1.evaluate("w => w.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Film/ba/cb/c68eb9f98803b40eb41f8b6e984f17953846/poster__web-wp.webp')");
-
         List<ElementHandle> titleBanners = page.querySelectorAll("//h2[contains(@class,'BannerCarouselItem_title')]");
         for (ElementHandle titleBanner : titleBanners) {
             titleBanner.evaluate("t => t.innerText='Название контента'");
         }
-//        List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
-//        for(ElementHandle stiker : stikers){
-//            stiker.evaluate("s => s.innerText='Автотест'");
-//        }
-//        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
-//        for(ElementHandle colorStiker : colorStikers){
-//            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(36, 181, 109); color: rgb(255, 255, 255); box-shadow: none;')");
-//        }
 
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_genre')]");
         for (ElementHandle yearAndGenre : yearAndGenres) {
@@ -598,11 +537,15 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle age : ages) {
             age.evaluate("yG => yG.innerText='18+'");
         }
+        if(page.querySelectorAll("//li[@aria-selected='true']//div[contains(@class,'BannerCarouselItem_sticker')]").size()==1){
+            ElementHandle sticker = page.querySelector("//li[@aria-selected='true']//div[contains(@class,'BannerCarouselItem_sticker')]");
+            sticker.evaluate("sB => sB.remove()");
+        }
 
-        // делаем скриншот элемента "bannersPageNilUser":
+        // делаем скриншот элемента "bannersPageNilAphoneGuest":
         ElementHandle banners = page.querySelector("//div[contains(@class,'carousel')]");
         vrt.track(
-                "bannersPageNilUser",
+                "bannersPageNilAphoneGuest",
                 Base64.getEncoder().encodeToString(banners.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -612,7 +555,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCollectionUserMWEB() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionAphoneUser() throws IOException, InterruptedException {
         page.navigate(frontend);
         sleep(3000);
         // подборки фильмы/сериалы/пакеты/mixedEST коллекции:
@@ -658,11 +601,11 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageFooterPageUserMWEB() throws IOException, InterruptedException {
+    public void checkImageFooterNilPageAphoneUser() throws IOException, InterruptedException {
         ElementHandle footer = page.querySelector("//footer");
         // делаем скриншот элемента "footerPageNilUser":
         vrt.track(
-                "footerWidePageNilUser",
+                "footerNilPageAphoneUser",
                 Base64.getEncoder().encodeToString(footer.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -5127,7 +5070,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//div[contains(@class,'carousel')]");
     }
 
-    public void checkImageBlockCollectionTvChannelWidePageNilGuestMWEB() throws IOException, InterruptedException {
+    public void checkImageBlockCollectionTvChannelNilPageAphoneGuest() throws IOException, InterruptedException {
         // подборки тв каналов:
         sleep(3000);
         ElementHandle collectionTvChannel = page.waitForSelector("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -5144,7 +5087,7 @@ public class NiLPagePW extends BasePagePlaywright {
         sleep(3000);
         // делаем скриншот элемента "blockCollectionTvPageNil":
         vrt.track(
-                "blockCollectionTvWidePageNilGuest",
+                "blockCollectionTvNilPageAphoneGuest",
                 Base64.getEncoder().encodeToString(blockCollectionTv.screenshot()),
                 TestRunOptions.builder()
                         .device("Acer")
@@ -5154,7 +5097,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlockCollectionTvChannelPageNilUserMWEB() throws IOException, InterruptedException {
+    public void checkImageBlocksCollectionTvNilPageAphoneUser() throws IOException, InterruptedException {
         // подборки тв каналов:
         sleep(3000);
         ElementHandle collectionTvChannel = page.waitForSelector("//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]/ancestor::section[contains(@class,'HomePage_collection')]");
@@ -5181,7 +5124,15 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
     }
 
-    public void checkImageBlocksCincUserMWEB() {
+    public void checkImageBlocksCincAphoneUser() {
+    }
+
+    public void checkElementsNilPageAphone() {
+        page.waitForSelector("//div[contains(@class,'carousel')]");
+        page.waitForSelector("//ul[contains(@class,'MainNavBar_navList')]");
+        page.waitForSelector("//section[contains(@class,'HomePage_collection')]");
+        page.waitForSelector("//div[contains(@class,'LayoutBottomMenu')]");
+        page.waitForSelector("//footer");
     }
 }
 

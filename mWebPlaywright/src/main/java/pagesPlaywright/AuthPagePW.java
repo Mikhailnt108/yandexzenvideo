@@ -109,12 +109,12 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkOpenScreenInputPhone() {
-        page.waitForSelector("//input[@name='login']");
+        page.waitForSelector("//input[@name='phone']");
     }
 
-    public void inputLoginAdmWeb(String login) {
-        page.focus("//input[@name='login']");
-        page.fill("//input[@name='login']", login);
+    public void inputLoginAdMWeb(String login) {
+        page.focus("//input[@name='phone']");
+        page.fill("//input[@name='phone']", login);
     }
     public void inputLoginNonAdmWeb(String login) {
         page.focus("//input[@name='login']");

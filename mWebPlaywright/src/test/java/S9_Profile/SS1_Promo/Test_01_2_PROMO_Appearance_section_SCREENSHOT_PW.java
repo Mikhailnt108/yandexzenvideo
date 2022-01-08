@@ -47,26 +47,26 @@ public class Test_01_2_PROMO_Appearance_section_SCREENSHOT_PW extends TestBasePl
     }
     private void flowRegistationMF() throws InterruptedException {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
         authPagePW.inputLoginNonAdmWeb("+7 926 020 50 27");
-        headerMenuPW.clickToNext();
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPageCreatePasswordForNonAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkOpenPopUpInputCode();
         headerMenuPW.copyPasteCodMsisdnForNonAdWeb("79260205027");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");
     }
     private void flowAuthorization() {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
-        authPagePW.inputLoginAdmWeb("+7 926 020 50 27");
-        headerMenuPW.clickToNext();
+        authPagePW.inputLoginAdMWeb("+7 926 020 50 27");
+        headerMenuPW.tapToNextNonAdWeb();
         authPagePW.inputValidPasswordRegister("111111");
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }
 }

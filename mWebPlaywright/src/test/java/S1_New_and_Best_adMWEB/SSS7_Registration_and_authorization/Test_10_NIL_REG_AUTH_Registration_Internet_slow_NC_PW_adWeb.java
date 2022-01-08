@@ -28,16 +28,16 @@ public class Test_10_NIL_REG_AUTH_Registration_Internet_slow_NC_PW_adWeb extends
     }
     private void flowRegistationMF() throws IOException, ExecutionException, InterruptedException, TimeoutException {
         headerMenuPW.checkNotLoggedIsCorrect();
-        headerMenuPW.clickToProfile();
+        headerMenuPW.tapOnProfileNonAdWeb();
         authPagePW.checkOpenScreenInputPhone();
-        authPagePW.inputLoginAdmWeb("+7 926 019 21 44");
-        headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
-        headerMenuPW.clickToNext();
+        authPagePW.inputLoginAdMWeb("+7 926 019 21 44");
+        headerMenuPW.tapToNextNonAdWeb();
+        headerMenuPW.checkOpenPageCreatePasswordAdMWebFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.tapToNextNonAdWeb();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.copyPasteCodMsisdnForAdMWeb("79260192144");
         headerMenuPW.startFiddlerSlowNetwork();
-        headerMenuPW.clickToComeIn("Войти");
+        headerMenuPW.tapToComeInNonAdMWeb("Войти");
         authPagePW.checkElementsPageAuthFormSuccessfullyRegist();
    }
 }
