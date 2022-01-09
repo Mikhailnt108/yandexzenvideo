@@ -53,7 +53,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public String codeCVV = "258";
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
-            .apiUrl("http://192.168.1.139:4200")
+            .apiUrl("http://10.236.64.48:4200")
             .apiKey("GVDZMJKMBM4D5BNMZN57AEBVBKM0")
             .project("MFTV_mWeb_Android_Chrome")
             .branchName("master")
