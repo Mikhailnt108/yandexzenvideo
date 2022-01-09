@@ -92,12 +92,12 @@ public class TestBasePlaywright extends BasePagePlaywright{
         playwright = Playwright.create();
         browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setChannel("chrome")
-                .setHeadless(false)
+                .setHeadless(true)
                 .setArgs(Arrays.asList("--disable-dev-shm-usage"))
                 .setArgs(Arrays.asList("--whitelisted-ips")));
         browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setChannel("chrome")
-                .setHeadless(false)
+                .setHeadless(true)
                 .setArgs(Arrays.asList("--disable-dev-shm-usage"))
                 .setArgs(Arrays.asList("--whitelisted-ips")));
     }
