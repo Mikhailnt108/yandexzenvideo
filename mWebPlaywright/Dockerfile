@@ -7,7 +7,9 @@ COPY . .
 RUN cd /autosmoke_mftv_web_and_mobile_web/mWebPlaywright
 # Install node14
 
-RUN apt-get update && apt-get install -y curl && \
+RUN apt update \
+    apt upgrade \
+    apt-get update && apt-get install -y curl && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y nodejs
 
