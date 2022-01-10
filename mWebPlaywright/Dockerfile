@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y curl && \
     apt-get install -y nodejs
 # Upgrade to NPM7 (see https://github.com/microsoft/playwright/pull/8915)
 RUN npm install -g npm@7
-
+ENV http_proxy=""
+ENV https_proxy=""
 ## Install stable chrome
 RUN npx playwright install chrome
 
