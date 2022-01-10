@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y curl && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y nodejs
 # Upgrade to NPM7 (see https://github.com/microsoft/playwright/pull/8915)
-RUN npm install -g npm@7
+RUN npm install -g npm@8
 
 ## Install stable chrome
 RUN npx playwright install chrome
