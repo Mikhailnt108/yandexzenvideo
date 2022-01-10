@@ -84,4 +84,4 @@ services:
 #      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\mWebPlaywright\Dockerfile
     image: mweb_tests_playwright
     container_name: mweb_tests_run_playwright
-#    network_mode: "host"
+    network_mode: "host"
