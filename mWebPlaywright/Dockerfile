@@ -16,8 +16,6 @@ RUN npm install -g npm@8
 
 ## Install stable chrome
 RUN npx playwright install chrome
-ENV http_proxy=""
-ENV https_proxy=""
 #CMD SELENIUM_REMOTE_URL=http://192.168.1.139:4444/wd/hub mvn -pl WebPlaywright clean test
 CMD mvn -pl mWebPlaywright clean test
 
