@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright/java:v1.17.2-focal
+FROM mikhailnt87/playwright_proxy_maven
 
 WORKDIR /autosmoke_mftv_web_and_mobile_web/mWebPlaywright
 
