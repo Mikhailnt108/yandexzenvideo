@@ -113,12 +113,12 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void inputLoginAdMWeb(String login) {
-        page.focus("//input[@name='phone']");
-        page.fill("//input[@name='phone']", login);
+        page.focus("//input[@type='tel']");
+        page.fill("//input[@type='tel']", login);
     }
     public void inputLoginNonAdmWeb(String login) {
-        page.focus("//input[@name='login']");
-        page.fill("//input[@name='login']", login);
+        page.focus("//input[@type='tel']");
+        page.fill("//input[@type='tel']", login);
     }
 
     public void clickOnButtonBackAndCheckOpenFormInputPhone() throws InterruptedException {
