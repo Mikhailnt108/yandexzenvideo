@@ -19,7 +19,7 @@ public class Test_01_TV_Appearance_section_SCREENSHOT_DONE extends TestBasePlayw
     @Test
     @Tag("AndroidWebPW#1Test")
     public void TV_Appearance_section_SCREENSHOT() throws Exception {
-        headerMenuPW.checkNotLoggedIsCorrectMWEB();
+        headerMenuPW.checkNotLoggedIsCorrectAdMWeb();
         headerMenuPW.goToTabTv();
         tvPagePW.checkElementsTvPageGuest();
         tvPagePW.scrollDownPageAndCheckFooter();

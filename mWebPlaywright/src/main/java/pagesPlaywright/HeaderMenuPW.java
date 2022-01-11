@@ -34,17 +34,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
         this.backend = backend;
     }
 
-
-    public void checkNotLoggedIsCorrect() {
-        if(page.querySelectorAll("(//span[contains(text(),'+79')])[2]").size()>0){
-            page.click("(//span[contains(text(),'+79')])[2]");
-            page.click("(//span[text()='Выйти'])[1]");
-        }
-        if (page.querySelectorAll("//div[@aria-label='Notification']").size() != 0) {
-            page.click("//button[text()='Закрыть']");}
-        page.querySelector("(//span[text()='Вход'])[1]");
-    }
-
     public void tapOnProfileNonAdWeb() {
          page.waitForSelector("//div[text()='Профиль']");
          page.tap("//div[text()='Профиль']");
@@ -742,12 +731,16 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.waitForTimeout(5000);
     }
 
-    public void checkNotLoggedIsCorrectMWEB() {
+    public void checkNotLoggedIsCorrectNonAdMWeb() {
         page.waitForSelector("//div[text()='Профиль']");
         page.click("//div[text()='Профиль']");
         page.waitForSelector("//div[text()='Вход или регистрация']");
     }
-
+    public void checkNotLoggedIsCorrectAdMWeb() {
+        page.tap("//span[text()='Профиль']");
+        page.click("//span[text()='Профиль']");
+        page.waitForSelector("//a[text()='Вход или регистрация']");
+    }
     public void tapOnProfileAdMWeb() {
         page.tap("//span[text()='Профиль']");
         page.waitForSelector("//a[text()='Вход или регистрация']");
@@ -757,4 +750,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void tapToNextAdMWeb() {
         page.tap("//button[text()='Далее']");
     }
+
+
 }
