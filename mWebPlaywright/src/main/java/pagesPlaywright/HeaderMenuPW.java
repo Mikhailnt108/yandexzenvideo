@@ -66,8 +66,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
             page.waitForSelector("//div[text()='Вход или регистрация']");
             page.click("//a[text()='Вход или регистрация']");
             page.waitForSelector("//h1[text()='Введите номер телефона']");
-            page.focus("//input[@name='phone']");
-            page.fill("//input[@name='phone']", login);
+            page.focus("//input[@type='tel']");
+            page.fill("//input[@type='tel']", login);
             page.click("//button[text()='Далее']");
             page.waitForSelector("//h1[text()='Придумайте пароль']");
             page.fill("//input[@type='password']",password);
@@ -471,8 +471,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
             page.waitForSelector("(//span[text()='Вход'])[1]");
             page.click("(//span[text()='Вход'])[1]");
             page.waitForSelector("//h1[text()='Введите номер телефона']");
-            page.focus("//input[@name='phone']");
-            page.fill("//input[@name='phone']", login);
+            page.focus("//input[@type='tel']");
+            page.fill("//input[@type='tel']", login);
             page.click("//button[text()='Далее']");
             page.waitForSelector("//h1[text()='Введите E-mail']");
         }

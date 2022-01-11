@@ -109,7 +109,7 @@ public class AuthPagePW extends BasePagePlaywright {
     }
 
     public void checkOpenScreenInputPhone() {
-        page.waitForSelector("//input[@name='phone']");
+        page.waitForSelector("//input[@type='tel']");
     }
 
     public void inputLoginAdMWeb(String login) {
@@ -231,8 +231,8 @@ public class AuthPagePW extends BasePagePlaywright {
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
-        page.focus("//input[@name='phone']");
-        page.fill("//input[@name='phone']", login);
+        page.focus("//input[@type='tel']");
+        page.fill("//input[@type='tel']", login);
         page.click("//button[text()='Далее']");
         Assert.assertTrue("not open form 'create password'", page.waitForSelector("//h1[text()='Придумайте пароль']").isVisible());
         page.querySelector("//div[text()='Придумайте пароль']");
@@ -268,8 +268,8 @@ public class AuthPagePW extends BasePagePlaywright {
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
-        page.focus("//input[@name='phone']");
-        page.fill("//input[@name='phone']", login);
+        page.focus("//input[@type='tel']");
+        page.fill("//input[@type='tel']", login);
         page.click("//button[text()='Далее']");
         Assert.assertTrue("not open form 'create password'", page.waitForSelector("//h1[text()='Придумайте пароль']").isVisible());
         page.querySelector("//div[text()='Придумайте пароль']");
@@ -302,8 +302,8 @@ public class AuthPagePW extends BasePagePlaywright {
         page.querySelector("//button[contains(@class,'ch-account-controller')]");
         page.click("//button[contains(@class,'ch-account-controller')]");
         page.waitForSelector("//h1[text()='Введите номер телефона']");
-        page.focus("//input[@name='phone']");
-        page.fill("//input[@name='phone']", login);
+        page.focus("//input[@type='tel']");
+        page.fill("//input[@type='tel']", login);
         page.click("//button[text()='Далее']");
         Assert.assertTrue("not visible element", page.waitForSelector("//h1[text()='Введите пароль']").isVisible());
     }
