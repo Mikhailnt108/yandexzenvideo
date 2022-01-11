@@ -752,4 +752,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
 
+    public void checkNotLoggedIsCorrect() {
+    }
 }
