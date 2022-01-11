@@ -1,4 +1,4 @@
-FROM playwright_chrome_proxy_maven_http
+FROM playwright_chrome_proxy_maven_https_http
 
 WORKDIR /autosmoke_mftv_web_and_mobile_web
 
