@@ -60,33 +60,33 @@ public class TestBasePlaywright extends BasePagePlaywright{
             .enableSoftAssert(false)
             .httpTimeoutInSeconds(60)
             .build());
-//    public static final String USER_NAME = "bmp";
-//    public static final String PASSWORD = "bmp";
-//    public static final String PP1 = "jdbc:postgresql://10.236.24.174:5432/bmp";
-//    public static final String PP2 = "jdbc:postgresql://10.236.24.175:5432/bmp";
-//    public static final String PP3 = "jdbc:postgresql://10.236.24.176:5432/bmp";
-//    public static final String PP4 = "jdbc:postgresql://10.236.24.177:5432/bmp";
-//    public static final String PP5 = "jdbc:postgresql://10.236.24.178:5432/bmp";
-//    public static final String PP6 = "jdbc:postgresql://10.236.24.196:5432/bmp";
-//    public static final String PP7 = "jdbc:postgresql://10.236.24.197:5432/bmp";
-//    public Statement statement;
-//    public Connection connection;
-//    {
-//        try {
-//            connection = DriverManager.getConnection(PP6,USER_NAME,PASSWORD);
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//            throw new RuntimeException();
-//        }
-//    }
-//    {
-//        try{
-//            statement = connection.createStatement();
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//            throw new RuntimeException();
-//        }
-//    }
+    public static final String USER_NAME = "bmp";
+    public static final String PASSWORD = "bmp";
+    public static final String PP1 = "jdbc:postgresql://10.236.24.174:5432/bmp";
+    public static final String PP2 = "jdbc:postgresql://10.236.24.175:5432/bmp";
+    public static final String PP3 = "jdbc:postgresql://10.236.24.176:5432/bmp";
+    public static final String PP4 = "jdbc:postgresql://10.236.24.177:5432/bmp";
+    public static final String PP5 = "jdbc:postgresql://10.236.24.178:5432/bmp";
+    public static final String PP6 = "jdbc:postgresql://10.236.24.196:5432/bmp";
+    public static final String PP7 = "jdbc:postgresql://10.236.24.197:5432/bmp";
+    public Statement statement;
+    public Connection connection;
+    {
+        try {
+            connection = DriverManager.getConnection(PP6,USER_NAME,PASSWORD);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+    {
+        try{
+            statement = connection.createStatement();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
     @BeforeAll
     void launchBrowser() {
         playwright = Playwright.create();
@@ -135,10 +135,10 @@ public class TestBasePlaywright extends BasePagePlaywright{
         serialsPagePW = new SerialsPagePW(page,pageCMS, frontend);
         nilPagePW = new NiLPagePW(page, pageSmartTv, contextIncognitoModeHeadless, frontend);
         collectionPagePW = new CollectionsPagePW(page);
-//        tvPagePW = new TvPagePW(page, frontend, statement);
+        tvPagePW = new TvPagePW(page, frontend, statement);
         cardTvChannelPW = new CardTvChannelPW(page);
         cardTvProgramPW = new CardTvProgramPW(page, frontend);
-//        cardFilmPW = new CardFilmPW(page, statement, frontend);
+        cardFilmPW = new CardFilmPW(page, statement, frontend);
         cardSerialPW = new CardSerialPW(page, frontend);
         kidsPagePW = new KidsPagePW(page, frontend);
         allCollectionsPagePW = new AllCollectionsPagePW(page, frontend);
@@ -147,7 +147,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
         packagesPagePW = new PackagesPagePW(page);
         cardPackagePW = new CardPackagePW(page, numberBankCard, dataValidity, codeCVV);
         cardTvChannelPW = new CardTvChannelPW(page);
-//        preconditionPW = new PreconditionPW(page, statement, frontend, backend);
+        preconditionPW = new PreconditionPW(page, statement, frontend, backend);
         sportPagePW = new SportPagePW(page, backend);
         authPagePW = new AuthPagePW(page, frontend);
         promoCodePW = new PromoCodePW(page, frontend, backend);
