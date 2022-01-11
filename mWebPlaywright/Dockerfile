@@ -1,6 +1,6 @@
 FROM playwright_chrome_proxy_maven_http
 
-WORKDIR /autosmoke_mftv_web_and_mobile_web/mWebPlaywright
+WORKDIR /autosmoke_mftv_web_and_mobile_web
 
 COPY . .
 
