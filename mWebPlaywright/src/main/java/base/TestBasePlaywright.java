@@ -54,7 +54,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://10.236.64.48:4200")
-            .apiKey("M8K0VR59REM7S8MRZG8TF15TNPEW")
+            .apiKey("RZ82V52C974RFHK1KHXYE68FXE12")
             .project("MFTV_mWeb_Android_Chrome")
             .branchName("master")
             .enableSoftAssert(false)
