@@ -27,7 +27,9 @@ testPW-job:
  script:
   - docker -v
   - docker-compose -v
+  - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
   - docker-compose up
+	
 #  - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
 #  - docker build -t tests_run_playwright /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
 #  - docker run --ipc=host tests_run_playwright
