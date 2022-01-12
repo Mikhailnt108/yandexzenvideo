@@ -11,22 +11,23 @@ variables:
  DOCKER_HOST: tcp://docker:2375
  DOCKER_TCP_PORT: 2375
  DOCKER_TLS_CERTDIR: ""
- VRT_APIURL: "http://192.168.1.139:4200"
- VRT_PROJECT: "MFTV_Web"
- VRT_ENABLESOFTASSERT: "false"
- VRT_APIKEY: "FHJV0S16FTMW50GT7GZR8RDJJSY0"
- VRT_BRANCHNAME: "master"
- VRT_CIBUILDID: "commit_sha"
- CHOKIDAR_USEPOLLING: 1
+# VRT_APIURL: "http://192.168.1.139:4200"
+# VRT_PROJECT: "MFTV_Web"
+# VRT_ENABLESOFTASSERT: "false"
+# VRT_APIKEY: "FHJV0S16FTMW50GT7GZR8RDJJSY0"
+# VRT_BRANCHNAME: "master"
+# VRT_CIBUILDID: "commit_sha"
+# CHOKIDAR_USEPOLLING: 1
 
 stages:
-# - testPW-job
- - testWD-job
-#testPW-job:
-# stage: testPW-job
-# script:
-#  - docker -v
-#  - docker-compose -v
+ - testPW-job
+# - testWD-job
+testPW-job:
+ stage: testPW-job
+ script:
+  - docker -v
+  - docker-compose -v
+  - docker-compose up
 #  - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebPlaywright
 #  - docker build -t tests_run_playwright /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
 #  - docker run --ipc=host tests_run_playwright
@@ -37,14 +38,15 @@ stages:
 
 
 
-testWD-job:
- stage: testWD-job
- script:
-  - docker -v
-  - docker-compose -v
-  - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
-  - docker build -t tests_run_webdriver /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
-  - docker run --network host tests_run_webdriver
+#testWD-job:
+# stage: testWD-job
+# script:
+#  - docker -v
+#  - docker-compose -v
+#  - docker-compose up
+#  - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
+#  - docker build -t tests_run_webdriver /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
+#  - docker run --network host tests_run_webdriver
 
 # tags:
 #  - qa
