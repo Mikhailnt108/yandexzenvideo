@@ -46,8 +46,8 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
-    public String frontend = "https://web-preprod6.megafon.tv/";
-    public String backend = "https://bmp-preprod6.megafon.tv/";
+    public String frontend = "https://web-preprod1.megafon.tv/";
+    public String backend = "https://bmp-preprod1.megafon.tv/";
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
