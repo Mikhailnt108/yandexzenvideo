@@ -78,11 +78,11 @@ services:
       retries: 10
   test_runner:
     build:
-      context: /builds/qa/autosmoke_mftv_web_and_mobile_web
-#      context: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
+#      context: /builds/qa/autosmoke_mftv_web_and_mobile_web
+      context: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
 #      context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
-      dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright/Dockerfile
-#      dockerfile: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/mWebPlaywright/Dockerfile
+#      dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright/Dockerfile
+      dockerfile: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/mWebPlaywright/Dockerfile
 #      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\mWebPlaywright\Dockerfile
     image: mweb_tests_playwright
     container_name: mweb_tests_run_playwright
