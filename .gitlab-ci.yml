@@ -1,9 +1,9 @@
 image:
  name: gitlab/dind:latest
- entrypoint: [""]
-services:
- - name: docker:dind
-   alias: docker
+# entrypoint: [""]
+#services:
+# - name: docker:dind
+#   alias: docker
 # - name: mcr.microsoft.com/playwright/java:latest
 #   alias: pw
 
