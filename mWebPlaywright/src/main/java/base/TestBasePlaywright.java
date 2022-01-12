@@ -73,7 +73,7 @@ public class TestBasePlaywright extends BasePagePlaywright{
     public Connection connection;
     {
         try {
-            connection = DriverManager.getConnection(PP6,USER_NAME,PASSWORD);
+            connection = DriverManager.getConnection(PP1,USER_NAME,PASSWORD);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new RuntimeException();
