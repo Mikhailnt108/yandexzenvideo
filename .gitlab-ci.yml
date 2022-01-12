@@ -27,7 +27,6 @@ testPW-job:
  script:
   - docker -v
   - docker-compose -v
-  - ls -l
   - cd mWebPlaywright
   - docker-compose up
 
