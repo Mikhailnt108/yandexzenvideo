@@ -33,8 +33,9 @@ testPW-job:
   - docker -v
   - docker-compose -v
   - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
-  - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
-  - docker run --ipc=host mweb_tests_playwright
+  - docker-compose up
+#  - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
+#  - docker run --ipc=host mweb_tests_playwright
  tags:
   - qa
 # allow_failure: true
