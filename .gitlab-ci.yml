@@ -8,16 +8,16 @@ services:
 #   alias: pw
 
 variables:
- DOCKER_HOST: tcp://docker:2375
- DOCKER_TCP_PORT: 2375
- DOCKER_TLS_CERTDIR: ""
- VRT_APIURL: "http://10.236.64.48:4200"
- VRT_PROJECT: "MFTV_mWeb_Android_Chrome"
- VRT_ENABLESOFTASSERT: "false"
- VRT_APIKEY: "M8K0VR59REM7S8MRZG8TF15TNPEW"
- VRT_BRANCHNAME: "master"
- VRT_CIBUILDID: "commit_sha"
- CHOKIDAR_USEPOLLING: 1
+# DOCKER_HOST: tcp://docker:2375
+# DOCKER_TCP_PORT: 2375
+# DOCKER_TLS_CERTDIR: ""
+# VRT_APIURL: "http://10.236.64.48:4200"
+# VRT_PROJECT: "MFTV_mWeb_Android_Chrome"
+# VRT_ENABLESOFTASSERT: "false"
+# VRT_APIKEY: "M8K0VR59REM7S8MRZG8TF15TNPEW"
+# VRT_BRANCHNAME: "master"
+# VRT_CIBUILDID: "commit_sha"
+# CHOKIDAR_USEPOLLING: 1
 # HTTPS_PROXY: "http://proxy.megalabs.ru:8808"
 # HTTP_PROXY: "http://proxy.megalabs.ru:8808"
 
