@@ -27,8 +27,8 @@ stages:
 testPW-job:
  stage: testPW-job
  script:
-#  - export http_proxy="http://proxy.megalabs.ru:8808"
-#  - export https_proxy="http://proxy.megalabs.ru:8808"
+  - export http_proxy="http://proxy.megalabs.ru:8808"
+  - export https_proxy="http://proxy.megalabs.ru:8808"
   - docker -v
   - docker-compose -v
 #  - docker info | grep -i proxy
