@@ -8,9 +8,9 @@ services:
 #   alias: pw
 
 variables:
-# DOCKER_HOST: tcp://docker:2375
-# DOCKER_TCP_PORT: 2375
-# DOCKER_TLS_CERTDIR: ""
+ DOCKER_HOST: tcp://docker:2375
+ DOCKER_TCP_PORT: 2375
+ DOCKER_TLS_CERTDIR: ""
 # VRT_APIURL: "http://10.236.64.48:4200"
 # VRT_PROJECT: "MFTV_mWeb_Android_Chrome"
 # VRT_ENABLESOFTASSERT: "false"
@@ -33,10 +33,10 @@ testPW-job:
   - docker -v
   - docker-compose -v
   - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
-  - docker-compose up
+#  - docker-compose up
 
-#  - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
-#  - docker run --ipc=host mweb_tests_playwright
+  - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
+  - docker run --ipc=host mweb_tests_playwright
  tags:
   - qa
 # allow_failure: true
