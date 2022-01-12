@@ -18,9 +18,9 @@ variables:
  VRT_BRANCHNAME: "master"
  VRT_CIBUILDID: "commit_sha"
  CHOKIDAR_USEPOLLING: 1
- HTTPS_PROXY: "http://proxy.megalabs.ru:8808"
- HTTP_PROXY: "http://proxy.megalabs.ru:8808"
- NO_PROXY: "docker"
+# HTTPS_PROXY: "http://proxy.megalabs.ru:8808"
+# HTTP_PROXY: "http://proxy.megalabs.ru:8808"
+
 
 stages:
  - testPW-job
@@ -28,6 +28,8 @@ stages:
 testPW-job:
  stage: testPW-job
  script:
+  - export http_proxy="http://proxy.megalabs.ru:8808"
+  - export https_proxy="http://proxy.megalabs.ru:8808"
   - docker -v
   - docker-compose -v
   - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
