@@ -21,7 +21,6 @@ variables:
 # HTTPS_PROXY: "http://proxy.megalabs.ru:8808"
 # HTTP_PROXY: "http://proxy.megalabs.ru:8808"
 
-
 stages:
  - testPW-job
 # - testWD-job
