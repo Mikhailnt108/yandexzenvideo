@@ -7,7 +7,7 @@ image:
 # - name: mcr.microsoft.com/playwright/java:latest
 #   alias: pw
 
-variables:
+# variables:
 # DOCKER_HOST: tcp://docker:2375
 # DOCKER_TCP_PORT: 2375
 # DOCKER_TLS_CERTDIR: ""
@@ -18,8 +18,7 @@ variables:
 # VRT_BRANCHNAME: "master"
 # VRT_CIBUILDID: "commit_sha"
 # CHOKIDAR_USEPOLLING: 1
-  HTTPS_PROXY: "http://proxy.megalabs.ru:8808"
-  HTTP_PROXY: "http://proxy.megalabs.ru:8808"
+  
 
 stages:
  - testPW-job
@@ -27,7 +26,9 @@ stages:
 testPW-job:
  stage: testPW-job
  script:
+  
   # - ENV http_proxy="http://proxy.megalabs.ru:8808"
+
   # - ENV https_proxy="http://proxy.megalabs.ru:8808"
 #  - export http_proxy="http://proxy.megalabs.ru:8808"
 #  - export https_proxy="http://proxy.megalabs.ru:8808"
@@ -38,7 +39,7 @@ testPW-job:
 #  - docker-compose up
 
   - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
-  - docker run --ipc=host mweb_tests_playwright
+  - docker run --engine-env HTTP_PROXY=http://proxy.megalabs.ru:8808 --engine-env HTTPS_PROXY=http://proxy.megalabs.ru:8808 mweb_tests_playwright
  tags:
   - qa
 # allow_failure: true
