@@ -76,6 +76,7 @@ services:
 #      interval: 60s
 #      timeout: 120s
 #      retries: 10
+
   test_runner:
     build:
       context: /builds/qa/autosmoke_mftv_web_and_mobile_web
