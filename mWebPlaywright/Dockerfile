@@ -1,10 +1,10 @@
 FROM playwright_chrome_proxy_maven_https_http_new
 
-WORKDIR /autosmoke_mftv_web_and_mobile_web
+WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 
 COPY . .
 
-RUN cd /autosmoke_mftv_web_and_mobile_web/mWebPlaywright
+RUN cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
 #ENV http_proxy="http://proxy.megalabs.ru:8808"
 #ENV https_proxy="http://proxy.megalabs.ru:8808"
 # Install node14

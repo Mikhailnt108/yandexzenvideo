@@ -9,31 +9,16 @@ variables:
   DOCKER_TCP_PORT: 2375
   DOCKER_TLS_CERTDIR: ""
 
-# VRT_APIURL: "http://10.236.64.48:4200"
-# VRT_PROJECT: "MFTV_mWeb_Android_Chrome"
-# VRT_ENABLESOFTASSERT: "false"
-# VRT_APIKEY: "M8K0VR59REM7S8MRZG8TF15TNPEW"
-# VRT_BRANCHNAME: "master"
-# VRT_CIBUILDID: "commit_sha"
-# CHOKIDAR_USEPOLLING: 1
-
 stages:
  - testPW-job
 testPW-job:
  stage: testPW-job
-# before_script:
-#  - mkdir -p $HOME/.docker/
-#  - 'echo "{ \"proxies\": { \"default\": { \"httpProxy\": \"$HTTP_PROXY\", \"httpsProxy\": \"$HTTPS_PROXY\", \"noProxy\": \"$NO_PROXY\" } } }" > $HOME/.docker/config.json'
 
  script:
-#  - export http_proxy="http://proxy.megalabs.ru:8808"
-#  - export https_proxy="http://proxy.megalabs.ru:8808"
   - docker -v
   - docker-compose -v
   - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
   - docker-compose up
-#  - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
-#  - docker run --engine-env HTTP_PROXY=http://proxy.megalabs.ru:8808 --engine-env HTTPS_PROXY=http://proxy.megalabs.ru:8808 mweb_tests_playwright
  tags:
   - qa
- allow_failure: true
+  allow_failure: true
