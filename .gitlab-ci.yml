@@ -1,9 +1,9 @@
 image:
  name: docker/compose:latest
  entrypoint: [""]
-services:
- - name: docker:dind
-   alias: docker
+# services:
+#  - name: docker:dind
+#    alias: docker
 # - name: mcr.microsoft.com/playwright/java:latest
 #   alias: pw
 
