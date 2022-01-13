@@ -30,9 +30,9 @@ testPW-job:
   - docker -v
   - docker-compose -v
   - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
-#  - docker-compose up
-  - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
-  - docker run --engine-env HTTP_PROXY=http://proxy.megalabs.ru:8808 --engine-env HTTPS_PROXY=http://proxy.megalabs.ru:8808 mweb_tests_playwright
+  - docker-compose up
+#  - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
+#  - docker run --engine-env HTTP_PROXY=http://proxy.megalabs.ru:8808 --engine-env HTTPS_PROXY=http://proxy.megalabs.ru:8808 mweb_tests_playwright
  tags:
   - qa
  allow_failure: true
