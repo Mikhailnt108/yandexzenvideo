@@ -21,9 +21,9 @@ stages:
  - testPW-job
 testPW-job:
  stage: testPW-job
- before_script:
-  - mkdir -p $HOME/.docker/
-  - 'echo "{ \"proxies\": { \"default\": { \"httpProxy\": \"$HTTP_PROXY\", \"httpsProxy\": \"$HTTPS_PROXY\", \"noProxy\": \"$NO_PROXY\" } } }" > $HOME/.docker/config.json'
+# before_script:
+#  - mkdir -p $HOME/.docker/
+#  - 'echo "{ \"proxies\": { \"default\": { \"httpProxy\": \"$HTTP_PROXY\", \"httpsProxy\": \"$HTTPS_PROXY\", \"noProxy\": \"$NO_PROXY\" } } }" > $HOME/.docker/config.json'
  script:
 #  - export http_proxy="http://proxy.megalabs.ru:8808"
 #  - export https_proxy="http://proxy.megalabs.ru:8808"
