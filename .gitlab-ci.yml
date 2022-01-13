@@ -21,4 +21,4 @@ testPW-job:
   - docker-compose up
  tags:
   - qa
-  allow_failure: true
+allow_failure: true
