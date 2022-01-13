@@ -1,5 +1,5 @@
 image:
- name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/docker/compose:latest
+ name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/golangci/golangci-lint:v1.39.0
  entrypoint: [""]
 services:
   - name: docker:dind
