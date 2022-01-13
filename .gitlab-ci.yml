@@ -1,16 +1,13 @@
 image:
  name: docker/compose:latest
  entrypoint: [""]
-# services:
-#  - name: docker:dind
-#    alias: docker
-# - name: mcr.microsoft.com/playwright/java:latest
-#   alias: pw
+services:
+  - name: docker:dind
 
-# variables:
-#  DOCKER_HOST: tcp://docker:2375
-#  DOCKER_TCP_PORT: 2375
-#  DOCKER_TLS_CERTDIR: ""
+ variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TCP_PORT: 2375
+  DOCKER_TLS_CERTDIR: ""
 
 # VRT_APIURL: "http://10.236.64.48:4200"
 # VRT_PROJECT: "MFTV_mWeb_Android_Chrome"
@@ -19,57 +16,20 @@ image:
 # VRT_BRANCHNAME: "master"
 # VRT_CIBUILDID: "commit_sha"
 # CHOKIDAR_USEPOLLING: 1
-  
 
 stages:
  - testPW-job
-# - testWD-job
 testPW-job:
  stage: testPW-job
  script:
-  
-  # - ENV http_proxy="http://proxy.megalabs.ru:8808"
-
-  # - ENV https_proxy="http://proxy.megalabs.ru:8808"
 #  - export http_proxy="http://proxy.megalabs.ru:8808"
 #  - export https_proxy="http://proxy.megalabs.ru:8808"
   - docker -v
   - docker-compose -v
-#  - docker info | grep -i proxy
   - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
   - docker-compose up
   # - docker build -t mweb_tests_playwright /builds/qa/autosmoke_mftv_web_and_mobile_web -f ./Dockerfile
   # - docker run --engine-env HTTP_PROXY=http://proxy.megalabs.ru:8808 --engine-env HTTPS_PROXY=http://proxy.megalabs.ru:8808 mweb_tests_playwright
  tags:
   - qa
-# allow_failure: true
-# comment
-# comment
-# comment
-# comment
-# comment
-# comment
-
-#testWD-job:
-# stage: testWD-job
-# script:
-#  - docker -v
-#  - docker-compose -v
-#  - docker-compose up
-#  - cd /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/WebDriver
-#  - docker build -t tests_run_webdriver /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/ -f ./Dockerfile
-#  - docker run --network host tests_run_webdriver
-
-# tags:
-#  - qa
-# allow_failure: true
-# artifacts:
-#  when: always
-#  paths:
-#   - /builds/qa/MFTV_Web_Desktop_Smoke_JUnit5_only/target/site/allure-maven-plugin
-
-
-#allure-job:
-# stage: allure-job
-# script:
-#  - mvn io.qameta.allure:allure-maven:report
+ allow_failure: true
