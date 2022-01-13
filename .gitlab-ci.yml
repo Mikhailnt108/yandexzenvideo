@@ -3,7 +3,7 @@ image:
  entrypoint: [""]
 services:
   - name: docker:dind
-  - name: test_runner
+
 
 variables:
   DOCKER_HOST: tcp://docker:2375
