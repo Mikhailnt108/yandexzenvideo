@@ -7,7 +7,7 @@ image:
 # - name: mcr.microsoft.com/playwright/java:latest
 #   alias: pw
 
-#variables:
+variables:
 # DOCKER_HOST: tcp://docker:2375
 # DOCKER_TCP_PORT: 2375
 # DOCKER_TLS_CERTDIR: ""
@@ -18,8 +18,8 @@ image:
 # VRT_BRANCHNAME: "master"
 # VRT_CIBUILDID: "commit_sha"
 # CHOKIDAR_USEPOLLING: 1
-# HTTPS_PROXY: "http://proxy.megalabs.ru:8808"
-# HTTP_PROXY: "http://proxy.megalabs.ru:8808"
+  HTTPS_PROXY: "http://proxy.megalabs.ru:8808"
+  HTTP_PROXY: "http://proxy.megalabs.ru:8808"
 
 stages:
  - testPW-job
@@ -27,8 +27,8 @@ stages:
 testPW-job:
  stage: testPW-job
  script:
-  - ENV http_proxy="http://proxy.megalabs.ru:8808"
-  - ENV https_proxy="http://proxy.megalabs.ru:8808"
+  # - ENV http_proxy="http://proxy.megalabs.ru:8808"
+  # - ENV https_proxy="http://proxy.megalabs.ru:8808"
 #  - export http_proxy="http://proxy.megalabs.ru:8808"
 #  - export https_proxy="http://proxy.megalabs.ru:8808"
   - docker -v
