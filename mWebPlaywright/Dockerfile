@@ -17,6 +17,5 @@ RUN cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
 ### Install stable chrome
 #RUN npx playwright install chrome
 #CMD SELENIUM_REMOTE_URL=http://192.168.1.139:4444/wd/hub mvn -pl WebPlaywright clean test
-
 CMD mvn -pl mWebPlaywright clean test
 
