@@ -1,4 +1,4 @@
-FROM playwright_chrome_proxy_maven_https_http_new
+FROM ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/mikhailnt87/playwright_java_chrome:97
 
 WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 
