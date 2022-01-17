@@ -1,4 +1,4 @@
-FROM ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/mikhailnt87/playwright_java_chrome:97
+FROM ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/playwright_java_chrome:97
 
 WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 
