@@ -15,6 +15,8 @@ stages:
 testPW-job:
  stage: testPW-job
 
+ before_script:
+ - docker login -u $CI_DEPENDENCY_PROXY_USER -p $CI_DEPENDENCY_PROXY_PASSWORD $CI_DEPENDENCY_PROXY_SERVER
  script:
   - docker -v
   - docker-compose -v
