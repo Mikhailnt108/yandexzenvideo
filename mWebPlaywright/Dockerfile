@@ -17,6 +17,6 @@ ENV https_proxy="http://proxy.megalabs.ru:8808"
 ### Install stable chrome
 #RUN npx playwright install chrome
 #CMD SELENIUM_REMOTE_URL=http://192.168.1.139:4444/wd/hub mvn -pl WebPlaywright clean test
-
+CMD mvn -U clean
 CMD mvn -pl mWebPlaywright clean test
 
