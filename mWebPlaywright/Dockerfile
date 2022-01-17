@@ -1,4 +1,4 @@
-FROM gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/playwright_java_chrome_no_proxy:97
+FROM gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/playwright_java_chrome_proxy:97
 
 WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 
