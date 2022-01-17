@@ -5,8 +5,8 @@ WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 COPY . .
 
 RUN cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
-ENV http_proxy="http://proxy.megalabs.ru:8808"
-ENV https_proxy="http://proxy.megalabs.ru:8808"
+#ENV http_proxy="http://proxy.megalabs.ru:8808"
+#ENV https_proxy="http://proxy.megalabs.ru:8808"
 # Install node14
 #RUN apt-get update && apt-get install -y curl && \
 #    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
