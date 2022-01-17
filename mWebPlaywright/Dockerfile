@@ -1,4 +1,4 @@
-FROM gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/playwright_java_chrome_dockerproxy:97
+FROM gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/playwright_java_chrome_no_proxy:97
 
 WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 
@@ -18,6 +18,5 @@ RUN cat /usr/share/maven/conf/settings.xml
 ### Install stable chrome
 #RUN npx playwright install chrome
 #CMD SELENIUM_REMOTE_URL=http://192.168.1.139:4444/wd/hub mvn -pl WebPlaywright clean test
-CMD mvn clean install -U
 CMD mvn -pl mWebPlaywright clean test
 
