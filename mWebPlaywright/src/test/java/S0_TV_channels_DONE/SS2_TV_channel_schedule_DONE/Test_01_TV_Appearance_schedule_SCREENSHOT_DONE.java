@@ -17,7 +17,7 @@ public class Test_01_TV_Appearance_schedule_SCREENSHOT_DONE extends TestBasePlay
     @DisplayName(value = "TV_Appearance_schedule")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("AndroidWebPW#1Test")
+    @Tag("AndroidWebPW#0")
     public void TV_Appearance_schedule() throws InterruptedException, IOException {
         headerMenuPW.goToTabTv();
         tvPagePW.openCardTvChannelNonRecordHd();
