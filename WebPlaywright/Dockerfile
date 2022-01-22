@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/playwright/java:v1.17.2-focal
 
-WORKDIR /autosmoke_mftv_web_and_mobile_web/WebPlaywright
+WORKDIR /autosmoke_mftv_web_and_mobile_web
 
 COPY . .
 
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y curl && \
     apt-get install -y nodejs
 
 # Upgrade to NPM7 (see https://github.com/microsoft/playwright/pull/8915)
-RUN npm install -g npm@7
+RUN npm install -g npm@8
 
 ## Install stable chrome
 RUN npx playwright install chrome

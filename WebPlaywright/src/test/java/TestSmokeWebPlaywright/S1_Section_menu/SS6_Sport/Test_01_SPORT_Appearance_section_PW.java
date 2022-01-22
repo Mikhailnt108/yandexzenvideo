@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_SPORT_Appearance_section_PW extends TestBasePlaywright {
@@ -19,8 +20,13 @@ public class Test_01_SPORT_Appearance_section_PW extends TestBasePlaywright {
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuitePwNonAdWeb#4")
-    public void SPORT_Appearance_section() throws IOException, InterruptedException {
-        sportPagePW.createSportKindsAndAddChannels();
+    public void SPORT_Appearance_section() throws IOException, InterruptedException, SQLException, ClassNotFoundException {
+        preconditionPW.deleteOldAndCreateNewSportKind();
+        preconditionPW.addSportTvChannels();
+        preconditionPW.deleteOldAndAddNewSportCompetitions();
+        preconditionPW.deleteOldAndAddNewSportEvents();
+        preconditionPW.addTvProgramsInSportEvents();
+
         headerMenuPW.goToSportPage();
         sportPagePW.checkImageCherdakAndBannersSportPageGuest(); // добавить скриншот тесты
         sportPagePW.checkImageBlockFastFiltersSportPageForGuest(); // добавить скриншот тесты

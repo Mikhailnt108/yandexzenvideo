@@ -21,5 +21,19 @@ public class ExecutePreconditions extends TestBasePlaywright {
         preconditionPW.changePricePackageVseISrazuSubsNmegafon();
 // В CMS созданы 4 любые персональные предложения
         preconditionPW.checkCountAndAddPersonal_Offers();
+
+// удаление старых и создание новых видов спорта
+        preconditionPW.deleteOldAndCreateNewSportKind();
+// добавление тв каналов в созданные виды спорта:
+        preconditionPW.addSportTvChannels();
+// добавление спортивных соревнований:
+        preconditionPW.deleteOldAndAddNewSportCompetitions();
+// добавление спортивных событий:
+        preconditionPW.deleteOldAndAddNewSportEvents();
+// добавление тв программ в спортивные события:
+        preconditionPW.addTvProgramsInSportEvents();
+        // добавление баннеров в раздел спорт:
+        preconditionPW.addBannersInSectionSport();
     }
+
 }

@@ -44,8 +44,8 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
-    public String frontend = "https://web-preprod7.megafon.tv/";
-    public String backend = "https://bmp-preprod7.megafon.tv/";
+    public String frontend = "https://web-preprod6.megafon.tv/";
+    public String backend = "https://bmp-preprod6.megafon.tv/";
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
@@ -60,7 +60,11 @@ class TestBasePlaywright extends BasePagePlaywright{
             .build());
     public static final String USER_NAME = "bmp";
     public static final String PASSWORD = "bmp";
+    public static final String PP1 = "jdbc:postgresql://10.236.24.174:5432/bmp";
+    public static final String PP2 = "jdbc:postgresql://10.236.24.175:5432/bmp";
     public static final String PP3 = "jdbc:postgresql://10.236.24.176:5432/bmp";
+    public static final String PP4 = "jdbc:postgresql://10.236.24.177:5432/bmp";
+    public static final String PP5 = "jdbc:postgresql://10.236.24.178:5432/bmp";
     public static final String PP6 = "jdbc:postgresql://10.236.24.196:5432/bmp";
     public static final String PP7 = "jdbc:postgresql://10.236.24.197:5432/bmp";
     public Statement statement;
@@ -68,7 +72,7 @@ class TestBasePlaywright extends BasePagePlaywright{
 
     {
         try {
-            connection = DriverManager.getConnection(PP7,USER_NAME,PASSWORD);
+            connection = DriverManager.getConnection(PP6,USER_NAME,PASSWORD);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new RuntimeException();
