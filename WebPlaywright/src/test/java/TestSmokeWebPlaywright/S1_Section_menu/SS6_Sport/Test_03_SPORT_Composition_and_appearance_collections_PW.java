@@ -19,15 +19,12 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
     @Tag("SuitePwNonAdWeb#4")
     public void SPORT_Composition_and_appearance_collections() throws Exception {
         headerMenuPW.goToSportPage();
-        sportPagePW.checkImageBlockCollectionSportChannelsFofUser(); // добавить скриншот тесты
-        sportPagePW.checkElementsBlockCollectionLiveBroadcastForUser();
-        sportPagePW.checkImageBlockCollectionLiveBroadcastForUser(); // добавить скриншот тесты
+        sportPagePW.checkElementsBlockSportsChannels();
+        sportPagePW.checkElementsBlockCollectionLiveBroadcast();
         // пользователь авторизован:
         flowRegistationMF();
         headerMenuPW.goToSportPage();
-        sportPagePW.checkImageBlockCollectionSportChannelsFofUser(); // добавить скриншот тесты
-        sportPagePW.checkElementsBlockCollectionLiveBroadcastForUser();
-        sportPagePW.checkImageBlockCollectionLiveBroadcastForUser(); // добавить скриншот тесты
+        sportPagePW.checkElementsBlockCollectionLiveBroadcast();
     }
     private void flowRegistationMF() {
         headerMenuPW.checkNotLoggedIsCorrect();

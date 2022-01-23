@@ -3,11 +3,14 @@ package pagesPlaywright;
 import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
+import io.visual_regression_tracker.sdk_java.TestRunOptions;
 import org.junit.Assert;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
+import static base.TestBasePlaywright.vrt;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.Is.is;
@@ -15,19 +18,112 @@ import static org.hamcrest.core.Is.is;
 public class SportPagePW extends BasePagePlaywright {
     private Page page;
     private String backend;
+    private String frontend;
 
-    public SportPagePW(Page page, String backend) {
+    public SportPagePW(Page page, String frontend, String backend) {
         this.page = page;
         this.backend = backend;
+        this.frontend = frontend;
     }
 
-    public void checkImageSportPageScrollForGuest() {
+    public void checkImageSportPageScrollForGuest() throws IOException, InterruptedException {
+        page.navigate(frontend+"sport");
+        // подготовка элемента блоки подборок к скриншот-тесту:
+        List<ElementHandle> titleCollectionAll = page.querySelectorAll("//h3[@data-test='PackageListWrapperName']//a");
+        for(ElementHandle titleCollection : titleCollectionAll){
+            titleCollection.evaluate("t => t.innerText='Название подборки'");
+        }
+        List<ElementHandle> counterCollectionAll = page.querySelectorAll("//a[@data-test='PackageListWrapperMoreText']");
+        for(ElementHandle counterCollection : counterCollectionAll) {
+            counterCollection.evaluate("c => c.innerText='Все 100'");
+        }
+        List<ElementHandle> posterPackageAll = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _3l_eEMTBvsXXhIcEIbq6Zh']");
+        for(ElementHandle posterPackage : posterPackageAll){
+            posterPackage.evaluate("p => p.setAttribute('style', 'background-size: cover; background-color: rgb(238, 238, 238); background-image: url(https://static-sesure.cdn.megafon.tv/images/Film/2b/69/225873adc4106412821db4043d511119118e/tile__web-wp.webp);')");
+        }
+        List<ElementHandle> titlePackageAll = page.querySelectorAll("//h3[@data-test='PackageDescriptionTitle']");
+        for(ElementHandle titlePackage : titlePackageAll){
+            titlePackage.evaluate("t => t.innerText='Название контента'");
+        }
+        List<ElementHandle> descriptionTextPackage1All = page.querySelectorAll("//span[@class='_1VOD2HVjO24JlwN9I3tRYd']//span");
+        for(ElementHandle descriptionTextPackage1 : descriptionTextPackage1All){
+            descriptionTextPackage1.evaluate("d => d.textContent='2021, Жанр'");
+        }
+        List<ElementHandle> ageAll = page.querySelectorAll("//div[contains(@class,'_3RTKiE8VDgo764HGa4WvpJ _3uK4RWVSuUFLQ2ZmeFzsQi')]");
+        for(ElementHandle age : ageAll){
+            age.evaluate("a => a.innerText='18+'");
+        }
 
+        // подготовка элемента "cherdakPageKidsForGuest" к скриншот-тесту:
+        page.focus("//div[@class='ch-cherdak']");
+        ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
+
+        page.focus("//div[@data-test='BannerCarousel']");
+        ElementHandle banners = page.querySelector("//div[@class='_3VpQMliI0kzCfTPxfHPOa- _2RpZ3dJ5og17m8Uf5So1cd poster']");
+
+        // подготовка элемента "bannersPageKidsForGuest" к скриншот-тесту:
+        List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
+        if (dotBefore.size() > 5) {
+            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 5) {
+                page.evaluate("dU => dU.remove();", page.querySelector("(//button[@data-test='CarouselDotButton'])[last()]"));
+                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+            }
+        }
+        if (dotBefore.size() < 5) {
+            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 5) {
+                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
+                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+            }
+        }
+//        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
+//        changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
+
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
+        List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
+        for(ElementHandle poster : posters){
+            poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/bf/39/1be6dc78d61a95edf41452088a68fd7c7ff3/poster__web-wp.webp);')");
+        }
+        List<ElementHandle> titleBanners = page.querySelectorAll("//div[@data-test='SlideTitle']");
+        for(ElementHandle titleBanner : titleBanners){
+            titleBanner.evaluate("t => t.innerText='Название контента'");
+        }
+//        List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+//        for(ElementHandle stiker : stikers){
+//            stiker.evaluate("s => s.innerText='Автотест'");
+//        }
+//        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
+//        for(ElementHandle colorStiker : colorStikers){
+//            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(36, 181, 109); color: rgb(255, 255, 255); box-shadow: none;')");
+//        }
+        List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
+        for(ElementHandle yearAndGenre : yearAndGenres){
+            yearAndGenre.evaluate("yG => yG.innerText='дата, время'");
+        }
+        List<ElementHandle> ages = page.querySelectorAll("//div[contains(@class,'_2lExk7vBwXdikRmrmW8iJ_ _3ee886k9ILen72-SjCqCR6')]");
+        for(ElementHandle age : ages){
+            age.evaluate("yG => yG.innerText='18+'");
+        }
+        System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+        page.waitForTimeout(3000);
+
+
+        // делаем скриншот полной страницы "PageSportScrollForGuest":
+        vrt.track(
+                "PageSportScrollForGuest",
+                Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
     }
 
     public void checkElementsOnPageSport() {
         Assert.assertEquals("Нет заголовка 'Спорт'", "Спорт", page.querySelector("h1").innerText());
-//        Assert.assertEquals("Нет баннеров", 1, page.querySelectorAll("//div[@data-test='BannerCarousel']").size());
+        Assert.assertEquals("Нет баннеров", 1, page.querySelectorAll("//div[@data-test='BannerCarousel']").size());
         Assert.assertEquals("Нет хлебных крошек", 1, page.querySelectorAll("//ol[@class='_1-ZY27a7Isb9dohjRr0mXq']//span[text()='Главная']").size());
         Assert.assertEquals("Нет хлебных крошек", 1, page.querySelectorAll("//ol[@class='_1-ZY27a7Isb9dohjRr0mXq']//span[text()='Спорт']").size());
         Assert.assertEquals("Нет фильтров по видам спорта", 1, page.querySelectorAll("//div[@class='_3q_f0EzH81Dg0CRPqxq8mh']").size());
@@ -37,10 +133,85 @@ public class SportPagePW extends BasePagePlaywright {
         Assert.assertEquals("Нет подборки 'Прямой эфир'", 1, page.querySelectorAll("//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
     }
 
-    public void checkImageCherdakAndBannersSportPageGuest() {
+    public void checkImageCherdakAndBannersSportPageGuest() throws IOException, InterruptedException {
+        page.navigate(frontend+"sport");
+        // подготовка элемента "cherdakPageKidsForGuest" к скриншот-тесту:
+        page.focus("//div[@class='ch-cherdak']");
+        ElementHandle cherdak = page.querySelector("//div[@class='ch-cherdak']");
+        // делаем скриншот элемента "cherdakPageKidsForGuest":
+        vrt.track(
+                "cherdakPageKidsForGuest",
+                Base64.getEncoder().encodeToString(cherdak.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+
+        page.focus("//div[@data-test='BannerCarousel']");
+        ElementHandle banners = page.querySelector("//div[@class='_3VpQMliI0kzCfTPxfHPOa- _2RpZ3dJ5og17m8Uf5So1cd poster']");
+        // подготовка элемента "bannersPageKidsForGuest" к скриншот-тесту:
+        List<ElementHandle> dotBefore = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
+        if (dotBefore.size() > 5) {
+            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 5) {
+                page.evaluate("dU => dU.remove();", page.querySelector("(//button[@data-test='CarouselDotButton'])[last()]"));
+                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+            }
+        }
+        if (dotBefore.size() < 5) {
+            while (page.querySelectorAll("//button[@data-test='CarouselDotButton']").size() != 5) {
+                page.evaluate("newDot => newDot.appendChild(document.getElementsByClassName('_3Na2_ekd58nusdf4LI3vt0')[0].cloneNode(true));", page.querySelector("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']"));
+                System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+            }
+        }
+        ElementHandle changeTransform = page.querySelector("//div[@class='_1kVeVZ_VGnmjl8qGdsFyY9']");
+        changeTransform.evaluate("ch => ch.setAttribute('style', 'transition-duration: 0s;')");
+
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+
+        List<ElementHandle> posters = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC dc5b4FeyE5AXbLbUa66RW']");
+        for(ElementHandle poster : posters){
+            poster.evaluate("p => p.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/img/bf/39/1be6dc78d61a95edf41452088a68fd7c7ff3/poster__web-wp.webp);')");
+        }
+        List<ElementHandle> titleBanners = page.querySelectorAll("//div[@data-test='SlideTitle']");
+        for(ElementHandle titleBanner : titleBanners){
+            titleBanner.evaluate("t => t.innerText='Название контента'");
+        }
+//        List<ElementHandle> stikers = page.querySelectorAll("//div[@class='kjFUbLahFxqq2AjHY8j2R']");
+//        for(ElementHandle stiker : stikers){
+//            stiker.evaluate("s => s.innerText='Автотест'");
+//        }
+//        List<ElementHandle> colorStikers = page.querySelectorAll("//div[@class='_33eseRmm5G3s8cqfYtR0dR _1AqbFwoLFYTG_y6SmXKfYb']");
+//        for(ElementHandle colorStiker : colorStikers){
+//            colorStiker.evaluate("c => c.setAttribute('style', 'background-color: rgb(36, 181, 109); color: rgb(255, 255, 255); box-shadow: none;')");
+//        }
+        List<ElementHandle> yearAndGenres = page.querySelectorAll("//div[@data-test='SlideDescription']");
+        for(ElementHandle yearAndGenre : yearAndGenres){
+            yearAndGenre.evaluate("yG => yG.innerText='дата, время'");
+        }
+        List<ElementHandle> ages = page.querySelectorAll("//div[contains(@class,'_2lExk7vBwXdikRmrmW8iJ_ _3ee886k9ILen72-SjCqCR6')]");
+        for(ElementHandle age : ages){
+            age.evaluate("yG => yG.innerText='18+'");
+        }
+        System.out.println(page.querySelectorAll("//button[@data-test='CarouselDotButton']").size());
+        page.click("(//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'])[1]");
+        page.waitForTimeout(3000);
+
+        // делаем скриншот элемента "bannersPageKidsForGuest":
+        vrt.track(
+                "bannersPageSportForGuest",
+                Base64.getEncoder().encodeToString(banners.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
     }
 
     public void checkImageBlockFastFiltersSportPageForGuest() {
+
     }
 
     public void checkImageBlocksCollectionSportPageFofGuest() {
@@ -199,10 +370,12 @@ public class SportPagePW extends BasePagePlaywright {
     public void checkImageBlockCollectionSportChannelsFofUser() {
     }
 
-    public void checkElementsBlockCollectionLiveBroadcastForUser() throws InterruptedException {
+    public void checkElementsBlockCollectionLiveBroadcast() throws InterruptedException {
         Thread.sleep(5000);
-        page.waitForSelector("//h3//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
-        page.waitForSelector("//h3[@class='B5LYgjhfyG3wLcjaaFyLM']//div[text()='Прямой эфир']");
+        Assert.assertEquals("Нет заголовка подборки 'Прямой эфир'", 1, page.querySelectorAll("//h3//div[ text()='Прямой эфир']").size());
+        Assert.assertEquals("Нет подборки 'Прямой эфир'", 1, page.querySelectorAll("//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
+//        page.waitForSelector("//h3//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']");
+//        page.waitForSelector("//h3[@class='B5LYgjhfyG3wLcjaaFyLM']//div[text()='Прямой эфир']");
         // tail1
         page.waitForSelector("(//h3//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3)[1]");
         page.waitForSelector("(//h3//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//span)[1]");
@@ -229,12 +402,120 @@ public class SportPagePW extends BasePagePlaywright {
 
     }
 
+    public void checkImageFooterSportPageForGuest() throws IOException, InterruptedException {
+        page.navigate(frontend+"sport");
+        ElementHandle footer = page.querySelector("//footer[@class='uy6cMg76OlWzJbrz5UGzE']");
+        // делаем скриншот элемента "footerPageKidsForGuest":
+        vrt.track(
+                "footerPageSportForGuest",
+                Base64.getEncoder().encodeToString(footer.screenshot()),
+                TestRunOptions.builder()
+                        .device("Acer")
+                        .os("Win10 Pro")
+                        .browser("Chrome")
+                        .diffTollerancePercent(0.3f)
+                        .build());
+    }
+
+    public void checkElementsBlockSportsChannels() {
+        Assert.assertEquals("Нет фильтров по видам спорта", 1, page.querySelectorAll("//div[@class='_3q_f0EzH81Dg0CRPqxq8mh']").size());
+        Assert.assertEquals("Нет заголовка подборки 'Спортивные телеканалы'", 1, page.querySelectorAll("//h3//div[ text()='Спортивные телеканалы']").size());
+        Assert.assertEquals("Нет подборки 'Спортивные телеканалы'", 1, page.querySelectorAll("//div[text()='Спортивные телеканалы']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
+    }
+
+    public void checkElementsBlockSportsEvents() {
+        Assert.assertEquals("Нет заголовка подборки событий 'Футбол'", 1, page.querySelectorAll("//h3//div[ text()='Футбол']").size());
+        Assert.assertEquals("Нет подборки событий 'Футбол'", 1, page.querySelectorAll("//div[text()='Футбол']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
+    }
+
+    public void checkElementsBlockSportsCompetition() {
+        Assert.assertEquals("Нет заголовка подборки соревнований 'Футбол'", 1, page.querySelectorAll("//h3//div[ text()='Футбол']").size());
+        Assert.assertEquals("Нет подборки соревнований 'Футбол'", 1, page.querySelectorAll("//div[text()='Футбол']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
+    }
+
+    public void clickOnBannerSportEvent() {
+        page.click("//div[@data-test='BannerCarousel']");
+        page.waitForSelector("(//div[text()='Спорт'])[3]");
+        Assert.assertTrue("bug: not opened card tv program", page.url().contains("/programs/"));
+        page.navigate(frontend+"sport");
+        page.waitForSelector("//h1[text()='Спорт']");
+        }
+
+    public void clickOnTileSportTvChannel() {
+        page.click("//div[text()='Спортивные телеканалы']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_3xyyocXFfnpUO17TYraLov']");
+        page.waitForSelector("//div[contains(text(),'Спорт')]");
+        Assert.assertTrue("bug: not opened card tv channel", page.url().contains("/tv/channels/"));
+        page.navigate(frontend+"sport");
+        page.waitForSelector("//h1[text()='Спорт']");
+    }
+
+    public void clickOnTileSportTvProgram() {
+        page.click("//div[text()='Прямой эфир']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_3xyyocXFfnpUO17TYraLov']");
+        page.waitForSelector("//div[contains(text(),'Спорт')]");
+        Assert.assertTrue("bug: not opened card tv program", page.url().contains("/tv/channels/"));
+        page.navigate(frontend+"sport");
+        page.waitForSelector("//h1[text()='Спорт']");
+    }
+
+    public void scrollSportPageDownAndUp() {
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
+        Assert.assertTrue(page.isVisible("//footer"));
+        page.evaluate("window.scrollTo(0, -document.body.scrollHeight);");
+        Assert.assertTrue(page.isVisible("//h1[text()='Спорт']"));
+    }
+
+    public void scrollSportPageBannersToLeft() {
+        page.waitForTimeout(5000);
+        List<ElementHandle> BannerForSport = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
+        System.out.println(BannerForSport.size());
+        page.click("//button[@data-test='CarouselDotButton'][1]");
+        String bannerFirst = page.waitForSelector("(//div[@data-test='SlideTitle'])[2]").innerText();
+        System.out.println(bannerFirst);
+        page.click("//button[@data-test='leftCarouselButton']");
+        page.waitForSelector("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']");
+        String bannerLast = page.waitForSelector("(//div[@data-test='SlideTitle'])[2]").innerText();
+        System.out.println(bannerLast);
+        Assert.assertNotEquals(bannerFirst, bannerLast);
+
+    }
+
+    public void autoScrollBannersSportPage() {
+        page.waitForSelector("//div[@data-test='BannerCarousel']");
+        page.waitForSelector("//button[@data-test='CarouselDotButton']");
+        page.waitForSelector("//button[@data-test='rightCarouselButton']");
+        page.waitForSelector("//button[@data-test='leftCarouselButton']");
+
+        String banner1 = page.waitForSelector("(//div[@data-test='SlideTitle'])[2]").innerText();
+        System.out.println(banner1);
+        page.waitForTimeout(5000);
+        String banner2 = page.waitForSelector("(//div[@data-test='SlideTitle'])[3]").innerText();
+        System.out.println(banner2);
+        Assert.assertNotEquals(banner1, banner2);
+        page.waitForTimeout(5000);
+        String banner3 = page.waitForSelector("(//div[@data-test='SlideTitle'])[3]").innerText();
+        System.out.println(banner3);
+        Assert.assertNotEquals(banner2, banner3);
+        page.waitForTimeout(5000);
+        String banner4 = page.waitForSelector("(//div[@data-test='SlideTitle'])[3]").innerText();
+        System.out.println(banner4);
+        Assert.assertNotEquals(banner3, banner4);
+        page.waitForTimeout(5000);
+        String banner5 = page.waitForSelector("(//div[@data-test='SlideTitle'])[3]").innerText();
+        System.out.println(banner5);
+        Assert.assertNotEquals(banner4, banner5);
+    }
+
+    public void scrollSportPageBannersToRight() {
+        page.waitForTimeout(5000);
+        List<ElementHandle> BannerForSport = page.querySelectorAll("//button[@data-test='CarouselDotButton']");
+        System.out.println(BannerForSport.size());
+        page.click("//button[@data-test='CarouselDotButton'][last()]");
+        String bannerLast = page.waitForSelector("(//div[@data-test='SlideTitle'])[2]").innerText();
+        System.out.println(bannerLast);
+        page.click("//button[@data-test='rightCarouselButton']");
+        page.waitForSelector("//button[@data-test='CarouselDotButton']//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']");
+        String bannerFirst = page.waitForSelector("(//div[@data-test='SlideTitle'])[3]").innerText();
+        System.out.println(bannerFirst);
+        Assert.assertNotEquals(bannerLast, bannerFirst);
+    }
 }
-
-
-
-
-
-
-
-

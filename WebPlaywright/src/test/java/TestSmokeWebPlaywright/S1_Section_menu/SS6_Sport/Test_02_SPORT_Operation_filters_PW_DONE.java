@@ -4,20 +4,18 @@ import base.TestBasePlaywright;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.parallel.ResourceAccessMode;
-import org.junit.jupiter.api.parallel.ResourceLock;
+import org.junit.jupiter.api.Test;
 
-@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_SPORT_Operation_filters_PW extends TestBasePlaywright {
+public class Test_02_SPORT_Operation_filters_PW_DONE extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "6. Спорт")
-    @DisplayName(value = "2. Работа фильтров")
+    @Feature(value = "1. Sections_menu")
+    @Story(value = "6. Sport")
+    @DisplayName(value = "2. Operation_filters")
     @Severity(SeverityLevel.BLOCKER)
+    @Test
     @Tag("SuitePwNonAdWeb#4")
     public void operationFiltersPageSport() throws Exception {
         headerMenuPW.goToSportPage();
-        sportPagePW.checkImageBlockFastFiltersSportPageForGuest();
         sportPagePW.chooseFilterSportAndCheckTvChannels();
         sportPagePW.chooseFilterSportAndCheckTvProgram();
     }

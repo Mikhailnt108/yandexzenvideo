@@ -521,7 +521,7 @@ public class PreconditionPW extends BasePagePlaywright {
         System.out.println(idFootball.getInt(1));
         given().auth().basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/x-www-form-urlencoded").
-                body("package_id=Channel_NashFootballHD_576038291").
+                body("package_id=Channel_NashFootballHD_576038363").
                 when().
                 post(backend+"cms/sport/events/"+idFootball.getInt(1)+"/programme/insert").
                 then().statusCode(anyOf(is(200), is(302)));
@@ -532,7 +532,7 @@ public class PreconditionPW extends BasePagePlaywright {
         System.out.println(idHockey.getInt(1));
         given().auth().basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/x-www-form-urlencoded").
-                body("package_id=Channel_KHL_575487839").
+                body("package_id=Channel_KHL_575487869").
                 when().
                 post(backend+"cms/sport/events/"+idHockey.getInt(1)+"/programme/insert").
                 then().statusCode(anyOf(is(200), is(302)));
@@ -554,7 +554,7 @@ public class PreconditionPW extends BasePagePlaywright {
         System.out.println(idMotorsport.getInt(1));
         given().auth().basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/x-www-form-urlencoded").
-                body("package_id=Channel_Motorsport_577356746").
+                body("package_id=Channel_Motorsport_577356802").
                 when().
                 post(backend+"cms/sport/events/"+idMotorsport.getInt(1)+"/programme/insert").
                 then().statusCode(anyOf(is(200), is(302)));
@@ -565,7 +565,7 @@ public class PreconditionPW extends BasePagePlaywright {
         System.out.println(idFight.getInt(1));
         given().auth().basic("mc2soft", "wkqKy2sWwBGFDR").
                 contentType("application/x-www-form-urlencoded").
-                body("package_id=Channel_BoxTV_576546713").
+                body("package_id=Channel_BoxTV_576546806").
                 when().
                 post(backend+"cms/sport/events/"+idFight.getInt(1)+"/programme/insert").
                 then().statusCode(anyOf(is(200), is(302)));
@@ -581,11 +581,11 @@ public class PreconditionPW extends BasePagePlaywright {
                     auth().
                     basic("mc2soft", "wkqKy2sWwBGFDR").
                     multiPart("reference_mode", "package").
-                    multiPart("package_id", "Channel_KHL_575487860").
+                    multiPart("package_id", "Channel_KHL_575487869").
                     multiPart("weight", "1").
                     multiPart("visible_at", "2022-01-22 23:57:17").
                     multiPart("visible_until", "2023-01-22 23:57:17").
-                    multiPart("title", "Event").
+                    multiPart("title", "Attack of the 60s").
                     multiPart("screen", "sport").
                     when().post(backend+"cms/banners/0/edit").
                     then().statusCode(anyOf(is(200), is(302)));
@@ -615,7 +615,7 @@ public class PreconditionPW extends BasePagePlaywright {
                     auth().
                     basic("mc2soft", "wkqKy2sWwBGFDR").
                     multiPart("reference_mode", "package").
-                    multiPart("package_id", "Channel_NashFootballHD_576038326").
+                    multiPart("package_id", "Channel_NashFootballHD_576038343").
                     multiPart("weight", "3").
                     multiPart("visible_at", "2022-01-22 23:57:17").
                     multiPart("visible_until", "2023-01-22 23:57:17").

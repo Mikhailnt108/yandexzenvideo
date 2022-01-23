@@ -90,7 +90,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     void launchBrowser() {
         playwright = Playwright.create();
         browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
     }
     @AfterAll
     void closeBrowser() {
@@ -113,7 +113,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
-        page.setDefaultTimeout(160000);
+        page.setDefaultTimeout(80000);
 
         headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless, frontend, backend);
         filmsPagePW = new FilmsPagePW(page, frontend);
@@ -132,7 +132,7 @@ class TestBasePlaywright extends BasePagePlaywright{
         packagesPagePW = new PackagesPagePW(page);
         cardPackagePW = new CardPackagePW(page, numberBankCard, dataValidity, codeCVV);
         preconditionPW = new PreconditionPW(page, statement, frontend, backend);
-        sportPagePW = new SportPagePW(page, backend);
+        sportPagePW = new SportPagePW(page, frontend, backend);
         authPagePW = new AuthPagePW(page, frontend);
         promoCodePW = new PromoCodePW(page, frontend, backend);
         vrt.start();
