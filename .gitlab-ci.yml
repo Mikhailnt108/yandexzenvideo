@@ -19,7 +19,7 @@ testPW-job:
  script:
   - docker -v
   - docker-compose -v
-  - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright
+  - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright
   - docker-compose up
  tags:
   - qa
