@@ -13,7 +13,7 @@ public class Test_08_SPORT_Appearance_card_event_PW extends TestBasePlaywright {
     @DisplayName(value = "08_SPORT_Appearance_card_event")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePwNonAdWeb#4")
+    @Tag("oldWebPW#2")
     public void SPORT_Appearance_card_event() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkElementsBlockSportsEvents();
