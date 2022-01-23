@@ -1,10 +1,13 @@
-FROM gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/playwright_java_chrome_proxy:97
+FROM mikhailnt87/playwright_java_chrome_proxy:97
+#FROM gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/playwright_java_chrome_proxy:97
 
-WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
+WORKDIR /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
+#WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 
 COPY . .
 
-RUN cd /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright
+#RUN cd /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright
+RUN cd /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/WebPlaywright
 ENV http_proxy="http://proxy.megalabs.ru:8808"
 ENV https_proxy="http://proxy.megalabs.ru:8808"
 # Install node14
