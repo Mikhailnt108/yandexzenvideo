@@ -93,13 +93,13 @@ public class TestBaseWebDriver {
     @BeforeEach
     public void start() throws MalformedURLException {
         // start remote browser:
-//        System.setProperty("http.proxyHost", "proxy.megalabs.ru");
-//        System.setProperty("http.proxyPort", "8808");
+        System.setProperty("http.proxyHost", "proxy.megalabs.ru");
+        System.setProperty("http.proxyPort", "8808");
 //        Proxy proxy = new Proxy();
 //        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setCapability("browserVersion", "97.0");
-        chromeOptions.setCapability("platformName", "Windows XP");
+        chromeOptions.setCapability("platformName", "Linux");
         chromeOptions.setHeadless(true);
         chromeOptions.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "normal");
 //        chromeOptions.addArguments("--proxy-pac-url=http://myPacFile.com");
