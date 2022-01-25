@@ -40,6 +40,6 @@ testWD-job:
   - cd /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver
 #  - docker-compose up --scale chrome=2
   - docker-compose up
-tags:
+ tags:
     - qa
-allow_failure: true
+ allow_failure: true
