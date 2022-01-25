@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuitePW#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -17,7 +17,7 @@ public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywrig
     @DisplayName(value ="TV_Card_tv_program_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePW#4")
+    @Tag("SuitePwNonAdWeb#0")
     public void tv_Card_tv_program_SCREENSHOT() throws Exception {
         //неавторизованный пользователь:
         cardTvProgramPW.checkImageCardTvProgramForGuest();

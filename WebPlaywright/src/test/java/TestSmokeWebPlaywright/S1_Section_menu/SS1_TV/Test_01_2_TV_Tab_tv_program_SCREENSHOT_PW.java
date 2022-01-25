@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "AndroidWebPW#1Test", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_2_TV_Tab_tv_program_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Mobile Android Web")
     @Feature(value = "1. Sections_menu")
@@ -17,7 +17,7 @@ public class Test_01_2_TV_Tab_tv_program_SCREENSHOT_PW extends TestBasePlaywrigh
     @DisplayName(value = "Tab_tv_program_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("AndroidWebPW#1Test")
+    @Tag("SuitePwNonAdWeb#0")
     public void tab_tv_program_SCREENSHOT() throws Exception {
         tvPagePW.checkImageTvPageTabProgramTvForGuest();
     }

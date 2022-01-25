@@ -28,7 +28,7 @@ public class Test_01_2_NIL_BASIC_Appereance_section_User_SCREENSHOT_PW_adWeb ext
         nilPagePW.checkImageCherdakAndBannersUser();
         nilPagePW.checkImageBlocksCollectionWithHeaderUser();
         nilPagePW.checkImageBlockCollectionTvChannelWidePageNilUser();
-        //        nilPagePW.checkImageBlocksCollectionWithoutHeader();
+        // nilPagePW.checkImageBlocksCollectionWithoutHeader();
         nilPagePW.checkImageFooterWidePageUser();
 }
     private void flowRegistation() {

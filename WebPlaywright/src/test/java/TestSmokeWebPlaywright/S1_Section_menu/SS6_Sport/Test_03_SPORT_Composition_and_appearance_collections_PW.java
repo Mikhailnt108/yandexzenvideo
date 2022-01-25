@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "SuitePwNonAdWeb#4", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_SPORT_Composition_and_appearance_collections_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -16,7 +16,7 @@ public class Test_03_SPORT_Composition_and_appearance_collections_PW extends Tes
     @DisplayName(value = "03_SPORT_Composition_and_appearance_collections")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuitePwNonAdWeb#4")
+    @Tag("SuitePwNonAdWeb#0")
     public void SPORT_Composition_and_appearance_collections() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkElementsBlockSportsChannels();

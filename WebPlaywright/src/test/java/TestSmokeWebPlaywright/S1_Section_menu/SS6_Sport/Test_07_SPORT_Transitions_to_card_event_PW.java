@@ -5,7 +5,10 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.ResourceAccessMode;
+import org.junit.jupiter.api.parallel.ResourceLock;
 
+@ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_07_SPORT_Transitions_to_card_event_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -13,7 +16,7 @@ public class Test_07_SPORT_Transitions_to_card_event_PW extends TestBasePlaywrig
     @DisplayName(value = "07_SPORT_Transitions_to_card_event")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("oldWebPW#1")
+    @Tag("SuitePwNonAdWeb#1")
     public void SPORT_Transitions_to_card_event() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkElementsBlockSportsEvents();

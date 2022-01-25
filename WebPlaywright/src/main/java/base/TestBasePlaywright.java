@@ -56,7 +56,7 @@ class TestBasePlaywright extends BasePagePlaywright{
             .apiKey("GKT6NX6RZBMEK6NJC6EHCCWJ2V99")
             .project("MFTV_Web_Chrome")
             .branchName("master")
-            .enableSoftAssert(false)
+            .enableSoftAssert(true)
             .httpTimeoutInSeconds(60)
             .build());
     public static final String USER_NAME = "bmp";
