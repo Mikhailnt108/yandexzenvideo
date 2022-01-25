@@ -102,7 +102,7 @@ public class TestBaseWebDriver {
         capabilities.setCapability("browserVersion", "97.0");
         capabilities.setCapability("enableVNC", false);
 //        capabilities.setCapability("proxy", proxy);
-        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
+        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "normal");
         Configuration.pageLoadTimeout = 60000;
         RemoteWebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), capabilities);
         webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
