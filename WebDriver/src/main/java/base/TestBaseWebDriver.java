@@ -99,7 +99,7 @@ public class TestBaseWebDriver {
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "97.0");
         capabilities.setCapability("enableVNC", false);
-        capabilities.setCapability("proxy", proxy);
+//        capabilities.setCapability("proxy", proxy);
         capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
         Configuration.pageLoadTimeout = 60000;
         RemoteWebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), capabilities);
