@@ -71,6 +71,7 @@ services:
 #      context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
      dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver/Dockerfile
 #      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\WebDriver\Dockerfile
+
     image: tests_webdriver
     container_name: tests_run_webdriver
     network_mode: "host"
