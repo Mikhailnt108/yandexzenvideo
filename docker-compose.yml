@@ -51,8 +51,8 @@ services:
     image: selenium/node-chrome:4.1.1-20220121
     shm_size: 2gb
     ports:
-      - "5900"
-      - "7900"
+      - "5900:5900"
+      - "7900:7900"
     depends_on:
       - selenium-hub
     environment:
