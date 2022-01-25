@@ -106,7 +106,7 @@ public class TestBaseWebDriver {
         chromeOptions.setCapability("pageLoadStrategy","normal");
         chromeOptions.setHeadless(true);
 //        chromeOptions.addArguments("--proxy-pac-url=http://myPacFile.com");
-        WebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), chromeOptions);
+        WebDriver webDriver = new RemoteWebDriver(new URL("http://192.168.1.139:4444"), chromeOptions);
         Configuration.pageLoadTimeout = 60000;
         webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
         WebDriverRunner.setWebDriver(webDriver);
