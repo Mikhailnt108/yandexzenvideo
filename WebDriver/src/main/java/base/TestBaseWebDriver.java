@@ -97,11 +97,14 @@ public class TestBaseWebDriver {
 //        System.setProperty("http.proxyPort", "8808");
 //        Proxy proxy = new Proxy();
 //        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
+
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setCapability("goog:chromeOptions",chromeOptions);
+        chromeOptions.setCapability("browserName","chrome");
         chromeOptions.setCapability("browserVersion", "97.0");
-        chromeOptions.setCapability("platformName", "Linux");
+        chromeOptions.setCapability("platformName", "linux");
+        chromeOptions.setCapability("pageLoadStrategy","normal");
         chromeOptions.setHeadless(true);
-        chromeOptions.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "normal");
 //        chromeOptions.addArguments("--proxy-pac-url=http://myPacFile.com");
         WebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), chromeOptions);
         Configuration.pageLoadTimeout = 60000;
