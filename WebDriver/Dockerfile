@@ -4,11 +4,11 @@ WORKDIR /autosmoke_mftv_web_and_mobile_web
 #COPY pom.xml .
 COPY . .
 
+
 #RUN mvn dependency:go-offline
 RUN cd /autosmoke_mftv_web_and_mobile_web/WebDriver
 ENV http_proxy="http://proxy.megalabs.ru:8808"
 ENV https_proxy="http://proxy.megalabs.ru:8808"
-
 
 CMD mvn -pl WebDriver clean test
 #io.qameta.allure:allure-maven:install io.qameta.allure:allure-maven:report
