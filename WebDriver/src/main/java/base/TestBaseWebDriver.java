@@ -92,10 +92,10 @@ public class TestBaseWebDriver {
     @BeforeEach
     public void start() throws MalformedURLException {
         // start remote browser:
-        System.setProperty("http.proxyHost", "proxy.megalabs.ru");
-        System.setProperty("http.proxyPort", "8808");
-        Proxy proxy = new Proxy();
-        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
+//        System.setProperty("http.proxyHost", "proxy.megalabs.ru");
+//        System.setProperty("http.proxyPort", "8808");
+//        Proxy proxy = new Proxy();
+//        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");

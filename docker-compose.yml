@@ -12,8 +12,7 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_SESSION_RETRY_INTERVAL=2
-      - DEBUG=pw:browser*
+#      - SE_SESSION_RETRY_INTERVAL=2
 
   selenium-hub:
     image: selenium/hub:4.1.1-20220121
