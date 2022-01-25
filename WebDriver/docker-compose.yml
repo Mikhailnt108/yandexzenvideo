@@ -1,6 +1,5 @@
 version: "2.1"
 services:
-
 #  chrome:
 #    image: gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/selenium_node_chrome:4.1.1-20220121
 #    shm_size: 2gb
@@ -67,9 +66,11 @@ services:
 #    network_mode: bridge
   test_runner:
     build:
-     context: /builds/qa/autosmoke_mftv_web_and_mobile_web
+#     context: /builds/qa/autosmoke_mftv_web_and_mobile_web
+     context: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
 #      context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
-     dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver/Dockerfile
+#     dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver/Dockerfile
+     dockerfile: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/WebDriver/Dockerfile
 #      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\WebDriver\Dockerfile
 
     image: tests_webdriver
