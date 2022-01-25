@@ -5,8 +5,8 @@ FROM gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/playwright
 #WORKDIR /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
 WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 #WORKDIR /autosmoke_mftv_web_and_mobile_web
-COPY pom.xml .
-RUN mvn -B -f pom.xml dependency:go-offline
+#COPY pom.xml .
+#RUN mvn -B -f pom.xml dependency:go-offline
 COPY . .
 
 RUN cd /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright
