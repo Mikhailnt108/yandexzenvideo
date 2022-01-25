@@ -1,25 +1,28 @@
 version: "2.1"
 services:
-#  chrome:
-#    image: selenium/node-chrome:4.1.1-20220121
-#    shm_size: 2gb
+  chrome:
+    image: selenium/node-chrome:4.1.1-20220121
+    shm_size: 2gb
 #    ports:
 #      - "5900"
 #      - "7900"
-#    depends_on:
-#      - selenium-hub
-#    environment:
-#      - SE_EVENT_BUS_HOST=selenium-hub
-#      - SE_EVENT_BUS_PUBLISH_PORT=4442
-#      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-#
-#  selenium-hub:
-#     image: selenium/hub:4.1.1-20220121
-#     container_name: selenium-hub
-#     ports:
-#       - "4442:4442"
-#       - "4443:4443"
-#       - "4444:4444"
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_SESSION_RETRY_INTERVAL=2
+      - DEBUG=pw:browser*
+
+  selenium-hub:
+     image: selenium/hub:4.1.1-20220121
+     container_name: selenium-hub
+     ports:
+       - "4442:4442"
+       - "4443:4443"
+       - "4444:4444"
+
 #  ui:
 #    image: visualregressiontracker/ui:4.19.0
 #    ports:
@@ -75,7 +78,15 @@ services:
 #      context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
       dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/mWebPlaywright/Dockerfile
 #      dockerfile: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/WebPlaywright/Dockerfile
-#      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\WebPlaywright\Dockerfile
-    image: web_tests_playwright
-    container_name: web_tests_run_playwright
+#      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\Example\Dockerfile
+    image: web_tests_pw_example
+    depends_on:
+      - chrome
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_SESSION_RETRY_INTERVAL=2
+      - DEBUG=pw:browser*
+    container_name: web_tests_run_pw_example
     network_mode: "host"

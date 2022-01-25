@@ -1,55 +1,75 @@
 version: "2.1"
 services:
-  allure:
-    image: "frankescobar/allure-docker-service"
-    environment:
-      CHECK_RESULTS_EVERY_SECONDS: 1
-      KEEP_HISTORY: 1
+  chrome:
+    image: selenium/node-chrome:4.1.1-20220121
+    shm_size: 2gb
     ports:
-      - "5050:5050"
-    volumes:
-      - "C:/QA_AUTOMATION/AutoSmoke_MFTV/allure-results:/app/allure-results"
-      - "C:/QA_AUTOMATION/AutoSmoke_MFTV/allure-reports:/app/default-reports"
-#    network_mode: bridge
-  allure-ui:
-    image: "frankescobar/allure-docker-service-ui"
+      - "5900"
+      - "7900"
+    depends_on:
+      - selenium-hub
     environment:
-      ALLURE_DOCKER_PUBLIC_API_URL: "http://192.168.1.139:5050"
-      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
-    ports:
-      - "5252:5252"
-#    network_mode: bridge
-  selenoid:
-    image: aerokube/selenoid:latest-release
-    volumes:
-        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/init/selenoid:/etc/selenoid"
-        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/working/selenoid/video:/opt/selenoid/video"
-        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/working/selenoid/logs:/opt/selenoid/logs"
-        - "/var/run/docker.sock:/var/run/docker.sock"
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
-    environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=work/selenoid/video
-    command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs" ]
+  selenium-hub:
+    image: selenium/hub:4.1.1-20220121
+    container_name: selenium-hub
     ports:
-      - 4444:4444
-    network_mode: bridge
-  selenoid-ui:
-    image: aerokube/selenoid-ui:latest-release
-    network_mode: bridge
-    links:
-        - selenoid
-    ports:
-        - 8082:8080
-    command: ["--selenoid-uri", "http://selenoid:4444"]
-  vnc:
-    image: selenoid/vnc:chrome_96.0
-    network_mode: bridge
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+#  allure:
+#    image: "frankescobar/allure-docker-service"
+#    environment:
+#      CHECK_RESULTS_EVERY_SECONDS: 1
+#      KEEP_HISTORY: 1
+#    ports:
+#      - "5050:5050"
+#    volumes:
+#      - "C:/QA_AUTOMATION/AutoSmoke_MFTV/allure-results:/app/allure-results"
+#      - "C:/QA_AUTOMATION/AutoSmoke_MFTV/allure-reports:/app/default-reports"
+##    network_mode: bridge
+#  allure-ui:
+#    image: "frankescobar/allure-docker-service-ui"
+#    environment:
+#      ALLURE_DOCKER_PUBLIC_API_URL: "http://192.168.1.139:5050"
+#      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+#    ports:
+#      - "5252:5252"
+#    network_mode: bridge
+#  selenoid:
+#    image: aerokube/selenoid:latest-release
+#    volumes:
+#        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/init/selenoid:/etc/selenoid"
+#        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/working/selenoid/video:/opt/selenoid/video"
+#        - "C:/QA_AUTOMATION/AutoSmoke_MFTV/WebDriver/working/selenoid/logs:/opt/selenoid/logs"
+#        - "/var/run/docker.sock:/var/run/docker.sock"
+#
+#    environment:
+#      - OVERRIDE_VIDEO_OUTPUT_DIR=work/selenoid/video
+#    command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs" ]
+#    ports:
+#      - 4444:4444
+#    network_mode: bridge
+#  selenoid-ui:
+#    image: aerokube/selenoid-ui:latest-release
+#    network_mode: bridge
+#    links:
+#        - selenoid
+#    ports:
+#        - 8082:8080
+#    command: ["--selenoid-uri", "http://selenoid:4444"]
+#  vnc:
+#    image: selenoid/vnc:chrome_96.0
+#    network_mode: bridge
   test_runner:
     build:
-#     context: /builds/qa/AutoSmoke_MFTV
-      context: C:\QA_AUTOMATION\AutoSmoke_MFTV
-#     dockerfile: /builds/qa/AutoSmoke_MFTV/WebDriver/Dockerfile
-      dockerfile: C:\QA_AUTOMATION\AutoSmoke_MFTV\WebDriver\Dockerfile
+     context: /builds/qa/autosmoke_mftv_web_and_mobile_web
+#      context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
+     dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver/Dockerfile
+#      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\WebDriver\Dockerfile
     image: tests_webdriver
     container_name: tests_run_webdriver
     network_mode: "host"

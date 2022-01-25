@@ -12,6 +12,7 @@ import pages.*;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -91,17 +92,13 @@ public class TestBaseWebDriver {
         // start remote browser:
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "96.0");
+        capabilities.setCapability("browserVersion", "97.0");
 //        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
 //        Configuration.pageLoadTimeout = 60000;
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", false
-        ));
-        RemoteWebDriver webDriver = new RemoteWebDriver(
-                URI.create("http://192.168.1.139:4444/wd/hub").toURL(),
-                capabilities
-        );
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", false ));
+        RemoteWebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), capabilities);
         webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
         WebDriverRunner.setWebDriver(webDriver);
 

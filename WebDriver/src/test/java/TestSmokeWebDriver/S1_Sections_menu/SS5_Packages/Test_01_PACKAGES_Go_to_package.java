@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
+//@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_PACKAGES_Go_to_package extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Разделы меню")
@@ -19,7 +19,7 @@ public class Test_01_PACKAGES_Go_to_package extends TestBaseWebDriver {
     @DisplayName(value ="Переход в пакет")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#3")
+    @Tag("oldWebWD#1")
     public void goToPackage() throws InterruptedException {
         headerMenu.goToPackagesPage();
         packagesPage.clickToFirstTailCardPackage();

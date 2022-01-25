@@ -18,7 +18,7 @@ public class TestBasePlaywright {
         @BeforeAll
         void launchBrowser() {
             playwright = Playwright.create();
-            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")));
+            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setTimeout(60000));
         }
 
         @AfterAll
