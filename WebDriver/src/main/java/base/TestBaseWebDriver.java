@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,6 +8,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.*;
@@ -96,12 +98,10 @@ public class TestBaseWebDriver {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "97.0");
+        capabilities.setCapability("enableVNC", false);
         capabilities.setCapability("proxy", proxy);
-//        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
-//        Configuration.pageLoadTimeout = 60000;
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", false ));
+        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
+        Configuration.pageLoadTimeout = 60000;
         RemoteWebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), capabilities);
         webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
         WebDriverRunner.setWebDriver(webDriver);
