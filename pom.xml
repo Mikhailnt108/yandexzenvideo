@@ -164,7 +164,7 @@
 <!--                        <include>**/*PW.java</include>-->
 <!--                    </includes>-->
                     <properties>
-                        <groups>adWebPW#1,oldWebPW#1,oldWebPW#2,oldWebWD#1,oldWebWD#2</groups>
+                        <groups>adWebPW#1,adWebPW#2,oldWebPW#1,oldWebPW#2,oldWebWD#1,oldWebWD#2</groups>
 <!--                        <include>SuitePwTest1,SuitePwTest2,SuitePwTest3</include>-->
 <!--                        <include>**/Test*.java</include>-->
 <!--                        <include>**/*RETEST2408.java</include>-->

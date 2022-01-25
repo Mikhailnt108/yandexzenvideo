@@ -68,7 +68,7 @@ public class AuthPagePW extends BasePagePlaywright {
 
     public void checkImagePageAuthWithValidNumber() throws IOException, InterruptedException {
         Thread.sleep(3000);
-        ElementHandle formAuthWithValidNumber = page.waitForSelector("//div[contains(@class,'AuthPage_stepsWrap')]");
+        ElementHandle formAuthWithValidNumber = page.waitForSelector("//div[contains(@class,'AuthStepInputPhone')]");
         vrt.track(
                 "formAuthWithValidNumber",
                 Base64.getEncoder().encodeToString(formAuthWithValidNumber.screenshot()),
