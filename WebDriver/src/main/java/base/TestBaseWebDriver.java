@@ -61,7 +61,6 @@ public class TestBaseWebDriver {
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
-
     public final String USER_NAME = "bmp";
     public final String PASSWORD = "bmp";
     public static final String PP1 = "jdbc:postgresql://10.236.24.174:5432/bmp";
@@ -93,8 +92,11 @@ public class TestBaseWebDriver {
     @BeforeEach
     public void start() throws MalformedURLException {
         // start remote browser:
+        System.setProperty("http.proxyHost", "proxy.megalabs.ru");
+        System.setProperty("http.proxyPort", "8808");
         Proxy proxy = new Proxy();
         proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "97.0");
