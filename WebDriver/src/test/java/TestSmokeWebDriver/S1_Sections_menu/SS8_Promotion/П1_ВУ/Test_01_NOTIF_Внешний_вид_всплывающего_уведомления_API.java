@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_NOTIF_Внешний_вид_всплывающего_уведомления_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "4. Продвижение")
-    @Story(value = "1. ВУ")
+    @Feature(value = "4. Promotion")
+    @Story(value = "1. NOTIF")
     @DisplayName(value = "Внешний вид и навигация")
     @Severity(SeverityLevel.BLOCKER)
     @Test

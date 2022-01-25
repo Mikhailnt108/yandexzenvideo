@@ -12,29 +12,40 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
-public class Test_10_TV_Подписка_на_пакет_каналов extends TestBaseWebDriver {
+public class Test_05_1_TV_Card_tv_program extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "0. Разделы меню")
-    @Story(value = "1. ТВ")
-    @DisplayName(value ="Подписка на пакет каналов")
+    @Feature(value = "0. Sections_menu")
+    @Story(value = "1. TV")
+    @DisplayName(value ="Card_tv_program")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#0")
-    public void subscribeOnPackageTvChannel() throws Exception {
+    public void cardTvProgram() throws Exception {
+        //неавторизованный пользователь:
         headerMenu.goToTvPage();
-        flowRegistation();
-        tvPage.checkOpenTvPageTabScheduleTv();
         tvPage.clickOnTabTvProgramInAir();
         tvPage.clickOnTabInRecording();
         tvPage.clickToTailTvProgram();
         cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickPaymentButtonInCardTvProgram();
-        cardTvProgram.checkPaymentComplete();
-        headerMenu.refreshPage();
+        cardTvProgram.checkElementsInCardTvProgram();
+        //авторизованный пользователь:
+        headerMenu.goToTvPage();
+        flowRegistation();
+        tvPage.clickOnTabInRecording();
+        tvPage.clickToTailTvChannel();
+        cardTvChannel.checkOpenCardTvChannel();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        cardTvChannel.checkPaymentComplete();
+        cardTvChannel.clickOnTvProgramInCardChannel();
+        cardTvProgram.checkOpenCardTvProgram();
         cardTvProgram.checkAutoStartVideoPlayer();
+        cardTvProgram.checkButtonFavoriteNotAdded();
+        cardTvProgram.clickButtonFavorite();
+        cardTvProgram.checkButtonFavoriteAdded();
+        cardTvProgram.clickOnTvChannelInCardProgram();
+        cardTvChannel.checkOpenCardTvChannel();
         pageCMS.deleteAccountMF("79250110212");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

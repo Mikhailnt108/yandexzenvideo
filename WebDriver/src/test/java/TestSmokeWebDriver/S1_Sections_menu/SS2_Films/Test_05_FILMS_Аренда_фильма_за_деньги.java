@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_FILMS_Аренда_фильма_за_деньги extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "3. Films")
     @DisplayName(value ="Аренда фильма за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test

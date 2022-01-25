@@ -12,8 +12,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_10_MY_Нажатие_в_разные_зоны_тайлов extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "9. MY")
     @DisplayName(value = "10. Нажатие в разные зоны тайлов")
     @Severity(SeverityLevel.BLOCKER)
     @Test

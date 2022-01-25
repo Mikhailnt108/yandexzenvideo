@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_SERIALS_Переключение_сезонов extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "4. Сериалы")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "4. Serials")
     @DisplayName(value ="Переключение сезонов")
     @Severity(SeverityLevel.BLOCKER)
     @Test

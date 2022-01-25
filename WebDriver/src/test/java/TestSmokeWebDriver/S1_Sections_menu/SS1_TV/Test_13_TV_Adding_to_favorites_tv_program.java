@@ -10,32 +10,26 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-import java.io.IOException;
-
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
-public class Test_14_1_TV_Фильтр_платности extends TestBaseWebDriver {
+public class Test_13_TV_Adding_to_favorites_tv_program extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "0. Разделы меню")
-    @Story(value = "1. ТВ")
-    @DisplayName(value ="Фильтр платности")
+    @Feature(value = "0. Sections_menu")
+    @Story(value = "1. TV")
+    @DisplayName(value ="Adding_to_favorites_tv_program")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#0")
-    public void checkFilterPayment() throws InterruptedException, IOException {
+    public void addingTvProgramToFavorites() throws InterruptedException {
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.clickOnTabInRecording();
-        tvPage.navigateMouseToToglPaymentOn();
-        tvPage.checkTvChannelsAll();
-        tvPage.clickToTailTvChannel();
-        cardTvChannel.checkOpenCardTvChannel();
-        cardTvChannel.clickPaymentButtonInCardTvChannel();
-        cardTvChannel.checkPaymentComplete();
-        headerMenu.goToTvPage();
-        tvPage.clickToglePaymentForOff();
-        tvPage.navigateMouseToToglePaymentOff();
-        tvPage.checkTvChannelsOnlyPlugged();
+        tvPage.clickOnTabTvProgramInAir();
+        tvPage.clickToTailTvProgram();
+        cardTvProgram.checkOpenCardTvProgram();
+        cardTvProgram.clickButtonFavorite();
+        cardTvProgram.checkButtonFavoriteAdded();
+        myPage.goToMyPageFavorites();
+        myPage.checkAddingTvProgramToFavorites();
         pageCMS.deleteAccountMF("79250110212");
     }
     private void flowRegistation() throws InterruptedException {

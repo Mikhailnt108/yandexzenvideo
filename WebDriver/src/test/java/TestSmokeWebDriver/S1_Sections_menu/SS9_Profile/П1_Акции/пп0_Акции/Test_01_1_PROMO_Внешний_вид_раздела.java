@@ -17,8 +17,8 @@ import java.io.IOException;
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_1_PROMO_Внешний_вид_раздела extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Профиль")
-    @Story(value = "2. Акции")
+    @Feature(value = "3. Profile")
+    @Story(value = "2. Promo")
     @DisplayName(value ="1.1 Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test

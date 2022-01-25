@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_1_COLLECTIONS_Действия_с_подборками extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "8. Подборки")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "8. Collections")
     @DisplayName(value ="2.1 Действия с подборками")
     @Severity(SeverityLevel.BLOCKER)
     @Test

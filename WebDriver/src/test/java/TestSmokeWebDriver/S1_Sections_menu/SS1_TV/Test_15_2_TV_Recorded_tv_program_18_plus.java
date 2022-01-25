@@ -12,15 +12,15 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
-public class Test_15_1_TV_Незаписываемая_ТВ_передача_18_плюс extends TestBaseWebDriver {
+public class Test_15_2_TV_Recorded_tv_program_18_plus extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "0. Разделы меню")
-    @Story(value = "1. ТВ")
-    @DisplayName(value ="Незаписываемая ТВ передача 18 плюс")
+    @Feature(value = "0. Sections_menu")
+    @Story(value = "1. TV")
+    @DisplayName(value ="Recorded_tv_program_18_plus")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#0")
-    public void unrecordedTvProgram18Plus() throws Exception {
+    public void recordedTvProgram18Plus() throws Exception {
         headerMenu.goToTvPage();
         flowRegistation();
         headerMenu.goToPackagesPage();
@@ -28,7 +28,7 @@ public class Test_15_1_TV_Незаписываемая_ТВ_передача_18_
         packagesPage.checkTabAllPackagesInMenuShopPage();
         packagesPage.clickToTailCardPackage18Plus();
         cardPackage.checkOpenCardPackage18Plus();
-        cardPackage.chooseUnrecordedTvChannel18Plus();
+        cardPackage.chooseRecordedTvChannel18Plus();
         cardTvChannel.clickPaymentButtonInCardTvChannel();
         cardTvChannel.checkPaymentComplete();
         cardTvChannel.goToTvProgram18Plus();
@@ -40,13 +40,13 @@ public class Test_15_1_TV_Незаписываемая_ТВ_передача_18_
         cardTvProgram.checkOpenPopUp18plus();
         //запуск плеера передачи 18+:
         cardTvProgram.clickYesInPopUp18Plus();
-        //переключение на соседнюю передачу 18+ внутри плеера:
-//        cardTvProgram.swithOtherTvChannelInsidePlayerForUnrecorded();
+        //переключение на передачу 18+ внутри плеера:
+//        cardTvProgram.swithOnRecordedTvChannel18PlusInsidePlayer();
 //        cardTvProgram.checkAbsentPopUp18plus();
-//        //переключение c передачи 18+ на передачу НЕ 18+ внутри плеера:
+//        //переключение на передачу не 18+ внутри плеера:
 //        cardTvProgram.swithOnTvProgramNon18plusInsidePlayer();
-//        //переключение c передачи НЕ 18+ на передачу 18+ внутри плеера:
-//        cardTvProgram.swithOnUnrecordedTvChannel18PlusInsidePlayer();
+//        //переключение на соседнюю передачу 18+ внутри плеера:
+//        cardTvProgram.swithOnRecordedTvChannel18PlusInsidePlayer2();
         pageCMS.deleteAccountMF("79250110212");
     }
     private void flowRegistation() throws InterruptedException {

@@ -12,8 +12,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_11_FILMS_Перемотка_фильма extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "3. Films")
     @DisplayName(value ="Перемотка фильма")
     @Severity(SeverityLevel.BLOCKER)
     @Test

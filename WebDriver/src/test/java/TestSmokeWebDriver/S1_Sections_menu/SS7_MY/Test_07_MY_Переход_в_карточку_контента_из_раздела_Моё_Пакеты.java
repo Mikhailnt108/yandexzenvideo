@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_07_MY_Переход_в_карточку_контента_из_раздела_Моё_Пакеты extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "9. MY")
     @DisplayName(value ="Переход в карточку контента из раздела Моё_Пакеты")
     @Severity(SeverityLevel.BLOCKER)
     @Test

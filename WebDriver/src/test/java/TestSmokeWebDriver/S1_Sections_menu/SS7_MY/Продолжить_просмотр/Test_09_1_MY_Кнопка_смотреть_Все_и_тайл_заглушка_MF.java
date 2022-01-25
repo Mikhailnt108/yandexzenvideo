@@ -12,8 +12,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_09_1_MY_Кнопка_смотреть_Все_и_тайл_заглушка_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "9. MY")
     @DisplayName(value ="9. Кнопка смотреть Все и тайл заглушка for MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test

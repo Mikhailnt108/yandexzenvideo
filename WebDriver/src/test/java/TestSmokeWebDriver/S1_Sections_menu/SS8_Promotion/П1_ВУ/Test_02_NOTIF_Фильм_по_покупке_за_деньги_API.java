@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_NOTIF_Фильм_по_покупке_за_деньги_API extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "4. Продвижение")
-    @Story(value = "1. ВУ")
+    @Feature(value = "4. Promotion")
+    @Story(value = "1. NOTIF")
     @DisplayName(value = "Фильм по покупке за деньги")
     @Severity(SeverityLevel.BLOCKER)
     @Test

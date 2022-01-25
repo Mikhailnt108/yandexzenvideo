@@ -10,27 +10,43 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.io.IOException;
+
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#0", mode = ResourceAccessMode.READ_WRITE)
-public class Test_13_TV_Добавление_в_избранное_передачи extends TestBaseWebDriver {
+public class Test_04_1_TV_Card_tv_channel extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "0. Разделы меню")
-    @Story(value = "1. ТВ")
-    @DisplayName(value ="Добавление в избранное передачи")
+    @Feature(value = "0. Sections_menu")
+    @Story(value = "1. TV")
+    @DisplayName(value ="Card_tv_channel")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#0")
-    public void addingTvProgramToFavorites() throws InterruptedException {
+    public void cardTvChannel() throws IOException, InterruptedException {
+        // неавторизованный пользователь:
+        headerMenu.goToTvPage();
+        tvPage.checkOpenTvPageTabScheduleTv();
+        tvPage.clickOnTabInRecording();
+        tvPage.clickToTailTvChannel();
+        cardTvChannel.checkOpenCardTvChannel();
+        cardTvChannel.  checkElementsInCardTvChannel();
+        // авторизованный пользователь:
         headerMenu.goToTvPage();
         flowRegistation();
-        tvPage.clickOnTabTvProgramInAir();
-        tvPage.clickToTailTvProgram();
+        tvPage.clickOnTabInRecording();
+        tvPage.clickToTailTvChannel();
+        cardTvChannel.checkOpenCardTvChannel();
+        cardTvChannel.clickPaymentButtonInCardTvChannel();
+        cardTvChannel.checkPaymentComplete();
+        headerMenu.refreshPage();
+        cardTvChannel.checkAutoStartVideoPlayer();
+        cardTvChannel.checkButtonFavoriteNotAdded();
+        cardTvChannel.clickOnButtonFavorite();
+        cardTvChannel.checkButtonFavoriteAdded();
+        cardTvChannel.clickOnTvProgramInCardChannel();
         cardTvProgram.checkOpenCardTvProgram();
-        cardTvProgram.clickButtonFavorite();
-        cardTvProgram.checkButtonFavoriteAdded();
-        myPage.goToMyPageFavorites();
-        myPage.checkAddingTvProgramToFavorites();
         pageCMS.deleteAccountMF("79250110212");
+
     }
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();

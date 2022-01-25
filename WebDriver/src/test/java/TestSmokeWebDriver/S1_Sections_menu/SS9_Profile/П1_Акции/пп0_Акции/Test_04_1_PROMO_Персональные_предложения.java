@@ -12,8 +12,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_1_PROMO_Персональные_предложения extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "3. Профиль")
-    @Story(value = "2. Акции")
+    @Feature(value = "3. Profile")
+    @Story(value = "2. Promo")
     @DisplayName(value ="4.1 Персональные предложения")
     @Severity(SeverityLevel.BLOCKER)
     @Test

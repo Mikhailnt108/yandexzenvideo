@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_14_1_FILMS_Работа_быстрых_фильтров extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "3. Фильмы")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "3. Films")
     @DisplayName(value ="Работа быстрых фильтров")
     @Severity(SeverityLevel.BLOCKER)
     @Test

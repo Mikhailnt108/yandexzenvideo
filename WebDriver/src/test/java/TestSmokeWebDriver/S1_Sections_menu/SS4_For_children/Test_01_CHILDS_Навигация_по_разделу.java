@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_CHILDS_Навигация_по_разделу extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "5. Детям")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "5. Childs")
     @DisplayName(value ="Навигация по разделу")
     @Severity(SeverityLevel.BLOCKER)
     @Test

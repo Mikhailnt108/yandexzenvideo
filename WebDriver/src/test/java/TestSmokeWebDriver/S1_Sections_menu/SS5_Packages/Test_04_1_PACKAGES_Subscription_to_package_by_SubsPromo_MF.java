@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_1_PACKAGES_Subscription_to_package_by_SubsPromo_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "7. Пакеты")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "7. Packages")
     @DisplayName(value ="Подписка на пакет по SubsPromo for MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test

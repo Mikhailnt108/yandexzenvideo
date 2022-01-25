@@ -12,8 +12,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_2_PACKAGES_Disabling_packages_with_different_types_subscriptions_Non_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "7. Пакеты")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "7. Packages")
     @DisplayName(value ="Отключение пакетов с разными типами подписок for Non MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test

@@ -12,8 +12,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_08_2_MY_Внешний_вид_блока_подборки_Продолжить_просмотр_Non_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "9. Моё")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "9. MY")
     @DisplayName(value ="8.1 Внешний вид блока подборки История просмотров Моё Non MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test

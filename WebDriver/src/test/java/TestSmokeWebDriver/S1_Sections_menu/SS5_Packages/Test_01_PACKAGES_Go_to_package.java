@@ -14,8 +14,8 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 //@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_PACKAGES_Go_to_package extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Разделы меню")
-    @Story(value = "7. Пакеты")
+    @Feature(value = "2. Sections_menu")
+    @Story(value = "7. Packages")
     @DisplayName(value ="Переход в пакет")
     @Severity(SeverityLevel.BLOCKER)
     @Test
