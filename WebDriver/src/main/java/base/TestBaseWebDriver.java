@@ -8,6 +8,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -96,15 +97,14 @@ public class TestBaseWebDriver {
 //        System.setProperty("http.proxyPort", "8808");
 //        Proxy proxy = new Proxy();
 //        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "97.0");
-        capabilities.setCapability("enableVNC", false);
-//        capabilities.setCapability("proxy", proxy);
-        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "normal");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setCapability("browserVersion", "97.0");
+        chromeOptions.setCapability("platformName", "Windows XP");
+        chromeOptions.setHeadless(true);
+        chromeOptions.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "normal");
+//        chromeOptions.addArguments("--proxy-pac-url=http://myPacFile.com");
+        WebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), chromeOptions);
         Configuration.pageLoadTimeout = 60000;
-        RemoteWebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), capabilities);
         webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
         WebDriverRunner.setWebDriver(webDriver);
 
