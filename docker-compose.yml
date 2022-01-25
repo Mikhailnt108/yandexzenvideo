@@ -11,14 +11,14 @@ services:
     image: selenium/standalone-chrome:4.1.1-20220121
     shm_size: 2gb
     ports:
-      - "4442:4444"
+      - "4444:4444"
       - "7902:7900"
 
   standalone-chrome3:
     image: selenium/standalone-chrome:4.1.1-20220121
     shm_size: 2gb
     ports:
-      - "4443:4444"
+      - "4444:4444"
       - "7903:7900"
 
 
