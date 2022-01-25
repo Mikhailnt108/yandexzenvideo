@@ -9,40 +9,38 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_2_FILMS_Appearance_section_User extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
+public class Test_06_FILMS_Rent_film_for_bundle extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "3. Films")
-    @DisplayName(value ="Appearance_section_User")
+    @DisplayName(value ="6. Rent_film_for_bundle")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#2")
-    public void appearanceSectionFilmsPage() throws Exception {
-        // пользоваеть авторизован:
+    @Tag("SuiteWD#1")
+    public void PaymentFilmForRent2Promo() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.checkElementsFilmsPage();
-        headerMenu.goToFilmsPage();
-        filmsPage.checkElementsFilmsPage();
-        filmsPage.checkElementsBannersCarousel();
-        filmsPage.autoScrollBanners();
-        filmsPage.scrollBannersToLeft();
-        filmsPage.scrollBannersToRight();
-        filmsPage.scrollСollectionToRightAndLeft();
-        pageCMS.deleteAccountMF("79260205027");
+        pageCMS.chooseBundleInternetMFromMsisdn("79260192144");
+        filmsPage.clickOnFilterPayment();
+        filmsPage.chooseTabPromo();
+        filmsPage.clickToTailCardFilmFromAvailable();
+        cardFilm.paymentFilmAtRent2Promo();
+        cardFilm.startVideoPleer();
+        cardFilm.checkСounterAvailableFilms();
+        pageCMS.chooseBundleNotSelected("79260192144");
+        pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260205027");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260205027");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

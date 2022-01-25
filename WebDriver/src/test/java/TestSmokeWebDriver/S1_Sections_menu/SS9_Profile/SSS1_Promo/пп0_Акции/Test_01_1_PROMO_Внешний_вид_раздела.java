@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS2_Films;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.SSS1_Promo.пп0_Акции;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -8,31 +8,29 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.awt.*;
+import java.io.IOException;
+
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_2_FILMS_Appearance_section_User extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
+public class Test_01_1_PROMO_Внешний_вид_раздела extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Sections_menu")
-    @Story(value = "3. Films")
-    @DisplayName(value ="Appearance_section_User")
+    @Feature(value = "3. Profile")
+    @Story(value = "2. Promo")
+    @DisplayName(value ="1.1 Внешний вид раздела")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#2")
-    public void appearanceSectionFilmsPage() throws Exception {
-        // пользоваеть авторизован:
+    @Tag("SuiteWD#4")
+    public void appearancePagePromo() throws InterruptedException, IOException, AWTException {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.checkElementsFilmsPage();
-        headerMenu.goToFilmsPage();
-        filmsPage.checkElementsFilmsPage();
-        filmsPage.checkElementsBannersCarousel();
-        filmsPage.autoScrollBanners();
-        filmsPage.scrollBannersToLeft();
-        filmsPage.scrollBannersToRight();
-        filmsPage.scrollСollectionToRightAndLeft();
+        pageCMS.chooseBundleNotSelected("79260205027");
+        headerMenu.openSubsectionPromo();
+        promoPage.checkElementsWithoutBlockPersonalOffer();
+        promoPage.checkExpandDiscriptionPromo();
+        promoPage.checkHideDiscriptionPromo();
         pageCMS.deleteAccountMF("79260205027");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");

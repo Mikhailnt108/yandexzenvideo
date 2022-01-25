@@ -9,40 +9,42 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_2_FILMS_Appearance_section_User extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
+public class Test_08_FILMS_Rent_film_with_discount extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "3. Films")
-    @DisplayName(value ="Appearance_section_User")
+    @DisplayName(value ="Rent_film_with_discount")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#2")
-    public void appearanceSectionFilmsPage() throws Exception {
-        // пользоваеть авторизован:
+    @Tag("SuiteWD#1")
+    public void rentFilmWithDiscount() throws Exception {
+        headerMenu.goToFilmsPage();
+        filmsPage.clickToSecondTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        pageCMS.createPriseEstOrRent2WithDiscount();
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.checkElementsFilmsPage();
-        headerMenu.goToFilmsPage();
-        filmsPage.checkElementsFilmsPage();
-        filmsPage.checkElementsBannersCarousel();
-        filmsPage.autoScrollBanners();
-        filmsPage.scrollBannersToLeft();
-        filmsPage.scrollBannersToRight();
-        filmsPage.scrollСollectionToRightAndLeft();
-        pageCMS.deleteAccountMF("79260205027");
+        filmsPage.clickToSecondTailCardFilm();
+        cardFilm.checkOpenCardFilm();
+        cardFilm.checkStikerDiscount();
+        cardFilm.checkPriseRent2Discount();
+        cardFilm.paymentFilmAtRent2Discount();
+        cardFilm.checkUnavailabilityStikerDiscount();
+        cardFilm.startVideoPleer();
+        pageCMS.deleteDiscount();
+        pageCMS.deleteAccountMF("79260192144");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
-        headerMenu.inputLogin("9260205027");
+        headerMenu.inputLogin("9260192144");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
+        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260192144", "111111");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkOpenPopUpInputCode();
-        pageCMS.copyPasteCodMsisdn("79260205027");
+        pageCMS.copyPasteCodMsisdn("79260192144");
         headerMenu.clickToComeIn("Войти");
         headerMenu.checkLoginUserIsCorrectFlowForMF();
     }

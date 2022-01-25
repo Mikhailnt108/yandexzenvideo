@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS2_Films;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.SSS1_Promo.пп0_Акции;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -9,30 +9,26 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_2_FILMS_Appearance_section_User extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
+public class Test_02_PROMO_Переход_в_раздел_Фильмы extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Sections_menu")
-    @Story(value = "3. Films")
-    @DisplayName(value ="Appearance_section_User")
+    @Feature(value = "3. Profile")
+    @Story(value = "2. Promo")
+    @DisplayName(value ="2. Переход в раздел Фильмы")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#2")
-    public void appearanceSectionFilmsPage() throws Exception {
-        // пользоваеть авторизован:
+    @Tag("SuiteWD#4")
+    public void goToMoviesPromoSection() throws InterruptedException {
         headerMenu.goToFilmsPage();
         flowRegistation();
-        filmsPage.checkElementsFilmsPage();
-        headerMenu.goToFilmsPage();
-        filmsPage.checkElementsFilmsPage();
-        filmsPage.checkElementsBannersCarousel();
-        filmsPage.autoScrollBanners();
-        filmsPage.scrollBannersToLeft();
-        filmsPage.scrollBannersToRight();
-        filmsPage.scrollСollectionToRightAndLeft();
+        pageCMS.chooseBundleInternetMFromMsisdn("79260205027");
+        headerMenu.closePopUpNotif();
+        headerMenu.openSubsectionPromo();
+        promoPage.clickButtonGoToFilms();
+        filmsPage.checkFilmsPromo();
+        pageCMS.chooseBundleNotSelected("79260205027");
         pageCMS.deleteAccountMF("79260205027");
     }
-
     private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
