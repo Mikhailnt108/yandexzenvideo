@@ -62,11 +62,6 @@
             <version>2.16.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>1.4.2.Final</version>
-        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.github.legionivo</groupId>-->
 <!--            <artifactId>testrail-api-java-client</artifactId>-->
