@@ -418,19 +418,19 @@ public class SportPagePW extends BasePagePlaywright {
     }
 
     public void checkElementsBlockSportsChannels() {
-        Assert.assertEquals("Нет фильтров по видам спорта", 1, page.querySelectorAll("//div[@class='_3q_f0EzH81Dg0CRPqxq8mh']").size());
-        Assert.assertEquals("Нет заголовка подборки 'Спортивные телеканалы'", 1, page.querySelectorAll("//h3//div[ text()='Спортивные телеканалы']").size());
-        Assert.assertEquals("Нет подборки 'Спортивные телеканалы'", 1, page.querySelectorAll("//div[text()='Спортивные телеканалы']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
+        Assert.assertEquals("Not found filters kinds sport", 1, page.querySelectorAll("//div[@class='_3q_f0EzH81Dg0CRPqxq8mh']").size());
+        Assert.assertEquals("Not found title collection 'Sport Tv channels'", 1, page.querySelectorAll("//h3//div[ text()='Спортивные телеканалы']").size());
+        Assert.assertEquals("Not found title collection 'Sport Tv channels'", 1, page.querySelectorAll("//div[text()='Спортивные телеканалы']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
     }
 
     public void checkElementsBlockSportsEvents() {
-        Assert.assertEquals("Нет заголовка подборки событий 'Футбол'", 1, page.querySelectorAll("//h3//div[ text()='Футбол']").size());
-        Assert.assertEquals("Нет подборки событий 'Футбол'", 1, page.querySelectorAll("//div[text()='Футбол']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
+        Assert.assertEquals("Not found title collection events 'Football'", 1, page.querySelectorAll("//h3//div[ text()='Футбол']").size());
+        Assert.assertEquals("Not found title collection events 'Football'", 1, page.querySelectorAll("//div[text()='Футбол']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
     }
 
     public void checkElementsBlockSportsCompetition() {
-        Assert.assertEquals("Нет заголовка подборки соревнований 'Футбол'", 1, page.querySelectorAll("//h3//div[ text()='Футбол']").size());
-        Assert.assertEquals("Нет подборки соревнований 'Футбол'", 1, page.querySelectorAll("//div[text()='Футбол']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
+        Assert.assertEquals("Not found title collection competition 'Football'", 1, page.querySelectorAll("//h3//div[ text()='Футбол']").size());
+        Assert.assertEquals("Not found title collection competition 'Football'", 1, page.querySelectorAll("//div[text()='Футбол']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']").size());
     }
 
     public void clickOnBannerSportEvent() {

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -90,9 +91,12 @@ public class TestBaseWebDriver {
     @BeforeEach
     public void start() throws MalformedURLException {
         // start remote browser:
+        Proxy proxy = new Proxy();
+        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "97.0");
+        capabilities.setCapability("proxy", proxy);
 //        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
 //        Configuration.pageLoadTimeout = 60000;
 //        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
