@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.Execution;
 import pagesPlaywright.*;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -106,7 +107,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException{
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));    // моноблок
+                .setViewportSize(1900, 920).setRecordVideoDir(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/videos/"))); // моноблок
 //                .setViewportSize(1360, 760));  // ноутбук
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1900, 920));   // моноблок
