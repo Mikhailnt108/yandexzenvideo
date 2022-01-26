@@ -60,7 +60,21 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
-
+            try {
+                vrt.track(
+                        "FrontWebPreprodFull",
+                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                        TestRunOptions.builder()
+                                .device("Acer")
+                                .os("Win10 Pro")
+                                .browser("Chrome")
+                                .diffTollerancePercent(0.5f)
+                                .build());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             pageCMS = contextIncognitoModeHeadless.newPage();
             String onlyPreprod = backend.substring(8);
             System.out.println("this place before cms");
