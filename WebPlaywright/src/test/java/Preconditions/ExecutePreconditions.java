@@ -1,11 +1,13 @@
 package Preconditions;
 import base.TestBasePlaywright;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class ExecutePreconditions extends TestBasePlaywright {
     @Test
+    @Tag("adWebSuitePW#1TEST")
     public void executePreconditions() throws IOException, SQLException, ClassNotFoundException {
         // Создать скидку для цены EST и Rent2 на фильм в CMS: Описание - "Sale AutoTest", механика - стандарт скидка, величина - 30%, стикер - "AutoTest -30%"
         preconditionPW.editSaleInCMS();
