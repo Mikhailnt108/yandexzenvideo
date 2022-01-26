@@ -10,11 +10,11 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_PROMO_Тариф_не_определился extends TestBaseWebDriver {
+public class Test_03_PROMO_Tariff_not_defined extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "3. Profile")
     @Story(value = "2. Promo")
-    @DisplayName(value ="Тариф не определился")
+    @DisplayName(value ="Tariff_not_defined")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#4")
