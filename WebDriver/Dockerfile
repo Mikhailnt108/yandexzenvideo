@@ -2,16 +2,16 @@
 #FROM mikhailnt87/webdriver_java_maven_proxy:3.8.2
 FROM maven:3.8.2-jdk-11
 
-WORKDIR /C:/QA_AUTOMATION/autosmoke_mftv_web_and_mobile_web
+WORKDIR /autosmoke_mftv_web_and_mobile_web
 #WORKDIR /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
 #WORKDIR /builds/qa/autosmoke_mftv_web_and_mobile_web
 #COPY pom.xml .
 COPY . .
 
 #RUN mvn dependency:go-offline
-RUN cd /C:/QA_AUTOMATION/autosmoke_mftv_web_and_mobile_web/WebDriver
+RUN cd /autosmoke_mftv_web_and_mobile_web/WebDriver
 #RUN cd /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/WebDriver
-RUN #cd /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver
+#RUN #cd /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver
 #ENV http_proxy="http://proxy.megalabs.ru:8808"
 #ENV https_proxy="http://proxy.megalabs.ru:8808"
 
