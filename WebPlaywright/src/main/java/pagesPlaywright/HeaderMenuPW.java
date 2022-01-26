@@ -92,6 +92,23 @@ public class HeaderMenuPW extends BasePagePlaywright {
                     .setPath(Paths.get("cmsFullPage.png"))
                     .setFullPage(true));
             System.out.println(Base64.getEncoder().encode(buffer));
+            pageCMS.navigate("https://yandex.ru");
+            pageCMS.waitForTimeout(10000);
+            try {
+                vrt.track(
+                        "yandex.ru",
+                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                        TestRunOptions.builder()
+                                .device("Acer")
+                                .os("Win10 Pro")
+                                .browser("Chrome")
+                                .diffTollerancePercent(0.5f)
+                                .build());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
             pageCMS.click("//button[text()='Поиск']");
