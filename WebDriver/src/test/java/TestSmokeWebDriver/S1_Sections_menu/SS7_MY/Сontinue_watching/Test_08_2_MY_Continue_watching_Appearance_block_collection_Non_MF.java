@@ -1,4 +1,4 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS5_Packages;
+package TestSmokeWebDriver.S1_Sections_menu.SS7_MY.Сontinue_watching;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
@@ -10,27 +10,41 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_2_PACKAGES_Disabling_packages_with_different_types_subscriptions_Non_MF extends TestBaseWebDriver {
+public class Test_08_2_MY_Continue_watching_Appearance_block_collection_Non_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
-    @Story(value = "7. Packages")
-    @DisplayName(value ="Disabling_packages_with_different_types_subscriptions_Non_MF")
+    @Story(value = "9. MY")
+    @DisplayName(value ="Continue_watching_Appearance_block_collection_Non_MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void disablingPackagesDifferentSubscriptionTypes() throws InterruptedException {
+    public void appearanceBlockCollectViewingHistory() throws Exception {
         // пользователь НЕ МФ:
+        // подключение пакет и просмотр первого сериала:
         headerMenu.goToPackagesPage();
         flowRegistationNonMF();
-        packagesPage.clickToTailCardPackageTnB();
-        cardPackage.checkOpenCardPackage();
-//        cardPackage.paymentPackageTnBForNonMfTestBankCardNotLinked("4847 0000 6602 5312", "12 / 25", "258"); // тестовая банк карта
-        cardPackage.paymentPackageTnBForNonMfBankCardNotLinked(); // боевая банк карта
-        cardPackage.disablePackageTnB();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.paymentPackageTnBForNonMfBankCardNotLinked();
+        cardPackage.clickToTabSerials();
+        cardPackage.clickToFirstTailCardSerial();
+        cardSerial.moveSliderRewindToVideoPlayer();
+
+        // просмотр второго сериала:
         headerMenu.goToPackagesPage();
-//        packagesPage.clickToTailCardPackageSubsN(); // для ПП1, ПП3 нет боевой карты для покупки SubsN
-//        cardPackage.paymentPackageSubsNForNonMFBankCardLinked();
-//        cardPackage.disablePackageSubsN();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickToSecondTailCardSerial();
+        cardSerial.moveSliderRewindToVideoPlayer();
+
+        // просмотр третьего сериала:
+        headerMenu.goToPackagesPage();
+        packagesPage.clickToTailCardPackageKinoPoPodpiske();
+        cardPackage.clickToThirdTailCardSerial();
+        cardSerial.moveSliderRewindToVideoPlayer();
+
+        // чек подборки "продолжить просмотр":
+        headerMenu.goToSerialsPage();
+        serialsPage.checkElementsBlockCollectHistoryWatch();
+        serialsPage.scrollToTailWatchAndEdit();
         pageCMS.deleteAccountNonMF("79261184972");
     }
 
@@ -44,7 +58,7 @@ public class Test_03_2_PACKAGES_Disabling_packages_with_different_types_subscrip
         headerMenu.checkElementsPopUpInputEmail();
         headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationNonMF("9261184972", "111111");
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");

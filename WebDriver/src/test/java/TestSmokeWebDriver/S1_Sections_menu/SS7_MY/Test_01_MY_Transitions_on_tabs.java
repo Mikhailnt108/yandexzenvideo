@@ -1,41 +1,38 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS5_Packages;
+package TestSmokeWebDriver.S1_Sections_menu.SS7_MY;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_06_PACKAGES_Subscription_to_package_by_Subs1 extends TestBaseWebDriver {
+public class Test_01_MY_Transitions_on_tabs extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
-    @Story(value = "7. Packages")
-    @DisplayName(value ="Subscription_to_package_by_Subs1")
+    @Story(value = "9. MY")
+    @DisplayName(value ="Transitions_on_tabs")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
-    public void subscribeToPackageBySubs1() throws Exception {
-        // пользователь МФ, пакет по SubsPromo:
-        headerMenu.goToPackagesPage();
-        flowRegistationMF();
-        packagesPage.clickToTailCardPackageTnB();
-        cardPackage.checkOpenCardPackage();
-        cardPackage.paymentPackageTnB();
-        cardPackage.disablePackageTnB();
-        headerMenu.goToPackagesPage();
-        packagesPage.clickToTailCardPackageSubs1();
-        cardPackage.paymentPackageSubs1();
-        cardPackage.clickOnTailFirstCardFilm();
+    public void clickOnTheMyTabs() throws Exception {
+        headerMenu.goToFilmsPage();
+        flowRegistation();
+        filmsPage.clickToSecondTailCardFilm();
+        cardFilm.paymentFilmAtEst();
+        cardFilm.clickButtonFavorites();
         cardFilm.startVideoPleer();
+        myPage.checkAddingFilmInHistory();
+        myPage.goToMyPagePurchases();
+        myPage.checkAddingFilmInPurchases();
+        myPage.goToMyPageFavorites();
+        myPage.checkAddingSecondFilmToFavorites();
         pageCMS.deleteAccountMF("79260172279");
     }
-    private void flowRegistationMF() throws InterruptedException {
+    private void flowRegistation() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();

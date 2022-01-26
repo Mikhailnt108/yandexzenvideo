@@ -1,38 +1,32 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS5_Packages;
+package TestSmokeWebDriver.S1_Sections_menu.SS9_Profile.SSS1_Promo.SSSS3_Others_tp;
 
 import base.TestBaseWebDriver;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
-public class Test_05_PACKAGES_Subscription_package_by_SubsN extends TestBaseWebDriver {
+@ResourceLock(value = "SuiteWD#4", mode = ResourceAccessMode.READ_WRITE)
+public class Test_02_PROMO_User_Non_MF extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
-    @Feature(value = "2. Sections_menu")
-    @Story(value = "7. Packages")
-    @DisplayName(value ="Subscription_package_by_SubsN")
+    @Feature(value = "3. Profile")
+    @Story(value = "2. Promo")
+    @DisplayName(value ="User_Non_MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("SuiteWD#3")
-    public void subscribeToPackageBySubsN() throws Exception {
-        // пользователь НЕ МФ, пакет по SubsPromo:
-        headerMenu.goToPackagesPage();
+    @Tag("SuiteWD#4")
+    public void userNonMegafon() throws InterruptedException {
+        headerMenu.goToFilmsPage();
         flowRegistationNonMF();
-        packagesPage.clickToTailCardPackageSubsN();
-        cardPackage.checkOpenCardPackage();
-        cardPackage.paymentPackageSubsNForNonMFBankCardNotLinked(); // тестовая банк карта
-        cardPackage.chooseToTabFilms();
-        cardPackage.clickOnTailFirstCardFilm();
-        cardFilm.ifAbsentOfferInPopUp();
-        cardFilm.acceptOfferInPopUp();
+        headerMenu.openSubsectionPromo();
+        promoPage.checkNotMegafon();
+        promoPage.clickToButtonGoOver();
         pageCMS.deleteAccountNonMF("79261184972");
     }
+
     private void flowRegistationNonMF() throws InterruptedException {
         headerMenu.checkNotLoggedIsCorrect();
         headerMenu.clickToEnter("Вход");
@@ -40,10 +34,9 @@ public class Test_05_PACKAGES_Subscription_package_by_SubsN extends TestBaseWebD
         headerMenu.inputLogin("9261184972");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputEmail("9261184972");
-        headerMenu.checkElementsPopUpInputEmail();
         headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
         headerMenu.clickToNext("Далее");
-        headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationNonMF("9261184972", "111111");
+        headerMenu.inputPassword("111111");
         headerMenu.clickToComeIn("Войти");
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");

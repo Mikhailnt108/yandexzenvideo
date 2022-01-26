@@ -14,7 +14,7 @@ public class Test_04_2_PACKAGES_Subscription_to_package_by_SubsPromo_Non_MF exte
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "7. Packages")
-    @DisplayName(value = "Подписка на пакет по SubsPromo for Non MF")
+    @DisplayName(value = "Subscription_to_package_by_SubsPromo_Non_MF")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#3")
