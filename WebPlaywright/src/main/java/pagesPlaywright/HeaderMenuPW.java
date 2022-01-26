@@ -60,10 +60,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
+            Browser browser = null;
+            BrowserContext contextIncognitoModeHeadless = browser.newContext(new Browser.NewContextOptions()
+                    .setHttpCredentials("mc2soft", "wkqKy2sWwBGFDR"));
+            pageCMS = contextIncognitoModeHeadless.newPage();
+            pageCMS.navigate("https://bmp-preprod6.megafon.tv/cms/");
             try {
                 vrt.track(
                         "FrontWebPreprodFull",
-                        Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                         TestRunOptions.builder()
                                 .device("Acer")
                                 .os("Win10 Pro")
@@ -119,7 +124,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
             page.waitForTimeout(60000);
             System.out.println("this place after url cms");
 
-            pageCMS = contextIncognitoModeHeadless.newPage();
+//            pageCMS = contextIncognitoModeHeadless.newPage();
             try {
                 vrt.track(
                         "CMSPageFull",
