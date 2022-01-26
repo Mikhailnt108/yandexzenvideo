@@ -77,18 +77,18 @@ public class HeaderMenuPW extends BasePagePlaywright {
             }
             String onlyPreprod = backend.substring(8);
             page.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-//            pageCMS = contextIncognitoModeHeadless.newPage();
+
 
             System.out.println("this place before cms");
 //            System.setProperty("http.proxyHost", null);
 //            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
 //            System.setProperty("http.proxyPort", "8808");
-            page.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//            page.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
 
             try {
                 vrt.track(
                             "CMSPageFull123",
-                            Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                            Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                             TestRunOptions.builder()
                                     .device("Acer")
                                     .os("Win10 Pro")
@@ -115,13 +115,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        pageCMS.navigate(String.valueOf(weburl));
-            pageCMS.waitForTimeout(60000);
+        page.navigate(String.valueOf(weburl));
+            page.waitForTimeout(60000);
             System.out.println("this place after url cms");
+
+            pageCMS = contextIncognitoModeHeadless.newPage();
             try {
                 vrt.track(
                         "CMSPageFull",
-                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                        Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                         TestRunOptions.builder()
                                 .device("Acer")
                                 .os("Win10 Pro")
@@ -133,13 +135,13 @@ public class HeaderMenuPW extends BasePagePlaywright {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            pageCMS.screenshot(new Page.ScreenshotOptions()
-                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cms.png"))
-                    .setFullPage(true));
-            byte[] buffer = pageCMS.screenshot(new Page.ScreenshotOptions()
-                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cmsFullPage.png"))
-                    .setFullPage(true));
-            System.out.println(Base64.getEncoder().encode(buffer));
+//            pageCMS.screenshot(new Page.ScreenshotOptions()
+//                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cms.png"))
+//                    .setFullPage(true));
+//            byte[] buffer = pageCMS.screenshot(new Page.ScreenshotOptions()
+//                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cmsFullPage.png"))
+//                    .setFullPage(true));
+//            System.out.println(Base64.getEncoder().encode(buffer));
             pageCMS.navigate("https://yandex.ru");
             pageCMS.waitForTimeout(10000);
             try {
