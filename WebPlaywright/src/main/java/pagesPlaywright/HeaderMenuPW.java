@@ -70,7 +70,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 //            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
 //            System.setProperty("http.proxyPort", "8808");
 //            page.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-
+            pageCMS.navigate(backend);
             try {
                 vrt.track(
                             "CMSPageFull123",
@@ -88,14 +88,13 @@ public class HeaderMenuPW extends BasePagePlaywright {
             }
 
 
-
             try {
             weburl = new URL("https://bmp-preprod6.megafon.tv/cms/");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
             Proxy webProxy
-                    = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.megalabs.ru", 8808));
+                    = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.236.35.114", 8808));
         try {
             HttpURLConnection webNoProxyConnection
                     = (HttpURLConnection) weburl.openConnection(webProxy);
