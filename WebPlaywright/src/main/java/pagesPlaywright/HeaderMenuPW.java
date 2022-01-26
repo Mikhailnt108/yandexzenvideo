@@ -56,7 +56,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.click("//button[text()='Далее']");
     }
 
-    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
+    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) throws IOException, InterruptedException {
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
 
@@ -68,6 +68,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
             pageCMS.waitForTimeout(60000);
             System.out.println("this place after url cms");
+            vrt.track(
+                    "CMSPageFull",
+                    Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                    TestRunOptions.builder()
+                            .device("Acer")
+                            .os("Win10 Pro")
+                            .browser("Chrome")
+                            .diffTollerancePercent(0.5f)
+                            .build());
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
             pageCMS.click("//button[text()='Поиск']");
