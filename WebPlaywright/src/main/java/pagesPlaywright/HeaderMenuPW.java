@@ -59,8 +59,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
+
             pageCMS = contextIncognitoModeHeadless.newPage();
             String onlyPreprod = backend.substring(8);
+            System.setProperty("http.proxyHost", null);
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
@@ -72,6 +74,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.onDialog(dialog -> dialog.accept());
             pageCMS.click("//button[text()='Удалить']");
             pageCMS.close();
+            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
+            System.setProperty("http.proxyPort", "8808");
             page.bringToFront();
             page.reload();
             page.querySelector("(//span[text()='Вход'])[1]");
