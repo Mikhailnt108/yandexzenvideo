@@ -32,7 +32,7 @@ public class Test_05_SERIALS_Subscription_package_serials extends TestBaseWebDri
         headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110166", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79250110166");
         headerMenu.clickToComeIn("Войти");

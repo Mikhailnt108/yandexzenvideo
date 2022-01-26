@@ -45,7 +45,7 @@ public class Test_14_1_TV_Payment_filter extends TestBaseWebDriver {
         headerMenu.inputLogin("9250110212");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110212", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79250110212");
         headerMenu.clickToComeIn("Войти");

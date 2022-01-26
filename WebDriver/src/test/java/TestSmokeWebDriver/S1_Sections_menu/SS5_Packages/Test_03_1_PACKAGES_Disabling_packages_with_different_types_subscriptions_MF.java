@@ -44,7 +44,7 @@ public class Test_03_1_PACKAGES_Disabling_packages_with_different_types_subscrip
         headerMenu.inputLogin("9260172279");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260172279");
         headerMenu.clickToComeIn("Войти");

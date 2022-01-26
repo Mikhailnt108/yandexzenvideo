@@ -43,7 +43,7 @@ public class Test_02_NOTIF_Film_purchase_for_money_API extends TestBaseWebDriver
         headerMenu.inputLogin("9260205027");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260205027", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260205027");
         headerMenu.clickToComeIn("Войти");

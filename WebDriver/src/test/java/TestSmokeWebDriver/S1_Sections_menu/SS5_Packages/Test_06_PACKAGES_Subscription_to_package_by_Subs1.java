@@ -40,7 +40,7 @@ public class Test_06_PACKAGES_Subscription_to_package_by_Subs1 extends TestBaseW
         headerMenu.inputLogin("9260172279");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9260172279", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79260172279");
         headerMenu.clickToComeIn("Войти");

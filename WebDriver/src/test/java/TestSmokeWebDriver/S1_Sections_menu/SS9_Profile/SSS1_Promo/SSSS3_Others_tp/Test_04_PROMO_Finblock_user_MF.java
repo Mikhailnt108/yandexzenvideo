@@ -34,7 +34,7 @@ public class Test_04_PROMO_Finblock_user_MF extends TestBaseWebDriver {
         headerMenu.inputLogin("9267644248");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("79267644248", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdnBlockingMf("79267644248");
         headerMenu.clickToComeIn("Войти");

@@ -66,7 +66,7 @@ public class Test_04_2_PERS_OFFER_Several_type_pers_offer_Non_MF_API extends Tes
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForNonMF();
         headerMenu.inputSixSimbolPassword("111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
         headerMenu.clickToComeIn("Войти");

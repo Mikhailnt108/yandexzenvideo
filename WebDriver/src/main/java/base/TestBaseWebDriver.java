@@ -104,7 +104,7 @@ public class TestBaseWebDriver {
         chromeOptions.setCapability("browserVersion", "97.0");
         chromeOptions.setCapability("platformName", "linux");
         chromeOptions.setCapability("pageLoadStrategy","normal");
-        chromeOptions.setHeadless(true);
+        chromeOptions.setHeadless(false);
 //        chromeOptions.addArguments("--proxy-pac-url=http://myPacFile.com");
         WebDriver webDriver = new RemoteWebDriver(new URL("http://192.168.1.139:4444"), chromeOptions);
         Configuration.pageLoadTimeout = 60000;

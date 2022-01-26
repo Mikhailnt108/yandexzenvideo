@@ -55,7 +55,7 @@ public class Test_04_1_TV_Card_tv_channel extends TestBaseWebDriver {
         headerMenu.inputLogin("9250110212");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110212", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79250110212");
         headerMenu.clickToComeIn("Войти");

@@ -28,7 +28,7 @@ public class PageCMS extends BasePageWebDriver {
         // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
         webDriver.switchTo().window(oldTab);
-        webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
+        webDriver.findElement(By.xpath("//input[@placeholder='Введите код из sms']")).sendKeys(codMsisdn); }
 
     public void chooseBundleInternetMFromMsisdn(String login) throws InterruptedException {
         String oldTab = webDriver.getWindowHandle();
@@ -392,7 +392,7 @@ public class PageCMS extends BasePageWebDriver {
         // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
         webDriver.switchTo().window(oldTab);
-        webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
+        webDriver.findElement(By.xpath("//input[@placeholder='Введите код из sms']")).sendKeys(codMsisdn); }
 
     public void copyPasteCodMsisdnBlockingMf(String login) throws InterruptedException {
         String oldTab = webDriver.getWindowHandle();
@@ -406,7 +406,7 @@ public class PageCMS extends BasePageWebDriver {
         // здесь переключаемся опять на вкладку с мегафонТВ, закрываем вкладку CMS и далее вставляем взятый код из CMS в открытый попап в поле подтверждения регистрации
         webDriver.close();
         webDriver.switchTo().window(oldTab);
-        webDriver.findElement(By.xpath("//input[@placeholder='Код подтверждения']")).sendKeys(codMsisdn); }
+        webDriver.findElement(By.xpath("//input[@placeholder='Введите код из sms']")).sendKeys(codMsisdn); }
 
     public void chooseRoleVip(String login) throws InterruptedException {
         String oldTab = webDriver.getWindowHandle();

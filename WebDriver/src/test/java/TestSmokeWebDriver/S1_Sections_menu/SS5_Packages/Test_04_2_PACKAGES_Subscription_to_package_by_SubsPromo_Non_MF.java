@@ -65,7 +65,7 @@ public class Test_04_2_PACKAGES_Subscription_to_package_by_SubsPromo_Non_MF exte
             headerMenu.inputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");
             headerMenu.clickToNext("Далее");
             headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationNonMF("9261184972", "111111");
-            headerMenu.clickToComeIn("Войти");
+            headerMenu.clickToNext("Далее");
             pageCMS.copyPasteCodMsisdnForNonMF("79261184972");
             headerMenu.clickToComeIn("Войти");
             headerMenu.checkLoginUserIsCorrectFlowForMF();

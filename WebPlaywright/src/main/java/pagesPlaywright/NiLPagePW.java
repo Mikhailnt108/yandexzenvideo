@@ -3956,6 +3956,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkMessageContentIsBeingLoaded() {
+        page.reload();
         page.waitForSelector("//span[text()='Идет загрузка контента...']");
     }
 
@@ -3963,7 +3964,7 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle titleCollectionBeforeElement = page.waitForSelector("(//h2[@class='MediaScroller_title__3LXbw'])[1]");
         String titleCollectionBeforeName = titleCollectionBeforeElement.innerText();
         System.out.println(titleCollectionBeforeName);
-//        page.reload();
+        page.reload();
 //        Thread.sleep(2000);
         ElementHandle alert = page.waitForSelector("//span[text()='Идет загрузка контента...']");
         alert.waitForElementState(ElementState.HIDDEN);

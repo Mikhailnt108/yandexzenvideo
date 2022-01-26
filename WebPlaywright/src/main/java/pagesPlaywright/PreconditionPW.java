@@ -121,6 +121,18 @@ public class PreconditionPW extends BasePagePlaywright {
     public void changePriceEstAndRent2FirstFilmSectionFilms() throws SQLException, ClassNotFoundException {
         page.navigate(frontend+"movies/vods");
         page.reload();
+        String urlFilm = page.waitForSelector("(//a[@data-test='PackageLink' and @href])[1]").getAttribute("href");
+        System.out.println(urlFilm);
+        System.out.println(urlFilm.substring(13));
+        String sql = "update package_prices set price ='4500' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        System.out.println(sql);
+        Class.forName("org.postgresql.Driver");
+        statement.executeUpdate(sql);
+    }
+
+    public void changePriceEstAndRent2SecondFilmSectionFilms() throws ClassNotFoundException, SQLException {
+        page.navigate(frontend+"movies/vods");
+        page.reload();
         String urlFilm = page.waitForSelector("(//a[@data-test='PackageLink' and @href])[2]").getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(13));
@@ -180,6 +192,17 @@ public class PreconditionPW extends BasePagePlaywright {
         page.navigate(frontend+"kids");
         page.reload();
         String urlFilm = page.waitForSelector("(//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')])[1]").getAttribute("href");
+        System.out.println(urlFilm);
+        System.out.println(urlFilm.substring(13));
+        String sql = "update package_prices set price ='100' where package_id ='".concat(urlFilm.substring(13)).concat("'");
+        System.out.println(sql);
+        Class.forName("org.postgresql.Driver");
+        statement.executeUpdate(sql);
+    }
+    public void changePriceEstAndRent2SecondFilmSectionKids() throws ClassNotFoundException, SQLException {
+        page.navigate(frontend+"kids");
+        page.reload();
+        String urlFilm = page.waitForSelector("(//a[@data-test='PackageLink' and contains(@href,'/movies/vods/')])[2]").getAttribute("href");
         System.out.println(urlFilm);
         System.out.println(urlFilm.substring(13));
         String sql = "update package_prices set price ='100' where package_id ='".concat(urlFilm.substring(13)).concat("'");
@@ -659,6 +682,8 @@ public class PreconditionPW extends BasePagePlaywright {
                     then().statusCode(anyOf(is(200), is(302)));
         }
     }
+
+
 }
 
 

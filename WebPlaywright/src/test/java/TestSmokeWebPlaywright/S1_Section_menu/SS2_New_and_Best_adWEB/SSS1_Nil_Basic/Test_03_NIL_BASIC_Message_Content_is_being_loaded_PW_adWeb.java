@@ -19,11 +19,11 @@ public class Test_03_NIL_BASIC_Message_Content_is_being_loaded_PW_adWeb extends 
     @DisplayName(value = "3. Message_Content_is_being_loaded_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("adWebSuitePW#1TEST")
     public void MessageContentIsBeingLoaded() throws InterruptedException, IOException {
         headerMenuPW.goToNilPage();
         flowRegistation();
-        nilPagePW.checkMessageContentIsBeingLoaded();
+//        nilPagePW.checkMessageContentIsBeingLoaded();
         nilPagePW.checkChangeContentOnColdPopular();
     }
     private void flowRegistation() {

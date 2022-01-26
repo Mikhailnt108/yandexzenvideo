@@ -56,7 +56,7 @@ public class Test_15_1_TV_Unrecorded_tv_program_18_plus extends TestBaseWebDrive
         headerMenu.inputLogin("9250110212");
         headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpCreatePasswordForFlowRegistrationMF("9250110212", "111111");
-        headerMenu.clickToComeIn("Войти");
+        headerMenu.clickToNext("Далее");
         headerMenu.checkOpenPopUpInputCode();
         pageCMS.copyPasteCodMsisdn("79250110212");
         headerMenu.clickToComeIn("Войти");
