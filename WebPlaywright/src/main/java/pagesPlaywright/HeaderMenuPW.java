@@ -89,7 +89,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
 
             try {
-            weburl = new URL("https://bmp-preprod6.megafon.tv/cms/");
+            weburl = new URL("https://bmp-preprod2.megafon.tv/cms/");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

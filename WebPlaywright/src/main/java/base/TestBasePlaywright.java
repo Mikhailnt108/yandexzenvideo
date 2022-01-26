@@ -46,8 +46,8 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
-    public String frontend = "https://web-preprod6.megafon.tv/";
-    public String backend = "https://bmp-preprod6.megafon.tv/";
+    public String frontend = "https://web-preprod2.megafon.tv/";
+    public String backend = "https://bmp-preprod2.megafon.tv/";
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
@@ -74,7 +74,7 @@ class TestBasePlaywright extends BasePagePlaywright{
 
     {
         try {
-            connection = DriverManager.getConnection(PP6,USER_NAME,PASSWORD);
+            connection = DriverManager.getConnection(PP2,USER_NAME,PASSWORD);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new RuntimeException();
