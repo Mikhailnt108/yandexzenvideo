@@ -5,31 +5,26 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_04_SERIALS_Переключение_сезонов extends TestBaseWebDriver {
+public class Test_08_SERIALS_Rewind_episode extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "4. Serials")
-    @DisplayName(value ="Переключение сезонов")
+    @DisplayName(value ="Rewind_episode")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void switchingSeasons() throws Exception {
+    public void rewindSeries() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.chooseSeasonsMoreOneSeason();
+        serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
-        cardSerial.chooseOtherSeasonAndCheckPoster();
-        cardSerial.checkAutoStartVideoPlayer();
         cardSerial.paymentSerialAtSubs();
-        cardSerial.moveSliderRewindToVideoPlayer();
-        cardSerial.checkSeasonAndEpisode();
+        cardSerial.episodeSliderRewindToVideoPlayer();
         pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {

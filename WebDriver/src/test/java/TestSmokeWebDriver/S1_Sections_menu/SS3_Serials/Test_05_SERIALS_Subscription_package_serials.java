@@ -5,28 +5,24 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_08_SERIALS_Перемотка_серии extends TestBaseWebDriver {
+public class Test_05_SERIALS_Subscription_package_serials extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "4. Serials")
-    @DisplayName(value ="Перемотка серии")
+    @DisplayName(value ="Subscription_package_serials")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void rewindSeries() throws Exception {
+    public void SubscribeToSeriesPackage() throws Exception {
         headerMenu.goToSerialsPage();
         flowRegistation();
-        serialsPage.clickToFirstTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.paymentSerialAtSubs();
-        cardSerial.episodeSliderRewindToVideoPlayer();
+        myPage.goToMyPagePurchases();
+        myPage.checkAddingSerialsInPurchases();
         pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {

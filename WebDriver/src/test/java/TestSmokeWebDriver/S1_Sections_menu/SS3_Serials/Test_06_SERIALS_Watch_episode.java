@@ -5,48 +5,27 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_03_1_SERIALS_Внешний_вид_карточки extends TestBaseWebDriver {
+public class Test_06_SERIALS_Watch_episode extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "4. Serials")
-    @DisplayName(value ="3.1 Внешний вид карточки")
+    @DisplayName(value ="Watch_serial")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void appearanceSectionCardSerial() throws Exception {
-        // неавторизованный пользователь:
+    public void watchEpisode() throws Exception {
         headerMenu.goToSerialsPage();
-        serialsPage.clickToFirstTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.checkAutoStartVideoPlayer();
-        cardSerial.checkElementsCardSerial();
-
-        // авторизованный пользователь:
-        headerMenu.goToSerialsPage();
+        headerMenu.checkNotLoggedIsCorrect();
         flowRegistation();
         serialsPage.clickToFirstTailCardSerial();
         cardSerial.checkOpenCardSerial();
-        cardSerial.checkAutoStartVideoPlayer();
-        cardSerial.checkElementsCardSerial();
-        cardSerial.checkButtonFavoriteNotAdded();
-        cardSerial.clickButtonFavorites();
-        myPage.checkAddingSerialToFavorites();
-        headerMenu.goToSerialsPage();
-        serialsPage.clickToFirstTailCardSerial();
-        cardSerial.checkOpenCardSerial();
-        cardSerial.clickToButtonReadDescription();
-        cardSerial.checkOpenDescriptionAll();
-        cardSerial.clickToButtonRollUp();
-        cardSerial.checkRollUpDescription();
-        cardSerial.clickToLikeButton();
-        cardSerial.clickToDisLikeButton();
+        cardSerial.paymentSerialAtSubs();
+        cardSerial.clickTailEpisodeForStartVideoPleer();
         pageCMS.deleteAccountMF("79250110166");
     }
     private void flowRegistation() throws InterruptedException {

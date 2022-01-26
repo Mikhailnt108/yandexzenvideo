@@ -14,7 +14,7 @@ public class Test_15_FILMS_Operation_standard_filters extends TestBaseWebDriver 
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "3. Films")
-    @DisplayName(value ="15. Operation_standard_filters")
+    @DisplayName(value ="Operation_standard_filters")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")

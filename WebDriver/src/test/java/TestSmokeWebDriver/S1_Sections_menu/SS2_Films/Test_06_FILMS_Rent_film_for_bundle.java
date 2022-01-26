@@ -14,7 +14,7 @@ public class Test_06_FILMS_Rent_film_for_bundle extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "3. Films")
-    @DisplayName(value ="6. Rent_film_for_bundle")
+    @DisplayName(value ="Rent_film_for_bundle")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")

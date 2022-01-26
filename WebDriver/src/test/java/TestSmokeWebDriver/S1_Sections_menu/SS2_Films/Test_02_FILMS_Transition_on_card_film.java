@@ -10,11 +10,11 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#1", mode = ResourceAccessMode.READ_WRITE)
-public class Test_02_FILMS_Go_to_card_film extends TestBaseWebDriver {
+public class Test_02_FILMS_Transition_on_card_film extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "3. Films")
-    @DisplayName(value ="Go_to_card_film")
+    @DisplayName(value ="Transition_on_card_film")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#1")

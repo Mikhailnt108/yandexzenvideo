@@ -10,28 +10,33 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuiteWD#2", mode = ResourceAccessMode.READ_WRITE)
-public class Test_01_2_SERIALS_Внешний_вид_раздела_User extends TestBaseWebDriver {
+public class Test_09_1_SERIALS_Select_episode_from_block_episode extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
     @Story(value = "4. Serials")
-    @DisplayName(value ="1.2 Внешний вид раздела User")
+    @DisplayName(value ="Select_episode_from_block_episode")
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuiteWD#2")
-    public void appearanceSectionSerialsPage() throws Exception {
+    public void chooseEpisodeFromBlockEpisodes() throws Exception {
         headerMenu.goToSerialsPage();
+        serialsPage.chooseSeasonsMoreOneSeason();
+        cardSerial.checkOpenCardSerial();
+        cardSerial.checkElementsBlockEpisodes();
+        cardSerial.clickTailEpisode();
         flowRegistation();
-        serialsPage.checkElementsSerialsPage();
-        serialsPage.checkElementsBannersCarousel();
-        serialsPage.autoScrollBanners();
-        serialsPage.scrollBannersToLeft();
-        serialsPage.scrollBannersToRight();
-        serialsPage.scrollСollectionToRightAndLeft();
-        pageCMS.deleteAccountMF("9250110166");
+        headerMenu.refreshPage();
+        cardSerial.clickTailEpisode();
+        cardSerial.checkOpenPopUpPayment();
+        cardSerial.paymentSerialAtSubsInPoUp();
+        cardSerial.clickTailEpisodeForStartVideoPleer();
+        cardSerial.chooseOtherSeasonAndCheckPoster();
+//        cardSerial.scrollBlockEpisode();
+        pageCMS.deleteAccountMF("79250110166");
+
+
     }
     private void flowRegistation() throws InterruptedException {
-        headerMenu.checkNotLoggedIsCorrect();
-        headerMenu.clickToEnter("Вход");
         headerMenu.checkOpenPageInputPhone();
         headerMenu.inputLogin("9250110166");
         headerMenu.clickToNext("Далее");
