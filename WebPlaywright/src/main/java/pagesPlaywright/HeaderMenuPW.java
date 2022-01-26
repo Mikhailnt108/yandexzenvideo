@@ -62,8 +62,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
             pageCMS = contextIncognitoModeHeadless.newPage();
             String onlyPreprod = backend.substring(8);
+            System.out.println("this place before cms");
             System.setProperty("http.proxyHost", null);
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+            System.out.println("this place after url cms");
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
             pageCMS.click("//button[text()='Поиск']");
