@@ -64,9 +64,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
             String onlyPreprod = backend.substring(8);
             System.out.println("this place before cms");
 //            System.setProperty("http.proxyHost", null);
-            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
-            System.setProperty("http.proxyPort", "8808");
-            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
+//            System.setProperty("http.proxyPort", "8808");
+//            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+            pageCMS.navigate("https://bmp-preprod6.megafon.tv/cms/");
             pageCMS.waitForTimeout(60000);
             System.out.println("this place after url cms");
             try {
