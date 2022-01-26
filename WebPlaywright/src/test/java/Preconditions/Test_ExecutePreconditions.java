@@ -11,7 +11,9 @@ public class Test_ExecutePreconditions extends TestBasePlaywright {
     public void executePreconditions() throws IOException, SQLException, ClassNotFoundException {
         // Создать скидку для цены EST и Rent2 на фильм в CMS: Описание - "Sale AutoTest", механика - стандарт скидка, величина - 30%, стикер - "AutoTest -30%"
         preconditionPW.editSaleInCMS();
+        System.out.println("request passed edit cms price");
         preconditionPW.deletePackageFromSaleCMS();
+        System.out.println("request passed delete sale cms price");
         // Изменить на минимальную цену (45р) EST megafon/card и (1р) Rent2 megafon/card первого фильма в разделе "Фильмы"
         preconditionPW.changePriceEstAndRent2FirstFilmSectionFilms();
 

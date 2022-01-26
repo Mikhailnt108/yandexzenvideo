@@ -107,7 +107,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException{
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920).setRecordVideoDir(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts"))); // моноблок
+                .setViewportSize(1900, 920).setHttpCredentials("mc2soft", "wkqKy2sWwBGFDR")); // моноблок
 //                .setViewportSize(1360, 760));  // ноутбук
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1900, 920));   // моноблок
