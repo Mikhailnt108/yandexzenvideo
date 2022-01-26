@@ -68,10 +68,28 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
             pageCMS.waitForTimeout(60000);
             System.out.println("this place after url cms");
+            try {
+                vrt.track(
+                        "CMSPageFull",
+                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                        TestRunOptions.builder()
+                                .device("Acer")
+                                .os("Win10 Pro")
+                                .browser("Chrome")
+                                .diffTollerancePercent(0.5f)
+                                .build());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             pageCMS.screenshot(new Page.ScreenshotOptions()
-                    .setPath(Paths.get("CMS.png"))
+                    .setPath(Paths.get("cms.png"))
                     .setFullPage(true));
-            System.out.println(pageCMS.url());
+            byte[] buffer = pageCMS.screenshot(new Page.ScreenshotOptions()
+                    .setPath(Paths.get("cmsFullPage.png"))
+                    .setFullPage(true));
+            System.out.println(Base64.getEncoder().encode(buffer));
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
             pageCMS.click("//button[text()='Поиск']");
