@@ -63,7 +63,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
             try {
                 vrt.track(
                         "FrontWebPreprodFull",
-                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                        Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                         TestRunOptions.builder()
                                 .device("Acer")
                                 .os("Win10 Pro")
@@ -75,17 +75,33 @@ public class HeaderMenuPW extends BasePagePlaywright {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            pageCMS = contextIncognitoModeHeadless.newPage();
             String onlyPreprod = backend.substring(8);
+            page.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//            pageCMS = contextIncognitoModeHeadless.newPage();
+
             System.out.println("this place before cms");
 //            System.setProperty("http.proxyHost", null);
 //            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
 //            System.setProperty("http.proxyPort", "8808");
-//            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+            page.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
 
+            try {
+                vrt.track(
+                            "CMSPageFull123",
+                            Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                            TestRunOptions.builder()
+                                    .device("Acer")
+                                    .os("Win10 Pro")
+                                    .browser("Chrome")
+                                    .diffTollerancePercent(0.5f)
+                                    .build());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
-
-        URL weburl = null;
+            URL weburl = null;
         try {
             weburl = new URL("https://bmp-preprod6.megafon.tv/cms/");
         } catch (MalformedURLException e) {
