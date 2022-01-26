@@ -63,8 +63,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS = contextIncognitoModeHeadless.newPage();
             String onlyPreprod = backend.substring(8);
             System.out.println("this place before cms");
-            System.setProperty("http.proxyHost", null);
+//            System.setProperty("http.proxyHost", null);
+
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+            pageCMS.waitForTimeout(60000);
             System.out.println("this place after url cms");
             pageCMS.click("//form[@method='GET']//input[1]");
             pageCMS.fill("//form[@method='GET']//input[1]", login);
@@ -76,8 +78,8 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.onDialog(dialog -> dialog.accept());
             pageCMS.click("//button[text()='Удалить']");
             pageCMS.close();
-            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
-            System.setProperty("http.proxyPort", "8808");
+//            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
+//            System.setProperty("http.proxyPort", "8808");
             page.bringToFront();
             page.reload();
             page.querySelector("(//span[text()='Вход'])[1]");
