@@ -28,6 +28,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private BrowserContext contextIncognitoModeHeadfull;
     private String frontend;
     private String backend;
+    private URL weburl;
 
     public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless,String frontend, String backend) {
         this.page = page;
@@ -86,40 +87,41 @@ public class HeaderMenuPW extends BasePagePlaywright {
                 e.printStackTrace();
             }
 
-//            URL weburl = null;
-//        try {
-//            weburl = new URL("https://bmp-preprod6.megafon.tv/cms/");
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-////            Proxy webProxy
-////                    = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 3128));
-//        try {
-//            HttpURLConnection webNoProxyConnection
-//                    = (HttpURLConnection) weburl.openConnection(Proxy.NO_PROXY);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        page.navigate(String.valueOf(weburl));
-//            page.waitForTimeout(60000);
-//            System.out.println("this place after url cms");
+
+
+            try {
+            weburl = new URL("https://bmp-preprod6.megafon.tv/cms/");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+            Proxy webProxy
+                    = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.megalabs.ru", 8808));
+        try {
+            HttpURLConnection webNoProxyConnection
+                    = (HttpURLConnection) weburl.openConnection(webProxy);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        pageCMS.navigate(String.valueOf(weburl));
+            pageCMS.waitForTimeout(10000);
+            System.out.println("this place after url cms");
 //
 ////            pageCMS = contextIncognitoModeHeadless.newPage();
-//            try {
-//                vrt.track(
-//                        "CMSPageFull",
-//                        Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
-//                        TestRunOptions.builder()
-//                                .device("Acer")
-//                                .os("Win10 Pro")
-//                                .browser("Chrome")
-//                                .diffTollerancePercent(0.5f)
-//                                .build());
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                vrt.track(
+                        "CMSPageFull",
+                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                        TestRunOptions.builder()
+                                .device("Acer")
+                                .os("Win10 Pro")
+                                .browser("Chrome")
+                                .diffTollerancePercent(0.5f)
+                                .build());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 //            pageCMS.screenshot(new Page.ScreenshotOptions()
 //                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cms.png"))
 //                    .setFullPage(true));
