@@ -8,6 +8,7 @@ import org.junit.Assert;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.*;
 import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
@@ -67,7 +68,24 @@ public class HeaderMenuPW extends BasePagePlaywright {
 //            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
 //            System.setProperty("http.proxyPort", "8808");
 //            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-            pageCMS.navigate("https://bmp-preprod6.megafon.tv/cms/");
+
+
+
+        URL weburl = null;
+        try {
+            weburl = new URL("https://bmp-preprod6.megafon.tv/cms/");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+//            Proxy webProxy
+//                    = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 3128));
+        try {
+            HttpURLConnection webNoProxyConnection
+                    = (HttpURLConnection) weburl.openConnection(Proxy.NO_PROXY);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        pageCMS.navigate(String.valueOf(weburl));
             pageCMS.waitForTimeout(60000);
             System.out.println("this place after url cms");
             try {
