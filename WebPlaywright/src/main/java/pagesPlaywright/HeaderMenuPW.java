@@ -73,7 +73,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
             try {
                 vrt.track(
                             "CMSPageFull123",
-                            Base64.getEncoder().encodeToString(page.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
+                            Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
                             TestRunOptions.builder()
                                     .device("Acer")
                                     .os("Win10 Pro")
