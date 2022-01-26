@@ -26,6 +26,12 @@ testPW-job:
   - qa
  allow_failure: true
 
+ artifacts:
+  when: always
+  paths:
+   - /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts
+
+
 #testWD-job:
 # stage: testWD-job
 #
