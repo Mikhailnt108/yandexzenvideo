@@ -68,7 +68,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
             pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
             pageCMS.waitForTimeout(60000);
             System.out.println("this place after url cms");
-            page.screenshot(new Page.ScreenshotOptions()
+            pageCMS.screenshot(new Page.ScreenshotOptions()
                     .setPath(Paths.get("CMS.png"))
                     .setFullPage(true));
             System.out.println(pageCMS.url());
