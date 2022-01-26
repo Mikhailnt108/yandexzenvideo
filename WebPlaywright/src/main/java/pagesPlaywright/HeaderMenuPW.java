@@ -86,10 +86,10 @@ public class HeaderMenuPW extends BasePagePlaywright {
                 e.printStackTrace();
             }
             pageCMS.screenshot(new Page.ScreenshotOptions()
-                    .setPath(Paths.get("cms.png"))
+                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cms.png"))
                     .setFullPage(true));
             byte[] buffer = pageCMS.screenshot(new Page.ScreenshotOptions()
-                    .setPath(Paths.get("cmsFullPage.png"))
+                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cmsFullPage.png"))
                     .setFullPage(true));
             System.out.println(Base64.getEncoder().encode(buffer));
             pageCMS.navigate("https://yandex.ru");
