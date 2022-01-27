@@ -67,7 +67,7 @@
             <artifactId>testrail-api-java-client</artifactId>
             <version>1.0.7</version>
             <scope>system</scope>
-            <systemPath>C:/QA_AUTOMATION/autosmoke_mftv_web_and_mobile_web/libs/testrail-api-java-client-1.0.7.jar</systemPath>
+            <systemPath>/builds/qa/autosmoke_mftv_web_and_mobile_web/libs/testrail-api-java-client-1.0.7.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -79,7 +79,7 @@
             <artifactId>TestRail-JUnit</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>C:/QA_AUTOMATION/autosmoke_mftv_web_and_mobile_web/libs/TestRail-JUnit-1.0.jar</systemPath>
+            <systemPath>/builds/qa/autosmoke_mftv_web_and_mobile_web/libs/TestRail-JUnit-1.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
