@@ -3965,6 +3965,7 @@ public class NiLPagePW extends BasePagePlaywright {
         String titleCollectionBeforeName = titleCollectionBeforeElement.innerText();
         System.out.println(titleCollectionBeforeName);
         page.reload();
+
 //        Thread.sleep(2000);
         ElementHandle alert = page.waitForSelector("//span[text()='Идет загрузка контента...']");
         alert.waitForElementState(ElementState.HIDDEN);
