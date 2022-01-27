@@ -16,7 +16,7 @@ public class Test_06_CHILDS_Collection_favorites extends TestBaseWebDriver {
     @Story(value = "5. Childs")
     @DisplayName(value ="Collection_favorites")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542080")
+    @TmsLink("31542080")
     @Test
     @Tag("SuiteWD#2")
     public void collectionOfFavorites() throws InterruptedException {

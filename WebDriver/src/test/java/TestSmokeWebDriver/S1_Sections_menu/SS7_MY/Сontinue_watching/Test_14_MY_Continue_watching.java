@@ -16,7 +16,7 @@ public class Test_14_MY_Continue_watching extends TestBaseWebDriver {
     @Story(value = "9. MY")
     @DisplayName(value = "Continue_watching")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31546561")
+    @TmsLink("31546561")
     @Test
     @Tag("SuiteWD#3")
     public void continueWatching() throws Exception {

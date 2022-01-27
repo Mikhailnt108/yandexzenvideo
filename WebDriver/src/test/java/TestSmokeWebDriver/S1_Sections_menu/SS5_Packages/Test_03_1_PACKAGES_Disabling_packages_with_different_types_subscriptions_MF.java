@@ -16,7 +16,7 @@ public class Test_03_1_PACKAGES_Disabling_packages_with_different_types_subscrip
     @Story(value = "7. Packages")
     @DisplayName(value ="PACKAGES_Disabling_packages_with_different_types_subscriptions_MF")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31546502")
+    @TmsLink("31546502")
     @Test
     @Tag("SuiteWD#3")
     public void disablingPackagesDifferentSubscriptionTypes() throws InterruptedException {

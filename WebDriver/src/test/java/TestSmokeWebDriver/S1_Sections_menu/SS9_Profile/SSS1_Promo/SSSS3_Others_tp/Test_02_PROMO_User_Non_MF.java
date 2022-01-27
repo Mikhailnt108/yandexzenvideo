@@ -16,7 +16,7 @@ public class Test_02_PROMO_User_Non_MF extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="User_Non_MF")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("39193015")
+    @TmsLink("39193015")
     @Test
     @Tag("SuiteWD#4")
     public void userNonMegafon() throws InterruptedException {

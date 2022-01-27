@@ -16,7 +16,7 @@ public class Test_01_PROMO_Bez_pereplat_Maximum extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="Bez_pereplat_Maximum")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("39193003")
+    @TmsLink("39193003")
     @Test
     @Tag("SuiteWD#4")
     public void bundleBezPereplatMax() throws InterruptedException {

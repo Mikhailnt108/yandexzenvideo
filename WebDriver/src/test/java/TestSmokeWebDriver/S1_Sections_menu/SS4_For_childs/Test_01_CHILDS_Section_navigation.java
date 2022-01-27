@@ -16,7 +16,7 @@ public class Test_01_CHILDS_Section_navigation extends TestBaseWebDriver {
     @Story(value = "5. Childs")
     @DisplayName(value ="Section_navigation")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("39192986")
+    @TmsLink("39192986")
     @Test
     @Tag("SuiteWD#2")
     public void navigatingSection() throws Exception {

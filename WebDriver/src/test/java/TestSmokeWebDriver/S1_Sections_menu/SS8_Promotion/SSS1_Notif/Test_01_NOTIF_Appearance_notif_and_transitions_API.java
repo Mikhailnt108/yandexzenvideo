@@ -16,7 +16,7 @@ public class Test_01_NOTIF_Appearance_notif_and_transitions_API extends TestBase
     @Story(value = "1. NOTIF")
     @DisplayName(value = "Appearance_notif_and_transitions")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31546570")
+    @TmsLink("31546570")
     @Test
     @Tag("SuiteWD#4")
     public void appearanceOfPopUpNotification() throws InterruptedException {

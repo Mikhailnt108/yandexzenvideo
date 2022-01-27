@@ -18,7 +18,7 @@ public class Test_01_1_TV_Schedule_tv_program extends TestBaseWebDriver {
     @Story(value = "1. TV")
     @DisplayName(value = "Schedule_TV_program")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542006")
+    @TmsLink("31542006")
     @Test
     @Tag("SuiteWD#0")
     public void historyViewing() throws Exception {

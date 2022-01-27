@@ -82,7 +82,7 @@ public class HeaderMenu extends BasePageWebDriver {
             isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
             click(By.xpath("(//span[text()='Вход'])[1]"));
             isElementDisplayed(By.xpath("//h1[text()='Введите номер телефона']"));
-            WebElement element = webDriver.findElement(By.xpath("//input[@placeholder='Номер телефона']"));
+            WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
             element.click();
             for (int i = 0; i < login.length(); i++){
                 char c = login.charAt(i);
@@ -168,7 +168,7 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("(//span[text()='Выйти'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Вход'])[1]"));
         click(By.xpath("(//span[text()='Вход'])[1]"));
-        WebElement element = webDriver.findElement(By.xpath("//input[@placeholder='Номер телефона']"));
+        WebElement element = webDriver.findElement(By.xpath("//input[@value='+7']"));
         element.sendKeys("9260205027");
         click(By.xpath("//button[text()='Далее']"));
         WebElement element2 = webDriver.findElement(By.xpath("//input[@type='password']"));
@@ -203,6 +203,14 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//span[contains(text(),'+792')])[2]"));
         webDriver.navigate().refresh();
         Thread.sleep(5000);
+        if (webDriver.findElements(By.xpath("//*[text()='Закрыть']")).size() != 0) {
+            click(By.xpath("//*[text()='Закрыть']"));
+        }
+        webDriver.navigate().refresh();
+        Thread.sleep(2000);
+        if (webDriver.findElements(By.xpath("//*[text()='Закрыть']")).size() != 0) {
+            click(By.xpath("//*[text()='Закрыть']"));
+        }
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             System.out.println("найден notif");
             click(By.xpath("//button[text()='Закрыть']"));
@@ -213,24 +221,27 @@ public class HeaderMenu extends BasePageWebDriver {
             System.out.println("найден notif");
             click(By.xpath("//button[text()='Закрыть']"));
         }
-        webDriver.navigate().refresh();
-        Thread.sleep(2000);
-        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
-            System.out.println("найден notif");
-            click(By.xpath("//button[text()='Закрыть']"));
-        }
-        webDriver.navigate().refresh();
-        Thread.sleep(2000);
-        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
-            System.out.println("найден notif");
-            click(By.xpath("//button[text()='Закрыть']"));
-        }
-        webDriver.navigate().refresh();
-        Thread.sleep(2000);
-        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
-            System.out.println("найден notif");
-            click(By.xpath("//button[text()='Закрыть']"));
-        }
+//        webDriver.navigate().refresh();
+//        Thread.sleep(2000);
+//        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+//            System.out.println("найден notif");
+//            click(By.xpath("//button[text()='Закрыть']"));
+//        }
+//        webDriver.navigate().refresh();
+//        Thread.sleep(2000);
+//        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+//            System.out.println("найден notif");
+//            click(By.xpath("//button[text()='Закрыть']"));
+//        }
+//        webDriver.navigate().refresh();
+//        Thread.sleep(2000);
+//        if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
+//            System.out.println("найден notif");
+//            click(By.xpath("//button[text()='Закрыть']"));
+//        }
+//        if (webDriver.findElements(By.xpath("//*[text()='Закрыть']")).size() != 0) {
+//            click(By.xpath("//*[text()='Закрыть']"));
+//        }
     }
 
     public void checkLoginUserIsCorrectFlowForMFFast() throws InterruptedException {
@@ -375,7 +386,7 @@ public class HeaderMenu extends BasePageWebDriver {
     public void checkElementsPopUpInputPhone() {
         isElementDisplayed(By.xpath("//h1[text()='Введите номер телефона']"));
         isElementDisplayed(By.xpath("//span[contains(.,'Чтобы смотреть ТВ-каналы,сериалы и фильмы')]"));
-        isElementDisplayed(By.xpath("//input[@placeholder='Номер телефона']"));
+        isElementDisplayed(By.xpath("//input[@value='+7']"));
         isElementDisplayed(By.xpath("//button[@disabled and text()='Далее']"));
     }
 

@@ -16,7 +16,7 @@ public class Test_16_FILMS_Reset_filters extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Reset_filters")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542048")
+    @TmsLink("31542048")
     @Test
     @Tag("SuiteWD#1")
     public void resetAllFilters() throws InterruptedException {

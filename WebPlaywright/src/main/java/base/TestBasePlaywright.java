@@ -5,6 +5,7 @@ import com.microsoft.playwright.options.Proxy;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTracker;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import pagesPlaywright.*;
 
@@ -19,8 +20,8 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public //@ExtendWith(TestRailReportExtension.class)
+//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public @ExtendWith(TestRailReportExtension.class)
 class TestBasePlaywright extends BasePagePlaywright{
     public Playwright playwright;
     public Browser browserIncognitoModeHeadless;

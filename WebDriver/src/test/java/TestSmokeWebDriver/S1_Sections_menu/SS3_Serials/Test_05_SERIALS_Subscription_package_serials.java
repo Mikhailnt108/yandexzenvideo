@@ -16,7 +16,7 @@ public class Test_05_SERIALS_Subscription_package_serials extends TestBaseWebDri
     @Story(value = "4. Serials")
     @DisplayName(value ="Subscription_package_serials")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542053")
+    @TmsLink("31542053")
     @Test
     @Tag("SuiteWD#2")
     public void SubscribeToSeriesPackage() throws Exception {

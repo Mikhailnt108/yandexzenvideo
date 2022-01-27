@@ -16,7 +16,7 @@ public class Test_03_PROMO_Transition_on_card_package extends TestBaseWebDriver 
     @Story(value = "2. Promo")
     @DisplayName(value ="Transition_on_card_package")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542006")
+    @TmsLink("31542006")
     @Test
     @Tag("SuiteWD#4")
     public void goToPackagePage() throws InterruptedException {

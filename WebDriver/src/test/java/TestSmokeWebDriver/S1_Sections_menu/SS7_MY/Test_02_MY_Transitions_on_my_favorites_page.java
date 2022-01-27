@@ -16,7 +16,7 @@ public class Test_02_MY_Transitions_on_my_favorites_page extends TestBaseWebDriv
     @Story(value = "9. MY")
     @DisplayName(value ="Transitions_on_my_favorites_page")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542101")
+    @TmsLink("31542101")
     @Test
     @Tag("SuiteWD#3")
     public void goToFavoritesPage() throws InterruptedException {

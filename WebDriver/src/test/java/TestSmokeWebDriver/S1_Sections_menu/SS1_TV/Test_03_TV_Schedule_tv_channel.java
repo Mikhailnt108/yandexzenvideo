@@ -20,7 +20,7 @@ public class Test_03_TV_Schedule_tv_channel extends TestBaseWebDriver {
     @Story(value = "1. TV")
     @DisplayName(value ="Schedule_tv_channel")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542008")
+    @TmsLink("31542008")
     @Test
     @Tag("SuiteWD#0")
     public void openScheduleChannel() throws IOException, InterruptedException {

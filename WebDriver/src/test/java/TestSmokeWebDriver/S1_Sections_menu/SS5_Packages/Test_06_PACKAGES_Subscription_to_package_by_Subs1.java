@@ -16,7 +16,7 @@ public class Test_06_PACKAGES_Subscription_to_package_by_Subs1 extends TestBaseW
     @Story(value = "7. Packages")
     @DisplayName(value ="Subscription_to_package_by_Subs1")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("35669385")
+    @TmsLink("35669385")
     @Test
     @Tag("SuiteWD#3")
     public void subscribeToPackageBySubs1() throws Exception {

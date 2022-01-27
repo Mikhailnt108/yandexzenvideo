@@ -16,7 +16,7 @@ public class Test_08_SERIALS_Rewind_episode extends TestBaseWebDriver {
     @Story(value = "4. Serials")
     @DisplayName(value ="Rewind_episode")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542056")
+    @TmsLink("31542056")
     @Test
     @Tag("SuiteWD#2")
     public void rewindSeries() throws Exception {

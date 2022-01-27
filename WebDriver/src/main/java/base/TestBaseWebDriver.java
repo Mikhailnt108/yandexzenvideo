@@ -5,6 +5,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +29,7 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-//@ExtendWith(TestRailReportExtension.class)
+@ExtendWith(TestRailReportExtension.class)
 public class TestBaseWebDriver {
     public WebDriver webDriver;
     public HeaderMenu headerMenu;

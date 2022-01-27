@@ -16,7 +16,7 @@ public class Test_02_FILMS_Transition_on_card_film extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Transition_on_card_film")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542049")
+    @TmsLink("31542049")
     @Test
     @Tag("SuiteWD#1")
     public void goToCardFilm() throws InterruptedException {

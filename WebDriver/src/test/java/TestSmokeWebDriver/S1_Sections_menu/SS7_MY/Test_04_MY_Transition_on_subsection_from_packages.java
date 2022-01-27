@@ -16,7 +16,7 @@ public class Test_04_MY_Transition_on_subsection_from_packages extends TestBaseW
     @Story(value = "9. MY")
     @DisplayName(value ="Transition_on_subsection_from_packages")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542103")
+    @TmsLink("31542103")
     @Test
     @Tag("SuiteWD#3")
     public void goToPackagesPage() throws InterruptedException {

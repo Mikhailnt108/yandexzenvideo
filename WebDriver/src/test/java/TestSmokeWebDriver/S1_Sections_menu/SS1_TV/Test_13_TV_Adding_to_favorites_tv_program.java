@@ -18,7 +18,7 @@ public class Test_13_TV_Adding_to_favorites_tv_program extends TestBaseWebDriver
     @Story(value = "1. TV")
     @DisplayName(value ="Adding_to_favorites_tv_program")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542016")
+    @TmsLink("31542016")
     @Test
     @Tag("SuiteWD#0")
     public void addingTvProgramToFavorites() throws InterruptedException {

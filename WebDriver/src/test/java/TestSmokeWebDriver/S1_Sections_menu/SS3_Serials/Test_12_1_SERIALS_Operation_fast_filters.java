@@ -16,7 +16,7 @@ public class Test_12_1_SERIALS_Operation_fast_filters extends TestBaseWebDriver 
     @Story(value = "4. Serials")
     @DisplayName(value = "Operation_fast_filters")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("36965367")
+    @TmsLink("36965367")
     @Test
     @Tag("SuiteWD#2")
     public void quickFilters() throws Exception {

@@ -16,7 +16,7 @@ public class Test_01_MY_Transitions_on_tabs extends TestBaseWebDriver {
     @Story(value = "9. MY")
     @DisplayName(value ="Transitions_on_tabs")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542100")
+    @TmsLink("31542100")
     @Test
     @Tag("SuiteWD#3")
     public void clickOnTheMyTabs() throws Exception {

@@ -16,7 +16,7 @@ public class Test_10_MY_Click_on_different_zones_tile extends TestBaseWebDriver 
     @Story(value = "9. MY")
     @DisplayName(value = "Click_on_different_zones_tile")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31546556")
+    @TmsLink("31546556")
     @Test
     @Tag("SuiteWD#3")
     public void clickingInDifferentAreasTails() throws Exception {

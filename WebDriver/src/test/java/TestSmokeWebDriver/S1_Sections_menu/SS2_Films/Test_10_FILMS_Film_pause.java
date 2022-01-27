@@ -16,7 +16,7 @@ public class Test_10_FILMS_Film_pause extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Film_pause")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542041")
+    @TmsLink("31542041")
     @Test
     @Tag("SuiteWD#1")
     public void testPauseVideoPleer() throws Exception {

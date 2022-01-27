@@ -16,7 +16,7 @@ public class Test_11_SERIALS_Adding_to_favorites_serial extends TestBaseWebDrive
     @Story(value = "4. Serials")
     @DisplayName(value ="Adding_to_favorites_serial")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542057")
+    @TmsLink("31542057")
     @Test
     @Tag("SuiteWD#2")
     public void AddingSeriesToFavorites() throws InterruptedException {

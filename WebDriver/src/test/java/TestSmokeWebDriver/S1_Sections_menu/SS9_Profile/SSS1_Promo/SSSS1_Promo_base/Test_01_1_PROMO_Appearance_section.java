@@ -19,7 +19,7 @@ public class Test_01_1_PROMO_Appearance_section extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="Appearance_section")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("39193017")
+    @TmsLink("39193017")
     @Test
     @Tag("SuiteWD#4")
     public void appearancePagePromo() throws InterruptedException, IOException, AWTException {

@@ -16,7 +16,7 @@ public class Test_02_SERIALS_Transition_on_card_serial extends TestBaseWebDriver
     @Story(value = "4. Serials")
     @DisplayName(value ="Transition_on_card_serial")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542063")
+    @TmsLink("31542063")
     @Test
     @Tag("SuiteWD#2")
     public void GoToCardSerial() throws InterruptedException {

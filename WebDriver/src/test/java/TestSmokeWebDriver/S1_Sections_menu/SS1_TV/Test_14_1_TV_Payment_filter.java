@@ -20,7 +20,7 @@ public class Test_14_1_TV_Payment_filter extends TestBaseWebDriver {
     @Story(value = "1. TV")
     @DisplayName(value ="Payment_filter")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542019")
+    @TmsLink("31542019")
     @Test
     @Tag("SuiteWD#0")
     public void checkFilterPayment() throws InterruptedException, IOException {

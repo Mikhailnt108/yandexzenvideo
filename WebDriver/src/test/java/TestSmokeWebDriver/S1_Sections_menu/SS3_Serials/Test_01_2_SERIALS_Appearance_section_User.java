@@ -16,7 +16,7 @@ public class Test_01_2_SERIALS_Appearance_section_User extends TestBaseWebDriver
     @Story(value = "4. Serials")
     @DisplayName(value ="Appearance_section_User")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("36965364")
+    @TmsLink("36965364")
     @Test
     @Tag("SuiteWD#2")
     public void appearanceSectionSerialsPage() throws Exception {

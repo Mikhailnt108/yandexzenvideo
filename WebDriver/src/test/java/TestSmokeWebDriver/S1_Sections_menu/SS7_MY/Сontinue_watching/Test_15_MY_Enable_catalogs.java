@@ -16,7 +16,7 @@ public class Test_15_MY_Enable_catalogs extends TestBaseWebDriver {
     @Story(value = "9. MY")
     @DisplayName(value = "Enable_catalogs")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31546562")
+    @TmsLink("31546562")
     @Test
     @Tag("SuiteWD#3")
     public void enablingCatalogViewSerialsPage() throws Exception {

@@ -16,7 +16,7 @@ public class Test_09_1_SERIALS_Choose_episode_from_block_episode extends TestBas
     @Story(value = "4. Serials")
     @DisplayName(value ="Select_episode_from_block_episode")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("35669382")
+    @TmsLink("35669382")
     @Test
     @Tag("SuiteWD#2")
     public void chooseEpisodeFromBlockEpisodes() throws Exception {

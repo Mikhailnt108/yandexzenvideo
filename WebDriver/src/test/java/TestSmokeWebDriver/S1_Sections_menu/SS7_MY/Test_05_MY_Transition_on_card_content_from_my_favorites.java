@@ -16,7 +16,7 @@ public class Test_05_MY_Transition_on_card_content_from_my_favorites extends Tes
     @Story(value = "9. MY")
     @DisplayName(value ="Transition_on_card_content_from_my_favorites")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542104")
+    @TmsLink("31542104")
     @Test
     @Tag("SuiteWD#3")
     public void goToContentCardFromFavorites() throws InterruptedException {

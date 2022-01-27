@@ -16,7 +16,7 @@ public class Test_13_FILMS_Rating extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Rating")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542044")
+    @TmsLink("31542044")
     @Test
     @Tag("SuiteWD#1")
     public void ratingFilm() throws InterruptedException {

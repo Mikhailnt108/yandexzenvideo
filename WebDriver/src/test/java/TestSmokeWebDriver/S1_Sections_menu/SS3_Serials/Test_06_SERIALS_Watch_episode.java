@@ -16,7 +16,7 @@ public class Test_06_SERIALS_Watch_episode extends TestBaseWebDriver {
     @Story(value = "4. Serials")
     @DisplayName(value ="Watch_serial")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542054")
+    @TmsLink("31542054")
     @Test
     @Tag("SuiteWD#2")
     public void watchEpisode() throws Exception {

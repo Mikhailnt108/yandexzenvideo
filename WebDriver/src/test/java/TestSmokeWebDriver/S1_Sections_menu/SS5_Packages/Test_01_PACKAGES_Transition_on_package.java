@@ -16,7 +16,7 @@ public class Test_01_PACKAGES_Transition_on_package extends TestBaseWebDriver {
     @Story(value = "7. Packages")
     @DisplayName(value ="Transition_on_package")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542082")
+    @TmsLink("31542082")
     @Test
     @Tag("SuiteWD#3")
     public void goToPackage() throws InterruptedException {

@@ -16,12 +16,13 @@ public class Test_04_FILMS_Purchase_film extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Purchase_film")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542037")
+    @TmsLink("31542037")
     @Test
     @Tag("SuiteWD#1")
     public void paymentFilm() throws Exception {
         headerMenu.goToFilmsPage();
         flowRegistation();
+        headerMenu.goToFilmsPage();
         filmsPage.clickToSecondTailCardFilm();
         cardFilm.checkOpenCardFilm();
         cardFilm.paymentFilmAtEst();

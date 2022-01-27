@@ -16,7 +16,7 @@ public class Test_03_PROMO_Tariff_not_defined extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="Tariff_not_defined")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542107")
+    @TmsLink("31542107")
     @Test
     @Tag("SuiteWD#4")
     public void tariffNotDefined() throws InterruptedException {

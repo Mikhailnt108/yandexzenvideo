@@ -16,7 +16,7 @@ public class Test_07_FILMS_Purchase_film_with_discount extends TestBaseWebDriver
     @Story(value = "3. Films")
     @DisplayName(value ="Purchase_film_with_discount")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31546470")
+    @TmsLink("31546470")
     @Test
     @Tag("SuiteWD#1")
     public void paymentFilmWithDiscount() throws Exception {

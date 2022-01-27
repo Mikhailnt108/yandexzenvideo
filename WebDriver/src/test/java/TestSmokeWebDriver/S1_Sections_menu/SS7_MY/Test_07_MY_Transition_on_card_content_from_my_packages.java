@@ -16,7 +16,7 @@ public class Test_07_MY_Transition_on_card_content_from_my_packages extends Test
     @Story(value = "9. MY")
     @DisplayName(value ="Transition_on_card_content_from_my_packages")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542106")
+    @TmsLink("31542106")
     @Test
     @Tag("SuiteWD#3")
     public void goToCardPackageFromMyPagePackages() throws InterruptedException {

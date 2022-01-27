@@ -16,7 +16,7 @@ public class Test_04_1_PROMO_Personal_offers extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="Personal_offers")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542006")
+    @TmsLink("31542006")
     @Test
     @Tag("SuiteWD#4")
     public void personalOffers() throws InterruptedException {

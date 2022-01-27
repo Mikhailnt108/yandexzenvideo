@@ -16,7 +16,7 @@ public class Test_09_FILMS_Watching_film extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Watching_film")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542040")
+    @TmsLink("31542040")
     @Test
     @Tag("SuiteWD#1")
     public void testFullScreenPleer() throws Exception {

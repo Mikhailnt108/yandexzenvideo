@@ -16,7 +16,7 @@ public class Test_03_1_SERIALS_Appearance_card_serial extends TestBaseWebDriver 
     @Story(value = "4. Serials")
     @DisplayName(value ="Appearance_card_serial")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("35669381")
+    @TmsLink("35669381")
     @Test
     @Tag("SuiteWD#2")
     public void appearanceSectionCardSerial() throws Exception {

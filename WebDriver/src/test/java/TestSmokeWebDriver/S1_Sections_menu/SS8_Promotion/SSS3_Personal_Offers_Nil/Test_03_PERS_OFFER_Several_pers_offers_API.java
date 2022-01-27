@@ -16,7 +16,7 @@ public class Test_03_PERS_OFFER_Several_pers_offers_API extends TestBaseWebDrive
     @Story(value = "3. Personal offer")
     @DisplayName(value = "Multiple_pers_offers")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31547359")
+    @TmsLink("31547359")
     @Test
     @Tag("SuiteWD#4")
     public void fewPersonalOffers() throws InterruptedException {

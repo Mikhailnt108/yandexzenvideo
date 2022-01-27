@@ -16,7 +16,7 @@ public class Test_07_SERIALS_Pause_episode extends TestBaseWebDriver {
     @Story(value = "4. Serials")
     @DisplayName(value ="Pause_episode")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542055")
+    @TmsLink("31542055")
     @Test
     @Tag("SuiteWD#2")
     public void pauseSeries() throws Exception {

@@ -16,7 +16,7 @@ public class Test_01_1_FILMS_Appearance_section_Guest extends TestBaseWebDriver 
     @Story(value = "3. Films")
     @DisplayName(value ="Appearance_section_Guest")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("36965362")
+    @TmsLink("36965362")
     @Test
     @Tag("SuiteWD#1")
     public void appearanceSectionFilmsPage() throws Exception {

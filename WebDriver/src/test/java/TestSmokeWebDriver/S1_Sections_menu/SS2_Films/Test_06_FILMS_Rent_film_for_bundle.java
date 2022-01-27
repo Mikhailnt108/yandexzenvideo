@@ -16,7 +16,7 @@ public class Test_06_FILMS_Rent_film_for_bundle extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Rent_film_for_bundle")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542039")
+    @TmsLink("31542039")
     @Test
     @Tag("SuiteWD#1")
     public void PaymentFilmForRent2Promo() throws Exception {

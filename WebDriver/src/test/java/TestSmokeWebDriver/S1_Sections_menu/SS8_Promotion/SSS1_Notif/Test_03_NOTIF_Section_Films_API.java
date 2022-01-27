@@ -16,7 +16,7 @@ public class Test_03_NOTIF_Section_Films_API extends TestBaseWebDriver {
     @Story(value = "1. NOTIF")
     @DisplayName(value = "Section_Films")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31546572")
+    @TmsLink("31546572")
     @Test
     @Tag("SuiteWD#4")
     public void popUpNotificationFilterPageFilms() throws InterruptedException {

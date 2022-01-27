@@ -3,6 +3,7 @@ package pages;
 import base.BasePageWebDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -192,8 +193,15 @@ public class FilmsPage extends BasePageWebDriver {
         if (webDriver.findElements(By.xpath("//div[@aria-label='Notification']")).size() != 0) {
             click(By.xpath("//button[text()='Закрыть']"));
         }
+        webDriver.navigate().refresh();
+        if (webDriver.findElements(By.xpath("//*[text()='Закрыть']")).size() != 0) {
+            click(By.xpath("//*[text()='Закрыть']"));
+        }
         Thread.sleep(3000);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
+        ((JavascriptExecutor)webDriver).executeScript("scroll(0, 50);");
+//       ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView();", webDriver.findElement(By.xpath("(//a[@data-test='PackageLink'])[2]")));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[@data-test='PackageLink'])[2]")));
+        webDriver.findElement(By.xpath("(//a[@data-test='PackageLink'])[2]"));
         click(By.xpath("(//a[@data-test='PackageLink'])[2]"));
     }
 
