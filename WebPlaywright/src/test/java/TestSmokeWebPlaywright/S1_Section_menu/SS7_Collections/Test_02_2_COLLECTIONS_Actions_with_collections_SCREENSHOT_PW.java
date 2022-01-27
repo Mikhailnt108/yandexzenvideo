@@ -17,7 +17,7 @@ public class Test_02_2_COLLECTIONS_Actions_with_collections_SCREENSHOT_PW extend
     @Story(value = "8. Collections")
     @DisplayName(value ="02_2_COLLECTIONS_Actions_with_collections_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("31547362")
+//    @TmsLink("31547362")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void COLLECTIONS_Actions_with_collections_SCREENSHOT() throws IOException, InterruptedException {

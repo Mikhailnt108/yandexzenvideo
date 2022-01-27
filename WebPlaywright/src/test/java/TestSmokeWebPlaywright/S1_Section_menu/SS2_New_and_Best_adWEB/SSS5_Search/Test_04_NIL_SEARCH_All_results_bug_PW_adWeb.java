@@ -15,7 +15,7 @@ public class Test_04_NIL_SEARCH_All_results_bug_PW_adWeb extends TestBasePlaywri
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "4. SEARCH_All_results")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962594")
+//    @TmsLink("53962594")
     @Test
     @Tag("adWebSuitePW#1")
     public void SEARCH_All_results(){

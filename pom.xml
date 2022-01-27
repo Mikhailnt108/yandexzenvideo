@@ -62,25 +62,26 @@
             <version>2.17.2</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.legionivo</groupId>
-            <artifactId>testrail-api-java-client</artifactId>
-            <version>1.0.7</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/testrail-api-java-client-1.0.7.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.legionivo</groupId>-->
+<!--            <artifactId>testrail-api-java-client</artifactId>-->
+<!--            <version>1.0.7</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>C:/QA_AUTOMATION/autosmoke_mftv_web_and_mobile_web/libs/testrail-api-java-client-1.0.7.jar</systemPath>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.rsheremeta</groupId>
-            <artifactId>TestRail-JUnit</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/TestRail-JUnit-1.0.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.rsheremeta</groupId>-->
+<!--            <artifactId>TestRail-JUnit</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>C:/QA_AUTOMATION/autosmoke_mftv_web_and_mobile_web/libs/TestRail-JUnit-1.0.jar</systemPath>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
@@ -138,6 +139,13 @@
 <!--            <scope>test</scope>-->
 <!--        </dependency>-->
     </dependencies>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>any_name</id>-->
+<!--            <name>Any Name</name>-->
+<!--            <url>file:///autosmoke_mftv_web_and_mobile_web/libs/TestRail-JUnit-1.0.jar</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
     <build>
         <plugins>
             <plugin>

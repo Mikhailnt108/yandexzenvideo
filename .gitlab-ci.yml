@@ -29,7 +29,7 @@ testPW-job:
  artifacts:
   when: always
   paths:
-   - /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts
+   - /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/target/site/allure-maven-plugin
 
 
 #testWD-job:

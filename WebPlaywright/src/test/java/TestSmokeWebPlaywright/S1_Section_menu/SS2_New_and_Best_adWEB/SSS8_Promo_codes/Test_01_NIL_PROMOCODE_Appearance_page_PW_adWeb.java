@@ -18,7 +18,7 @@ public class Test_01_NIL_PROMOCODE_Appearance_page_PW_adWeb extends TestBasePlay
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. NIL_PROMOCODE_Appearance_page")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962613")
+//    @TmsLink("53962613")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_PROMOCODE_Appearance_page() throws IOException, InterruptedException, SQLException {

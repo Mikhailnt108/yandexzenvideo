@@ -27,7 +27,7 @@ ENV https_proxy="http://proxy.megalabs.ru:8808"
 #RUN npx playwright install chrome
 
 #CMD HTTP_PROXY=http://proxy.megalabs.ru:8808 HTTPS_PROXY=http://proxy.megalabs.ru:8808 SELENIUM_REMOTE_URL=http://10.236.64.48:4444/wd/hub mvn -pl WebPlaywright clean test
-CMD mvn -pl WebPlaywright clean test
+CMD mvn -pl WebPlaywright clean test io.qameta.allure:allure-maven:report
 #CMD SELENIUM_REMOTE_URL=http://192.168.1.139:4444/wd/hub mvn -pl WebPlaywright clean test
 
 

@@ -19,7 +19,7 @@ public class Test_02_NIL_BANNER_ZONE_Focus_SCREENSHOT_PW_adWeb extends TestBaseP
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "2. BANNER_ZONE_Focus_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962556")
+//    @TmsLink("53962556")
     @Test
     @Tag("adWebSuitePW#1")
     public void BANNER_ZONE_Focus() throws IOException, InterruptedException, AWTException, SQLException {

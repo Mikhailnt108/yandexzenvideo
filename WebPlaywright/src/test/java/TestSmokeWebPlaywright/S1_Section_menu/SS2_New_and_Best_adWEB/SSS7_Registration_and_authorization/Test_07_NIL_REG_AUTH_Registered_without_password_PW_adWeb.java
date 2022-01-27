@@ -17,7 +17,7 @@ public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends T
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "7. NIL_REG_AUTH_Registered_without_password")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962603")
+//    @TmsLink("53962603")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Registered_without_password() throws InterruptedException, SQLException {

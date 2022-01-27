@@ -20,8 +20,9 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
-//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public @ExtendWith(TestRailReportExtension.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public
+//public @ExtendWith(TestRailReportExtension.class)
 class TestBasePlaywright extends BasePagePlaywright{
     public Playwright playwright;
     public Browser browserIncognitoModeHeadless;

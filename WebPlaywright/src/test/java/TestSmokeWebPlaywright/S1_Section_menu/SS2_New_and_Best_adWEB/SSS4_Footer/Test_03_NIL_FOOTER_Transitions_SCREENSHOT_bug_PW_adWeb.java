@@ -18,7 +18,7 @@ public class Test_03_NIL_FOOTER_Transitions_SCREENSHOT_bug_PW_adWeb extends Test
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. FOOTER_Transitions")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962588")
+//    @TmsLink("53962588")
     @Test
     @Tag("adWebSuitePW#1")
     public void FOOTER_Transitions() throws IOException, InterruptedException, SQLException {

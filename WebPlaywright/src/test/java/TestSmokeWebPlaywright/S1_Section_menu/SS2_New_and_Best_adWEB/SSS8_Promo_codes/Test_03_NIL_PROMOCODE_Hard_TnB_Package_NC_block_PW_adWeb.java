@@ -18,7 +18,7 @@ public class Test_03_NIL_PROMOCODE_Hard_TnB_Package_NC_block_PW_adWeb extends Te
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. NIL_PROMOCODE_Hard_TnB_Package")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962615")
+//    @TmsLink("53962615")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_PROMOCODE_Hard_TnB_Package() throws IOException, InterruptedException, SQLException {

@@ -17,7 +17,7 @@ public class Test_01_1_NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT_PW_adWeb exte
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. NIL_COLLECTIONS_Appearance_Guest_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962561")
+//    @TmsLink("53962561")
     @Test
     @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Appearance_Guest() throws IOException, InterruptedException {

@@ -19,7 +19,7 @@ public class Test_01_NIL_MENU_Appearance_SCREENSHOT_PW_adWeb extends TestBasePla
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. MENU_Appearance_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962551")
+//    @TmsLink("53962551")
     @Test
     @Tag("adWebSuitePW#1")
     public void MENU_Appearance() throws IOException, InterruptedException, SQLException {

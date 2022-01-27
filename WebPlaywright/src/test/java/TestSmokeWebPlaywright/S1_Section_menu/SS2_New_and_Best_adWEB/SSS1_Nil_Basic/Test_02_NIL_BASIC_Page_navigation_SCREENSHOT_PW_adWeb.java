@@ -19,7 +19,7 @@ public class Test_02_NIL_BASIC_Page_navigation_SCREENSHOT_PW_adWeb extends TestB
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "2. Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("53962548")
+//    @TmsLink("53962548")
     @Test
     @Tag("adWebSuitePW#1")
     public void PageNavigation() throws InterruptedException, IOException, SQLException {

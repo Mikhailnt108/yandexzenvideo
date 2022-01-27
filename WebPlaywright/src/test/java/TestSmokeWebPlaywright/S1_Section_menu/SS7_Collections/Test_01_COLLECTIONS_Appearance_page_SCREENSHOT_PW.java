@@ -17,7 +17,7 @@ public class Test_01_COLLECTIONS_Appearance_page_SCREENSHOT_PW extends TestBaseP
     @Story(value = "8. Collections")
     @DisplayName(value ="01_COLLECTIONS_Appearance_page_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    @TmsLink("31547361")
+//    @TmsLink("31547361")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void COLLECTIONS_Appearance_page_SCREENSHOT() throws IOException, InterruptedException {
