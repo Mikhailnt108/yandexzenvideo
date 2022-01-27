@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.sql.SQLException;
+
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "adWebSuitePW#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_NIL_CONTINUE_VIEWING_Appearance_NC_bug_PW_adWeb extends TestBasePlaywright {
@@ -54,7 +56,7 @@ public class Test_01_NIL_CONTINUE_VIEWING_Appearance_NC_bug_PW_adWeb extends Tes
         // чек тайла новый эпизод:
         nilPagePW.checkTileNewEpisodeAndElementsInBhCollection();
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -63,7 +65,7 @@ public class Test_01_NIL_CONTINUE_VIEWING_Appearance_NC_bug_PW_adWeb extends Tes
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260192144");

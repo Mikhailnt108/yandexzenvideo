@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_NIL_SMART_TV_Correct_connection_code_NC_bug_PW_adWeb extends TestBasePlaywright {
@@ -19,13 +20,13 @@ public class Test_03_NIL_SMART_TV_Correct_connection_code_NC_bug_PW_adWeb extend
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#3")
-    public void NIL_SMART_TV_Correct_connection_code() throws IOException, InterruptedException {
+    public void NIL_SMART_TV_Correct_connection_code() throws IOException, InterruptedException, SQLException {
 //        headerMenuPW.openPlatformSmartTv();
         headerMenuPW.goToNilPage();
         flowRegistationMF();
         nilPagePW.checkInputValidCodeInPageConnectionSmartTV("+7 926 019 21 44", "111111");
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -34,7 +35,7 @@ public class Test_03_NIL_SMART_TV_Correct_connection_code_NC_bug_PW_adWeb extend
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.awt.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_2_NIL_BANNER_ZONE_Appearance_User_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
@@ -20,7 +21,7 @@ public class Test_01_2_NIL_BANNER_ZONE_Appearance_User_SCREENSHOT_PW_adWeb exten
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void NIL_BANNER_ZONE_Appearance_User_SCREENSHOT() throws IOException, InterruptedException, AWTException {
+    public void NIL_BANNER_ZONE_Appearance_User_SCREENSHOT() throws IOException, InterruptedException, AWTException, SQLException {
     // User:
     // min:
         headerMenuPW.goToNilPage();
@@ -42,7 +43,7 @@ public class Test_01_2_NIL_BANNER_ZONE_Appearance_User_SCREENSHOT_PW_adWeb exten
         headerMenuPW.stopCarouselBanners();
         nilPagePW.checkImageBannerWidePageNilUser();
 }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -51,7 +52,7 @@ public class Test_01_2_NIL_BANNER_ZONE_Appearance_User_SCREENSHOT_PW_adWeb exten
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
@@ -20,14 +21,14 @@ public class Test_14_2_TV_Payment_filter_SCREENSHOT_PW extends TestBasePlaywrigh
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("SuitePwNonAdWeb#0")
-    public void tv_Payment_filter_SCREENSHOT() throws InterruptedException, IOException {
+    public void tv_Payment_filter_SCREENSHOT() throws InterruptedException, IOException, SQLException {
         headerMenuPW.goToTvTabProgramTv();
         flowRegistationMF();
         tvPagePW.checkImageTvPageTabProgramTvForAuthorized();
         headerMenuPW.deleteAccountMF("79260205027");
     }
 
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -36,7 +37,7 @@ public class Test_14_2_TV_Payment_filter_SCREENSHOT_PW extends TestBasePlaywrigh
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260205027");
+        headerMenuPW.inputCodeMsisdnFromDB("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");

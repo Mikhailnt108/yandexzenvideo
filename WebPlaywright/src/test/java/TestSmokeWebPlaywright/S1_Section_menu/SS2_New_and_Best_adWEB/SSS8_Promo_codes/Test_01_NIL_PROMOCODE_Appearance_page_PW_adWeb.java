@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_NIL_PROMOCODE_Appearance_page_PW_adWeb extends TestBasePlaywright {
@@ -19,7 +20,7 @@ public class Test_01_NIL_PROMOCODE_Appearance_page_PW_adWeb extends TestBasePlay
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#3")
-    public void NIL_PROMOCODE_Appearance_page() throws IOException, InterruptedException {
+    public void NIL_PROMOCODE_Appearance_page() throws IOException, InterruptedException, SQLException {
         headerMenuPW.goToNilPage();
         flowRegistationMF();
         nilPagePW.clickOnTabPromocodeAndCheckOpenFormPromocode();
@@ -30,7 +31,7 @@ public class Test_01_NIL_PROMOCODE_Appearance_page_PW_adWeb extends TestBasePlay
         promoCodePW.checkInputUnknownCodeInFormPromocode("12345");
         promoCodePW.clickOnButtonActivateForUnknownCodeAndCheckElements();
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -39,7 +40,7 @@ public class Test_01_NIL_PROMOCODE_Appearance_page_PW_adWeb extends TestBasePlay
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260192144");

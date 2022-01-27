@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
@@ -20,7 +21,7 @@ public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePl
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void MENU_Transitions() throws IOException, InterruptedException {
+    public void MENU_Transitions() throws IOException, InterruptedException, SQLException {
         // Guest:
         headerMenuPW.goToNilPage();
         nilPagePW.goToTabsHeaderMenuMftvGuest();
@@ -86,7 +87,7 @@ public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePl
         // profile:
         nilPagePW.goToSectionsProfileMenu();
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -95,7 +96,7 @@ public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePl
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

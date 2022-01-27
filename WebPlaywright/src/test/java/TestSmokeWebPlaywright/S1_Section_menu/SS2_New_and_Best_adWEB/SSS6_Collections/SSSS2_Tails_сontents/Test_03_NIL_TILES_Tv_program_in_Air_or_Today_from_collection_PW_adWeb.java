@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_03_NIL_TILES_Tv_program_in_Air_or_Today_from_collection_PW_adWeb extends TestBasePlaywright {
@@ -19,7 +20,7 @@ public class Test_03_NIL_TILES_Tv_program_in_Air_or_Today_from_collection_PW_adW
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#2")
-    public void NIL_TILES_Tv_program_in_Air_from_collection() throws IOException, InterruptedException {
+    public void NIL_TILES_Tv_program_in_Air_from_collection() throws IOException, InterruptedException, SQLException {
         // Guest
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsTileTvProgramInAirFromCollection();
@@ -30,7 +31,7 @@ public class Test_03_NIL_TILES_Tv_program_in_Air_or_Today_from_collection_PW_adW
         nilPagePW.checkElementsTileTvProgramInAirFromCollection();
         nilPagePW.checkImageHoverOnTileTvProgramInAirFromCollectionUser();
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -39,7 +40,7 @@ public class Test_03_NIL_TILES_Tv_program_in_Air_or_Today_from_collection_PW_adW
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

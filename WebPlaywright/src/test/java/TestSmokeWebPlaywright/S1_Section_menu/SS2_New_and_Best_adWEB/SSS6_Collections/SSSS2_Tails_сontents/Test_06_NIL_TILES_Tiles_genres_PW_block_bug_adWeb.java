@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_06_NIL_TILES_Tiles_genres_PW_block_bug_adWeb extends TestBasePlaywright {
@@ -19,7 +20,7 @@ public class Test_06_NIL_TILES_Tiles_genres_PW_block_bug_adWeb extends TestBaseP
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#2")
-    public void NIL_TILES_Tiles_genres() throws IOException {
+    public void NIL_TILES_Tiles_genres() throws IOException, SQLException {
         // Guest
         headerMenuPW.goToNilPage();
         nilPagePW.checkElementsCollectionInCollection();
@@ -28,7 +29,7 @@ public class Test_06_NIL_TILES_Tiles_genres_PW_block_bug_adWeb extends TestBaseP
         flowRegistation();
         nilPagePW.checkElementsCollectionInCollection();
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -37,7 +38,7 @@ public class Test_06_NIL_TILES_Tiles_genres_PW_block_bug_adWeb extends TestBaseP
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

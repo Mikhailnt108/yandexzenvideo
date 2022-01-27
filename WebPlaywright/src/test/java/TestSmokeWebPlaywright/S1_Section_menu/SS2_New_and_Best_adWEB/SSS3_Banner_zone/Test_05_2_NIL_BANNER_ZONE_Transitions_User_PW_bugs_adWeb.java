@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_2_NIL_BANNER_ZONE_Transitions_User_PW_bugs_adWeb extends TestBasePlaywright {
@@ -19,7 +20,7 @@ public class Test_05_2_NIL_BANNER_ZONE_Transitions_User_PW_bugs_adWeb extends Te
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void BANNER_ZONE_Transitions_User() throws IOException, InterruptedException {
+    public void BANNER_ZONE_Transitions_User() throws IOException, InterruptedException, SQLException {
          // User:
         headerMenuPW.goToNilPage();
         flowRegistation();
@@ -44,7 +45,7 @@ public class Test_05_2_NIL_BANNER_ZONE_Transitions_User_PW_bugs_adWeb extends Te
         headerMenuPW.goToNilPage();
         nilPagePW.clickOnBannerTvChannel(); // баг: нет перехода в карточку контента по клику на баннер
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -53,7 +54,7 @@ public class Test_05_2_NIL_BANNER_ZONE_Transitions_User_PW_bugs_adWeb extends Te
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

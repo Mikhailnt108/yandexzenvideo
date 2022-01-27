@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.sql.SQLException;
+
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywright {
@@ -26,7 +28,7 @@ public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywrig
         flowRegistationMF();
         cardTvProgramPW.checkImageCardTvProgramForUser();
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -35,7 +37,7 @@ public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywrig
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 020 50 27", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260205027");
+        headerMenuPW.inputCodeMsisdnFromDB("79260205027");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260205027");

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
@@ -20,22 +21,22 @@ public class Test_03_NIL_BASIC_Message_Content_is_being_loaded_PW_adWeb extends 
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1TEST")
-    public void MessageContentIsBeingLoaded() throws InterruptedException, IOException {
+    public void MessageContentIsBeingLoaded() throws InterruptedException, IOException, SQLException, ClassNotFoundException {
         headerMenuPW.goToNilPage();
         flowRegistation();
 //        nilPagePW.checkMessageContentIsBeingLoaded();
         nilPagePW.checkChangeContentOnColdPopular();
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
         authPagePW.inputLoginAdWeb("+7 926 019 21 44");
         headerMenuPW.clickToNext();
-        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
+        headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("79260192144", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket103InCmsHh("79260192144");

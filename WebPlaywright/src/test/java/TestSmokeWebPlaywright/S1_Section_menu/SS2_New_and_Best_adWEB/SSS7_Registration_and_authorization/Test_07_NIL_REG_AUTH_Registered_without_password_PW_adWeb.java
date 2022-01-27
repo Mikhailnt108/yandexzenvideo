@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.sql.SQLException;
+
 @ResourceLock(value = "adWebSuitePW#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -17,7 +19,7 @@ public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends T
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#3")
-    public void NIL_REG_AUTH_Registered_without_password() throws InterruptedException {
+    public void NIL_REG_AUTH_Registered_without_password() throws InterruptedException, SQLException {
         // ввести номер прозрачно зарегистрированный в МФТВ на телефоне:
         headerMenuPW.goToNilPage();
         headerMenuPW.clickToEnter();
@@ -27,7 +29,7 @@ public class Test_07_NIL_REG_AUTH_Registered_without_password_PW_adWeb extends T
         authPagePW.checkInputValidPasswordRegist("111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

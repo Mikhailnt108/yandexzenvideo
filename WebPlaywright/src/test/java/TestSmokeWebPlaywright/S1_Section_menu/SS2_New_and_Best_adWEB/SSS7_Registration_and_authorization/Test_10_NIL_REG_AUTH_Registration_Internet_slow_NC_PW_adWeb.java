@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -21,12 +22,12 @@ public class Test_10_NIL_REG_AUTH_Registration_Internet_slow_NC_PW_adWeb extends
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#3")
-    public void NIL_REG_AUTH_Registration_Internet_slow() throws IOException, ExecutionException, InterruptedException, TimeoutException {
+    public void NIL_REG_AUTH_Registration_Internet_slow() throws IOException, ExecutionException, InterruptedException, TimeoutException, SQLException {
         headerMenuPW.stopFiddlerSlowNetwork();
         headerMenuPW.goToNilPage();
         flowRegistationMF();
     }
-    private void flowRegistationMF() throws IOException, ExecutionException, InterruptedException, TimeoutException {
+    private void flowRegistationMF() throws IOException, ExecutionException, InterruptedException, TimeoutException, SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -35,7 +36,7 @@ public class Test_10_NIL_REG_AUTH_Registration_Internet_slow_NC_PW_adWeb extends
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.startFiddlerSlowNetwork();
         headerMenuPW.clickToComeIn("Войти");
         authPagePW.checkElementsPageAuthFormSuccessfullyRegist();

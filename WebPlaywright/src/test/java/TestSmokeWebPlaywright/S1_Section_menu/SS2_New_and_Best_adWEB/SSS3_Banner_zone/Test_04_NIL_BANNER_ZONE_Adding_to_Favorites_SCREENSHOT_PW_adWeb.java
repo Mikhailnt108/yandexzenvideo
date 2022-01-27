@@ -10,6 +10,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.awt.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#1", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb extends TestBasePlaywright {
@@ -20,7 +21,7 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#1")
-    public void BANNER_ZONE_Adding_to_Favorites() throws IOException, InterruptedException, AWTException {
+    public void BANNER_ZONE_Adding_to_Favorites() throws IOException, InterruptedException, AWTException, SQLException {
         // Guest:
         headerMenuPW.goToNilPage();
         nilPagePW.clickToFavoriteFilmOnBannerGuest();
@@ -53,7 +54,7 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
         headerMenuPW.goToNilPage();
         nilPagePW.checkRemoveToFavoriteTvChannelFromBannerUser();
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -62,7 +63,7 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

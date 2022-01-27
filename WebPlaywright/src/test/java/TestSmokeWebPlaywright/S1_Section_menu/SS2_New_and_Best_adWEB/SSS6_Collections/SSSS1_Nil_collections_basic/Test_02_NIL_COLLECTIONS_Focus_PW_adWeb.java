@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_NIL_COLLECTIONS_Focus_PW_adWeb extends TestBasePlaywright {
@@ -19,7 +20,7 @@ public class Test_02_NIL_COLLECTIONS_Focus_PW_adWeb extends TestBasePlaywright {
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#2")
-    public void NIL_COLLECTIONS_Appearance_User() throws IOException, InterruptedException {
+    public void NIL_COLLECTIONS_Appearance_User() throws IOException, InterruptedException, SQLException {
         // Guest:
         headerMenuPW.goToNilPage();
         nilPagePW.checkHoverArrowPreviousCollectionPageNilGuest();
@@ -31,7 +32,7 @@ public class Test_02_NIL_COLLECTIONS_Focus_PW_adWeb extends TestBasePlaywright {
         nilPagePW.checkHoverArrowPreviousCollectionPageNilUser();
         nilPagePW.checkHoverArrowNextCollectionPageNilUser();
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -40,7 +41,7 @@ public class Test_02_NIL_COLLECTIONS_Focus_PW_adWeb extends TestBasePlaywright {
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
         headerMenuPW.chooseBucket110InCmsHh("79260192144");

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @ResourceLock(value = "adWebSuitePW#3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_NIL_REG_AUTH_Enter_password_PW_adWeb extends TestBasePlaywright {
@@ -19,7 +20,7 @@ public class Test_04_NIL_REG_AUTH_Enter_password_PW_adWeb extends TestBasePlaywr
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#3")
-    public void NIL_REG_AUTH_Input_password() throws IOException, InterruptedException {
+    public void NIL_REG_AUTH_Input_password() throws IOException, InterruptedException, SQLException {
         headerMenuPW.goToNilPage();
         flowRegistation();
         authPagePW.loginOut();
@@ -35,7 +36,7 @@ public class Test_04_NIL_REG_AUTH_Enter_password_PW_adWeb extends TestBasePlaywr
         authPagePW.checkImageInputValidPasswordAuth();
 
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -44,7 +45,7 @@ public class Test_04_NIL_REG_AUTH_Enter_password_PW_adWeb extends TestBasePlaywr
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

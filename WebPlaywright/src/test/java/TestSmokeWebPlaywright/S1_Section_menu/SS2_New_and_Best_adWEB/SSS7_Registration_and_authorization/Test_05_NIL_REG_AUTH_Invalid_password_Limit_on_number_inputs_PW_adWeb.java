@@ -9,6 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -21,7 +22,7 @@ public class Test_05_NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs_PW_adW
     @Severity(SeverityLevel.BLOCKER)
     @Test
     @Tag("adWebSuitePW#3")
-    public void NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs() throws IOException, InterruptedException, ExecutionException, TimeoutException {
+    public void NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs() throws IOException, InterruptedException, ExecutionException, TimeoutException, SQLException {
         headerMenuPW.goToNilPage();
         flowRegistation();
         authPagePW.loginOut();
@@ -33,7 +34,7 @@ public class Test_05_NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs_PW_adW
         authPagePW.checkImageInputThreeTimesInvalidPasswordAuth();
         authPagePW.waitReEnterPasswordAndCheckValidPassword("111111");
     }
-    private void flowRegistation() {
+    private void flowRegistation() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
@@ -42,7 +43,7 @@ public class Test_05_NIL_REG_AUTH_Invalid_password_Limit_on_number_inputs_PW_adW
         headerMenuPW.checkOpenPageCreatePasswordForAdWebFlowRegistrationMF("+7 926 019 21 44", "111111");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputCode();
-        headerMenuPW.copyPasteCodMsisdnForAdWeb("79260192144");
+        headerMenuPW.inputCodeMsisdnFromDB("79260192144");
         headerMenuPW.clickToComeIn("Войти");
         headerMenuPW.checkLoginUserIsCorrectFlowForMfOrNonMf();
     }

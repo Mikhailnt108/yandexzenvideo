@@ -8,8 +8,10 @@ import org.junit.Assert;
 
 import java.awt.*;
 import java.io.IOException;
-import java.net.*;
 import java.nio.file.Paths;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -28,14 +30,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private BrowserContext contextIncognitoModeHeadfull;
     private String frontend;
     private String backend;
-    private URL weburl;
+    private Statement statement;
 
-    public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless,String frontend, String backend) {
+    public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless,Statement statement, String frontend, String backend) {
         this.page = page;
         this.pageCMS = pageCMS;
         this.contextIncognitoModeHeadless = contextIncognitoModeHeadless;
         this.frontend = frontend;
         this.backend = backend;
+        this.statement = statement;
     }
 
     public void checkNotLoggedIsCorrect() {
@@ -58,106 +61,11 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.click("//button[text()='Далее']");
     }
 
-    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
+    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) throws SQLException{
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
-            pageCMS = contextIncognitoModeHeadless.newPage();
-            pageCMS.navigate(backend+"cms/households?role=user");
-//            pageCMS.waitForTimeout(60000);
-
-            System.out.println("this place before cms");
-//            System.setProperty("http.proxyHost", null);
-//            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
-//            System.setProperty("http.proxyPort", "8808");
-//            page.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-            pageCMS.navigate(backend);
-            try {
-                vrt.track(
-                            "CMSPageFull123",
-                            Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
-                            TestRunOptions.builder()
-                                    .device("Acer")
-                                    .os("Win10 Pro")
-                                    .browser("Chrome")
-                                    .diffTollerancePercent(0.5f)
-                                    .build());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-
-            try {
-            weburl = new URL("https://bmp-preprod2.megafon.tv/cms/");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-            Proxy webProxy
-                    = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.236.35.114", 8808));
-        try {
-            HttpURLConnection webNoProxyConnection
-                    = (HttpURLConnection) weburl.openConnection(webProxy);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        pageCMS.navigate(String.valueOf(weburl));
-            pageCMS.waitForTimeout(10000);
-            System.out.println("this place after url cms");
-//
-////            pageCMS = contextIncognitoModeHeadless.newPage();
-            try {
-                vrt.track(
-                        "CMSPageFull",
-                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
-                        TestRunOptions.builder()
-                                .device("Acer")
-                                .os("Win10 Pro")
-                                .browser("Chrome")
-                                .diffTollerancePercent(0.5f)
-                                .build());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-//            pageCMS.screenshot(new Page.ScreenshotOptions()
-//                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cms.png"))
-//                    .setFullPage(true));
-//            byte[] buffer = pageCMS.screenshot(new Page.ScreenshotOptions()
-//                    .setPath(Paths.get("/builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/artifacts/cmsFullPage.png"))
-//                    .setFullPage(true));
-//            System.out.println(Base64.getEncoder().encode(buffer));
-            pageCMS.navigate("https://yandex.ru");
-            pageCMS.waitForTimeout(10000);
-            try {
-                vrt.track(
-                        "yandex.ru",
-                        Base64.getEncoder().encodeToString(pageCMS.screenshot(new Page.ScreenshotOptions().setFullPage(true))),
-                        TestRunOptions.builder()
-                                .device("Acer")
-                                .os("Win10 Pro")
-                                .browser("Chrome")
-                                .diffTollerancePercent(0.5f)
-                                .build());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            pageCMS.click("//form[@method='GET']//input[1]");
-            pageCMS.fill("//form[@method='GET']//input[1]", login);
-            pageCMS.click("//button[text()='Поиск']");
-            pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']");
-            pageCMS.click("//a[contains(@href, '/cms/households/')]");
-            pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-            pageCMS.click("//button[text()='Удалить']");
-            pageCMS.onDialog(dialog -> dialog.accept());
-            pageCMS.click("//button[text()='Удалить']");
-            pageCMS.close();
-//            System.setProperty("http.proxyHost", "proxy.megalabs.ru");
-//            System.setProperty("http.proxyPort", "8808");
-            page.bringToFront();
+//            pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']");
+            statement.executeUpdate("delete from households where msisdn = '"+login+"'");
             page.reload();
             page.querySelector("(//span[text()='Вход'])[1]");
             page.click("(//span[text()='Вход'])[1]");
@@ -218,17 +126,11 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.waitForSelector("//h1[text()='Введите код']|//div[text()='Введите код']");
     }
 
-    public void copyPasteCodMsisdnForAdWeb(String login) {
-        pageCMS = contextIncognitoModeHeadless.newPage();
-        String onlyPreprod = backend.substring(8);
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/msisdn_confirmations");
-        pageCMS.click("//form[@method='GET']//input[1]");
-        pageCMS.fill("//form[@method='GET']//input[1]", login);
-        pageCMS.click("//button[text()='Поиск']");
-        String codMsisdn = pageCMS.waitForSelector("(//td[text()='79260192144']/following-sibling::td)[4]|(//td[text()='79260172279']/following-sibling::td)[4]|(//td[text()='79260205027']/following-sibling::td)[4]").innerText();
-        pageCMS.close();
+    public void inputCodeMsisdnFromDB(String login) throws SQLException {
+        ResultSet codeConfirm = statement.executeQuery("select code from msisdn_confirmations mc where msisdn = '"+login+"' and confirmed = 'false'");
+        codeConfirm.next();
         page.waitForSelector("//input[@placeholder='Введите код из sms']");
-        page.fill("//input[@placeholder='Введите код из sms']",codMsisdn);
+        page.fill("//input[@placeholder='Введите код из sms']", String.valueOf(codeConfirm.getInt(1)));
     }
 
     public void copyPasteCodMsisdnForNonAdWeb(String login) {
@@ -731,52 +633,52 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void chooseBucket110InCmsHh(String login) {
-        pageCMS = contextIncognitoModeHeadless.newPage();
-        String onlyPreprod = backend.substring(8);
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-        pageCMS.click("//form[@method='GET']//input[1]");
-        pageCMS.fill("//form[@method='GET']//input[1]", login);
-        pageCMS.click("//button[text()='Поиск']");
-        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
-        pageCMS.click("//a[contains(@href, '/cms/households/')]");
-        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-        pageCMS.click("(//a[@role='button'])[2]");
-        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
-        pageCMS.selectOption("//select[@name='hypothesis_group']", "110");
-        pageCMS.selectOption("//select[@id='ab_group']", "0");
-        pageCMS.click("text=Сохранить");
-        pageCMS.click("text=Запрос на пересчет ПГ");
+//        pageCMS = contextIncognitoModeHeadless.newPage();
+//        String onlyPreprod = backend.substring(8);
+//        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//        pageCMS.click("//form[@method='GET']//input[1]");
+//        pageCMS.fill("//form[@method='GET']//input[1]", login);
+//        pageCMS.click("//button[text()='Поиск']");
+//        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
+//        pageCMS.click("//a[contains(@href, '/cms/households/')]");
 //        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-//        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
-//        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
-        pageCMS.close();
-        page.bringToFront();
-        page.reload();
+//        pageCMS.click("(//a[@role='button'])[2]");
+//        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
+//        pageCMS.selectOption("//select[@name='hypothesis_group']", "110");
+//        pageCMS.selectOption("//select[@id='ab_group']", "0");
+//        pageCMS.click("text=Сохранить");
+//        pageCMS.click("text=Запрос на пересчет ПГ");
+////        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+////        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
+////        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
+//        pageCMS.close();
+//        page.bringToFront();
+//        page.reload();
     }
 
     public void chooseBucket103InCmsHh(String login) {
-        pageCMS = contextIncognitoModeHeadless.newPage();
-        String onlyPreprod = backend.substring(8);
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-        pageCMS.click("//form[@method='GET']//input[1]");
-        pageCMS.fill("//form[@method='GET']//input[1]", login);
-        pageCMS.click("//button[text()='Поиск']");
-        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
-        pageCMS.click("//a[contains(@href, '/cms/households/')]");
-        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-        pageCMS.click("(//a[@role='button'])[2]");
-        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
-
-        pageCMS.selectOption("//select[@name='hypothesis_group']", "103");
-        pageCMS.selectOption("//select[@id='ab_group']", "0");
-        pageCMS.click("text=Сохранить");
-        pageCMS.click("text=Запрос на пересчет ПГ");
+//        pageCMS = contextIncognitoModeHeadless.newPage();
+//        String onlyPreprod = backend.substring(8);
+//        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//        pageCMS.click("//form[@method='GET']//input[1]");
+//        pageCMS.fill("//form[@method='GET']//input[1]", login);
+//        pageCMS.click("//button[text()='Поиск']");
+//        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
+//        pageCMS.click("//a[contains(@href, '/cms/households/')]");
 //        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-//        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
-//        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
-        pageCMS.close();
-        page.bringToFront();
-        page.reload();
+//        pageCMS.click("(//a[@role='button'])[2]");
+//        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
+//
+//        pageCMS.selectOption("//select[@name='hypothesis_group']", "103");
+//        pageCMS.selectOption("//select[@id='ab_group']", "0");
+//        pageCMS.click("text=Сохранить");
+//        pageCMS.click("text=Запрос на пересчет ПГ");
+////        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+////        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
+////        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
+//        pageCMS.close();
+//        page.bringToFront();
+//        page.reload();
     }
 
     public void startFiddlerSlowNetwork() throws IOException, InterruptedException, TimeoutException, ExecutionException {
@@ -827,4 +729,5 @@ public class HeaderMenuPW extends BasePagePlaywright {
 
         sleep(5000);
     }
+
 }
