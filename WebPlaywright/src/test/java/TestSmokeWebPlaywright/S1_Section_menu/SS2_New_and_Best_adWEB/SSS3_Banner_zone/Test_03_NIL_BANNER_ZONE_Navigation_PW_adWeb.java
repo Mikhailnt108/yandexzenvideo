@@ -17,7 +17,7 @@ public class Test_03_NIL_BANNER_ZONE_Navigation_PW_adWeb extends TestBasePlaywri
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. BANNER_ZONE_Navigation")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("53962554")
+    @TmsLink("53962554")
     @Test
     @Tag("adWebSuitePW#1")
     public void BANNER_ZONE_Navigation() throws SQLException {

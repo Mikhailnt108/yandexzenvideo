@@ -17,7 +17,7 @@ public class Test_05_1_NIL_BANNER_ZONE_Transitions_Guest_PW_bugs_adWeb extends T
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "5. BANNER_ZONE_Transitions_Guest")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("53962553")
+    @TmsLink("53962553")
     @Test
     @Tag("adWebSuitePW#1")
     public void BANNER_ZONE_Transitions_Guest() throws IOException, InterruptedException {

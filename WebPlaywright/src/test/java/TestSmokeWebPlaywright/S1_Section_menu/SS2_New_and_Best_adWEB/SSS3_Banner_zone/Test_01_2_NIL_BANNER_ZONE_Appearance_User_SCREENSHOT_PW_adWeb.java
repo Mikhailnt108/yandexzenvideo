@@ -19,7 +19,7 @@ public class Test_01_2_NIL_BANNER_ZONE_Appearance_User_SCREENSHOT_PW_adWeb exten
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1.2 NIL_BANNER_ZONE_Appearance_User_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("53962555")
+    @TmsLink("53962555")
     @Test
     @Tag("adWebSuitePW#1")
     public void NIL_BANNER_ZONE_Appearance_User_SCREENSHOT() throws IOException, InterruptedException, AWTException, SQLException {
