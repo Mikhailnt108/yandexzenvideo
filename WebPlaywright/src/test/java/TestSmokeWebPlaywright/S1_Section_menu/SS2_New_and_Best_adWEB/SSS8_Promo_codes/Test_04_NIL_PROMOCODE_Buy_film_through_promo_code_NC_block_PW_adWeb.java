@@ -25,6 +25,7 @@ public class Test_04_NIL_PROMOCODE_Buy_film_through_promo_code_NC_block_PW_adWeb
         promoCodePW.createAndPublishedRC();
         promoCodePW.createAndPublishedCodeGroupAndPromoCodeFilmOnEST();
         headerMenuPW.goToNilPage();
+
         flowRegistationMF();
         nilPagePW.clickOnTabPromocodeAndCheckOpenFormPromocode();
         promoCodePW.inputValidPromoCode("promoCodeFilmOnEST");
