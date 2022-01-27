@@ -18,7 +18,7 @@ public class Test_04_NIL_PROMOCODE_Buy_film_through_promo_code_NC_block_PW_adWeb
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "4. NIL_PROMOCODE_Buy_film_through_promo_code")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962616")
+    @TmsLink("53962616")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_PROMOCODE_Buy_film_through_promo_code() throws IOException, InterruptedException, SQLException {

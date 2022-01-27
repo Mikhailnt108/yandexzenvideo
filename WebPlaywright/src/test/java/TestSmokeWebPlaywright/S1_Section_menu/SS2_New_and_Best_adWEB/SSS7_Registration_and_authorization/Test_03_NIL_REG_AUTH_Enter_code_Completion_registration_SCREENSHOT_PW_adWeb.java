@@ -18,7 +18,7 @@ public class Test_03_NIL_REG_AUTH_Enter_code_Completion_registration_SCREENSHOT_
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. NIL_REG_AUTH_Enter_code_Completion_registration")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962600")
+    @TmsLink("53962600")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Enter_code_Completion_registration() throws IOException, InterruptedException, SQLException {

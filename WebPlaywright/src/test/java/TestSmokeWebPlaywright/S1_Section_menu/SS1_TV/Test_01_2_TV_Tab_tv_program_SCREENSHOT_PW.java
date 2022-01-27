@@ -16,9 +16,9 @@ public class Test_01_2_TV_Tab_tv_program_SCREENSHOT_PW extends TestBasePlaywrigh
     @Story(value = "1. TV")
     @DisplayName(value = "Tab_tv_program_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("31542006")
+    @TmsLink("31542006")
     @Test
-    @Tag("SuitePwNonAdWeb#0")
+    @Tag("Example")
     public void tab_tv_program_SCREENSHOT() throws Exception {
         tvPagePW.checkImageTvPageTabProgramTvForGuest();
     }

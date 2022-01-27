@@ -18,7 +18,7 @@ public class Test_04_NIL_COLLECTIONS_Collections_of_collections_PW_block_bug_adW
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "4. NIL_COLLECTIONS_Collections_of_collections")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962585")
+    @TmsLink("53962585")
     @Test
     @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Collections_of_collections() throws IOException, SQLException {

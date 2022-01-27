@@ -69,7 +69,6 @@
 <!--            <scope>system</scope>-->
 <!--            <systemPath>C:/QA_AUTOMATION/autosmoke_mftv_web_and_mobile_web/libs/testrail-api-java-client-1.0.7.jar</systemPath>-->
 <!--        </dependency>-->
-
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
@@ -161,13 +160,14 @@
 <!--                    <redirectTestOutputToFile>true</redirectTestOutputToFile>-->
 <!--                    <forkCount>2</forkCount>-->
 <!--                    <reuseForks>false</reuseForks>-->
-<!--                    <reportsDirectory>target/surefire-reports-${surefire.forkNumber}</reportsDirectory>-->
+<!--                    <reportsDirectory>target/surefire-REPORTS-${surefire.forkNumber}</reportsDirectory>-->
 <!--                    <includes>-->
 <!--                        &lt;!&ndash;                        <include>**/Test*.java</include>&ndash;&gt;-->
 <!--                        <include>**/*PW.java</include>-->
 <!--                    </includes>-->
                     <properties>
-                        <groups>SuitePwNonAdWeb#0,adWebSuitePW#1,adWebSuitePW#2,adWebSuitePW#3,SuitePwNonAdWeb#4,SuiteWD#0,SuiteWD#1,SuiteWD#2,SuiteWD#3,SuiteWD#4</groups>
+                        <groups>Example</groups>
+<!--                        <groups>SuitePwNonAdWeb#0,adWebSuitePW#1,adWebSuitePW#2,adWebSuitePW#3,SuitePwNonAdWeb#4,SuiteWD#0,SuiteWD#1,SuiteWD#2,SuiteWD#3,SuiteWD#4</groups>-->
 <!--                        <include>SuitePwTest1,SuitePwTest2,SuitePwTest3</include>-->
 <!--                        <include>**/Test*.java</include>-->
 <!--                        <include>**/*RETEST2408.java</include>-->

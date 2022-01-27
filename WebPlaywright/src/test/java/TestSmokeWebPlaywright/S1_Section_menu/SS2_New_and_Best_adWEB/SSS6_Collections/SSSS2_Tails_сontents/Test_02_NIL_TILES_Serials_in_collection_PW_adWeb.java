@@ -18,7 +18,7 @@ public class Test_02_NIL_TILES_Serials_in_collection_PW_adWeb extends TestBasePl
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "2. NIL_TILES_Serials_in_collection")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962564")
+    @TmsLink("53962564")
     @Test
     @Tag("adWebSuitePW#2")
     public void NIL_TILES_Serials_in_collection() throws IOException, InterruptedException, SQLException {

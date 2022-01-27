@@ -18,7 +18,7 @@ public class Test_08_2_TV_Tab_efir_SCREENSHOT_PW extends TestBasePlaywright {
     @Story(value = "1. TV")
     @DisplayName(value ="TV_Tab_efir_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("31542010")
+    @TmsLink("31542010")
     @Test
     @Tag("SuitePwNonAdWeb#0")
     public void tv_Tab_efir_SCREENSHOT() throws IOException, InterruptedException {

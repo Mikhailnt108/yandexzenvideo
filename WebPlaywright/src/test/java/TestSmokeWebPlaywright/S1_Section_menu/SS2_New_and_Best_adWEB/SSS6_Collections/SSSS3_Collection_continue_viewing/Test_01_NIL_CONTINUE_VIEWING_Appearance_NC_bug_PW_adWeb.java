@@ -18,7 +18,7 @@ public class Test_01_NIL_CONTINUE_VIEWING_Appearance_NC_bug_PW_adWeb extends Tes
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. NIL_CONTINUE_VIEWING_Appearance")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962578")
+    @TmsLink("53962578")
     @Test
     @Tag("adWebSuitePW#2")
     public void NIL_CONTINUE_VIEWING_Appearance() throws Exception {

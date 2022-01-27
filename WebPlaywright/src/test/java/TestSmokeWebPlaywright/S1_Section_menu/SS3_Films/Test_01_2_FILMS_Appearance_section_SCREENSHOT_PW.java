@@ -16,7 +16,7 @@ public class Test_01_2_FILMS_Appearance_section_SCREENSHOT_PW extends TestBasePl
     @Story(value = "3. Films")
     @DisplayName(value ="FILMS_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("36965362")
+    @TmsLink("36965362")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void FILMS_Appearance_section_SCREENSHOT() throws Exception {

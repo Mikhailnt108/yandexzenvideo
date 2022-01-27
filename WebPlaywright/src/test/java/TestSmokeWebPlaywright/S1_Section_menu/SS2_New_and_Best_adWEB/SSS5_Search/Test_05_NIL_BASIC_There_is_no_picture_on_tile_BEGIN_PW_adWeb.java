@@ -20,7 +20,7 @@ public class Test_05_NIL_BASIC_There_is_no_picture_on_tile_BEGIN_PW_adWeb extend
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "4. There_is_no_picture_on_tile_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("55735669")
+    @TmsLink("55735669")
     @Test
     @Tag("adWebSuitePW#1")
     public void MessageSelectingContentForYou() throws IOException, InterruptedException {

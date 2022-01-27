@@ -18,7 +18,7 @@ public class Test_01_NIL_SMART_TV_Appearance_page_SCREENSHOT_PW_adWeb extends Te
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. NIL_SMART_TV_Appearance_page_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962620")
+    @TmsLink("53962620")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_SMART_TV_Appearance_page_SCREENSHOT() throws IOException, InterruptedException, SQLException {

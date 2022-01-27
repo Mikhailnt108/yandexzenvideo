@@ -17,7 +17,7 @@ public class Test_01_NIL_REG_AUTH_Enter_your_phone_number_PW_adWeb extends TestB
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. NIL_REG_AUTH_Enter_your_phone_number")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962598")
+    @TmsLink("53962598")
     @Test
     @Tag("adWebPW#1")
     public void NIL_REG_AUTH_Enter_your_phone_number() throws IOException, InterruptedException {

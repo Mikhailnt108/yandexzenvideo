@@ -18,7 +18,7 @@ public class Test_06_NIL_PROMOCODE_Reusing_promo_code_PW_adWeb extends TestBaseP
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "6. NIL_PROMOCODE_Reusing_promo_code")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962618")
+    @TmsLink("53962618")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_PROMOCODE_Reusing_promo_code() throws IOException, InterruptedException, SQLException {

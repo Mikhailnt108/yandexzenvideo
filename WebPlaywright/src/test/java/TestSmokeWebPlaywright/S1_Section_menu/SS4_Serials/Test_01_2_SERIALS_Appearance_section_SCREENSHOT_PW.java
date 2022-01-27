@@ -15,7 +15,7 @@ public class Test_01_2_SERIALS_Appearance_section_SCREENSHOT_PW extends TestBase
     @Story(value = "4. Serials")
     @DisplayName(value ="01_2_SERIALS_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("36965364")
+    @TmsLink("36965364")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void SERIALS_Appearance_section_SCREENSHOT() throws Exception {

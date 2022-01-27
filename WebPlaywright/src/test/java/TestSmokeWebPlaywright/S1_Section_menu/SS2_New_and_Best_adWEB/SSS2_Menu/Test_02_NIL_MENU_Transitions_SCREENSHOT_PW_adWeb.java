@@ -19,7 +19,7 @@ public class Test_02_NIL_MENU_Transitions_SCREENSHOT_PW_adWeb extends TestBasePl
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "2. MENU_Transitions_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962550")
+    @TmsLink("53962550")
     @Test
     @Tag("adWebSuitePW#1")
     public void MENU_Transitions() throws IOException, InterruptedException, SQLException {

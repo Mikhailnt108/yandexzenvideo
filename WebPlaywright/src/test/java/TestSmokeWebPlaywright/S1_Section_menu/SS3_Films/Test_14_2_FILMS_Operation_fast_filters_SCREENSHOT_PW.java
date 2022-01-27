@@ -18,7 +18,7 @@ public class Test_14_2_FILMS_Operation_fast_filters_SCREENSHOT_PW extends TestBa
     @Story(value = "3. Films")
     @DisplayName(value ="14_2_FILMS_Operation_fast_filters_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("36965365")
+    @TmsLink("36965365")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void FILMS_Operation_fast_filters_SCREENSHOT_PW() throws Exception {

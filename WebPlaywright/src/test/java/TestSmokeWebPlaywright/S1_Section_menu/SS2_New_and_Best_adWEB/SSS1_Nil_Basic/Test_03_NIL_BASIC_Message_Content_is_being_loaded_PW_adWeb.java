@@ -19,7 +19,7 @@ public class Test_03_NIL_BASIC_Message_Content_is_being_loaded_PW_adWeb extends 
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. Message_Content_is_being_loaded_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("53962549")
+    @TmsLink("53962549")
     @Test
     @Tag("adWebSuitePW#1TEST")
     public void MessageContentIsBeingLoaded() throws InterruptedException, IOException, SQLException, ClassNotFoundException {

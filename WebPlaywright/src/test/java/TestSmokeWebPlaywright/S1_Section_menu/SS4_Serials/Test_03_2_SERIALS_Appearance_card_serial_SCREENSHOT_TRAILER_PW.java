@@ -15,7 +15,7 @@ public class Test_03_2_SERIALS_Appearance_card_serial_SCREENSHOT_TRAILER_PW exte
     @Story(value = "4. Serials")
     @DisplayName(value = "03_2_SERIALS_Appearance_card_serial_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("35669381")
+    @TmsLink("35669381")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void SERIALS_Appearance_card_serial_SCREENSHOT_TRAILER() throws Exception {

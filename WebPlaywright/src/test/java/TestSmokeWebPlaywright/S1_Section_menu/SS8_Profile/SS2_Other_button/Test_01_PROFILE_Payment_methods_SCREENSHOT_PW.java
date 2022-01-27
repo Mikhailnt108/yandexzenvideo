@@ -17,7 +17,7 @@ public class Test_01_PROFILE_Payment_methods_SCREENSHOT_PW extends TestBasePlayw
     @Story(value = "8. Profile_Other_button")
     @DisplayName(value ="01_PROFILE_Payment_methods_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("31547363")
+    @TmsLink("31547363")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void PROFILE_Payment_methods_SCREENSHOT() throws IOException, InterruptedException {

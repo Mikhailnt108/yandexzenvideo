@@ -19,7 +19,7 @@ public class Test_04_2_TV_Card_tv_channel_SCREENSHOT_PW extends TestBasePlaywrig
     @Story(value = "1. TV")
     @DisplayName(value = "TV_Card_tv_channel_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-//    @TmsLink("36965360")
+    @TmsLink("36965360")
     @Test
     @Tag("SuitePwNonAdWeb#0")
     public void tv_Card_tv_channel_SCREENSHOT() throws IOException, InterruptedException, SQLException {
