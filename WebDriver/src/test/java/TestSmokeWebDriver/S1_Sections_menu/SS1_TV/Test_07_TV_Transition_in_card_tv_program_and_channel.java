@@ -18,6 +18,7 @@ public class Test_07_TV_Transition_in_card_tv_program_and_channel extends TestBa
     @Story(value = "1. TV")
     @DisplayName(value ="Transition_in_card_tv_program_and_channel")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542021")
     @Test
     @Tag("SuiteWD#0")
     public void tvProgramInAir() throws InterruptedException {

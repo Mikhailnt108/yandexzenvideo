@@ -16,6 +16,7 @@ public class Test_02_1_COLLECTIONS_Actions_with_collections extends TestBaseWebD
     @Story(value = "8. Collections")
     @DisplayName(value ="Actions_with_collections")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31547362")
     @Test
     @Tag("SuiteWD#3")
     public void actionsWithCollections() throws InterruptedException {

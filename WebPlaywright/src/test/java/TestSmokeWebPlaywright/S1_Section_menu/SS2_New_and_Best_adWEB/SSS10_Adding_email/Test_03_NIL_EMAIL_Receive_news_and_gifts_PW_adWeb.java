@@ -18,6 +18,7 @@ public class Test_03_NIL_EMAIL_Receive_news_and_gifts_PW_adWeb extends TestBaseP
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. NIL_EMAIL_Receive_news_and_gifts")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_EMAIL_Receive_news_and_gifts() throws IOException, InterruptedException, SQLException {

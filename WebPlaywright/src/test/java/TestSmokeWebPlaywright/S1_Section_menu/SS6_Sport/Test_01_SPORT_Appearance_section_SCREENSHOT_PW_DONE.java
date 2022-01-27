@@ -17,6 +17,7 @@ public class Test_01_SPORT_Appearance_section_SCREENSHOT_PW_DONE extends TestBas
     @Story(value = "6. Sport")
     @DisplayName(value = "01_SPORT_Appearance_section")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#0")
     public void SPORT_Appearance_section() throws IOException, InterruptedException {

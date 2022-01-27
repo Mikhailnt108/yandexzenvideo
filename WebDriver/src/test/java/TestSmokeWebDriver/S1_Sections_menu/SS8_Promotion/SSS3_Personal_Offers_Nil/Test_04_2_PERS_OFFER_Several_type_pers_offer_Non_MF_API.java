@@ -16,6 +16,7 @@ public class Test_04_2_PERS_OFFER_Several_type_pers_offer_Non_MF_API extends Tes
     @Story(value = "3. Personal offer")
     @DisplayName(value = "Several_type_pers_offe_Non_MF")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31547360")
     @Test
     @Tag("SuiteWD#4")
     public void otherTypesPersonalOffers() throws InterruptedException {

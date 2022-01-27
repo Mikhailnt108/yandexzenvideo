@@ -16,6 +16,7 @@ public class Test_12_FILMS_Adding_film_to_favorites extends TestBaseWebDriver {
     @Story(value = "3. Films")
     @DisplayName(value ="Adding_film_to_favorites")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542043")
     @Test
     @Tag("SuiteWD#1")
     public void AddingFilmToFavorites() throws InterruptedException {

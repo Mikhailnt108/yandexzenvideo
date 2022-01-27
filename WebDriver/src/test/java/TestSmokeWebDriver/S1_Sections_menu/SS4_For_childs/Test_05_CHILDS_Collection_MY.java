@@ -16,6 +16,7 @@ public class Test_05_CHILDS_Collection_MY extends TestBaseWebDriver {
     @Story(value = "5. Childs")
     @DisplayName(value ="Collection_MY")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542079")
     @Test
     @Tag("SuiteWD#2")
     public void collectionOfMy() throws InterruptedException {

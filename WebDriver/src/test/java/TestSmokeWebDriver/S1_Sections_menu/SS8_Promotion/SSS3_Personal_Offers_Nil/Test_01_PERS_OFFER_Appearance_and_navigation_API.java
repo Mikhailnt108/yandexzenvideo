@@ -16,6 +16,7 @@ public class Test_01_PERS_OFFER_Appearance_and_navigation_API extends TestBaseWe
     @Story(value = "3. Personal offer")
     @DisplayName(value = "Appearance_and_navigation")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31547357")
     @Test
     @Tag("SuiteWD#4")
     public void appearanceAndNavigation() throws InterruptedException {

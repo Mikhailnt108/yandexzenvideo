@@ -16,6 +16,7 @@ public class Test_05_NOTIF_Transition_on_section_Films_API extends TestBaseWebDr
     @Story(value = "1. NOTIF")
     @DisplayName(value = "Transition_on_section_Films")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31546573")
     @Test
     @Tag("SuiteWD#4")
     public void goToPageFimlsFromPopUpNotif() throws InterruptedException {

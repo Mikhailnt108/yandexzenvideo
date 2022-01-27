@@ -16,6 +16,7 @@ public class Test_02_PROMO_Premium extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="Premium")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("39193011")
     @Test
     @Tag("SuiteWD#4")
     public void bundlPremium() throws InterruptedException {

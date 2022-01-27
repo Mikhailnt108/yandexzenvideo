@@ -16,6 +16,7 @@ public class Test_04_1_PACKAGES_Subscription_to_package_by_SubsPromo_MF extends 
     @Story(value = "7. Packages")
     @DisplayName(value ="Subscription_to_package_by_SubsPromo_MF")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("35669383")
     @Test
     @Tag("SuiteWD#3")
     public void subscribeToPackageBySubsPromo() throws Exception {

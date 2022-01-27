@@ -16,6 +16,7 @@ public class Test_02_PROMO_Transition_on_section_films extends TestBaseWebDriver
     @Story(value = "2. Promo")
     @DisplayName(value ="Transition_on_section_films")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuiteWD#4")
     public void goToMoviesPromoSection() throws InterruptedException {

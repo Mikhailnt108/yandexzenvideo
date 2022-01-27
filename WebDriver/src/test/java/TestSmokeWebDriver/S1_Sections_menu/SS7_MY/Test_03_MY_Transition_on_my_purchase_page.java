@@ -16,6 +16,7 @@ public class Test_03_MY_Transition_on_my_purchase_page extends TestBaseWebDriver
     @Story(value = "9. MY")
     @DisplayName(value ="Transition_on_my_purchase_page")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542102")
     @Test
     @Tag("SuiteWD#3")
     public void goToMyPagePurchases() throws InterruptedException {

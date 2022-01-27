@@ -15,6 +15,7 @@ public class Test_07_SPORT_Transitions_to_card_event_PW extends TestBasePlaywrig
     @Story(value = "6. Sport")
     @DisplayName(value = "07_SPORT_Transitions_to_card_event")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#1")
     public void SPORT_Transitions_to_card_event() throws Exception {

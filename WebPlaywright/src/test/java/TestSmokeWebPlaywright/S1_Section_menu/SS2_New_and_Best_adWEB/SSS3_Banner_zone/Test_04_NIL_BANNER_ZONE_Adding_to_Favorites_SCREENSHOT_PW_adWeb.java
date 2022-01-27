@@ -19,6 +19,7 @@ public class Test_04_NIL_BANNER_ZONE_Adding_to_Favorites_SCREENSHOT_PW_adWeb ext
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "4. BANNER_ZONE_Adding_to_Favorites")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("adWebSuitePW#1")
     public void BANNER_ZONE_Adding_to_Favorites() throws IOException, InterruptedException, AWTException, SQLException {

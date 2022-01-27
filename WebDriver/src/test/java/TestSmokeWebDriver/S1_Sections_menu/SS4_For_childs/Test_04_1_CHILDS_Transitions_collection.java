@@ -16,6 +16,7 @@ public class Test_04_1_CHILDS_Transitions_collection extends TestBaseWebDriver {
     @Story(value = "5. Childs")
     @DisplayName(value ="Transitions_collection")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("39192988")
     @Test
     @Tag("SuiteWD#2")
     public void goToCollection() throws Exception {

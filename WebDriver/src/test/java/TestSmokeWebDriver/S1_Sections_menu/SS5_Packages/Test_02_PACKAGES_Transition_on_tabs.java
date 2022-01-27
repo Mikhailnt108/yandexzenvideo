@@ -16,6 +16,7 @@ public class Test_02_PACKAGES_Transition_on_tabs extends TestBaseWebDriver {
     @Story(value = "7. Packages")
     @DisplayName(value = "Transition_on_tabs_packages")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542083")
     @Test
     @Tag("SuiteWD#3")
     public void goToTabPackage() throws InterruptedException {

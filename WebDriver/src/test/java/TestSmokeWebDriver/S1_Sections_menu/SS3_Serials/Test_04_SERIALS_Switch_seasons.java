@@ -16,6 +16,7 @@ public class Test_04_SERIALS_Switch_seasons extends TestBaseWebDriver {
     @Story(value = "4. Serials")
     @DisplayName(value ="Switch_seasons")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542052")
     @Test
     @Tag("SuiteWD#2")
     public void switchingSeasons() throws Exception {

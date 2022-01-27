@@ -16,6 +16,7 @@ public class Test_06_MY_Transition_on_card_content_from_my_purchase extends Test
     @Story(value = "9. MY")
     @DisplayName(value ="Transition_on_card_content_from_my_purchase")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542105")
     @Test
     @Tag("SuiteWD#3")
     public void goToContentCardFromMyMyPagePurchases() throws InterruptedException {

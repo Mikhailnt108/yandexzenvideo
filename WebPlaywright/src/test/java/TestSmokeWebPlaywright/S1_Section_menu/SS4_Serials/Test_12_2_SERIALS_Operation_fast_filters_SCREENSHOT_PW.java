@@ -15,6 +15,7 @@ public class Test_12_2_SERIALS_Operation_fast_filters_SCREENSHOT_PW extends Test
     @Story(value = "4. Serials")
     @DisplayName(value = "12_2_SERIALS_Operation_fast_filters_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void SERIALS_Operation_fast_filters_SCREENSHOT() throws Exception {

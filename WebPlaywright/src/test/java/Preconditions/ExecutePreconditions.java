@@ -1,11 +1,10 @@
 package Preconditions;
 import base.TestBasePlaywright;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class Test_ExecutePreconditions extends TestBasePlaywright {
+public class ExecutePreconditions extends TestBasePlaywright {
     @Test
 //    @Tag("adWebSuitePW#1TEST")
     public void executePreconditions() throws IOException, SQLException, ClassNotFoundException {

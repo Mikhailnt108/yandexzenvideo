@@ -16,6 +16,7 @@ public class Test_02_CHILDS_Appearance_section_SCREENSHOT_PW extends TestBasePla
     @Story(value = "5. For_children")
     @DisplayName(value ="02_CHILDS_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void CHILDS_Appearance_section_SCREENSHOT() throws Exception {

@@ -18,6 +18,7 @@ public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywrig
     @Story(value = "1. TV")
     @DisplayName(value ="TV_Card_tv_program_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#0")
     public void tv_Card_tv_program_SCREENSHOT() throws Exception {

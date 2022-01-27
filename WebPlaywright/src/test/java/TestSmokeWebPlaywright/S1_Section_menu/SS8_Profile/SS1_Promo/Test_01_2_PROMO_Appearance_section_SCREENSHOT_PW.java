@@ -17,6 +17,7 @@ public class Test_01_2_PROMO_Appearance_section_SCREENSHOT_PW extends TestBasePl
     @Story(value = "8. Profile_Promo")
     @DisplayName(value ="01_2_PROMO_Appearance_section_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void PROMO_Appearance_section_SCREENSHOT() throws InterruptedException, IOException {

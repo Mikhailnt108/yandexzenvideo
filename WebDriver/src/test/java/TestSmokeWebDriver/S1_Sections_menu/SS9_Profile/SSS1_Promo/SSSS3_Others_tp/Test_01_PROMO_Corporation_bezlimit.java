@@ -16,6 +16,7 @@ public class Test_01_PROMO_Corporation_bezlimit extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="Corporation_bezlimit")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("39193013")
     @Test
     @Tag("SuiteWD#4")
     public void bundleCorpBezlimit() throws InterruptedException {

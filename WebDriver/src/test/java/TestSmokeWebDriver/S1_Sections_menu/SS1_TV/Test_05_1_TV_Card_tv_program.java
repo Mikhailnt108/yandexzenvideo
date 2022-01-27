@@ -18,6 +18,7 @@ public class Test_05_1_TV_Card_tv_program extends TestBaseWebDriver {
     @Story(value = "1. TV")
     @DisplayName(value ="Card_tv_program")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("36965361")
     @Test
     @Tag("SuiteWD#0")
     public void cardTvProgram() throws Exception {

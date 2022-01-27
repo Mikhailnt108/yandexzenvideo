@@ -16,6 +16,7 @@ public class Test_04_PROMO_Finblock_user_MF extends TestBaseWebDriver {
     @Story(value = "2. Promo")
     @DisplayName(value ="Finblock_user_MF")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542108")
     @Test
     @Tag("SuiteWD#4")
     public void financialBlockingMegafon() throws InterruptedException {

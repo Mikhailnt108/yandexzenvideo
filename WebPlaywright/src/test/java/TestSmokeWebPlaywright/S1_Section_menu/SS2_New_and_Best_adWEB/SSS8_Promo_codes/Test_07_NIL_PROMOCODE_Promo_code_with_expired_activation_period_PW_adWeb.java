@@ -18,6 +18,7 @@ public class Test_07_NIL_PROMOCODE_Promo_code_with_expired_activation_period_PW_
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "7. NIL_PROMOCODE_Promo_code_with_expired_activation_period")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_PROMOCODE_Promo_code_expired_activation_period() throws IOException, InterruptedException, SQLException {

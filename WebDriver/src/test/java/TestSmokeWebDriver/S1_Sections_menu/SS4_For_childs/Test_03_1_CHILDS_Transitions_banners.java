@@ -16,6 +16,7 @@ public class Test_03_1_CHILDS_Transitions_banners extends TestBaseWebDriver {
     @Story(value = "5. Childs")
     @DisplayName(value ="Transitions_banners")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("39192987")
     @Test
     @Tag("SuiteWD#2")
     public void goToBanner() throws Exception {

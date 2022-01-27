@@ -18,6 +18,7 @@ public class Test_01_NIL_FOOTER_Appearance_SCREENSHOT_PW_adWeb extends TestBaseP
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. FOOTER_Appearance")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("adWebSuitePW#1")
     public void FOOTER_Appearance() throws IOException, InterruptedException, SQLException {

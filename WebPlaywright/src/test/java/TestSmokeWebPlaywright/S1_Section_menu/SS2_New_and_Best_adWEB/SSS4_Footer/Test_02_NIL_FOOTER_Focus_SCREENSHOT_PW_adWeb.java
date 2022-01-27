@@ -18,6 +18,7 @@ public class Test_02_NIL_FOOTER_Focus_SCREENSHOT_PW_adWeb extends TestBasePlaywr
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "2. FOOTER_Focus")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("adWebSuitePW#1")
     public void FOOTER_Focus() throws IOException, InterruptedException, SQLException {

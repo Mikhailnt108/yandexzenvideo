@@ -16,6 +16,7 @@ public class Test_02_PERS_OFFER_Several_states_pers_offer_API extends TestBaseWe
     @Story(value = "3. Personal offer")
     @DisplayName(value = "Several_states_pers_offer")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31547358")
     @Test
     @Tag("SuiteWD#4")
     public void POdifferentState() throws InterruptedException {

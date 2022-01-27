@@ -16,6 +16,7 @@ public class Test_13_MY_Deleting_all_view_marks extends TestBaseWebDriver {
     @Story(value = "9. MY")
     @DisplayName(value = "Deleting_all_view_marks")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31546560")
     @Test
     @Tag("SuiteWD#3")
     public void sortingContent() throws Exception {

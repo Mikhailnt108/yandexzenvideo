@@ -57,7 +57,7 @@ public class Test_08_3_MY_Appearance_block_collection_continue_viewing_for_NON_M
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();
-        authPagePW.inputLogin("+7 926 118 49 72");
+//        authPagePW.inputLogin("+7 926 118 49 72");
         headerMenuPW.clickToNext();
         headerMenuPW.checkOpenPopUpInputEmail("+7 926 118 49 72");
         headerMenuPW.checkInputValidEmailInPopUpInputEmail("ispolnitel1mt@yandex.ru");

@@ -18,6 +18,7 @@ public class Test_05_NIL_PROMOCODE_Rent_film_through_promo_code_NC_block_PW_adWe
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "5. NIL_PROMOCODE_Rent_film_through_promo_code")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_PROMOCODE_Rent_film_through_promo_code() throws IOException, InterruptedException, SQLException {

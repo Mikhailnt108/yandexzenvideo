@@ -16,6 +16,7 @@ public class Test_02_NOTIF_Film_purchase_for_money_API extends TestBaseWebDriver
     @Story(value = "1. NOTIF")
     @DisplayName(value = "Film_purchase_for_money")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31546571")
     @Test
     @Tag("SuiteWD#4")
     public void payFilmFromPopUpNotification() throws InterruptedException {

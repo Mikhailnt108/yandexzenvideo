@@ -15,6 +15,7 @@ public class Test_05_SPORT_Top_competition_PW extends TestBasePlaywright {
     @Story(value = "6. Sport")
     @DisplayName(value = "05_SPORT_Top_competition")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#0")
     public void SPORT_Top_competition_PW() throws Exception {

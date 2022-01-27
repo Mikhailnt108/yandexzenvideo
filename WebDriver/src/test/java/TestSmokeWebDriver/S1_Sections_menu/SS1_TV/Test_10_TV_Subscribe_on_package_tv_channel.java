@@ -18,6 +18,7 @@ public class Test_10_TV_Subscribe_on_package_tv_channel extends TestBaseWebDrive
     @Story(value = "1. TV")
     @DisplayName(value ="Подписка на пакет каналов")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542012")
     @Test
     @Tag("SuiteWD#0")
     public void subscribeOnPackageTvChannel() throws Exception {

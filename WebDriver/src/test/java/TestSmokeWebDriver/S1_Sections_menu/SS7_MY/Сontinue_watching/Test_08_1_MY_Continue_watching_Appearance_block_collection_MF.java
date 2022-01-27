@@ -16,6 +16,7 @@ public class Test_08_1_MY_Continue_watching_Appearance_block_collection_MF exten
     @Story(value = "9. MY")
     @DisplayName(value ="Continue_watching_Appearance_block_collection_MF")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31546559")
     @Test
     @Tag("SuiteWD#3")
     public void appearanceBlockCollectViewingHistory() throws Exception {

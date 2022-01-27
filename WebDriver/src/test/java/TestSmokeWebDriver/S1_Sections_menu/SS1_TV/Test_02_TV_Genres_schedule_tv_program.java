@@ -18,6 +18,7 @@ public class Test_02_TV_Genres_schedule_tv_program extends TestBaseWebDriver {
     @Story(value = "1. TV")
     @DisplayName(value ="Genres_schedule_TV_program")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542007")
     @Test
     @Tag("SuiteWD#0")
     public void genresTvProgram() throws InterruptedException {

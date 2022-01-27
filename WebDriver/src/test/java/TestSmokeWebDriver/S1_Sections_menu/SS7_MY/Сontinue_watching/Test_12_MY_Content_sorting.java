@@ -16,6 +16,7 @@ public class Test_12_MY_Content_sorting extends TestBaseWebDriver {
     @Story(value = "9. MY")
     @DisplayName(value = "Content_sorting")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31546558")
     @Test
     @Tag("SuiteWD#3")
     public void sortingContent() throws Exception {

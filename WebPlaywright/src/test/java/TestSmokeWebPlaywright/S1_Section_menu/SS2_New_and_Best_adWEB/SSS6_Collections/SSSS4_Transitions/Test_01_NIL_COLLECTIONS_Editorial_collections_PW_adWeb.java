@@ -18,6 +18,7 @@ public class Test_01_NIL_COLLECTIONS_Editorial_collections_PW_adWeb extends Test
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. NIL_COLLECTIONS_Editorial_collections")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Editorial_collections() throws IOException, InterruptedException, SQLException {

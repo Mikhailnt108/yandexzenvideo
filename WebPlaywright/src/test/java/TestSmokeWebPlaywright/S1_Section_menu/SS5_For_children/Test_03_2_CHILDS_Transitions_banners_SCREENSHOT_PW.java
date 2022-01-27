@@ -16,6 +16,7 @@ public class Test_03_2_CHILDS_Transitions_banners_SCREENSHOT_PW extends TestBase
     @Story(value = "5. For_children")
     @DisplayName(value ="03_2_CHILDS_Transitions_banners_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
+    //    @TmsLink("31542006")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void goToBanner() throws Exception {
