@@ -18,7 +18,7 @@ public class Test_06_NIL_REG_AUTH_Password_change_PW_adWeb extends TestBasePlayw
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "6. NIL_REG_AUTH_Password_change")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542006")
+    //    @TmsLink("53962602")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_REG_AUTH_Password_change() throws InterruptedException, IOException, SQLException {

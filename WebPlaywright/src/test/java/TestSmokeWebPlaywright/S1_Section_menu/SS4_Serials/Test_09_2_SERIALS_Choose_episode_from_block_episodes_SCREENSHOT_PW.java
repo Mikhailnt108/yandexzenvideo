@@ -15,7 +15,7 @@ public class Test_09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT_PW 
     @Story(value = "4. Serials")
     @DisplayName(value ="09_2_SERIALS_Choose_episode_from_block_episodes_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542006")
+    //    @TmsLink("35669382")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void SERIALS_Choose_episode_from_block_episodes_SCREENSHOT() throws Exception {

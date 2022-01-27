@@ -15,7 +15,7 @@ public class Test_06_SPORT_Transitions_to_content_PW extends TestBasePlaywright 
     @Story(value = "6. Sport")
     @DisplayName(value = "06_SPORT_Transitions_to_content")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542006")
+    //    @TmsLink("54027912")
     @Test
     @Tag("SuitePwNonAdWeb#0")
     public void SPORT_Transitions_to_content() throws Exception {

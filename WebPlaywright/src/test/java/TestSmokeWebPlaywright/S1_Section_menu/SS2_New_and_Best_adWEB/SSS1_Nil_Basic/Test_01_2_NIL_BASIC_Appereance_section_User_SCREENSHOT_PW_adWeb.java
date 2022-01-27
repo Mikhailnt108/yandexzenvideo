@@ -19,7 +19,7 @@ public class Test_01_2_NIL_BASIC_Appereance_section_User_SCREENSHOT_PW_adWeb ext
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1.2 NIL_Appearance_section_User_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("31542006")
+    //    @TmsLink("53962547")
     @Test
     @Tag("adWebSuitePW#1")
     public void NIL_Appearance_section_User_SCREENSHOT() throws IOException, InterruptedException, SQLException {
