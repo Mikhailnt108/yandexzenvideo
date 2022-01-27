@@ -16,7 +16,7 @@ public class Test_03_2_FILMS_Appearance_card_SCREENSHOT_TRAILER_PW extends TestB
     @Story(value = "3. Films")
     @DisplayName(value ="03_2_FILMS_Appearance_card_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("35669380")
+    @TmsLink("35669380")
     @Test
     @Tag("SuitePwNonAdWeb#4")
     public void FILMS_Appearance_card_SCREENSHOT_TRAILER() throws Exception {

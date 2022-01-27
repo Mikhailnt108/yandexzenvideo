@@ -18,7 +18,7 @@ public class Test_01_NIL_EMAIL_Appearance_page_SCREENSHOT_PW_adWeb extends TestB
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "1. NIL_EMAIL_Appearance_page_SCREENSHOT")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("53962623")
+    @TmsLink("53962623")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_EMAIL_Appearance_page_SCREENSHOT() throws IOException, InterruptedException, SQLException {

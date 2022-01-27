@@ -18,7 +18,7 @@ public class Test_03_NIL_SMART_TV_Correct_connection_code_NC_bug_PW_adWeb extend
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "3. NIL_SMART_TV_Correct_connection_code")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("53962621")
+    @TmsLink("53962621")
     @Test
     @Tag("adWebSuitePW#3")
     public void NIL_SMART_TV_Correct_connection_code() throws IOException, InterruptedException, SQLException {

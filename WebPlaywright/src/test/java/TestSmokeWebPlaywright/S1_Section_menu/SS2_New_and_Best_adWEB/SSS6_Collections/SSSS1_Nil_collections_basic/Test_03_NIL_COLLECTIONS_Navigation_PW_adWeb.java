@@ -18,7 +18,7 @@ public class Test_03_NIL_COLLECTIONS_Navigation_PW_adWeb extends TestBasePlaywri
     @Story(value = "2. New_and_Best_adWeb")
     @DisplayName(value = "4. NIL_COLLECTIONS_Navigation")
     @Severity(SeverityLevel.BLOCKER)
-    //    @TmsLink("53962560")
+    @TmsLink("53962560")
     @Test
     @Tag("adWebSuitePW#2")
     public void NIL_COLLECTIONS_Navigation() throws IOException, SQLException {
