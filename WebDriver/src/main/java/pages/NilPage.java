@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -35,9 +35,9 @@ public class NilPage extends BasePageWebDriver {
         String tail4 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
         String tail5 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
         String tail6 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
-        Assert.assertNotEquals(tail1, tail4);
-        Assert.assertNotEquals(tail2, tail5);
-        Assert.assertNotEquals(tail3, tail6);
+        Assertions.assertNotEquals(tail1, tail4);
+        Assertions.assertNotEquals(tail2, tail5);
+        Assertions.assertNotEquals(tail3, tail6);
 
         while (webDriver.findElements(By.xpath("(//button[@class='_3DGjUma9lmXjaQqwfHiPuG _12wttH1TVBR-AUv1aCErMK _3mirESpL6CG--jdNvoNDsf'])[1]")).size() < 1) {
             click(By.xpath("(//button[@data-test='ArrowButtonNext'])[1]"));
@@ -64,9 +64,9 @@ public class NilPage extends BasePageWebDriver {
         String tail5 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[5]")).getText();
         String tail6 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[6]")).getText();
         String tail7 = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[7]")).getText();
-        Assert.assertNotEquals(tail5, tail8);
-        Assert.assertNotEquals(tail6, tail9);
-        Assert.assertNotEquals(tail7, tail10);
+        Assertions.assertNotEquals(tail5, tail8);
+        Assertions.assertNotEquals(tail6, tail9);
+        Assertions.assertNotEquals(tail7, tail10);
 
         while (webDriver.findElements(By.xpath("(//button[@class='_2k8t0pWxsThhBF_-hDMEc- _12wttH1TVBR-AUv1aCErMK'])[1]")).size() > 0) {
             click(By.xpath("(//button[@data-test='ArrowButtonPrev'])[1]"));
@@ -84,23 +84,23 @@ public class NilPage extends BasePageWebDriver {
         Thread.sleep(5000);
         String banner2 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner2);
-        Assert.assertNotEquals(banner1, banner2);
+        Assertions.assertNotEquals(banner1, banner2);
         Thread.sleep(5000);
         String banner3 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner3);
-        Assert.assertNotEquals(banner2, banner3);
+        Assertions.assertNotEquals(banner2, banner3);
         Thread.sleep(5000);
         String banner4 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner4);
-        Assert.assertNotEquals(banner3, banner4);
+        Assertions.assertNotEquals(banner3, banner4);
         Thread.sleep(5000);
         String banner5 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner5);
-        Assert.assertNotEquals(banner4, banner5);
+        Assertions.assertNotEquals(banner4, banner5);
     }
 
     public void checkScrollBannersToLeft() throws Exception {
-        java.util.List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
+        List<WebElement> BannerForKids = webDriver.findElements(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton']"));
         System.out.println(BannerForKids.size());
         click(By.xpath("//div[@class='_2-F_qEwyH9P_zWeUdZcMcd _77CQGroIvaqgGukdVHQ7X']//button[@data-test='CarouselDotButton'][1]"));
         Thread.sleep(2000);
@@ -111,7 +111,7 @@ public class NilPage extends BasePageWebDriver {
         Thread.sleep(2000);
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
-        Assert.assertNotEquals(bannerFirst, bannerLast);
+        Assertions.assertNotEquals(bannerFirst, bannerLast);
     }
 
     public void checkScrollBannersToRight() throws Exception {
@@ -126,7 +126,7 @@ public class NilPage extends BasePageWebDriver {
         Thread.sleep(2000);
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(bannerFirst);
-        Assert.assertNotEquals(bannerLast, bannerFirst);
+        Assertions.assertNotEquals(bannerLast, bannerFirst);
     }
 
     public void scrollСollectionToRightAndLeft() throws Exception {
@@ -151,9 +151,9 @@ public class NilPage extends BasePageWebDriver {
         System.out.println(tail5Right);
         System.out.println(tail6Right);
         Thread.sleep(5000);
-        Assert.assertNotEquals(tail1Right, tail4Right);
-        Assert.assertNotEquals(tail2Right, tail5Right);
-        Assert.assertNotEquals(tail3Right, tail6Right);
+        Assertions.assertNotEquals(tail1Right, tail4Right);
+        Assertions.assertNotEquals(tail2Right, tail5Right);
+        Assertions.assertNotEquals(tail3Right, tail6Right);
 
         // разовый скролл подборки влево:
         String tail4Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
@@ -164,9 +164,9 @@ public class NilPage extends BasePageWebDriver {
         String tail2Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
         String tail3Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
         Thread.sleep(5000);
-        Assert.assertNotEquals(tail1Left, tail4Left);
-        Assert.assertNotEquals(tail2Left, tail5Left);
-        Assert.assertNotEquals(tail3Left, tail6Left);
+        Assertions.assertNotEquals(tail1Left, tail4Left);
+        Assertions.assertNotEquals(tail2Left, tail5Left);
+        Assertions.assertNotEquals(tail3Left, tail6Left);
 
         // скоролл подборки вправо до упора:
         while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
@@ -358,7 +358,7 @@ public class NilPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//a[contains(@href, '/tv/channels/')]"));
         String nameTVProgram = webDriver.findElement(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3")).getText();
         click(By.xpath("//a[text()='Продолжить просмотр']//ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj']//div[@class='_1IVk0Zab-UdqbOslYR6SnJ']//h3"));
-        Assert.assertEquals(nameTVProgram, webDriver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
+        Assertions.assertEquals(nameTVProgram, webDriver.findElement(By.className("_1v_D6wOANknQeJMBPo_rKK")).getText());
     }
 
     public void checkProgressBarInTailsCollectHistoryWatch() {
@@ -381,25 +381,25 @@ public class NilPage extends BasePageWebDriver {
     public void checkToMoveTileToFirstPlace() {
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
         webDriver.get(frontend);
-        Assert.assertEquals("элементы не совпадают",nameFilm, webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
+        Assertions.assertEquals("элементы не совпадают",nameFilm, webDriver.findElement(By.xpath("(//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']//following::h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 
     public void checkAbsentTvProgram18PlusInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/tv/channels/')])[1]"));
-        Assert.assertEquals("отображается элемент", 0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size(), "отображается элемент");
     }
 
     public void checkAbsentFilm18PlusInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/vods')])[1]"));
-        Assert.assertEquals("отображается элемент", 0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size(), "отображается элемент");
     }
 
     public void checkAbsentSerial18PlusInCollectHistoryWatch() throws InterruptedException {
         isElementDisplayed(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
         click(By.xpath("(//a[text()='Продолжить просмотр']//following::a[contains(@href, '/shows/')])[1]"));
-        Assert.assertEquals("отображается элемент", 0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size(), "отображается элемент");
     }
 
     public void clickToAllOnBlockCollectHistoryWatch() throws InterruptedException {
@@ -412,7 +412,7 @@ public class NilPage extends BasePageWebDriver {
     }
 
     public void checkAbsentBlockCollectHistoryWatch() {
-        Assert.assertEquals("отображается элемент", 0, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size(), "отображается элемент");
     }
 
     public void checkLastTailInCollectionSpecialForYou() {

@@ -1,10 +1,12 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.util.ArrayList;
 
 public class PageCMS extends BasePageWebDriver {
     private String frontend;

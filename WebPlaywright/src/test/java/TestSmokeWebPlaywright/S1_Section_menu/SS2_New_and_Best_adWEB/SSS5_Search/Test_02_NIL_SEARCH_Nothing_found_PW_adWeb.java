@@ -17,7 +17,7 @@ public class Test_02_NIL_SEARCH_Nothing_found_PW_adWeb extends TestBasePlaywrigh
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("53962592")
     @Test
-    @Tag("adWebSuitePW#1")
+    @Tag("Example2")
     public void SEARCH_Nothing_found(){
         headerMenuPW.goToNilPage();
         nilPagePW.checkResultSearchNothingFound();

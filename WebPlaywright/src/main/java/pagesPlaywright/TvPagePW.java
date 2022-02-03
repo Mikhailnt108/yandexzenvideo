@@ -4,7 +4,6 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
@@ -46,7 +45,6 @@ public class TvPagePW extends BasePagePlaywright {
         for(ElementHandle time : timeAll){
             time.evaluate("t => t.innerText='00:00'");
         }
-
 
         // делаем скриншот видимой части страницы "TvPageTabProgramTvForGuest":
         vrt.track(

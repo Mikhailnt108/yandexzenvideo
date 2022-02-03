@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,7 +37,7 @@ public class SerialsPage extends BasePageWebDriver {
 
     public void checkRadioButtons() {
         List<WebElement> radioButtons = webDriver.findElements(By.xpath("(//div[@class='_TKVCKE7PL8voHtm8HP2j'])[1]//span[@class='AoSy93bShFe6C6hlZfxUE']"));
-        Assert.assertEquals(15, radioButtons.size());
+        Assertions.assertEquals(15, radioButtons.size());
     }
 
     public void chooseOneYearOnly() throws InterruptedException {
@@ -87,7 +87,7 @@ public class SerialsPage extends BasePageWebDriver {
 
     public void checkCheckboxes() {
         List<WebElement> checkboxes = webDriver.findElements(By.xpath("(//div[@class='_2t8gxqv7DAHrHOVOT7SNQu'])[1]//input[@type='checkbox']"));
-        Assert.assertEquals(28, checkboxes.size());
+        Assertions.assertEquals(28, checkboxes.size());
     }
 
     public void chooseOneGenre() throws InterruptedException {
@@ -99,7 +99,7 @@ public class SerialsPage extends BasePageWebDriver {
     public void checkRequestResultOneGenre() throws InterruptedException {
         Thread.sleep(3000);
         List<WebElement> CollectionOneGenre = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]"));
-        Assert.assertEquals(36, CollectionOneGenre.size());
+        Assertions.assertEquals(36, CollectionOneGenre.size());
     }
 
     public void chooseTwoGenre() throws InterruptedException {
@@ -111,7 +111,7 @@ public class SerialsPage extends BasePageWebDriver {
     public void checkRequestResultTwoGenre() throws InterruptedException {
         Thread.sleep(3000);
         List<WebElement> CollectionTwoGenre = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Документальный')]|//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Аниме')]"));
-        Assert.assertEquals(36, CollectionTwoGenre.size());
+        Assertions.assertEquals(36, CollectionTwoGenre.size());
     }
 
     public void clickOnCountryInput() throws InterruptedException {
@@ -120,7 +120,7 @@ public class SerialsPage extends BasePageWebDriver {
 
     public void checkCheckboxesInCountry() {
         List<WebElement> checkboxes = webDriver.findElements(By.xpath("(//div[@class='_2t8gxqv7DAHrHOVOT7SNQu'])[2]//input[@type='checkbox']"));
-        Assert.assertEquals(18, checkboxes.size());
+        Assertions.assertEquals(18, checkboxes.size());
     }
 
     public void chooseOneCountry() throws InterruptedException {
@@ -173,7 +173,7 @@ public class SerialsPage extends BasePageWebDriver {
     public void checkResetAllFilters() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']")));
         List<WebElement> Filters = webDriver.findElements(By.xpath("//div[@class='_1RRLrdyUeRf97LW7DW4bHw']//div[text()='Жанр' or text()='Страна' or text()='Сортировка' or text()='Год с' or text()='по' or text()='Рейтинг']"));
-        Assert.assertEquals(6, Filters.size());
+        Assertions.assertEquals(6, Filters.size());
     }
 
     public void startVideoPleer() throws Exception {
@@ -221,7 +221,7 @@ public class SerialsPage extends BasePageWebDriver {
             BannerForSerials2.get(i).click();
             Thread.sleep(2000);
             click(By.xpath("//div[@data-test='BannerCarousel']"));
-            Assert.assertTrue("not opened card serial", webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size()==1);
+            Assertions.assertTrue(webDriver.findElements(By.xpath("//a[@href='/shows']//span[text()='Сериалы']")).size()==1, "not opened card serial");
             webDriver.get(frontend+"shows");
         }
     }
@@ -237,19 +237,19 @@ public class SerialsPage extends BasePageWebDriver {
         Thread.sleep(5000);
         String banner2 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner2);
-        Assert.assertNotEquals(banner1, banner2);
+        Assertions.assertNotEquals(banner1, banner2);
         Thread.sleep(5000);
         String banner3 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner3);
-        Assert.assertNotEquals(banner2, banner3);
+        Assertions.assertNotEquals(banner2, banner3);
         Thread.sleep(5000);
         String banner4 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner4);
-        Assert.assertNotEquals(banner3, banner4);
+        Assertions.assertNotEquals(banner3, banner4);
         Thread.sleep(5000);
         String banner5 = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(banner5);
-        Assert.assertNotEquals(banner4, banner5);
+        Assertions.assertNotEquals(banner4, banner5);
     }
 
     public void scrollBannersToLeft() throws InterruptedException {
@@ -262,7 +262,7 @@ public class SerialsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton'][last()]//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
         String bannerLast = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[2]")).getText();
         System.out.println(bannerLast);
-        Assert.assertNotEquals(bannerFirst, bannerLast);
+        Assertions.assertNotEquals(bannerFirst, bannerLast);
     }
 
     public void scrollBannersToRight() throws InterruptedException {
@@ -275,7 +275,7 @@ public class SerialsPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[@data-test='CarouselDotButton']//div[@class='CCg90x7JQ0YOQVkXtgFkE _3Du8w-9yVSUhDNJpc7k-t3']"));
         String bannerFirst = webDriver.findElement(By.xpath("(//div[@data-test='SlideTitle'])[3]")).getText();
         System.out.println(bannerFirst);
-        Assert.assertNotEquals(bannerLast, bannerFirst);
+        Assertions.assertNotEquals(bannerLast, bannerFirst);
     }
 
     public void scrollСollectionToRightAndLeft() throws InterruptedException {
@@ -299,9 +299,9 @@ public class SerialsPage extends BasePageWebDriver {
         System.out.println(tail5Right);
         System.out.println(tail6Right);
         Thread.sleep(5000);
-        Assert.assertNotEquals(tail1Right, tail4Right);
-        Assert.assertNotEquals(tail2Right, tail5Right);
-        Assert.assertNotEquals(tail3Right, tail6Right);
+        Assertions.assertNotEquals(tail1Right, tail4Right);
+        Assertions.assertNotEquals(tail2Right, tail5Right);
+        Assertions.assertNotEquals(tail3Right, tail6Right);
 
         // разовый скролл подборки влево:
         String tail4Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
@@ -312,9 +312,9 @@ public class SerialsPage extends BasePageWebDriver {
         String tail2Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
         String tail3Left = webDriver.findElement(By.xpath("((//div[contains(@data-test,'PackageListWrapperCarousel')])[3]//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
         Thread.sleep(5000);
-        Assert.assertNotEquals(tail1Left, tail4Left);
-        Assert.assertNotEquals(tail2Left, tail5Left);
-        Assert.assertNotEquals(tail3Left, tail6Left);
+        Assertions.assertNotEquals(tail1Left, tail4Left);
+        Assertions.assertNotEquals(tail2Left, tail5Left);
+        Assertions.assertNotEquals(tail3Left, tail6Left);
 
         // скоролл подборки вправо до упора:
         while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[3]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
@@ -336,12 +336,12 @@ public class SerialsPage extends BasePageWebDriver {
     }
 
     public void checkCatalogViewFilmsPage() {
-        Assert.assertEquals("вид страницы не каталог", 0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size(), "вид страницы не каталог");
     }
 
     public void checkRequestResultOneQuickFilter() {
         List<WebElement> CollectionQuickFilter = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Приключения')]"));
-        Assert.assertEquals(36, CollectionQuickFilter.size());
+        Assertions.assertEquals(36, CollectionQuickFilter.size());
     }
 
     public void chooseTwoQuickFilter() throws InterruptedException {
@@ -352,12 +352,12 @@ public class SerialsPage extends BasePageWebDriver {
 
     public void checkRequestResultTwoQuickFilter() {
         List<WebElement> CollectionQuickFilter = webDriver.findElements(By.xpath("//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Приключения')]|//div[@class='_2UHpP-xlu9DaTQUbJuPMEF' and contains(text(),'Боевик')]"));
-        Assert.assertEquals(36, CollectionQuickFilter.size());
+        Assertions.assertEquals(36, CollectionQuickFilter.size());
     }
 
     public void checkUnplugQuickFilter() throws InterruptedException {
         click(By.xpath("//button[text()='Боевик']"));
-        Assert.assertEquals("не отключен быстрый фильтр", 0, webDriver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//button[contains(@class,'_3gAIIPQjtWSKeQ00BZcMjA _1jUu-xJ3uLr0UCGOxn-nJ9 _3Svh8L_4naDJIO2C6fl7oz') and text()='Боевик']")).size(), "не отключен быстрый фильтр");
     }
 
     public void checkRequestResultOneCountryAndTwoGenre() throws InterruptedException {
@@ -376,11 +376,11 @@ public class SerialsPage extends BasePageWebDriver {
     }
 
     public void checkCollectionsViewSerialsPage() {
-        Assert.assertNotEquals("вид страницы не каталог", 0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+        Assertions.assertNotEquals(0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size(), "вид страницы не каталог");
     }
 
     public void checkCatalogViewSerialsPage() {
-        Assert.assertEquals("вид страницы не каталог", 0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//div[@data-test='PackageListWrapper']")).size(), "вид страницы не каталог");
     }
     public void checkElementsBlockCollectHistoryWatch() {
         isElementDisplayed(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']"));
@@ -430,8 +430,8 @@ public class SerialsPage extends BasePageWebDriver {
             tailsBlockCollectHistoryWatch = webDriver.findElements(By.xpath("//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//a[@data-test='PackageLink']"));
             tailsBlockCollectHistoryWatch.get(i).click();
             Thread.sleep(3000);
-            Assert.assertEquals("есть контент 18+",0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size());
-            Assert.assertEquals("есть контент не сериал",1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size());
+            Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[text()='Вам уже исполнилось 18 лет?']|//div[contains(text(),'Эротика')]")).size(), "есть контент 18+");
+            Assertions.assertEquals(1, webDriver.findElements(By.xpath("//a[@href='/shows']//span[1]")).size(), "есть контент не сериал");
             webDriver.get(frontend+"shows");
             Thread.sleep(5000);
         }
@@ -442,7 +442,7 @@ public class SerialsPage extends BasePageWebDriver {
         webDriver.get(frontend+"shows");
         System.out.println(nameSerial);
         System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
-        Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
+        Assertions.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[1]")).getText());
     }
 
     public void checkToMoveTailToLastPlace() {
@@ -450,7 +450,7 @@ public class SerialsPage extends BasePageWebDriver {
         webDriver.get(frontend+"shows");
         System.out.println(nameSerial);
         System.out.println(webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
-        Assert.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
+        Assertions.assertEquals("элементы не совпадают", nameSerial, webDriver.findElement(By.xpath("(//a[text()='Продолжить просмотр']/ancestor::div[@data-test='PackageListWrapper']//h3[@data-test='PackageDescriptionTitle'])[last()]")).getText());
     }
 
     public void clickToLastTailBlockCollectHistoryWatch() throws InterruptedException {
@@ -464,7 +464,7 @@ public class SerialsPage extends BasePageWebDriver {
     }
 
     public void checkAbsentBlockCollectHistoryWatch() {
-        Assert.assertEquals("есть подборка 'Продолжить просмотр'", 0, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[@data-test='PackageListWrapperName']//a[text()='Продолжить просмотр']")).size(), "есть подборка 'Продолжить просмотр'");
     }
 
     public void clickOnFastFilterGenre() throws InterruptedException {

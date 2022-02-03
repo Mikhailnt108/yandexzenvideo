@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -44,7 +44,7 @@ public class CardPackage extends BasePageWebDriver {
 
     public void checkOpenCardPackage() throws InterruptedException {
         Thread.sleep(3000);
-        Assert.assertTrue("bug: not opened card package", webDriver.getCurrentUrl().contains("/mixed_groups/"));
+        Assertions.assertTrue(webDriver.getCurrentUrl().contains("/mixed_groups/"), "bug: not opened card package");
     }
 
     public void paymentPackageTnB() throws InterruptedException {
@@ -60,7 +60,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//span[contains(text(),'+792')])[2]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
-        Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        Assertions.assertEquals(webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
@@ -86,7 +86,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//span[contains(text(),'+792')])[2]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
-        Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        Assertions.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
@@ -111,7 +111,7 @@ public class CardPackage extends BasePageWebDriver {
         click(By.xpath("(//span[contains(text(),'+792')])[2]"));
         click(By.xpath("(//span[text()='Управление пакетами и сервисами'])[1]"));
         isElementDisplayed(By.xpath("(//span[text()='Управление пакетами и сервисами'])[3]"));
-        Assert.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
+        Assertions.assertEquals("не тот пакет", webDriver.findElement(By.xpath("(//h3[@class='hhYBfS5SYd9UjRyn3tWgw'])[1]")).getText(),nameConnectedPackage);
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
         click(By.xpath("//button[text()='Отменить']"));
         click(By.xpath("(//div[@class='_3VZmmaWyKgMDD4r5JWyaEI'])[1]"));
@@ -193,7 +193,7 @@ public class CardPackage extends BasePageWebDriver {
     }
 
     public void checkClosePopUpSubsPromoService() {
-        Assert.assertEquals("не закрыт поп-ап",0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на сервис')]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на сервис')]")).size(), "не закрыт поп-ап");
     }
 
     public void clickOnButtonAcceptAndConfirm() throws InterruptedException {
@@ -232,7 +232,7 @@ public class CardPackage extends BasePageWebDriver {
     }
 
     public void checkClosePopUpSubsPromoPackage() {
-        Assert.assertEquals("не закрыт поп-ап",0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на пакет')]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[contains(text(),'Подписка на пакет')]")).size(), "не закрыт поп-ап");
     }
 
     public void clickOnButtonСonfirm() throws InterruptedException {

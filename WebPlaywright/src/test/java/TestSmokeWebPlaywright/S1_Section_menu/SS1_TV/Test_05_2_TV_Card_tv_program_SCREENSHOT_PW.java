@@ -11,7 +11,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 import java.sql.SQLException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "Example3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -20,15 +20,17 @@ public class Test_05_2_TV_Card_tv_program_SCREENSHOT_PW extends TestBasePlaywrig
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("36965361")
     @Test
-    @Tag("SuitePwNonAdWeb#0")
+    @Tag("Example3")
     public void tv_Card_tv_program_SCREENSHOT() throws Exception {
         //неавторизованный пользователь:
+
         cardTvProgramPW.checkImageCardTvProgramForGuest();
         //авторизованный пользователь:
         headerMenuPW.goToNilPage();
         flowRegistationMF();
         cardTvProgramPW.checkImageCardTvProgramForUser();
     }
+//    @Step("flowRegistationMF")
     private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();

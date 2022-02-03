@@ -1,10 +1,11 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.util.List;
 
 public class CardSerial extends BasePageWebDriver {
@@ -24,7 +25,7 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]"));
         String colorButtonFavoriteNotAdded = webDriver.findElement(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK'])[3]")).getCssValue("color");
         System.out.println(colorButtonFavoriteNotAdded);
-        Assert.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorButtonFavoriteNotAdded);
+        Assertions.assertEquals("Не тот цвет","rgba(153, 153, 153, 1)",colorButtonFavoriteNotAdded);
     }
 
     public void clickPaymentButtonInCardSerial() throws InterruptedException {
@@ -59,7 +60,7 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='На весь экран']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         //System.out.println(time2);
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
     }
 
     public void clickToButtonSubscribePackage() throws InterruptedException {
@@ -77,8 +78,8 @@ public class CardSerial extends BasePageWebDriver {
         System.out.println(trailerSeasonSecond.getAttribute("src"));
         WebElement seasonSecond = webDriver.findElement(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         System.out.println(seasonSecond.getAttribute("href"));
-        Assert.assertEquals("видео не одинаковы", trailerSeasonFirst, trailerSeasonSecond);
-        Assert.assertNotEquals("bug:no switching to another season", seasonFirst, seasonSecond);
+        Assertions.assertEquals(trailerSeasonFirst, trailerSeasonSecond, "видео не одинаковы");
+        Assertions.assertNotEquals(seasonFirst, seasonSecond, "bug:no switching to another season");
     }
 
     public void clickToButtonSubscribeInPopUp() throws InterruptedException {
@@ -106,7 +107,7 @@ public class CardSerial extends BasePageWebDriver {
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         System.out.println(time2);
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
     }
 
     public void clickToPauseVideoPleer() throws Exception {
@@ -124,7 +125,7 @@ public class CardSerial extends BasePageWebDriver {
         Thread.sleep(7000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time3 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertEquals(time2, time3);
+        Assertions.assertEquals(time2, time3);
     }
 
     public void clickToPlayVideoPleer() throws Exception {
@@ -136,7 +137,7 @@ public class CardSerial extends BasePageWebDriver {
         Thread.sleep(7000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time5 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time4, time5);
+        Assertions.assertNotEquals(time4, time5);
         Thread.sleep(7000);
     }
 
@@ -148,13 +149,13 @@ public class CardSerial extends BasePageWebDriver {
         String time6 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(7000);
         String time7 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertEquals(time6, time7);
+        Assertions.assertEquals(time6, time7);
         //нажал на пробел - видео запустилось
         actions.sendKeys(Keys.chord(Keys.SPACE)).perform();
         Thread.sleep(7000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time8 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time7, time8);
+        Assertions.assertNotEquals(time7, time8);
     }
 
     public void clickToLeftButtonMouseToVideoPleer() throws Exception {
@@ -166,13 +167,13 @@ public class CardSerial extends BasePageWebDriver {
         String time9 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(7000);
         String time10 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertEquals(time9, time10);
+        Assertions.assertEquals(time9, time10);
         //нажал на левую клавишу мыши - видео запустилось
         click(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"));
         Thread.sleep(7000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time11 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time10, time11);
+        Assertions.assertNotEquals(time10, time11);
     }
 
     public void episodeSliderRewindToVideoPlayer() throws Exception {
@@ -188,7 +189,7 @@ public class CardSerial extends BasePageWebDriver {
         actions.dragAndDropBy(slider, 155, 0).perform();
         Thread.sleep(10000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
     }
 
     public void moveSliderRewindToVideoPlayer() throws InterruptedException {
@@ -204,7 +205,7 @@ public class CardSerial extends BasePageWebDriver {
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("//button[@type='button' and @class='_1y2MwvAuO97Xb0-8ccbmkk']"));
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
         Thread.sleep(3000);
     }
 
@@ -255,7 +256,7 @@ public class CardSerial extends BasePageWebDriver {
             System.out.println("numberTimeAfter:" + numberTimeAfter);
         }
         for (int e = 0; e < time4AllNumber.length; e++){
-            Assert.assertTrue("время меньше отметки стопа видео",time4AllNumber[e] >= time3AllNumber[e]);
+            Assertions.assertTrue(time4AllNumber[e] >= time3AllNumber[e], "время меньше отметки стопа видео");
         }
 
     }
@@ -274,7 +275,7 @@ public class CardSerial extends BasePageWebDriver {
         actions.dragAndDropBy(slider, 450, 0).perform();
         Thread.sleep(10000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
         Thread.sleep(3000);
     }
 
@@ -286,7 +287,7 @@ public class CardSerial extends BasePageWebDriver {
         Thread.sleep(10000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
     }
 
 
@@ -322,7 +323,7 @@ public class CardSerial extends BasePageWebDriver {
 
     public void checkRollUpDescription() {
         isElementDisplayed(By.xpath("//button[text()='Прочитать описание']"));
-        Assert.assertEquals("Текст описания не свернулся", 0, webDriver.findElements(By.xpath("//button[text()='Свернуть']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//button[text()='Свернуть']")).size(), "Текст описания не свернулся");
     }
 
     public void clickToLikeButton() throws InterruptedException {
@@ -330,9 +331,9 @@ public class CardSerial extends BasePageWebDriver {
         int oldCount = Integer.parseInt(countLikeOld.getText());
         System.out.println(oldCount);
         String colorToLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToLike);
         String colorToCountLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToCountLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToCountLike);
         click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]"));
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
@@ -340,11 +341,11 @@ public class CardSerial extends BasePageWebDriver {
         WebElement countLikeNew = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int newCount = Integer.parseInt(countLikeNew.getText());
         System.out.println(newCount);
-        Assert.assertTrue(oldCount < newCount);
+        Assertions.assertTrue(oldCount < newCount);
         String colorMoveToButtonLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[1]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToButtonLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToButtonLike);
         String colorMoveToCountLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToCountLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToCountLike);
     }
 
     public void clickToDisLikeButton() throws InterruptedException {
@@ -353,9 +354,9 @@ public class CardSerial extends BasePageWebDriver {
         WebElement countLikeOld = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int oldCountLike = Integer.parseInt(countLikeOld.getText());
         String colorToDisLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToDisLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToDisLike);
         String colorToCountDisLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToCountDisLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(153, 153, 153, 1)", colorToCountDisLike);
         click(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]"));
         Thread.sleep(3000);
         isElementDisplayed(By.xpath("(//button[@class='_3TTcTpw6F5NxpSgIqK8AbK wkkWkxgKsqx1R8o0ukJPB'])[1]"));
@@ -363,14 +364,14 @@ public class CardSerial extends BasePageWebDriver {
         webDriver.navigate().refresh();
         WebElement countDisLikeNew = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]"));
         int newCountDisLike = Integer.parseInt(countDisLikeNew.getText());
-        Assert.assertTrue(oldCountDisLike < newCountDisLike);
+        Assertions.assertTrue(oldCountDisLike < newCountDisLike);
         WebElement countLikeNew = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[1]"));
         int newCountLike = Integer.parseInt(countLikeNew.getText());
-        Assert.assertTrue(oldCountLike > newCountLike);
+        Assertions.assertTrue(oldCountLike > newCountLike);
         String colorMoveToButtonDisLike = webDriver.findElement(By.xpath("(//button[contains(@class,'_3TTcTpw6F5NxpSgIqK8AbK')])[2]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToButtonDisLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToButtonDisLike);
         String colorMoveToCountDisLike = webDriver.findElement(By.xpath("(//span[@class='GRbXWlAwTd4ARHYlo21od'])[2]")).getCssValue("color");
-        Assert.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToCountDisLike);
+        Assertions.assertEquals("Не тот цвет", "rgba(38, 38, 38, 1)", colorMoveToCountDisLike);
     }
 
     public void paymentSerialAtSubs() throws InterruptedException {
@@ -392,7 +393,7 @@ public class CardSerial extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//a[@href='/shows']//span[1]"));
         System.out.println(webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText());
         String seasonAndEpisode2 = webDriver.findElement(By.xpath("//div[contains(@class,'_2efXVczynhUCLi_CJzGTuL')]")).getText();
-        Assert.assertEquals("отличается сезон", seasonAndEpisode1, seasonAndEpisode2);
+        Assertions.assertEquals("отличается сезон", seasonAndEpisode1, seasonAndEpisode2);
     }
 
     public void checkElementsBlockEpisodes() throws InterruptedException {
@@ -450,9 +451,9 @@ public class CardSerial extends BasePageWebDriver {
         System.out.println(tail5Right);
         System.out.println(tail6Right);
         Thread.sleep(5000);
-        Assert.assertNotEquals(tail1Right, tail4Right);
-        Assert.assertNotEquals(tail2Right, tail5Right);
-        Assert.assertNotEquals(tail3Right, tail6Right);
+        Assertions.assertNotEquals(tail1Right, tail4Right);
+        Assertions.assertNotEquals(tail2Right, tail5Right);
+        Assertions.assertNotEquals(tail3Right, tail6Right);
 
         // разовый скролл подборки влево:
         String tail4Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[4]")).getText();
@@ -463,9 +464,9 @@ public class CardSerial extends BasePageWebDriver {
         String tail2Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[2]")).getText();
         String tail3Left = webDriver.findElement(By.xpath("(//h3[@data-test='PackageDescriptionTitle'])[3]")).getText();
         Thread.sleep(5000);
-        Assert.assertNotEquals(tail1Left, tail4Left);
-        Assert.assertNotEquals(tail2Left, tail5Left);
-        Assert.assertNotEquals(tail3Left, tail6Left);
+        Assertions.assertNotEquals(tail1Left, tail4Left);
+        Assertions.assertNotEquals(tail2Left, tail5Left);
+        Assertions.assertNotEquals(tail3Left, tail6Left);
 
         // скоролл подборки вправо до упора:
         while (webDriver.findElements(By.xpath("(//div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]//button[@data-test='ArrowButtonNext' and @disabled]")).size() < 1) {
@@ -482,7 +483,7 @@ public class CardSerial extends BasePageWebDriver {
     }
 
     public void checkButtonContinueWatching() throws InterruptedException {
-        Assert.assertTrue("not found ButtonContinueWatching", webDriver.findElements(By.xpath("//span[text()='Продолжить просмотр']")).size()==1);
+        Assertions.assertTrue(webDriver.findElements(By.xpath("//span[text()='Продолжить просмотр']")).size()==1, "not found ButtonContinueWatching");
         Actions actions = new Actions(webDriver);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         Thread.sleep(7000);

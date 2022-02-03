@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,11 +30,11 @@ public class CollectionPage extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//h1[text()='Мое']|//h1[text()='Моё']"));
         List<WebElement> countAllTail = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         List<WebElement> countForKids = webDriver.findElements(By.xpath("//span[contains(text(),'Для детей')]"));
-        Assert.assertEquals(countAllTail.size(), countForKids.size());
+        Assertions.assertEquals(countAllTail.size(), countForKids.size());
         System.out.println(countAllTail.size());
         System.out.println(countForKids.size());
         List<WebElement> hrefOnlyVods = webDriver.findElements(By.xpath("//a[@data-test='PackageLink' and contains(@href, '/vods')]"));
-        Assert.assertEquals(countAllTail.size(), hrefOnlyVods.size());
+        Assertions.assertEquals(countAllTail.size(), hrefOnlyVods.size());
         System.out.println(hrefOnlyVods.size());
     }
 

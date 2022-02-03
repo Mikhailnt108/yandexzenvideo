@@ -8,8 +8,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.ElementState;
 import com.microsoft.playwright.options.MouseButton;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
-
+import org.junit.jupiter.api.Assertions;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.io.IOException;
@@ -17,7 +16,8 @@ import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 
-import static base.TestBasePlaywright.*;
+import static base.TestBasePlaywright.pageHeadfull;
+import static base.TestBasePlaywright.vrt;
 import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -1215,41 +1215,41 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("(//div[text()='ТВ'])[1]");
         page.waitForSelector("//div[text()='Передачи в эфире']");
         page.waitForSelector("//div[text()='Программа передач']");
-        Assert.assertTrue(page.url().contains(frontend+"tv/tv_catalog"));
+        Assertions.assertTrue(page.url().contains(frontend+"tv/tv_catalog"));
 
         page.click("(//div[text()='Новое и Лучшее'])[1]");
         page.reload();
         page.waitForSelector("//div[contains(@class,'BannerCarouselItem')]");
-        Assert.assertEquals(frontend, page.url());
+        Assertions.assertEquals(frontend, page.url());
 
         page.click("(//div[text()='Фильмы'])[1]");
         page.waitForSelector("//h1[text()='Фильмы']");
-        Assert.assertEquals(frontend+"movies/vods", page.url());
+        Assertions.assertEquals(frontend+"movies/vods", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Сериалы'])[1]");
         page.waitForSelector("//h1[text()='Сериалы']");
-        Assert.assertEquals(frontend+"shows", page.url());
+        Assertions.assertEquals(frontend+"shows", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Детям'])[1]");
         page.waitForSelector("//span[text()='Детям']");
-        Assert.assertEquals(frontend+"kids", page.url());
+        Assertions.assertEquals(frontend+"kids", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Спорт'])[1]");
         page.waitForSelector("//h1[text()='Спорт']");
-        Assert.assertEquals(frontend+"sport", page.url());
+        Assertions.assertEquals(frontend+"sport", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Магазин'])[1]");
         page.waitForSelector("//span[text()='Магазин']");
         page.waitForSelector("//div[text()='Все пакеты']");
-        Assert.assertEquals(frontend+"packages", page.url());
+        Assertions.assertEquals(frontend+"packages", page.url());
         page.navigate(frontend);
         page.reload();
 
@@ -1295,7 +1295,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void choosePromoCodeAndCheckImageWidePageNilGuest() throws IOException, InterruptedException {
         page.click("(//div[text()='Промокод'])[1]");
         page.waitForSelector("//h1[text()='Введите промокод']");
-        Assert.assertEquals(frontend+"promocodes", page.url());
+        Assertions.assertEquals(frontend+"promocodes", page.url());
         sleep(5000);
         vrt.track(
                 "widePagePromoCodeGuest",
@@ -1397,41 +1397,41 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.waitForSelector("//div[text()='Передачи в эфире']");
         page.waitForSelector("//div[text()='Программа передач']");
-        Assert.assertTrue(page.url().contains(frontend+"tv/tv_catalog"));
+        Assertions.assertTrue(page.url().contains(frontend+"tv/tv_catalog"));
 
         page.click("(//div[text()='Новое и Лучшее'])[1]");
         page.reload();
         page.waitForSelector("//div[contains(@class,'BannerCarouselItem')]");
-        Assert.assertEquals(frontend, page.url());
+        Assertions.assertEquals(frontend, page.url());
 
         page.click("(//div[text()='Фильмы'])[1]");
         page.waitForSelector("//h1[text()='Фильмы']");
-        Assert.assertEquals(frontend+"movies/vods", page.url());
+        Assertions.assertEquals(frontend+"movies/vods", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Сериалы'])[1]");
         page.waitForSelector("//h1[text()='Сериалы']");
-        Assert.assertEquals(frontend+"shows", page.url());
+        Assertions.assertEquals(frontend+"shows", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Детям'])[1]");
         page.waitForSelector("//span[text()='Детям']");
-        Assert.assertEquals(frontend+"kids", page.url());
+        Assertions.assertEquals(frontend+"kids", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Спорт'])[1]");
         page.waitForSelector("//h1[text()='Спорт']");
-        Assert.assertEquals(frontend+"sport", page.url());
+        Assertions.assertEquals(frontend+"sport", page.url());
         page.navigate(frontend);
         page.reload();
 
         page.click("(//div[text()='Магазин'])[1]");
         page.waitForSelector("//span[text()='Магазин']");
         page.waitForSelector("//div[text()='Все пакеты']");
-        Assert.assertEquals(frontend+"packages", page.url());
+        Assertions.assertEquals(frontend+"packages", page.url());
         page.navigate(frontend);
         page.reload();
 
@@ -1444,7 +1444,7 @@ public class NiLPagePW extends BasePagePlaywright {
 
         page.click("(//div[text()='Моё'])[1]");
         page.waitForSelector("//div[text()='Избранное']");
-        Assert.assertEquals(frontend+"my/favorites", page.url());
+        Assertions.assertEquals(frontend+"my/favorites", page.url());
         page.navigate(frontend);
         page.reload();
     }
@@ -1485,7 +1485,7 @@ public class NiLPagePW extends BasePagePlaywright {
     public void choosePromoCodeAndCheckImageWidePageNilUser() throws InterruptedException, IOException {
         page.click("(//div[text()='Промокод'])[1]");
         page.waitForSelector("//h1[text()='Введите промокод']");
-        Assert.assertEquals(frontend+"promocodes", page.url());
+        Assertions.assertEquals(frontend+"promocodes", page.url());
         sleep(5000);
         ElementHandle userLogin = page.querySelector("(//span[@class='ch-trigger__title ch-trigger__title_view_lk'])[2]");
         page.evaluate("uL => uL.innerText='+79260010101'", userLogin);
@@ -1576,28 +1576,28 @@ public class NiLPagePW extends BasePagePlaywright {
             page.click("//button[text()='Закрыть']");
         }
         page.waitForSelector("//h1//span[text()='Акции']");
-        Assert.assertEquals(frontend+"profile/promotions", page.url());
+        Assertions.assertEquals(frontend+"profile/promotions", page.url());
         page.navigate(frontend);
 
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
         page.click("(//span[text()='Способы оплаты'])[1]");
         page.waitForSelector("//h1//span[text()='Способы оплаты']");
-        Assert.assertEquals(frontend+"profile/payment_methods", page.url());
+        Assertions.assertEquals(frontend+"profile/payment_methods", page.url());
         page.navigate(frontend);
         sleep(3000);
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
         page.click("(//span[text()='Подключить SmartTV'])[1]");
         page.waitForSelector("//h1[text()='Подключить ТВ']");
-        Assert.assertEquals(frontend+"connect_smart_tv", page.url());
+        Assertions.assertEquals(frontend+"connect_smart_tv", page.url());
         page.navigate(frontend);
         sleep(3000);
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
         page.waitForSelector("(//div[@class='ch-drop-down__popup'])[3]");
         page.click("(//span[text()='Управление пакетами и сервисами'])[1]");
         page.waitForSelector("(//span[text()='Управление пакетами и сервисами'])[3]");
-        Assert.assertEquals(frontend+"profile/subscription_management", page.url());
+        Assertions.assertEquals(frontend+"profile/subscription_management", page.url());
         page.navigate(frontend);
         sleep(3000);
         page.click("(//button[contains(@class,'ch-account-controller')])[2]");
@@ -1622,10 +1622,10 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_genre')]");
         List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
 
-        Assert.assertEquals(titleContentAll.size(), banners.size());
-        Assert.assertEquals(postersSourceWEBP.size(), banners.size());
-        Assert.assertEquals(yearAndGenres.size(), banners.size());
-        Assert.assertEquals(ages.size(), banners.size());
+        Assertions.assertEquals(titleContentAll.size(), banners.size());
+        Assertions.assertEquals(postersSourceWEBP.size(), banners.size());
+        Assertions.assertEquals(yearAndGenres.size(), banners.size());
+        Assertions.assertEquals(ages.size(), banners.size());
     }
 
     public void checkImageBannerMinPageNilGuest() throws IOException, InterruptedException {
@@ -1664,16 +1664,14 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkElementsBannerMinPageNilGuest() {
         page.waitForSelector("//div[contains(@class,'carousel')]");
         List<ElementHandle> banners = page.querySelectorAll("//div[contains(@class,'BannerCarouselItem_bannerWrap')]");
-
         List<ElementHandle> titleContentAll = page.querySelectorAll("//h2[contains(@class,'BannerCarouselItem_title')]");
         List<ElementHandle> postersSourceWEBP = page.querySelectorAll("//picture[contains(@class,'BannerCarousel')]//source[@media='(min-width: 320px)' and @type='image/webp']");
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_genre')]");
         List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
-
-        Assert.assertEquals(titleContentAll.size(), banners.size());
-        Assert.assertEquals(postersSourceWEBP.size(), banners.size());
-        Assert.assertEquals(yearAndGenres.size(), banners.size());
-        Assert.assertEquals(ages.size(), banners.size());
+        Assertions.assertEquals(titleContentAll.size(), banners.size());
+        Assertions.assertEquals(postersSourceWEBP.size(), banners.size());
+        Assertions.assertEquals(yearAndGenres.size(), banners.size());
+        Assertions.assertEquals(ages.size(), banners.size());
     }
 
     public void checkImageBannerMediumPageNilGuest() throws IOException, InterruptedException {
@@ -1723,12 +1721,12 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> buttonTrailer = page.querySelectorAll("//a[contains(@class,'buttonWatch' ) and text()='Трейлер']");
         List<ElementHandle> buttonFavorite = page.querySelectorAll("//button[contains(@class,'buttonFavourite')]");
 
-        Assert.assertEquals(titleContentAll.size(), banners.size());
-        Assert.assertEquals(postersSourceWEBP.size(), banners.size());
-        Assert.assertEquals(yearAndGenres.size(), banners.size());
-        Assert.assertEquals(ages.size(), banners.size());
-        Assert.assertEquals(buttonTrailer.size(), banners.size());
-        Assert.assertEquals(buttonFavorite.size(), banners.size());
+        Assertions.assertEquals(titleContentAll.size(), banners.size());
+        Assertions.assertEquals(postersSourceWEBP.size(), banners.size());
+        Assertions.assertEquals(yearAndGenres.size(), banners.size());
+        Assertions.assertEquals(ages.size(), banners.size());
+        Assertions.assertEquals(buttonTrailer.size(), banners.size());
+        Assertions.assertEquals(buttonFavorite.size(), banners.size());
     }
 
     public void checkImageBannerWidePageNilGuest() throws IOException, InterruptedException {
@@ -1773,10 +1771,10 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_genre')]");
         List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
 
-        Assert.assertEquals(titleContentAll.size(), banners.size());
-        Assert.assertEquals(postersSourceWEBP.size(), banners.size());
-        Assert.assertEquals(yearAndGenres.size(), banners.size());
-        Assert.assertEquals(ages.size(), banners.size());
+        Assertions.assertEquals(titleContentAll.size(), banners.size());
+        Assertions.assertEquals(postersSourceWEBP.size(), banners.size());
+        Assertions.assertEquals(yearAndGenres.size(), banners.size());
+        Assertions.assertEquals(ages.size(), banners.size());
     }
 
     public void checkImageBannerMinPageNilUser() throws IOException, InterruptedException {
@@ -1819,10 +1817,10 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> yearAndGenres = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_genre')]");
         List<ElementHandle> ages = page.querySelectorAll("//span[contains(@class,'BannerCarouselItem_parentalRating')]");
 
-        Assert.assertEquals(titleContentAll.size(), banners.size());
-        Assert.assertEquals(postersSourceWEBP.size(), banners.size());
-        Assert.assertEquals(yearAndGenres.size(), banners.size());
-        Assert.assertEquals(ages.size(), banners.size());
+        Assertions.assertEquals(titleContentAll.size(), banners.size());
+        Assertions.assertEquals(postersSourceWEBP.size(), banners.size());
+        Assertions.assertEquals(yearAndGenres.size(), banners.size());
+        Assertions.assertEquals(ages.size(), banners.size());
     }
 
     public void checkImageBannerMediumPageNilUser() throws IOException, InterruptedException {
@@ -1872,12 +1870,12 @@ public class NiLPagePW extends BasePagePlaywright {
         List<ElementHandle> buttonTrailer = page.querySelectorAll("//a[contains(@class,'buttonWatch' ) and text()='Трейлер']");
         List<ElementHandle> buttonFavorite = page.querySelectorAll("//button[contains(@class,'buttonFavourite')]");
 
-        Assert.assertEquals(titleContentAll.size(), banners.size());
-        Assert.assertEquals(postersSourceWEBP.size(), banners.size());
-        Assert.assertEquals(yearAndGenres.size(), banners.size());
-        Assert.assertEquals(ages.size(), banners.size());
-        Assert.assertEquals(buttonTrailer.size(), banners.size());
-        Assert.assertEquals(buttonFavorite.size(), banners.size());
+        Assertions.assertEquals(titleContentAll.size(), banners.size());
+        Assertions.assertEquals(postersSourceWEBP.size(), banners.size());
+        Assertions.assertEquals(yearAndGenres.size(), banners.size());
+        Assertions.assertEquals(ages.size(), banners.size());
+        Assertions.assertEquals(buttonTrailer.size(), banners.size());
+        Assertions.assertEquals(buttonFavorite.size(), banners.size());
     }
 
     public void checkImageBannerWidePageNilUser() throws IOException, InterruptedException {
@@ -2212,7 +2210,7 @@ public class NiLPagePW extends BasePagePlaywright {
             page.click("//button[@aria-label='next']");
             String nameContentNext = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
             System.out.println(nameContentNext);
-            Assert.assertNotEquals(nameContentCurrent, nameContentNext);
+            Assertions.assertNotEquals(nameContentCurrent, nameContentNext);
         }
     }
 
@@ -2223,7 +2221,7 @@ public class NiLPagePW extends BasePagePlaywright {
             page.click("//button[@aria-label='previous']");
             String nameContentPrevious = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
             System.out.println(nameContentPrevious);
-            Assert.assertNotEquals(nameContentCurrent, nameContentPrevious);
+            Assertions.assertNotEquals(nameContentCurrent, nameContentPrevious);
         }
     }
 
@@ -2234,8 +2232,8 @@ public class NiLPagePW extends BasePagePlaywright {
         String nameContentLast = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
         page.click("//button[@aria-label='next']");
         String nameContentCurrent = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
-        Assert.assertNotEquals(nameContentLast, nameContentCurrent);
-        Assert.assertEquals(nameContentCurrent, nameContentFirst);
+        Assertions.assertNotEquals(nameContentLast, nameContentCurrent);
+        Assertions.assertEquals(nameContentCurrent, nameContentFirst);
     }
 
     public void checkScrollFirstBannerToLeft() {
@@ -2243,7 +2241,7 @@ public class NiLPagePW extends BasePagePlaywright {
         String nameContentFirst = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
         page.click("//button[@aria-label='previous']");
         String nameContentLast = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
-        Assert.assertNotEquals(nameContentLast, nameContentFirst);
+        Assertions.assertNotEquals(nameContentLast, nameContentFirst);
     }
 
 
@@ -2340,7 +2338,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertEquals(nameFilmAdd, page.querySelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertEquals(nameFilmAdd, page.querySelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
     }
 
 
@@ -2354,13 +2352,13 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("//a[contains(@href,'/shows/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         sleep(2000);
         String nameSerialAdd = page.querySelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
-        Assert.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() > 0);
+        Assertions.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() > 0);
 //        System.out.println(page.querySelector("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]").getAttribute("color"));
 //        System.out.println(page.querySelector("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]").getAttribute("background"));
 
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertEquals(nameSerialAdd, page.querySelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertEquals(nameSerialAdd, page.querySelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
     }
 
     public void checkAddToFavoriteTvProgramFromBannerUser() throws InterruptedException {
@@ -2372,10 +2370,10 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         String nameTvProgramAdd = page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
-        Assert.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() > 0);
+        Assertions.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() > 0);
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertEquals(nameTvProgramAdd, page.querySelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertEquals(nameTvProgramAdd, page.querySelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
     }
 
     public void checkAddToFavoriteTvChannelFromBannerUser() {
@@ -2387,10 +2385,10 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         page.click("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]");
         String nameTvProgramAdd = page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//h2[contains(@class,'BannerCarouselItem_title')]").innerText();
-        Assert.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() > 0);
+        Assertions.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() > 0);
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertEquals(nameTvProgramAdd, page.querySelector("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertEquals(nameTvProgramAdd, page.querySelector("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
     }
 
     public void checkRemoveToFavoriteFilmFromBannerUser() {
@@ -2401,10 +2399,10 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.waitForSelector("//a[contains(@href,'/vods/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
         page.click("//a[contains(@href,'/vods/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
-        Assert.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/vods/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/vods/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
     }
 
     public void checkRemoveToFavoriteSerialFromBannerUser() {
@@ -2415,10 +2413,10 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.waitForSelector("//a[contains(@href,'/shows/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
         page.click("//a[contains(@href,'/shows/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
-        Assert.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
     }
 
     public void checkRemoveToFavoriteTvProgramFromBannerUser() {
@@ -2429,10 +2427,10 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.waitForSelector("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
         page.click("//a[contains(@href,'/programs/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
-        Assert.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
     }
 
     public void checkRemoveToFavoriteTvChannelFromBannerUser() {
@@ -2443,10 +2441,10 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.waitForSelector("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
         page.click("//a[contains(@href,'/tv/channels/')]/ancestor::li[contains(@class,'carousel__slide--visible')]//*[contains(@class,'iconFavouriteActive')]");
-        Assert.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//li[contains(@class,'carousel__slide--visible')]//button[contains(@class,'buttonFavourite')]//*[contains(@class,'iconFavouriteActive')]").size() < 1);
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
     }
 
     public void clickToButtonTrailerFilmOnBanner() {
@@ -2458,7 +2456,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.click("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.waitForSelector("//span[text()='Фильмы']");
-        Assert.assertTrue(page.url().contains("/movies/vods/"));
+        Assertions.assertTrue(page.url().contains("/movies/vods/"));
     }
 
     public void clickToButtonTrailerSerialOnBanner() throws InterruptedException {
@@ -2470,7 +2468,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.click("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.waitForSelector("//span[text()='Сериалы']");
-        Assert.assertTrue(page.url().contains("/shows/"));
+        Assertions.assertTrue(page.url().contains("/shows/"));
     }
 
     public void clickToButtonTrailerTvProgramOnBanner() {
@@ -2482,7 +2480,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.click("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.waitForSelector("//span[text()='ТВ']");
-        Assert.assertTrue(page.url().contains("/programs/"));
+        Assertions.assertTrue(page.url().contains("/programs/"));
         page.waitForSelector("//div[contains(@style,'background-image: url')]");
     }
 
@@ -2501,7 +2499,7 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.click("//li[contains(@class,'carousel__slide--visible')]//a[contains(@class,'buttonWatch') and text()='Трейлер']");
         page.waitForSelector("//span[text()='ТВ']");
-        Assert.assertTrue(page.url().contains("/tv/channels/"));
+        Assertions.assertTrue(page.url().contains("/tv/channels/"));
         page.waitForSelector("//div[contains(@style,'background-image: url')]");
     }
 
@@ -2513,7 +2511,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.click("//div[contains(@class,'BannerCarouselItem_bannerWrap')]//a[contains(@href,'/vods/')]");
         page.waitForSelector("//span[text()='Фильмы']");
-        Assert.assertTrue(page.url().contains("/movies/vods/"));
+        Assertions.assertTrue(page.url().contains("/movies/vods/"));
     }
 
     public void clickOnBannerSerial() {
@@ -2524,7 +2522,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.click("//div[contains(@class,'BannerCarouselItem_bannerWrap')]//a[contains(@href,'/shows/')]");
         page.waitForSelector("//span[text()='Сериалы']");
-        Assert.assertTrue(page.url().contains("/shows/"));
+        Assertions.assertTrue(page.url().contains("/shows/"));
 
     }
 
@@ -2536,7 +2534,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.click("//div[contains(@class,'BannerCarouselItem_bannerWrap')]//a[contains(@href,'/programs/')]");
         page.waitForSelector("//span[text()='ТВ']");
-        Assert.assertTrue(page.url().contains("/programs/"));
+        Assertions.assertTrue(page.url().contains("/programs/"));
         page.waitForSelector("//div[contains(@style,'background-image: url')]");
     }
 
@@ -2548,7 +2546,7 @@ public class NiLPagePW extends BasePagePlaywright {
         }
         page.click("//div[contains(@class,'BannerCarouselItem_bannerWrap')]//a[contains(@href,'/tv/channels/')]");
         page.waitForSelector("//span[text()='ТВ']");
-        Assert.assertTrue(page.url().contains("/tv/channels/"));
+        Assertions.assertTrue(page.url().contains("/tv/channels/"));
         page.waitForSelector("//div[contains(@style,'background-image: url')]");
     }
 
@@ -2559,11 +2557,11 @@ public class NiLPagePW extends BasePagePlaywright {
         sleep(5000);
         List<ElementHandle> collectionAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]");
         List<ElementHandle> titleCollectionFilmsOrSerialsOrTvProgramAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
-        Assert.assertEquals(collectionAll.size(), titleCollectionFilmsOrSerialsOrTvProgramAll.size());
+        Assertions.assertEquals(collectionAll.size(), titleCollectionFilmsOrSerialsOrTvProgramAll.size());
         List<ElementHandle> arrowsPreviousAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//button[@aria-label='show previous content']");
-        Assert.assertEquals(arrowsPreviousAll.size(), collectionAll.size());
+        Assertions.assertEquals(arrowsPreviousAll.size(), collectionAll.size());
         List<ElementHandle> arrowsNextAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//button[@aria-label='show next content']");
-        Assert.assertEquals(arrowsNextAll.size(), collectionAll.size());
+        Assertions.assertEquals(arrowsNextAll.size(), collectionAll.size());
         page.querySelector("//section[contains(@class,'HomePage_collection')]");
         List<ElementHandle> tailAllExceptTvAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[@href and contains(@class,'TilePackageCommon_tile')]");
         page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
@@ -2574,7 +2572,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle tailAllExceptTv : tailAllExceptTvAll) {
             tailAllExceptTv.scrollIntoViewIfNeeded();
             tailAllExceptTv.waitForSelector("//picture[contains(@class,'TilePackageCommon_image')]");
-            Assert.assertEquals(1, tailAllExceptTv.querySelectorAll("//picture[contains(@class,'TilePackageCommon_image')]").size());
+            Assertions.assertEquals(1, tailAllExceptTv.querySelectorAll("//picture[contains(@class,'TilePackageCommon_image')]").size());
         }
     }
 
@@ -3058,7 +3056,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle tile : tileAll) {
             tile.hover();
             if (page.querySelectorAll("//span[contains(@class,'MediaScroller_lastChild')]//div[contains(@class,'TileOverlay')]").size() > 0) {
-                Assert.assertTrue("bug: arrow next not disabled", page.waitForSelector("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']").isDisabled());
+                Assertions.assertTrue(page.waitForSelector("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']").isDisabled(), "bug: arrow next not disabled");
                 break;
             }
             page.click("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']");
@@ -3548,8 +3546,8 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle lastTile = page.querySelector("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]");
         for (ElementHandle tile : tileAll) {
             if (page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//a[contains(@href,'/mixed_groups/')]").size() > 0) {
-                Assert.assertTrue("bug: there is no package TV channels", page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//a[contains(@href,'/mixed_groups/')]").size() > 0);
-                Assert.assertTrue("bug: there is no package TV channels", page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//span[contains(@class,'desc') and contains(text(),'канал')]").size() > 0);
+                Assertions.assertTrue(page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//a[contains(@href,'/mixed_groups/')]").size() > 0, "bug: there is no package TV channels");
+                Assertions.assertTrue(page.querySelectorAll("(//div[contains(@class,'TileChannelPackage')]/ancestor::section//span[contains(@class,'MediaScroller_lastChild')])[1]//span[contains(@class,'desc') and contains(text(),'канал')]").size() > 0, "bug: there is no package TV channels");
                 break;
             }
             page.click("(//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[@aria-label='show next content'])[1]");
@@ -3568,7 +3566,7 @@ public class NiLPagePW extends BasePagePlaywright {
             posterTvChannel.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
         }
         tileTvChannel.hover();
-        Assert.assertTrue("bug: no favorite button on TV channel tile hover", page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[contains(@class,'favouriteButton')]").size() > 0);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[contains(@class,'favouriteButton')]").size() > 0, "bug: no favorite button on TV channel tile hover");
         sleep(2000);
         // подготовка выделенного тайла:
         ElementHandle posterHoverTile = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//source)[1]");
@@ -3597,7 +3595,7 @@ public class NiLPagePW extends BasePagePlaywright {
             posterTvChannel.evaluate("p => p.setAttribute('srcset', 'https://static-sesure.cdn.megafon.tv/images/Channel/00/bb/5a5b58325e9ca580a969154d740a62050ad6/logo_tile__web-wp.png')");
         }
         tileTvChannel.hover();
-        Assert.assertTrue("bug: no favorite button on TV channel tile hover", page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[contains(@class,'favouriteButton')]").size() > 0);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/tv/channels/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[contains(@class,'favouriteButton')]").size() > 0, "bug: no favorite button on TV channel tile hover");
         sleep(2000);
         // подготовка выделенного тайла:
         ElementHandle posterHoverTile = page.querySelector("(//a[contains(@href,'/tv/channels/') and contains(@class, 'TileChannelPackage')]//source)[1]");
@@ -3619,11 +3617,11 @@ public class NiLPagePW extends BasePagePlaywright {
         sleep(5000);
         List<ElementHandle> collectionPackagesAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//a//h2[contains(@class,'MediaScroller_title')]");
         List<ElementHandle> titleCollectionPackagesAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//h2[contains(@class,'MediaScroller_title')]");
-        Assert.assertEquals(titleCollectionPackagesAll.size(), collectionPackagesAll.size());
+        Assertions.assertEquals(titleCollectionPackagesAll.size(), collectionPackagesAll.size(), "bug: no favorite button on TV channel tile hover");
         List<ElementHandle> arrowsPreviousAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[@aria-label='show previous content']");
-        Assert.assertEquals(arrowsPreviousAll.size(), collectionPackagesAll.size());
+        Assertions.assertEquals(arrowsPreviousAll.size(), collectionPackagesAll.size(), "bug: no favorite button on TV channel tile hover");
         List<ElementHandle> arrowsNextAll = page.querySelectorAll("//a[contains(@href, '/mixed_groups/')]/ancestor::section[contains(@class,'HomePage_collection')]//button[@aria-label='show next content']");
-        Assert.assertEquals(arrowsNextAll.size(), collectionPackagesAll.size());
+        Assertions.assertEquals(arrowsNextAll.size(), collectionPackagesAll.size(), "bug: no favorite button on TV channel tile hover");
 
         List<ElementHandle> tailPackageAll = page.querySelectorAll("//section[contains(@class,'HomePage_collection')]//a[contains(@href,'/mixed_groups/') and contains(@class,'TilePackageCommon_tile')]");
         page.evaluate("window.scrollTo(0, document.body.scrollHeight);");
@@ -3634,7 +3632,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle tailPackage : tailPackageAll) {
             tailPackage.scrollIntoViewIfNeeded();
             tailPackage.waitForSelector("//picture[contains(@class,'TilePackageCommon_image')]");
-            Assert.assertEquals(1, tailPackage.querySelectorAll("//picture[contains(@class,'TilePackageCommon_image')]").size());
+            Assertions.assertEquals(1, tailPackage.querySelectorAll("//picture[contains(@class,'TilePackageCommon_image')]").size(), "bug: no favorite button on TV channel tile hover");
         }
     }
 
@@ -3722,7 +3720,7 @@ public class NiLPagePW extends BasePagePlaywright {
         // нет картинок в тайлах подборок в подбороке
         List<ElementHandle> tilesCinCall = page.querySelectorAll("//section//div[contains(@class,'TileTriple_children')]");
         List<ElementHandle> tilesCinCposterAll = page.querySelectorAll("//section//div[contains(@class,'TileTriple_children')]//source");
-        Assert.assertEquals("bug: no poster on tile collection in collection", tilesCinCall.size(), tilesCinCposterAll.size());
+        Assertions.assertEquals(tilesCinCall.size(), tilesCinCposterAll.size(), "bug: no poster on tile collection in collection");
     }
 
     public void clickOnButtonFavoriteFilmCollectionGuest() {
@@ -3796,7 +3794,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertEquals(nameFilmAdd, page.querySelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertEquals(nameFilmAdd, page.querySelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: no poster on tile collection in collection");
     }
 
     public void clickOnButtonFavoriteAndCheckAddFavoriteSerial() throws IOException, InterruptedException {
@@ -3836,7 +3834,7 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertEquals(nameSerialAdd, page.querySelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertEquals(nameSerialAdd, page.querySelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: no poster on tile collection in collection");
     }
 
     public void clickOnButtonFavoriteAndCheckAddFavoriteTvProgram() throws IOException, InterruptedException {
@@ -3880,37 +3878,37 @@ public class NiLPagePW extends BasePagePlaywright {
                         .build());
         // проверка добавления фильма в избранное:
         page.navigate(frontend+"my/favorites");
-        Assert.assertEquals(nameTvChannelAdd, page.querySelector("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertEquals(nameTvChannelAdd, page.querySelector("//a[contains(@href,'/tv/channels/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: no poster on tile collection in collection");
     }
 
     public void checkRemoveToFavoriteFilmFromCollection() throws InterruptedException {
         ElementHandle tileFilm = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/movies/vods/')][1]");
         tileFilm.hover();
-        Assert.assertTrue("bug: not active icon favorite", page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible());
+        Assertions.assertTrue(page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible(), "bug: not active icon favorite");
         page.click("//button[contains(@class,'buttonFavorite')]");
         page.waitForSelector("//button//*[contains(@class,'iconFavourite')]");
         page.navigate(frontend+"my/favorites");
-        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/vods/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/vods/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1, "bug: not active icon favorite");
     }
 
     public void checkRemoveToFavoriteSerialFromCollection() {
         ElementHandle tileSerial = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/shows/')][1]");
         tileSerial.hover();
-        Assert.assertTrue("bug: not active icon favorite", page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible());
+        Assertions.assertTrue(page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible(), "bug: not active icon favorite");
         page.click("//button[contains(@class,'buttonFavorite')]");
         page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
         page.navigate(frontend+"my/favorites");
-        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
     }
 
     public void checkRemoveToFavoriteTvProgramFromCollection() {
         ElementHandle tileTvProgram = page.waitForSelector("//section[contains(@class,'HomePage_collection')]//a[contains(@href, '/programs/')][1]");
         tileTvProgram.hover();
-        Assert.assertTrue("bug: not active icon favorite", page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible());
+        Assertions.assertTrue(page.querySelector("//button//*[contains(@class,'iconFavouriteActive')]").isVisible(), "bug: not active icon favorite");
         page.click("//button[contains(@class,'buttonFavorite')]");
         page.waitForSelector("//button[contains(@class,'buttonNoFocus')]//*[contains(@class,'iconFavourite')]");
         page.navigate(frontend+"my/favorites");
-        Assert.assertTrue(page.querySelectorAll("//a[contains(@href,'/channels/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
+        Assertions.assertTrue(page.querySelectorAll("//a[contains(@href,'/channels/')]//h3[@data-test='PackageDescriptionTitle']").size() < 1);
     }
 
     public void checkImageBlockCollectHistoryWatchOnNilPage() throws IOException, InterruptedException {
@@ -3972,7 +3970,7 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle titleCollectionAfterElement = page.waitForSelector("(//h2[@class='MediaScroller_title__3LXbw'])[1]");
         String titleCollectionAfterName = titleCollectionAfterElement.innerText();
         System.out.println(titleCollectionAfterName);
-        Assert.assertNotEquals("bug: not applied content cold popular vector", titleCollectionBeforeName, titleCollectionAfterName);
+        Assertions.assertNotEquals(titleCollectionBeforeName, titleCollectionAfterName, "bug: not applied content cold popular vector");
     }
 
     public void clickOnTitleEditCollectionAndCheckOpenCollectionPage() throws InterruptedException {
@@ -3984,41 +3982,41 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle titleCollectionAfterElement = page.waitForSelector("//h1[text()]");
         String titleCollectionAfterName = titleCollectionAfterElement.innerText();
         List<ElementHandle> tilesAfterAll = page.querySelectorAll("//a[@data-test='PackageLink']");
-        Assert.assertEquals("bug: titles of the collections do not match", titleCollectionBeforeName, titleCollectionAfterName);
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"collection"));
-        Assert.assertTrue("bug: size tiles collection do not match", tilesAfterAll.size() >= tilesBeforeAll.size());
+        Assertions.assertEquals(titleCollectionBeforeName, titleCollectionAfterName, "bug: titles of the collections do not match");
+        Assertions.assertTrue(page.url().contains(frontend+"collection"), "bug: not opened page collection");
+        Assertions.assertTrue(tilesAfterAll.size() >= tilesBeforeAll.size(), "bug: size tiles collection do not match");
     }
 
     public void clickToTileFilmCollectionAndCheckOpenCardFilm() {
         ElementHandle tileFilmName = page.querySelector("(//h2[contains(@class,'MediaScroller_title') and text()='Новое'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         String nameFilmAdd = tileFilmName.innerText();
         page.click("(//h2[contains(@class,'MediaScroller_title') and text()='Новое'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/vods/')]");
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"movies/vods/"));
-        Assert.assertEquals("bug: name film do not match", nameFilmAdd, page.querySelector("//h1[text()]").innerText());
+        Assertions.assertTrue(page.url().contains(frontend+"movies/vods/"), "bug: not opened page collection");
+        Assertions.assertEquals(nameFilmAdd, page.querySelector("//h1[text()]").innerText(), "bug: name film do not match");
     }
 
     public void clickToTileSerialCollectionAndCheckOpenCardSerial() {
         ElementHandle tileSerialName = page.querySelector("(//h2[contains(@class,'MediaScroller_title') and text()='Новое'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         String nameSerialText = tileSerialName.innerText();
         page.click("(//h2[contains(@class,'MediaScroller_title') and text()='Новое'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/shows/')]");
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"shows/"));
-        Assert.assertEquals("bug: name serial do not match", nameSerialText, page.querySelector("//h1[text()]").innerText());
+        Assertions.assertTrue(page.url().contains(frontend+"shows/"), "bug: not opened page collection");
+        Assertions.assertEquals(nameSerialText, page.querySelector("//h1[text()]").innerText(), "bug: name serial do not match");
     }
 
     public void clickToTileTvProgramCollectionAndCheckOpenCardTvProgram() {
         ElementHandle tileTvProgramName = page.querySelector("(//h2[contains(@class,'MediaScroller_title') and text()='Детям'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         String nameTvProgramText = tileTvProgramName.innerText();
         page.click("(//h2[contains(@class,'MediaScroller_title') and text()='Детям'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/programs/')]");
-        Assert.assertTrue("bug: not opened page collection", page.url().contains("/programs/"));
-        Assert.assertEquals("bug: name tv program do not match", nameTvProgramText, page.querySelector("//h1[text()]").innerText());
+        Assertions.assertTrue(page.url().contains("/programs/"), "bug: not opened page collection");
+        Assertions.assertEquals(nameTvProgramText, page.querySelector("//h1[text()]").innerText(), "bug: name tv program do not match");
     }
 
     public void clickToTileTvChannelCollectionAndCheckOpenCardTvChannel() throws InterruptedException {
         ElementHandle tileTvProgramLink = page.querySelector("(//h2[contains(@class,'MediaScroller_title') and text()='Популярные телеканалы'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/channels/') and contains(@class,'TileChannelPackage_tile')][1]");
         String linkTvProgramText = tileTvProgramLink.getAttribute("href");
         page.click("(//h2[contains(@class,'MediaScroller_title') and text()='Популярные телеканалы'])[1]/ancestor::section[contains(@class,'HomePage_collection')]//a[contains(@href,'/channels/')]");
-        Assert.assertTrue("bug: not opened page collection", page.url().contains("/channels/"));
-        Assert.assertTrue("bug: tv channel do not match", page.url().contains(linkTvProgramText));
+        Assertions.assertTrue(page.url().contains("/channels/"), "bug: not opened page collection");
+        Assertions.assertTrue(page.url().contains(linkTvProgramText), "bug: tv channel do not match");
     }
 
     public void clickOnTitleAfCollectionAndCheckOpenCollectionPage() throws InterruptedException {
@@ -4030,9 +4028,9 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle titleCollectionAfterElement = page.waitForSelector("//h1[text()]");
         String titleCollectionAfterName = titleCollectionAfterElement.innerText();
         List<ElementHandle> tilesAfterAll = page.querySelectorAll("//a[@data-test='PackageLink']");
-        Assert.assertEquals("bug: titles of the collections do not match", titleCollectionBeforeName, titleCollectionAfterName);
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"collection"));
-        Assert.assertTrue("bug: size tiles collection do not match", tilesAfterAll.size() >= tilesBeforeAll.size());
+        Assertions.assertEquals(titleCollectionBeforeName, titleCollectionAfterName, "bug: titles of the collections do not match");
+        Assertions.assertTrue(page.url().contains(frontend+"collection"), "bug: not opened page collection");
+        Assertions.assertTrue(tilesAfterAll.size() >= tilesBeforeAll.size(), "bug: size tiles collection do not match");
     }
 
     public void scrollAfCollectAndCheckLastTileShowAll() {
@@ -4041,7 +4039,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle tile : tileAll) {
             tile.hover();
             if (page.querySelector("//h2[text()='Лучшее в подписке']/ancestor::section//span[contains(@class,'lastChild')]").isVisible()) {
-                Assert.assertTrue("bug: not visible element", page.querySelectorAll("//h2[text()='Лучшее в подписке']/ancestor::section//span[contains(@class,'lastChild') and text()='Смотреть все']").size() > 0);
+                Assertions.assertTrue(page.querySelectorAll("//h2[text()='Лучшее в подписке']/ancestor::section//span[contains(@class,'lastChild') and text()='Смотреть все']").size() > 0, "bug: not visible element");
                 break;
             }
             page.click("(//section[contains(@class,'HomePage_collection')])[1]//button[@aria-label='show next content']");
@@ -4054,8 +4052,8 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("//h2[text()='Жанры']/ancestor::section//a[contains(@class,'TileTriple')]");
         ElementHandle titleCollectionAfterElement = page.waitForSelector("//h1[text()]");
         String titleCollectionAfterName = titleCollectionAfterElement.innerText();
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"collection"));
-        Assert.assertEquals("bug: titles of the collections do not match", titleCollectionBeforeName, titleCollectionAfterName);
+        Assertions.assertTrue(page.url().contains(frontend+"collection"), "bug: not opened page collection");
+        Assertions.assertEquals(titleCollectionBeforeName, titleCollectionAfterName, "bug: titles of the collections do not match");
     }
 
     public void clickOnTitleCinCNonGenresAndCheckOpenPageCollect() {
@@ -4064,13 +4062,13 @@ public class NiLPagePW extends BasePagePlaywright {
         page.click("//h2[text()='Акции']/ancestor::section//a[contains(@class,'TileTriple')]");
         ElementHandle titleCollectionAfterElement = page.waitForSelector("//h1[text()]");
         String titleCollectionAfterName = titleCollectionAfterElement.innerText();
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"collection"));
-        Assert.assertEquals("bug: titles of the collections do not match", titleCollectionBeforeName, titleCollectionAfterName);
+        Assertions.assertTrue(page.url().contains(frontend+"collection"), "bug: not opened page collection");
+        Assertions.assertEquals(titleCollectionBeforeName, titleCollectionAfterName, "bug: titles of the collections do not match");
     }
 
     public void clickOnTitlePackagesCollectionAndCheckOpenCollectionPage() throws InterruptedException {
         sleep(3000);
-        Assert.assertTrue("bug: not found element", page.querySelectorAll("//h2[text()='Попробуй бесплатно ']").size()>0);
+        Assertions.assertTrue(page.querySelectorAll("//h2[text()='Попробуй бесплатно ']").size()>0, "bug: not found element");
         ElementHandle titleCollectionBeforeElement = page.waitForSelector("//h2[text()='Попробуй бесплатно ']");
         String titleCollectionBeforeName = titleCollectionBeforeElement.innerText();
         List<ElementHandle> tilesBeforeAll = page.querySelectorAll("//h2[text()='Попробуй бесплатно ']/ancestor::section//a[@href]//span[contains(@class,'TilePackageCommon_title')]");
@@ -4078,25 +4076,25 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle titleCollectionAfterElement = page.waitForSelector("//h1[text()]");
         String titleCollectionAfterName = titleCollectionAfterElement.innerText();
         List<ElementHandle> tilesAfterAll = page.querySelectorAll("//a[@data-test='PackageLink']");
-        Assert.assertEquals("bug: titles of the collections do not match", titleCollectionBeforeName, titleCollectionAfterName);
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"collection"));
-        Assert.assertTrue("bug: size tiles collection do not match", tilesAfterAll.size() >= tilesBeforeAll.size());
+        Assertions.assertEquals(titleCollectionBeforeName, titleCollectionAfterName, "bug: titles of the collections do not match");
+        Assertions.assertTrue(page.url().contains(frontend+"collection"), "bug: not opened page collection");
+        Assertions.assertTrue(tilesAfterAll.size() >= tilesBeforeAll.size(), "bug: size tiles collection do not match");
     }
 
     public void clickToTilePackageCollectionAndCheckOpenCardPackage() {
         ElementHandle tilePackageName = page.querySelector("//h2[text()='Попробуй бесплатно ']/ancestor::section//a[contains(@href,'/mixed_groups/')]//span[contains(@class,'TilePackageCommon_title')]");
         String namePackageText = tilePackageName.innerText();
         page.click("//h2[text()='Попробуй бесплатно ']/ancestor::section//a[contains(@href,'/mixed_groups/')]");
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"mixed_groups/"));
+        Assertions.assertTrue(page.url().contains(frontend+"mixed_groups/"), "bug: not opened page collection");
         System.out.println(namePackageText);
         System.out.println(page.querySelector("._3JWCAjonEZRvpx1iIk6Y0n").innerText());
-        Assert.assertEquals("bug: name film do not match", namePackageText, page.querySelector("._3JWCAjonEZRvpx1iIk6Y0n").innerText());
+        Assertions.assertEquals(namePackageText, page.querySelector("._3JWCAjonEZRvpx1iIk6Y0n").innerText(), "bug: name film do not match");
     }
 
     public void clickOnTitleBhCollectionAndCheckOpenMyHistory() {
         pageHeadfull.waitForSelector("//h2[contains(@class,'MediaScroller_title') and text()='Продолжить просмотр']").scrollIntoViewIfNeeded();
         pageHeadfull.click("//h2[contains(@class,'MediaScroller_title') and text()='Продолжить просмотр']");
-        Assert.assertTrue("bug: not opened page /my/history", pageHeadfull.url().contains(frontend+"my/history"));
+        Assertions.assertTrue(pageHeadfull.url().contains(frontend+"my/history"), "bug: not opened page /my/history");
     }
 
     public void scrollBhCollectionAndCheckLastTileEditAndShowAll() {
@@ -4105,7 +4103,7 @@ public class NiLPagePW extends BasePagePlaywright {
         for (ElementHandle tile : tileAll) {
             tile.hover();
             if (pageHeadfull.querySelectorAll("//span[contains(@class,'MediaScroller_lastChild')]//div[contains(@class,'TileOverlay')]").size() > 0) {
-                Assert.assertTrue("bug: not tile 'Редактировать и показать всё'", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//span[contains(.,'Редактировать  и показать все')]").isVisible());
+                Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//span[contains(.,'Редактировать  и показать все')]").isVisible(), "bug: not tile 'Редактировать и показать всё'");
                 break;
             }
             pageHeadfull.click("//h2[text()='Продолжить просмотр']/ancestor::section[contains(@class,'HomePage_collection')]//button[@aria-label='show next content']");
@@ -4130,15 +4128,15 @@ public class NiLPagePW extends BasePagePlaywright {
     public void clickOnTileEditAndShowAllAndCheckOpenPageMyHistory() {
         ElementHandle tileEditAndShowAll = pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//span[contains(@class,'MediaScroller_lastChild') and contains(text(),'Редактировать')]");
         tileEditAndShowAll.click();
-        Assert.assertTrue("bug: not opened page /my/history", pageHeadfull.url().contains(frontend+"my/history"));
+        Assertions.assertTrue(pageHeadfull.url().contains(frontend+"my/history"), "bug: not opened page /my/history");
     }
 
     public void checkTileFilmInBhCollection() {
-        Assert.assertTrue("bug: not visible tile film in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible(), "bug: not visible tile film in bh collection");
     }
 
     public void checkTileFilmAndElementsInBhCollection() throws InterruptedException {
-        Assert.assertTrue("bug: not visible tile film in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").isVisible(), "bug: not visible tile film in bh collection");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]").scrollIntoViewIfNeeded();
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/vods/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/movies/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
@@ -4159,16 +4157,16 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle titleFilmBhCollect = pageHeadfull.querySelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/vods/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         String titleFilmBhCollectText = titleFilmBhCollect.innerText();
         tileFilmBhCollect.hover();
-        Assert.assertTrue("bug: not opened page collection", page.url().contains(frontend+"movies/vods/"));
-        Assert.assertEquals("bug: name film do not match", titleFilmBhCollectText, page.querySelector("//h1[text()]").innerText());
+        Assertions.assertTrue(page.url().contains(frontend+"movies/vods/"), "bug: not opened page collection");
+        Assertions.assertEquals(titleFilmBhCollectText, page.querySelector("//h1[text()]").innerText(), "bug: name film do not match");
     }
 
     public void checkTileSerialInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible(), "bug: not visible tile serial in bh collection");
     }
 
     public void checkTileSerialAndElementsInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible(), "bug: not visible tile serial in bh collection");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
@@ -4183,11 +4181,11 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkTileTvProgramInBhCollection() {
-        Assert.assertTrue("bug: not visible tile tv program in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible(), "bug: not visible tile tv program in bh collection");
     }
 
     public void checkTileTvProgramAndElementsInBhCollection() {
-        Assert.assertTrue("bug: not visible tile tv program in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]").isVisible(), "bug: not visible tile tv program in bh collection");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/programs/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/programs/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
@@ -4202,11 +4200,11 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkTileNewEpisodeInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//*[text()='Новый эпизод']").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//*[text()='Новый эпизод']").isVisible(), "bug: not visible tile serial in bh collection");
     }
 
     public void checkTileNewEpisodeAndElementsInBhCollection() {
-        Assert.assertTrue("bug: not visible tile serial in bh collection", pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible());
+        Assertions.assertTrue(pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]").isVisible(), "bug: not visible tile serial in bh collection");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href,'/shows/')][1]//picture[contains(@class,'TilePackageCommon_image')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_title')]");
         pageHeadfull.waitForSelector("//h2[text()='Продолжить просмотр']/ancestor::section//a[contains(@href, '/shows/')][1]//span[contains(@class,'TilePackageCommon_desc')]");
@@ -4480,7 +4478,7 @@ public class NiLPagePW extends BasePagePlaywright {
             device.hover();
             sleep(2000);
             System.out.println(device.evaluate("e => window.getComputedStyle(e).color"));
-            Assert.assertEquals("bug: the color of the element is not white", device.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
+            Assertions.assertEquals("bug: the color of the element is not white", device.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
         }
     }
 
@@ -4490,28 +4488,28 @@ public class NiLPagePW extends BasePagePlaywright {
             device.hover();
             sleep(2000);
             System.out.println(device.evaluate("e => window.getComputedStyle(e).color"));
-            Assert.assertEquals("bug: the color of the element is not white", device.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
+            Assertions.assertEquals("bug: the color of the element is not white", device.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
         }
     }
 
     public void goToLinksBlockDevicesFooter() {
         page.waitForSelector("(//a[@href='/devices#smartphone' and text()='Смартфоны и планшеты'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"devices#smartphone"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices#smartphone"), "bug: not opened page device");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/devices#smart-tv' and text()='Smart TV'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"devices#smart-tv"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices#smart-tv"), "bug: not opened page device");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/devices#smart-tv' and text()='Android TV'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"devices#smart-tv"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices#smart-tv"), "bug: not opened page device");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/devices#appletv' and text()='Apple TV'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"devices#appletv"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices#appletv"), "bug: not opened page device");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/devices#fmc' and text()='Медиаплееры'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"devices#fmc"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices#fmc"), "bug: not opened page device");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/devices' and text()='Все устройства'])[2]").click();
-        Assert.assertTrue("bug: not opened page devices", page.url().contains(frontend+"devices"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices"), "bug: not opened page devices");
         page.navigate(frontend);
     }
 
@@ -4520,62 +4518,62 @@ public class NiLPagePW extends BasePagePlaywright {
         page.onDialog(dialog -> dialog.dismiss());
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/' and text()='Задайте нам вопрос'])[2]").click();
-        Assert.assertTrue("bug: not opened popUp form 'Send a question'", page.querySelectorAll("//div[text()='Отправить вопрос']").size() == 1);
+        Assertions.assertTrue(page.querySelectorAll("//div[text()='Отправить вопрос']").size() == 1, "bug: not opened popUp form 'Send a question'");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/help' and text()='Вопросы и ответы'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"help"));
+        Assertions.assertTrue(page.url().contains(frontend+"help"), "bug: not opened page device");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/sitemap' and text()='Карта сайта'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"sitemap"));
+        Assertions.assertTrue(page.url().contains(frontend+"sitemap"), "bug: not opened page device");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='/devices' and text()='О нас'])[2]").click();
-        Assert.assertTrue("bug: not opened page device", page.url().contains(frontend+"devices"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices"), "bug: not opened page device");
         page.navigate(frontend);
     }
 
     public void goToLinkBlockSocialNetworksFooter() {
         page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[1]").click();
-        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size() == 1);
+        Assertions.assertTrue(page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size() == 1, "bug: not opened page 'MegaFon TV in Messengers!'");
         page.navigate(frontend);
         page.waitForSelector("(//a[@href='https://ftlp.pw/lp/8KPQJMYU/'])[2]").click();
-        Assert.assertTrue("bug: not opened page 'MegaFon TV in Messengers!'", page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size() == 1);
+        Assertions.assertTrue(page.querySelectorAll("//h1[text()='МегаФон ТВ в Мессенджерах!']").size() == 1, "bug: not opened page 'MegaFon TV in Messengers!'");
         page.navigate(frontend);
     }
 
     public void goToLinkBlockStoresFooter() {
         page.waitForSelector("//img[@alt='app-store']").click();
-        Assert.assertTrue("bug: not opened page appStore", page.url().contains("https://apps.apple.com/ru/app/megafon-tv"));
+        Assertions.assertTrue(page.url().contains("https://apps.apple.com/ru/app/megafon-tv"), "bug: not opened page appStore");
         page.navigate(frontend);
         page.waitForSelector("//img[@alt='google-store']").click();
-        Assert.assertTrue("bug: not opened page googlePlay", page.url().contains("https://play.google.com/store/apps/"));
-        Assert.assertTrue("bug: not opened page googlePlay", page.url().contains("megafon.tv"));
+        Assertions.assertTrue(page.url().contains("https://play.google.com/store/apps/"), "bug: not opened page googlePlay");
+        Assertions.assertTrue(page.url().contains("megafon.tv"), "bug: not opened page googlePlay");
         page.navigate(frontend);
         page.waitForSelector("//img[@alt='smart-tv-store']").click();
-        Assert.assertTrue("bug: not opened page devices", page.url().contains(frontend+"devices"));
+        Assertions.assertTrue(page.url().contains(frontend+"devices"), "bug: not opened page devices");
         page.navigate(frontend);
     }
 
     public void goToLinksBlockDocumentsFooter() {
         page.waitForSelector("//a[@href and text()='Правила оказания телематических услуг связи']").click();
-        Assert.assertTrue("bug: not opened pdf 'rules-ktv.pdf'", page.url().contains("/docs/rules-ktv.pdf"));
+        Assertions.assertTrue(page.url().contains("/docs/rules-ktv.pdf"), "bug: not opened pdf 'rules-ktv.pdf'");
         page.navigate(frontend);
 
         page.waitForSelector("//a[@href and text()='Правила оказания услуг телевизионного вещания']").click();
-        Assert.assertTrue("bug: not opened pdf 'rules-provide-telematic-services.pdf'", page.url().contains("/docs/rules-provide-telematic-services.pdf"));
+        Assertions.assertTrue(page.url().contains("/docs/rules-provide-telematic-services.pdf"), "bug: not opened pdf 'rules-provide-telematic-services.pdf'");
         page.navigate(frontend);
 
         page.waitForSelector("//a[@href and text()='Условия оказания услуг']").click();
-        Assert.assertTrue("bug: not opened pdf 'mediaportal_oferta.pdf'", page.url().contains("https://moscow.megafon.ru/download/~federal/oferts/mediaportal_oferta.pdf"));
+        Assertions.assertTrue(page.url().contains("https://moscow.megafon.ru/download/~federal/oferts/mediaportal_oferta.pdf"), "bug: not opened pdf 'mediaportal_oferta.pdf'");
         page.navigate(frontend);
 
         page.waitForSelector("//a[@href and text()='Политика конфидециальности']").click();
-        Assert.assertTrue("bug: not opened pdf 'privacy.pdf'", page.url().contains("/docs/privacy.pdf"));
+        Assertions.assertTrue(page.url().contains("/docs/privacy.pdf"), "bug: not opened pdf 'privacy.pdf'");
         page.navigate(frontend);
     }
 
     public void clickToButtonSpeedtestInFooter() {
         page.waitForSelector("//a[@href='https://www.megafon.ru/go/s_4g']").click();
-        Assert.assertTrue("bug: not opened 'https://www.megafon.ru/go/s_4g'", page.url().contains("https://moscow.megafon.ru/internet/4g/"));
+        Assertions.assertTrue(page.url().contains("https://moscow.megafon.ru/internet/4g/"), "bug: not opened 'https://www.megafon.ru/go/s_4g'");
         page.navigate(frontend);
     }
 
@@ -4651,7 +4649,7 @@ public class NiLPagePW extends BasePagePlaywright {
             docLink.hover();
             sleep(2000);
             System.out.println(docLink.evaluate("e => window.getComputedStyle(e).color"));
-            Assert.assertEquals("bug: the color of the element is not white", docLink.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
+            Assertions.assertEquals("bug: the color of the element is not white", docLink.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 255, 255)");
         }
     }
 
@@ -4722,34 +4720,34 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkElementsSearchFormForMinPage() {
-        Assert.assertTrue("not found element", page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[2]").size()==1);
-        Assert.assertEquals("not found element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size()==1);
-        Assert.assertEquals("not found element", 1, page.querySelectorAll("//*[@class='ch-mobile-menu__back']").size()==1);
+        Assertions.assertTrue(page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[2]").size()==1, "not found element");
+        Assertions.assertEquals(1, page.querySelectorAll("//*[@id='close-mobilemenu']").size()==1, "not found element");
+        Assertions.assertEquals(1, page.querySelectorAll("//*[@class='ch-mobile-menu__back']").size()==1, "not found element");
     }
 
     public void checkCloseSearchFormMinPage() {
         page.click("//*[@id='close-mobilemenu']");
-        Assert.assertEquals("not hidden element", 0, page.querySelectorAll("//div[contains(@class,'ch-search_open')]").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//div[contains(@class,'ch-search_open')]").size(), "not hidden element");
     }
 
     public void checkElementsSearchFormForMediumPage() {
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//*[@id='close-mobilemenu']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//*[@id='close-mobilemenu']").size(), "not visible element");
     }
 
     public void checkCloseSearchFormMediumPage() {
         page.click("(//div[@class='ch-search__icon']//*[@id='close-search'])[1]");
-        Assert.assertTrue("not hidden element", page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden());
+        Assertions.assertTrue(page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden(), "not hidden element");
     }
 
     public void checkElementsSearchFormForWidePage() {
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[contains(@class,'ch-header__section_type_search')]//*[@id='close-search'][1]").size());
+        Assertions.assertEquals(1, page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//div[contains(@class,'ch-header__section_type_search')]//*[@id='close-search'][1]").size(), "not visible element");
     }
 
     public void checkCloseSearchFormWidePage() {
         page.click("//div[contains(@class,'ch-header__section_type_search')]//*[@id='close-search'][1]");
-        Assert.assertTrue("not hidden element", page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden());
+        Assertions.assertTrue(page.querySelector("//input[contains(@class,'ch-search__input')]").isHidden(), "not hidden element");
     }
 
     public void chooseSearchAndCheckImageWidePageGuest() throws IOException, InterruptedException {
@@ -4769,47 +4767,47 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void checkInputOneSimbolInSearchForm() {
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size(), "not visible element");
         page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "р");
-        Assert.assertTrue("not visible element", page.waitForSelector("//div[text()='Ничего не найдено']").isVisible());
+        Assertions.assertTrue(page.waitForSelector("//div[text()='Ничего не найдено']").isVisible(), "not visible element");
     }
 
     public void checkInputMultipleSimbolsInSearchForm() {
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
-        Assert.assertTrue("not found element", page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size()==1);
+        Assertions.assertTrue(page.querySelectorAll("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]").size()==1, "not found element");
         page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "робот");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__result']").size() == 1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Фильмы']").size() == 1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Сериалы']").size() == 1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']").size() == 1);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//a[@class='ch-search__all-result-link' and text()='Все результаты']").size() == 1);
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-search__result']").size() == 1, "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Фильмы']").size() == 1, "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='Сериалы']").size() == 1, "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']").size() == 1, "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//a[@class='ch-search__all-result-link' and text()='Все результаты']").size() == 1, "not visible element");
     }
 
     public void checkResultSearchNothingFound() {
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
         page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "автотест");
-        Assert.assertTrue("not visible element", page.waitForSelector("//div[text()='Ничего не найдено']").isVisible());
+        Assertions.assertTrue(page.waitForSelector("//div[text()='Ничего не найдено']").isVisible(), "not visible element");
     }
 
     public void checkClickOnFilmFromResultSearch() {
         String nameFilmText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Фильмы']/following::div[@class='ch-search-item__title']").innerText();
         page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Фильмы']/following::div[@class='ch-search-item__title']").click();
-        Assert.assertEquals("bug: names films don't match", nameFilmText, page.waitForSelector("//h1[text()]").innerText());
-        Assert.assertTrue("bug: not opened page card film", page.url().contains("/movies/vods/"));
+        Assertions.assertEquals(nameFilmText, page.waitForSelector("//h1[text()]").innerText(), "bug: names films don't match");
+        Assertions.assertTrue(page.url().contains("/movies/vods/"), "bug: not opened page card film");
     }
 
     public void checkClickOnSerialFromResultSearch() {
         String nameSerialText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").innerText();
         page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").click();
-        Assert.assertEquals("bug: names serials don't match", nameSerialText, page.waitForSelector("//h1[text()]").innerText());
-        Assert.assertTrue("bug: not opened page card serial", page.url().contains("/shows/"));
+        Assertions.assertEquals(nameSerialText, page.waitForSelector("//h1[text()]").innerText(), "bug: names serials don't match");
+        Assertions.assertTrue(page.url().contains("/shows/"), "bug: not opened page card serial");
     }
 
     public void checkClickOnTvProgramFromResultSearch() {
         String nameTvProgramText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").innerText();
         page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").click();
-        Assert.assertEquals("bug: names tv programs don't match", nameTvProgramText, page.waitForSelector("//h1[text()]").innerText());
-        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/programs/"));
+        Assertions.assertEquals(nameTvProgramText, page.waitForSelector("//h1[text()]").innerText(), "bug: names tv programs don't match");
+        Assertions.assertTrue(page.url().contains("/programs/"), "bug: not opened page card tv program");
     }
 
     public void clickOnButtonAllResultsInSearch() {
@@ -4817,10 +4815,10 @@ public class NiLPagePW extends BasePagePlaywright {
         String nameSerialText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").innerText();
         String nameTvProgramText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").innerText();
         page.waitForSelector("//a[@class='ch-search__all-result-link' and text()='Все результаты']").click();
-        Assert.assertTrue("bug: not opened page all results", page.url().contains("/search?q=робот"));
-        Assert.assertEquals("bug: names films don't match", nameFilmText, page.waitForSelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
-        Assert.assertEquals("bug: names serials don't match", nameSerialText, page.waitForSelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
-        Assert.assertEquals("bug: names tv programs don't match", nameTvProgramText, page.waitForSelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertTrue(page.url().contains("/search?q=робот"), "bug: not opened page all results");
+        Assertions.assertEquals(nameFilmText, page.waitForSelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: names films don't match");
+        Assertions.assertEquals(nameSerialText, page.waitForSelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: names serials don't match");
+        Assertions.assertEquals(nameTvProgramText, page.waitForSelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: names tv programs don't match");
     }
 
     public void pressEnterOnAllResultsInSearchForm() {
@@ -4828,60 +4826,60 @@ public class NiLPagePW extends BasePagePlaywright {
         String nameSerialText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='Сериалы']/following::div[@class='ch-search-item__title']").innerText();
         String nameTvProgramText = page.waitForSelector("//div[@class='ch-search__title-line']//div[text()='ТВ-передачи']/following::div[@class='ch-search-item__title']").innerText();
         page.keyboard().press("Enter");
-        Assert.assertTrue("bug: not opened page all results", page.url().contains("/search?q=робот"));
-        Assert.assertEquals("bug: names films don't match", nameFilmText, page.waitForSelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
-        Assert.assertEquals("bug: names serials don't match", nameSerialText, page.waitForSelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
-        Assert.assertEquals("bug: names tv programs don't match", nameTvProgramText, page.waitForSelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText());
+        Assertions.assertTrue(page.url().contains("/search?q=робот"), "bug: not opened page all results");
+        Assertions.assertEquals(nameFilmText, page.waitForSelector("//a[contains(@href,'/movies/vods/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: names films don't match");
+        Assertions.assertEquals(nameSerialText, page.waitForSelector("//a[contains(@href,'/shows/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: names serials don't match");
+        Assertions.assertEquals(nameTvProgramText, page.waitForSelector("//a[contains(@href,'/programs/')]//h3[@data-test='PackageDescriptionTitle']").innerText(), "bug: names tv programs don't match");
     }
 
     public void clickOnButtonEnterAndCheckOpenPageAuth() {
         page.waitForSelector("(//span[text()='Вход'])[1]").click();
         page.waitForSelector("//h1[text()='Введите номер телефона']");
-        Assert.assertTrue("bug: not opened page auth", page.url().contains("/auth"));
+        Assertions.assertTrue(page.url().contains("/auth"), "bug: not opened page auth");
     }
 
     public void inputValidNumberAndCheckActiveButtonNext(String login) {
         page.fill("//input[@type='tel']", login);
-        Assert.assertEquals("not active button 'Next'", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//button[@disabled and text()='Далее']").size(), "not active button 'Next'");
     }
 
     public void clickOnTabPromocodeAndCheckOpenFormPromocode() {
         page.waitForSelector("(//div[text()='Промокод'])[1]").click();
         page.waitForSelector("//h1[text()='Введите промокод']");
-        Assert.assertTrue("bug: not opened page promocodes", page.url().contains("/_promocodes"));
+        Assertions.assertTrue(page.url().contains("/_promocodes"), "bug: not opened page promocodes");
     }
 
     public void checkOpenPageConnectionSmartTV() throws InterruptedException {
         page.waitForSelector("(//span[contains(text(),'+79')])[2]").click();
         page.waitForSelector("(//span[text()='Подключить SmartTV'])[1]").click();
         sleep(3000);
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
-        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/connect_smart_tv"));
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size(), "bug: not visible element");
+        Assertions.assertTrue(page.url().contains("/connect_smart_tv"), "bug: not opened page card tv program");
     }
 
     public void checkElementsPageConnectionSmartTV() {
         // page:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/smart-tv-poster.png']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-cherdak']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//picture//img[@src='/assets/images/smart-tv-poster.png']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//footer").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size(), "not visible element");
 
         // form:
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Введите код подключения, указанный на вашем телевизоре в приложении МегаФон ТВ в разделе “Подключить Smart TV”']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//input[@placeholder='Код подключения']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Подключить Smart TV']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[text()='Введите код подключения, указанный на вашем телевизоре в приложении МегаФон ТВ в разделе “Подключить Smart TV”']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//input[@placeholder='Код подключения']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[@disabled and text()='Подключить Smart TV']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size(), "bug: not visible element");
     }
 
     public void clickOnButtonCloseAndCheckOpenNilPage() {
         page.waitForSelector("//a[contains(@class,'closeButton') and text()='Закрыть']").click();
-        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//h1[text()='E-mail']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//h1[text()='E-mail']").size(), "bug: not visible element");
         page.waitForSelector("//div[contains(@class,'carousel')]");
     }
 
@@ -4906,33 +4904,33 @@ public class NiLPagePW extends BasePagePlaywright {
         ElementHandle buttonNext = page.waitForSelector("//button[text()='Подключить Smart TV']");
         String background = (String) buttonNext.evaluate("e => window.getComputedStyle(e).background");
         System.out.println(background);
-        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 185, 86)"));
+        Assertions.assertTrue(background.contains("rgb(0, 185, 86)"), "bug: the color of the element is not green");
     }
 
     public void clickOnButtonConnectionAndCheckElementsInValidCode() {
         page.waitForSelector("//button[text()='Подключить Smart TV']").click();
         // page:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/smart-tv-poster.png']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-cherdak']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//picture//img[@src='/assets/images/smart-tv-poster.png']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//footer").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size(), "not visible element");
 
         // form:
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Введите код подключения, указанный на вашем телевизоре в приложении МегаФон ТВ в разделе “Подключить Smart TV”']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//input[@placeholder='Код подключения']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Подключить Smart TV']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[text()='Введите код подключения, указанный на вашем телевизоре в приложении МегаФон ТВ в разделе “Подключить Smart TV”']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//input[@placeholder='Код подключения']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[@disabled and text()='Подключить Smart TV']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size(), "bug: not visible element");
 
         ElementHandle errorText = page.waitForSelector("//span[text()='Неверный код']");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Неверный код']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//span[text()='Неверный код']").size(), "not visible element");
         System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
-        Assert.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
+        Assertions.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
     }
 
     public void checkInputValidCodeInPageConnectionSmartTV(String login, String password) throws InterruptedException {
@@ -4981,15 +4979,15 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("(//span[contains(text(),'+79')])[2]").click();
         page.waitForSelector("(//span[text()='Подключить SmartTV'])[1]").click();
         sleep(3000);
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size());
-        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/connect_smart_tv"));
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Подключить ТВ']").size(), "bug: not visible element");
+        Assertions.assertTrue(page.url().contains("/connect_smart_tv"), "bug: not opened page card tv program");
         page.fill("//input[@placeholder='Код подключения']", validCode);
         page.click("//button[text()='Подключить Smart TV']");
 
         page.waitForSelector("//h1[text()='Устройство привязано']");
         page.waitForSelector("//p[text()='Желаем приятного просмотра!']");
         page.waitForSelector("//a[contains(@class,'closeButton') and text()='Закрыть']");
-        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//h1[text()='Устройство привязано']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//h1[text()='Устройство привязано']").size(), "bug: not visible element");
         page.waitForSelector("//div[contains(@class,'carousel')]");
     }
 
@@ -4997,30 +4995,30 @@ public class NiLPagePW extends BasePagePlaywright {
         page.waitForSelector("(//span[contains(text(),'+79')])[2]").click();
         page.waitForSelector("(//span[text()='Email'])[1]").click();
         sleep(3000);
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='E-mail']").size());
-        Assert.assertTrue("bug: not opened page card tv program", page.url().contains("/subscribe"));
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='E-mail']").size(), "bug: not visible element");
+        Assertions.assertTrue(page.url().contains("/subscribe"), "bug: not opened page card tv program");
     }
 
     public void checkElementsPageEmail() {
         // page:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-cherdak']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//footer").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size(), "not visible element");
 
         // form:
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='E-mail']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Введите вашу электронную почту']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//input[@placeholder='Введите e-mail']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//span[text()='Хочу получать новости и подарки от МегаФон ТВ']").size());
-        Assert.assertTrue("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='E-mail']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[text()='Введите вашу электронную почту']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//input[@placeholder='Введите e-mail']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//span[text()='Хочу получать новости и подарки от МегаФон ТВ']").size(), "bug: not visible element");
+        Assertions.assertTrue(page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked(), "not checked box");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//a[contains(@class,'closeButton') and text()='Закрыть']").size(), "bug: not visible element");
     }
 
     public void checkImagePageEmail() throws IOException, InterruptedException {
@@ -5039,25 +5037,25 @@ public class NiLPagePW extends BasePagePlaywright {
     public void checkInputInvalidEmailInProfileMenu(String email) throws InterruptedException {
         page.querySelector("//h1[text()='E-mail']");
         page.fill("//input[@placeholder='Введите e-mail']", email);
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size(), "not visible element");
     }
     public void checkInputValidEmailInProfileMenu(String email) throws InterruptedException {
         page.querySelector("//h1[text()='E-mail']");
         page.fill("//input[@placeholder='Введите e-mail']", email);
-        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//button[@disabled and text()='Сохранить']").size(), "not visible element");
         sleep(3000);
         ElementHandle buttonSave = page.waitForSelector("//button[text()='Сохранить']");
         String background = (String) buttonSave.evaluate("e => window.getComputedStyle(e).background");
         System.out.println(background);
-        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 185, 86)"));
+        Assertions.assertTrue(background.contains("rgb(0, 185, 86)"), "bug: the color of the element is not green");
     }
 
     public void clickOnButtonSaveAndCheckOpenPopUpNoNewsAndGifts() {
         page.click("//button[text()='Сохранить']");
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Не получать новости и подарки']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Вы уверены, что не хотите получать новости и подарки?']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Да']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Отменить']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Не получать новости и подарки']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[text()='Вы уверены, что не хотите получать новости и подарки?']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[text()='Да']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[text()='Отменить']").size(),"bug: not visible element");
     }
 
     public void checkImagePopUpNoNewsAndGifts() throws IOException, InterruptedException {
@@ -5076,14 +5074,14 @@ public class NiLPagePW extends BasePagePlaywright {
 
     public void clickOnButtonCancelAndCheckOpenEmail() {
         page.click("//button[text()='Отменить']");
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='E-mail']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='E-mail']").size(), "bug: not visible element");
     }
 
     public void clickOnButtonYesAndCheckOpenPopUpLinkedEmail() {
         page.click("//button[text()='Да']");
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Почта привязана!']").size());
-        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//p[text()='Следите за новинками и получайте подарки!']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Закрыть']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Почта привязана!']").size(), "bug: not visible element");
+        Assertions.assertEquals(0, page.querySelectorAll("//p[text()='Следите за новинками и получайте подарки!']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[text()='Закрыть']").size(), "bug: not visible element");
     }
 
     public void checkImagePopUpLinkedEmail() throws IOException, InterruptedException {
@@ -5101,28 +5099,28 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void unCheckedBoxEmailFormProfile() {
-        Assert.assertTrue("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
+        Assertions.assertTrue(page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked(), "not checked box");
         page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").uncheck();
-        Assert.assertFalse("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
+        Assertions.assertFalse(page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked(), "not checked box");
     }
 
     public void checkedBoxEmailFormProfile() throws InterruptedException {
         sleep(3000);
         page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").check();
-        Assert.assertTrue("not checked box", page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked());
+        Assertions.assertTrue(page.waitForSelector("(//label[@for='acceptNewsletters'])[1]").isChecked(), "not checked box");
     }
 
     public void clickOnButtonSaveAndCheckOpenPopUpLinkedEmail() throws InterruptedException {
         page.click("//button[text()='Сохранить']");
         sleep(3000);
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//h1[text()='Почта привязана!']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//p[text()='Следите за новинками и получайте подарки!']").size());
-        Assert.assertEquals("bug: not visible element", 1, page.querySelectorAll("//button[text()='Закрыть']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Почта привязана!']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[text()='Следите за новинками и получайте подарки!']").size(), "bug: not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[text()='Закрыть']").size(), "bug: not visible element");
     }
 
     public void clickOnButtonCloseAndCheckOpenNilPageAndLinkedEmail() {
         page.click("//button[text()='Закрыть']");
-        Assert.assertEquals("bug: not visible element", 0, page.querySelectorAll("//h1[text()='Почта привязана!']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//h1[text()='Почта привязана!']").size(), "bug: not visible element");
         page.waitForSelector("//div[contains(@class,'carousel')]");
     }
 

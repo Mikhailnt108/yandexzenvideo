@@ -1,0 +1,26 @@
+™02:38:53.854 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Starting Visual Regression Tracker for project <MFTV_Web_Chrome> and branch <master>
+è02:38:54.543 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is started for project <MFTV_Web_Chrome>: projectId: <eb2301c9-e4cc-4e04-af8e-93f2ba475ddd>, buildId: <d0b5e378-ebaf-4071-b1fe-6bc8e9d1cd75>, ciBuildId: <null>
+Ñ02:39:00.109 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Tracking test run <TvPageTabProgramTvForGuest> with options <io.visual_regression_tracker.sdk_java.TestRunOptions@77b45e05> for buildId <d0b5e378-ebaf-4071-b1fe-6bc8e9d1cd75>
+˘02:39:00.444 [ForkJoinPool-1-worker-3] ERROR i.v.sdk_java.VisualRegressionTracker - No baseline: http://10.236.64.48:8080/eb2301c9-e4cc-4e04-af8e-93f2ba475ddd?buildId=d0b5e378-ebaf-4071-b1fe-6bc8e9d1cd75&testId=a2db315d-8cac-4f50-859a-be08a86b3c71
+´02:39:00.469 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Stopping Visual Regression Tracker for buildId <d0b5e378-ebaf-4071-b1fe-6bc8e9d1cd75>
+≠02:39:00.509 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is stopped for buildId <d0b5e378-ebaf-4071-b1fe-6bc8e9d1cd75>
+™02:39:03.085 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Starting Visual Regression Tracker for project <MFTV_Web_Chrome> and branch <master>
+è02:39:03.124 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is started for project <MFTV_Web_Chrome>: projectId: <eb2301c9-e4cc-4e04-af8e-93f2ba475ddd>, buildId: <36fc93bd-d864-4fc3-b063-06c42f997e67>, ciBuildId: <null>
+´02:39:08.352 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Stopping Visual Regression Tracker for buildId <36fc93bd-d864-4fc3-b063-06c42f997e67>
+≠02:39:08.397 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is stopped for buildId <36fc93bd-d864-4fc3-b063-06c42f997e67>
+™02:39:10.131 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Starting Visual Regression Tracker for project <MFTV_Web_Chrome> and branch <master>
+è02:39:10.173 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is started for project <MFTV_Web_Chrome>: projectId: <eb2301c9-e4cc-4e04-af8e-93f2ba475ddd>, buildId: <5256024b-e294-4852-9dc6-b65c5957c51a>, ciBuildId: <null>
+´02:40:14.525 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Stopping Visual Regression Tracker for buildId <5256024b-e294-4852-9dc6-b65c5957c51a>
+≠02:40:14.600 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is stopped for buildId <5256024b-e294-4852-9dc6-b65c5957c51a>
+™02:40:16.339 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Starting Visual Regression Tracker for project <MFTV_Web_Chrome> and branch <master>
+è02:40:16.380 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is started for project <MFTV_Web_Chrome>: projectId: <eb2301c9-e4cc-4e04-af8e-93f2ba475ddd>, buildId: <f7c34a9b-598b-48fd-8e97-edef5380a07e>, ciBuildId: <null>
+´02:41:19.275 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Stopping Visual Regression Tracker for buildId <f7c34a9b-598b-48fd-8e97-edef5380a07e>
+≠02:41:19.311 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is stopped for buildId <f7c34a9b-598b-48fd-8e97-edef5380a07e>
+
+	™02:41:21.128 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Starting Visual Regression Tracker for project <MFTV_Web_Chrome> and branch <master>
+
+	è02:41:21.221 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is started for project <MFTV_Web_Chrome>: projectId: <eb2301c9-e4cc-4e04-af8e-93f2ba475ddd>, buildId: <1abd95e7-9b10-4076-b33c-a26002c26762>, ciBuildId: <null>
+
+	´02:41:27.297 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Stopping Visual Regression Tracker for buildId <1abd95e7-9b10-4076-b33c-a26002c26762>
+
+	≠02:41:27.361 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is stopped for buildId <1abd95e7-9b10-4076-b33c-a26002c26762>

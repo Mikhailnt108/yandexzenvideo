@@ -17,7 +17,7 @@ public class Test_08_SPORT_Appearance_card_event_PW extends TestBasePlaywright {
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("54027914")
     @Test
-    @Tag("SuitePwNonAdWeb#0")
+    @Tag("Example")
     public void SPORT_Appearance_card_event() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkElementsBlockSportsEvents();

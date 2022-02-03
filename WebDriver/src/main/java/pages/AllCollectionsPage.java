@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,7 +48,7 @@ public class AllCollectionsPage extends BasePageWebDriver {
                     collectNames.get(i).click();
                     Thread.sleep(3000);
                     wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
-                    Assert.assertEquals(webDriver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
+                    Assertions.assertEquals(webDriver.findElement(By.tagName("h1")).getText(), nameForKidsBlockCollect);
 //                    Assert.assertEquals("нет детского фона", 1, driver.findElements(By.xpath("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO') and contains(@style,'background')]")).size());
                     return;
                 }

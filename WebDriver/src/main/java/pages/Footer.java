@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -123,7 +123,7 @@ public class Footer extends BasePageWebDriver {
         ArrayList tabs1 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs1.get(1));
         String url2 = webDriver.getCurrentUrl();
-        Assert.assertEquals(url1,url2);
+        Assertions.assertEquals(url1,url2);
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
 
@@ -132,7 +132,7 @@ public class Footer extends BasePageWebDriver {
         ArrayList tabs2 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs2.get(1));
         String url4 = webDriver.getCurrentUrl();
-        Assert.assertEquals(url3,url4);
+        Assertions.assertEquals(url3,url4);
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
 
@@ -141,7 +141,7 @@ public class Footer extends BasePageWebDriver {
         ArrayList tabs3 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs3.get(1));
         String url6 = webDriver.getCurrentUrl();
-        Assert.assertEquals(url5,url6);
+        Assertions.assertEquals(url5,url6);
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
 
@@ -150,7 +150,7 @@ public class Footer extends BasePageWebDriver {
         ArrayList tabs4 = new ArrayList(webDriver.getWindowHandles());
         webDriver.switchTo().window((String) tabs4.get(1));
         String url8 = webDriver.getCurrentUrl();
-        Assert.assertEquals(url7,url8);
+        Assertions.assertEquals(url7,url8);
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
     }

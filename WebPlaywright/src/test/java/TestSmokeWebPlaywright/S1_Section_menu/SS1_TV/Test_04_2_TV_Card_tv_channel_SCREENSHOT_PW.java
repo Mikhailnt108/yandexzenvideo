@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "Example3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_04_2_TV_Card_tv_channel_SCREENSHOT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -21,7 +21,7 @@ public class Test_04_2_TV_Card_tv_channel_SCREENSHOT_PW extends TestBasePlaywrig
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("36965360")
     @Test
-    @Tag("SuitePwNonAdWeb#0")
+    @Tag("Example3")
     public void tv_Card_tv_channel_SCREENSHOT() throws IOException, InterruptedException, SQLException {
         // неавторизованный пользователь:
         cardTvChannelPW.checkImageCardTvChannelForGuest();

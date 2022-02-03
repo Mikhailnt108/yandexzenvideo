@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -145,7 +145,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Подключение Smart TV']"));
         webDriver.findElement(By.xpath("//input[@placeholder='Введите код из sms']")).sendKeys(invalidСodSmartTv);
         click(By.xpath("//button[text()='Подключить Smart TV']"));
-        Assert.assertEquals("Нет текста 'Неверный код'", "Неверный код", webDriver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
+        Assertions.assertEquals("Нет текста 'Неверный код'", "Неверный код", webDriver.findElement(By.xpath("//div[text()='Неверный код']")).getText());
         click(By.className("_1bciqjt58pgm0il2tiJTtp"));
     }
 
@@ -373,9 +373,9 @@ public class HeaderMenu extends BasePageWebDriver {
     public void openSubsectionPaymentMethod() throws InterruptedException {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Способы оплаты'])[1]"));
-        Assert.assertEquals("Нет заголовока 'Способы оплаты'", "Способы оплаты", webDriver.findElement(By.tagName("h1")).getText());
-        Assert.assertEquals("Нет текста 'Счет основного номера телефона'", "Счет основного номера телефона", webDriver.findElement(By.xpath("//div[text()='Счет основного номера телефона']")).getText());
-        Assert.assertEquals("Нет текста '+7 926 019 21 44'", "+7 926 019 21 44", webDriver.findElement(By.xpath("//span[text()='+7 926 019 21 44']")).getText());
+        Assertions.assertEquals("Нет заголовока 'Способы оплаты'", "Способы оплаты", webDriver.findElement(By.tagName("h1")).getText());
+        Assertions.assertEquals("Нет текста 'Счет основного номера телефона'", "Счет основного номера телефона", webDriver.findElement(By.xpath("//div[text()='Счет основного номера телефона']")).getText());
+        Assertions.assertEquals("Нет текста '+7 926 019 21 44'", "+7 926 019 21 44", webDriver.findElement(By.xpath("//span[text()='+7 926 019 21 44']")).getText());
     }
 
 
@@ -401,8 +401,8 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkActiveButtonNext() {
-        Assert.assertEquals("Кнопка 'Далее' НЕ активна", 1, webDriver.findElements(By.xpath("//button[text()='Далее']")).size());
-        Assert.assertEquals("Кнопка 'Далее' НЕ активна", 0, webDriver.findElements(By.xpath("//button[@disabled and text()='Далее']")).size());
+        Assertions.assertEquals(1, webDriver.findElements(By.xpath("//button[text()='Далее']")).size(), "Кнопка 'Далее' НЕ активна");
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//button[@disabled and text()='Далее']")).size(), "Кнопка 'Далее' НЕ активна");
     }
 
     public void clickToNext(String button) throws InterruptedException {
@@ -459,14 +459,14 @@ public class HeaderMenu extends BasePageWebDriver {
 //        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         String url2 = webDriver.getCurrentUrl();
         System.out.println(url2);
-        Assert.assertEquals(url1, url2);
+        Assertions.assertEquals(url1, url2);
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
     }
 
     public void checkActiveButtonComeIn() {
-        Assert.assertEquals("Кнопка 'Войти' НЕ активна", 1, webDriver.findElements(By.xpath("//button[text()='Войти']")).size());
-        Assert.assertEquals("Кнопка 'Войти' НЕ активна", 0, webDriver.findElements(By.xpath("//button[@disabled and text()='Войти']")).size());
+        Assertions.assertEquals(1, webDriver.findElements(By.xpath("//button[text()='Войти']")).size(), "Кнопка 'Войти' НЕ активна");
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//button[@disabled and text()='Войти']")).size(), "Кнопка 'Войти' НЕ активна");
     }
 
     public void clickToComeIn(String button) throws InterruptedException {
@@ -477,14 +477,14 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Email'])[1]"));
         isElementDisplayed(By.xpath("//div[text()='Email']"));
-        Assert.assertEquals("Отмечен чек-бокс", 0, webDriver.findElements(By.xpath("//div[@class='_1EDH3fad4oU0crhGTzvo74 _1ZpTJSYmF419gKUU8fRgU9']")).size());
-        Assert.assertEquals("Кнопка 'Сохранить' не дизейбл", 1, webDriver.findElements(By.xpath("//div[@role='dialog']//button[@type='button' and @disabled]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//div[@class='_1EDH3fad4oU0crhGTzvo74 _1ZpTJSYmF419gKUU8fRgU9']")).size(), "Отмечен чек-бокс");
+        Assertions.assertEquals(1, webDriver.findElements(By.xpath("//div[@role='dialog']//button[@type='button' and @disabled]")).size(), "Кнопка 'Сохранить' не дизейбл");
         writeText(By.xpath("//input[@type='email']"), "email@invalid");
-        Assert.assertEquals("Кнопка 'Сохранить' не дизейбл", 1, webDriver.findElements(By.xpath("//div[@role='dialog']//button[@type='button' and @disabled]")).size());
+        Assertions.assertEquals(1, webDriver.findElements(By.xpath("//div[@role='dialog']//button[@type='button' and @disabled]")).size(), "Кнопка 'Сохранить' не дизейбл");
         writeText(By.xpath("//input[@type='email']"), "ispolnitel1mt@ya.ru");
-        Assert.assertEquals("Кнопка 'Сохранить' не активна", 0, webDriver.findElements(By.xpath("//div[@role='dialog']//button[@type='button' and @disabled]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//div[@role='dialog']//button[@type='button' and @disabled]")).size(), "Кнопка 'Сохранить' не активна");
         click(By.xpath("//div[@role='presentation']//div[1]"));
-        Assert.assertEquals("Не отмечен чек-бокс", 1, webDriver.findElements(By.xpath("//div[@class='_1EDH3fad4oU0crhGTzvo74 _1ZpTJSYmF419gKUU8fRgU9']")).size());
+        Assertions.assertEquals(1, webDriver.findElements(By.xpath("//div[@class='_1EDH3fad4oU0crhGTzvo74 _1ZpTJSYmF419gKUU8fRgU9']")).size(), "Не отмечен чек-бокс");
         click(By.xpath("//div[text()='СОХРАНИТЬ']"));
         click(By.xpath("(//div[@class='ch-trigger__container'])[4]"));
         click(By.xpath("(//span[text()='Email'])[1]"));
@@ -524,20 +524,20 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Неверный код']"));
         String errorMessage1 = webDriver.findElement(By.cssSelector("div[data-test='CodeError']")).getCssValue("color");
         System.out.println(errorMessage1);
-        Assert.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage1);
+        Assertions.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage1);
         String borderInput = webDriver.findElement(By.cssSelector("input[name='code-confirm']")).getCssValue("border-color");
         System.out.println(borderInput);
-        Assert.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
+        Assertions.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
     }
 
     public void checkErrorMessage2() {
         isElementDisplayed(By.xpath("//div[text()='Неверный пароль']"));
         String errorMessage2 = webDriver.findElement(By.cssSelector("div._3IFyMnnL8xI6B0oOiNOlSp")).getCssValue("color");
         System.out.println(errorMessage2);
-        Assert.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage2);
+        Assertions.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage2);
         String borderInput = webDriver.findElement(By.cssSelector("input[type='password']")).getCssValue("border-color");
         System.out.println(borderInput);
-        Assert.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
+        Assertions.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
     }
 
     public void inputInvalidCodeMoreThanThreeTimes() throws InterruptedException {
@@ -551,7 +551,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//input[@placeholder='Введите код из sms' and @disabled]"));
         isElementDisplayed(By.xpath("//button[@disabled and text()='Войти']"));
         isElementDisplayed(By.xpath("//button[text()='Получить новый код']"));
-        Assert.assertEquals("Кнопка 'Получить новый код' НЕ активна", 0, webDriver.findElements(By.xpath("//button[@disabled and text()='Получить новый код']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//button[@disabled and text()='Получить новый код']")).size(), "Кнопка 'Получить новый код' НЕ активна");
     }
 
     public void clickToButtonGetNewCode() throws InterruptedException {
@@ -703,16 +703,16 @@ public class HeaderMenu extends BasePageWebDriver {
 
     public void clickUncheckCheckBox() throws InterruptedException {
         click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
-        Assert.assertEquals("Не отжат чекбокс", 0, webDriver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size(), "Не отжат чекбокс");
     }
 
     public void clickCheckCheckBox() throws InterruptedException {
         click(By.xpath("(//input[@type='checkbox']/following-sibling::div)[1]"));
-        Assert.assertEquals("Не прожат чекбокс", 1, webDriver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size());
+        Assertions.assertEquals(1, webDriver.findElements(By.xpath("(//input[@type='checkbox']/following-sibling::div/*[@viewBox])[1]")).size(), "Не прожат чекбокс");
     }
 
     public void checkAbsencePopUpNotifToNilPage() {
-        Assert.assertEquals("Отображается ВУ на НиЛ с фильтром раздел Фильмы", 0, webDriver.findElements(By.xpath("//div[@aria-label='Notification']//h3[text()='автотест ВУ для экрана Фильмы']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//div[@aria-label='Notification']//h3[text()='автотест ВУ для экрана Фильмы']")).size(), "Отображается ВУ на НиЛ с фильтром раздел Фильмы");
     }
 
 
@@ -736,7 +736,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _3F3oxTbj4-jqVDNzy0QEFS') and text()='Активировать']"));
         String colorButton = webDriver.findElement(By.cssSelector("._3F3oxTbj4-jqVDNzy0QEFS")).getCssValue("background-color");
         System.out.println(colorButton);
-        Assert.assertEquals("Не серый цвет кнопки 'Активировать'", "rgba(204, 204, 204, 1)", colorButton);
+        Assertions.assertEquals("Не серый цвет кнопки 'Активировать'", "rgba(204, 204, 204, 1)", colorButton);
     }
 
     public void inputInvalidPromoCode(String anycode) {
@@ -750,7 +750,7 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//button[contains(@class,'M2wxcFvZLf83aNlb6Ab1V _1FfeR84AXAbi63sErW3rma') and text()='Активировать']"));
         String colorButton = webDriver.findElement(By.cssSelector("._1FfeR84AXAbi63sErW3rma")).getCssValue("background-color");
         System.out.println(colorButton);
-        Assert.assertEquals("Не зелёный цвет кнопки 'Активировать'", "rgba(0, 185, 86, 1)", colorButton);
+        Assertions.assertEquals("Не зелёный цвет кнопки 'Активировать'", "rgba(0, 185, 86, 1)", colorButton);
 
     }
 
@@ -762,10 +762,10 @@ public class HeaderMenu extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[text()='Неверный промокод. Пожалуйста, проверьте правильность введенного промокода.']"));
         String errorMessage1 = webDriver.findElement(By.cssSelector("._335HUB331-UCZHFsv1zJ5I")).getCssValue("color");
         System.out.println(errorMessage1);
-        Assert.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage1);
+        Assertions.assertEquals("Сообщение об ошибке не красного цвета", "rgba(255, 51, 51, 1)", errorMessage1);
         String borderInput = webDriver.findElement(By.cssSelector(".kRGHaNYHoMa7dRsR-LJtP")).getCssValue("border-color");
         System.out.println(borderInput);
-        Assert.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
+        Assertions.assertEquals("Не красный цвет рамки поля ввода", "rgb(255, 51, 51)", borderInput);
     }
 
     public void inputValidPromoCode(String validCod) {
@@ -811,7 +811,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkClosePopUpBeforeActivationPackageStartSoftTnB() {
-        Assert.assertEquals("Не закрылся попап 'до активации'", 0, webDriver.findElements(By.xpath("//h3[text()='«START» бесплатно по промокоду!']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[text()='«START» бесплатно по промокоду!']")).size(), "Не закрылся попап 'до активации'");
         isElementDisplayed(By.xpath("//h3[text()='Введите промокод']"));
     }
 
@@ -821,7 +821,7 @@ public class HeaderMenu extends BasePageWebDriver {
         System.out.println(namePackage);
         click(By.linkText("Подробнее"));
         isElementDisplayed(By.xpath("//a[@href='/packages']//span[1]"));
-        Assert.assertEquals("Не тот пакет", namePackage, webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText());
+        Assertions.assertEquals("Не тот пакет", namePackage, webDriver.findElement(By.className("_3JWCAjonEZRvpx1iIk6Y0n")).getText());
     }
 
     public void checkElementsPopUpBeforeActivationPackageMoreTvHardTnB() {
@@ -851,7 +851,7 @@ public class HeaderMenu extends BasePageWebDriver {
     }
 
     public void checkClosePopUpAfterActivation() {
-        Assert.assertEquals("Не закрылся попап 'после активации'", 0, webDriver.findElements(By.xpath("//h3[text()='Промокод активирован!']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//h3[text()='Промокод активирован!']")).size(), "Не закрылся попап 'после активации'");
     }
 
     public void checkElementsPopUpBeforeActivationFilmOnRent() {
@@ -879,7 +879,7 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.linkText("Подробнее"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
         isElementDisplayed(By.xpath("//span[contains(text(),'Смотреть до')]"));
-        Assert.assertEquals("Не тот фильм", namePackage, webDriver.findElement(By.tagName("h1")).getText());
+        Assertions.assertEquals("Не тот фильм", namePackage, webDriver.findElement(By.tagName("h1")).getText());
     }
 
     public void checkElementsPopUpBeforeActivationFilmOnEST() {
@@ -907,7 +907,7 @@ public class HeaderMenu extends BasePageWebDriver {
         click(By.linkText("Подробнее"));
         isElementDisplayed(By.xpath("//a[@href='/movies/vods']//span[1]"));
         isElementDisplayed(By.xpath("//span[text()='Смотреть']"));
-        Assert.assertEquals("Не тот фильм", namePackage, webDriver.findElement(By.tagName("h1")).getText());
+        Assertions.assertEquals("Не тот фильм", namePackage, webDriver.findElement(By.tagName("h1")).getText());
     }
 
     public void goToBack() {

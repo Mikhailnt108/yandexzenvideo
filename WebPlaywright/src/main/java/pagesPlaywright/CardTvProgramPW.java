@@ -4,7 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -230,7 +230,7 @@ public class CardTvProgramPW extends BasePagePlaywright {
         String timeStart = pageHeadfull.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
         pageHeadfull.waitForTimeout(5000);
         String timeEnd = pageHeadfull.querySelector("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]").innerText();
-        Assert.assertNotEquals(timeStart, timeEnd);
+        Assertions.assertNotEquals(timeStart, timeEnd);
     }
 
     public void checkImagePlayerСardTvProgramUnrecordedUser() throws IOException, InterruptedException {

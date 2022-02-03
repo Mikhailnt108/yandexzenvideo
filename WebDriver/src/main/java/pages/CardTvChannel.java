@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -53,7 +53,7 @@ public class CardTvChannel extends BasePageWebDriver {
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(7000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
     }
 
     public void backToNewsTvChannel() {
@@ -74,7 +74,7 @@ public class CardTvChannel extends BasePageWebDriver {
         String time1 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
         Thread.sleep(7000);
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         click(By.xpath("(//div[@class='oog6D4ljOTvbih-_NivDx'])[2]"));
     }
@@ -120,18 +120,18 @@ public class CardTvChannel extends BasePageWebDriver {
         Thread.sleep(5000);
         actions.moveToElement(webDriver.findElement(By.xpath("//div[@class='_3oIAMUjIv-QAdeSq_k6cql']"))).build().perform();
         String time2 = webDriver.findElement(By.xpath("(//div[@class='TbJLLkMJ2e-Mv2C1zXAvV']//div)[1]")).getText();
-        Assert.assertNotEquals(time1, time2);
+        Assertions.assertNotEquals(time1, time2);
     }
 
     public void checkButtonFavoriteNotAdded() {
         isElementDisplayed(By.xpath("(//button[@class='_1OuDMhv3SzdZRyhRGbhkr-'])[1]"));
         String colorButtonFavoriteNotAdded = webDriver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-]")).getCssValue("background-color");
         System.out.println(colorButtonFavoriteNotAdded);
-        Assert.assertEquals("Не тот цвет","rgba(237, 237, 237, 1)",colorButtonFavoriteNotAdded);
+        Assertions.assertEquals("Не тот цвет","rgba(237, 237, 237, 1)",colorButtonFavoriteNotAdded);
         isElementDisplayed(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg"));
         String colorIconFavoriteNotAdded = webDriver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg > path[fill]")).getCssValue("fill");
         System.out.println(colorIconFavoriteNotAdded);
-        Assert.assertEquals("Не тот цвет","rgb(153, 153, 153)",colorIconFavoriteNotAdded);
+        Assertions.assertEquals("Не тот цвет","rgb(153, 153, 153)",colorIconFavoriteNotAdded);
     }
 
     public void clickOnButtonFavorite() throws InterruptedException {
@@ -142,11 +142,11 @@ public class CardTvChannel extends BasePageWebDriver {
     public void checkButtonFavoriteAdded() {
         String colorButtonFavoriteAdded = webDriver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-]")).getCssValue("background-color");
         System.out.println(colorButtonFavoriteAdded);
-        Assert.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorButtonFavoriteAdded);
+        Assertions.assertEquals("Не тот цвет","rgba(51, 51, 51, 1)",colorButtonFavoriteAdded);
         isElementDisplayed(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg"));
         String colorIconFavoriteAdded = webDriver.findElement(By.cssSelector("button[class=_1OuDMhv3SzdZRyhRGbhkr-] > svg > path[fill]")).getCssValue("fill");
         System.out.println(colorIconFavoriteAdded);
-        Assert.assertEquals("Не тот цвет","rgb(255, 255, 255)",colorIconFavoriteAdded);
+        Assertions.assertEquals("Не тот цвет","rgb(255, 255, 255)",colorIconFavoriteAdded);
     }
 
     public void goToTvProgram18Plus() throws InterruptedException {

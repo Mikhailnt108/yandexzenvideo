@@ -4,7 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -144,8 +144,8 @@ public class KidsPagePW extends BasePagePlaywright {
         page.navigate(frontend+"kids");
         page.focus("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
         ElementHandle blockCollectionWithoutHeader = page.querySelector("(//div[@class='_32EmGwc0ERBa-YAD-9i89Q']/ancestor::div[@class='_3UmDZyX05ClTVRp6p2xAZj'])[1]");
-        Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
-        Assert.assertNotEquals("нет элемента - collectionName", page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0);
+        Assertions.assertNotEquals(page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0, "нет элемента - posterCollection");
+        Assertions.assertNotEquals(page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0, "нет элемента - collectionName");
         // подготовка элемента "blockCollectionWithoutHeaderForUnauthorized" к скриншот-тесту:
         ElementHandle posterCollection1 = page.querySelector("(//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B'])[1]");
         page.evaluate("pW => pW.setAttribute('style', 'background-image: url(\"https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp\");')", posterCollection1);
@@ -216,8 +216,8 @@ public class KidsPagePW extends BasePagePlaywright {
         }
 
         // подготовка блоков подборок без заголовка:
-        Assert.assertNotEquals("нет элемента - posterCollection", page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0);
-        Assert.assertNotEquals("нет элемента - collectionName", page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0);
+        Assertions.assertNotEquals(page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']").size(), 0, "нет элемента - posterCollection");
+        Assertions.assertNotEquals(page.querySelectorAll("//h3[@data-test='CollectionName']").size(), 0, "нет элемента - collectionName");
         List<ElementHandle> posterCollection2All = page.querySelectorAll("//div[@class='_3H6SpMZcck2BFXiKBB5gtC _2wlpAXpsfCG6-Gto_H43-B']");
         for(ElementHandle posterCollection2 : posterCollection2All){
             posterCollection2.evaluate("pC => pC.setAttribute('style', 'background-image: url(https://static-sesure.cdn.megafon.tv/images/Collection/44/c9/3b579a939eed7a7301285886d33dc68bcdb8/tile_collection_group__web-wp.webp);')");
@@ -296,7 +296,7 @@ public class KidsPagePW extends BasePagePlaywright {
         String Background = page.querySelector("//div[@class='_35YQGs7aas93eRD-8vTLT- _26VUc9ouKb9F8gVK9Zokon']").getAttribute("background-image");
         System.out.println(page.querySelector("//div[@class='_35YQGs7aas93eRD-8vTLT- _26VUc9ouKb9F8gVK9Zokon']").getAttribute("background-image"));
         System.out.println(Background.substring(0,3));
-        Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
+        Assertions.assertEquals("нет детского фона", "url", Background.substring(0,3));
     }
 
     public void clickToLinkAllOnCollectionBlock() {

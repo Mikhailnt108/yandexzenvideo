@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -36,11 +36,11 @@ public class MyPage extends BasePageWebDriver {
         webDriver.get(frontend+"my/purchases");
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         Thread.sleep(3000);
-        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
+        Assertions.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
 
     public void checkNoPurchase() {
-        Assert.assertEquals(0, webDriver.findElements(By.xpath("//span[text()='Куплено']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//span[text()='Куплено']")).size());
     }
 
     public void checkAddingSecondFilmToFavorites() throws InterruptedException {
@@ -50,7 +50,7 @@ public class MyPage extends BasePageWebDriver {
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
         System.out.println(nameFilm);
         webDriver.get(frontend+"my/favorites");
-        Assert.assertEquals(nameFilm, webDriver.findElement(By.xpath("//h3[@data-test='PackageDescriptionTitle']")).getText());
+        Assertions.assertEquals(nameFilm, webDriver.findElement(By.xpath("//h3[@data-test='PackageDescriptionTitle']")).getText());
     }
 
     public void checkAddingFirstFilmToFavorites() throws InterruptedException {
@@ -60,7 +60,7 @@ public class MyPage extends BasePageWebDriver {
         String nameFilm = webDriver.findElement(By.xpath("//h1[text()]")).getText();
         System.out.println(nameFilm);
         webDriver.get(frontend+"my/favorites");
-        Assert.assertEquals(nameFilm, webDriver.findElement(By.xpath("//h3[@data-test='PackageDescriptionTitle']")).getText());
+        Assertions.assertEquals(nameFilm, webDriver.findElement(By.xpath("//h3[@data-test='PackageDescriptionTitle']")).getText());
     }
 
     public void checkAddingSerialsInPurchases() throws InterruptedException {
@@ -96,13 +96,13 @@ public class MyPage extends BasePageWebDriver {
             jsDown.executeScript("window.scrollTo(0, 50000);");
             Thread.sleep(10000);
             System.out.println(count3.size());
-            Assert.assertNotEquals("количество элементов равно", count3.size(), webDriver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
+            Assertions.assertNotEquals(count3.size(), webDriver.findElements(By.xpath("//a[@data-test='PackageLink']")).size(), "количество элементов равно");
             System.out.println(webDriver.findElements(By.xpath("//a[@data-test='PackageLink']")).size());
         }
         List<WebElement> countSerials = webDriver.findElements(By.xpath("//a[@data-test='PackageLink']"));
         int i3 = countSerials.size();
         System.out.println("кол-во сериалов всего во владении: "+i3);
-        Assert.assertEquals("не равно количество сериалов", i3, i1+i2 );
+        Assertions.assertEquals(i3, i1+i2, "не равно количество сериалов");
     }
 
     public void checkAddingSerialToFavorites() throws InterruptedException {
@@ -113,7 +113,7 @@ public class MyPage extends BasePageWebDriver {
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         // переход в карточку эпизода:
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
-        Assert.assertEquals(nameSerial, webDriver.findElement(By.tagName("h1")).getText());
+        Assertions.assertEquals(nameSerial, webDriver.findElement(By.tagName("h1")).getText());
     }
 
     public void goToCollectionFavoritesPage() throws InterruptedException {
@@ -156,7 +156,7 @@ public class MyPage extends BasePageWebDriver {
         webDriver.get(frontend+"my/history");
         click(By.xpath("//a[@data-test='PackageLink']"));
         Thread.sleep(3000);
-        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
+        Assertions.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
     public void goToMyPageFavorites() { webDriver.get(frontend+"my/favorites");
         isElementDisplayed(By.xpath("//a[@href='/my']//span[1]"));
@@ -202,7 +202,7 @@ public class MyPage extends BasePageWebDriver {
         webDriver.get(frontend+"my/purchases");
         click(By.xpath("(//a[@data-test='PackageLink'])[1]"));
         Thread.sleep(3000);
-        Assert.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
+        Assertions.assertEquals(nameFilm, webDriver.findElement(By.tagName("h1")).getText());
     }
 }
 

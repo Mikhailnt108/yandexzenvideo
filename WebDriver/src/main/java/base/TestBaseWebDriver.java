@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@ExtendWith(TestRailReportExtension.class)
+//@ExtendWith(TestRailReportExtension.class)
 public class TestBaseWebDriver {
     public WebDriver webDriver;
     public HeaderMenu headerMenu;

@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -72,17 +72,17 @@ public class PackagesPage extends BasePageWebDriver {
         List<WebElement> packages = webDriver.findElements(By.xpath("//a[@href]//h3[not(text()='START' or text()='more.tv' or text()='Амедиатека')]"));
         System.out.println(countTails.size());
         System.out.println(packages.size());
-        Assert.assertEquals(countTails.size(), packages.size());
+        Assertions.assertEquals(countTails.size(), packages.size());
     }
 
     public void checkTypePackagesInTabAll() {
         List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
-        Assert.assertEquals(CollectionTailAllPackages.size(), webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
+        Assertions.assertEquals(CollectionTailAllPackages.size(), webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']")).size());
         System.out.println(CollectionTailAllPackages.size());
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
             CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            Assertions.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
 
             if (webDriver.findElements(By.xpath("//div[text()='Фильмы, входящие в пакет:']")).size() != 0) {
                 webDriver.navigate().back();
@@ -95,7 +95,7 @@ public class PackagesPage extends BasePageWebDriver {
             CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
 
             CollectionTailAllPackages.get(i).click();
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            Assertions.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
             if (webDriver.findElements(By.xpath("//div[text()='Сериалы, входящие в пакет:']")).size() != 0) {
                 webDriver.navigate().back();
                 break;
@@ -106,7 +106,7 @@ public class PackagesPage extends BasePageWebDriver {
         for (int i = 0; i < CollectionTailAllPackages.size(); i++) {
             CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            Assertions.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
             if (webDriver.findElements(By.xpath("//div[text()='Каналы, входящие в пакет:']")).size() != 0) {
                 webDriver.navigate().back();
                 break;
@@ -118,11 +118,11 @@ public class PackagesPage extends BasePageWebDriver {
 
     public void checkAllPackegesWithoutOwnership() {
         List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']//div[text()='Подключен']"));
-        Assert.assertEquals(0, CollectionTailAllPackages.size());
+        Assertions.assertEquals(0, CollectionTailAllPackages.size());
     }
     public void checkConnectedOnTailPackage() {
         List<WebElement> CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']//div[text()='Подключен']"));
-        Assert.assertEquals(2, CollectionTailAllPackages.size());
+        Assertions.assertEquals(2, CollectionTailAllPackages.size());
     }
 
     public void checkTypePackagesInTabTvChannel() throws InterruptedException {
@@ -183,9 +183,9 @@ public class PackagesPage extends BasePageWebDriver {
             CollectionTailAllPackages = webDriver.findElements(By.xpath("//div[@class='_1xL5v5jWDyGkjnMyil3_S5']//div[@class='_1gajUi7CqFhf_qFGRX_c0_']"));
             CollectionTailAllPackages.get(i).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Подключить')]")));
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Фильмы'])[3]")).size());
-            Assert.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Сериалы'])[3]")).size());
+            Assertions.assertEquals(1, webDriver.findElements(By.xpath("//span[contains(text(),'Подключить')]")).size());
+            Assertions.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Фильмы'])[3]")).size());
+            Assertions.assertEquals(1, webDriver.findElements(By.xpath("(//div[text()='Сериалы'])[3]")).size());
             if (webDriver.findElements(By.xpath("//div[text()='ТВ-каналы']")).size() != 0) {
                 click(By.xpath("(//div[text()='Магазин'])[1]"));
                 click(By.xpath("//div[text()='Микс']"));
@@ -197,11 +197,11 @@ public class PackagesPage extends BasePageWebDriver {
     }
 
     public void checkNotDisplayedTabConnectedInMenuShopPage() {
-        Assert.assertEquals(0, webDriver.findElements(By.xpath("//div[text()='Подключенные']")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.xpath("//div[text()='Подключенные']")).size());
     }
 
     public void checkDisplayedTabConnectedInMenuShopPage() {
-        Assert.assertEquals(1, webDriver.findElements(By.xpath("//div[text()='Подключенные']")).size());
+        Assertions.assertEquals(1, webDriver.findElements(By.xpath("//div[text()='Подключенные']")).size());
     }
 
     public void checkTypePackagesInTabConnectedInMenuShopPage() {
@@ -234,7 +234,7 @@ public class PackagesPage extends BasePageWebDriver {
         List<WebElement> services = webDriver.findElements(By.xpath("//h3[text()='START']|//h3[text()='more.tv']|//h3[text()='Амедиатека']"));
         System.out.println(countTails.size());
         System.out.println(services.size());
-        Assert.assertEquals(countTails.size(),services.size());
+        Assertions.assertEquals(countTails.size(),services.size());
     }
 
     public void clickToTailCardPackageSubs1() throws InterruptedException {

@@ -4,8 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.MouseButton;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
-
+import org.junit.jupiter.api.Assertions;
 import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -16,11 +15,10 @@ import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
-
 import static base.TestBasePlaywright.*;
 import static io.restassured.RestAssured.given;
 import static java.lang.Thread.sleep;
-import static org.hamcrest.core.AnyOf.anyOf;
+import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.core.Is.is;
 
 public class HeaderMenuPW extends BasePagePlaywright {
@@ -336,7 +334,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.click("(//span[text()='Способы оплаты'])[1]");
         page.waitForSelector("//h1//span[text()='Способы оплаты']");
         page.waitForSelector("//div[text()='Счет основного номера телефона']");
-        Assert.assertEquals("Нет текста 'Счет основного номера телефона'", "Счет основного номера телефона", page.querySelector("//div[text()='Счет основного номера телефона']").innerText());
+        Assertions.assertEquals("Счет основного номера телефона", page.querySelector("//div[text()='Счет основного номера телефона']").innerText(), "Нет текста 'Счет основного номера телефона'");
         page.querySelector("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']");
     }
 
@@ -475,12 +473,12 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkInputValidEmailInPopUpInputEmail(String email) throws InterruptedException {
         page.querySelector("//h1[text()='Введите E-mail']");
         page.fill("//input[@placeholder='Введите e-mail']", email);
-        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//button[@disabled and text()='Далее']").size(), "bug: not visible element");
         ElementHandle buttonComeIn = page.waitForSelector("//button[text()='Далее']");
         Thread.sleep(3000);
         String background = (String) buttonComeIn.evaluate("e => window.getComputedStyle(e).background");
         System.out.println(background);
-        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
+        Assertions.assertTrue(background.contains("rgb(0, 215, 86)"), "bug: the color of the element is not green");
     }
 
     public void copyPasteCodMsisdnForNonMF(String login) {
@@ -614,7 +612,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.navigate(frontend);
     }
 
-
     public void openMinFramePage() {
      page.setViewportSize(540, 1334);
     }
@@ -726,7 +723,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
 //        bot.mouseRelease(InputEvent.BUTTON1_MASK);
 //        bot.mouseMove(0,0);
 //        page.keyboard().press("Escape");
-
         sleep(5000);
     }
 

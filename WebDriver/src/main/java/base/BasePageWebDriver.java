@@ -1,7 +1,6 @@
 package base;
 
-
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +31,7 @@ public class BasePageWebDriver {
     }
     public boolean isElementDisplayed (By elementBy) {
         waitVisibility(elementBy);
-        Assert.assertTrue("элемент не найден", webDriver.findElement(elementBy).isDisplayed());
+        Assertions.assertTrue(webDriver.findElement(elementBy).isDisplayed(), "элемент не найден");
         return false;
     }
     public void writeText(By elementBy, String text) {

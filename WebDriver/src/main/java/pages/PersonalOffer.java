@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePageWebDriver;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -72,7 +72,7 @@ public class PersonalOffer extends BasePageWebDriver {
         isElementDisplayed(By.className("_2yfj41btmBF-chrc0LwQQ1"));
         String colorElementPO = webDriver.findElement(By.cssSelector("._3oPCKMu7Sfm9IMsxuhwuXy")).getCssValue("background-color");
         System.out.println(colorElementPO);
-        Assert.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorElementPO);
+        Assertions.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorElementPO);
     }
 
     public void clickToElementPersonalOffer() throws InterruptedException {
@@ -130,7 +130,7 @@ public class PersonalOffer extends BasePageWebDriver {
         isElementDisplayed(By.xpath("//div[@class='_3H-YE-_SDd808d1cqEgy5q']//*[@fill='#FFFFFF']"));
         String colorBackgroundPO = webDriver.findElement(By.cssSelector("._3oPCKMu7Sfm9IMsxuhwuXy")).getCssValue("background-color");
         System.out.println(colorBackgroundPO);
-        Assert.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorBackgroundPO);
+        Assertions.assertEquals("Плашка ПП не пурпурно-синего цвета", "rgba(68, 65, 137, 1)", colorBackgroundPO);
     }
 
     public void createPersonalOfferTypePartnerOfferForNonMF() {
@@ -403,7 +403,7 @@ public class PersonalOffer extends BasePageWebDriver {
     }
 
     public void checkAbsentElementPersonalOffer() {
-        Assert.assertEquals("Отображается плашка ПП", 0, webDriver.findElements(By.className("_2EES6eXVXSN1-aglhcBq0D")).size());
+        Assertions.assertEquals(0, webDriver.findElements(By.className("_2EES6eXVXSN1-aglhcBq0D")).size(), "Отображается плашка ПП");
     }
 
     public void activatePersonalOfferSubscription() throws InterruptedException {
@@ -426,7 +426,7 @@ public class PersonalOffer extends BasePageWebDriver {
 //        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         String url2 = webDriver.getCurrentUrl();
         System.out.println(url2);
-        Assert.assertEquals(url1, url2);
+        Assertions.assertEquals(url1, url2);
         webDriver.close();
         webDriver.switchTo().window((String) tabs1.get(0));
     }
