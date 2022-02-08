@@ -1,54 +1,7 @@
-#  version: "3"
-#  services:
-#    chrome:
-#      image: gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/selenium_node_chrome:4.1.1-20220121
-#      shm_size: 2gb
-#      ports:
-#        - "5900"
-#        - "7900"
-#      depends_on:
-#        - selenium-hub
-#      environment:
-#        - SE_EVENT_BUS_HOST=selenium-hub
-#        - SE_EVENT_BUS_PUBLISH_PORT=4442
-#        - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-#
-#    selenium-hub:
-#      image: gitlab.megafon.tv:443/qa/dependency_proxy/containers/mikhailnt87/selenium_hub:4.1.1-20220121
-#      container_name: selenium-hub
-#      ports:
-#        - "4442:4442"
-#        - "4443:4443"
-#        - "4444:4444"
-
-
-#version: "3"
-#services:
-#  standalone-chrome:
-#    image: selenium/standalone-chrome:4.1.1-20220121
-#    shm_size: 2gb
-#    ports:
-#      - "4444:4444"
-#      - "7901:7900"
-#
-#  standalone-chrome2:
-#    image: selenium/standalone-chrome:4.1.1-20220121
-#    shm_size: 2gb
-#    ports:
-#      - "4444:4444"
-#      - "7902:7900"
-#
-#  standalone-chrome3:
-#    image: selenium/standalone-chrome:4.1.1-20220121
-#    shm_size: 2gb
-#    ports:
-#      - "4444:4444"
-#      - "7903:7900"
-
-version: "3"
+version: "2.1"
 services:
   chrome:
-    image: selenium/node-chrome:4.1.1-20220121
+    image: selenium/node-chrome:4.1.2-20220208
     shm_size: 2gb
     ports:
       - "5900"
@@ -62,11 +15,59 @@ services:
       - SE_SESSION_RETRY_INTERVAL=2
 
   selenium-hub:
-    image: selenium/hub:4.1.1-20220121
+    image: selenium/hub:4.1.2-20220208
     container_name: selenium-hub
     ports:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+  ui:
+    image: visualregressiontracker/ui:4.19.0
+    ports:
+      - "${PORT}:8080"
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_URL}
+    restart: always
+  api:
+    image: visualregressiontracker/api:4.19.0
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_LIFE_TIME: ${JWT_LIFE_TIME}
+      APP_FRONTEND_URL: ${APP_FRONTEND_URL}
+      BODY_PARSER_JSON_LIMIT: ${BODY_PARSER_JSON_LIMIT}
+    ports:
+      - "${APP_PORT}:3000"
+    volumes:
+      - ./imageUploads:/imageUploads
+    depends_on:
+      - postgres
+    restart: always
+  migration:
+    image: visualregressiontracker/migration:4.19.0
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: on-failure
+  postgres:
+    image: postgres:9.6.23-bullseye
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    expose:
+      - "${POSTGRES_PORT}"
+    volumes:
+      - "./db:/var/lib/postgresql/data"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"]
+      interval: 60s
+      timeout: 120s
+      retries: 10
 
 

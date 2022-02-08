@@ -24,7 +24,7 @@ RUN apt update && apt install -y curl && \
 RUN npm install -g npm@8
 
 ## Install stable chrome
-RUN npx playwright install chrome
+#RUN npx playwright install chrome
 RUN apt-get update && apt-get install -y unzip
 WORKDIR /gradle
 RUN curl -L https://services.gradle.org/distributions/gradle-6.0.1-bin.zip -o gradle-6.0.1-bin.zip
@@ -47,7 +47,7 @@ COPY . .
 #USER newuser
 #RUN cd gradle
 ##CMD HTTP_PROXY=http://proxy.megalabs.ru:8808 HTTPS_PROXY=http://proxy.megalabs.ru:8808 SELENIUM_REMOTE_URL=http://10.236.64.48:4444/wd/hub mvn -pl WebPlaywright clean test
-CMD gradle clean test allureReport allureServe
+CMD DEBUG=pw:browser* gradle clean test
 ##CMD SELENIUM_REMOTE_URL=http://192.168.1.139:4444/wd/hub mvn -pl WebPlaywright clean test
 
 

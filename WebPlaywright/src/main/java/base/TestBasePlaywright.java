@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
-
+import java.util.Map;
 
 //@Execution(CONCURRENT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -46,10 +46,11 @@ import java.util.Arrays;
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
+    public Map<String, String> env = Map.of("SELENIUM_REMOTE_URL", "http://192.168.1.139:4444");
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
-            .apiUrl("http://10.236.64.48:4200")
-            .apiKey("GKT6NX6RZBMEK6NJC6EHCCWJ2V99")
+            .apiUrl("http://192.168.1.139:4200")
+            .apiKey("89P7TN8Y4QMPG4HPMV9FB66BZ7VK")
             .project("MFTV_Web_Chrome")
             .branchName("master")
             .enableSoftAssert(true)
@@ -85,9 +86,9 @@ import java.util.Arrays;
     }
     @BeforeAll
     void launchBrowser() {
-        playwright = Playwright.create();
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
+        playwright = Playwright.create(new Playwright.CreateOptions().setEnv(env));
+        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setTimeout(30000));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
     }
     @AfterAll
     void closeBrowser() {

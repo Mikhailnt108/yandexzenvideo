@@ -4784,6 +4784,7 @@ public class NiLPagePW extends BasePagePlaywright {
     }
 
     public void checkResultSearchNothingFound() {
+        page.waitForTimeout(60000);
         page.click("//button[contains(@class,'ch-header__trigger_type_search')]");
         page.fill("(//input[@placeholder='Поиск на МегаФон ТВ'])[1]", "автотест");
         Assertions.assertTrue(page.waitForSelector("//div[text()='Ничего не найдено']").isVisible(), "not visible element");

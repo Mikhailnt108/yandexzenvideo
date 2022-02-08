@@ -98,17 +98,19 @@ public class TestBaseWebDriver {
 //        System.setProperty("http.proxyPort", "8808");
 //        Proxy proxy = new Proxy();
 //        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setCapability("goog:chromeOptions",chromeOptions);
-        chromeOptions.setCapability("browserName","chrome");
-        chromeOptions.setCapability("browserVersion", "97.0");
-        chromeOptions.setCapability("platformName", "linux");
-        chromeOptions.setCapability("pageLoadStrategy","normal");
-        chromeOptions.setHeadless(false);
-//        chromeOptions.addArguments("--proxy-pac-url=http://myPacFile.com");
-        WebDriver webDriver = new RemoteWebDriver(new URL("http://192.168.1.139:4444"), chromeOptions);
-        Configuration.pageLoadTimeout = 60000;
+        Proxy proxy = new Proxy();
+        proxy.setHttpProxy("http://proxy.megalabs.ru:8808");
+        ChromeOptions options = new ChromeOptions();
+//        chromeOptions.setCapability("goog:chromeOptions",chromeOptions);
+        options.setCapability("browserName","chrome");
+        options.setCapability("browserVersion", "97.0");
+        options.setCapability("platformName", "linux");
+        options.setCapability("pageLoadStrategy","normal");
+        options.setCapability("proxy", proxy);
+        options.setHeadless(false);
+        Configuration.browserCapabilities = options;
+        WebDriver webDriver = new RemoteWebDriver(new URL("http://10.236.64.48:4444"), options);
+//        Configuration.pageLoadTimeout = 60000;
         webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
         WebDriverRunner.setWebDriver(webDriver);
 

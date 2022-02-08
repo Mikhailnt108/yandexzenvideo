@@ -22,8 +22,9 @@ allure {
 
 tasks.withType(Test) {
     ignoreFailures = true
+//    environment 'SELENIUM_REMOTE_URL',  'http://192.168.1.139:4444'
     useJUnitPlatform{
-        includeTags 'Example', 'Example2', 'Example3', 'Example6', 'Example8'}
+        includeTags 'Grid'}
 //    systemProperty 'allure.results.directory', "$projectDir/build/allure-results"
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
     systemProperty("junit.jupiter.execution.parallel.config.strategy", "dynamic")
@@ -33,7 +34,7 @@ tasks.withType(Test) {
 repositories {
     mavenCentral()
     mavenLocal()
-    maven { url 'https://jitpack.io' }
+    maven { url 'https://www.jitpack.io' }
 }
 configurations {
     testCompile {
@@ -48,6 +49,7 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     implementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
     implementation 'com.microsoft.playwright:playwright:1.18.0'
+    implementation 'org.seleniumhq.selenium:selenium-grid:4.1.2'
     implementation 'com.github.visual-regression-tracker:sdk-java:5.1.1'
     implementation 'io.rest-assured:rest-assured:4.5.0'
     implementation 'org.hamcrest:hamcrest-core:2.2'

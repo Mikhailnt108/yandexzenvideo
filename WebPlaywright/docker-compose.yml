@@ -11,25 +11,25 @@ services:
     image: tests_playwright
     container_name: tests_run_playwright
     network_mode: "host"
-  allure:
-      image: "frankescobar/allure-docker-service"
-#      user: ${MY_USER}
-      environment:
-        EMAILABLE_REPORT_TITLE: "AutoSmoke_MFTV_Web_and_Mobile_Web"
-        CHECK_RESULTS_EVERY_SECONDS: 1
-        KEEP_HISTORY: 1
-      ports:
-        - "5050:5050"
-      volumes:
-        - /WebPlaywright/build/allure-results:/app/allure-results
-        - /WebPlaywright/build/reports/allure-report:/app/default-reports
+#  allure:
+#      image: "frankescobar/allure-docker-service"
+##      user: ${MY_USER}
+#      environment:
+#        EMAILABLE_REPORT_TITLE: "AutoSmoke_MFTV_Web_and_Mobile_Web"
+#        CHECK_RESULTS_EVERY_SECONDS: 1
+#        KEEP_HISTORY: 1
+#      ports:
+#        - "5050:5050"
+#      volumes:
+#        - /WebPlaywright/build/allure-results:/app/allure-results
+#        - /WebPlaywright/build/reports/allure-report:/app/default-reports
 
-  allure-ui:
-        image: "frankescobar/allure-docker-service-ui"
-        environment:
-          PROJECT_ID: "autosmoke-mftv-web-and-mobile-web"
-          EMAILABLE_REPORT_TITLE: "AutoSmoke_MFTV_Web_and_Mobile_Web"
-          ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5050"
-          ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
-        ports:
-          - "5252:5252"
+#  allure-ui:
+#        image: "frankescobar/allure-docker-service-ui"
+#        environment:
+#          PROJECT_ID: "autosmoke-mftv-web-and-mobile-web"
+#          EMAILABLE_REPORT_TITLE: "AutoSmoke_MFTV_Web_and_Mobile_Web"
+#          ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5050"
+#          ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+#        ports:
+#          - "5252:5252"
