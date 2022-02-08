@@ -9,7 +9,7 @@ import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
 //@Execution(ExecutionMode.SAME_THREAD)
-@ResourceLock(value = "SuiteWD#3", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "Example2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_02_PACKAGES_Transition_on_tabs extends TestBaseWebDriver {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "2. Sections_menu")
@@ -18,7 +18,7 @@ public class Test_02_PACKAGES_Transition_on_tabs extends TestBaseWebDriver {
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("31542083")
     @Test
-    @Tag("SuiteWD#3")
+    @Tag("Example2")
     public void goToTabPackage() throws InterruptedException {
         headerMenu.goToPackagesPage();
         packagesPage.clickToTabTvСhannelInMenuShopPage();

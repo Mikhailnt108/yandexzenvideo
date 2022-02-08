@@ -1,81 +1,38 @@
-version: "2.1"
+version: '3'
 services:
-#  chrome:
-#    image: selenium/node-chrome:4.1.1-20220121
-#    shm_size: 2gb
-#    ports:
-#      - "5900"
-#      - "7900"
-#    depends_on:
-#      - selenium-hub
-#    environment:
-#      - SE_EVENT_BUS_HOST=selenium-hub
-#      - SE_EVENT_BUS_PUBLISH_PORT=4442
-#      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-#
-#  selenium-hub:
-#     image: selenium/hub:4.1.1-20220121
-#     container_name: selenium-hub
-#     ports:
-#       - "4442:4442"
-#       - "4443:4443"
-#       - "4444:4444"
-#  ui:
-#    image: visualregressiontracker/ui:4.19.0
-#    ports:
-#      - "${PORT}:8080"
-#    environment:
-#      REACT_APP_API_URL: ${REACT_APP_API_URL}
-#    restart: always
-#  api:
-#    image: visualregressiontracker/api:4.19.0
-#    environment:
-#      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-#      JWT_SECRET: ${JWT_SECRET}
-#      JWT_LIFE_TIME: ${JWT_LIFE_TIME}
-#      APP_FRONTEND_URL: ${APP_FRONTEND_URL}
-#      BODY_PARSER_JSON_LIMIT: ${BODY_PARSER_JSON_LIMIT}
-#    ports:
-#      - "${APP_PORT}:3000"
-#    volumes:
-#      - ./imageUploads:/imageUploads
-#    depends_on:
-#      - postgres
-#    restart: always
-#  migration:
-#    image: visualregressiontracker/migration:4.19.0
-#    environment:
-#      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-#    depends_on:
-#      postgres:
-#        condition: service_healthy
-#    restart: on-failure
-#  postgres:
-#    image: postgres:9.6.23-bullseye
-#    restart: always
-#    environment:
-#      POSTGRES_USER: ${POSTGRES_USER}
-#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-#      POSTGRES_DB: ${POSTGRES_DB}
-#    ports:
-#      - "${POSTGRES_PORT}:5432"
-#    expose:
-#      - "${POSTGRES_PORT}"
-#    volumes:
-#      - "./db:/var/lib/postgresql/data"
-#    healthcheck:
-#      test: ["CMD-SHELL", "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"]
-#      interval: 10s
-#      timeout: 120s
-#      retries: 10
   test_runner:
     build:
-      context: /builds/qa/autosmoke_mftv_web_and_mobile_web
+#      context: /builds/qa/autosmoke_mftv_web_and_mobile_web
 #      context: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
-#      context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
-      dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/Dockerfile
+      context: C:\QA_AUTOMATION\WebPlaywright
+#      dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/WebPlaywright/Dockerfile
 #      dockerfile: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/WebPlaywright/Dockerfile
-#      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\WebPlaywright\Dockerfile
+      dockerfile: C:\QA_AUTOMATION\WebPlaywright\Dockerfile
     image: web_tests_playwright
     container_name: web_tests_run_playwright
     network_mode: "host"
+  allure:
+      image: "frankescobar/allure-docker-service"
+      user: ${MY_USER}
+      environment:
+        EMAILABLE_REPORT_TITLE: "AutoSmoke_MFTV_Web_and_Mobile_Web"
+        CHECK_RESULTS_EVERY_SECONDS: 1
+        KEEP_HISTORY: 1
+      ports:
+        - "5050:5050"
+      volumes:
+        - /gradle/build/allure-results:/app/allure-results
+        - /gradle/build/reports/allure-report:/app/default-reports
+      depends_on:
+        - test_runner
+#      entrypoint: "./wait-for-it.sh test_runner:5432"
+
+  allure-ui:
+        image: "frankescobar/allure-docker-service-ui"
+        environment:
+          PROJECT_ID: "autosmoke-mftv-web-and-mobile-web"
+          EMAILABLE_REPORT_TITLE: "AutoSmoke_MFTV_Web_and_Mobile_Web"
+          ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5050"
+          ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+        ports:
+          - "5252:5252"

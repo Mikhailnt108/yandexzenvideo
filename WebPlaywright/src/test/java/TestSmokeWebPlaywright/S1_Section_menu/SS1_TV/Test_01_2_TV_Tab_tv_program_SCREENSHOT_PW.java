@@ -15,7 +15,7 @@ import org.junit.jupiter.api.parallel.ResourceLock;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @ResourceLock(value = "Example3", mode = ResourceAccessMode.READ_WRITE)
 public class Test_01_2_TV_Tab_tv_program_SCREENSHOT_PW extends TestBasePlaywright {
-    @Epic(value = "Smoke MFTV Mobile Android Web")
+    @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
     @Story(value = "1. TV")
     @DisplayName(value = "Tab_tv_program_SCREENSHOT")

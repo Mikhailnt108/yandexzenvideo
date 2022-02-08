@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
-@ResourceLock(value = "SuitePwNonAdWeb#0", mode = ResourceAccessMode.READ_WRITE)
+@ResourceLock(value = "Example6", mode = ResourceAccessMode.READ_WRITE)
 public class Test_05_SPORT_Top_competition_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
     @Feature(value = "1. Sections_menu")
@@ -17,7 +17,7 @@ public class Test_05_SPORT_Top_competition_PW extends TestBasePlaywright {
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("54027911")
     @Test
-    @Tag("SuitePwNonAdWeb#0")
+    @Tag("Example6")
     public void SPORT_Top_competition_PW() throws Exception {
         headerMenuPW.goToSportPage();
         sportPagePW.checkElementsBlockSportsCompetition();

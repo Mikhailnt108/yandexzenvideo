@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1m3.16s</div>
+<div class="counter">1m1.78s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,31 +79,31 @@
 <pre>com.microsoft.playwright.TimeoutError: Error {
   message='Timeout 60000ms exceeded.
 =========================== logs ===========================
-waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон ТВ'])[1]&quot;
+waiting for selector &quot;//button[contains(@class,'ch-header__trigger_type_search')]&quot;
 ============================================================
   name='TimeoutError
   stack='TimeoutError: Timeout 60000ms exceeded.
 =========================== logs ===========================
-waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон ТВ'])[1]&quot;
+waiting for selector &quot;//button[contains(@class,'ch-header__trigger_type_search')]&quot;
 ============================================================
-    at ProgressController.run (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\server\progress.js:96:26)
-    at Frame.fill (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\server\frames.js:1137:23)
-    at FrameDispatcher.fill (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\dispatchers\frameDispatcher.js:182:30)
-    at DispatcherConnection.dispatch (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\dispatchers\dispatcher.js:352:46)
+    at ProgressController.run (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\server\progress.js:96:26)
+    at Frame.click (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\server\frames.js:1092:23)
+    at FrameDispatcher.click (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\dispatchers\frameDispatcher.js:166:30)
+    at DispatcherConnection.dispatch (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\dispatchers\dispatcher.js:352:46)
 }
 	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
 	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:103)
 	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:107)
 	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:94)
-	at com.microsoft.playwright.impl.FrameImpl.fillImpl(FrameImpl.java:338)
-	at com.microsoft.playwright.impl.PageImpl.lambda$fill$27(PageImpl.java:708)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:255)
+	at com.microsoft.playwright.impl.PageImpl.lambda$click$17(PageImpl.java:629)
 	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
 	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
 	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:79)
 	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.PageImpl.fill(PageImpl.java:707)
-	at com.microsoft.playwright.Page.fill(Page.java:3958)
-	at pagesPlaywright.NiLPagePW.checkResultSearchNothingFound(NiLPagePW.java:4788)
+	at com.microsoft.playwright.impl.PageImpl.click(PageImpl.java:628)
+	at com.microsoft.playwright.Page.click(Page.java:3205)
+	at pagesPlaywright.NiLPagePW.checkResultSearchNothingFound(NiLPagePW.java:4787)
 	at TestSmokeWebPlaywright.S1_Section_menu.SS2_New_and_Best_adWEB.SSS5_Search.Test_02_NIL_SEARCH_Nothing_found_PW_adWeb.SEARCH_Nothing_found(Test_02_NIL_SEARCH_Nothing_found_PW_adWeb.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -171,17 +171,17 @@ waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон
 Caused by: com.microsoft.playwright.TimeoutError: Error {
   message='Timeout 60000ms exceeded.
 =========================== logs ===========================
-waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон ТВ'])[1]&quot;
+waiting for selector &quot;//button[contains(@class,'ch-header__trigger_type_search')]&quot;
 ============================================================
   name='TimeoutError
   stack='TimeoutError: Timeout 60000ms exceeded.
 =========================== logs ===========================
-waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон ТВ'])[1]&quot;
+waiting for selector &quot;//button[contains(@class,'ch-header__trigger_type_search')]&quot;
 ============================================================
-    at ProgressController.run (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\server\progress.js:96:26)
-    at Frame.fill (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\server\frames.js:1137:23)
-    at FrameDispatcher.fill (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\dispatchers\frameDispatcher.js:182:30)
-    at DispatcherConnection.dispatch (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-4012746212752294998\package\lib\dispatchers\dispatcher.js:352:46)
+    at ProgressController.run (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\server\progress.js:96:26)
+    at Frame.click (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\server\frames.js:1092:23)
+    at FrameDispatcher.click (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\dispatchers\frameDispatcher.js:166:30)
+    at DispatcherConnection.dispatch (C:\Users\MIKHAI~1\AppData\Local\Temp\playwright-java-3237591291669783041\package\lib\dispatchers\dispatcher.js:352:46)
 }
 	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:183)
 	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:165)
@@ -205,7 +205,7 @@ waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон
 <tr>
 <td class="failures">2. SEARCH_Nothing_found</td>
 <td class="failures">SEARCH_Nothing_found()</td>
-<td class="failures">1m3.16s</td>
+<td class="failures">1m1.78s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -213,10 +213,10 @@ waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>02:40:16.339 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Starting Visual Regression Tracker for project &lt;MFTV_Web_Chrome&gt; and branch &lt;master&gt;
-02:40:16.380 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is started for project &lt;MFTV_Web_Chrome&gt;: projectId: &lt;eb2301c9-e4cc-4e04-af8e-93f2ba475ddd&gt;, buildId: &lt;f7c34a9b-598b-48fd-8e97-edef5380a07e&gt;, ciBuildId: &lt;null&gt;
-02:41:19.275 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Stopping Visual Regression Tracker for buildId &lt;f7c34a9b-598b-48fd-8e97-edef5380a07e&gt;
-02:41:19.311 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is stopped for buildId &lt;f7c34a9b-598b-48fd-8e97-edef5380a07e&gt;
+<pre>14:36:47.790 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Starting Visual Regression Tracker for project &lt;MFTV_Web_Chrome&gt; and branch &lt;master&gt;
+14:36:47.830 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is started for project &lt;MFTV_Web_Chrome&gt;: projectId: &lt;eb2301c9-e4cc-4e04-af8e-93f2ba475ddd&gt;, buildId: &lt;a566fe7f-882d-4252-aead-276ce4473e5f&gt;, ciBuildId: &lt;null&gt;
+14:37:49.077 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Stopping Visual Regression Tracker for buildId &lt;a566fe7f-882d-4252-aead-276ce4473e5f&gt;
+14:37:49.331 [ForkJoinPool-1-worker-3] INFO  i.v.sdk_java.VisualRegressionTracker - Visual Regression Tracker is stopped for buildId &lt;a566fe7f-882d-4252-aead-276ce4473e5f&gt;
 </pre>
 </span>
 </div>
@@ -228,7 +228,7 @@ waiting for selector &quot;(//input[@placeholder='Поиск на МегаФон
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.0.1</a> at 4 февр. 2022 г., 2:41:28</p>
+<a href="http://www.gradle.org">Gradle 6.0.1</a> at 4 февр. 2022 г., 14:37:59</p>
 </div>
 </div>
 </body>
