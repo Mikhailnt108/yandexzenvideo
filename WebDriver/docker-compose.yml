@@ -55,22 +55,12 @@ services:
 #    ports:
 #      - 4444:4444
 #    network_mode: bridge
-#  selenoid-ui:
-#    image: aerokube/selenoid-ui:latest-release
-#    network_mode: bridge
-#    links:
-#        - selenoid
-#    ports:
-#        - 8082:8080
-#    command: ["--selenoid-uri", "http://selenoid:4444"]
-#  vnc:
-#    image: selenoid/vnc:chrome_96.0
-#    network_mode: bridge
+
   test_runner:
     build:
 #     context: /builds/qa/autosmoke_mftv_web_and_mobile_web
 #     context: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web
-     context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web
+     context: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\WebDriver
 #     dockerfile: /builds/qa/autosmoke_mftv_web_and_mobile_web/WebDriver/Dockerfile
 #     dockerfile: /home/mtabunkov/auto/autosmoke_mftv_web_and_mobile_web/WebDriver/Dockerfile
      dockerfile: C:\QA_AUTOMATION\autosmoke_mftv_web_and_mobile_web\WebDriver\Dockerfile

@@ -25,7 +25,6 @@ RUN npm install -g npm@8
 
 ## Install stable chrome
 RUN npx playwright install chrome
-
 RUN apt-get update && apt-get install -y unzip
 WORKDIR /gradle
 RUN curl -L https://services.gradle.org/distributions/gradle-6.0.1-bin.zip -o gradle-6.0.1-bin.zip
@@ -35,9 +34,10 @@ ENV PATH=$PATH:$GRADLE_HOME/bin
 #RUN groupadd -r myuser && adduser -r -g myuser myuser
 #USER myuser
 #RUN newgrp docker
-USER root
+WORKDIR /WebPlaywright
+#USER root
 #RUN gradle -v
-RUN cd ..
+#RUN cd ..
 COPY . .
 #RUN chown usernonroot:usernonroot
 #USER usernonroot
