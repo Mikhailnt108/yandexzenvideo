@@ -51,7 +51,7 @@ import java.util.Map;
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://10.236.64.48:4200")
-            .apiKey("89P7TN8Y4QMPG4HPMV9FB66BZ7VK")
+            .apiKey("PFN4753ZDZMHQ8H3PRQJNRGQ72CD")
             .project("MFTV_Web_Chrome")
             .branchName("master")
             .enableSoftAssert(true)
