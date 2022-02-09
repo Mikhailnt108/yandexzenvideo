@@ -5,12 +5,13 @@ import io.visual_regression_tracker.sdk_java.VisualRegressionTracker;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.*;
 import pagesPlaywright.*;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //@Execution(CONCURRENT)
@@ -46,10 +47,10 @@ import java.util.Map;
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
-    public Map<String, String> env = Map.of("SELENIUM_REMOTE_URL", "http://192.168.1.139:4444");
+//    public Map<String, String> env = Map.of("SELENIUM_REMOTE_URL", "http://192.168.1.139:4444/wd/hub");
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
-            .apiUrl("http://192.168.1.139:4200")
+            .apiUrl("http://10.236.64.48:4200")
             .apiKey("89P7TN8Y4QMPG4HPMV9FB66BZ7VK")
             .project("MFTV_Web_Chrome")
             .branchName("master")
@@ -86,9 +87,18 @@ import java.util.Map;
     }
     @BeforeAll
     void launchBrowser() {
-        playwright = Playwright.create(new Playwright.CreateOptions().setEnv(env));
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setTimeout(30000));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
+
+//        launchOptions.setHeadless(true);
+//        launchOptions.setChromiumSandbox(false);
+//        launchOptions.setChannel("chrome");
+//        args.add("--ipc=host");
+//        args.add("--disable-dev-shm-usage");
+//        args.add("--whitelisted-ips");
+//        launchOptions.setArgs(args);
+
+        playwright = Playwright.create(new Playwright.CreateOptions().setEnv(Map.of("SELENIUM_REMOTE_URL", "http://10.236.64.48:4444")));
+        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(List.of("--disable-dev-shm-usage")).setArgs(List.of("--whitelisted-ips")).setArgs(List.of("--ipc=host")).setTimeout(120000));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(List.of("--disable-dev-shm-usage")).setArgs(List.of("--whitelisted-ips")));
     }
     @AfterAll
     void closeBrowser() {
