@@ -10,6 +10,8 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.sql.SQLException;
+
 @Execution(ExecutionMode.SAME_THREAD)
 @ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
 public class Test_12_2_Recorded_Tv_program_SCREENSHOT_PLAYER_Bug_PW extends TestBasePlaywright {
@@ -33,7 +35,7 @@ public class Test_12_2_Recorded_Tv_program_SCREENSHOT_PLAYER_Bug_PW extends Test
         cardTvProgramPW.checkImagePlayerСardTvProgramRecordedUser();
         cardTvProgramPW.checkImageScheduleСardTvProgramRecorded();
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();

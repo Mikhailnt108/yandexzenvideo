@@ -47,7 +47,6 @@ public class TvPagePW extends BasePagePlaywright {
             time.evaluate("t => t.innerText='00:00'");
         }
 
-
         // делаем скриншот видимой части страницы "TvPageTabProgramTvForGuest":
         vrt.track(
                 "TvPageTabProgramTvForGuest",

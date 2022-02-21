@@ -4,7 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -69,7 +69,7 @@ public class AllCollectionsPagePW extends BasePagePlaywright {
                 System.out.println("название подборки на стр коллекций: " + nameString);
                 if (nameString.equals(nameForKidsBlockCollect)) {
                     collectNames.get(i).click();
-                    Assert.assertEquals(page.querySelector("h1").innerText(), nameForKidsBlockCollect);
+                    Assertions.assertEquals(page.querySelector("h1").innerText(), nameForKidsBlockCollect);
 //                    Assert.assertEquals("нет детского фона", 1, page.querySelectorAll("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO') and contains(@style,'background')]").size());
                     return;
                 }

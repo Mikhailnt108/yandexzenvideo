@@ -4,7 +4,6 @@ import com.microsoft.playwright.*;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTracker;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.parallel.Execution;
 import pagesPlaywright.*;
 
 import java.io.IOException;
@@ -12,14 +11,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
-import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
-
-@Execution(CONCURRENT)
+//@Execution(CONCURRENT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public //@ExtendWith(TestRailReportExtension.class)
-class TestBasePlaywright extends BasePagePlaywright{
+//@ExtendWith(TestRailReportExtension.class)
+ public class TestBasePlaywright extends BasePagePlaywright{
     public Playwright playwright;
     public Browser browserIncognitoModeHeadless;
     public static Browser browserIncognitoModeHeadfull;
@@ -44,23 +42,24 @@ class TestBasePlaywright extends BasePagePlaywright{
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
-    public String frontend = "https://web-preprod6.megafon.tv/";
-    public String backend = "https://bmp-preprod6.megafon.tv/";
+    public String frontend = "https://web-preprod1.megafon.tv/";
+    public String backend = "https://bmp-preprod1.megafon.tv/";
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
+//    public Map<String, String> env = Map.of("SELENIUM_REMOTE_URL", "http://192.168.1.139:4444/wd/hub");
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
             .apiUrl("http://192.168.1.139:4200")
-            .apiKey("GVDZMJKMBM4D5BNMZN57AEBVBKM0")
+            .apiKey("PFN4753ZDZMHQ8H3PRQJNRGQ72CD")
             .project("MFTV_Web_Chrome")
             .branchName("master")
-            .enableSoftAssert(false)
+            .enableSoftAssert(true)
             .httpTimeoutInSeconds(60)
             .build());
     public static final String USER_NAME = "bmp";
     public static final String PASSWORD = "bmp";
-    public static final String PP1 = "jdbc:postgresql://10.236.24.174:5432/bmp";
+    public static final String PP1 = "jdbc:postgresql://10.236.24.220:5432/bmp";
     public static final String PP2 = "jdbc:postgresql://10.236.24.175:5432/bmp";
     public static final String PP3 = "jdbc:postgresql://10.236.24.176:5432/bmp";
     public static final String PP4 = "jdbc:postgresql://10.236.24.177:5432/bmp";
@@ -72,7 +71,7 @@ class TestBasePlaywright extends BasePagePlaywright{
 
     {
         try {
-            connection = DriverManager.getConnection(PP6,USER_NAME,PASSWORD);
+            connection = DriverManager.getConnection(PP1,USER_NAME,PASSWORD);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new RuntimeException();
@@ -88,9 +87,18 @@ class TestBasePlaywright extends BasePagePlaywright{
     }
     @BeforeAll
     void launchBrowser() {
-        playwright = Playwright.create();
-        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(Arrays.asList("--disable-dev-shm-usage")).setArgs(Arrays.asList("--whitelisted-ips")));
-        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(Arrays.asList("--start-maximized")));
+
+//        launchOptions.setHeadless(true);
+//        launchOptions.setChromiumSandbox(false);
+//        launchOptions.setChannel("chrome");
+//        args.add("--ipc=host");
+//        args.add("--disable-dev-shm-usage");
+//        args.add("--whitelisted-ips");
+//        launchOptions.setArgs(args);
+
+        playwright = Playwright.create(new Playwright.CreateOptions().setEnv(Map.of("SELENIUM_REMOTE_URL", "http://192.168.1.139:4444")));
+        browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(List.of("--disable-dev-shm-usage")).setArgs(List.of("--whitelisted-ips")).setArgs(List.of("--ipc=host")).setTimeout(120000));
+        browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(List.of("--disable-dev-shm-usage")).setArgs(List.of("--whitelisted-ips")));
     }
     @AfterAll
     void closeBrowser() {
@@ -105,7 +113,7 @@ class TestBasePlaywright extends BasePagePlaywright{
     @BeforeEach
     void createContextAndPage() throws IOException, InterruptedException{
         contextIncognitoModeHeadless = browserIncognitoModeHeadless.newContext(new Browser.NewContextOptions()
-                .setViewportSize(1900, 920));    // моноблок
+                .setViewportSize(1900, 920).setHttpCredentials("mc2soft", "wkqKy2sWwBGFDR")); // моноблок
 //                .setViewportSize(1360, 760));  // ноутбук
         contextIncognitoModeHeadfull = browserIncognitoModeHeadfull.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1900, 920));   // моноблок
@@ -113,9 +121,9 @@ class TestBasePlaywright extends BasePagePlaywright{
         contextIncognitoModeHeadless.clearCookies();
         contextIncognitoModeHeadfull.clearCookies();
         page = contextIncognitoModeHeadless.newPage();
-        page.setDefaultTimeout(160000);
+        page.setDefaultTimeout(60000);
 
-        headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless, frontend, backend);
+        headerMenuPW = new HeaderMenuPW(page, pageCMS, contextIncognitoModeHeadless, statement, frontend, backend);
         filmsPagePW = new FilmsPagePW(page, frontend);
         serialsPagePW = new SerialsPagePW(page,pageCMS, frontend);
         nilPagePW = new NiLPagePW(page, pageSmartTv, contextIncognitoModeHeadless, frontend);
@@ -130,9 +138,9 @@ class TestBasePlaywright extends BasePagePlaywright{
         promoPagePW = new PromoPagePW(page, frontend);
         personalOfferPW = new PersonalOfferPW(page, backend);
         packagesPagePW = new PackagesPagePW(page);
-        cardPackagePW = new CardPackagePW(page);
+        cardPackagePW = new CardPackagePW(page, numberBankCard, dataValidity, codeCVV);
         preconditionPW = new PreconditionPW(page, statement, frontend, backend);
-        sportPagePW = new SportPagePW(page, backend);
+        sportPagePW = new SportPagePW(page, frontend, backend);
         authPagePW = new AuthPagePW(page, frontend);
         promoCodePW = new PromoCodePW(page, frontend, backend);
         vrt.start();

@@ -9,9 +9,13 @@
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$PROJECT_DIR$/../gradle-6.0.1" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/WebDriver" />
+            <option value="$PROJECT_DIR$/WebPlaywright" />
+            <option value="$PROJECT_DIR$/WebPlaywrightPlayer" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -4,12 +4,10 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
-
+import org.junit.jupiter.api.Assertions;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
-
 import static base.TestBasePlaywright.vrt;
 
 
@@ -94,7 +92,7 @@ public class CollectionsPagePW extends BasePagePlaywright {
         String Background = page.querySelector("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]").getAttribute("background-image");
         System.out.println(page.querySelector("//div[contains(@class,'_3c9FjHVIHIuT3fX6yTP3IO')]").getAttribute("background-image"));
         System.out.println(Background.substring(0,3));
-        Assert.assertEquals("нет детского фона", "url", Background.substring(0,3));
+        Assertions.assertEquals("url", Background.substring(0,3), "нет детского фона");
     }
 }
 

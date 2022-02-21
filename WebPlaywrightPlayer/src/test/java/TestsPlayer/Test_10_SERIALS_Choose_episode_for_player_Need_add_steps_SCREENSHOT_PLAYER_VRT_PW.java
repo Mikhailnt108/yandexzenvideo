@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.sql.SQLException;
+
 @ResourceLock(value = "SuitePW", mode = ResourceAccessMode.READ_WRITE)
 public class Test_10_SERIALS_Choose_episode_for_player_Need_add_steps_SCREENSHOT_PLAYER_VRT_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -32,7 +34,7 @@ public class Test_10_SERIALS_Choose_episode_for_player_Need_add_steps_SCREENSHOT
         cardSerialPW.checkStartVideoPlayerHeadfull();
         cardSerialPW.checkImageSwitchEpisodeInPlayerHeadfull();
     }
-    private void flowRegistationMF() {
+    private void flowRegistationMF() throws SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();

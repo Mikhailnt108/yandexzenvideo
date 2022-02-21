@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.ResourceAccessMode;
 import org.junit.jupiter.api.parallel.ResourceLock;
 
+import java.sql.SQLException;
+
 @ResourceLock(value = "Suite#2", mode = ResourceAccessMode.READ_WRITE)
 public class Test_08_3_MY_Appearance_block_collection_continue_viewing_for_NON_MF_SCREENSHOT_PLAYER_PW extends TestBasePlaywright {
     @Epic(value = "Smoke MFTV Desktop Web")
@@ -24,7 +26,7 @@ public class Test_08_3_MY_Appearance_block_collection_continue_viewing_for_NON_M
         flowRegistationNonMF();
         headerMenuPW.goToPackagesPage();
         packagesPagePW.clickToTailCardPackageKinoPoPodpiske();
-        cardPackagePW.paymentPackageTnBForNonMFBankCardNotLinked("4847 0000 6602 5312","12 / 25","258");
+        cardPackagePW.paymentPackageTnBForNonMFBankCardNotLinked();
         headerMenuPW.saveCookiesBrowserHeadless();
         headerMenuPW.getCookiesAndOpenHeadfullBrowser();
 
@@ -53,7 +55,7 @@ public class Test_08_3_MY_Appearance_block_collection_continue_viewing_for_NON_M
         headerMenuPW.reloadPageHeadfull();
         serialsPagePW.checkImageBlockCollectHistoryWatchForNonMFfHeadfull();
     }
-    private void flowRegistationNonMF() throws InterruptedException {
+    private void flowRegistationNonMF() throws InterruptedException, SQLException {
         headerMenuPW.checkNotLoggedIsCorrect();
         headerMenuPW.clickToEnter();
         authPagePW.checkOpenPopUpInputPhone();

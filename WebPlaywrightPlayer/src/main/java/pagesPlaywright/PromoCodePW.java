@@ -4,7 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -26,21 +26,21 @@ public class PromoCodePW extends BasePagePlaywright {
     }
     public void checkElementsPagePromocode() {
         // page:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-cherdak']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//footer").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size(), "not visible element");
 
         // form:
-        Assert.assertTrue("not visible element", page.querySelectorAll("//h1[text()='Введите промокод']").size()==1);
-        Assert.assertTrue("not visible element", page.querySelectorAll("//input[@placeholder='Введите промокод']").size()==1);
-        Assert.assertTrue("not visible element", page.querySelectorAll("//button[@disabled and text()='Активировать']").size()==1);
-        Assert.assertTrue("not visible element", page.querySelectorAll("//button[text()='Закрыть']").size()==1);
+        Assertions.assertTrue(page.querySelectorAll("//h1[text()='Введите промокод']").size()==1, "not visible element");
+        Assertions.assertTrue(page.querySelectorAll("//input[@placeholder='Введите промокод']").size()==1, "not visible element");
+        Assertions.assertTrue(page.querySelectorAll("//button[@disabled and text()='Активировать']").size()==1, "not visible element");
+        Assertions.assertTrue(page.querySelectorAll("//button[text()='Закрыть']").size()==1, "not visible element");
     }
 
     public void checkImagePagePromocode() throws IOException, InterruptedException {
@@ -60,27 +60,27 @@ public class PromoCodePW extends BasePagePlaywright {
     public void clickOnButtonCloseAndCheckOpenNil() {
         page.waitForSelector("//button[text()='Закрыть']").click();
         page.waitForSelector("//div[contains(@class,'carousel')]");
-        Assert.assertEquals("bug: not opened page nil", frontend, page.url());
+        Assertions.assertEquals(frontend, page.url(), "bug: not opened page nil");
     }
 
     public void checkInputUnknownCodeInFormPromocode(String unknownPromocode) throws InterruptedException {
         page.querySelector("//h1[text()='Введите промокод']");
         page.fill("//input[@placeholder='Введите промокод']", unknownPromocode);
-        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Активировать']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//button[@disabled and text()='Активировать']").size(), "not visible element");
         Thread.sleep(3000);
         ElementHandle buttonActivate = page.waitForSelector("//button[text()='Активировать']");
         String background = (String) buttonActivate.evaluate("e => window.getComputedStyle(e).background");
         System.out.println(background);
-        Assert.assertTrue("bug: color of the element is not green", background.contains("rgb(0, 185, 86)"));
+        Assertions.assertTrue(background.contains("rgb(0, 185, 86)"), "bug: color of the element is not green");
     }
 
     public void clickOnButtonActivateForUnknownCodeAndCheckElements() {
         ElementHandle buttonActivate = page.waitForSelector("//button[text()='Активировать']");
         buttonActivate.click();
         ElementHandle errorText = page.waitForSelector("//span[contains(@class,'FormInput_error') and text()='Неверный промокод']");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[contains(@class,'FormInput_error') and text()='Неверный промокод. Пожалуйста, проверьте правильность введенного промокода.']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//span[contains(@class,'FormInput_error') and text()='Неверный промокод. Пожалуйста, проверьте правильность введенного промокода.']").size(), "not visible element");
         System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
-        Assert.assertEquals("bug: color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
+        Assertions.assertEquals(errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
     }
 
     public void createAndPublishedRC() {
@@ -132,7 +132,7 @@ public class PromoCodePW extends BasePagePlaywright {
     }
     
     public void checkOpenPopUpAfterActivation() {
-        Assert.assertEquals("bug: not opened popUp 'ActivateFinish'", 1, page.querySelectorAll("//h1[contains(text()='Промокод активирован!')]"));
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[contains(text()='Промокод активирован!')]"), "bug: not opened popUp 'ActivateFinish'");
     }
 
     public void checkElementsPopUpBeforeActivationPackageStartSoftTnB() {
@@ -152,8 +152,8 @@ public class PromoCodePW extends BasePagePlaywright {
     }
 
     public void checkClosePopUpBeforeActivationPackageStartSoftTnB() {
-        Assert.assertEquals("Не закрылся попап 'до активации'", 0, page.querySelectorAll("//h1[text()='«START» бесплатно по промокоду!']").size());
-        Assert.assertEquals("Не закрылся попап 'до активации'", 1, page.querySelectorAll("//h1[text()='Введите промокод']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//h1[text()='«START» бесплатно по промокоду!']").size(), "Не закрылся попап 'до активации'");
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Введите промокод']").size(), "Не закрылся попап 'до активации'");
     }
 
     public void clickOnSecondButtonActivatePromoCode() {
@@ -161,7 +161,8 @@ public class PromoCodePW extends BasePagePlaywright {
     }
 
     public void checkOpenPopUpBeforeActivation() {
-        Assert.assertTrue("bug: not opened popUp 'PromocodeActivate'", page.querySelectorAll("//h1[contains(@class,'PromocodeActivateRequest_title')]").size()==1);}
+        Assertions.assertTrue(page.querySelectorAll("//h1[contains(@class,'PromocodeActivateRequest_title')]").size()==1, "bug: not opened popUp 'PromocodeActivate'");
+    }
 
     public void checkElementsPopUpAfterActivationPackageStartSoftTnB() {
         page.waitForSelector("//h3[text()='Промокод активирован!']");
@@ -178,8 +179,8 @@ public class PromoCodePW extends BasePagePlaywright {
         String namePackage = name.replace("\"", "");
         System.out.println(namePackage);
         page.waitForSelector("//button[text()='Смотреть']").click();
-        Assert.assertEquals("bug: not opened card package", page.url().contains("/mixed_groups/"));
-        Assert.assertEquals("Не тот пакет", namePackage, page.waitForSelector("_3JWCAjonEZRvpx1iIk6Y0n").innerText());
+        Assertions.assertEquals("bug: not opened card package", page.url().contains("/mixed_groups/"));
+        Assertions.assertEquals("Не тот пакет", namePackage, page.waitForSelector("_3JWCAjonEZRvpx1iIk6Y0n").innerText());
     }
 
     public void archiveCodeGroupPackageStartSoftTnB() {
@@ -240,7 +241,7 @@ public class PromoCodePW extends BasePagePlaywright {
     }
 
     public void checkClosePopUpAfterActivation() {
-        Assert.assertEquals("Не закрылся попап 'после активации'", 0, page.querySelectorAll("//h1[text()='Промокод активирован!']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//h1[text()='Промокод активирован!']").size(), "Не закрылся попап 'после активации'");
     }
 
     public void archiveCodeGroupPackageMoreTvHardTnB() {
@@ -295,8 +296,8 @@ public class PromoCodePW extends BasePagePlaywright {
         String namePackage = name.replace("\"", "");
         System.out.println(namePackage);
         page.waitForSelector("//button[text()='Смотреть']").click();
-        Assert.assertEquals("bug: not opened card film", page.url().contains("/vods/"));
-        Assert.assertEquals("Не тот фильм", namePackage, page.waitForSelector("_3JWCAjonEZRvpx1iIk6Y0n").innerText());
+        Assertions.assertEquals(page.url().contains("/vods/"), "bug: not opened card film");
+        Assertions.assertEquals(namePackage, page.waitForSelector("_3JWCAjonEZRvpx1iIk6Y0n").innerText(), "Не тот фильм");
     }
 
     public void archiveCodeGroupFilmOnEST() {
@@ -351,8 +352,8 @@ public class PromoCodePW extends BasePagePlaywright {
         String namePackage = name.replace("\"", "");
         System.out.println(namePackage);
         page.waitForSelector("//button[text()='Смотреть до']").click();
-        Assert.assertEquals("bug: not opened card film", page.url().contains("/vods/"));
-        Assert.assertEquals("Не тот фильм", namePackage, page.waitForSelector("_3JWCAjonEZRvpx1iIk6Y0n").innerText());
+        Assertions.assertEquals(page.url().contains("/vods/"), "bug: not opened card film");
+        Assertions.assertEquals(namePackage, page.waitForSelector("_3JWCAjonEZRvpx1iIk6Y0n").innerText(), "Не тот фильм");
     }
 
     public void archiveCodeGroupFilmOnRentPromo() {
@@ -364,27 +365,27 @@ public class PromoCodePW extends BasePagePlaywright {
 
     public void checkElementsPopUpErrorReusingPromocode() {
         // page:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-cherdak']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//footer").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size(), "not visible element");
 
         // form:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Введите промокод']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Введите промокод']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Введите промокод']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//input[@placeholder='Введите промокод']").size(), "not visible element");
 
         ElementHandle errorText = page.waitForSelector("//span[text()='Введенный промокод был ранее активирован. Повторная активация недоступна.']");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Введенный промокод был ранее активирован. Повторная активация недоступна.']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//span[text()='Введенный промокод был ранее активирован. Повторная активация недоступна.']").size(), "not visible element");
         System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
-        Assert.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
+        Assertions.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
 
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[@disabled and text()='Активировать']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//button[text()='Закрыть']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//button[@disabled and text()='Активировать']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//button[text()='Закрыть']").size(), "not visible element");
     }
 
     public void createAndPublishedCodeGroupAndPromoCodeExpiredPackageStartSoftTnB() {
@@ -412,26 +413,26 @@ public class PromoCodePW extends BasePagePlaywright {
 
     public void checkElementsPopUpErrorExpiredPromocode() {
         // page:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//div[@class='ch-cherdak']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//footer").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//div[@class='ch-cherdak']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//picture//img[@src='/assets/images/mftv-poster.png']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//footer").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите на Smart TV')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Доступно на всех телевизорах с функцией Smart и Android TV, приставках']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Отличное качество и звук')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Смотрите кино в отличном качестве на любом удобном для вас устройстве']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//h3[contains(@class,'FeaturesSection_featureTitle') and contains(text(),'Смотрите без доступа к интернету')]").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//p[contains(@class,'FeaturesSection_featureDesc') and text()='Скачивайте на свой смартфон фильмы, серии прямо в приложении МегаФон ТВ']").size(), "not visible element");
 
         // form:
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//h1[text()='Введите промокод']").size());
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//input[@placeholder='Введите промокод']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//h1[text()='Введите промокод']").size(), "not visible element");
+        Assertions.assertEquals(1, page.querySelectorAll("//input[@placeholder='Введите промокод']").size(), "not visible element");
 
         ElementHandle errorText = page.waitForSelector("//span[text()='Срок действия промокода истек.']");
-        Assert.assertEquals("not visible element", 1, page.querySelectorAll("//span[text()='Срок действия промокода истек.']").size());
+        Assertions.assertEquals(1, page.querySelectorAll("//span[text()='Срок действия промокода истек.']").size(), "not visible element");
         System.out.println(errorText.evaluate("e => window.getComputedStyle(e).color"));
-        Assert.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
+        Assertions.assertEquals("bug: the color of the element is not red", errorText.evaluate("e => window.getComputedStyle(e).color"), "rgb(255, 58, 64)");
 
-        Assert.assertTrue("not visible element", page.querySelectorAll("//button[@disabled and text()='Активировать']").size()==1);
-        Assert.assertTrue("not visible element", page.querySelectorAll("//button[text()='Закрыть']").size()==1);
+        Assertions.assertTrue(page.querySelectorAll("//button[@disabled and text()='Активировать']").size()==1, "not visible element");
+        Assertions.assertTrue(page.querySelectorAll("//button[text()='Закрыть']").size()==1, "not visible element");
     }
 }

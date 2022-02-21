@@ -42,15 +42,15 @@ import java.util.Map;
     public PreconditionPW preconditionPW;
     public AuthPagePW authPagePW;
     public PromoCodePW promoCodePW;
-    public String frontend = "https://web-preprod6.megafon.tv/";
-    public String backend = "https://bmp-preprod6.megafon.tv/";
+    public String frontend = "https://web-preprod1.megafon.tv/";
+    public String backend = "https://bmp-preprod1.megafon.tv/";
     public String numberBankCard = "4847 0000 6602 5312";
     public String dataValidity = "12 / 25";
     public String codeCVV = "258";
 //    public Map<String, String> env = Map.of("SELENIUM_REMOTE_URL", "http://192.168.1.139:4444/wd/hub");
     public static VisualRegressionTracker vrt = new VisualRegressionTracker(VisualRegressionTrackerConfig
             .builder()
-            .apiUrl("http://10.236.64.48:4200")
+            .apiUrl("http://192.168.1.139:4200")
             .apiKey("PFN4753ZDZMHQ8H3PRQJNRGQ72CD")
             .project("MFTV_Web_Chrome")
             .branchName("master")
@@ -59,7 +59,7 @@ import java.util.Map;
             .build());
     public static final String USER_NAME = "bmp";
     public static final String PASSWORD = "bmp";
-    public static final String PP1 = "jdbc:postgresql://10.236.24.174:5432/bmp";
+    public static final String PP1 = "jdbc:postgresql://10.236.24.220:5432/bmp";
     public static final String PP2 = "jdbc:postgresql://10.236.24.175:5432/bmp";
     public static final String PP3 = "jdbc:postgresql://10.236.24.176:5432/bmp";
     public static final String PP4 = "jdbc:postgresql://10.236.24.177:5432/bmp";
@@ -71,7 +71,7 @@ import java.util.Map;
 
     {
         try {
-            connection = DriverManager.getConnection(PP6,USER_NAME,PASSWORD);
+            connection = DriverManager.getConnection(PP1,USER_NAME,PASSWORD);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             throw new RuntimeException();
@@ -96,7 +96,7 @@ import java.util.Map;
 //        args.add("--whitelisted-ips");
 //        launchOptions.setArgs(args);
 
-        playwright = Playwright.create(new Playwright.CreateOptions().setEnv(Map.of("SELENIUM_REMOTE_URL", "http://10.236.64.48:4444")));
+        playwright = Playwright.create(new Playwright.CreateOptions().setEnv(Map.of("SELENIUM_REMOTE_URL", "http://192.168.1.139:4444")));
         browserIncognitoModeHeadless = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(List.of("--disable-dev-shm-usage")).setArgs(List.of("--whitelisted-ips")).setArgs(List.of("--ipc=host")).setTimeout(120000));
         browserIncognitoModeHeadfull = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(List.of("--disable-dev-shm-usage")).setArgs(List.of("--whitelisted-ips")));
     }

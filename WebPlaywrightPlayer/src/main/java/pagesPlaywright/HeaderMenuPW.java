@@ -4,11 +4,14 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.MouseButton;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -17,7 +20,7 @@ import java.util.concurrent.TimeoutException;
 import static base.TestBasePlaywright.*;
 import static io.restassured.RestAssured.given;
 import static java.lang.Thread.sleep;
-import static org.hamcrest.core.AnyOf.anyOf;
+import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.core.Is.is;
 
 public class HeaderMenuPW extends BasePagePlaywright {
@@ -27,13 +30,15 @@ public class HeaderMenuPW extends BasePagePlaywright {
     private BrowserContext contextIncognitoModeHeadfull;
     private String frontend;
     private String backend;
+    private Statement statement;
 
-    public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless,String frontend, String backend) {
+    public HeaderMenuPW(Page page, Page pageCMS, BrowserContext contextIncognitoModeHeadless, Statement statement, String frontend, String backend) {
         this.page = page;
         this.pageCMS = pageCMS;
         this.contextIncognitoModeHeadless = contextIncognitoModeHeadless;
         this.frontend = frontend;
         this.backend = backend;
+        this.statement = this.statement;
     }
 
     public void checkNotLoggedIsCorrect() {
@@ -56,23 +61,11 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.click("//button[text()='Далее']");
     }
 
-    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) {
+    public void checkOpenPageCreatePasswordForAdWebFlowRegistrationMF(String login, String password) throws SQLException{
         page.waitForSelector("//h1[text()='Придумайте пароль']|//h1[text()='Введите пароль']");
         if (page.querySelectorAll("//h1[text()='Введите пароль']").size() != 0) {
-            pageCMS = contextIncognitoModeHeadless.newPage();
-            String onlyPreprod = backend.substring(8);
-            pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-            pageCMS.click("//form[@method='GET']//input[1]");
-            pageCMS.fill("//form[@method='GET']//input[1]", login);
-            pageCMS.click("//button[text()='Поиск']");
-            pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']");
-            pageCMS.click("//a[contains(@href, '/cms/households/')]");
-            pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-            pageCMS.click("//button[text()='Удалить']");
-            pageCMS.onDialog(dialog -> dialog.accept());
-            pageCMS.click("//button[text()='Удалить']");
-            pageCMS.close();
-            page.bringToFront();
+//            pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260172279']|//td[text()='79260205027']");
+            statement.executeUpdate("delete from households where msisdn = '"+login+"'");
             page.reload();
             page.querySelector("(//span[text()='Вход'])[1]");
             page.click("(//span[text()='Вход'])[1]");
@@ -133,6 +126,12 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.waitForSelector("//h1[text()='Введите код']|//div[text()='Введите код']");
     }
 
+    public void inputCodeMsisdnFromDB(String login) throws SQLException {
+        ResultSet codeConfirm = statement.executeQuery("select code from msisdn_confirmations mc where msisdn = '"+login+"' and confirmed = 'false'");
+        codeConfirm.next();
+        page.waitForSelector("//input[@placeholder='Введите код из sms']");
+        page.fill("//input[@placeholder='Введите код из sms']", String.valueOf(codeConfirm.getInt(1)));
+    }
     public void copyPasteCodMsisdnForAdWeb(String login) {
         pageCMS = contextIncognitoModeHeadless.newPage();
         String onlyPreprod = backend.substring(8);
@@ -145,6 +144,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.waitForSelector("//input[@placeholder='Введите код из sms']");
         page.fill("//input[@placeholder='Введите код из sms']",codMsisdn);
     }
+
 
     public void copyPasteCodMsisdnForNonAdWeb(String login) {
         pageCMS = contextIncognitoModeHeadless.newPage();
@@ -349,7 +349,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.click("(//span[text()='Способы оплаты'])[1]");
         page.waitForSelector("//h1//span[text()='Способы оплаты']");
         page.waitForSelector("//div[text()='Счет основного номера телефона']");
-        Assert.assertEquals("Нет текста 'Счет основного номера телефона'", "Счет основного номера телефона", page.querySelector("//div[text()='Счет основного номера телефона']").innerText());
+        Assertions.assertEquals("Счет основного номера телефона", page.querySelector("//div[text()='Счет основного номера телефона']").innerText(), "Нет текста 'Счет основного номера телефона'");
         page.querySelector("//span[text()='+7 926 019 21 44']|//span[text()='+7 926 020 50 27']");
     }
 
@@ -488,12 +488,12 @@ public class HeaderMenuPW extends BasePagePlaywright {
     public void checkInputValidEmailInPopUpInputEmail(String email) throws InterruptedException {
         page.querySelector("//h1[text()='Введите E-mail']");
         page.fill("//input[@placeholder='Введите e-mail']", email);
-        Assert.assertEquals("not visible element", 0, page.querySelectorAll("//button[@disabled and text()='Далее']").size());
+        Assertions.assertEquals(0, page.querySelectorAll("//button[@disabled and text()='Далее']").size(), "bug: not visible element");
         ElementHandle buttonComeIn = page.waitForSelector("//button[text()='Далее']");
         Thread.sleep(3000);
         String background = (String) buttonComeIn.evaluate("e => window.getComputedStyle(e).background");
         System.out.println(background);
-        Assert.assertTrue("bug: the color of the element is not green", background.contains("rgb(0, 215, 86)"));
+        Assertions.assertTrue(background.contains("rgb(0, 215, 86)"), "bug: the color of the element is not green");
     }
 
     public void copyPasteCodMsisdnForNonMF(String login) {
@@ -627,7 +627,6 @@ public class HeaderMenuPW extends BasePagePlaywright {
         page.navigate(frontend);
     }
 
-
     public void openMinFramePage() {
      page.setViewportSize(540, 1334);
     }
@@ -646,52 +645,52 @@ public class HeaderMenuPW extends BasePagePlaywright {
     }
 
     public void chooseBucket110InCmsHh(String login) {
-        pageCMS = contextIncognitoModeHeadless.newPage();
-        String onlyPreprod = backend.substring(8);
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-        pageCMS.click("//form[@method='GET']//input[1]");
-        pageCMS.fill("//form[@method='GET']//input[1]", login);
-        pageCMS.click("//button[text()='Поиск']");
-        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
-        pageCMS.click("//a[contains(@href, '/cms/households/')]");
-        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-        pageCMS.click("(//a[@role='button'])[2]");
-        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
-        pageCMS.selectOption("//select[@name='hypothesis_group']", "110");
-        pageCMS.selectOption("//select[@id='ab_group']", "0");
-        pageCMS.click("text=Сохранить");
-        pageCMS.click("text=Запрос на пересчет ПГ");
+//        pageCMS = contextIncognitoModeHeadless.newPage();
+//        String onlyPreprod = backend.substring(8);
+//        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//        pageCMS.click("//form[@method='GET']//input[1]");
+//        pageCMS.fill("//form[@method='GET']//input[1]", login);
+//        pageCMS.click("//button[text()='Поиск']");
+//        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
+//        pageCMS.click("//a[contains(@href, '/cms/households/')]");
 //        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-//        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
-//        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
-        pageCMS.close();
-        page.bringToFront();
-        page.reload();
+//        pageCMS.click("(//a[@role='button'])[2]");
+//        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
+//        pageCMS.selectOption("//select[@name='hypothesis_group']", "110");
+//        pageCMS.selectOption("//select[@id='ab_group']", "0");
+//        pageCMS.click("text=Сохранить");
+//        pageCMS.click("text=Запрос на пересчет ПГ");
+////        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+////        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
+////        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
+//        pageCMS.close();
+//        page.bringToFront();
+//        page.reload();
     }
 
     public void chooseBucket103InCmsHh(String login) {
-        pageCMS = contextIncognitoModeHeadless.newPage();
-        String onlyPreprod = backend.substring(8);
-        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
-        pageCMS.click("//form[@method='GET']//input[1]");
-        pageCMS.fill("//form[@method='GET']//input[1]", login);
-        pageCMS.click("//button[text()='Поиск']");
-        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
-        pageCMS.click("//a[contains(@href, '/cms/households/')]");
-        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-        pageCMS.click("(//a[@role='button'])[2]");
-        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
-
-        pageCMS.selectOption("//select[@name='hypothesis_group']", "103");
-        pageCMS.selectOption("//select[@id='ab_group']", "0");
-        pageCMS.click("text=Сохранить");
-        pageCMS.click("text=Запрос на пересчет ПГ");
+//        pageCMS = contextIncognitoModeHeadless.newPage();
+//        String onlyPreprod = backend.substring(8);
+//        pageCMS.navigate("https://mc2soft:wkqKy2sWwBGFDR@"+onlyPreprod+"cms/households?role=user");
+//        pageCMS.click("//form[@method='GET']//input[1]");
+//        pageCMS.fill("//form[@method='GET']//input[1]", login);
+//        pageCMS.click("//button[text()='Поиск']");
+//        pageCMS.waitForSelector("//td[text()='79260192144']|//td[text()='79260205027']|//td[text()='79260172279']");
+//        pageCMS.click("//a[contains(@href, '/cms/households/')]");
 //        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
-//        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
-//        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
-        pageCMS.close();
-        page.bringToFront();
-        page.reload();
+//        pageCMS.click("(//a[@role='button'])[2]");
+//        pageCMS.waitForSelector("//h3[text()=' Редактирование хаусхолда ']");
+//
+//        pageCMS.selectOption("//select[@name='hypothesis_group']", "103");
+//        pageCMS.selectOption("//select[@id='ab_group']", "0");
+//        pageCMS.click("text=Сохранить");
+//        pageCMS.click("text=Запрос на пересчет ПГ");
+////        pageCMS.waitForSelector("//h3[text()=' Информация о хаусхолде ']");
+////        pageCMS.click("//button[text()='Обновить ТП/ТО и бандлы']");
+////        pageCMS.click("//button[text()='Запрос на пересчет ПГ']");
+//        pageCMS.close();
+//        page.bringToFront();
+//        page.reload();
     }
 
     public void startFiddlerSlowNetwork() throws IOException, InterruptedException, TimeoutException, ExecutionException {
@@ -739,7 +738,7 @@ public class HeaderMenuPW extends BasePagePlaywright {
 //        bot.mouseRelease(InputEvent.BUTTON1_MASK);
 //        bot.mouseMove(0,0);
 //        page.keyboard().press("Escape");
-
         sleep(5000);
     }
+
 }

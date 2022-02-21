@@ -4,7 +4,7 @@ import base.BasePagePlaywright;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import io.visual_regression_tracker.sdk_java.TestRunOptions;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -91,7 +91,7 @@ public class CardFilmPW extends BasePagePlaywright {
             System.out.println("numberTimeAfter:" + numberTimeAfter);
         }
         for (int e = 0; e < timeBeforeAllNumber.length; e++){
-            Assert.assertTrue("bug: время After НЕ больше времени Before",timeAfterAllNumber[timeBeforeAllNumber.length-1] > timeBeforeAllNumber[timeBeforeAllNumber.length-1]);
+            Assertions.assertTrue(timeAfterAllNumber[timeBeforeAllNumber.length-1] > timeBeforeAllNumber[timeBeforeAllNumber.length-1],"bug: время After НЕ больше времени Before");
         }
     }
 
