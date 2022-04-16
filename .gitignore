@@ -4,3 +4,8 @@
 # Ignore Gradle build output directory
 build
 /.idea/
+/gradle/
+/WebDriver/.allure/
+/WebDriver/allure-reports/
+/WebDriver/allure-results/
+/WebDriver/target/
