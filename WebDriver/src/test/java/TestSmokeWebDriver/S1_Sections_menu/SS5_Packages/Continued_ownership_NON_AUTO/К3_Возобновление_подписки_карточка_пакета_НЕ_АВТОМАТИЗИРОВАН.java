@@ -1,4 +1,0 @@
-package TestSmokeWebDriver.S1_Sections_menu.SS5_Packages.Continued_ownership_NON_AUTO;
-
-public class К3_Возобновление_подписки_карточка_пакета_НЕ_АВТОМАТИЗИРОВАН {
-}
