@@ -9,5 +9,6 @@
 Запуски:
 - локальный браузер headfull/headless
 - удаленный браузер headfull/headless + selenium grid + vnc + allure-service + docker-compose
+- в репо лежат отчеты allure и IntelliJ IDEA
 - отчет allure построен с помощью сервиса https://github.com/fescobar/allure-docker-service
-- при запусках
+- при запусках исключил проверку "в разделах каналы отображаются - описание канала"
