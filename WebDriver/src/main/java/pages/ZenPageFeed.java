@@ -21,7 +21,7 @@ public class ZenPageFeed extends BasePageWebDriver {
         By channels_card_subscribeButton = By.xpath("//div[contains(@class,'channels-card__card')]//button[contains(@class,'subscribeButton')]//span[text()='Подписаться' or text()='Subscribe']");
         checkMatchCount(channels_card, channels_card_logo);
         checkMatchCount(channels_card, channels_card_title);
-//        checkMatchCount(channels_card, channels_card_description);
+        checkMatchCount(channels_card, channels_card_description);
         checkMatchCount(channels_card, channels_card_subscribeButton);
         System.out.println("size card: "+webDriver.findElements(channels_card).size());
         System.out.println("size card_description: "+webDriver.findElements(channels_card_description).size());

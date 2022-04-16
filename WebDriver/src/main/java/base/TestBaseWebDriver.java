@@ -1,15 +1,18 @@
 package base;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.*;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 public class TestBaseWebDriver {
@@ -25,21 +28,21 @@ public class TestBaseWebDriver {
     @BeforeEach
     public void start() throws MalformedURLException {
         // start remote browser:
-//        WebDriverManager.chromedriver().setup();
-//        ChromeOptions options = new ChromeOptions();
-//        Configuration.browserCapabilities = options;
-//        WebDriver webDriver = new RemoteWebDriver(new URL("http://192.168.1.139:4444"), options);
-//        Configuration.pageLoadTimeout = 10000;
-//        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
-//        WebDriverRunner.setWebDriver(webDriver);
-
-//        start local browser:
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        Configuration.browserCapabilities = options;
+        WebDriver webDriver = new RemoteWebDriver(new URL("http://192.168.1.139:4444"), options);
+        Configuration.pageLoadTimeout = 10000;
+        webDriver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
+        WebDriverRunner.setWebDriver(webDriver);
+
+//        start local browser:
+//        WebDriverManager.chromedriver().setup();
+//        ChromeOptions options = new ChromeOptions();
         options.setHeadless(false);
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         options.addArguments("start-maximized");
-        webDriver = new ChromeDriver(options);
+//        webDriver = new ChromeDriver(options);
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         yandexPageMain = new YandexPageMain(webDriver);
         zenPageFeed = new ZenPageFeed(webDriver);

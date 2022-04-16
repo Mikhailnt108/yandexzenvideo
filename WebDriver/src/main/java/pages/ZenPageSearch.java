@@ -14,7 +14,7 @@ public class ZenPageSearch extends BasePageWebDriver {
     @Step("openPlayer")
     public void openPlayer() {
         By search_tabs = By.xpath("//div[contains(@class,'search-tabs-view__list')]");
-        By snippet_video = By.xpath("//div[text()='Видео' or text()='Video']/ancestor::div[@class='serp-section']//div[contains(@class,'search-snippet__serpSnippet')]");
+        By snippet_video = By.xpath("//div[text()='Видео']/ancestor::div[@class='serp-section']//div[contains(@class,'search-snippet__serpSnippet')]");
         if (webDriver.findElements(search_tabs).isEmpty()) {
             click(snippet_video);
             ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
