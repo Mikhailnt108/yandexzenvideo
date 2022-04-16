@@ -7,7 +7,7 @@
 - баг/особенность сервиса: эпизодически пропадают табы жанров выдачи на странице результатов выдачи
 - баг/особенность инфры: меняется с rus на eng текст кнопок меню главной и дзен страниц при запуске браузера в контейнере
 Запуски:
-- локальный браузер headfull/headless
+- локальный браузер headfull/headless + allure report
 - удаленный браузер headfull/headless + selenium grid + vnc + allure-service + docker-compose
 - в репо лежат отчеты allure и IntelliJ IDEA
 - отчет allure построен с помощью сервиса https://github.com/fescobar/allure-docker-service
